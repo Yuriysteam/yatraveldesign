@@ -329,8 +329,12 @@ class Bot:
     def start(self, message):
         self.send(message["chat"]["id"], "Пришли ZIP-архив с прототипом или со скилом.", reply_markup={"remove_keyboard": True})
 
+    def web_app_url(self):
+        revision = self.github.git("rev-parse", "HEAD").stdout.strip()
+        return f"{self.settings.public_base_url}/skills/?v={urllib.parse.quote(revision)}"
+
     def configure_menu(self):
-        self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": f"{self.settings.public_base_url}/skills/"}}})
+        self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": self.web_app_url()}}})
 
     def configure_commands(self):
         self.telegram("setMyCommands", {"commands": [
@@ -473,6 +477,7 @@ class Bot:
         catalog.append({"id": identifier, "name": name, "description": description, "updated_by": author.get("username") or author.get("first_name"), "updated_at": updated_at})
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removals, f"Update skill {name}")
+        self.configure_menu()
         if self.wait_for_skill_publication(identifier, updated_at):
             self.send(author_chat(author), "Скилл опубликован")
         else:

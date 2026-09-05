@@ -119,6 +119,12 @@ class BotTests(unittest.TestCase):
             "https://raw.githubusercontent.com/example/repository/main/skills/research/skill.zip?updated=123",
         ])
 
+    def test_web_app_url_uses_the_current_revision(self):
+        instance = object.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(public_base_url="https://example.test")
+        instance.github = SimpleNamespace(git=lambda *args: SimpleNamespace(stdout="abc123\n"))
+        self.assertEqual(instance.web_app_url(), "https://example.test/skills/?v=abc123")
+
 
 if __name__ == "__main__":
     unittest.main()
