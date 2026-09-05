@@ -44,6 +44,10 @@ class BotTests(unittest.TestCase):
         self.assertIn("1.2.0", prompt)
         self.assertIn("https://example.test/skill.zip", prompt)
 
+    def test_adds_noindex_to_html(self):
+        result = bot.safe_zip_members(archive({"index.html": "<html><head></head><body>OK</body></html>"}))
+        self.assertIn(b'name="robots" content="noindex, nofollow, noarchive"', result[0][1])
+
 
 if __name__ == "__main__":
     unittest.main()

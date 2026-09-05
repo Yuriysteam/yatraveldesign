@@ -77,11 +77,31 @@ def safe_zip_members(raw):
             total += info.file_size
             if total > MAX_UNPACKED_BYTES:
                 raise UserError("После распаковки прототип не должен превышать 100 МБ.")
-            members.append((str(path), archive.read(info)))
+            content = archive.read(info)
+            members.append((str(path), add_noindex(str(path), content)))
             names.add(str(path).casefold())
     if not any(name.lower().endswith((".html", ".htm")) for name, _ in members):
         raise UserError("В ZIP не найдена HTML-страница.")
     return members
+
+
+def add_noindex(name, content):
+    """Inject a crawler directive into a text HTML document uploaded to the bot."""
+    if not name.lower().endswith((".html", ".htm")):
+        return content
+    try:
+        source = content.decode("utf-8")
+    except UnicodeDecodeError:
+        return content
+    if re.search(r'<meta\\s+[^>]*name=["\\\']robots["\\\']', source, re.I):
+        return content
+    directive = '<meta name="robots" content="noindex, nofollow, noarchive">'
+    match = re.search(r"</head\\s*>", source, re.I)
+    if match:
+        source = source[:match.start()] + "  " + directive + "\\n" + source[match.start():]
+    else:
+        source = directive + "\\n" + source
+    return source.encode("utf-8")
 
 
 def installation_prompt(client, name, version, url):
