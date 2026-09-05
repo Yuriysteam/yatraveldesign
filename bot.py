@@ -346,7 +346,7 @@ class Bot:
             return
         if document.get("file_size", 0) > MAX_UPLOAD_BYTES:
             raise UserError("Файл не должен превышать 20 МБ.")
-        self.send(message["chat"]["id"], "Загружаю файл в GitHub…")
+        self.send(message["chat"]["id"], "Загружаю…")
         raw = self.download_document(document)
         if pending:
             action = pending[0]
