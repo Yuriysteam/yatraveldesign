@@ -39,11 +39,19 @@ class BotTests(unittest.TestCase):
         with self.assertRaisesRegex(bot.UserError, "повторяющиеся"):
             bot.safe_zip_members(raw.getvalue())
 
-    def test_prompt_uses_exact_version_and_url(self):
-        prompt = bot.installation_prompt("codex", "research", "1.2.0", "https://example.test/skill.zip")
-        self.assertIn("Codex", prompt)
-        self.assertIn("1.2.0", prompt)
-        self.assertIn("https://example.test/skill.zip", prompt)
+    def test_reads_nested_skill_package(self):
+        raw = archive({"my-skill/SKILL.md": "---\nname: Research helper\ndescription: Finds sources\n---\n# Research", "my-skill/tools/run.sh": "#!/bin/sh"})
+        identifier, name, description, files = bot.skill_package("my-skill.zip", raw)
+        self.assertEqual(identifier, "research-helper")
+        self.assertEqual(name, "Research helper")
+        self.assertEqual(description, "Finds sources")
+        self.assertEqual(set(files), {"SKILL.md", "tools/run.sh"})
+
+    def test_reads_single_skill_file(self):
+        identifier, name, _, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
+        self.assertEqual(identifier, "solo")
+        self.assertEqual(name, "Solo")
+        self.assertEqual(set(files), {"SKILL.md"})
 
     def test_adds_noindex_to_html(self):
         result = bot.safe_zip_members(archive({"index.html": "<html><head></head><body>OK</body></html>"}))
