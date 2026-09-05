@@ -1,7 +1,7 @@
 {
   "id": "shared-durable-memory",
-  "name": "Shared Durable Memory",
-  "description": "Ведёт компактную общую долговременную память команды в настроенном хранилище.",
+  "name": "Personal Durable Memory",
+  "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
   "updated_by": "team",
-  "updated_at": 1788607749
+  "updated_at": 1788608118
 }

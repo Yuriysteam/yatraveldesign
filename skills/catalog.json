@@ -22,16 +22,9 @@
   },
   {
     "id": "shared-durable-memory",
-    "name": "Shared Durable Memory",
-    "description": "Ведёт компактную общую долговременную память команды в настроенном хранилище.",
+    "name": "Personal Durable Memory",
+    "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
     "updated_by": "team",
-    "updated_at": 1788607749
-  },
-  {
-    "id": "skill",
-    "name": "Тестовый skill",
-    "description": "Проверяет загрузку, каталог и прямое скачивание skills.",
-    "updated_by": "yuriysteam",
-    "updated_at": 1788606699
+    "updated_at": 1788608118
   }
 ]
