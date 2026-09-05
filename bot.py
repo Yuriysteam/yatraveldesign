@@ -287,7 +287,7 @@ class Bot:
         return user_id in self.settings.allowed_user_ids
 
     def start(self, message):
-        self.send(message["chat"]["id"], "Пришлите ZIP с прототипом или ZIP/SKILL.md со skill.", reply_markup={"remove_keyboard": True})
+        self.send(message["chat"]["id"], "Пришли ZIP-архив с прототипом или со скилом.", reply_markup={"remove_keyboard": True})
 
     def configure_menu(self):
         self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": f"{self.settings.public_base_url}/skills/"}}})
@@ -301,7 +301,7 @@ class Bot:
     def prototypes(self, message):
         catalog = self.github.read_json("prototypes.json", [])
         if not catalog:
-            self.send(message["chat"]["id"], "Прототипов пока нет.")
+            self.send(message["chat"]["id"], "Свежих прототипов пока нет.")
             return
         self.send(message["chat"]["id"], prototype_list_text(catalog, self.settings.public_base_url), parse_mode="HTML", disable_web_page_preview=True)
 
@@ -397,9 +397,9 @@ class Bot:
         self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
         url = f"{self.settings.public_base_url}/{prefix}"
         if self.wait_for_publication(url):
-            self.send(author_chat(author), f"Прототип опубликован: {url}")
+            self.send(author_chat(author), f"Готово — {url}\nВсе прототипы по команде /prototypes")
         else:
-            self.send(author_chat(author), f"GitHub принял прототип, но Pages ещё собирает страницу. Проверьте через минуту: {url}")
+            self.send(author_chat(author), f"Получил прототип, но нужно еще немного времени — собираю страницу.\nСкоро всё будет опубликовано: {url}")
 
     @staticmethod
     def wait_for_publication(url):
@@ -432,7 +432,7 @@ class Bot:
         catalog.append({"id": identifier, "name": name, "description": description, "updated_by": author.get("username") or author.get("first_name"), "updated_at": int(time.time())})
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removals, f"Update skill {name}")
-        self.send(author_chat(author), f"Skill {name} загружен в GitHub.")
+        self.send(author_chat(author), "Скилл опубликован")
 
     def callback(self, query):
         data = query.get("data", "")
@@ -467,12 +467,12 @@ class Bot:
             try:
                 self.publish_document(message)
             except UserError as exc:
-                self.send(message["chat"]["id"], f"Не удалось загрузить: {exc}")
+                self.send(message["chat"]["id"], str(exc))
             except Exception as exc:
                 print(exc, flush=True)
                 self.send(message["chat"]["id"], "Не удалось загрузить файл. Попробуйте ещё раз.")
         else:
-            self.send(message["chat"]["id"], "Пришлите ZIP с прототипом или ZIP/SKILL.md со skill. Каталог skills — в Menu.")
+            self.send(message["chat"]["id"], "Пришли ZIP-архив с прототипом или со скилом. Все скилы доступны в меню бота.")
 
     def run(self):
         self.configure_menu()
@@ -528,7 +528,7 @@ def split_message(text, limit=4000):
 
 
 def prototype_list_text(catalog, public_base_url):
-    rows = ["Последние прототипы:"]
+    rows = ["Свежие прототипы"]
     for item in sorted(catalog, key=lambda value: value["updated_at"], reverse=True)[:10]:
         url = f"{public_base_url}/{item['url']}"
         title = html.escape(item["title"])
