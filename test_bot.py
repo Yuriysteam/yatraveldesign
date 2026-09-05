@@ -53,6 +53,12 @@ class BotTests(unittest.TestCase):
         self.assertEqual(name, "Solo")
         self.assertEqual(set(files), {"SKILL.md"})
 
+    def test_detects_skill_from_zip_contents(self):
+        self.assertEqual(bot.detect_upload("anything.zip", archive({"folder/SKILL.md": "---\nname: A\n---"})), "skill")
+
+    def test_detects_prototype_from_zip_contents(self):
+        self.assertEqual(bot.detect_upload("anything.zip", archive({"build/index.html": "<h1>Demo</h1>"})), "prototype")
+
     def test_installation_prompt_contains_download_link(self):
         prompt = bot.installation_prompt("Research", "https://example.test/skill.zip")
         self.assertIn("https://example.test/skill.zip", prompt)

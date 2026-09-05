@@ -155,6 +155,20 @@ def make_zip(files):
     return result.getvalue()
 
 
+def detect_upload(filename, raw):
+    """Classify an unsolicited upload without trusting its filename alone."""
+    if filename.lower() == "skill.md":
+        return "skill"
+    if not filename.lower().endswith(".zip"):
+        raise UserError("Пришлите ZIP с HTML-прототипом или ZIP/SKILL.md для skill.")
+    members = safe_archive_members(raw, MAX_UNPACKED_BYTES)
+    if any(PurePosixPath(name).name.casefold() == "skill.md" for name, _ in members):
+        return "skill"
+    if any(name.lower().endswith((".html", ".htm")) for name, _ in members):
+        return "prototype"
+    raise UserError("Не удалось определить архив: нужен SKILL.md или HTML-страница.")
+
+
 def installation_prompt(name, url):
     prompt = f"Установи skill «{name}»: скачай {url}, распакуй в папку skills текущего инструмента и не меняй остальные skills."
     if len(prompt) > 256:
@@ -325,22 +339,28 @@ class Bot:
     def publish_document(self, message):
         user_id = message["from"]["id"]
         pending = self.db.execute("select action, name, version from pending where user_id=?", (user_id,)).fetchone()
-        if not pending:
-            self.send(message["chat"]["id"], "Сначала выберите действие в меню.")
-            return
         document = message["document"]
         filename = document.get("file_name", "")
-        action, _, _ = pending
-        allowed = filename.lower().endswith(".zip") if action == "prototype" else (filename.lower().endswith(".zip") or filename.lower() == "skill.md")
-        if not allowed or document.get("file_size", 0) > MAX_UPLOAD_BYTES:
-            raise UserError("Для прототипа нужен ZIP до 20 МБ." if action == "prototype" else "Пришлите ZIP или SKILL.md до 20 МБ.")
+        if document.get("file_size", 0) > MAX_UPLOAD_BYTES:
+            raise UserError("Файл не должен превышать 20 МБ.")
         raw = self.download_document(document)
+        if pending:
+            action = pending[0]
+            allowed = filename.lower().endswith(".zip") if action == "prototype" else (filename.lower().endswith(".zip") or filename.lower() == "skill.md")
+            if not allowed:
+                raise UserError("Для прототипа нужен ZIP." if action == "prototype" else "Пришлите ZIP или SKILL.md.")
+        else:
+            if not self.is_publisher(user_id):
+                self.send(message["chat"]["id"], "Публикация доступна только участникам списка авторов.")
+                return
+            action = detect_upload(filename, raw)
         if action == "prototype":
             self.publish_prototype(user_id, filename, raw, message["from"])
         else:
             self.publish_skill(user_id, filename, raw, message["from"])
-        self.db.execute("delete from pending where user_id=?", (user_id,))
-        self.db.commit()
+        if pending:
+            self.db.execute("delete from pending where user_id=?", (user_id,))
+            self.db.commit()
 
     def publish_prototype(self, user_id, filename, raw, author):
         slug = slugify(filename.rsplit(".", 1)[0])
