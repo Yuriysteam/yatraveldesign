@@ -2,6 +2,7 @@ import io
 import os
 import unittest
 import zipfile
+from types import SimpleNamespace
 from unittest.mock import patch
 
 os.environ.setdefault("TELEGRAM_BOT_TOKEN", "token")
@@ -99,6 +100,24 @@ class BotTests(unittest.TestCase):
             def __exit__(self, *args): return False
         with patch("urllib.request.urlopen", return_value=Response()):
             self.assertTrue(bot.Bot.wait_for_publication("https://example.test/prototype/"))
+
+    def test_wait_for_skill_publication_checks_versioned_raw_urls(self):
+        class Response:
+            def __init__(self, body, status=200):
+                self.body, self.status = io.BytesIO(body), status
+            def read(self, *args): return self.body.read(*args)
+            def __enter__(self): return self
+            def __exit__(self, *args): return False
+        instance = object.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(repository="example/repository", branch="main")
+        catalog = b'[{"id":"research","updated_at":123}]'
+        with patch("bot.urllib.request.urlopen", side_effect=[Response(catalog), Response(b"")]) as opened:
+            self.assertTrue(instance.wait_for_skill_publication("research", 123))
+        urls = [call.args[0].full_url for call in opened.call_args_list]
+        self.assertEqual(urls, [
+            "https://raw.githubusercontent.com/example/repository/main/skills/catalog.json?updated=123",
+            "https://raw.githubusercontent.com/example/repository/main/skills/research/skill.zip?updated=123",
+        ])
 
 
 if __name__ == "__main__":

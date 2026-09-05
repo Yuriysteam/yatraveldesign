@@ -458,6 +458,7 @@ class Bot:
 
     def publish_skill(self, user_id, filename, raw, author):
         identifier, name, description, package = skill_package(filename, raw)
+        updated_at = int(time.time())
         catalog = self.github.read_json("skills/catalog.json", [])
         existing = next((item for item in catalog if item["name"].casefold() == name.casefold()), None)
         if existing:
@@ -465,14 +466,37 @@ class Bot:
         prefix = f"skills/{identifier}/"
         files = {prefix + "skill.zip": make_zip(package), prefix + "metadata.json": json.dumps({
             "id": identifier, "name": name, "description": description,
-            "updated_by": author.get("username") or author.get("first_name"), "updated_at": int(time.time()),
+            "updated_by": author.get("username") or author.get("first_name"), "updated_at": updated_at,
         }, ensure_ascii=False, indent=2).encode()}
         removals = [path for path in self.github.files_below(prefix) if path not in files]
         catalog = [item for item in catalog if item["name"].casefold() != name.casefold()]
-        catalog.append({"id": identifier, "name": name, "description": description, "updated_by": author.get("username") or author.get("first_name"), "updated_at": int(time.time())})
+        catalog.append({"id": identifier, "name": name, "description": description, "updated_by": author.get("username") or author.get("first_name"), "updated_at": updated_at})
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removals, f"Update skill {name}")
-        self.send(author_chat(author), "Скилл опубликован")
+        if self.wait_for_skill_publication(identifier, updated_at):
+            self.send(author_chat(author), "Скилл опубликован")
+        else:
+            self.send(author_chat(author), "Скилл добавлен в GitHub, но каталог ещё обновляется. Откройте Skills чуть позже.")
+
+    def wait_for_skill_publication(self, identifier, updated_at):
+        raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+        catalog_url = f"{raw_root}/skills/catalog.json?updated={updated_at}"
+        package_url = f"{raw_root}/skills/{identifier}/skill.zip?updated={updated_at}"
+        for attempt in range(6):
+            try:
+                request = urllib.request.Request(catalog_url, headers={"Cache-Control": "no-cache"})
+                with urllib.request.urlopen(request, timeout=12) as response:
+                    catalog = json.load(response)
+                has_current_skill = any(item.get("id") == identifier and item.get("updated_at") == updated_at for item in catalog)
+                package = urllib.request.Request(package_url, method="HEAD", headers={"Cache-Control": "no-cache"})
+                with urllib.request.urlopen(package, timeout=12) as response:
+                    if has_current_skill and response.status == 200:
+                        return True
+            except (urllib.error.URLError, ValueError, json.JSONDecodeError):
+                pass
+            if attempt < 5:
+                time.sleep(2)
+        return False
 
     def callback(self, query):
         data = query.get("data", "")
