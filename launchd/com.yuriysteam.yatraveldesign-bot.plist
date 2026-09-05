@@ -6,14 +6,14 @@
   <string>com.yuriysteam.yatraveldesign-bot</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/Yuriy/Yuriy OS/YandexCloud/yatraveldesign/launchd/run-bot.zsh</string>
+    <string>/Users/Yuriy/Yuriy OS/Tools/yatraveldesign/launchd/run-bot.zsh</string>
   </array>
   <key>WorkingDirectory</key>
-  <string>/Users/Yuriy/Yuriy OS/YandexCloud/yatraveldesign</string>
+  <string>/Users/Yuriy/Yuriy OS/Tools/yatraveldesign</string>
   <key>EnvironmentVariables</key>
   <dict>
     <key>GIT_WORKTREE</key>
-    <string>/Users/Yuriy/Yuriy OS/YandexCloud/yatraveldesign</string>
+    <string>/Users/Yuriy/Yuriy OS/Tools/yatraveldesign</string>
     <key>GITHUB_REPOSITORY</key>
     <string>Yuriysteam/yatraveldesign</string>
     <key>GITHUB_BRANCH</key>
