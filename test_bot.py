@@ -2,6 +2,7 @@ import io
 import os
 import unittest
 import zipfile
+from unittest.mock import patch
 
 os.environ.setdefault("TELEGRAM_BOT_TOKEN", "token")
 os.environ.setdefault("GIT_WORKTREE", ".")
@@ -47,6 +48,14 @@ class BotTests(unittest.TestCase):
     def test_adds_noindex_to_html(self):
         result = bot.safe_zip_members(archive({"index.html": "<html><head></head><body>OK</body></html>"}))
         self.assertIn(b'name="robots" content="noindex, nofollow, noarchive"', result[0][1])
+
+    def test_wait_for_publication_accepts_http_200(self):
+        class Response:
+            status = 200
+            def __enter__(self): return self
+            def __exit__(self, *args): return False
+        with patch("urllib.request.urlopen", return_value=Response()):
+            self.assertTrue(bot.Bot.wait_for_publication("https://example.test/prototype/"))
 
 
 if __name__ == "__main__":

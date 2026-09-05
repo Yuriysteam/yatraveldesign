@@ -292,7 +292,26 @@ class Bot:
         })
         files["prototypes.json"] = json.dumps(catalog, ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
-        self.send(author_chat(author), f"Прототип опубликован: {self.settings.public_base_url}/{prefix}")
+        url = f"{self.settings.public_base_url}/{prefix}"
+        if self.wait_for_publication(url):
+            self.send(author_chat(author), f"Прототип опубликован: {url}")
+        else:
+            self.send(author_chat(author), f"GitHub принял прототип, но Pages ещё собирает страницу. Проверьте через минуту: {url}")
+
+    @staticmethod
+    def wait_for_publication(url):
+        """Avoid declaring success before GitHub Pages serves the uploaded page."""
+        for attempt in range(6):
+            try:
+                request = urllib.request.Request(f"{url}?published={int(time.time())}", method="HEAD", headers={"Cache-Control": "no-cache"})
+                with urllib.request.urlopen(request, timeout=12) as response:
+                    if response.status == 200:
+                        return True
+            except urllib.error.URLError:
+                pass
+            if attempt < 5:
+                time.sleep(10)
+        return False
 
     def publish_skill(self, user_id, name, version, raw, author):
         prefix = f"skills/{name}/{version}/"
