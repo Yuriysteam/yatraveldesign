@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Skills</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    :root { color: var(--tg-theme-text-color, #202124); background: var(--tg-theme-bg-color, #f4f5f7); font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; } main { max-width: 720px; margin: auto; padding: 24px 16px 40px; }
+    h1 { margin: 0 0 20px; font-size: 28px; letter-spacing: -.02em; }
+    #skills { display: grid; gap: 12px; }
+    article { padding: 16px; background: var(--tg-theme-secondary-bg-color, #fff); border-radius: 16px; }
+    h2 { margin: 0 0 6px; font-size: 18px; } p { margin: 0; color: var(--tg-theme-hint-color, #68707a); }
+    .updated { margin-top: 12px; font-size: 13px; } button { width: 100%; margin-top: 14px; border: 0; border-radius: 10px; padding: 11px; background: var(--tg-theme-button-color, #2481cc); color: var(--tg-theme-button-text-color, #fff); font: inherit; font-weight: 600; }
+    .empty { color: var(--tg-theme-hint-color, #68707a); }
+  </style>
+  <main>
+    <h1>Skills</h1>
+    <section id="skills"><p class="empty">Загружаем skills…</p></section>
+  </main>
+  <script>
+    const telegram = window.Telegram?.WebApp; telegram?.ready(); telegram?.expand();
+    const target = document.querySelector('#skills');
+    const prompt = item => `Установи skill «${item.name}»: скачай https://raw.githubusercontent.com/Yuriysteam/yatraveldesign/main/skills/${item.id}/skill.zip, распакуй в папку skills текущего инструмента и не меняй остальные skills.`;
+    async function copy(text, button) {
+      try { await navigator.clipboard.writeText(text); }
+      catch { const field = document.createElement('textarea'); field.value = text; document.body.append(field); field.select(); document.execCommand('copy'); field.remove(); }
+      button.textContent = 'Prompt скопирован'; setTimeout(() => button.textContent = 'Скопировать prompt установки', 1800);
+    }
+    fetch('catalog.json').then(response => response.ok ? response.json() : Promise.reject()).then(items => {
+      target.replaceChildren();
+      if (!items.length) { target.innerHTML = '<p class="empty">Skills пока не опубликованы.</p>'; return; }
+      items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => {
+        const card = document.createElement('article'); const title = document.createElement('h2'); title.textContent = item.name;
+        const description = document.createElement('p'); description.textContent = item.description;
+        const updated = document.createElement('p'); updated.className = 'updated'; updated.textContent = `Обновлено ${new Date(item.updated_at * 1000).toLocaleDateString('ru-RU')} · ${item.updated_by}`;
+        const button = document.createElement('button'); button.textContent = 'Скопировать prompt установки'; button.addEventListener('click', () => copy(prompt(item), button));
+        card.append(title, description, updated, button); target.append(card);
+      });
+    }).catch(() => { target.innerHTML = '<p class="empty">Не удалось загрузить каталог.</p>'; });
+  </script>
+</html>

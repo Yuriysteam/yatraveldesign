@@ -23,7 +23,6 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
-MAIN_KEYBOARD = {"keyboard": [[{"text": "Опубликовать прототип"}, {"text": "Skills"}]], "resize_keyboard": True}
 PEOPLE = {
     1223378011: ("Дмитрий Сурженко", "dima.jpeg"), 419853934: ("Elena Gavrikova", "lena.jpeg"),
     224840424: ("Ivan Borisov", "vanya.jpeg"), 606648153: ("Artem Tregubenko", "artem.jpeg"),
@@ -287,7 +286,10 @@ class Bot:
         return user_id in self.settings.allowed_user_ids
 
     def start(self, message):
-        self.send(message["chat"]["id"], "Выберите действие.", reply_markup=MAIN_KEYBOARD)
+        self.send(message["chat"]["id"], "Пришлите ZIP с прототипом или ZIP/SKILL.md со skill.", reply_markup={"remove_keyboard": True})
+
+    def configure_menu(self):
+        self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": f"{self.settings.public_base_url}/skills/"}}})
 
     def catalog(self, message):
         chat_id = message["chat"]["id"]
@@ -445,10 +447,6 @@ class Bot:
         text = message.get("text", "")
         if text == "/start" or text == "Меню":
             self.start(message)
-        elif text == "Опубликовать прототип":
-            self.begin_prototype(message)
-        elif text == "Skills":
-            self.catalog(message)
         elif "document" in message:
             try:
                 self.publish_document(message)
@@ -458,9 +456,10 @@ class Bot:
                 print(exc, flush=True)
                 self.send(message["chat"]["id"], "Не удалось загрузить файл. Попробуйте ещё раз.")
         else:
-            self.send(message["chat"]["id"], "Выберите действие в меню.", reply_markup=MAIN_KEYBOARD)
+            self.send(message["chat"]["id"], "Пришлите ZIP с прототипом или ZIP/SKILL.md со skill. Каталог skills — в Menu.")
 
     def run(self):
+        self.configure_menu()
         saved = self.db.execute("select value from bot_state where key='offset'").fetchone()
         if saved:
             offset = int(saved[0])
