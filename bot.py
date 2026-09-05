@@ -292,6 +292,12 @@ class Bot:
     def configure_menu(self):
         self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": f"{self.settings.public_base_url}/skills/"}}})
 
+    def configure_commands(self):
+        self.telegram("setMyCommands", {"commands": [
+            {"command": "start", "description": "Как загрузить прототип или skill"},
+            {"command": "prototypes", "description": "10 последних прототипов"},
+        ]})
+
     def prototypes(self, message):
         catalog = self.github.read_json("prototypes.json", [])
         if not catalog:
@@ -470,6 +476,7 @@ class Bot:
 
     def run(self):
         self.configure_menu()
+        self.configure_commands()
         saved = self.db.execute("select value from bot_state where key='offset'").fetchone()
         if saved:
             offset = int(saved[0])
