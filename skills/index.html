@@ -14,31 +14,26 @@
       * { box-sizing: border-box; }
       body { min-width: 320px; min-height: 100vh; margin: 0; background: #fff; }
       main { width: min(100%, 1120px); margin: 0 auto; padding: 24px 24px calc(48px + env(safe-area-inset-bottom)); }
-      .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 36px; }
-      .brand { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -.025em; }
-      .brand-mark { display: inline-block; width: 13px; height: 13px; margin: 0 4px 0 2px; border-radius: 50%; background: #ffdf39; vertical-align: 1px; }
-      .topbar__label { margin: 0; color: #777; font-size: 15px; }
-      .intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 64px; align-items: start; margin: clamp(70px, 12vw, 140px) 0 62px; }
+      .intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 64px; align-items: start; margin: clamp(48px, 8vw, 92px) 0 62px; }
       h1 { max-width: 610px; margin: 0; font-size: clamp(40px, 6.7vw, 76px); font-weight: 500; line-height: .95; letter-spacing: -.055em; }
       .intro__text { max-width: 360px; margin: 10px 0 0; font-size: clamp(18px, 2vw, 23px); font-weight: 400; line-height: 1.12; letter-spacing: -.025em; }
       #skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
-      .skill-card { display: flex; min-height: 216px; flex-direction: column; align-items: flex-start; padding: 0; }
+      .skill-card { display: flex; min-height: 0; flex-direction: column; align-items: flex-start; padding: 0; }
       h2 { margin: 0; color: #1f1f1f; font-size: 24px; font-weight: 500; line-height: 27px; letter-spacing: -.035em; }
-      .description { margin: 10px 0 18px; color: #414141; font-size: 16px; font-weight: 400; line-height: 21px; }
-      .updated { display: flex; gap: 8px; align-items: center; margin: auto 0 14px; color: #777; font-size: 14px; line-height: 18px; }
+      .description { margin: 12px 0; color: #414141; font-size: 16px; font-weight: 400; line-height: 21px; }
+      .updated { display: flex; gap: 8px; align-items: center; margin: 0 0 6px; color: #777; font-size: 14px; line-height: 18px; }
       .author-avatar { display: inline-grid; width: 24px; height: 24px; flex: 0 0 24px; place-items: center; overflow: hidden; border-radius: 50%; background: #ffdf39; color: #1f1f1f; font-size: 11px; font-weight: 500; }
       button { min-height: 44px; border: 0; border-radius: 12px; padding: 0 16px; background: #f2f1ef; color: #1f1f1f; cursor: pointer; font: 500 16px/20px "YS Text", sans-serif; transition: background .15s ease, transform .15s ease; }
       button:hover { background: #e8e6e3; }
       button:active { background: #dedbd7; transform: scale(.98); }
       button:focus-visible { outline: 3px solid #ffcc00; outline-offset: 3px; }
       .empty { margin: 8px; color: #7b7976; }
-      @media (max-width: 760px) { main { padding: 18px 16px calc(36px + env(safe-area-inset-bottom)); } .intro { grid-template-columns: 1fr; gap: 28px; margin: 72px 0 48px; } .intro__text { margin: 0; } #skills { grid-template-columns: 1fr; gap: 40px; } .skill-card { min-height: 200px; } }
+      @media (max-width: 760px) { main { padding: 18px 16px calc(36px + env(safe-area-inset-bottom)); } .intro { grid-template-columns: 1fr; gap: 28px; margin: 48px 0; } .intro__text { margin: 0; } #skills { grid-template-columns: 1fr; gap: 40px; } }
       @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     </style>
   </head>
   <body>
     <main>
-      <header class="topbar"><p class="brand">Travel<span class="brand-mark"></span>Design</p><p class="topbar__label">Bot · Skills</p></header>
       <section class="intro"><h1>Инструменты<br>для Travel Design</h1><p class="intro__text">Подключайте готовые skills к своему AI-инструменту, чтобы быстрее работать с задачами, календарём и знаниями команды.</p></section>
       <section id="skills" aria-live="polite"><p class="empty">Загружаем skills…</p></section>
     </main>
