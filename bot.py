@@ -341,8 +341,12 @@ class Bot:
         pending = self.db.execute("select action, name, version from pending where user_id=?", (user_id,)).fetchone()
         document = message["document"]
         filename = document.get("file_name", "")
+        if not self.is_publisher(user_id):
+            self.send(message["chat"]["id"], "Публикация доступна только участникам списка авторов.")
+            return
         if document.get("file_size", 0) > MAX_UPLOAD_BYTES:
             raise UserError("Файл не должен превышать 20 МБ.")
+        self.send(message["chat"]["id"], "Загружаю файл в GitHub…")
         raw = self.download_document(document)
         if pending:
             action = pending[0]
@@ -350,9 +354,6 @@ class Bot:
             if not allowed:
                 raise UserError("Для прототипа нужен ZIP." if action == "prototype" else "Пришлите ZIP или SKILL.md.")
         else:
-            if not self.is_publisher(user_id):
-                self.send(message["chat"]["id"], "Публикация доступна только участникам списка авторов.")
-                return
             action = detect_upload(filename, raw)
         if action == "prototype":
             self.publish_prototype(user_id, filename, raw, message["from"])
@@ -449,7 +450,13 @@ class Bot:
         elif text == "Skills":
             self.catalog(message)
         elif "document" in message:
-            self.publish_document(message)
+            try:
+                self.publish_document(message)
+            except UserError as exc:
+                self.send(message["chat"]["id"], f"Не удалось загрузить: {exc}")
+            except Exception as exc:
+                print(exc, flush=True)
+                self.send(message["chat"]["id"], "Не удалось загрузить файл. Попробуйте ещё раз.")
         else:
             self.send(message["chat"]["id"], "Выберите действие в меню.", reply_markup=MAIN_KEYBOARD)
 
