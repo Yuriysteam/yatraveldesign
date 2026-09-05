@@ -28,7 +28,7 @@
       catch { const field = document.createElement('textarea'); field.value = text; document.body.append(field); field.select(); document.execCommand('copy'); field.remove(); }
       button.textContent = 'Prompt скопирован'; setTimeout(() => button.textContent = 'Скопировать prompt установки', 1800);
     }
-    fetch('catalog.json').then(response => response.ok ? response.json() : Promise.reject()).then(items => {
+    fetch(`catalog.json?updated=${Date.now()}`, { cache: 'no-store' }).then(response => response.ok ? response.json() : Promise.reject()).then(items => {
       target.replaceChildren();
       if (!items.length) { target.innerHTML = '<p class="empty">Skills пока не опубликованы.</p>'; return; }
       items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => {
