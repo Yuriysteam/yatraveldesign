@@ -1,10 +1,10 @@
 # YA Travel Design
 
-Telegram-бот `@yatraveldesign_bot` публикует ZIP-прототипы в этот репозиторий и выдаёт команде каталог versioned skills. GitHub Pages автоматически публикует содержимое `public/`.
+Telegram-бот `@yatraveldesign_bot` публикует ZIP-прототипы в этот репозиторий и выдаёт команде каталог versioned skills. GitHub Pages публикует корень ветки `main`.
 
 ## Что делает меню
 
-- **Опубликовать прототип** — принимает ZIP со статическим HTML, проверяет архив и публикует его по пути `public/prototypes/<telegram-id>/<имя-архива>/`.
+- **Опубликовать прототип** — принимает ZIP со статическим HTML, проверяет архив, добавляет его в каталог и публикует по пути `prototypes/<telegram-id>/<имя-архива>/`.
 - **Skills** — показывает актуальный каталог. В карточке skill есть отдельные prompts для Codex, OpenCode и Claude.
 - `/publish_skill <название> <версия>` — подготовка загрузки ZIP с новой версией skill. Публиковать могут только Telegram ID из `ALLOWED_USER_IDS`.
 

@@ -22,6 +22,14 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 MAIN_KEYBOARD = {"keyboard": [[{"text": "Опубликовать прототип"}, {"text": "Skills"}]], "resize_keyboard": True}
+PEOPLE = {
+    1223378011: ("Дмитрий Сурженко", "dima.jpeg"), 419853934: ("Elena Gavrikova", "lena.jpeg"),
+    224840424: ("Ivan Borisov", "vanya.jpeg"), 606648153: ("Artem Tregubenko", "artem.jpeg"),
+    1566798030: ("Ilya Skopin", "ilya.jpeg"), 125395264: ("Katerina Suchkova", "katya.jpeg"),
+    5484890739: ("Bogdan Lipchenko", "bogdan.jpeg"), 65329179: ("Igor Maymusov", "igor.jpeg"),
+    136071392: ("Alex L", "alex.jpeg"), 112174798: ("Liubov", "liyba.jpeg"),
+    335833483: ("Yuriy Shiryaev", "yuriy.jpeg"),
+}
 
 
 class UserError(Exception):
@@ -252,11 +260,19 @@ class Bot:
         slug = slugify(filename.rsplit(".", 1)[0])
         if not slug:
             raise UserError("Не удалось составить ссылку из имени ZIP.")
-        prefix = f"public/prototypes/{user_id}/{slug}/"
+        prefix = f"prototypes/{user_id}/{slug}/"
         files = {prefix + name: content for name, content in safe_zip_members(raw)}
         removed = [path for path in self.github.files_below(prefix) if path not in files]
+        profile = PEOPLE.get(user_id, (author.get("first_name", "Автор"), None))
+        catalog = [item for item in self.github.read_json("prototypes.json", []) if item["url"] != prefix]
+        catalog.append({
+            "title": filename.rsplit(".", 1)[0], "author": profile[0],
+            "avatar": f"assets/avatars/{profile[1]}" if profile[1] else None,
+            "updated_at": int(time.time()), "url": prefix,
+        })
+        files["prototypes.json"] = json.dumps(catalog, ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
-        self.send(author_chat(author), f"Прототип опубликован: {self.settings.public_base_url}/prototypes/{user_id}/{slug}/")
+        self.send(author_chat(author), f"Прототип опубликован: {self.settings.public_base_url}/{prefix}")
 
     def publish_skill(self, user_id, name, version, raw, author):
         prefix = f"skills/{name}/{version}/"

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YA Travel Design</title>
+  <style>
+    :root { color: #202124; background: #f3f5f7; font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; }
+    main { max-width: 1100px; margin: 0 auto; padding: 56px 24px; }
+    h1 { margin: 0 0 8px; font-size: clamp(32px, 5vw, 52px); letter-spacing: -.04em; }
+    .lead { margin: 0 0 40px; color: #69707a; }
+    #prototypes { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; }
+    article { display: flex; gap: 14px; min-height: 96px; padding: 20px; border-radius: 20px; background: white; color: inherit; text-decoration: none; box-shadow: 0 5px 24px #0000000d; }
+    article:hover { box-shadow: 0 10px 32px #00000018; }
+    img, .placeholder { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; background: #dfe3e8; flex: none; }
+    h2 { margin: 0 0 4px; font-size: 18px; }
+    p, time { margin: 0; color: #69707a; font-size: 14px; }
+    .empty { color: #69707a; }
+  </style>
+  <main>
+    <h1>YA Travel Design</h1>
+    <p class="lead">Прототипы команды</p>
+    <section id="prototypes" aria-live="polite"><p class="empty">Загружаем прототипы…</p></section>
+  </main>
+  <script>
+    const target = document.querySelector('#prototypes');
+    fetch('prototypes.json').then(response => response.ok ? response.json() : Promise.reject()).then(items => {
+      target.replaceChildren();
+      if (!items.length) { target.innerHTML = '<p class="empty">Прототипов пока нет.</p>'; return; }
+      items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => {
+        const card = document.createElement('a'); card.href = item.url; card.setAttribute('target', '_blank'); card.rel = 'noopener';
+        if (item.avatar) { const avatar = document.createElement('img'); avatar.src = item.avatar; avatar.alt = ''; card.append(avatar); }
+        else { const avatar = document.createElement('span'); avatar.className = 'placeholder'; card.append(avatar); }
+        const text = document.createElement('div'); const title = document.createElement('h2'); title.textContent = item.title;
+        const author = document.createElement('p'); author.textContent = item.author;
+        const updated = document.createElement('time'); updated.dateTime = new Date(item.updated_at * 1000).toISOString(); updated.textContent = new Date(item.updated_at * 1000).toLocaleDateString('ru-RU');
+        text.append(title, author, updated); card.append(text); target.append(card);
+      });
+    }).catch(() => { target.innerHTML = '<p class="empty">Каталог пока недоступен.</p>'; });
+  </script>
+</html>
