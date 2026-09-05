@@ -21,19 +21,18 @@
       .intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 64px; align-items: start; margin: clamp(70px, 12vw, 140px) 0 62px; }
       h1 { max-width: 610px; margin: 0; font-size: clamp(40px, 6.7vw, 76px); font-weight: 500; line-height: .95; letter-spacing: -.055em; }
       .intro__text { max-width: 360px; margin: 10px 0 0; font-size: clamp(18px, 2vw, 23px); font-weight: 400; line-height: 1.12; letter-spacing: -.025em; }
-      #skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-      .skill-card { display: flex; min-height: 270px; flex-direction: column; align-items: flex-start; border-radius: 22px; padding: 24px; background: #f3f2f0; }
-      .skill-card:nth-child(4n + 2) { background: #f5f1e8; }
-      .skill-card:nth-child(4n + 3) { background: #edf3ee; }
-      .skill-card:nth-child(4n + 4) { background: #f2eff6; }
+      #skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+      .skill-card { display: flex; min-height: 216px; flex-direction: column; align-items: flex-start; padding: 0; }
       h2 { margin: 0; color: #1f1f1f; font-size: 24px; font-weight: 500; line-height: 27px; letter-spacing: -.035em; }
-      .description { margin: 10px 0 24px; color: #414141; font-size: 16px; font-weight: 400; line-height: 21px; }
-      button { min-height: 44px; margin-top: auto; border: 0; border-radius: 12px; padding: 0 16px; background: rgb(255 255 255 / 76%); color: #1f1f1f; cursor: pointer; font: 500 16px/20px "YS Text", sans-serif; transition: background .15s ease, transform .15s ease; }
-      button:hover { background: #fff; }
-      button:active { background: rgb(255 255 255 / 62%); transform: scale(.98); }
+      .description { margin: 10px 0 18px; color: #414141; font-size: 16px; font-weight: 400; line-height: 21px; }
+      .updated { display: flex; gap: 8px; align-items: center; margin: auto 0 14px; color: #777; font-size: 14px; line-height: 18px; }
+      .author-avatar { display: inline-grid; width: 24px; height: 24px; flex: 0 0 24px; place-items: center; overflow: hidden; border-radius: 50%; background: #ffdf39; color: #1f1f1f; font-size: 11px; font-weight: 500; }
+      button { min-height: 44px; border: 0; border-radius: 12px; padding: 0 16px; background: #f2f1ef; color: #1f1f1f; cursor: pointer; font: 500 16px/20px "YS Text", sans-serif; transition: background .15s ease, transform .15s ease; }
+      button:hover { background: #e8e6e3; }
+      button:active { background: #dedbd7; transform: scale(.98); }
       button:focus-visible { outline: 3px solid #ffcc00; outline-offset: 3px; }
       .empty { margin: 8px; color: #7b7976; }
-      @media (max-width: 760px) { main { padding: 18px 16px calc(36px + env(safe-area-inset-bottom)); } .intro { grid-template-columns: 1fr; gap: 28px; margin: 72px 0 48px; } .intro__text { margin: 0; } #skills { grid-template-columns: 1fr; } .skill-card { min-height: 210px; padding: 20px; } }
+      @media (max-width: 760px) { main { padding: 18px 16px calc(36px + env(safe-area-inset-bottom)); } .intro { grid-template-columns: 1fr; gap: 28px; margin: 72px 0 48px; } .intro__text { margin: 0; } #skills { grid-template-columns: 1fr; gap: 40px; } .skill-card { min-height: 200px; } }
       @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     </style>
   </head>
@@ -52,7 +51,7 @@
       async function copy(text, button) { try { await navigator.clipboard.writeText(text); } catch { const field = document.createElement('textarea'); field.value = text; document.body.append(field); field.select(); document.execCommand('copy'); field.remove(); } button.textContent = 'Промпт скопирован'; setTimeout(() => button.textContent = 'Скопировать промпт', 1800); }
       fetch(`${rawRoot}/skills/catalog.json?updated=${Date.now()}`, { cache: 'no-store' }).then(response => response.ok ? response.json() : Promise.reject()).then(items => {
         target.replaceChildren(); if (!items.length) { target.innerHTML = '<p class="empty">Skills пока не опубликованы.</p>'; return; }
-        items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => { const card = document.createElement('article'); card.className = 'skill-card'; const title = document.createElement('h2'); title.textContent = item.name; const description = document.createElement('p'); description.className = 'description'; description.textContent = item.description; const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Скопировать промпт'; button.addEventListener('click', () => copy(prompt(item), button)); card.append(title, description, button); target.append(card); });
+        items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => { const card = document.createElement('article'); card.className = 'skill-card'; const title = document.createElement('h2'); title.textContent = item.name; const description = document.createElement('p'); description.className = 'description'; description.textContent = item.description; const updated = document.createElement('p'); updated.className = 'updated'; const authorName = item.updated_by === 'team' || !item.updated_by ? 'Команда' : item.updated_by; const avatar = document.createElement('span'); avatar.className = 'author-avatar'; avatar.setAttribute('aria-hidden', 'true'); avatar.textContent = authorName.slice(0, 1).toUpperCase(); const date = new Intl.DateTimeFormat('ru-RU', { day: 'numeric', month: 'long' }).format(new Date(item.updated_at * 1000)); const text = document.createElement('span'); text.textContent = `${authorName} обновил${authorName === 'Команда' ? 'а' : ''} ${date}`; updated.append(avatar, text); const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Скопировать промпт'; button.addEventListener('click', () => copy(prompt(item), button)); card.append(title, description, updated, button); target.append(card); });
       }).catch(() => { target.innerHTML = '<p class="empty">Не удалось загрузить каталог.</p>'; });
     </script>
   </body>
