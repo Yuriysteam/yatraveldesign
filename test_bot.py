@@ -72,6 +72,10 @@ class BotTests(unittest.TestCase):
         chunks = bot.split_message("one\n\n" + "x" * 3999 + "\n\ntwo")
         self.assertEqual(chunks, ["one", "x" * 3999, "two"])
 
+    def test_prototype_list_links_titles(self):
+        text = bot.prototype_list_text([{"title": "<Test>", "author": "Yuriy", "updated_at": 0, "url": "prototypes/example/"}], "https://example.test")
+        self.assertIn('<a href="https://example.test/prototypes/example/">&lt;Test&gt;</a>', text)
+
     def test_adds_noindex_to_html(self):
         result = bot.safe_zip_members(archive({"index.html": "<html><head></head><body>OK</body></html>"}))
         self.assertIn(b'name="robots" content="noindex, nofollow, noarchive"', result[0][1])

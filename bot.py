@@ -6,6 +6,7 @@ configured GitHub repository through the Git Database REST API; GitHub Pages
 publishes prototypes from the repository root after each prototype commit.
 """
 import hashlib
+import html
 import io
 import json
 import os
@@ -291,6 +292,13 @@ class Bot:
     def configure_menu(self):
         self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": f"{self.settings.public_base_url}/skills/"}}})
 
+    def prototypes(self, message):
+        catalog = self.github.read_json("prototypes.json", [])
+        if not catalog:
+            self.send(message["chat"]["id"], "Прототипов пока нет.")
+            return
+        self.send(message["chat"]["id"], prototype_list_text(catalog, self.settings.public_base_url), parse_mode="HTML", disable_web_page_preview=True)
+
     def catalog(self, message):
         chat_id = message["chat"]["id"]
         user_id = message["from"]["id"]
@@ -447,6 +455,8 @@ class Bot:
         text = message.get("text", "")
         if text == "/start" or text == "Меню":
             self.start(message)
+        elif text == "/prototypes":
+            self.prototypes(message)
         elif "document" in message:
             try:
                 self.publish_document(message)
@@ -508,6 +518,17 @@ def split_message(text, limit=4000):
     if current:
         chunks.append(current)
     return chunks
+
+
+def prototype_list_text(catalog, public_base_url):
+    rows = ["Последние прототипы:"]
+    for item in sorted(catalog, key=lambda value: value["updated_at"], reverse=True)[:10]:
+        url = f"{public_base_url}/{item['url']}"
+        title = html.escape(item["title"])
+        author = html.escape(item["author"])
+        updated = time.strftime("%d.%m.%Y", time.localtime(item["updated_at"]))
+        rows.append(f'<a href="{html.escape(url, quote=True)}">{title}</a>\n{author} · {updated}')
+    return "\n\n".join(rows)
 
 
 if __name__ == "__main__":
