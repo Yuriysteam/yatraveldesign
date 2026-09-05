@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.yuriysteam.yatraveldesign-bot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/Yuriy/Yuriy OS/YandexCloud/yatraveldesign/launchd/run-bot.zsh</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/Yuriy/Yuriy OS/YandexCloud/yatraveldesign</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>GIT_WORKTREE</key>
+    <string>/Users/Yuriy/Yuriy OS/YandexCloud/yatraveldesign</string>
+    <key>GITHUB_REPOSITORY</key>
+    <string>Yuriysteam/yatraveldesign</string>
+    <key>GITHUB_BRANCH</key>
+    <string>main</string>
+    <key>PUBLIC_BASE_URL</key>
+    <string>https://yuriysteam.github.io/yatraveldesign</string>
+    <key>ALLOWED_USER_IDS</key>
+    <string>335833483</string>
+    <key>BOT_STATE_PATH</key>
+    <string>/Users/Yuriy/Library/Application Support/YATravelDesign/state.sqlite3</string>
+  </dict>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/Yuriy/Library/Logs/YATravelDesign/bot.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/Yuriy/Library/Logs/YATravelDesign/bot-error.log</string>
+</dict>
+</plist>
