@@ -175,6 +175,7 @@ class Bot:
         self.db = sqlite3.connect(settings.state_path)
         self.db.execute("create table if not exists seen_updates (id integer primary key)")
         self.db.execute("create table if not exists pending (user_id integer primary key, action text not null, name text, version text)")
+        self.db.execute("create table if not exists bot_state (key text primary key, value text not null)")
         self.db.commit()
         self.api_base = f"https://api.telegram.org/bot{settings.telegram_token}"
 
@@ -312,13 +313,23 @@ class Bot:
             self.send(message["chat"]["id"], "Выберите действие в меню.", reply_markup=MAIN_KEYBOARD)
 
     def run(self):
-        offset = 0
+        saved = self.db.execute("select value from bot_state where key='offset'").fetchone()
+        if saved:
+            offset = int(saved[0])
+        else:
+            # Confirm the old bot queue without processing historic messages.
+            latest = self.telegram("getUpdates", {"offset": -1, "timeout": 0, "allowed_updates": ["message", "callback_query"]})
+            offset = latest[-1]["update_id"] + 1 if latest else 0
+            self.db.execute("insert into bot_state values ('offset', ?)", (str(offset),))
+            self.db.commit()
         while True:
             try:
                 updates = self.telegram("getUpdates", {"offset": offset, "timeout": 50, "allowed_updates": ["message", "callback_query"]})
                 for update in updates:
                     offset = update["update_id"] + 1
+                    self.db.execute("insert or replace into bot_state values ('offset', ?)", (str(offset),))
                     if self.db.execute("select 1 from seen_updates where id=?", (update["update_id"],)).fetchone():
+                        self.db.commit()
                         continue
                     self.handle(update)
                     self.db.execute("insert into seen_updates values (?)", (update["update_id"],))
