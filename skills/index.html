@@ -1,54 +1,59 @@
 <!doctype html>
 <html lang="ru">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>Skills</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <style>
-    @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
-    @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
-    @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
-    :root { color: #f5f7f8; background: #050607; font: 16px/1.4 "YS Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body { min-height: 100vh; margin: 0; background: radial-gradient(110% 36% at 50% -5%, #34505a 0%, #142127 38%, #050607 82%); }
-    main { max-width: 720px; margin: auto; padding: 32px 16px calc(40px + env(safe-area-inset-bottom)); }
-    h1 { margin: 0 0 24px; color: #f8fafb; font-size: 28px; font-weight: 500; letter-spacing: -.02em; }
-    #skills { display: grid; gap: 32px; }
-    article { padding: 0 2px; }
-    h2 { margin: 0 0 7px; color: #fff; font-size: 19px; font-weight: 500; letter-spacing: -.01em; }
-    p { margin: 0; color: rgb(245 247 248 / 68%); }
-    .updated { margin-top: 14px; color: rgb(245 247 248 / 44%); font-size: 13px; }
-    button { width: 100%; margin-top: 16px; border: 1px solid rgb(255 255 255 / 7%); border-radius: 14px; padding: 12px 14px; background: #2d2e30; color: #f6f7f8; box-shadow: inset 0 1px 0 rgb(255 255 255 / 6%); font: 500 16px/1.2 "YS Text", sans-serif; transition: background .16s ease, transform .16s ease; }
-    button:active { background: #404143; transform: scale(.985); }
-    button:focus-visible { outline: 2px solid #9fc9dd; outline-offset: 3px; }
-    .empty { color: rgb(245 247 248 / 56%); }
-  </style>
-  <main>
-    <h1>Skills</h1>
-    <section id="skills"><p class="empty">Загружаем skills…</p></section>
-  </main>
-  <script>
-    const telegram = window.Telegram?.WebApp; telegram?.ready(); telegram?.expand();
-    const target = document.querySelector('#skills');
-    const rawRoot = 'https://raw.githubusercontent.com/Yuriysteam/yatraveldesign/main';
-    const packageUrl = item => `${rawRoot}/skills/${item.id}/skill.zip?updated=${encodeURIComponent(item.updated_at)}`;
-    const prompt = item => `Установи skill «${item.name}»: скачай ${packageUrl(item)}, распакуй в папку skills текущего инструмента и не меняй остальные skills.`;
-    async function copy(text, button) {
-      try { await navigator.clipboard.writeText(text); }
-      catch { const field = document.createElement('textarea'); field.value = text; document.body.append(field); field.select(); document.execCommand('copy'); field.remove(); }
-      button.textContent = 'Prompt скопирован'; setTimeout(() => button.textContent = 'Скопировать prompt установки', 1800);
-    }
-    fetch(`${rawRoot}/skills/catalog.json?updated=${Date.now()}`, { cache: 'no-store' }).then(response => response.ok ? response.json() : Promise.reject()).then(items => {
-      target.replaceChildren();
-      if (!items.length) { target.innerHTML = '<p class="empty">Skills пока не опубликованы.</p>'; return; }
-      items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => {
-        const card = document.createElement('article'); const title = document.createElement('h2'); title.textContent = item.name;
-        const description = document.createElement('p'); description.textContent = item.description;
-        const updated = document.createElement('p'); updated.className = 'updated'; updated.textContent = `Обновлено ${new Date(item.updated_at * 1000).toLocaleDateString('ru-RU')} · ${item.updated_by}`;
-        const button = document.createElement('button'); button.textContent = 'Скопировать prompt установки'; button.addEventListener('click', () => copy(prompt(item), button));
-        card.append(title, description, updated, button); target.append(card);
-      });
-    }).catch(() => { target.innerHTML = '<p class="empty">Не удалось загрузить каталог.</p>'; });
-  </script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>Skills — Travel Design Bot</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+      @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
+      @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+      :root { color: #1f1f1f; background: #fff; font: 16px/1.25 "YS Text", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color-scheme: light; }
+      * { box-sizing: border-box; }
+      body { min-width: 320px; min-height: 100vh; margin: 0; background: #fff; }
+      main { width: min(100%, 1120px); margin: 0 auto; padding: 24px 24px calc(48px + env(safe-area-inset-bottom)); }
+      .topbar { display: flex; align-items: center; justify-content: space-between; min-height: 36px; }
+      .brand { margin: 0; font-size: 20px; font-weight: 500; letter-spacing: -.025em; }
+      .brand-mark { display: inline-block; width: 13px; height: 13px; margin: 0 4px 0 2px; border-radius: 50%; background: #ffdf39; vertical-align: 1px; }
+      .topbar__label { margin: 0; color: #777; font-size: 15px; }
+      .intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 64px; align-items: start; margin: clamp(70px, 12vw, 140px) 0 62px; }
+      h1 { max-width: 610px; margin: 0; font-size: clamp(40px, 6.7vw, 76px); font-weight: 500; line-height: .95; letter-spacing: -.055em; }
+      .intro__text { max-width: 360px; margin: 10px 0 0; font-size: clamp(18px, 2vw, 23px); font-weight: 400; line-height: 1.12; letter-spacing: -.025em; }
+      #skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .skill-card { display: flex; min-height: 270px; flex-direction: column; align-items: flex-start; border-radius: 22px; padding: 24px; background: #f3f2f0; }
+      .skill-card:nth-child(4n + 2) { background: #f5f1e8; }
+      .skill-card:nth-child(4n + 3) { background: #edf3ee; }
+      .skill-card:nth-child(4n + 4) { background: #f2eff6; }
+      h2 { margin: 0; color: #1f1f1f; font-size: 24px; font-weight: 500; line-height: 27px; letter-spacing: -.035em; }
+      .description { margin: 10px 0 24px; color: #414141; font-size: 16px; font-weight: 400; line-height: 21px; }
+      button { min-height: 44px; margin-top: auto; border: 0; border-radius: 12px; padding: 0 16px; background: rgb(255 255 255 / 76%); color: #1f1f1f; cursor: pointer; font: 500 16px/20px "YS Text", sans-serif; transition: background .15s ease, transform .15s ease; }
+      button:hover { background: #fff; }
+      button:active { background: rgb(255 255 255 / 62%); transform: scale(.98); }
+      button:focus-visible { outline: 3px solid #ffcc00; outline-offset: 3px; }
+      .empty { margin: 8px; color: #7b7976; }
+      @media (max-width: 760px) { main { padding: 18px 16px calc(36px + env(safe-area-inset-bottom)); } .intro { grid-template-columns: 1fr; gap: 28px; margin: 72px 0 48px; } .intro__text { margin: 0; } #skills { grid-template-columns: 1fr; } .skill-card { min-height: 210px; padding: 20px; } }
+      @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="topbar"><p class="brand">Travel<span class="brand-mark"></span>Design</p><p class="topbar__label">Bot · Skills</p></header>
+      <section class="intro"><h1>Инструменты<br>для Travel Design</h1><p class="intro__text">Подключайте готовые skills к своему AI-инструменту, чтобы быстрее работать с задачами, календарём и знаниями команды.</p></section>
+      <section id="skills" aria-live="polite"><p class="empty">Загружаем skills…</p></section>
+    </main>
+    <script>
+      const telegram = window.Telegram?.WebApp; telegram?.ready(); telegram?.expand();
+      const target = document.querySelector('#skills');
+      const rawRoot = 'https://raw.githubusercontent.com/Yuriysteam/yatraveldesign/main';
+      const packageUrl = item => `${rawRoot}/skills/${item.id}/skill.zip?updated=${encodeURIComponent(item.updated_at)}`;
+      const prompt = item => `Установи skill «${item.name}»: скачай ${packageUrl(item)}, распакуй в папку skills текущего инструмента и не меняй остальные skills.`;
+      async function copy(text, button) { try { await navigator.clipboard.writeText(text); } catch { const field = document.createElement('textarea'); field.value = text; document.body.append(field); field.select(); document.execCommand('copy'); field.remove(); } button.textContent = 'Промпт скопирован'; setTimeout(() => button.textContent = 'Скопировать промпт', 1800); }
+      fetch(`${rawRoot}/skills/catalog.json?updated=${Date.now()}`, { cache: 'no-store' }).then(response => response.ok ? response.json() : Promise.reject()).then(items => {
+        target.replaceChildren(); if (!items.length) { target.innerHTML = '<p class="empty">Skills пока не опубликованы.</p>'; return; }
+        items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => { const card = document.createElement('article'); card.className = 'skill-card'; const title = document.createElement('h2'); title.textContent = item.name; const description = document.createElement('p'); description.className = 'description'; description.textContent = item.description; const button = document.createElement('button'); button.type = 'button'; button.textContent = 'Скопировать промпт'; button.addEventListener('click', () => copy(prompt(item), button)); card.append(title, description, button); target.append(card); });
+      }).catch(() => { target.innerHTML = '<p class="empty">Не удалось загрузить каталог.</p>'; });
+    </script>
+  </body>
 </html>
