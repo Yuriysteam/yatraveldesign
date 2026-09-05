@@ -155,6 +155,13 @@ def make_zip(files):
     return result.getvalue()
 
 
+def installation_prompt(name, url):
+    prompt = f"Установи skill «{name}»: скачай {url}, распакуй в папку skills текущего инструмента и не меняй остальные skills."
+    if len(prompt) > 256:
+        prompt = f"Установи skill: {url}. Распакуй в текущую папку skills, остальные skills не меняй."
+    return prompt
+
+
 @dataclass
 class Settings:
     telegram_token: str
@@ -274,12 +281,24 @@ class Bot:
         catalog = self.github.read_json("skills/catalog.json", [])
         seen = self.db.execute("select seen_at from skills_seen where user_id=?", (user_id,)).fetchone()
         seen_at = seen[0] if seen else 0
-        buttons = [[{"text": ("• " if item["updated_at"] > seen_at else "") + item["name"], "callback_data": f"skill:{item['id']}"}] for item in sorted(catalog, key=lambda item: item["name"].casefold())]
+        catalog = sorted(catalog, key=lambda item: item["name"].casefold())
+        lines = []
+        for item in catalog:
+            marker = "• " if item["updated_at"] > seen_at else ""
+            updated = time.strftime("%d.%m.%Y", time.localtime(item["updated_at"]))
+            lines.append(f"{marker}{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}")
+        buttons = [[{"text": item["name"], "callback_data": f"skill:{item['id']}"}] for item in catalog]
         if self.is_publisher(user_id):
             buttons.append([{"text": "Загрузить skill", "callback_data": "skills:upload"}])
         self.db.execute("insert or replace into skills_seen values (?, ?)", (user_id, int(time.time())))
         self.db.commit()
-        self.send(chat_id, "Skills:" if catalog else "Skills пока не опубликованы.", reply_markup={"inline_keyboard": buttons})
+        if not catalog:
+            self.send(chat_id, "Skills пока не опубликованы.", reply_markup={"inline_keyboard": buttons})
+            return
+        text = "Skills\n\n" + "\n\n".join(lines)
+        for chunk in split_message(text):
+            self.send(chat_id, chunk)
+        self.send(chat_id, "Действия:", reply_markup={"inline_keyboard": buttons})
 
     def begin_prototype(self, message):
         if not self.is_publisher(message["from"]["id"]):
@@ -391,7 +410,8 @@ class Bot:
             else:
                 url = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/{identifier}/skill.zip"
                 updated = time.strftime("%d.%m.%Y", time.localtime(item["updated_at"]))
-                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скачать", "url": url}]]})
+                prompt = installation_prompt(item["name"], url)
+                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать prompt установки", "copy_text": {"text": prompt}}]]})
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 
     def handle(self, update):
@@ -443,6 +463,25 @@ class Bot:
 def author_chat(author):
     # The caller passes the Telegram user object; a direct conversation has the same ID.
     return author["id"]
+
+
+def split_message(text, limit=4000):
+    """Split a catalogue on paragraph boundaries before Telegram's message limit."""
+    chunks, current = [], ""
+    for paragraph in text.split("\n\n"):
+        candidate = paragraph if not current else current + "\n\n" + paragraph
+        if len(candidate) <= limit:
+            current = candidate
+        else:
+            if current:
+                chunks.append(current)
+            while len(paragraph) > limit:
+                chunks.append(paragraph[:limit])
+                paragraph = paragraph[limit:]
+            current = paragraph
+    if current:
+        chunks.append(current)
+    return chunks
 
 
 if __name__ == "__main__":

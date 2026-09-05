@@ -53,6 +53,15 @@ class BotTests(unittest.TestCase):
         self.assertEqual(name, "Solo")
         self.assertEqual(set(files), {"SKILL.md"})
 
+    def test_installation_prompt_contains_download_link(self):
+        prompt = bot.installation_prompt("Research", "https://example.test/skill.zip")
+        self.assertIn("https://example.test/skill.zip", prompt)
+        self.assertLessEqual(len(prompt), 256)
+
+    def test_splits_long_catalogue(self):
+        chunks = bot.split_message("one\n\n" + "x" * 3999 + "\n\ntwo")
+        self.assertEqual(chunks, ["one", "x" * 3999, "two"])
+
     def test_adds_noindex_to_html(self):
         result = bot.safe_zip_members(archive({"index.html": "<html><head></head><body>OK</body></html>"}))
         self.assertIn(b'name="robots" content="noindex, nofollow, noarchive"', result[0][1])
