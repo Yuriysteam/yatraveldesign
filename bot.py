@@ -16,6 +16,7 @@ import subprocess
 import time
 import urllib.error
 import urllib.request
+import urllib.parse
 import zipfile
 from dataclasses import dataclass
 from pathlib import PurePosixPath
@@ -59,6 +60,7 @@ def safe_zip_members(raw):
     members = safe_archive_members(raw, MAX_UNPACKED_BYTES)
     if not any(name.lower().endswith((".html", ".htm")) for name, _ in members):
         raise UserError("В ZIP не найдена HTML-страница.")
+    validate_prototype_references(members)
     return [(name, add_noindex(name, content)) for name, content in members]
 
 
@@ -89,6 +91,44 @@ def safe_archive_members(raw, max_bytes):
             members.append((str(path), archive.read(info)))
             names.add(str(path).casefold())
     return members
+
+
+def validate_prototype_references(members):
+    """Reject prototype archives whose static local references cannot be served."""
+    available = {name.casefold() for name, _ in members}
+    broken = []
+    for name, content in members:
+        suffix = PurePosixPath(name).suffix.casefold()
+        if suffix not in (".html", ".htm", ".css"):
+            continue
+        try:
+            source = content.decode("utf-8")
+        except UnicodeDecodeError:
+            continue
+        references = re.findall(r'''\b(?:href|src)\s*=\s*["']([^"']+)["']''', source, re.I)
+        references += re.findall(r'''\burl\(\s*["']?([^"')\s]+)["']?\s*\)''', source, re.I)
+        for reference in references:
+            target = local_reference_target(name, reference, available)
+            if target:
+                broken.append(f"{name} → {reference}")
+    if broken:
+        shown = broken[:10]
+        tail = f"\n… и ещё {len(broken) - len(shown)}." if len(broken) > len(shown) else ""
+        raise UserError("В прототипе найдены битые ссылки или пути:\n• " + "\n• ".join(shown) + tail + "\nИсправьте ссылки или добавьте файлы в ZIP.")
+
+
+def local_reference_target(source_name, reference, available):
+    """Return a missing local reference, otherwise an empty string."""
+    parsed = urllib.parse.urlsplit(reference.strip())
+    if not parsed.path or parsed.scheme or parsed.netloc or reference.startswith("//"):
+        return ""
+    if parsed.path.startswith("/"):
+        return parsed.path
+    target = str(PurePosixPath(source_name).parent.joinpath(urllib.parse.unquote(parsed.path)))
+    candidates = [target]
+    if parsed.path.endswith("/"):
+        candidates.append(str(PurePosixPath(target) / "index.html"))
+    return "" if any(candidate.casefold() in available for candidate in candidates) else target
 
 
 def add_noindex(name, content):

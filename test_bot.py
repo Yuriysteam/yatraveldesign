@@ -31,6 +31,18 @@ class BotTests(unittest.TestCase):
         with self.assertRaisesRegex(bot.UserError, "HTML"):
             bot.safe_zip_members(archive({"readme.txt": "x"}))
 
+    def test_rejects_broken_prototype_file_references(self):
+        with self.assertRaisesRegex(bot.UserError, "index.html → assets/app.js"):
+            bot.safe_zip_members(archive({"index.html": '<script src="assets/app.js"></script>'}))
+
+    def test_accepts_relative_and_external_prototype_references(self):
+        members = bot.safe_zip_members(archive({
+            "index.html": '<link href="assets/style.css"><a href="https://example.test">Link</a>',
+            "assets/style.css": 'body { background: url("image.png") }',
+            "assets/image.png": b"image",
+        }))
+        self.assertEqual(len(members), 3)
+
     def test_rejects_duplicate_paths(self):
         raw = io.BytesIO()
         with zipfile.ZipFile(raw, "w") as z:
