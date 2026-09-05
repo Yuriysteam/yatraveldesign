@@ -1,0 +1,7 @@
+{
+  "id": "calendar-cli",
+  "name": "Calendar CLI",
+  "description": "Читает календарь, ищет свободные окна и создаёт события через настроенный пользователем CLI или API.",
+  "updated_by": "team",
+  "updated_at": 1788607749
+}

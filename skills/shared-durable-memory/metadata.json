@@ -1,0 +1,7 @@
+{
+  "id": "shared-durable-memory",
+  "name": "Shared Durable Memory",
+  "description": "Ведёт компактную общую долговременную память команды в настроенном хранилище.",
+  "updated_by": "team",
+  "updated_at": 1788607749
+}

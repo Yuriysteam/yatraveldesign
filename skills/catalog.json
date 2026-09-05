@@ -1,5 +1,33 @@
 [
   {
+    "id": "agenda",
+    "name": "Agenda",
+    "description": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
+    "updated_by": "team",
+    "updated_at": 1788607749
+  },
+  {
+    "id": "calendar-cli",
+    "name": "Calendar CLI",
+    "description": "Читает календарь, ищет свободные окна и создаёт события через настроенный пользователем CLI или API.",
+    "updated_by": "team",
+    "updated_at": 1788607749
+  },
+  {
+    "id": "internal-research",
+    "name": "Internal Research",
+    "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
+    "updated_by": "team",
+    "updated_at": 1788607749
+  },
+  {
+    "id": "shared-durable-memory",
+    "name": "Shared Durable Memory",
+    "description": "Ведёт компактную общую долговременную память команды в настроенном хранилище.",
+    "updated_by": "team",
+    "updated_at": 1788607749
+  },
+  {
     "id": "skill",
     "name": "Тестовый skill",
     "description": "Проверяет загрузку, каталог и прямое скачивание skills.",
