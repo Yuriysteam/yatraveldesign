@@ -5,38 +5,6 @@
     "description": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
     "updated_by": "team",
     "updated_at": 1788607749,
-    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
-  },
-  {
-    "id": "calendar-cli",
-    "name": "Calendar CLI",
-    "description": "Читает календарь, ищет свободные окна и создаёт события через настроенный пользователем CLI или API.",
-    "updated_by": "team",
-    "updated_at": 1788607749,
-    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
-  },
-  {
-    "id": "internal-research",
-    "name": "Internal Research",
-    "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
-    "updated_by": "team",
-    "updated_at": 1788607749,
-    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
-  },
-  {
-    "id": "shared-durable-memory",
-    "name": "Personal Durable Memory",
-    "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
-    "updated_by": "team",
-    "updated_at": 1788608118,
-    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
-  },
-  {
-    "id": "travel-feature-check",
-    "name": "travel-feature-check",
-    "description": "Проверяет тикет, Figma-спеку и текущий код Travel перед передачей дизайна в разработку, чтобы найти неучтённые состояния, корнеры, сложную логику, эксперименты и технические ограничения интерфейса. Использовать при запросах проверить полноту спеки, собрать корнеры или заранее найти вопросы разработчиков; не использовать для визуального дизайн-ревью, продуктовой аналитики или проектирования решений.",
-    "updated_by": "yuriysteam",
-    "updated_at": 1788797147,
     "contributors": [
       {
         "id": 335833483,
@@ -44,6 +12,55 @@
         "avatar": "yuriy.jpeg"
       }
     ]
+  },
+  {
+    "id": "calendar-cli",
+    "name": "Calendar CLI",
+    "description": "Читает календарь, ищет свободные окна и создаёт события через настроенный пользователем CLI или API.",
+    "updated_by": "team",
+    "updated_at": 1788607749,
+    "contributors": [
+      {
+        "id": 335833483,
+        "name": "Юрий Ширяев",
+        "avatar": "yuriy.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "internal-research",
+    "name": "Internal Research",
+    "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
+    "updated_by": "team",
+    "updated_at": 1788607749,
+    "contributors": [
+      {
+        "id": 335833483,
+        "name": "Юрий Ширяев",
+        "avatar": "yuriy.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "shared-durable-memory",
+    "name": "Personal Durable Memory",
+    "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
+    "updated_by": "team",
+    "updated_at": 1788608118,
+    "contributors": [
+      {
+        "id": 335833483,
+        "name": "Юрий Ширяев",
+        "avatar": "yuriy.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "travel-feature-check",
+    "name": "travel-feature-check",
+    "description": "Проверяет тикет, Figma-спеку и текущий код Travel перед передачей дизайна в разработку, сопоставляет аналогичные механики в соседних вертикалях и находит неучтённые состояния, корнеры, эксперименты и технические ограничения интерфейса. Использовать при запросах проверить полноту спеки, собрать корнеры или заранее найти вопросы разработчиков; не использовать для визуального дизайн-ревью, продуктовой аналитики или проектирования решений.",
+    "updated_by": "yuriysteam",
+    "updated_at": 1788810560
   },
   {
     "id": "travel-product-context",
