@@ -265,6 +265,14 @@ def recent_contributors(existing, author, limit=3):
     previous = existing.get("contributors", []) if existing else []
     if not previous and existing and existing.get("updated_by") not in (None, "", "team"):
         previous = [{"id": None, "name": existing["updated_by"], "avatar": None}]
+    for contributor in previous:
+        if not isinstance(contributor, dict):
+            continue
+        same_id = latest.get("id") is not None and contributor.get("id") == latest["id"]
+        same_name = contributor.get("name", "").casefold() == latest.get("name", "").casefold()
+        if (same_id or same_name) and not latest.get("avatar") and contributor.get("avatar"):
+            latest["avatar"] = contributor["avatar"]
+            break
     result = [latest]
     for contributor in previous:
         if not isinstance(contributor, dict) or not contributor.get("name"):
@@ -559,6 +567,10 @@ class Bot:
     def publish_skill(self, user_id, filename, raw, author):
         identifier, name, description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
+        # Read the catalog only after synchronizing. commit_files() also syncs
+        # before writing, but reading first could build a new catalog from a
+        # stale checkout and silently drop contributors added remotely.
+        self.github.sync()
         catalog = self.github.read_json("skills/catalog.json", [])
         existing = existing_catalog_item(catalog, identifier, name)
         if existing:

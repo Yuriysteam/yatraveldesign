@@ -123,10 +123,15 @@ class BotTests(unittest.TestCase):
             {"id": 4, "name": "Four", "avatar": "four.jpeg"},
         ]}
         self.assertEqual(bot.recent_contributors(existing, {"id": 1, "first_name": "Current"}), [
-            {"id": 1, "name": "Current", "avatar": None},
+            {"id": 1, "name": "Current", "avatar": "old.jpeg"},
             {"id": 2, "name": "Two", "avatar": "two.jpeg"},
             {"id": 3, "name": "Three", "avatar": "three.jpeg"},
         ])
+
+    def test_recent_contributors_preserve_existing_avatar_when_name_changes(self):
+        existing = {"contributors": [{"id": 1, "name": "Old name", "avatar": "yuriy.jpeg"}]}
+        result = bot.recent_contributors(existing, {"id": 1, "first_name": "Current"})
+        self.assertEqual(result[0], {"id": 1, "name": "Current", "avatar": "yuriy.jpeg"})
 
     def test_catalog_update_matches_stable_id_before_display_name(self):
         catalog = [{"id": "calendar-cli", "name": "Календарь"}]
