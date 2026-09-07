@@ -93,9 +93,9 @@
           const updated = document.createElement('p'); updated.className = 'updated';
           const dot = document.createElement('span'); dot.className = 'updated__dot'; dot.setAttribute('aria-hidden', 'true'); dot.textContent = '·';
           const date = document.createElement('span'); date.className = 'updated__date'; date.textContent = `Обновлено ${formatDate(item.updated_at)}`;
-          const label = document.createElement('span'); label.className = 'updated__label'; label.textContent = 'Вклад внесли';
+          const label = document.createElement('span'); label.className = 'updated__label'; label.textContent = 'Обновляли';
           const contributors = Array.isArray(item.contributors) ? item.contributors.slice(0, 3) : [];
-          const avatars = document.createElement('span'); avatars.className = 'contributors'; avatars.setAttribute('aria-label', `Вклад внесли: ${contributors.map(person => person.name).join(', ')}`);
+          const avatars = document.createElement('span'); avatars.className = 'contributors'; avatars.setAttribute('aria-label', `Обновляли: ${contributors.map(person => person.name).join(', ')}`);
           contributors.forEach(person => {
             let avatar;
             if (person.avatar) { avatar = document.createElement('img'); avatar.src = `../assets/avatars/${encodeURIComponent(person.avatar)}`; avatar.alt = ''; }
