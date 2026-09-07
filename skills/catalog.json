@@ -32,13 +32,20 @@
     "name": "travel-feature-check",
     "description": "Проверяет тикет, Figma-спеку и текущий код Travel перед передачей дизайна в разработку, чтобы найти неучтённые состояния, корнеры, сложную логику, эксперименты и технические ограничения интерфейса. Использовать при запросах проверить полноту спеки, собрать корнеры или заранее найти вопросы разработчиков; не использовать для визуального дизайн-ревью, продуктовой аналитики или проектирования решений.",
     "updated_by": "yuriysteam",
-    "updated_at": 1788794469
+    "updated_at": 1788797147
   },
   {
     "id": "travel-product-context",
     "name": "travel-product-context",
     "description": "Find and apply internal Yandex Travel product context from the bundled passport for product, UX, design, and Figma work; preserve source dates, scope, and uncertainty instead of treating mockups as shipped behavior.",
     "updated_by": "Surzhenko_Dmitry",
-    "updated_at": 1788795846
+    "updated_at": 1788795846,
+    "contributors": [
+      {
+        "id": 1223378011,
+        "name": "Дмитрий Сурженко",
+        "avatar": "dima.jpeg"
+      }
+    ]
   }
 ]
