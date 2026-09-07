@@ -3,7 +3,8 @@
     "id": "agenda", "name": "Адженда",
     "description": "Собирает рабочую адженду из Трекера и календаря: помогает быстро понять актуальные задачи, встречи и фокус на день.",
     "updated_by": "Юрий Ширяев", "updated_at": 1788777922,
-    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
+    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }],
+    "dependencies": ["startrek-client", "calendar-cli", "mail-corp", "wiki-client"]
   },
   {
     "id": "startrek-client", "name": "Трекер",
@@ -45,12 +46,6 @@
     "id": "makedesign", "name": "Создание прототипов",
     "description": "Помогает создавать прототипы и дизайн-артефакты на базе проектных дизайн-инструментов и правил Travel Design.",
     "updated_by": "Юрий Ширяев", "updated_at": 1788777922,
-    "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
-  },
-  {
-    "id": "internal-research", "name": "Внутреннее исследование",
-    "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
-    "updated_by": "Юрий Ширяев", "updated_at": 1788607749,
     "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
   }
 ]

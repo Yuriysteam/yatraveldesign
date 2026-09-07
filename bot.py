@@ -190,7 +190,21 @@ def skill_package(filename, raw):
     description = description_match.group(1).strip() if description_match else "Без описания"
     identifier = slugify(name) or "skill-" + hashlib.sha256(name.encode()).hexdigest()[:10]
     identifier = SKILL_ID_ALIASES.get(identifier, identifier)
-    return identifier, name, description, files
+    dependency_match = re.search(r"^[ \t]+dependencies:\s*\[([^\]]*)\]\s*$", fields, re.M)
+    if not dependency_match and re.search(r"^\s*dependencies\s*:", fields, re.M):
+        raise UserError("Зависимости укажите в metadata одной строкой: dependencies: [skill-one, skill-two].")
+    dependencies = []
+    if dependency_match:
+        for value in dependency_match.group(1).split(","):
+            raw_dependency = value.strip().strip("\"'")
+            if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", raw_dependency):
+                raise UserError("В dependencies найден пустой или некорректный идентификатор.")
+            dependency = SKILL_ID_ALIASES.get(raw_dependency, raw_dependency)
+            if dependency == identifier:
+                raise UserError("Скил не может зависеть сам от себя.")
+            if dependency not in dependencies:
+                dependencies.append(dependency)
+    return identifier, name, description, dependencies, files
 
 
 def make_zip(files):
@@ -215,7 +229,13 @@ def detect_upload(filename, raw):
     raise UserError("Не удалось определить архив: нужен SKILL.md или HTML-страница.")
 
 
-def installation_prompt(name, url):
+def installation_prompt(name, url, identifier=None, catalog_url=None, dependencies=None):
+    if dependencies and identifier and catalog_url:
+        prompt = (f"Установи скил «{name}» ({identifier}) и зависимости из {catalog_url}. "
+                  "Пакеты: skills/ID/skill.zip. Распакуй каждый в папку скилов, остальные скилы не меняй.")
+        if len(prompt) <= 256:
+            return prompt
+        return f"Установи скил {identifier} со всеми зависимостями из {catalog_url}. Пакеты: skills/ID/skill.zip."
     prompt = f"Установи скил «{name}»: скачай {url}, распакуй в папку скилов текущего инструмента и не меняй остальные скилы."
     if len(prompt) > 256:
         prompt = f"Установи скил: {url}. Распакуй в текущую папку скилов, остальные скилы не меняй."
@@ -261,6 +281,35 @@ def recent_contributors(existing, author, limit=3):
 def existing_catalog_item(catalog, identifier, name):
     """Match an update by stable package id first, then by display name."""
     return next((item for item in catalog if item.get("id") == identifier or item.get("name", "").casefold() == name.casefold()), None)
+
+
+def dependency_closure(catalog, identifier):
+    """Return dependencies before the selected skill; reject missing ids and cycles."""
+    by_id = {item.get("id"): item for item in catalog if item.get("id")}
+    result = []
+    visiting = set()
+    visited = set()
+
+    def visit(skill_id):
+        if skill_id in visiting:
+            raise UserError(f"Циклическая зависимость скилов: {skill_id}.")
+        if skill_id in visited:
+            return
+        item = by_id.get(skill_id)
+        if not item:
+            raise UserError(f"Не найдена зависимость скила: {skill_id}.")
+        visiting.add(skill_id)
+        dependencies = item.get("dependencies", [])
+        if not isinstance(dependencies, list) or any(not isinstance(value, str) for value in dependencies):
+            raise UserError(f"Некорректный список зависимостей скила: {skill_id}.")
+        for dependency in dependencies:
+            visit(dependency)
+        visiting.remove(skill_id)
+        visited.add(skill_id)
+        result.append(item)
+
+    visit(identifier)
+    return result
 
 
 @dataclass
@@ -508,7 +557,7 @@ class Bot:
         return False
 
     def publish_skill(self, user_id, filename, raw, author):
-        identifier, name, description, package = skill_package(filename, raw)
+        identifier, name, description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
         catalog = self.github.read_json("skills/catalog.json", [])
         existing = existing_catalog_item(catalog, identifier, name)
@@ -518,13 +567,18 @@ class Bot:
         contributors = recent_contributors(existing, author)
         updated_by = author.get("username") or author.get("first_name")
         prefix = f"skills/{identifier}/"
-        files = {prefix + "skill.zip": make_zip(package), prefix + "metadata.json": json.dumps({
+        item = {
             "id": identifier, "name": name, "description": description,
             "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors,
-        }, ensure_ascii=False, indent=2).encode()}
+        }
+        if dependencies:
+            item["dependencies"] = dependencies
+        files = {prefix + "skill.zip": make_zip(package), prefix + "metadata.json": json.dumps(
+            item, ensure_ascii=False, indent=2).encode()}
         removals = [path for path in self.github.files_below(prefix) if path not in files]
         catalog = [item for item in catalog if item.get("id") != identifier and item.get("name", "").casefold() != name.casefold()]
-        catalog.append({"id": identifier, "name": name, "description": description, "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors})
+        catalog.append(item)
+        dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removals, f"Update skill {name}")
         self.configure_menu()
@@ -564,9 +618,16 @@ class Bot:
             if not item:
                 self.send(chat_id, "Скил больше недоступен.")
             else:
-                url = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/{identifier}/skill.zip"
+                raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+                url = f"{raw_root}/skills/{identifier}/skill.zip"
                 updated = short_russian_date(item["updated_at"])
-                prompt = installation_prompt(item["name"], url)
+                try:
+                    required = dependency_closure(self.github.read_json("skills/catalog.json", []), identifier)
+                except UserError as error:
+                    self.send(chat_id, str(error))
+                    self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
+                    return
+                prompt = installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1])
                 self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать промпт установки", "copy_text": {"text": prompt}}]]})
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 

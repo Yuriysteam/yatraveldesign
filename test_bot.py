@@ -54,16 +54,18 @@ class BotTests(unittest.TestCase):
 
     def test_reads_nested_skill_package(self):
         raw = archive({"my-skill/SKILL.md": "---\nname: Research helper\ndescription: Finds sources\n---\n# Research", "my-skill/tools/run.sh": "#!/bin/sh"})
-        identifier, name, description, files = bot.skill_package("my-skill.zip", raw)
+        identifier, name, description, dependencies, files = bot.skill_package("my-skill.zip", raw)
         self.assertEqual(identifier, "research-helper")
         self.assertEqual(name, "Research helper")
         self.assertEqual(description, "Finds sources")
+        self.assertEqual(dependencies, [])
         self.assertEqual(set(files), {"SKILL.md", "tools/run.sh"})
 
     def test_reads_single_skill_file(self):
-        identifier, name, _, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
+        identifier, name, _, dependencies, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
         self.assertEqual(identifier, "solo")
         self.assertEqual(name, "Solo")
+        self.assertEqual(dependencies, [])
         self.assertEqual(set(files), {"SKILL.md"})
 
     def test_detects_skill_from_zip_contents(self):
@@ -78,6 +80,16 @@ class BotTests(unittest.TestCase):
         self.assertEqual(calendar[0], "calendar-cli")
         self.assertEqual(memory[0], "shared-durable-memory")
 
+    def test_reads_and_normalizes_skill_dependencies(self):
+        source = b'---\nname: agenda\ndescription: Daily\nmetadata:\n  dependencies: [startrek-client, yandex-calendar, mail-corp, wiki-client]\n---\n'
+        _, _, _, dependencies, _ = bot.skill_package("SKILL.md", source)
+        self.assertEqual(dependencies, ["startrek-client", "calendar-cli", "mail-corp", "wiki-client"])
+
+    def test_rejects_malformed_skill_dependency_id(self):
+        source = b'---\nname: agenda\nmetadata:\n  dependencies: [../other-skill]\n---\n'
+        with self.assertRaisesRegex(bot.UserError, "некорректный идентификатор"):
+            bot.skill_package("SKILL.md", source)
+
     def test_rejects_unknown_direct_upload(self):
         with self.assertRaisesRegex(bot.UserError, "Не удалось определить"):
             bot.detect_upload("anything.zip", archive({"readme.txt": "x"}))
@@ -85,6 +97,13 @@ class BotTests(unittest.TestCase):
     def test_installation_prompt_contains_download_link(self):
         prompt = bot.installation_prompt("Research", "https://example.test/skill.zip")
         self.assertIn("https://example.test/skill.zip", prompt)
+        self.assertLessEqual(len(prompt), 256)
+
+    def test_dependency_prompt_points_to_catalog_and_stays_copyable(self):
+        prompt = bot.installation_prompt("Адженда", "unused", "agenda", "https://example.test/skills/catalog.json", [{"id": "calendar-cli"}])
+        self.assertIn("agenda", prompt)
+        self.assertIn("catalog.json", prompt)
+        self.assertIn("зависимост", prompt)
         self.assertLessEqual(len(prompt), 256)
 
     def test_short_russian_date_uses_three_letters_without_dot(self):
@@ -112,6 +131,23 @@ class BotTests(unittest.TestCase):
     def test_catalog_update_matches_stable_id_before_display_name(self):
         catalog = [{"id": "calendar-cli", "name": "Календарь"}]
         self.assertEqual(bot.existing_catalog_item(catalog, "calendar-cli", "yandex-calendar"), catalog[0])
+
+    def test_dependency_closure_is_transitive_and_dependencies_come_first(self):
+        catalog = [
+            {"id": "agenda", "dependencies": ["calendar"]},
+            {"id": "calendar", "dependencies": ["auth"]},
+            {"id": "auth"},
+        ]
+        self.assertEqual([item["id"] for item in bot.dependency_closure(catalog, "agenda")], ["auth", "calendar", "agenda"])
+
+    def test_dependency_closure_rejects_missing_and_cyclic_dependencies(self):
+        with self.assertRaisesRegex(bot.UserError, "Не найдена зависимость"):
+            bot.dependency_closure([{"id": "agenda", "dependencies": ["missing"]}], "agenda")
+        with self.assertRaisesRegex(bot.UserError, "Циклическая зависимость"):
+            bot.dependency_closure([
+                {"id": "one", "dependencies": ["two"]},
+                {"id": "two", "dependencies": ["one"]},
+            ], "one")
 
     def test_splits_long_catalogue(self):
         chunks = bot.split_message("one\n\n" + "x" * 3999 + "\n\ntwo")

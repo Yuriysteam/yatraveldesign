@@ -2,5 +2,6 @@
   "id": "agenda", "name": "Адженда",
   "description": "Собирает рабочую адженду из Трекера и календаря: помогает быстро понять актуальные задачи, встречи и фокус на день.",
   "updated_by": "Юрий Ширяев", "updated_at": 1788777922,
-  "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
+  "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }],
+  "dependencies": ["startrek-client", "calendar-cli", "mail-corp", "wiki-client"]
 }
