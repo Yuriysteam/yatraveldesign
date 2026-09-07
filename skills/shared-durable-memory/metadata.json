@@ -1,7 +1,6 @@
 {
-  "id": "shared-durable-memory",
-  "name": "Personal Durable Memory",
-  "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
-  "updated_by": "team",
-  "updated_at": 1788608118
+  "id": "shared-durable-memory", "name": "Локальная память",
+  "description": "Сохраняет и ищет долговременный локальный контекст: предпочтения, проектные решения, важные ссылки и повторяющиеся рабочие процессы.",
+  "updated_by": "Юрий Ширяев", "updated_at": 1788777922,
+  "contributors": [{ "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg" }]
 }

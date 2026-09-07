@@ -25,13 +25,18 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
+SKILL_ID_ALIASES = {
+    "yandex-calendar": "calendar-cli",
+    "local-memory": "shared-durable-memory",
+}
+SHORT_RU_MONTHS = ("янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек")
 PEOPLE = {
-    1223378011: ("Дмитрий Сурженко", "dima.jpeg"), 419853934: ("Elena Gavrikova", "lena.jpeg"),
-    224840424: ("Ivan Borisov", "vanya.jpeg"), 606648153: ("Artem Tregubenko", "artem.jpeg"),
-    1566798030: ("Ilya Skopin", "ilya.jpeg"), 125395264: ("Katerina Suchkova", "katya.jpeg"),
-    5484890739: ("Bogdan Lipchenko", "bogdan.jpeg"), 65329179: ("Igor Maymusov", "igor.jpeg"),
-    136071392: ("Alex L", "alex.jpeg"), 112174798: ("Liubov", "liyba.jpeg"),
-    335833483: ("Yuriy Shiryaev", "yuriy.jpeg"),
+    1223378011: ("Дмитрий Сурженко", "dima.jpeg"), 419853934: ("Елена Гаврикова", "lena.jpeg"),
+    224840424: ("Иван Борисов", "vanya.jpeg"), 606648153: ("Артём Трегубенко", "artem.jpeg"),
+    1566798030: ("Илья Скопин", "ilya.jpeg"), 125395264: ("Екатерина Сучкова", "katya.jpeg"),
+    5484890739: ("Богдан Липченко", "bogdan.jpeg"), 65329179: ("Игорь Маймусов", "igor.jpeg"),
+    136071392: ("Алекс", "alex.jpeg"), 112174798: ("Любовь", "liyba.jpeg"),
+    335833483: ("Юрий Ширяев", "yuriy.jpeg"),
 }
 
 
@@ -157,10 +162,10 @@ def skill_package(filename, raw):
     elif filename.lower() == "skill.md":
         members = [("SKILL.md", raw)]
     else:
-        raise UserError("Пришлите ZIP со skill или отдельный файл SKILL.md.")
+        raise UserError("Пришлите ZIP со скилом или отдельный файл SKILL.md.")
     candidates = [(name, content) for name, content in members if PurePosixPath(name).name.casefold() == "skill.md"]
     if len(candidates) != 1:
-        raise UserError("В skill должен быть ровно один файл SKILL.md.")
+        raise UserError("В скиле должен быть ровно один файл SKILL.md.")
     entry, skill_md = candidates[0]
     root = PurePosixPath(entry).parent
     files = {}
@@ -184,6 +189,7 @@ def skill_package(filename, raw):
     name = name_match.group(1).strip()
     description = description_match.group(1).strip() if description_match else "Без описания"
     identifier = slugify(name) or "skill-" + hashlib.sha256(name.encode()).hexdigest()[:10]
+    identifier = SKILL_ID_ALIASES.get(identifier, identifier)
     return identifier, name, description, files
 
 
@@ -200,7 +206,7 @@ def detect_upload(filename, raw):
     if filename.lower() == "skill.md":
         return "skill"
     if not filename.lower().endswith(".zip"):
-        raise UserError("Пришлите ZIP с HTML-прототипом или ZIP/SKILL.md для skill.")
+        raise UserError("Пришлите ZIP с HTML-прототипом или ZIP/SKILL.md для скила.")
     members = safe_archive_members(raw, MAX_UNPACKED_BYTES)
     if any(PurePosixPath(name).name.casefold() == "skill.md" for name, _ in members):
         return "skill"
@@ -210,10 +216,51 @@ def detect_upload(filename, raw):
 
 
 def installation_prompt(name, url):
-    prompt = f"Установи skill «{name}»: скачай {url}, распакуй в папку skills текущего инструмента и не меняй остальные skills."
+    prompt = f"Установи скил «{name}»: скачай {url}, распакуй в папку скилов текущего инструмента и не меняй остальные скилы."
     if len(prompt) > 256:
-        prompt = f"Установи skill: {url}. Распакуй в текущую папку skills, остальные skills не меняй."
+        prompt = f"Установи скил: {url}. Распакуй в текущую папку скилов, остальные скилы не меняй."
     return prompt
+
+
+def short_russian_date(timestamp):
+    value = time.localtime(timestamp)
+    return f"{value.tm_mday} {SHORT_RU_MONTHS[value.tm_mon - 1]}"
+
+
+def contributor_from_author(author):
+    """Return stable public contributor data for a Telegram author."""
+    user_id = author.get("id")
+    person = PEOPLE.get(user_id)
+    if person:
+        name, avatar = person
+    else:
+        name = author.get("first_name") or author.get("username") or "Участник команды"
+        avatar = None
+    return {"id": user_id, "name": name, "avatar": avatar}
+
+
+def recent_contributors(existing, author, limit=3):
+    """Put the latest unique contributor first and keep at most three people."""
+    latest = contributor_from_author(author)
+    previous = existing.get("contributors", []) if existing else []
+    if not previous and existing and existing.get("updated_by") not in (None, "", "team"):
+        previous = [{"id": None, "name": existing["updated_by"], "avatar": None}]
+    result = [latest]
+    for contributor in previous:
+        if not isinstance(contributor, dict) or not contributor.get("name"):
+            continue
+        same_id = latest.get("id") is not None and contributor.get("id") == latest["id"]
+        same_name = contributor["name"].casefold() == latest["name"].casefold()
+        if not same_id and not same_name:
+            result.append(contributor)
+        if len(result) == limit:
+            break
+    return result
+
+
+def existing_catalog_item(catalog, identifier, name):
+    """Match an update by stable package id first, then by display name."""
+    return next((item for item in catalog if item.get("id") == identifier or item.get("name", "").casefold() == name.casefold()), None)
 
 
 @dataclass
@@ -334,11 +381,11 @@ class Bot:
         return f"{self.settings.public_base_url}/skills/?v={urllib.parse.quote(revision)}"
 
     def configure_menu(self):
-        self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Skills", "web_app": {"url": self.web_app_url()}}})
+        self.telegram("setChatMenuButton", {"menu_button": {"type": "web_app", "text": "Скилы", "web_app": {"url": self.web_app_url()}}})
 
     def configure_commands(self):
         self.telegram("setMyCommands", {"commands": [
-            {"command": "start", "description": "Как загрузить прототип или skill"},
+            {"command": "start", "description": "Как загрузить прототип или скил"},
             {"command": "prototypes", "description": "10 последних прототипов"},
         ]})
 
@@ -359,17 +406,17 @@ class Bot:
         lines = []
         for item in catalog:
             marker = "• " if item["updated_at"] > seen_at else ""
-            updated = time.strftime("%d.%m.%Y", time.localtime(item["updated_at"]))
+            updated = short_russian_date(item["updated_at"])
             lines.append(f"{marker}{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}")
         buttons = [[{"text": item["name"], "callback_data": f"skill:{item['id']}"}] for item in catalog]
         if self.is_publisher(user_id):
-            buttons.append([{"text": "Загрузить skill", "callback_data": "skills:upload"}])
+            buttons.append([{"text": "Загрузить скил", "callback_data": "skills:upload"}])
         self.db.execute("insert or replace into skills_seen values (?, ?)", (user_id, int(time.time())))
         self.db.commit()
         if not catalog:
-            self.send(chat_id, "Skills пока не опубликованы.", reply_markup={"inline_keyboard": buttons})
+            self.send(chat_id, "Скилы пока не опубликованы.", reply_markup={"inline_keyboard": buttons})
             return
-        text = "Skills\n\n" + "\n\n".join(lines)
+        text = "Скилы\n\n" + "\n\n".join(lines)
         for chunk in split_message(text):
             self.send(chat_id, chunk)
         self.send(chat_id, "Действия:", reply_markup={"inline_keyboard": buttons})
@@ -388,7 +435,7 @@ class Bot:
             return
         self.db.execute("insert or replace into pending values (?, ?, null, null)", (user_id, "skill"))
         self.db.commit()
-        self.send(chat_id, "Пришлите ZIP со skill или отдельный SKILL.md. Имя берётся из поля name в SKILL.md.")
+        self.send(chat_id, "Пришлите ZIP со скилом или отдельный SKILL.md. Имя берётся из поля name в SKILL.md.")
 
     def download_document(self, document):
         info = self.telegram("getFile", {"file_id": document["file_id"]})
@@ -464,24 +511,27 @@ class Bot:
         identifier, name, description, package = skill_package(filename, raw)
         updated_at = int(time.time())
         catalog = self.github.read_json("skills/catalog.json", [])
-        existing = next((item for item in catalog if item["name"].casefold() == name.casefold()), None)
+        existing = existing_catalog_item(catalog, identifier, name)
         if existing:
             identifier = existing["id"]
+            name = existing["name"]
+        contributors = recent_contributors(existing, author)
+        updated_by = author.get("username") or author.get("first_name")
         prefix = f"skills/{identifier}/"
         files = {prefix + "skill.zip": make_zip(package), prefix + "metadata.json": json.dumps({
             "id": identifier, "name": name, "description": description,
-            "updated_by": author.get("username") or author.get("first_name"), "updated_at": updated_at,
+            "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors,
         }, ensure_ascii=False, indent=2).encode()}
         removals = [path for path in self.github.files_below(prefix) if path not in files]
-        catalog = [item for item in catalog if item["name"].casefold() != name.casefold()]
-        catalog.append({"id": identifier, "name": name, "description": description, "updated_by": author.get("username") or author.get("first_name"), "updated_at": updated_at})
+        catalog = [item for item in catalog if item.get("id") != identifier and item.get("name", "").casefold() != name.casefold()]
+        catalog.append({"id": identifier, "name": name, "description": description, "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors})
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removals, f"Update skill {name}")
         self.configure_menu()
         if self.wait_for_skill_publication(identifier, updated_at):
             self.send(author_chat(author), "Скилл опубликован")
         else:
-            self.send(author_chat(author), "Скилл добавлен в GitHub, но каталог ещё обновляется. Откройте Skills чуть позже.")
+            self.send(author_chat(author), "Скилл добавлен в GitHub, но каталог ещё обновляется. Откройте Скилы чуть позже.")
 
     def wait_for_skill_publication(self, identifier, updated_at):
         raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
@@ -512,12 +562,12 @@ class Bot:
             identifier = data.split(":", 1)[1]
             item = next((item for item in self.github.read_json("skills/catalog.json", []) if item["id"] == identifier), None)
             if not item:
-                self.send(chat_id, "Skill больше недоступен.")
+                self.send(chat_id, "Скил больше недоступен.")
             else:
                 url = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/{identifier}/skill.zip"
-                updated = time.strftime("%d.%m.%Y", time.localtime(item["updated_at"]))
+                updated = short_russian_date(item["updated_at"])
                 prompt = installation_prompt(item["name"], url)
-                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать prompt установки", "copy_text": {"text": prompt}}]]})
+                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать промпт установки", "copy_text": {"text": prompt}}]]})
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 
     def handle(self, update):
@@ -602,7 +652,7 @@ def prototype_list_text(catalog, public_base_url):
         url = f"{public_base_url}/{item['url']}"
         title = html.escape(item["title"])
         author = html.escape(item["author"])
-        updated = time.strftime("%d.%m.%Y", time.localtime(item["updated_at"]))
+        updated = short_russian_date(item["updated_at"])
         rows.append(f'<a href="{html.escape(url, quote=True)}">{title}</a>\n{author} · {updated}')
     return "\n\n".join(rows)
 

@@ -72,6 +72,12 @@ class BotTests(unittest.TestCase):
     def test_detects_prototype_from_zip_contents(self):
         self.assertEqual(bot.detect_upload("anything.zip", archive({"build/index.html": "<h1>Demo</h1>"})), "prototype")
 
+    def test_imported_skill_names_keep_existing_catalog_ids(self):
+        calendar = bot.skill_package("SKILL.md", b'---\nname: yandex-calendar\ndescription: Calendar\n---\n')
+        memory = bot.skill_package("SKILL.md", b'---\nname: local-memory\ndescription: Memory\n---\n')
+        self.assertEqual(calendar[0], "calendar-cli")
+        self.assertEqual(memory[0], "shared-durable-memory")
+
     def test_rejects_unknown_direct_upload(self):
         with self.assertRaisesRegex(bot.UserError, "Не удалось определить"):
             bot.detect_upload("anything.zip", archive({"readme.txt": "x"}))
@@ -80,6 +86,32 @@ class BotTests(unittest.TestCase):
         prompt = bot.installation_prompt("Research", "https://example.test/skill.zip")
         self.assertIn("https://example.test/skill.zip", prompt)
         self.assertLessEqual(len(prompt), 256)
+
+    def test_short_russian_date_uses_three_letters_without_dot(self):
+        self.assertEqual(bot.short_russian_date(1788607749), "5 сен")
+        self.assertTrue(all(len(month) == 3 and "." not in month for month in bot.SHORT_RU_MONTHS))
+
+    def test_known_contributor_uses_team_avatar(self):
+        self.assertEqual(bot.contributor_from_author({"id": 335833483, "first_name": "Юрий"}), {
+            "id": 335833483, "name": "Юрий Ширяев", "avatar": "yuriy.jpeg",
+        })
+
+    def test_recent_contributors_are_unique_ordered_and_limited(self):
+        existing = {"contributors": [
+            {"id": 2, "name": "Two", "avatar": "two.jpeg"},
+            {"id": 1, "name": "Old name", "avatar": "old.jpeg"},
+            {"id": 3, "name": "Three", "avatar": "three.jpeg"},
+            {"id": 4, "name": "Four", "avatar": "four.jpeg"},
+        ]}
+        self.assertEqual(bot.recent_contributors(existing, {"id": 1, "first_name": "Current"}), [
+            {"id": 1, "name": "Current", "avatar": None},
+            {"id": 2, "name": "Two", "avatar": "two.jpeg"},
+            {"id": 3, "name": "Three", "avatar": "three.jpeg"},
+        ])
+
+    def test_catalog_update_matches_stable_id_before_display_name(self):
+        catalog = [{"id": "calendar-cli", "name": "Календарь"}]
+        self.assertEqual(bot.existing_catalog_item(catalog, "calendar-cli", "yandex-calendar"), catalog[0])
 
     def test_splits_long_catalogue(self):
         chunks = bot.split_message("one\n\n" + "x" * 3999 + "\n\ntwo")
