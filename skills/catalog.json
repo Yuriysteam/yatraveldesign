@@ -87,5 +87,19 @@
         "avatar": "dima.jpeg"
       }
     ]
+  },
+  {
+    "id": "triz-product-design",
+    "name": "triz-product-design",
+    "description": "Решает продуктные противоречия с помощью ТРИЗ методов.",
+    "updated_by": "yuriysteam",
+    "updated_at": 1788872763,
+    "contributors": [
+      {
+        "id": 335833483,
+        "name": "Юрий Ширяев",
+        "avatar": "yuriy.jpeg"
+      }
+    ]
   }
 ]
