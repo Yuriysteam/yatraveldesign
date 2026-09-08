@@ -644,7 +644,7 @@ class Bot:
         if self.wait_for_skill_publication(identifier, updated_at):
             self.send(author_chat(author), "Скил появится в Skill store в течении 2 минут.")
         else:
-            self.send(author_chat(author), "Скилл добавлен в GitHub, но каталог ещё обновляется. Откройте Скилы чуть позже.")
+            self.send(author_chat(author), "Скилл добавлен, но каталог ещё обновляется. Откройте Скилы через минуту.")
 
     def wait_for_skill_publication(self, identifier, updated_at):
         raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
