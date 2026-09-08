@@ -1,0 +1,14 @@
+{
+  "id": "travel-ui-delivery",
+  "name": "travel-ui-delivery",
+  "description": "Доставка пользовательского интерфейса для приложения Travel.",
+  "updated_by": "yuriysteam",
+  "updated_at": 1788874010,
+  "contributors": [
+    {
+      "id": 335833483,
+      "name": "Юрий Ширяев",
+      "avatar": "yuriy.jpeg"
+    }
+  ]
+}
