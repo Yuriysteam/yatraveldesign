@@ -1,7 +1,7 @@
 {
   "id": "travel-product-context",
-  "name": "travel-product-context",
-  "description": "Find and apply internal Yandex Travel product context from the bundled passport for product, UX, design, and Figma work; preserve source dates, scope, and uncertainty instead of treating mockups as shipped behavior.",
+  "name": "Travel Product Context",
+  "description": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
   "updated_by": "Surzhenko_Dmitry",
   "updated_at": 1788795846
 }
