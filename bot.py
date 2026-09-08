@@ -642,7 +642,7 @@ class Bot:
         self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
         if self.wait_for_skill_publication(identifier, updated_at):
-            self.send(author_chat(author), "Скилл опубликован")
+            self.send(author_chat(author), "Скил появится в Skill store в течении 2 минут.")
         else:
             self.send(author_chat(author), "Скилл добавлен в GitHub, но каталог ещё обновляется. Откройте Скилы чуть позже.")
 
@@ -687,7 +687,7 @@ class Bot:
                     self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
                     return
                 prompt = installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1])
-                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать промпт установки", "copy_text": {"text": prompt}}]]})
+                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]})
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 
     def handle(self, update):
