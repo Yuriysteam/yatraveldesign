@@ -89,20 +89,6 @@
     ]
   },
   {
-    "id": "music-discovery-machine",
-    "name": "music-discovery-machine",
-    "description": "Помогает найти и понять музыку, объясняя её контекст и особенности.",
-    "updated_by": "yuriysteam",
-    "updated_at": 1788873268,
-    "contributors": [
-      {
-        "id": 335833483,
-        "name": "Юрий Ширяев",
-        "avatar": "yuriy.jpeg"
-      }
-    ]
-  },
-  {
     "id": "triz-product-design",
     "name": "triz-product-design",
     "description": "Решает продуктные противоречия с помощью ТРИЗ методов.",
