@@ -25,6 +25,7 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
+OLLAMA_DEFAULT_MODEL = "qwen3:8b"
 SKILL_ID_ALIASES = {
     "yandex-calendar": "calendar-cli",
     "local-memory": "shared-durable-memory",
@@ -59,6 +60,49 @@ def slugify(value):
     value = value.strip().lower()
     value = re.sub(r"[^a-z0-9]+", "-", value)
     return value.strip("-")[:80]
+
+
+def is_technical_label(value):
+    """Identify package-like labels that are safe to replace in the catalogue."""
+    value = value.strip()
+    return bool(
+        re.fullmatch(r"[a-z0-9]+(?:[-_][a-z0-9]+)+", value)
+        or re.search(r"(?:^|[-_])(?:cli|client|service|tool|skill|prototype|v?\d+)(?:$|[-_])", value, re.I)
+    )
+
+
+def enrich_metadata(kind, name, description=""):
+    """Ask local Ollama for display text; keep the upload usable on AI failure."""
+    base_url = os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
+    model = os.environ.get("OLLAMA_MODEL", OLLAMA_DEFAULT_MODEL)
+    if kind == "prototype":
+        source = f"Имя архива: {name}"
+    else:
+        source = f"Название скила: {name}\nОписание скила: {description}"
+    prompt = (
+        "Ты редактор каталога команды Travel. Верни только JSON без markdown: "
+        '{"name":"...","description":"..."}. '
+        "Сохрани уже понятное название без изменений. Если оно техническое, "
+        "сделай короткое человеческое название; название может быть на английском. "
+        "Описание всегда пиши по-русски: одно ясное предложение о результате для пользователя, до 140 символов. "
+        "Не выдумывай функции. Для прототипа используй только имя архива и не описывай детали, которых там нет.\n\n"
+        + source
+    )
+    payload = json.dumps({"model": model, "prompt": prompt, "stream": False, "think": False,
+                          "format": "json", "options": {"num_predict": 120}}).encode()
+    request = urllib.request.Request(base_url + "/api/generate", data=payload,
+                                     headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(request, timeout=8) as response:
+            result = json.loads(response.read().decode("utf-8"))
+        value = json.loads(result.get("response", ""))
+        display_name = str(value.get("name", "")).strip()
+        display_description = str(value.get("description", "")).strip()
+        if not display_name or not display_description or len(display_name) > 100 or len(display_description) > 240:
+            raise ValueError("неполный ответ")
+        return display_name, display_description
+    except (OSError, ValueError, TypeError, json.JSONDecodeError, urllib.error.URLError):
+        return name, description or "Без описания"
 
 
 def safe_zip_members(raw):
@@ -164,9 +208,9 @@ def skill_package(filename, raw):
     else:
         raise UserError("Пришлите ZIP со скилом или отдельный файл SKILL.md.")
     candidates = [(name, content) for name, content in members if PurePosixPath(name).name.casefold() == "skill.md"]
-    if len(candidates) != 1:
-        raise UserError("В скиле должен быть ровно один файл SKILL.md.")
-    entry, skill_md = candidates[0]
+    if not candidates:
+        raise UserError("В скиле должен быть хотя бы один файл SKILL.md.")
+    entry, skill_md = min(candidates, key=lambda item: (len(PurePosixPath(item[0]).parts), item[0].casefold()))
     root = PurePosixPath(entry).parent
     files = {}
     for name, content in members:
@@ -204,7 +248,8 @@ def skill_package(filename, raw):
                 raise UserError("Скил не может зависеть сам от себя.")
             if dependency not in dependencies:
                 dependencies.append(dependency)
-    return identifier, name, description, dependencies, files
+    display_name, display_description = enrich_metadata("skill", name, description)
+    return identifier, name, description, display_name, display_description, dependencies, files
 
 
 def make_zip(files):
@@ -535,9 +580,10 @@ class Bot:
         files = {prefix + name: content for name, content in safe_zip_members(raw)}
         removed = [path for path in self.github.files_below(prefix) if path not in files]
         profile = PEOPLE.get(user_id, (author.get("first_name", "Автор"), None))
+        display_name, display_description = enrich_metadata("prototype", filename.rsplit(".", 1)[0])
         catalog = [item for item in self.github.read_json("prototypes.json", []) if item["url"] != prefix]
         catalog.append({
-            "title": filename.rsplit(".", 1)[0], "author": profile[0],
+            "title": display_name, "description": display_description, "author": profile[0],
             "avatar": f"assets/avatars/{profile[1]}" if profile[1] else None,
             "updated_at": int(time.time()), "url": prefix,
         })
@@ -565,7 +611,7 @@ class Bot:
         return False
 
     def publish_skill(self, user_id, filename, raw, author):
-        identifier, name, description, dependencies, package = skill_package(filename, raw)
+        identifier, name, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
         # Read the catalog only after synchronizing. commit_files() also syncs
         # before writing, but reading first could build a new catalog from a
@@ -575,12 +621,13 @@ class Bot:
         existing = existing_catalog_item(catalog, identifier, name)
         if existing:
             identifier = existing["id"]
-            name = existing["name"]
+            if not is_technical_label(existing["name"]):
+                display_name = existing["name"]
         contributors = recent_contributors(existing, author)
         updated_by = author.get("username") or author.get("first_name")
         prefix = f"skills/{identifier}/"
         item = {
-            "id": identifier, "name": name, "description": description,
+            "id": identifier, "name": display_name, "description": display_description,
             "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors,
         }
         if dependencies:
@@ -592,7 +639,7 @@ class Bot:
         catalog.append(item)
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
-        self.github.commit_files(files, removals, f"Update skill {name}")
+        self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
         if self.wait_for_skill_publication(identifier, updated_at):
             self.send(author_chat(author), "Скилл опубликован")

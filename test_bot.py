@@ -20,6 +20,12 @@ def archive(entries):
 
 
 class BotTests(unittest.TestCase):
+    def test_detects_technical_labels_but_keeps_human_names(self):
+        self.assertTrue(bot.is_technical_label("travel-feature-check"))
+        self.assertTrue(bot.is_technical_label("calendar-cli"))
+        self.assertFalse(bot.is_technical_label("Адженда"))
+        self.assertFalse(bot.is_technical_label("Создание прототипов"))
+
     def test_accepts_a_static_prototype(self):
         members = bot.safe_zip_members(archive({"index.html": "<h1>OK</h1>", "assets/app.css": "body{}"}))
         self.assertEqual([name for name, _ in members], ["index.html", "assets/app.css"])
@@ -54,15 +60,29 @@ class BotTests(unittest.TestCase):
 
     def test_reads_nested_skill_package(self):
         raw = archive({"my-skill/SKILL.md": "---\nname: Research helper\ndescription: Finds sources\n---\n# Research", "my-skill/tools/run.sh": "#!/bin/sh"})
-        identifier, name, description, dependencies, files = bot.skill_package("my-skill.zip", raw)
+        with patch("bot.enrich_metadata", return_value=("Research helper", "Finds sources.")):
+            identifier, name, description, display_name, display_description, dependencies, files = bot.skill_package("my-skill.zip", raw)
         self.assertEqual(identifier, "research-helper")
         self.assertEqual(name, "Research helper")
         self.assertEqual(description, "Finds sources")
+        self.assertEqual(display_name, "Research helper")
+        self.assertEqual(display_description, "Finds sources.")
         self.assertEqual(dependencies, [])
         self.assertEqual(set(files), {"SKILL.md", "tools/run.sh"})
 
+    def test_accepts_skill_archive_with_more_than_one_skill_md(self):
+        raw = archive({
+            "package/SKILL.md": "---\nname: Main\ndescription: Main skill\n---\n",
+            "package/examples/SKILL.md": "---\nname: Example\ndescription: Example skill\n---\n",
+        })
+        with patch("bot.enrich_metadata", return_value=("Main", "Основной скил.")):
+            _, name, _, _, _, _, files = bot.skill_package("package.zip", raw)
+        self.assertEqual(name, "Main")
+        self.assertIn("examples/SKILL.md", files)
+
     def test_reads_single_skill_file(self):
-        identifier, name, _, dependencies, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
+        with patch("bot.enrich_metadata", return_value=("Solo", "Без описания")):
+            identifier, name, _, display_name, _, dependencies, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
         self.assertEqual(identifier, "solo")
         self.assertEqual(name, "Solo")
         self.assertEqual(dependencies, [])
@@ -75,14 +95,16 @@ class BotTests(unittest.TestCase):
         self.assertEqual(bot.detect_upload("anything.zip", archive({"build/index.html": "<h1>Demo</h1>"})), "prototype")
 
     def test_imported_skill_names_keep_existing_catalog_ids(self):
-        calendar = bot.skill_package("SKILL.md", b'---\nname: yandex-calendar\ndescription: Calendar\n---\n')
-        memory = bot.skill_package("SKILL.md", b'---\nname: local-memory\ndescription: Memory\n---\n')
+        with patch("bot.enrich_metadata", side_effect=lambda _, name, description="": (name, description)):
+            calendar = bot.skill_package("SKILL.md", b'---\nname: yandex-calendar\ndescription: Calendar\n---\n')
+            memory = bot.skill_package("SKILL.md", b'---\nname: local-memory\ndescription: Memory\n---\n')
         self.assertEqual(calendar[0], "calendar-cli")
         self.assertEqual(memory[0], "shared-durable-memory")
 
     def test_reads_and_normalizes_skill_dependencies(self):
         source = b'---\nname: agenda\ndescription: Daily\nmetadata:\n  dependencies: [startrek-client, yandex-calendar, mail-corp, wiki-client]\n---\n'
-        _, _, _, dependencies, _ = bot.skill_package("SKILL.md", source)
+        with patch("bot.enrich_metadata", return_value=("Agenda", "Daily")):
+            _, _, _, _, _, dependencies, _ = bot.skill_package("SKILL.md", source)
         self.assertEqual(dependencies, ["startrek-client", "calendar-cli", "mail-corp", "wiki-client"])
 
     def test_rejects_malformed_skill_dependency_id(self):
