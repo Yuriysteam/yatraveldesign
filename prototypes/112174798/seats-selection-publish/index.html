@@ -1,0 +1,288 @@
+<meta name="robots" content="noindex, nofollow, noarchive">\n<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="icon" href="data:,">
+  <title>Выбор поезда — прототип</title>
+  <link rel="stylesheet" href="./base2/styles/fonts.css">
+  <link rel="stylesheet" href="./base2/tokens/tokens.css">
+  <style>
+    :root {
+      --train-picker-rzd-red: #e21b1a;
+      --train-picker-press-scale: 0.97;
+      --train-picker-press-easing: cubic-bezier(0.2, 0, 0, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      background: var(--color-greyscale-1300);
+      color: var(--text-primary-color);
+      font-family: var(--font-family-text);
+      font-feature-settings: "lnum", "pnum";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .phone-frame {
+      width: 375px;
+      height: 812px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: var(--border-radius-large-m);
+      background: var(--bg-fill-primary-color);
+    }
+
+    .status-bar {
+      position: relative;
+      width: 100%;
+      height: 44px;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .status-bar__time {
+      position: absolute;
+      top: 14px;
+      left: 21px;
+      width: 54px;
+      height: 18px;
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: -0.3px;
+      text-align: center;
+    }
+
+    .status-bar__mobile {
+      position: absolute;
+      top: 17.67px;
+      right: 64.33px;
+      width: 17px;
+      height: 10.667px;
+    }
+
+    .status-bar__wifi {
+      position: absolute;
+      top: 17.33px;
+      right: 44.03px;
+      width: 15.272px;
+      height: 10.966px;
+    }
+
+    .status-bar__battery-outline {
+      position: absolute;
+      top: 17.33px;
+      right: 17px;
+      width: 22px;
+      height: 11.333px;
+    }
+
+    .status-bar__battery-cap {
+      position: absolute;
+      top: 21px;
+      right: 14.67px;
+      width: 1.328px;
+      height: 4px;
+    }
+
+    .status-bar__battery-fill {
+      position: absolute;
+      top: 19.33px;
+      right: 19px;
+      width: 18px;
+      height: 7.333px;
+    }
+
+    .train-picker {
+      height: calc(100% - 44px);
+      padding: 36px 20px 24px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .train-picker__title {
+      font-family: var(--font-headline-h2-long-family);
+      font-size: var(--font-headline-h2-long-size);
+      font-weight: var(--font-headline-h2-long-weight);
+      line-height: var(--font-headline-h2-long-lineHeight);
+      letter-spacing: -0.01em;
+    }
+
+    .train-picker__subtitle {
+      margin-top: 8px;
+      color: var(--text-secondary-color);
+      font-family: var(--font-body-b3-family);
+      font-size: var(--font-body-b3-size);
+      font-weight: var(--font-body-b3-weight);
+      line-height: var(--font-body-b3-lineHeight);
+    }
+
+    .train-picker__options {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .train-option {
+      width: 100%;
+      height: 96px;
+      padding: 12px 16px 12px 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-radius: var(--border-radius-large-m);
+      background: var(--bg-fill-secondary-color);
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 150ms var(--train-picker-press-easing);
+    }
+
+    .train-option:active {
+      transform: scale(var(--train-picker-press-scale));
+      transition-duration: 250ms;
+    }
+
+    .train-option:focus-visible {
+      outline: 2px solid var(--text-primary-color);
+      outline-offset: 2px;
+    }
+
+    .train-option__badge {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      flex: none;
+      border-radius: var(--border-radius-full);
+      background: var(--train-picker-rzd-red);
+    }
+
+    .train-option__badge img {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      width: 20px;
+      height: 20px;
+    }
+
+    .train-option__copy {
+      min-width: 0;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .train-option__title {
+      overflow: hidden;
+      font-family: var(--font-title-t2-family);
+      font-size: var(--font-title-t2-size);
+      font-weight: var(--font-title-t2-weight);
+      line-height: var(--font-title-t2-lineHeight);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .train-option__caption {
+      overflow: hidden;
+      color: var(--text-secondary-color);
+      font-family: var(--font-caption-c1-family);
+      font-size: var(--font-caption-c1-size);
+      font-weight: var(--font-caption-c1-weight);
+      line-height: var(--font-caption-c1-lineHeight);
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .train-option__arrow {
+      width: 16px;
+      height: 16px;
+      flex: none;
+    }
+
+    .train-picker__note {
+      margin-top: auto;
+      color: var(--text-secondary-color);
+      font-family: var(--font-caption-c1-family);
+      font-size: var(--font-caption-c1-size);
+      font-weight: var(--font-caption-c1-weight);
+      line-height: var(--font-caption-c1-lineHeight);
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .train-option {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .phone-frame {
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <div class="status-bar" aria-hidden="true">
+      <div class="status-bar__time">9:41</div>
+      <img class="status-bar__mobile" src="./assets/icons/status-mobile-signal.svg" alt="">
+      <img class="status-bar__wifi" src="./assets/icons/status-wifi.svg" alt="">
+      <img class="status-bar__battery-outline" src="./assets/icons/status-battery-outline.svg" alt="">
+      <img class="status-bar__battery-cap" src="./assets/icons/status-battery-cap.svg" alt="">
+      <img class="status-bar__battery-fill" src="./assets/icons/status-battery-fill.svg" alt="">
+    </div>
+
+    <main class="train-picker">
+      <h1 class="train-picker__title">Выберите поезд</h1>
+      <p class="train-picker__subtitle">Чтобы посмотреть разные схемы вагонов</p>
+
+      <nav class="train-picker__options" aria-label="Тип поезда">
+        <a class="train-option" data-train="long-distance" href="./train-seat-list.html">
+          <span class="train-option__badge" aria-hidden="true"><img src="./assets/icons/train-filled.svg" alt=""></span>
+          <span class="train-option__copy">
+            <span class="train-option__title">Дальний поезд</span>
+            <span class="train-option__caption">Купе, плацкарт и СВ</span>
+          </span>
+          <img class="train-option__arrow" src="./assets/icons/scheme-arrow-right-16.svg" alt="">
+        </a>
+
+        <a class="train-option" data-train="sapsan" href="./train-seat-list.html">
+          <span class="train-option__badge" aria-hidden="true"><img src="./assets/icons/train-filled.svg" alt=""></span>
+          <span class="train-option__copy">
+            <span class="train-option__title">Сапсан</span>
+            <span class="train-option__caption">Высокоскоростной поезд</span>
+          </span>
+          <img class="train-option__arrow" src="./assets/icons/scheme-arrow-right-16.svg" alt="">
+        </a>
+
+        <a class="train-option" data-train="lastochka" href="./train-seat-list.html">
+          <span class="train-option__badge" aria-hidden="true"><img src="./assets/icons/train-filled.svg" alt=""></span>
+          <span class="train-option__copy">
+            <span class="train-option__title">Ласточка</span>
+            <span class="train-option__caption">Сидячие вагоны</span>
+          </span>
+          <img class="train-option__arrow" src="./assets/icons/scheme-arrow-right-16.svg" alt="">
+        </a>
+      </nav>
+
+      <p class="train-picker__note">Служебный экран прототипа</p>
+    </main>
+  </div>
+
+  <script src="./train-seat-data.js"></script>
+  <script src="./train-seat-start.js"></script>
+</body>
+</html>

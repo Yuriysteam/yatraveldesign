@@ -1,0 +1,20 @@
+/**
+ * Design Tokens - Main Entry Point
+ * 
+ * This file imports all design tokens in the correct order:
+ * 1. Base colors (Brand collection)
+ * 2. Semantic tokens (Alias collection)
+ * 3. Typography, shadows, spacing, etc.
+ * 
+ * Import this file in your main CSS to access all design tokens.
+ */
+
+/* Base Colors - Foundation layer */
+@import './base/colors.css';
+
+/* Semantic Tokens - Alias layer */
+@import './semantic/colors.css';
+@import './semantic/typography.css';
+@import './semantic/shadows.css';
+@import './semantic/border-radius.css';
+@import './semantic/spacing.css';

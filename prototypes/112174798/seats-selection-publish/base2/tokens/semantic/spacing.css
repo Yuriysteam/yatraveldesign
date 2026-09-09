@@ -1,0 +1,54 @@
+/**
+ * Spacing Tokens
+ * 
+ * Spacing system based on multiples of 2px
+ * All spacing must use space() function or these tokens
+ */
+
+:root {
+  /* Base spacing unit: 2px */
+  --space-unit: 2px;
+
+  /* Spacing Scale (multiples of 2px) */
+  --space-0-5: calc(var(--space-unit) * 0.5);  /* 1px */
+  --space-1: calc(var(--space-unit) * 1);       /* 2px */
+  --space-1-5: calc(var(--space-unit) * 1.5);   /* 3px */
+  --space-2: calc(var(--space-unit) * 2);       /* 4px */
+  --space-3: calc(var(--space-unit) * 3);       /* 6px */
+  --space-4: calc(var(--space-unit) * 4);       /* 8px */
+  --space-5: calc(var(--space-unit) * 5);       /* 10px */
+  --space-6: calc(var(--space-unit) * 6);       /* 12px */
+  --space-7: calc(var(--space-unit) * 7);       /* 14px */
+  --space-8: calc(var(--space-unit) * 8);       /* 16px */
+  --space-10: calc(var(--space-unit) * 10);     /* 20px */
+  --space-12: calc(var(--space-unit) * 12);     /* 24px */
+  --space-14: calc(var(--space-unit) * 14);     /* 28px */
+  --space-16: calc(var(--space-unit) * 16);     /* 32px */
+  --space-20: calc(var(--space-unit) * 20);     /* 40px */
+  --space-24: calc(var(--space-unit) * 24);     /* 48px */
+
+  /* Padding Tokens (used in Figma) */
+  --padding-4: 8px;
+  --padding-6: 12px;
+  --padding-8: 16px;
+  --padding-10: 20px;
+  --padding-12: 24px;
+  --padding-14: 28px;
+  --padding-16: 32px;
+  --padding-20: 40px;
+  --padding-24: 48px;
+  --padding-28: 56px;
+
+  /* Common Spacing Patterns */
+  --spacing-component-padding: var(--space-4);      /* 8px - Buttons, chips */
+  --spacing-card-padding: var(--space-7);            /* 14px - Cards (most common) */
+  --spacing-section-padding: var(--space-8);         /* 16px - Large sections */
+  
+  --spacing-icon-text-gap: var(--space-1);           /* 2px - Icon + text */
+  --spacing-form-field-gap: var(--space-2);         /* 4px - Form fields in group */
+  --spacing-related-items-gap: var(--space-3);      /* 6px - Related items, rows in forms */
+  --spacing-form-elements-gap: var(--space-4);      /* 8px - Form elements */
+  --spacing-card-section-gap: var(--space-5);       /* 10px - Sections in card */
+  --spacing-major-section-gap: var(--space-6);      /* 12px - Major sections */
+  --spacing-column-gap: var(--space-10);            /* 20px - Between columns */
+}

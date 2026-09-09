@@ -1,0 +1,61 @@
+/**
+ * Semantic Color Tokens (Alias Collection)
+ */
+
+:root {
+  /* Text Colors */
+  --text-primary-color: var(--color-black);
+  --text-secondary-color: var(--color-greyscale-800);
+  --text-generic-disabled-color: var(--color-greyscale-600);
+  --text-success-color: var(--color-frog-700);
+  --text-warning-color: var(--color-vitamin-600);
+  --text-error-color: var(--color-crimson-600);
+
+  /* Background Fill Colors */
+  --bg-fill-primary-color: var(--color-white);
+  --bg-fill-secondary-color: var(--color-greyscale-200);
+  --bg-line: var(--color-greyscale-400);
+
+  /* Card Background Colors */
+  --bg-card-primary-color: var(--color-white);
+  --bg-card-secondary-color: var(--color-greyscale-200);
+
+  /* Button Background Colors */
+  --bg-button-primary-color: var(--color-yellow-500);
+  --bg-button-secondary-color: var(--color-greyscale-250);
+  --bg-button-floated-color: var(--color-white);
+
+  /* Control Colors */
+  --controls-primary: var(--color-yellow-500);
+  --controls-primary-black: var(--color-greyscale-1200);
+
+  /* Border Colors */
+  --border-outlineControl-default-color: var(--color-greyscale-500);
+
+  /* Constants */
+  --constant-white: var(--color-white);
+  --constant-black: var(--color-black);
+
+  /* Link Colors */
+  --link-primary-color: var(--color-violet-700);
+
+  /* Plus / Cashback */
+  --gradient-plus-bg: linear-gradient(90deg, var(--color-plus-red) 0%, var(--color-plus-magenta) 35%, var(--color-plus-violet) 70%, var(--color-plus-blue) 100%);
+  --gradient-plus-text: linear-gradient(90deg, var(--color-plus-violet), var(--color-plus-blue));
+  --bg-fill-tertiary-color: var(--color-greyscale-300);
+  --avatar-placeholder-bg: var(--color-violet-600);
+
+  /* Informer (информационный блок) */
+  --bg-informer-color: var(--color-violet-200);
+
+  /* Status / overlay */
+  --overlay-light: rgba(0, 0, 0, 0.4);
+  --overlay-medium: rgba(0, 0, 0, 0.5);
+  --shadow-overlay: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-phone-frame: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-modal: 0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-dropdown: 0px 4px 24px rgba(0, 0, 0, 0.12);
+  --status-success-bg: #ebfbeb;
+  --status-error-bg: #fef2f2;
+}

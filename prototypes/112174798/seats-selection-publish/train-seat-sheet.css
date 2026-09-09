@@ -1,0 +1,105 @@
+.scheme-sheet {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: transparent;
+}
+
+.scheme-sheet::backdrop {
+  background: transparent;
+}
+
+.scheme-sheet__surround,
+.scheme-sheet__device {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 375px;
+  height: 812px;
+  border-radius: var(--border-radius-large-m);
+  transform: translateX(-50%);
+}
+
+.scheme-sheet__surround {
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 0 100vmax var(--color-greyscale-1300);
+}
+
+.scheme-sheet__device {
+  overflow: hidden;
+  background: transparent;
+}
+
+.scheme-sheet__scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: var(--overlay-medium);
+}
+
+.scheme-sheet__panel {
+  position: absolute;
+  inset: 0;
+  width: 375px;
+  height: 812px;
+  overflow: hidden;
+  border-radius: var(--border-radius-large-m);
+  background: var(--bg-fill-primary-color);
+  transform: translateY(100%);
+}
+
+.scheme-sheet__frame {
+  display: block;
+  width: 375px;
+  height: 812px;
+  border: 0;
+}
+
+/* At rest the original phone frame alone draws the rounded edge.
+   Stacked rounded clips would darken its antialiased boundary pixels. */
+.scheme-sheet--settled .scheme-sheet__device,
+.scheme-sheet--settled .scheme-sheet__panel {
+  border-radius: 0;
+}
+
+.scheme-sheet__fixed-status {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 375px;
+  height: 44px;
+  pointer-events: none;
+}
+
+@media (max-width: 430px) {
+  .scheme-sheet__surround,
+  .scheme-sheet__device {
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    transform: none;
+  }
+
+  .scheme-sheet__panel,
+  .scheme-sheet__frame {
+    width: 100%;
+    height: 100%;
+  }
+
+  .scheme-sheet__fixed-status {
+    width: 100%;
+  }
+}

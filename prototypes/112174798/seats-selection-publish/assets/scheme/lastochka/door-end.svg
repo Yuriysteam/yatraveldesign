@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="door">
+<rect id="white" x="1" y="10" width="22" height="4" fill="white"/>
+<path id="walls" fill-rule="evenodd" clip-rule="evenodd" d="M23 4C23.5523 4 24 4.44772 24 5L24 13C24 13.5523 23.5523 14 23 14C22.4477 14 22 13.5523 22 13V5C22 4.44772 22.4477 4 23 4ZM1 4C1.55228 4 2 4.44772 2 5V13C2 13.5523 1.55228 14 1 14C0.447716 14 0 13.5523 0 13V5C0 4.44772 0.447716 4 1 4Z" fill="#EDEDEE"/>
+</g>
+</svg>

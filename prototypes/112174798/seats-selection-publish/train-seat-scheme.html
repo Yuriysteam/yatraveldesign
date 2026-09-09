@@ -1,0 +1,185 @@
+<meta name="robots" content="noindex, nofollow, noarchive">\n<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="icon" href="data:,">
+  <title>Выбор места — Яндекс Путешествия</title>
+  <link rel="stylesheet" href="./base2/styles/fonts.css">
+  <link rel="stylesheet" href="./base2/tokens/tokens.css">
+  <link rel="stylesheet" href="./base2/styles/components.css">
+  <link rel="stylesheet" href="./train-seat-scheme.css">
+</head>
+<body>
+  <main class="phone-frame" id="train-scheme" data-figma-section="15943:338619">
+    <div class="scheme-surface">
+    <aside class="car-panel" aria-label="Информация о вагоне">
+      <div class="car-panel__header car-panel__header--a">
+        <div class="car-number car-number--large">
+          <span class="car-number__value">3</span>
+          <span class="car-number__caption">вагон</span>
+        </div>
+        <div class="car-details" aria-hidden="true">
+          <span>Купе</span>
+          <span>Класс Ф2</span>
+          <span>Перевозчик Тверск</span>
+        </div>
+      </div>
+
+      <div class="car-panel__header car-panel__header--b">
+        <div class="car-switcher">
+          <img class="car-switcher__arrow car-switcher__arrow--up" src="./assets/icons/scheme-arrow-down-12.svg" alt="">
+          <div class="car-number car-number--switcher">
+            <span class="car-number__value">3</span>
+            <span class="car-number__caption">вагон</span>
+          </div>
+          <img class="car-switcher__arrow" src="./assets/icons/scheme-arrow-down-12.svg" alt="">
+          <button class="car-switcher__control car-switcher__control--previous" type="button" aria-label="Предыдущий вагон"></button>
+          <button class="car-switcher__control car-switcher__control--next" type="button" aria-label="Следующий вагон"></button>
+        </div>
+        <div class="car-details" aria-hidden="true">
+          <span>Купе</span>
+          <span>Класс Ф2</span>
+          <span>Перевозчик Тверск</span>
+        </div>
+      </div>
+
+      <div class="car-facilities">
+        <div class="car-facilities__items">
+          <div class="car-facility" data-amenity="restaurant">
+            <img src="./assets/icons/scheme-restaurant-24.svg" alt="">
+            <span>Питание</span>
+          </div>
+          <div class="car-facility" data-amenity="air-conditioner">
+            <img src="./assets/icons/scheme-air-conditioner-24.svg" alt="">
+            <span>Кондиционер</span>
+          </div>
+          <div class="car-facility" data-amenity="toilet">
+            <img src="./assets/icons/scheme-bio-toilet-24.svg" alt="">
+            <span>Биотуалет</span>
+          </div>
+          <div class="car-facility" data-amenity="animal">
+            <img src="./assets/icons/animal.svg" alt="">
+            <span>С животными</span>
+          </div>
+          <div class="car-facility" data-amenity="blanket-pillow">
+            <img src="./assets/icons/scheme-blanket-pillow-24.svg" alt="">
+            <span>Постельное</span>
+          </div>
+          <div class="car-facility car-facility--gender" data-amenity="gender-cabin">
+            <img src="./assets/icons/scheme-gender-cabin-24.svg" alt="">
+            <span>Гендерное купе</span>
+          </div>
+        </div>
+        <div class="car-facilities__more" aria-hidden="true">
+          <img src="./assets/icons/scheme-kebab-12.svg" alt="">
+        </div>
+      </div>
+
+      <div class="car-panel__footer">
+        <p class="car-description">Вагон открытого типа(плацкартный). Кондиционер и биотуалет в&nbsp;вагоне. Вагон с&nbsp;услугой перевозки животных</p>
+
+        <div class="price-legend" aria-label="Цены мест">
+          <span class="price-legend__pill price-legend__pill--tier-1">5 560 ₽</span>
+          <span class="price-legend__pill price-legend__pill--tier-2">6 826 ₽</span>
+        </div>
+
+        <button class="panel-toggle" type="button" aria-label="Развернуть информацию о вагоне">
+          <span class="panel-toggle__button" aria-hidden="true">
+            <img class="panel-toggle__open" src="./assets/icons/scheme-arrow-right-16.svg" alt="">
+            <img class="panel-toggle__close" src="./assets/icons/scheme-arrow-left-16.svg" alt="">
+          </span>
+          <span class="panel-toggle__label">Свернуть</span>
+        </button>
+      </div>
+    </aside>
+
+    <section class="scheme-viewport" aria-label="Схема вагона">
+      <div class="scheme-stage">
+        <img class="scheme-stage__body" src="./assets/scheme/coupe-body.svg" alt="">
+
+        <span class="scheme-door scheme-door--left"><img src="./assets/scheme/door-left.svg" alt=""></span>
+        <span class="scheme-door scheme-door--right"><img src="./assets/scheme/door-right.svg" alt=""></span>
+        <img class="scheme-feature scheme-feature--mug" src="./assets/scheme/mug.svg" alt="">
+        <img class="scheme-feature scheme-feature--toilet-top" src="./assets/scheme/toilet-top.svg" alt="">
+        <span class="scheme-feature scheme-feature--attendant"><img src="./assets/scheme/attendant.svg" alt=""></span>
+        <img class="scheme-feature scheme-feature--recycle" src="./assets/scheme/recycle.svg" alt="">
+        <img class="scheme-feature scheme-feature--toilet-bottom" src="./assets/scheme/toilet-bottom.svg" alt="">
+
+        <div class="seat-stack" id="seat-stack" aria-label="Места"></div>
+        <div class="gender-stack" id="gender-stack" aria-hidden="true"></div>
+        <div class="scheme-placeholder" aria-hidden="true">
+          <p class="scheme-placeholder__description">Схема появится<br>позже</p>
+        </div>
+      </div>
+
+      <div class="car-direction" aria-label="Направление движения: вверх по схеме">
+        <img class="car-direction__arrow" src="./assets/icons/scheme-direction-up-20.svg" alt="">
+        <span class="car-direction__label" aria-hidden="true"><span>направление движения</span></span>
+      </div>
+
+      <img class="car-paginator" src="./assets/scheme/car-paginator.svg" alt="">
+      <div class="car-paginator-live" aria-hidden="true"></div>
+    </section>
+
+    <button class="close-button" type="button" aria-label="Вернуться к выбору вагона">
+      <img src="./assets/icons/scheme-close-24.svg" alt="">
+    </button>
+    </div>
+
+    <div class="checkout" aria-label="Выбранное место">
+      <div class="checkout__copy">
+        <div class="checkout__price">6 826 ₽</div>
+        <div class="checkout__caption">Выбрано 1 место</div>
+      </div>
+      <div class="checkout__button">Дальше</div>
+      <img class="checkout__home" src="./assets/scheme/home-indicator-inverse.svg" alt="">
+    </div>
+
+    <img class="home-indicator" src="./assets/icons/home-indicator.svg" alt="">
+
+    <div class="onboarding" aria-hidden="true">
+      <div class="onboarding__scrim"></div>
+      <div class="onboarding__hand"><img src="./assets/scheme/onboarding-touch.svg" alt=""></div>
+      <div class="onboarding__trail onboarding__trail--up">
+        <img class="onboarding__trail-art onboarding__trail-art--static" src="./assets/scheme/onboarding-trail.svg" alt="">
+      </div>
+      <div class="onboarding__trail onboarding__trail--down">
+        <img class="onboarding__trail-art onboarding__trail-art--static" src="./assets/scheme/onboarding-trail.svg" alt="">
+      </div>
+      <svg class="onboarding__motion-trail" width="14" height="120" viewBox="0 0 14 120" fill="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="onboarding-motion-gradient" x1="7" y1="0" x2="7" y2="120" gradientUnits="userSpaceOnUse">
+            <stop stop-color="white" stop-opacity="0" />
+            <stop offset="0.32" stop-color="white" stop-opacity="0.10" />
+            <stop offset="0.72" stop-color="white" stop-opacity="0.30" />
+            <stop offset="1" stop-color="white" stop-opacity="0.62" />
+          </linearGradient>
+        </defs>
+        <g class="onboarding__motion-direction">
+          <path class="onboarding__motion-shape" d="" fill="url(#onboarding-motion-gradient)" />
+        </g>
+      </svg>
+      <p class="onboarding__text">Свайпайте вверх и вниз,<br>чтобы переключаться<br>между вагонами</p>
+    </div>
+
+    <div class="status-bar" aria-hidden="true">
+      <div class="status-bar__time">9:41</div>
+      <img class="status-bar__right" src="./assets/scheme/status-right-side.svg" alt="">
+    </div>
+
+    <div class="scheme-announcer" aria-live="polite"></div>
+  </main>
+
+  <script src="./train-seat-data.js"></script>
+  <script src="./train-seat-carousel-geometry.js"></script>
+  <script src="./train-seat-panel-motion.js"></script>
+  <script src="./train-seat-amenities-motion.js"></script>
+  <script src="./train-seat-number-motion.js"></script>
+  <script src="./train-seat-sapsan-layout.js"></script>
+  <script src="./train-seat-lastochka-layout.js"></script>
+  <script src="./train-seat-scheme.js"></script>
+  <script src="./train-seat-onboarding-motion.js"></script>
+</body>
+</html>

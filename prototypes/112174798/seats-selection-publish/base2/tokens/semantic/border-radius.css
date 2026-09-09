@@ -1,0 +1,40 @@
+/**
+ * Border Radius Tokens
+ * 
+ * Border radius values organized by size scale
+ */
+
+:root {
+  /* Small Border Radius */
+  --border-radius-small-xs: 4px;
+  --border-radius-small-s: 6px;
+  --border-radius-small-m: 8px;
+  --border-radius-small-l: 10px;
+  --border-radius-small-xl: 12px;
+
+  /* Medium Border Radius */
+  --border-radius-medium-s: 16px;
+  --border-radius-medium-m: 20px;
+  --border-radius-medium-l: 24px;
+
+  /* Large Border Radius */
+  --border-radius-large-s: 28px;
+  --border-radius-large-m: 32px;
+  --border-radius-large-l: 36px;
+
+  /* Extra Large Border Radius */
+  --border-radius-extralarge-s: 40px;
+  --border-radius-extralarge-m: 48px;
+  --border-radius-extralarge-l: 56px;
+
+  /* Full Radius (Pills/Circles) */
+  --border-radius-full: 999px;
+
+  /* Legacy/Common Values */
+  --radius-6: 6px;
+  --radius-12: 12px;
+  --radius-14: 14px;
+  --radius-16: 16px;
+  --radius-20: 20px;
+  --radius-24: 24px;
+}
