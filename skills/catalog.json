@@ -94,6 +94,10 @@
     "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
     "updated_by": "Surzhenko_Dmitry",
     "updated_at": 1789036861,
+    "installation": {
+      "type": "script",
+      "root": "travel-figma-spec-kit"
+    },
     "contributors": [
       {
         "id": 1223378011,
@@ -108,20 +112,6 @@
     "description": "Доставка интерфейса для приложения Travel.",
     "updated_by": "yuriysteam",
     "updated_at": 1788877625,
-    "contributors": [
-      {
-        "id": 335833483,
-        "name": "Юрий Ширяев",
-        "avatar": "yuriy.jpeg"
-      }
-    ]
-  },
-  {
-    "id": "triz-product-design",
-    "name": "triz-product-design",
-    "description": "Решает продуктные противоречия с помощью ТРИЗ методов.",
-    "updated_by": "yuriysteam",
-    "updated_at": 1788872763,
     "contributors": [
       {
         "id": 335833483,

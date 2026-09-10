@@ -671,6 +671,9 @@ class Bot:
             "id": identifier, "name": display_name, "description": display_description,
             "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors,
         }
+        installer = bundle_installer(package)
+        if installer:
+            item["installation"] = {"type": "script", "root": installer}
         if dependencies:
             item["dependencies"] = dependencies
         files = {prefix + "skill.zip": make_zip(package), prefix + "metadata.json": json.dumps(

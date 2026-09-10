@@ -19,7 +19,7 @@
       .intro__title { display: flex; align-items: center; }
       h1 { margin: 0; font-family: "YS Display", "YS Text", sans-serif; font-size: 32px; font-weight: 500; line-height: 36px; letter-spacing: -.48px; }
       .intro__text { margin: 0; font-size: 16px; font-weight: 400; line-height: 20px; }
-      #skills { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; }
+      #skills, #base-skills { display: flex; flex-direction: column; gap: 8px; padding-top: 8px; }
       .skill-card { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; overflow: hidden; padding: 24px; border-radius: 32px; background: #1b1a1e; }
       .skill-card__content { display: flex; width: 100%; flex-direction: column; gap: 6px; }
       h2 { margin: 0; color: #ededee; font-family: "YS Display", "YS Text", sans-serif; font-size: 20px; font-weight: 500; line-height: 22px; }
@@ -37,6 +37,12 @@
       button:disabled { cursor: not-allowed; opacity: .55; }
       button:focus-visible { outline: 2px solid #ffed2f; outline-offset: 2px; }
       .empty { margin: 0; padding: 24px; border-radius: 32px; background: #1b1a1e; color: #9c9ba2; }
+      .skill-accordion { margin-top: 8px; overflow: hidden; border-radius: 32px; background: #1b1a1e; }
+      .skill-accordion summary { display: flex; align-items: center; justify-content: space-between; min-height: 88px; padding: 24px; cursor: pointer; list-style: none; font-family: "YS Display", "YS Text", sans-serif; font-size: 20px; font-weight: 500; line-height: 22px; }
+      .skill-accordion summary::-webkit-details-marker { display: none; }
+      .skill-accordion summary::after { width: 20px; height: 20px; content: '+'; color: #9c9ba2; font-family: "YS Text", sans-serif; font-size: 24px; font-weight: 400; line-height: 18px; text-align: center; transition: transform .15s ease; }
+      .skill-accordion[open] summary::after { transform: rotate(45deg); }
+      .skill-accordion__content { padding: 0 8px 8px; }
       @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
     </style>
   </head>
@@ -47,10 +53,17 @@
         <p class="intro__text">Скопируйте промпт, вставьте в Кодекс и он сам установит нужные скилы</p>
       </header>
       <section id="skills" aria-live="polite"><p class="empty">Загружаем скилы…</p></section>
+      <details id="base" class="skill-accordion" hidden>
+        <summary>Это база</summary>
+        <section id="base-skills" class="skill-accordion__content" aria-label="Базовые скилы"></section>
+      </details>
     </main>
     <script>
       const telegram = window.Telegram?.WebApp; telegram?.ready(); telegram?.expand();
       const target = document.querySelector('#skills');
+      const baseTarget = document.querySelector('#base-skills');
+      const baseSection = document.querySelector('#base');
+      const baseSkillIds = ['internal-research', 'calendar-cli', 'agenda'];
       const rawRoot = 'https://raw.githubusercontent.com/Yuriysteam/yatraveldesign/main';
       const monthNames = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
       const formatDate = timestamp => { const value = new Date(timestamp * 1000); return `${value.getDate()} ${monthNames[value.getMonth()]}`; };
@@ -66,7 +79,13 @@
         };
         visit(item); return result;
       };
-      const prompt = required => `Установи скил «${required[required.length - 1].name}» и все нужные для него скилы.\n\nУстанови по порядку:\n${required.map((item, index) => `${index + 1}. ${item.name}: ${packageUrl(item)}`).join('\n')}\n\nКаждый архив распакуй в отдельную папку скилов текущего инструмента. Не меняй остальные скилы. После установки проверь, что у каждого скила доступен SKILL.md.`;
+      const prompt = required => {
+        const selected = required[required.length - 1];
+        if (selected.installation?.type === 'script') {
+          return `Установи комплект «${selected.name}» из ${packageUrl(selected)}. Распакуй во временную папку, прочитай README.md и в корне выполни python3 install.py --check, затем python3 install.py. При конфликте не заменяй skills.`;
+        }
+        return `Установи скил «${selected.name}» и все нужные для него скилы.\n\nУстанови по порядку:\n${required.map((item, index) => `${index + 1}. ${item.name}: ${packageUrl(item)}`).join('\n')}\n\nКаждый архив распакуй в отдельную папку скилов текущего инструмента. Не меняй остальные скилы. После установки проверь, что у каждого скила доступен SKILL.md.`;
+      };
       async function copy(text, button) {
         let copied = false;
         try { await navigator.clipboard.writeText(text); copied = true; }
@@ -80,7 +99,7 @@
       fetch(`catalog.json?updated=${Date.now()}`, { cache: 'no-store' }).then(response => response.ok ? response.json() : Promise.reject()).then(items => {
         target.replaceChildren(); if (!items.length) { target.innerHTML = '<p class="empty">Скилы пока не опубликованы.</p>'; return; }
         const byId = new Map(items.map(item => [item.id, item]));
-        items.sort((a, b) => b.updated_at - a.updated_at).forEach(item => {
+        const renderCard = (item, container) => {
           const card = document.createElement('article'); card.className = 'skill-card';
           const content = document.createElement('div'); content.className = 'skill-card__content';
           const title = document.createElement('h2'); title.textContent = item.name;
@@ -92,7 +111,7 @@
           else if (required.length > 1) dependencyNote.textContent = `Также установятся: ${required.slice(0, -1).map(skill => skill.name).join(', ')}`;
           const updated = document.createElement('p'); updated.className = 'updated';
           const dot = document.createElement('span'); dot.className = 'updated__dot'; dot.setAttribute('aria-hidden', 'true'); dot.textContent = '·';
-          const date = document.createElement('span'); date.className = 'updated__date'; date.textContent = `Обновлено ${formatDate(item.updated_at)}`;
+          const date = document.createElement('span'); date.className = 'updated__date'; date.textContent = formatDate(item.updated_at);
           const label = document.createElement('span'); label.className = 'updated__label'; label.textContent = 'Обновляли';
           const contributors = Array.isArray(item.contributors) ? item.contributors.slice(0, 3) : [];
           const avatars = document.createElement('span'); avatars.className = 'contributors'; avatars.setAttribute('aria-label', `Обновляли: ${contributors.map(person => person.name).join(', ')}`);
@@ -104,8 +123,12 @@
           });
           updated.append(date, dot, label, avatars);
           const button = document.createElement('button'); button.type = 'button'; button.textContent = dependencyError ? 'Нельзя установить' : 'Скопировать промпт'; button.disabled = Boolean(dependencyError); button.addEventListener('click', () => copy(prompt(required), button));
-          content.append(title, description); if (dependencyNote.textContent) content.append(dependencyNote); card.append(content, updated, button); target.append(card);
-        });
+          content.append(title, description); if (dependencyNote.textContent) content.append(dependencyNote); card.append(content, updated, button); container.append(card);
+        };
+        items.filter(item => !baseSkillIds.includes(item.id)).sort((a, b) => b.updated_at - a.updated_at).forEach(item => renderCard(item, target));
+        const baseItems = baseSkillIds.map(id => byId.get(id)).filter(Boolean);
+        baseItems.forEach(item => renderCard(item, baseTarget));
+        baseSection.hidden = !baseItems.length;
       }).catch(() => { target.innerHTML = '<p class="empty">Не удалось загрузить каталог.</p>'; });
     </script>
   </body>
