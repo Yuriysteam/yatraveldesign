@@ -276,6 +276,21 @@ def make_zip(files):
     return result.getvalue()
 
 
+def bundle_installer(files):
+    """Return the root of a self-installing skill bundle, when present."""
+    paths = {PurePosixPath(path) for path in files}
+    for path in sorted(paths):
+        if path.name != "install.py":
+            continue
+        root = path.parent
+        if root / "README.md" not in paths:
+            continue
+        skills_root = root / "Skills"
+        if any(candidate.name.casefold() == "skill.md" and skills_root in candidate.parents for candidate in paths):
+            return str(root)
+    return None
+
+
 def detect_upload(filename, raw):
     """Classify an unsolicited upload without trusting its filename alone."""
     if filename.lower() == "skill.md":
@@ -290,7 +305,13 @@ def detect_upload(filename, raw):
     raise UserError("Не удалось определить архив: нужен SKILL.md или HTML-страница.")
 
 
-def installation_prompt(name, url, identifier=None, catalog_url=None, dependencies=None):
+def installation_prompt(name, url, identifier=None, catalog_url=None, dependencies=None, installer=None):
+    if installer:
+        prompt = (f"Установи комплект «{name}» из {url}: распакуй во временную папку и в корне выполни "
+                  "python3 install.py --check, затем python3 install.py. При конфликте не заменяй skills.")
+        if len(prompt) <= 256:
+            return prompt
+        return f"Установи комплект из {url}: следуй README.md, выполни install.py --check, затем install.py; не заменяй конфликты."
     if dependencies and identifier and catalog_url:
         prompt = (f"Установи скил «{name}» ({identifier}) и зависимости из {catalog_url}. "
                   f"Пакет skills/{identifier}/skill.zip распакуй целиком в папку skills, остальные скилы не меняй.")
@@ -429,6 +450,10 @@ class GitRepository:
             return fallback
         with open(target, encoding="utf-8") as file:
             return json.load(file)
+
+    def read_bytes(self, path):
+        with open(self.resolve(path), "rb") as file:
+            return file.read()
 
     def commit_files(self, files, removals, message):
         self.sync()
@@ -702,7 +727,12 @@ class Bot:
                     self.send(chat_id, str(error))
                     self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
                     return
-                prompt = installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1])
+                try:
+                    archive = self.github.read_bytes(f"skills/{identifier}/skill.zip")
+                    installer = bundle_installer(dict(safe_archive_members(archive, MAX_SKILL_UNPACKED_BYTES)))
+                except (OSError, UserError):
+                    installer = None
+                prompt = installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1], installer)
                 self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]})
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 

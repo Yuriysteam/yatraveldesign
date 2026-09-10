@@ -95,6 +95,22 @@ class BotTests(unittest.TestCase):
             *_, dependencies, _ = bot.skill_package("bundle.zip", raw)
         self.assertEqual(dependencies, ["external"])
 
+    def test_detects_root_installer_for_a_skill_bundle(self):
+        files = {
+            "kit/README.md": b"# Kit",
+            "kit/install.py": b"#!/usr/bin/env python3",
+            "kit/Skills/router/SKILL.md": b"---\nname: Router\n---",
+        }
+        self.assertEqual(bot.bundle_installer(files), "kit")
+
+    def test_does_not_treat_a_nested_skill_script_as_the_bundle_installer(self):
+        files = {
+            "kit/README.md": b"# Kit",
+            "kit/Skills/builder/install.py": b"#!/bin/sh",
+            "kit/Skills/builder/SKILL.md": b"---\nname: Builder\n---",
+        }
+        self.assertIsNone(bot.bundle_installer(files))
+
     def test_reads_single_skill_file(self):
         with patch("bot.enrich_metadata", return_value=("Solo", "Без описания")):
             identifier, name, _, display_name, _, dependencies, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
@@ -135,6 +151,12 @@ class BotTests(unittest.TestCase):
         prompt = bot.installation_prompt("Research", "https://example.test/skill.zip")
         self.assertIn("https://example.test/skill.zip", prompt)
         self.assertIn("всё его содержимое", prompt)
+        self.assertLessEqual(len(prompt), 256)
+
+    def test_self_installing_bundle_prompt_uses_preflight(self):
+        prompt = bot.installation_prompt("Figma kit", "https://example.test/skill.zip", installer="figma-kit")
+        self.assertIn("install.py --check", prompt)
+        self.assertIn("не заменяй skills", prompt)
         self.assertLessEqual(len(prompt), 256)
 
     def test_dependency_prompt_points_to_catalog_and_stays_copyable(self):
