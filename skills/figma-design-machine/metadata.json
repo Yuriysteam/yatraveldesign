@@ -1,9 +1,9 @@
 {
   "id": "figma-design-machine",
-  "name": "figma-design-machine",
-  "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
+  "name": "Figma Design Machine",
+  "description": "Создаёт макеты и интерфейсы в Figma на основе задач и дизайн-системы.",
   "updated_by": "Surzhenko_Dmitry",
-  "updated_at": 1788876544,
+  "updated_at": 1789034952,
   "contributors": [
     {
       "id": 1223378011,

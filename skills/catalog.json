@@ -28,6 +28,20 @@
     ]
   },
   {
+    "id": "figma-design-machine",
+    "name": "Figma Design Machine",
+    "description": "Создаёт макеты и интерфейсы в Figma на основе задач и дизайн-системы.",
+    "updated_by": "Surzhenko_Dmitry",
+    "updated_at": 1789034952,
+    "contributors": [
+      {
+        "id": 1223378011,
+        "name": "Дмитрий Сурженко",
+        "avatar": "dima.jpeg"
+      }
+    ]
+  },
+  {
     "id": "internal-research",
     "name": "Internal Research",
     "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
@@ -80,20 +94,6 @@
     "description": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
     "updated_by": "Surzhenko_Dmitry",
     "updated_at": 1788795846,
-    "contributors": [
-      {
-        "id": 1223378011,
-        "name": "Дмитрий Сурженко",
-        "avatar": "dima.jpeg"
-      }
-    ]
-  },
-  {
-    "id": "figma-design-machine",
-    "name": "figma-design-machine",
-    "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
-    "updated_by": "Surzhenko_Dmitry",
-    "updated_at": 1788876544,
     "contributors": [
       {
         "id": 1223378011,
