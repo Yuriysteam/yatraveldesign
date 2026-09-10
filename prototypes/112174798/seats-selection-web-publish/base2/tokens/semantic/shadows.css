@@ -1,0 +1,64 @@
+/**
+ * Shadow Tokens
+ * 
+ * Shadow effects organized by intensity (Soft, Medium, Strong)
+ * and theme support (both themes, light theme, dark theme)
+ */
+
+:root {
+  /* Shadow Colors */
+  --shadow-soft-both-themes: #0d0d0f14;
+  --shadow-soft-light-theme: #0d0d0f14;
+  --shadow-strong-both-themes: #0d0d0f29;
+  --shadow-medium-both-themes: #0d0d0f1f;
+
+  /* Soft Shadows - Both Themes */
+  --shadow-soft-s-both-themes: 0 4px 20px var(--shadow-soft-both-themes);
+  --shadow-soft-s-both-themes-bottom: 0 12px 20px var(--shadow-soft-both-themes);
+  --shadow-soft-m-both-themes: 0 6px 30px var(--shadow-soft-both-themes);
+  --shadow-soft-l-both-themes: 0 4px 40px var(--shadow-soft-both-themes);
+
+  /* Soft Shadows - Light Theme */
+  --shadow-soft-s-light-theme: 0 4px 20px var(--shadow-soft-light-theme);
+  --shadow-soft-m-light-theme: 0 6px 30px var(--shadow-soft-light-theme);
+  --shadow-soft-l-light-theme: 0 4px 40px var(--shadow-soft-light-theme);
+
+  /* Medium Shadows */
+  --shadow-medium-s-both-themes: 0 4px 32px var(--shadow-medium-both-themes);
+
+  /* Strong Shadows */
+  --shadow-strong-s-both-themes-bottom: 0 8px 4px var(--shadow-strong-both-themes);
+
+  /* Badge Shadow */
+  --shadow-soft-s-badge-shadow: 
+    0 0 4px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.06);
+
+  /* Floated Hover Shadow */
+  --shadow-floated-hover: 
+    0 0 2px rgba(13, 35, 67, 0.3),
+    0 6px 16px rgba(13, 35, 67, 0.2);
+
+  /* Control Shadow (Knob/Toggle) */
+  --shadow-control-color-light: var(--shadow-soft-both-themes);
+  --shadow-control-color-dark: var(--shadow-soft-both-themes);
+
+  /* Range slider handle */
+  --shadow-range-handle: 0 0 0 4px rgba(0, 0, 0, 0.1);
+  --shadow-range-handle-active: 0 0 0 6px rgba(0, 0, 0, 0.15);
+  /* Code block border */
+  --shadow-code-block: 0 1px 4px rgba(0, 0, 0, 0.2);
+  /* Toggle knob shadow */
+  --shadow-toggle-knob: 0px 2.12316px 5.66176px rgba(0, 0, 0, 0.07),
+    0px 2.12316px 0.875px rgba(0, 0, 0, 0.04);
+
+  /* Legacy aliases for backward compatibility */
+  --s-soft-both-themes-shadow: var(--shadow-soft-s-both-themes);
+}
+
+/* Dark Theme Shadow Overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark theme shadow adjustments would go here */
+  }
+}

@@ -1,0 +1,284 @@
+/**
+ * Typography Tokens
+ * 
+ * Font families, sizes, weights, line heights, and letter spacing
+ * organized by semantic type (Headline, Title, Body, Caption, etc.)
+ */
+
+:root {
+  /* Font Families */
+  --font-family-display: 'YS Display', 'Helvetica Neue', arial, helvetica, sans-serif;
+  --font-family-text: 'YS Text', 'Helvetica Neue', arial, helvetica, sans-serif;
+  --font-family-text-cond: 'YS Text Cond', 'Helvetica Neue', arial, helvetica, sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 800;
+
+  /* Headlines */
+  --font-headline-h0-size: 40px;
+  --font-headline-h0-lineHeight: 42px;
+  --font-headline-h0-letterSpacing: -1.5px;
+  --font-headline-h0-weight: var(--font-weight-medium);
+  --font-headline-h0-family: var(--font-family-display);
+
+  --font-headline-h0-long-size: 40px;
+  --font-headline-h0-long-lineHeight: 48px;
+  --font-headline-h0-long-letterSpacing: -1.5px;
+  --font-headline-h0-long-weight: var(--font-weight-medium);
+  --font-headline-h0-long-family: var(--font-family-display);
+
+  --font-headline-h1-size: 32px;
+  --font-headline-h1-lineHeight: 32px;
+  --font-headline-h1-letterSpacing: -1.5px;
+  --font-headline-h1-weight: var(--font-weight-medium);
+  --font-headline-h1-family: var(--font-family-display);
+
+  --font-headline-h1-long-size: 32px;
+  --font-headline-h1-long-lineHeight: 36px;
+  --font-headline-h1-long-letterSpacing: -1.5px;
+  --font-headline-h1-long-weight: var(--font-weight-medium);
+  --font-headline-h1-long-family: var(--font-family-display);
+
+  --font-headline-h2-size: 28px;
+  --font-headline-h2-lineHeight: 28px;
+  --font-headline-h2-letterSpacing: -1px;
+  --font-headline-h2-weight: var(--font-weight-medium);
+  --font-headline-h2-family: var(--font-family-display);
+
+  --font-headline-h2-long-size: 28px;
+  --font-headline-h2-long-lineHeight: 32px;
+  --font-headline-h2-long-letterSpacing: -1px;
+  --font-headline-h2-long-weight: var(--font-weight-medium);
+  --font-headline-h2-long-family: var(--font-family-display);
+
+  --font-headline-h3-size: 24px;
+  --font-headline-h3-lineHeight: 24px;
+  --font-headline-h3-letterSpacing: -1px;
+  --font-headline-h3-weight: var(--font-weight-medium);
+  --font-headline-h3-family: var(--font-family-display);
+
+  --font-headline-h3-long-size: 24px;
+  --font-headline-h3-long-lineHeight: 28px;
+  --font-headline-h3-long-letterSpacing: -1px;
+  --font-headline-h3-long-weight: var(--font-weight-medium);
+  --font-headline-h3-long-family: var(--font-family-display);
+
+  /* Titles */
+  --font-title-t1-size: 20px;
+  --font-title-t1-lineHeight: 24px;
+  --font-title-t1-letterSpacing: 0px;
+  --font-title-t1-weight: var(--font-weight-medium);
+  --font-title-t1-family: var(--font-family-display);
+
+  --font-title-t1-short-size: 20px;
+  --font-title-t1-short-lineHeight: 22px;
+  --font-title-t1-short-letterSpacing: 0px;
+  --font-title-t1-short-weight: var(--font-weight-medium);
+  --font-title-t1-short-family: var(--font-family-display);
+
+  --font-title-t2-size: 18px;
+  --font-title-t2-lineHeight: 22px;
+  --font-title-t2-letterSpacing: 0px;
+  --font-title-t2-weight: var(--font-weight-medium);
+  --font-title-t2-family: var(--font-family-text);
+
+  --font-title-t2-short-size: 18px;
+  --font-title-t2-short-lineHeight: 20px;
+  --font-title-t2-short-letterSpacing: 0px;
+  --font-title-t2-short-weight: var(--font-weight-medium);
+  --font-title-t2-short-family: var(--font-family-text);
+
+  --font-title-t3-size: 16px;
+  --font-title-t3-lineHeight: 20px;
+  --font-title-t3-letterSpacing: 0px;
+  --font-title-t3-weight: var(--font-weight-medium);
+  --font-title-t3-family: var(--font-family-text);
+
+  --font-title-t3-short-size: 16px;
+  --font-title-t3-short-lineHeight: 18px;
+  --font-title-t3-short-letterSpacing: 0px;
+  --font-title-t3-short-weight: var(--font-weight-medium);
+  --font-title-t3-short-family: var(--font-family-text);
+
+  /* Body */
+  --font-body-b1-size: 20px;
+  --font-body-b1-lineHeight: 24px;
+  --font-body-b1-letterSpacing: 0px;
+  --font-body-b1-weight: var(--font-weight-regular);
+  --font-body-b1-family: var(--font-family-text);
+
+  --font-body-b2-size: 18px;
+  --font-body-b2-lineHeight: 22px;
+  --font-body-b2-letterSpacing: 0px;
+  --font-body-b2-weight: var(--font-weight-regular);
+  --font-body-b2-family: var(--font-family-text);
+
+  --font-body-b3-size: 16px;
+  --font-body-b3-lineHeight: 20px;
+  --font-body-b3-letterSpacing: 0px;
+  --font-body-b3-weight: var(--font-weight-regular);
+  --font-body-b3-family: var(--font-family-text);
+
+  /* Captions */
+  --font-caption-c1-size: 14px;
+  --font-caption-c1-lineHeight: 18px;
+  --font-caption-c1-letterSpacing: 0px;
+  --font-caption-c1-weight: var(--font-weight-regular);
+  --font-caption-c1-family: var(--font-family-text);
+
+  --font-caption-c1-fat-size: 14px;
+  --font-caption-c1-fat-lineHeight: 18px;
+  --font-caption-c1-fat-letterSpacing: 0px;
+  --font-caption-c1-fat-weight: var(--font-weight-medium);
+  --font-caption-c1-fat-family: var(--font-family-text);
+
+  --font-caption-c2-size: 12px;
+  --font-caption-c2-lineHeight: 14px;
+  --font-caption-c2-letterSpacing: 0px;
+  --font-caption-c2-weight: var(--font-weight-regular);
+  --font-caption-c2-family: var(--font-family-text);
+
+  --font-caption-c2-fat-size: 12px;
+  --font-caption-c2-fat-lineHeight: 14px;
+  --font-caption-c2-fat-letterSpacing: 0px;
+  --font-caption-c2-fat-weight: var(--font-weight-medium);
+  --font-caption-c2-fat-family: var(--font-family-text);
+
+  --font-caption-c3-size: 11px;
+  --font-caption-c3-lineHeight: 12px;
+  --font-caption-c3-letterSpacing: 0px;
+  --font-caption-c3-weight: var(--font-weight-regular);
+  --font-caption-c3-family: var(--font-family-text);
+
+  --font-caption-c3-fat-size: 11px;
+  --font-caption-c3-fat-lineHeight: 12px;
+  --font-caption-c3-fat-letterSpacing: 0px;
+  --font-caption-c3-fat-weight: var(--font-weight-medium);
+  --font-caption-c3-fat-family: var(--font-family-text);
+
+  /* Promo */
+  --font-promo-p1-size: 72px;
+  --font-promo-p1-lineHeight: 56px;
+  --font-promo-p1-letterSpacing: -2px;
+  --font-promo-p1-weight: var(--font-weight-medium);
+  --font-promo-p1-family: var(--font-family-display);
+
+  --font-promo-p2-size: 48px;
+  --font-promo-p2-lineHeight: 48px;
+  --font-promo-p2-letterSpacing: -1.5px;
+  --font-promo-p2-weight: var(--font-weight-medium);
+  --font-promo-p2-family: var(--font-family-display);
+
+  --font-promo-promoCond-size: 16px;
+  --font-promo-promoCond-lineHeight: 16px;
+  --font-promo-promoCond-letterSpacing: 0px;
+  --font-promo-promoCond-weight: var(--font-weight-heavy);
+  --font-promo-promoCond-family: var(--font-family-text-cond);
+
+  /* Brand */
+  --font-brand-b1-size: 72px;
+  --font-brand-b1-lineHeight: 68px;
+  --font-brand-b1-letterSpacing: 0px;
+  --font-brand-b1-weight: var(--font-weight-heavy);
+  --font-brand-b1-family: var(--font-family-text-cond);
+
+  --font-brand-b2-size: 56px;
+  --font-brand-b2-lineHeight: 52px;
+  --font-brand-b2-letterSpacing: -1.5px;
+  --font-brand-b2-weight: var(--font-weight-heavy);
+  --font-brand-b2-family: var(--font-family-text-cond);
+
+  --font-brand-b3-size: 36px;
+  --font-brand-b3-lineHeight: 40px;
+  --font-brand-b3-letterSpacing: 0px;
+  --font-brand-b3-weight: 750;
+  --font-brand-b3-family: var(--font-family-text-cond);
+
+  --font-brand-b4-size: 28px;
+  --font-brand-b4-lineHeight: 28px;
+  --font-brand-b4-letterSpacing: 0px;
+  --font-brand-b4-weight: var(--font-weight-heavy);
+  --font-brand-b4-family: var(--font-family-text-cond);
+
+  --font-brand-b5-size: 18px;
+  --font-brand-b5-lineHeight: 18px;
+  --font-brand-b5-letterSpacing: 0px;
+  --font-brand-b5-weight: var(--font-weight-heavy);
+  --font-brand-b5-family: var(--font-family-text-cond);
+
+  --font-brand-b7-size: 14px;
+  --font-brand-b7-lineHeight: 14px;
+  --font-brand-b7-letterSpacing: 0px;
+  --font-brand-b7-weight: var(--font-weight-heavy);
+  --font-brand-b7-family: var(--font-family-text-cond);
+
+  --font-brand-b8-size: 12px;
+  --font-brand-b8-lineHeight: 12px;
+  --font-brand-b8-letterSpacing: 0px;
+  --font-brand-b8-weight: var(--font-weight-heavy);
+  --font-brand-b8-family: var(--font-family-text-cond);
+
+  /* Receipt */
+  --font-receipt-r1-size: 28px;
+  --font-receipt-r1-lineHeight: 32px;
+  --font-receipt-r1-letterSpacing: -1.5px;
+  --font-receipt-r1-weight: var(--font-weight-bold);
+  --font-receipt-r1-family: var(--font-family-text);
+
+  --font-receipt-r2-size: 22px;
+  --font-receipt-r2-lineHeight: 28px;
+  --font-receipt-r2-letterSpacing: 0px;
+  --font-receipt-r2-weight: var(--font-weight-medium);
+  --font-receipt-r2-family: var(--font-family-text);
+
+  --font-receipt-r3-size: 17px;
+  --font-receipt-r3-lineHeight: 20px;
+  --font-receipt-r3-letterSpacing: 0px;
+  --font-receipt-r3-weight: var(--font-weight-bold);
+  --font-receipt-r3-family: var(--font-family-text);
+
+  --font-receipt-r4-size: 12px;
+  --font-receipt-r4-lineHeight: 16px;
+  --font-receipt-r4-letterSpacing: 0px;
+  --font-receipt-r4-weight: var(--font-weight-medium);
+  --font-receipt-r4-family: var(--font-family-text);
+
+  --font-receipt-r5-size: 12px;
+  --font-receipt-r5-lineHeight: 16px;
+  --font-receipt-r5-letterSpacing: -1.5px;
+  --font-receipt-r5-weight: var(--font-weight-bold);
+  --font-receipt-r5-family: var(--font-family-text);
+
+  --font-receipt-r6-size: 12px;
+  --font-receipt-r6-lineHeight: 16px;
+  --font-receipt-r6-letterSpacing: -1.5px;
+  --font-receipt-r6-weight: var(--font-weight-medium);
+  --font-receipt-r6-family: var(--font-family-text);
+
+  --font-receipt-r7-size: 9px;
+  --font-receipt-r7-lineHeight: 100%;
+  --font-receipt-r7-letterSpacing: -1.5px;
+  --font-receipt-r7-weight: var(--font-weight-bold);
+  --font-receipt-r7-family: var(--font-family-text);
+
+  --font-receipt-r8-size: 9px;
+  --font-receipt-r8-lineHeight: 12px;
+  --font-receipt-r8-letterSpacing: -1.5px;
+  --font-receipt-r8-weight: var(--font-weight-medium);
+  --font-receipt-r8-family: var(--font-family-text);
+
+  --font-receipt-r9-size: 9px;
+  --font-receipt-r9-lineHeight: 12px;
+  --font-receipt-r9-letterSpacing: -1.5px;
+  --font-receipt-r9-weight: var(--font-weight-regular);
+  --font-receipt-r9-family: var(--font-family-text);
+
+  --font-receipt-r10-size: 8px;
+  --font-receipt-r10-lineHeight: 10px;
+  --font-receipt-r10-letterSpacing: -1.5px;
+  --font-receipt-r10-weight: var(--font-weight-regular);
+  --font-receipt-r10-family: var(--font-family-text);
+}

@@ -1,0 +1,114 @@
+/* Browser-only overrides. The design source remains unchanged. */
+:root {
+  --publication-safe-top: env(safe-area-inset-top, 0px);
+}
+
+html,
+body.publication-web {
+  width: 100%;
+  height: 100%;
+}
+
+body.publication-web {
+  margin: 0;
+  font-size: 0;
+  line-height: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.publication-web > .phone-frame,
+.publication-web > .scheme-sheet {
+  font-size: 16px;
+  line-height: normal;
+}
+
+/* A browser page is the viewport itself, not a rounded device mockup. */
+.publication-web > .phone-frame,
+.publication-list :is(.scheme-sheet__surround, .scheme-sheet__device, .scheme-sheet__panel) {
+  border-radius: 0 !important;
+}
+
+.publication-web .status-bar,
+.publication-web .home-indicator,
+.publication-web .checkout__home,
+.publication-web .scheme-sheet__fixed-status {
+  display: none !important;
+}
+
+.publication-start .train-picker {
+  height: 100%;
+}
+
+.publication-list .seat-list__top {
+  height: 60px;
+}
+
+.publication-scheme .car-panel {
+  top: var(--publication-safe-top);
+  height: calc(812px - var(--publication-safe-top));
+}
+
+.publication-scheme .close-button {
+  top: calc(8px + var(--publication-safe-top));
+}
+
+.publication-scheme .phone-frame.is-interactive.variant-a .car-panel {
+  height: calc(100% - var(--publication-safe-top));
+}
+
+.publication-scheme .phone-frame.is-interactive.is-selected .car-panel {
+  height: calc(100% - var(--publication-safe-top) - 101px);
+}
+
+@media (max-width: 480px) {
+  html,
+  body.publication-web {
+    height: 100%;
+    min-width: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body.publication-web {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  body.publication-start,
+  body.publication-scheme {
+    background: var(--bg-fill-primary-color, #fff);
+  }
+
+  body.publication-list {
+    background: var(--bg-fill-secondary-color, #f2f2f2);
+  }
+
+  .publication-web .phone-frame {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .publication-start .train-picker {
+    padding-top: calc(36px + var(--publication-safe-top));
+  }
+
+  .publication-list .seat-list__top {
+    height: calc(60px + var(--publication-safe-top));
+    padding-top: var(--publication-safe-top);
+  }
+
+  .publication-scheme .phone-frame.is-interactive .scheme-surface {
+    border-radius: 0;
+  }
+
+  .publication-scheme .phone-frame.is-interactive.is-selected .scheme-surface {
+    border-radius: 0 !important;
+  }
+
+  .publication-list :is(.scheme-sheet__surround, .scheme-sheet__device, .scheme-sheet__panel) {
+    border-radius: 0;
+  }
+}
