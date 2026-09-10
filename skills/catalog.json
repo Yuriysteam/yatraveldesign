@@ -28,20 +28,6 @@
     ]
   },
   {
-    "id": "figma-design-machine",
-    "name": "Figma Design Machine",
-    "description": "Создаёт макеты и интерфейсы в Figma на основе задач и дизайн-системы.",
-    "updated_by": "Surzhenko_Dmitry",
-    "updated_at": 1789034952,
-    "contributors": [
-      {
-        "id": 1223378011,
-        "name": "Дмитрий Сурженко",
-        "avatar": "dima.jpeg"
-      }
-    ]
-  },
-  {
     "id": "internal-research",
     "name": "Internal Research",
     "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
