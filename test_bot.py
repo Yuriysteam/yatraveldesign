@@ -68,17 +68,32 @@ class BotTests(unittest.TestCase):
         self.assertEqual(display_name, "Research helper")
         self.assertEqual(display_description, "Finds sources.")
         self.assertEqual(dependencies, [])
-        self.assertEqual(set(files), {"SKILL.md", "tools/run.sh"})
+        self.assertEqual(set(files), {"my-skill/SKILL.md", "my-skill/tools/run.sh"})
 
-    def test_accepts_skill_archive_with_more_than_one_skill_md(self):
+    def test_preserves_every_skill_in_a_multi_skill_archive(self):
         raw = archive({
-            "package/SKILL.md": "---\nname: Main\ndescription: Main skill\n---\n",
-            "package/examples/SKILL.md": "---\nname: Example\ndescription: Example skill\n---\n",
+            "travel-kit/research/SKILL.md": "---\nname: Research\ndescription: Research skill\n---\n",
+            "travel-kit/research/tools/search.sh": "#!/bin/sh",
+            "travel-kit/writing/SKILL.md": "---\nname: Writing\ndescription: Writing skill\n---\n",
         })
-        with patch("bot.enrich_metadata", return_value=("Main", "Основной скил.")):
-            _, name, _, _, _, _, files = bot.skill_package("package.zip", raw)
-        self.assertEqual(name, "Main")
-        self.assertIn("examples/SKILL.md", files)
+        with patch("bot.enrich_metadata", return_value=("Travel kit", "Набор скилов.")):
+            identifier, name, _, _, _, _, files = bot.skill_package("travel-kit.zip", raw)
+        self.assertEqual(identifier, "travel-kit")
+        self.assertEqual(name, "travel-kit")
+        self.assertEqual(set(files), {
+            "travel-kit/research/SKILL.md", "travel-kit/research/tools/search.sh", "travel-kit/writing/SKILL.md",
+        })
+        with zipfile.ZipFile(io.BytesIO(bot.make_zip(files))) as published:
+            self.assertEqual(set(published.namelist()), set(files))
+
+    def test_bundle_does_not_require_its_own_skills_from_the_catalogue(self):
+        raw = archive({
+            "bundle/SKILL.md": "---\nname: Main\nmetadata:\n  dependencies: [helper, external]\n---\n",
+            "bundle/helper/SKILL.md": "---\nname: Helper\n---\n",
+        })
+        with patch("bot.enrich_metadata", return_value=("Bundle", "Набор скилов.")):
+            *_, dependencies, _ = bot.skill_package("bundle.zip", raw)
+        self.assertEqual(dependencies, ["external"])
 
     def test_reads_single_skill_file(self):
         with patch("bot.enrich_metadata", return_value=("Solo", "Без описания")):
@@ -119,6 +134,7 @@ class BotTests(unittest.TestCase):
     def test_installation_prompt_contains_download_link(self):
         prompt = bot.installation_prompt("Research", "https://example.test/skill.zip")
         self.assertIn("https://example.test/skill.zip", prompt)
+        self.assertIn("всё его содержимое", prompt)
         self.assertLessEqual(len(prompt), 256)
 
     def test_dependency_prompt_points_to_catalog_and_stays_copyable(self):

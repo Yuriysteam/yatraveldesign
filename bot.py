@@ -200,7 +200,7 @@ def add_noindex(name, content):
 
 
 def skill_package(filename, raw):
-    """Return canonical skill metadata and files from a SKILL.md or ZIP upload."""
+    """Return package metadata and its complete, validated skill archive."""
     if filename.lower().endswith(".zip"):
         members = safe_archive_members(raw, MAX_SKILL_UNPACKED_BYTES)
     elif filename.lower() == "skill.md":
@@ -211,15 +211,9 @@ def skill_package(filename, raw):
     if not candidates:
         raise UserError("В скиле должен быть хотя бы один файл SKILL.md.")
     entry, skill_md = min(candidates, key=lambda item: (len(PurePosixPath(item[0]).parts), item[0].casefold()))
-    root = PurePosixPath(entry).parent
-    files = {}
-    for name, content in members:
-        path = PurePosixPath(name)
-        try:
-            relative = path.relative_to(root)
-        except ValueError:
-            continue
-        files[str(relative)] = content
+    # A ZIP can be a bundle of related skills.  Keep its original directory
+    # structure so unpacking the published file installs every skill in it.
+    files = {name: content for name, content in members}
     try:
         source = skill_md.decode("utf-8")
     except UnicodeDecodeError as exc:
@@ -232,6 +226,12 @@ def skill_package(filename, raw):
     description_match = re.search(r"^description:\s*[\"']?([^\"'\n]+)", fields, re.M)
     name = name_match.group(1).strip()
     description = description_match.group(1).strip() if description_match else "Без описания"
+    bundle = len(candidates) > 1
+    if bundle:
+        package_name = filename.rsplit(".", 1)[0].strip()
+        if not package_name:
+            raise UserError("Не удалось определить название пакета из имени ZIP.")
+        name = package_name
     identifier = slugify(name) or "skill-" + hashlib.sha256(name.encode()).hexdigest()[:10]
     identifier = SKILL_ID_ALIASES.get(identifier, identifier)
     dependency_match = re.search(r"^[ \t]+dependencies:\s*\[([^\]]*)\]\s*$", fields, re.M)
@@ -248,6 +248,22 @@ def skill_package(filename, raw):
                 raise UserError("Скил не может зависеть сам от себя.")
             if dependency not in dependencies:
                 dependencies.append(dependency)
+    if bundle:
+        local_ids = set()
+        for _, manifest in candidates:
+            try:
+                manifest_source = manifest.decode("utf-8")
+            except UnicodeDecodeError as exc:
+                raise UserError("SKILL.md должен быть в UTF-8.") from exc
+            manifest_frontmatter = re.match(r"^---\s*\n(.*?)\n---", manifest_source, re.S)
+            manifest_fields = manifest_frontmatter.group(1) if manifest_frontmatter else manifest_source
+            manifest_name = re.search(r"^name:\s*[\"']?([^\"'\n]+)", manifest_fields, re.M)
+            if manifest_name and manifest_name.group(1).strip():
+                local_id = slugify(manifest_name.group(1).strip())
+                local_ids.add(SKILL_ID_ALIASES.get(local_id, local_id))
+        # Dependencies already present in this archive must not be resolved
+        # through the public catalogue as separate packages.
+        dependencies = [dependency for dependency in dependencies if dependency not in local_ids]
     display_name, display_description = enrich_metadata("skill", name, description)
     return identifier, name, description, display_name, display_description, dependencies, files
 
@@ -277,13 +293,13 @@ def detect_upload(filename, raw):
 def installation_prompt(name, url, identifier=None, catalog_url=None, dependencies=None):
     if dependencies and identifier and catalog_url:
         prompt = (f"Установи скил «{name}» ({identifier}) и зависимости из {catalog_url}. "
-                  "Пакеты: skills/ID/skill.zip. Распакуй каждый в папку скилов, остальные скилы не меняй.")
+                  f"Пакет skills/{identifier}/skill.zip распакуй целиком в папку skills, остальные скилы не меняй.")
         if len(prompt) <= 256:
             return prompt
-        return f"Установи скил {identifier} со всеми зависимостями из {catalog_url}. Пакеты: skills/ID/skill.zip."
-    prompt = f"Установи скил «{name}»: скачай {url}, распакуй в папку скилов текущего инструмента и не меняй остальные скилы."
+        return f"Установи пакет {identifier} и зависимости из {catalog_url}. Распакуй его ZIP целиком в папку skills."
+    prompt = f"Установи пакет «{name}»: скачай {url} и распакуй всё его содержимое в папку skills текущего инструмента, не меняя остальные скилы."
     if len(prompt) > 256:
-        prompt = f"Установи скил: {url}. Распакуй в текущую папку скилов, остальные скилы не меняй."
+        prompt = f"Установи пакет: {url}. Распакуй всё содержимое в текущую папку skills, остальные скилы не меняй."
     return prompt
 
 
