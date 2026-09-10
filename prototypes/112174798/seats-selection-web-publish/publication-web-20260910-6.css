@@ -58,7 +58,7 @@ body.publication-web {
 }
 
 .publication-scheme .phone-frame.is-interactive.is-selected .car-panel {
-  height: calc(100% - var(--publication-safe-top) - 101px);
+  height: calc(100% - var(--publication-safe-top));
 }
 
 .publication-scheme .phone-frame.is-interactive .scheme-surface {
@@ -67,6 +67,13 @@ body.publication-web {
 
 .publication-scheme .phone-frame.is-interactive.is-selected .scheme-surface {
   border-radius: 0 0 var(--border-radius-large-m, 32px) var(--border-radius-large-m, 32px) !important;
+}
+
+.publication-scheme .phone-frame.has-selection-motion .scheme-surface {
+  transition:
+    height var(--selection-time) var(--selection-easing),
+    border-bottom-left-radius var(--selection-time) var(--selection-easing),
+    border-bottom-right-radius var(--selection-time) var(--selection-easing);
 }
 
 @media (max-width: 480px) {

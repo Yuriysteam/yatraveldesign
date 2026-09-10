@@ -23,10 +23,10 @@
   },
   {
     "title": "Seats Selection Web Publish",
-    "description": "Выбор мест на борту самолета в режиме реального времени.",
+    "description": "Выбор мест на борту самолета для бронирования.",
     "author": "Любовь",
     "avatar": "assets/avatars/liyba.jpeg",
-    "updated_at": 1789035014,
+    "updated_at": 1789035779,
     "url": "prototypes/112174798/seats-selection-web-publish/"
   }
 ]
