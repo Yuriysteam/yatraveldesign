@@ -4,7 +4,13 @@ on:
   push:
     branches: [main]
     paths:
-      - 'public/**'
+      - 'assets/**'
+      - 'prototypes/**'
+      - 'skills/**'
+      - 'index.html'
+      - 'prototypes.json'
+      - 'robots.txt'
+      - '.nojekyll'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
 
@@ -26,6 +32,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - name: Build static site
+        run: |
+          mkdir public
+          cp -R assets prototypes skills public/
+          cp index.html prototypes.json robots.txt .nojekyll public/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
