@@ -71,6 +71,27 @@ def is_technical_label(value):
     )
 
 
+def frontmatter_value(fields, key):
+    """Read a scalar or folded YAML-style frontmatter value without a YAML dependency."""
+    match = re.search(rf"^{re.escape(key)}:\s*(.*)$", fields, re.M)
+    if not match:
+        return ""
+    value = match.group(1).strip()
+    if value not in {">", ">-", ">+", "|", "|-", "|+"}:
+        return value.strip("\"'").strip()
+
+    lines = fields[match.end():].splitlines()
+    content = []
+    for line in lines:
+        if not line.strip():
+            content.append("")
+        elif line[0].isspace():
+            content.append(line.strip())
+        else:
+            break
+    return " ".join(part for part in content if part).strip()
+
+
 def enrich_metadata(kind, name, description=""):
     """Ask local Ollama for display text; keep the upload usable on AI failure."""
     base_url = os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
@@ -223,9 +244,8 @@ def skill_package(filename, raw):
     name_match = re.search(r"^name:\s*[\"']?([^\"'\n]+)", fields, re.M)
     if not name_match or not name_match.group(1).strip():
         raise UserError("Добавьте непустое поле name в SKILL.md.")
-    description_match = re.search(r"^description:\s*[\"']?([^\"'\n]+)", fields, re.M)
     name = name_match.group(1).strip()
-    description = description_match.group(1).strip() if description_match else "Без описания"
+    description = frontmatter_value(fields, "description") or "Без описания"
     bundle = len(candidates) > 1
     if bundle:
         package_name = filename.rsplit(".", 1)[0].strip()

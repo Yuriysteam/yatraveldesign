@@ -70,6 +70,20 @@ class BotTests(unittest.TestCase):
         self.assertEqual(dependencies, [])
         self.assertEqual(set(files), {"my-skill/SKILL.md", "my-skill/tools/run.sh"})
 
+    def test_reads_folded_skill_description(self):
+        source = """---
+name: yandex-travel-ux-writing
+description: >-
+  UX-редактор для дизайнеров Яндекс Путешествий.
+  Опирается на ToV и редполитику команды.
+---
+""".encode()
+        with patch("bot.enrich_metadata", side_effect=lambda _, name, description="": (name, description)):
+            _, _, description, _, display_description, _, _ = bot.skill_package("SKILL.md", source)
+        expected = "UX-редактор для дизайнеров Яндекс Путешествий. Опирается на ToV и редполитику команды."
+        self.assertEqual(description, expected)
+        self.assertEqual(display_description, expected)
+
     def test_preserves_every_skill_in_a_multi_skill_archive(self):
         raw = archive({
             "travel-kit/research/SKILL.md": "---\nname: Research\ndescription: Research skill\n---\n",
