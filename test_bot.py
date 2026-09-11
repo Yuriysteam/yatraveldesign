@@ -30,6 +30,13 @@ class BotTests(unittest.TestCase):
         members = bot.safe_zip_members(archive({"index.html": "<h1>OK</h1>", "assets/app.css": "body{}"}))
         self.assertEqual([name for name, _ in members], ["index.html", "assets/app.css"])
 
+    def test_unwraps_a_single_archive_root_for_the_catalog_url(self):
+        members = bot.safe_zip_members(archive({
+            "adaptive-filters/index.html": '<link href="assets/app.css">',
+            "adaptive-filters/assets/app.css": "body{}",
+        }))
+        self.assertEqual([name for name, _ in members], ["index.html", "assets/app.css"])
+
     def test_rejects_zip_slip(self):
         with self.assertRaisesRegex(bot.UserError, "небезопасный"):
             bot.safe_zip_members(archive({"../index.html": "x"}))

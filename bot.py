@@ -127,11 +127,29 @@ def enrich_metadata(kind, name, description=""):
 
 
 def safe_zip_members(raw):
-    members = safe_archive_members(raw, MAX_UNPACKED_BYTES)
+    members = strip_archive_root(safe_archive_members(raw, MAX_UNPACKED_BYTES))
     if not any(name.lower().endswith((".html", ".htm")) for name, _ in members):
         raise UserError("В ZIP не найдена HTML-страница.")
     validate_prototype_references(members)
     return [(name, add_noindex(name, content)) for name, content in members]
+
+
+def strip_archive_root(members):
+    """Unwrap a single enclosing directory when it contains the entry page.
+
+    GUI archivers commonly put every file into a directory named after the ZIP.
+    Published prototypes must keep index.html at the catalog URL root.
+    """
+    if not members:
+        return members
+    paths = [PurePosixPath(name) for name, _ in members]
+    roots = {path.parts[0] for path in paths if len(path.parts) > 1}
+    if len(roots) != 1 or any(len(path.parts) == 1 for path in paths):
+        return members
+    root = roots.pop()
+    if not any(str(path).casefold() in {f"{root}/index.html".casefold(), f"{root}/index.htm".casefold()} for path in paths):
+        return members
+    return [(str(PurePosixPath(*PurePosixPath(name).parts[1:])), content) for name, content in members]
 
 
 def safe_archive_members(raw, max_bytes):
