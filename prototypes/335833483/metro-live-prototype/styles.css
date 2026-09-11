@@ -1,0 +1,45 @@
+html, body { width: 100%; height: 100%; margin: 0; background: #101113; }
+#metro-map { display: block; width: 100%; height: 100%; }
+.river { display: none; }
+.speed-control { position: fixed; z-index: 2; top: 16px; left: 50%; display: flex; align-items: center; gap: 10px; min-width: 214px; padding: 9px 11px; transform: translateX(-50%); border: 1px solid rgba(255,255,255,.15); border-radius: 10px; background: rgba(16,17,19,.9); color: #fff; font: 12px/1.2 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; box-shadow: 0 4px 16px rgba(0,0,0,.22); }
+.speed-control input { width: 100px; margin: 0; accent-color: #fff; }
+.speed-control output { min-width: 28px; color: rgba(255,255,255,.72); font-variant-numeric: tabular-nums; text-align: right; }
+.circle-line { fill: none; stroke: #292e33; stroke-width: 2; }
+.metro-line { fill: none; stroke: #292e33; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.d1-bg { stroke: #101113; stroke-width: 4; }
+.d1-top { stroke: #292e33; }
+.d2-bg { stroke: #101113; stroke-width: 4; }
+.d2-top { stroke: #292e33; }
+.d3-bg { stroke: #101113; stroke-width: 4; }
+.d3-top { stroke: #292e33; }
+.d4-bg { stroke: #101113; stroke-width: 4; }
+.d4-top { stroke: #292e33; }
+.mcc-bg { fill: none; stroke: #332b2d; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.mcc-cutout { fill: none; stroke: #101113; stroke-width: 1; stroke-linecap: round; stroke-linejoin: round; }
+.train-blob { stroke: none; filter: drop-shadow(0 0.9px 0.8px rgba(0, 0, 0, .5)); }
+.dots-variant #line-1 { stroke: #e40521; }
+.dots-variant #line-2 { stroke: #4aaf4e; }
+.dots-variant #line-3 { stroke: #0072bb; }
+.dots-variant #line-4-a, .dots-variant #line-4-b { stroke: #35bdef; }
+.dots-variant #line-5 { stroke: #915133; }
+.dots-variant #line-6 { stroke: #ef7d00; }
+.dots-variant #line-7 { stroke: #933e90; }
+.dots-variant #line-8 { stroke: #ffdd04; }
+.dots-variant #line-8a { stroke: #ffdd04; }
+.dots-variant #line-9 { stroke: #585f67; }
+.dots-variant #line-10 { stroke: #bdd12d; }
+.dots-variant #line-11 { stroke: #88cdcf; }
+.dots-variant #line-12 { stroke: #adacac; }
+.dots-variant #line-14 { stroke: #ef323e; }
+.dots-variant #line-15 { stroke: #f089b7; }
+.dots-variant #line-16 { stroke: #028368; }
+.dots-variant #line-17 { stroke: #028368; }
+.dots-variant .d1-bg { stroke: #f7a70b; stroke-width: 4; }
+.dots-variant .d2-bg { stroke: #e94282; stroke-width: 4; }
+.dots-variant .d3-bg { stroke: #ea5b0d; stroke-width: 4; }
+.dots-variant .d4-bg { stroke: #46b384; stroke-width: 4; }
+.dots-variant .d1-top, .dots-variant .d2-top, .dots-variant .d3-top, .dots-variant .d4-top { stroke: #101113; }
+.dots-variant .mcc-bg, .dots-variant .mcc-cutout,
+.dots-variant .d1-bg, .dots-variant .d2-bg, .dots-variant .d3-bg, .dots-variant .d4-bg,
+.dots-variant .d1-top, .dots-variant .d2-top, .dots-variant .d3-top, .dots-variant .d4-top { opacity: .8; }
+.dots-variant .train[data-line^="line-d"] { opacity: .8; }
