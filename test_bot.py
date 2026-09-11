@@ -66,11 +66,12 @@ class BotTests(unittest.TestCase):
             bot.safe_zip_members(raw.getvalue())
 
     def test_reads_nested_skill_package(self):
-        raw = archive({"my-skill/SKILL.md": "---\nname: Research helper\ndescription: Finds sources\n---\n# Research", "my-skill/tools/run.sh": "#!/bin/sh"})
+        raw = archive({"my-skill/SKILL.md": "---\nname: Research helper\nversion: v0.1\ndescription: Finds sources\n---\n# Research", "my-skill/tools/run.sh": "#!/bin/sh"})
         with patch("bot.enrich_metadata", return_value=("Research helper", "Finds sources.")):
-            identifier, name, description, display_name, display_description, dependencies, files = bot.skill_package("my-skill.zip", raw)
+            identifier, name, version, description, display_name, display_description, dependencies, files = bot.skill_package("my-skill.zip", raw)
         self.assertEqual(identifier, "research-helper")
         self.assertEqual(name, "Research helper")
+        self.assertEqual(version, "v0.1")
         self.assertEqual(description, "Finds sources")
         self.assertEqual(display_name, "Research helper")
         self.assertEqual(display_description, "Finds sources.")
@@ -80,25 +81,27 @@ class BotTests(unittest.TestCase):
     def test_reads_folded_skill_description(self):
         source = """---
 name: yandex-travel-ux-writing
+version: v0.1
 description: >-
   UX-редактор для дизайнеров Яндекс Путешествий.
   Опирается на ToV и редполитику команды.
 ---
 """.encode()
         with patch("bot.enrich_metadata", side_effect=lambda _, name, description="": (name, description)):
-            _, _, description, _, display_description, _, _ = bot.skill_package("SKILL.md", source)
+            _, _, version, description, _, display_description, _, _ = bot.skill_package("SKILL.md", source)
+        self.assertEqual(version, "v0.1")
         expected = "UX-редактор для дизайнеров Яндекс Путешествий. Опирается на ToV и редполитику команды."
         self.assertEqual(description, expected)
         self.assertEqual(display_description, expected)
 
     def test_preserves_every_skill_in_a_multi_skill_archive(self):
         raw = archive({
-            "travel-kit/research/SKILL.md": "---\nname: Research\ndescription: Research skill\n---\n",
+            "travel-kit/research/SKILL.md": "---\nname: Research\nversion: v0.1\ndescription: Research skill\n---\n",
             "travel-kit/research/tools/search.sh": "#!/bin/sh",
-            "travel-kit/writing/SKILL.md": "---\nname: Writing\ndescription: Writing skill\n---\n",
+            "travel-kit/writing/SKILL.md": "---\nname: Writing\nversion: v0.1\ndescription: Writing skill\n---\n",
         })
         with patch("bot.enrich_metadata", return_value=("Travel kit", "Набор скилов.")):
-            identifier, name, _, _, _, _, files = bot.skill_package("travel-kit.zip", raw)
+            identifier, name, _, _, _, _, _, files = bot.skill_package("travel-kit.zip", raw)
         self.assertEqual(identifier, "travel-kit")
         self.assertEqual(name, "travel-kit")
         self.assertEqual(set(files), {
@@ -109,8 +112,8 @@ description: >-
 
     def test_bundle_does_not_require_its_own_skills_from_the_catalogue(self):
         raw = archive({
-            "bundle/SKILL.md": "---\nname: Main\nmetadata:\n  dependencies: [helper, external]\n---\n",
-            "bundle/helper/SKILL.md": "---\nname: Helper\n---\n",
+            "bundle/SKILL.md": "---\nname: Main\nversion: v0.1\nmetadata:\n  dependencies: [helper, external]\n---\n",
+            "bundle/helper/SKILL.md": "---\nname: Helper\nversion: v0.1\n---\n",
         })
         with patch("bot.enrich_metadata", return_value=("Bundle", "Набор скилов.")):
             *_, dependencies, _ = bot.skill_package("bundle.zip", raw)
@@ -120,7 +123,7 @@ description: >-
         files = {
             "kit/README.md": b"# Kit",
             "kit/install.py": b"#!/usr/bin/env python3",
-            "kit/Skills/router/SKILL.md": b"---\nname: Router\n---",
+            "kit/Skills/router/SKILL.md": b"---\nname: Router\nversion: v0.1\n---",
         }
         self.assertEqual(bot.bundle_installer(files), "kit")
 
@@ -128,13 +131,13 @@ description: >-
         files = {
             "kit/README.md": b"# Kit",
             "kit/Skills/builder/install.py": b"#!/bin/sh",
-            "kit/Skills/builder/SKILL.md": b"---\nname: Builder\n---",
+            "kit/Skills/builder/SKILL.md": b"---\nname: Builder\nversion: v0.1\n---",
         }
         self.assertIsNone(bot.bundle_installer(files))
 
     def test_reads_single_skill_file(self):
         with patch("bot.enrich_metadata", return_value=("Solo", "Без описания")):
-            identifier, name, _, display_name, _, dependencies, files = bot.skill_package("SKILL.md", b"---\nname: Solo\n---\n# Solo")
+            identifier, name, _, _, display_name, _, dependencies, files = bot.skill_package("SKILL.md", b"---\nname: Solo\nversion: v0.1\n---\n# Solo")
         self.assertEqual(identifier, "solo")
         self.assertEqual(name, "Solo")
         self.assertEqual(dependencies, [])
@@ -148,21 +151,25 @@ description: >-
 
     def test_imported_skill_names_keep_existing_catalog_ids(self):
         with patch("bot.enrich_metadata", side_effect=lambda _, name, description="": (name, description)):
-            calendar = bot.skill_package("SKILL.md", b'---\nname: yandex-calendar\ndescription: Calendar\n---\n')
-            memory = bot.skill_package("SKILL.md", b'---\nname: local-memory\ndescription: Memory\n---\n')
+            calendar = bot.skill_package("SKILL.md", b'---\nname: yandex-calendar\nversion: v0.1\ndescription: Calendar\n---\n')
+            memory = bot.skill_package("SKILL.md", b'---\nname: local-memory\nversion: v0.1\ndescription: Memory\n---\n')
         self.assertEqual(calendar[0], "calendar-cli")
         self.assertEqual(memory[0], "shared-durable-memory")
 
     def test_reads_and_normalizes_skill_dependencies(self):
-        source = b'---\nname: agenda\ndescription: Daily\nmetadata:\n  dependencies: [startrek-client, yandex-calendar, mail-corp, wiki-client]\n---\n'
+        source = b'---\nname: agenda\nversion: v0.1\ndescription: Daily\nmetadata:\n  dependencies: [startrek-client, yandex-calendar, mail-corp, wiki-client]\n---\n'
         with patch("bot.enrich_metadata", return_value=("Agenda", "Daily")):
-            _, _, _, _, _, dependencies, _ = bot.skill_package("SKILL.md", source)
+            _, _, _, _, _, _, dependencies, _ = bot.skill_package("SKILL.md", source)
         self.assertEqual(dependencies, ["startrek-client", "calendar-cli", "mail-corp", "wiki-client"])
 
     def test_rejects_malformed_skill_dependency_id(self):
-        source = b'---\nname: agenda\nmetadata:\n  dependencies: [../other-skill]\n---\n'
+        source = b'---\nname: agenda\nversion: v0.1\nmetadata:\n  dependencies: [../other-skill]\n---\n'
         with self.assertRaisesRegex(bot.UserError, "некорректный идентификатор"):
             bot.skill_package("SKILL.md", source)
+
+    def test_requires_a_semantic_version_in_skill_metadata(self):
+        with self.assertRaisesRegex(bot.UserError, "version: v0.1"):
+            bot.skill_package("SKILL.md", b"---\nname: Unversioned\n---\n")
 
     def test_rejects_unknown_direct_upload(self):
         with self.assertRaisesRegex(bot.UserError, "Не удалось определить"):

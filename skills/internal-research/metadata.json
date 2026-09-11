@@ -1,0 +1,15 @@
+{
+  "id": "internal-research",
+  "name": "Internal Research",
+  "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
+  "updated_by": "team",
+  "updated_at": 1789140390,
+  "contributors": [
+    {
+      "id": 335833483,
+      "name": "Юрий Ширяев",
+      "avatar": "yuriy.jpeg"
+    }
+  ],
+  "version": "v0.1"
+}

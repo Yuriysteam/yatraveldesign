@@ -3,7 +3,7 @@
   "name": "Travel Feature Check",
   "description": "Проверяет полноту спеки и выявляет скрытые сложности интерфейса перед разработкой.",
   "updated_by": "yuriysteam",
-  "updated_at": 1788872401,
+  "updated_at": 1789140390,
   "contributors": [
     {
       "id": 335833483,
@@ -15,5 +15,6 @@
       "name": "yuriysteam",
       "avatar": null
     }
-  ]
+  ],
+  "version": "v0.1"
 }

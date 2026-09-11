@@ -3,12 +3,13 @@
   "name": "yandex-travel-ux-writing",
   "description": "UX-редактор для дизайнеров Яндекс Путешествий. Он опирается на ToV, редполитику команды и методологию ux-writing.",
   "updated_by": "o_Gogi",
-  "updated_at": 1789119914,
+  "updated_at": 1789140390,
   "contributors": [
     {
       "id": 65329179,
       "name": "Игорь Маймусов",
       "avatar": "igor.jpeg"
     }
-  ]
+  ],
+  "version": "v0.1"
 }

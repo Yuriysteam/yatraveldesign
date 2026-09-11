@@ -3,7 +3,7 @@
   "name": "travel-figma-spec-kit-2026-09-11",
   "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
   "updated_by": "Surzhenko_Dmitry",
-  "updated_at": 1789133529,
+  "updated_at": 1789140390,
   "contributors": [
     {
       "id": 1223378011,
@@ -14,5 +14,6 @@
   "installation": {
     "type": "script",
     "root": "travel-figma-spec-kit"
-  }
+  },
+  "version": "v0.1"
 }

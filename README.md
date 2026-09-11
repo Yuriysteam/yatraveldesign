@@ -15,6 +15,8 @@ Telegram-бот `@yatraveldesign_bot` публикует ZIP-прототипы 
 3. Telegram token хранится в macOS Keychain под service name `yatraveldesign-bot-token`, вне Git. Шаблон `launchd/com.yuriysteam.yatraveldesign-bot.plist` запускает бота при входе в macOS.
 4. Укажите `PUBLIC_BASE_URL`: URL GitHub Pages или собственный домен.
 
+- У каждого нового скила в frontmatter `SKILL.md` обязательна версия формата `version: v0.1`; Store берёт её из этого поля и показывает рядом с датой обновления.
+
 ## Границы
 
 - Максимальный ZIP — 20 МБ, после распаковки — 100 МБ и до 2 000 файлов.

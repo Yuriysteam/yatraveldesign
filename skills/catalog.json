@@ -4,63 +4,67 @@
     "name": "Agenda",
     "description": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
     "updated_by": "team",
-    "updated_at": 1788607749,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 335833483,
         "name": "Юрий Ширяев",
         "avatar": "yuriy.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "calendar-cli",
     "name": "Calendar CLI",
     "description": "Читает календарь, ищет свободные окна и создаёт события через настроенный пользователем CLI или API.",
     "updated_by": "team",
-    "updated_at": 1788607749,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 335833483,
         "name": "Юрий Ширяев",
         "avatar": "yuriy.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "internal-research",
     "name": "Internal Research",
     "description": "Исследует внутренние задачи, репозитории, ревью и документацию через настроенные корпоративные инструменты.",
     "updated_by": "team",
-    "updated_at": 1788607749,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 335833483,
         "name": "Юрий Ширяев",
         "avatar": "yuriy.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "shared-durable-memory",
     "name": "Personal Durable Memory",
     "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
     "updated_by": "team",
-    "updated_at": 1788608118,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 335833483,
         "name": "Юрий Ширяев",
         "avatar": "yuriy.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "travel-feature-check",
     "name": "Travel Feature Check",
     "description": "Проверяет полноту спеки и выявляет скрытые сложности интерфейса перед разработкой.",
     "updated_by": "yuriysteam",
-    "updated_at": 1788872401,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 335833483,
@@ -72,28 +76,30 @@
         "name": "yuriysteam",
         "avatar": null
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "travel-product-context",
     "name": "Travel Product Context",
     "description": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
     "updated_by": "Surzhenko_Dmitry",
-    "updated_at": 1788795846,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 1223378011,
         "name": "Дмитрий Сурженко",
         "avatar": "dima.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "travel-figma-spec-kit-2026-09-10",
     "name": "travel-figma-spec-kit-2026-09-10",
     "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
     "updated_by": "Surzhenko_Dmitry",
-    "updated_at": 1789036861,
+    "updated_at": 1789140390,
     "installation": {
       "type": "script",
       "root": "travel-figma-spec-kit"
@@ -104,14 +110,15 @@
         "name": "Дмитрий Сурженко",
         "avatar": "dima.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "travel-figma-spec-kit-2026-09-11",
     "name": "travel-figma-spec-kit-2026-09-11",
     "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
     "updated_by": "Surzhenko_Dmitry",
-    "updated_at": 1789133529,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 1223378011,
@@ -122,34 +129,37 @@
     "installation": {
       "type": "script",
       "root": "travel-figma-spec-kit"
-    }
+    },
+    "version": "v0.1"
   },
   {
     "id": "travel-ui-delivery",
     "name": "travel-ui-delivery",
     "description": "Доставка интерфейса для приложения Travel.",
     "updated_by": "yuriysteam",
-    "updated_at": 1788877625,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 335833483,
         "name": "Юрий Ширяев",
         "avatar": "yuriy.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   },
   {
     "id": "yandex-travel-ux-writing",
     "name": "yandex-travel-ux-writing",
     "description": "UX-редактор для дизайнеров Яндекс Путешествий. Он опирается на ToV, редполитику команды и методологию ux-writing.",
     "updated_by": "o_Gogi",
-    "updated_at": 1789119914,
+    "updated_at": 1789140390,
     "contributors": [
       {
         "id": 65329179,
         "name": "Игорь Маймусов",
         "avatar": "igor.jpeg"
       }
-    ]
+    ],
+    "version": "v0.1"
   }
 ]

@@ -110,6 +110,7 @@
           if (dependencyError) dependencyNote.textContent = `Ошибка установки: ${dependencyError.message}`;
           else if (required.length > 1) dependencyNote.textContent = `Также установятся: ${required.slice(0, -1).map(skill => skill.name).join(', ')}`;
           const updated = document.createElement('p'); updated.className = 'updated';
+          const version = document.createElement('span'); version.className = 'updated__version'; version.textContent = item.version;
           const dot = document.createElement('span'); dot.className = 'updated__dot'; dot.setAttribute('aria-hidden', 'true'); dot.textContent = '·';
           const date = document.createElement('span'); date.className = 'updated__date'; date.textContent = formatDate(item.updated_at);
           const label = document.createElement('span'); label.className = 'updated__label'; label.textContent = 'Обновляли';
@@ -121,7 +122,7 @@
             else { avatar = document.createElement('span'); avatar.textContent = (person.name || '?').slice(0, 1).toUpperCase(); avatar.setAttribute('aria-hidden', 'true'); }
             avatar.className = 'author-avatar'; avatars.append(avatar);
           });
-          updated.append(date, dot, label, avatars);
+          updated.append(version, dot, date, dot.cloneNode(true), label, avatars);
           const button = document.createElement('button'); button.type = 'button'; button.textContent = dependencyError ? 'Нельзя установить' : 'Скопировать промпт'; button.disabled = Boolean(dependencyError); button.addEventListener('click', () => copy(prompt(required), button));
           content.append(title, description); if (dependencyNote.textContent) content.append(dependencyNote); card.append(content, updated, button); container.append(card);
         };

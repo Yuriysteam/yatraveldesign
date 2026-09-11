@@ -92,6 +92,15 @@ def frontmatter_value(fields, key):
     return " ".join(part for part in content if part).strip()
 
 
+def skill_version(fields):
+    """Read and normalize the required semantic version from SKILL.md metadata."""
+    value = frontmatter_value(fields, "version")
+    normalized = value[1:] if value.startswith("v") else value
+    if not re.fullmatch(r"(?:0|[1-9]\d*)(?:\.(?:0|[1-9]\d*)){1,2}(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?", normalized):
+        raise UserError("Добавьте версию скила в SKILL.md: version: v0.1")
+    return "v" + normalized
+
+
 def enrich_metadata(kind, name, description=""):
     """Ask local Ollama for display text; keep the upload usable on AI failure."""
     base_url = os.environ.get("OLLAMA_BASE_URL", "http://127.0.0.1:11434").rstrip("/")
@@ -263,6 +272,7 @@ def skill_package(filename, raw):
     if not name_match or not name_match.group(1).strip():
         raise UserError("Добавьте непустое поле name в SKILL.md.")
     name = name_match.group(1).strip()
+    version = skill_version(fields)
     description = frontmatter_value(fields, "description") or "Без описания"
     bundle = len(candidates) > 1
     if bundle:
@@ -303,7 +313,7 @@ def skill_package(filename, raw):
         # through the public catalogue as separate packages.
         dependencies = [dependency for dependency in dependencies if dependency not in local_ids]
     display_name, display_description = enrich_metadata("skill", name, description)
-    return identifier, name, description, display_name, display_description, dependencies, files
+    return identifier, name, version, description, display_name, display_description, dependencies, files
 
 
 def make_zip(files):
@@ -690,7 +700,7 @@ class Bot:
         return False
 
     def publish_skill(self, user_id, filename, raw, author):
-        identifier, name, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
+        identifier, name, version, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
         # Read the catalog only after synchronizing. commit_files() also syncs
         # before writing, but reading first could build a new catalog from a
@@ -706,7 +716,7 @@ class Bot:
         updated_by = author.get("username") or author.get("first_name")
         prefix = f"skills/{identifier}/"
         item = {
-            "id": identifier, "name": display_name, "description": display_description,
+            "id": identifier, "name": display_name, "version": version, "description": display_description,
             "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors,
         }
         installer = bundle_installer(package)

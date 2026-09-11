@@ -3,5 +3,13 @@
   "name": "Travel Product Context",
   "description": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
   "updated_by": "Surzhenko_Dmitry",
-  "updated_at": 1788795846
+  "updated_at": 1789140390,
+  "contributors": [
+    {
+      "id": 1223378011,
+      "name": "Дмитрий Сурженко",
+      "avatar": "dima.jpeg"
+    }
+  ],
+  "version": "v0.1"
 }
