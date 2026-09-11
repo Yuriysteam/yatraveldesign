@@ -31,10 +31,10 @@
   },
   {
     "title": "Metro Live Prototype",
-    "description": "Показывает актуальные данные о движении в метро в режиме реального времени.",
+    "description": "Прототип приложения для отслеживания работы метро в реальном времени.",
     "author": "Юрий Ширяев",
     "avatar": "assets/avatars/yuriy.jpeg",
-    "updated_at": 1789154543,
+    "updated_at": 1789154706,
     "url": "prototypes/335833483/metro-live-prototype/"
   }
 ]
