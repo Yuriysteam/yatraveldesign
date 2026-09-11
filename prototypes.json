@@ -30,11 +30,11 @@
     "url": "prototypes/1223378011/adaptive-filters-2026-09-11-v2/adaptive-filters-2026-09-11-v2/"
   },
   {
-    "title": "metro-live-prototype",
-    "description": "Без описания",
+    "title": "Metro Live Prototype",
+    "description": "Показывает актуальные данные о движении в метро в режиме реального времени.",
     "author": "Юрий Ширяев",
     "avatar": "assets/avatars/yuriy.jpeg",
-    "updated_at": 1789154246,
+    "updated_at": 1789154543,
     "url": "prototypes/335833483/metro-live-prototype/"
   }
 ]

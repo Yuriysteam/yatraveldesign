@@ -2,7 +2,7 @@ const trainsLayer = document.querySelector('#trains');
 const map = document.querySelector('#metro-map');
 const speedInput = document.querySelector('#speed');
 const speedValue = document.querySelector('#speed-value');
-const dotsVariant = new URLSearchParams(window.location.search).get('variant') === 'dots';
+const dotsVariant = new URLSearchParams(window.location.search).get('variant') !== 'trains';
 document.body.classList.toggle('dots-variant', dotsVariant);
 const namespace = 'http://www.w3.org/2000/svg';
 const create = (name, attributes = {}) => {
