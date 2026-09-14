@@ -1,0 +1,38 @@
+/* Layout glue for the captured Touch page and published BottomSheet subtree.
+   Native Travel / BaseAI classes remain responsible for component styling. */
+[hidden] { display: none !important; }
+.touch-research { margin: 0 auto; max-width: 480px; }
+.touch-research .UO93e { max-width: 100%; }
+.touch-search-summary { padding-bottom: 12px; }
+.touch-search-summary__button { width: 100%; height: auto; min-height: 56px; }
+.touch-search-summary__button ._44BiE { align-items: flex-start; width: 100%; }
+.touch-search-summary__button .eh5Br { text-align: left; }
+.touch-research .Nylnl { margin-top: 12px; }
+.touch-research .OEQ-B { max-width: 480px; }
+[data-payment-badges] { gap: 2px; }
+.payment-badge { display: flex; align-items: center; gap: 4px; min-height: 18px; }
+.payment-badge > img { flex: 0 0 14px; }
+.payment-badge > [data-payment-label] { white-space: nowrap; }
+.payment-badge__more { display: flex; padding: 0; position: relative; z-index: 1; }
+/* A native dialog supplies focus trapping, Escape and a modal top layer. */
+dialog.touch-sheet { position: fixed; inset: auto 0 0; margin: 0 auto; width: 100%; max-width: 480px; max-height: calc(100dvh - 48px); border: 0; padding: 0; transform: none; }
+dialog.touch-sheet:not([open]) { display: none; }
+dialog.touch-sheet::backdrop { background: var(--yatraveluikit-bg-overlay-color, rgb(0 0 0 / 40%)); }
+.touch-sheet__body { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+.touch-filter-heading { margin: 0 0 20px; }
+.touch-filter-choice { padding: 0; margin-bottom: 20px; }
+.touch-sheet__actions { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+.touch-sheet__footer { flex-shrink: 0; padding: 16px 20px max(20px, env(safe-area-inset-bottom)); margin-top: 0; }
+#touch-filters { height: calc(100dvh - 48px); }
+#touch-filters .Z24dD { min-height: 0; flex: 1; }
+#touch-filters fieldset { width: 100%; margin: 0 0 32px; }
+#touch-filters .vw5p4 { row-gap: 16px; }
+#touch-filters .YCRpa { flex-shrink: 0; }
+#touch-details p { margin: 0 0 24px; }
+#touch-sort .touch-sheet__body { display: flex; flex-direction: column; gap: 12px; }
+.touch-map-image { width: 100%; height: 65dvh; object-fit: cover; object-position: center; }
+.GQ6Wl[role="button"] { cursor: pointer; }
+#payment-variant-popup { position: fixed; z-index: 100001; }
+#payment-variant-popup .QBZ4D { min-width: 96px; }
+#payment-variant-popup button { width: 100%; text-align: left; }
+.research-favorite[aria-pressed="true"] svg { color: var(--yatraveluikit-text-alert-color); }
