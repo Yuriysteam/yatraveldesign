@@ -3,22 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#121116">
+  <meta name="theme-color" content="#1b1a1e">
   <title>Новогодние идеи — интерактивный прототип</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <main class="prototype-shell">
-    <section class="device" id="device" aria-label="Мобильный прототип новогодней промоакции">
-      <div class="statusbar" aria-hidden="true">
-        <span>9:41</span>
-        <div class="statusbar__icons">
-          <img src="assets/status-cellular.svg" alt="">
-          <img src="assets/status-wifi.svg" alt="">
-          <img src="assets/status-battery.svg" alt="">
-        </div>
-      </div>
-
+<body class="device" id="device" aria-label="Мобильный прототип новогодней промоакции">
       <section class="intro" id="intro" aria-label="Начало сценария">
         <div class="intro-meme">
           <img src="assets/ovechka-2.png" alt="Розовая овечка">
@@ -87,10 +76,7 @@
       </section>
 
       <div class="confetti" id="confetti" aria-hidden="true"></div>
-      <div class="home-indicator" aria-hidden="true"></div>
       <div class="sr-only" id="liveRegion" aria-live="assertive"></div>
-    </section>
-  </main>
   <script src="app.js"></script>
 </body>
 </html>

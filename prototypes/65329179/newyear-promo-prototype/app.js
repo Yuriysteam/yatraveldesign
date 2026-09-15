@@ -204,13 +204,15 @@ function renderCards(indices = ALL_EVENT_INDICES, repeat = true) {
 
 function captureVisibleCards() {
   const deviceRect = device.getBoundingClientRect();
+  const centerX = deviceRect.left + device.clientWidth / 2;
+  const centerY = deviceRect.top + device.clientHeight / 2;
   const positions = new Map();
   document.querySelectorAll('.cardfield .card').forEach(card => {
     const rect = card.getBoundingClientRect();
     const visible = rect.right > deviceRect.left && rect.left < deviceRect.right && rect.bottom > deviceRect.top && rect.top < deviceRect.bottom;
     if (!visible) return;
     const index = Number(card.dataset.index);
-    const distance = Math.abs(rect.left + rect.width / 2 - (deviceRect.left + 187.5)) + Math.abs(rect.top + rect.height / 2 - (deviceRect.top + 406));
+    const distance = Math.abs(rect.left + rect.width / 2 - centerX) + Math.abs(rect.top + rect.height / 2 - centerY);
     const current = positions.get(index);
     if (!current || distance < current.distance) positions.set(index, { card, rect, distance });
   });
@@ -240,9 +242,9 @@ function rebuildGrid(indices, repeat) {
     fieldPosition = { x: FIELD_ORIGIN, y: FIELD_ORIGIN };
   } else {
     const maxX = 6;
-    const minX = Math.min(maxX, 369 - cardfield.offsetWidth);
+    const minX = Math.min(maxX, device.clientWidth - 6 - cardfield.offsetWidth);
     const maxY = 126;
-    const minY = Math.min(maxY, 666 - cardfield.offsetHeight);
+    const minY = Math.min(maxY, device.clientHeight - 146 - cardfield.offsetHeight);
     fieldPosition = { x: (minX + maxX) / 2, y: (minY + maxY) / 2 };
   }
   constrainPosition();
@@ -322,7 +324,7 @@ function focusCardMarkup(index, direction, offsetColumn, offsetRow, sourceCard) 
   card.dataset.index = index;
   card.dataset.sourceRow = sourceCard.dataset.row;
   card.dataset.sourceColumn = sourceCard.dataset.column;
-  card.style.left = `${47.5 + offsetColumn * FOCUS_STEP_X}px`;
+  card.style.left = `${(device.clientWidth - FOCUS_CARD_WIDTH) / 2 + offsetColumn * FOCUS_STEP_X}px`;
   card.style.top = `${130 + offsetRow * FOCUS_STEP_Y}px`;
   card.innerHTML = `
     <img class="focus-card__image" src="${data.image}" alt="">
@@ -410,8 +412,8 @@ function rectKeyframe(rect, containerRect) {
 
 function nearestCardToCenter() {
   const deviceRect = device.getBoundingClientRect();
-  const centerX = deviceRect.left + 187.5;
-  const centerY = deviceRect.top + 406;
+  const centerX = deviceRect.left + device.clientWidth / 2;
+  const centerY = deviceRect.top + device.clientHeight / 2;
   return [...document.querySelectorAll('.cardfield .card')].reduce((nearest, card) => {
     const rect = card.getBoundingClientRect();
     const distance = Math.hypot(rect.left + rect.width / 2 - centerX, rect.top + rect.height / 2 - centerY);
@@ -421,8 +423,8 @@ function nearestCardToCenter() {
 
 function nearestCopyOf(index) {
   const deviceRect = device.getBoundingClientRect();
-  const centerX = deviceRect.left + 187.5;
-  const centerY = deviceRect.top + 390;
+  const centerX = deviceRect.left + device.clientWidth / 2;
+  const centerY = deviceRect.top + device.clientHeight / 2 - 16;
   return [...document.querySelectorAll(`.cardfield .card[data-index="${index}"]`)].reduce((nearest, card) => {
     const rect = card.getBoundingClientRect();
     const distance = Math.hypot(rect.left + rect.width / 2 - centerX, rect.top + rect.height / 2 - centerY);
@@ -637,8 +639,8 @@ function constrainPosition() {
   if (isRepeatingGrid) return wrapPosition();
   const maxX = 6;
   const maxY = 126;
-  const minX = Math.min(maxX, 369 - cardfield.offsetWidth);
-  const minY = Math.min(maxY, 666 - cardfield.offsetHeight);
+  const minX = Math.min(maxX, device.clientWidth - 6 - cardfield.offsetWidth);
+  const minY = Math.min(maxY, device.clientHeight - 146 - cardfield.offsetHeight);
   const requestedX = fieldPosition.x;
   const requestedY = fieldPosition.y;
   fieldPosition.x = Math.max(minX, Math.min(maxX, fieldPosition.x));
@@ -722,8 +724,8 @@ function updateProgress() {
 function burstConfetti() {
   confetti.replaceChildren();
   const colors = ['#ff2d55', '#fed42b', '#00d4ff', '#b8ff5a', '#b48cff', '#ffffff', '#ff7a45'];
-  const halfWidth = 187.5;
-  const halfHeight = 406;
+  const halfWidth = device.clientWidth / 2;
+  const halfHeight = device.clientHeight / 2;
   for (let i = 0; i < 132; i += 1) {
     const piece = document.createElement('i');
     const angle = Math.random() * Math.PI * 2;
@@ -753,20 +755,24 @@ function showFinale() {
   autoScroll = false;
   finalGrid.replaceChildren();
   const deviceRect = device.getBoundingClientRect();
+  const centerX = deviceRect.left + device.clientWidth / 2;
+  const centerY = deviceRect.top + device.clientHeight / 2;
   const chosenCards = [...selected].map(index => {
     const copies = [...document.querySelectorAll(`.card[data-index="${index}"]`)];
     const source = copies.sort((a, b) => {
       const aRect = a.getBoundingClientRect();
       const bRect = b.getBoundingClientRect();
-      const aDistance = Math.abs(aRect.left + aRect.width / 2 - (deviceRect.left + 187.5)) + Math.abs(aRect.top + aRect.height / 2 - (deviceRect.top + 406));
-      const bDistance = Math.abs(bRect.left + bRect.width / 2 - (deviceRect.left + 187.5)) + Math.abs(bRect.top + bRect.height / 2 - (deviceRect.top + 406));
+      const aDistance = Math.abs(aRect.left + aRect.width / 2 - centerX) + Math.abs(aRect.top + aRect.height / 2 - centerY);
+      const bDistance = Math.abs(bRect.left + bRect.width / 2 - centerX) + Math.abs(bRect.top + bRect.height / 2 - centerY);
       return aDistance - bDistance;
     })[0];
     return { index, source };
   });
+  const finalLeft = device.clientWidth / 2 - 130;
+  const finalTop = Math.max(160, Math.min(214, (device.clientHeight - 377) / 2));
   const targets = [
-    { left: 57, top: 214 }, { left: 193, top: 214 },
-    { left: 57, top: 432 }, { left: 193, top: 432 }
+    { left: finalLeft, top: finalTop }, { left: finalLeft + 136, top: finalTop },
+    { left: finalLeft, top: finalTop + 218 }, { left: finalLeft + 136, top: finalTop + 218 }
   ];
 
   chosenCards.forEach(({ index, source }, order) => {
@@ -778,7 +784,7 @@ function showFinale() {
 
     const rect = source
       ? source.getBoundingClientRect()
-      : { left: deviceRect.left + 125, top: deviceRect.top + 303, width: 124, height: 206 };
+      : { left: centerX - 62, top: centerY - 103, width: 124, height: 206 };
     const flyer = document.createElement('div');
     flyer.className = 'flying-card';
     flyer.style.left = `${rect.left - deviceRect.left}px`;
