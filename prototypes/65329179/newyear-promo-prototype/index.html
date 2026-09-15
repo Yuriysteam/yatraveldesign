@@ -1,0 +1,96 @@
+<meta name="robots" content="noindex, nofollow, noarchive">\n<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#121116">
+  <title>Новогодние идеи — интерактивный прототип</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="prototype-shell">
+    <section class="device" id="device" aria-label="Мобильный прототип новогодней промоакции">
+      <div class="statusbar" aria-hidden="true">
+        <span>9:41</span>
+        <div class="statusbar__icons">
+          <img src="assets/status-cellular.svg" alt="">
+          <img src="assets/status-wifi.svg" alt="">
+          <img src="assets/status-battery.svg" alt="">
+        </div>
+      </div>
+
+      <section class="intro" id="intro" aria-label="Начало сценария">
+        <div class="intro-meme">
+          <img src="assets/ovechka-2.png" alt="Розовая овечка">
+        </div>
+        <button class="intro-start" id="introStart" type="button">Найти направления</button>
+      </section>
+
+      <section class="explore" id="explore" aria-label="Выбор направлений">
+        <header class="hero" id="hero">
+          <h2>Куда отправимся<br>в новом году?</h2>
+        </header>
+
+        <div class="filters" aria-label="Месяц поездки">
+          <button class="filter" type="button">Январь</button>
+          <button class="filter" type="button">Февраль</button>
+          <button class="filter" type="button">Март</button>
+          <button class="filter" type="button">Апрель</button>
+          <button class="filter" type="button">Май</button>
+          <button class="filter" type="button">Июнь</button>
+          <button class="filter" type="button">Июль</button>
+          <button class="filter" type="button">Август</button>
+          <button class="filter" type="button">Сентябрь</button>
+          <button class="filter" type="button">Октябрь</button>
+          <button class="filter" type="button">Ноябрь</button>
+          <button class="filter" type="button">Декабрь</button>
+        </div>
+
+        <div class="viewport" id="viewport" aria-label="Поле с идеями. Перетаскивайте в любую сторону">
+          <div class="cardfield" id="cardfield"></div>
+        </div>
+
+        <div class="edge edge--top"></div>
+        <div class="edge edge--bottom"></div>
+
+        <div class="progress-toast" id="progressToast" aria-live="polite">
+          <div class="progress-row">
+            <div class="progress-ring" id="progressRing">
+              <svg viewBox="0 0 40 40" aria-hidden="true">
+                <circle class="progress-ring__track" cx="20" cy="20" r="18"></circle>
+                <circle class="progress-ring__value" cx="20" cy="20" r="18"></circle>
+              </svg>
+              <span id="progressCount">0</span>
+            </div>
+            <div class="progress-copy">
+              <strong id="progressTitle">Что вас вдохновляет?</strong>
+              <span id="progressHint">Выберите 4 идеи</span>
+            </div>
+          </div>
+          <button class="view-button" id="viewButton" type="button">Посмотреть</button>
+        </div>
+      </section>
+
+      <section class="focus-mode" id="focusMode" aria-label="Просмотр направления" aria-hidden="true">
+        <button class="focus-back" id="focusBack" type="button" aria-label="Вернуться к сетке">
+          <img src="assets/arrow-left.svg" alt="">
+        </button>
+        <div class="focus-stage" id="focusStage"></div>
+        <div class="focus-gradient focus-gradient--top" aria-hidden="true"></div>
+        <div class="focus-gradient focus-gradient--bottom" aria-hidden="true"></div>
+      </section>
+
+      <section class="finale" id="finale" aria-label="Выбранные идеи" aria-hidden="true">
+        <h2>Идеи для поездок<br>собраны</h2>
+        <div class="final-grid" id="finalGrid"></div>
+        <button class="final-reset" id="finalReset" type="button">Выбрать заново</button>
+      </section>
+
+      <div class="confetti" id="confetti" aria-hidden="true"></div>
+      <div class="home-indicator" aria-hidden="true"></div>
+      <div class="sr-only" id="liveRegion" aria-live="assertive"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

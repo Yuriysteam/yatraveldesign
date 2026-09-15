@@ -52,5 +52,13 @@
     "avatar": "assets/avatars/dima.jpeg",
     "updated_at": 1789472217,
     "url": "prototypes/1223378011/adaptive-filters-2026-09-15-v2/"
+  },
+  {
+    "title": "Новый год - Промо",
+    "description": "Получите выгодные предложения на новогодние путешествия.",
+    "author": "Игорь Маймусов",
+    "avatar": "assets/avatars/igor.jpeg",
+    "updated_at": 1789477947,
+    "url": "prototypes/65329179/newyear-promo-prototype/"
   }
 ]
