@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Командировки — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./trips.css?v=8">
+    <script src="./trips.js?v=12" defer></script>
+    <link rel="stylesheet" href="../corporate-profile-drawer.css">
+    <script src="../corporate-profile-drawer.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell trips-page" data-page-ready>
+      <header class="header" aria-label="Шапка Яндекс Путешествий">
+        <a class="logo" href="./index.html" aria-label="Яндекс Путешествия, на главную">
+          <img class="logo__planet" src="./assets/images/logo-planet.svg" alt="">
+          <img class="logo__wordmark" src="./assets/images/logo-wordmark.svg" alt="Яндекс Путешествия">
+        </a>
+        <nav class="header-actions" aria-label="Сервисы">
+          <button class="icon-button" type="button" aria-label="Избранное" data-header-action="Избранное"><img src="./assets/icons/heart.svg" alt=""></button>
+          <button class="icon-button is-current" type="button" aria-label="Мои поездки" data-header-action="Мои поездки"><img src="./assets/icons/trip.svg" alt=""></button>
+          <button class="icon-button" type="button" aria-label="Поддержка" data-header-action="Поддержка"><img src="./assets/icons/support.svg" alt=""></button>
+          <div class="account-group">
+            <button class="account account--company" type="button" data-header-action="Айди тех"><img src="./assets/icons/briefcase.svg" alt=""><span>Айди тех</span></button>
+            <button class="account account--profile" type="button" aria-label="Профиль, новичок, 0 броней" data-header-action="Профиль"><span class="profile-copy"><strong>НОВИЧОК</strong><small>0 броней</small></span><img class="avatar" src="./assets/shared-header/figma-header-avatar.png" alt=""></button>
+          </div>
+        </nav>
+      </header>
+
+      <main class="trips-content">
+        <div class="trips-titlebar">
+          <nav class="trips-topnav" aria-label="Разделы поездок">
+            <a href="#personal" class="trips-topnav__link is-active" aria-current="page" data-trip-section="personal">Мои поездки</a>
+            <a href="#business" class="trips-topnav__link" data-trip-section="business">Командировки</a>
+            <a href="#passengers" class="trips-topnav__link" data-trip-section="passengers">Пассажиры</a>
+          </nav>
+          <div class="trips-help-actions">
+            <button type="button" class="trips-help-button" data-header-action="Не могу найти заказ">Не могу найти заказ</button>
+            <button type="button" class="trips-help-button" data-header-action="Не могу найти тур">Не могу найти тур</button>
+          </div>
+        </div>
+
+        <div class="trips-filters" role="tablist" aria-label="Статус командировок">
+          <button type="button" class="trips-filter is-active" role="tab" aria-selected="true" data-trip-filter="upcoming">Предстоящие</button>
+          <button type="button" class="trips-filter" role="tab" aria-selected="false" data-trip-filter="active">Активные</button>
+          <button type="button" class="trips-filter" role="tab" aria-selected="false" data-trip-filter="past">Прошлые</button>
+          <button type="button" class="trips-filter" role="tab" aria-selected="false" data-trip-filter="cancelled">Отменённые</button>
+        </div>
+
+        <section id="trips-list" class="trips-grid" aria-live="polite" aria-label="Список командировок"></section>
+      </main>
+      <div id="trips-announcer" class="visually-hidden" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

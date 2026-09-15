@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>AZIMUT Смоленская — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./hotel-search.css?v=10">
+    <link rel="stylesheet" href="./hotel-page.css?v=9">
+    <link rel="stylesheet" href="./shared-search-header.css?v=5">
+    <link rel="stylesheet" href="../hotel-page-figma.css?v=1">
+    <script src="./shared-search-header.js?v=2" defer></script>
+    <script src="./hotel-page.js?v=11" defer></script>
+  </head>
+  <body>
+    <div class="hotel-detail-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="hotel" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <main class="hotel-detail-main">
+        <section class="hotel-hero" aria-labelledby="hotel-name">
+          <div class="hotel-hero__head">
+            <div class="hotel-hero__actions">
+              <button class="hotel-pill hotel-pill--back" type="button" data-action="back-to-results"><span aria-hidden="true">←</span><span id="back-city">Москва</span></button>
+              <div class="hotel-hero__right-actions">
+                <button class="hotel-pill hotel-pill--share" type="button" data-action="share"><img src="./assets/hotel-detail/share.svg" alt=""><span>Поделиться</span></button>
+                <button class="hotel-round-button" type="button" data-action="notify" aria-label="Следить за ценой" aria-pressed="false"><img src="./assets/hotel-detail/bell-new.svg" alt=""></button>
+                <button class="hotel-round-button" type="button" data-action="favorite" aria-label="Добавить отель в избранное" aria-pressed="false"><img src="./assets/hotel-detail/heart-new.svg" alt=""></button>
+              </div>
+            </div>
+
+            <div class="hotel-hero__copy">
+              <span class="recommend-pill"><img src="./assets/hotel-detail/recommended-new.svg" alt="">Рекомендуем</span>
+              <h1 id="hotel-name">AZIMUT Смоленская 3*</h1>
+              <div class="hotel-hero__meta">
+                <span class="rating-badge" id="hotel-rating">4.9</span>
+                <button class="reviews-link" type="button" data-action="reviews"><span id="hotel-reviews">3 562 отзывов</span></button>
+                <button class="hotel-address" type="button" data-action="map">
+                  <img src="./assets/hotel-detail/location.svg" alt="">
+                  <span id="hotel-address">Адрес отеля</span>
+                </button>
+              </div>
+              <div class="hotel-hero__features" aria-label="Особенности отеля">
+                <span>♨ Spa, хаммам и баня</span>
+                <span>⌘ Тренажёрный зал</span>
+                <span>⌂ Терраса и веранда</span>
+              </div>
+            </div>
+
+            <button class="hero-choose-button" type="button" data-action="scroll-to-offers">Выбрать от <span id="hero-price">34 600 ₽</span></button>
+          </div>
+
+          <div class="hotel-gallery" aria-label="Фотографии отеля">
+            <button class="hotel-gallery__main" type="button" data-gallery-index="0" aria-label="Открыть главное фото">
+              <img src="./assets/hotel-detail/hero-main.png" alt="AZIMUT Смоленская вечером">
+            </button>
+            <div class="hotel-gallery__stack">
+              <button type="button" data-gallery-index="1" aria-label="Открыть фото номера">
+                <img src="./assets/hotel-detail/hero-room.png" alt="Номер отеля AZIMUT Смоленская">
+              </button>
+              <button class="hotel-gallery__more" type="button" data-gallery-index="2" aria-label="Посмотреть все 74 фотографии">
+                <img src="./assets/hotel-detail/hero-restaurant.png" alt="Ресторан отеля AZIMUT Смоленская">
+                <span>74 фото</span>
+              </button>
+            </div>
+            <button class="hotel-gallery__map" type="button" data-action="map" aria-label="Показать отель на карте">
+              <img class="hotel-gallery__map-image" src="./assets/hotel-detail/hero-map.png" alt="Карта с расположением отеля">
+              <span class="hotel-map-card">
+                <strong id="map-hotel-name">AZIMUT Смоленская 3*</strong>
+                <span><b id="map-rating">4.9</b><span id="map-reviews">3 562 отзывов</span><i aria-hidden="true"></i><span>Отель</span></span>
+              </span>
+              <img class="hotel-map-dot" src="./assets/hotel-detail/map-dot.svg" alt="">
+            </button>
+          </div>
+        </section>
+
+        <div class="hotel-detail-grid">
+          <section class="hotel-offers" id="hotel-offers" aria-labelledby="offers-title">
+            <form class="hotel-offer-search" id="hotel-offer-search">
+              <h2 id="offers-title">Предложения на ваши даты</h2>
+              <div class="hotel-offer-search__row">
+                <label class="offer-field">
+                  <span class="visually-hidden">Дата заезда</span>
+                  <input id="detail-checkin" name="checkin" value="21 июня" autocomplete="off">
+                  <img src="./assets/hotel-detail/calendar.svg" alt="">
+                </label>
+                <label class="offer-field">
+                  <span class="visually-hidden">Дата выезда</span>
+                  <input id="detail-checkout" name="checkout" value="25 июня" autocomplete="off">
+                  <img src="./assets/hotel-detail/calendar.svg" alt="">
+                </label>
+                <label class="offer-field offer-field--guests">
+                  <span class="visually-hidden">Количество гостей</span>
+                  <select id="detail-guests" name="guests">
+                    <option>1 взрослый</option>
+                    <option>2 взрослых</option>
+                    <option>2 взрослых, 1 ребёнок</option>
+                    <option>3 взрослых</option>
+                  </select>
+                </label>
+                <button class="offer-submit" type="submit">Найти</button>
+              </div>
+            </form>
+
+            <section class="nearby-dates" aria-labelledby="nearby-dates-title">
+              <h3 id="nearby-dates-title">Цены на соседние даты</h3>
+              <div class="date-wagons-wrap">
+                <div class="date-wagons" id="date-wagons" role="listbox" aria-label="Варианты дат"></div>
+              </div>
+            </section>
+
+            <section class="rooms-shell" id="rooms-shell" aria-label="Номера и тарифы">
+              <div id="rooms-list" class="rooms-list"></div>
+              <button class="occupied-toggle" type="button" data-action="occupied" aria-expanded="false">
+                <span>Занятые варианты размещений</span>
+                <img src="./assets/hotel-detail/chevron-down.svg" alt="">
+              </button>
+              <div class="occupied-content" id="occupied-content" hidden>
+                <strong>Номера на выбранные даты закончились</strong>
+                <span>Показываем их, чтобы можно было сравнить условия.</span>
+              </div>
+            </section>
+          </section>
+
+          <aside class="hotel-side" aria-label="Дополнительная информация об отеле">
+            <section class="nearby-hotels" aria-labelledby="nearby-hotels-title">
+              <h2 id="nearby-hotels-title">Отели рядом</h2>
+              <div id="nearby-hotels-list" class="nearby-hotels__list"></div>
+            </section>
+            <section class="guest-favorites" aria-labelledby="guest-favorites-title">
+              <h2 id="guest-favorites-title">Гостям понравилось</h2>
+              <div id="guest-favorites-list" class="guest-favorites__list"></div>
+            </section>
+          </aside>
+        </div>
+      </main>
+
+      <div class="visually-hidden" id="detail-announcer" aria-live="polite"></div>
+
+      <div class="hotel-lightbox" id="hotel-lightbox" hidden aria-modal="true" role="dialog" aria-label="Фотографии отеля">
+        <button class="lightbox-close" type="button" data-action="close-gallery" aria-label="Закрыть галерею">×</button>
+        <button class="lightbox-arrow lightbox-arrow--prev" type="button" data-action="gallery-prev" aria-label="Предыдущее фото">←</button>
+        <figure>
+          <img id="lightbox-image" src="./assets/hotel-detail/hero-main.png" alt="">
+          <figcaption id="lightbox-caption">AZIMUT Смоленская</figcaption>
+        </figure>
+        <button class="lightbox-arrow lightbox-arrow--next" type="button" data-action="gallery-next" aria-label="Следующее фото">→</button>
+      </div>
+    </div>
+  </body>
+</html>

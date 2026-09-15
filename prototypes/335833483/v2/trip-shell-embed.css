@@ -1,0 +1,115 @@
+html.trip-shell-embed,
+html.trip-shell-embed body {
+  min-height: 100%;
+  background: #fff !important;
+}
+
+html.trip-shell-embed {
+  overflow-y: hidden !important;
+}
+
+html.trip-shell-embed body {
+  overflow-x: hidden;
+  overflow-y: visible !important;
+}
+
+html.trip-shell-embed .shared-search-header,
+html.trip-shell-embed [data-travel-header] {
+  display: none !important;
+}
+
+html.trip-shell-embed .avia-search-form,
+html.trip-shell-embed .train-search-form,
+html.trip-shell-embed .hotel-search-hero {
+  display: none !important;
+}
+
+html.trip-shell-embed .avia-main,
+html.trip-shell-embed .train-main,
+html.trip-shell-embed .hotel-workspace,
+html.trip-shell-embed .hotel-detail-main,
+html.trip-shell-embed .checkout-main,
+html.trip-shell-embed .passenger-main,
+html.trip-shell-embed .confirmation-main,
+html.trip-shell-embed .rail-seat-main,
+html.trip-shell-embed .rail-passengers-main {
+  padding-top: 8px !important;
+}
+
+html.trip-shell-embed.trip-prices-updated :is(
+  .flight-price-button,
+  .train-card__price,
+  .train-card__place-price,
+  .hotel-price__value,
+  .hotel-old-price
+) {
+  transform-origin: center;
+  animation: trip-shell-price-update 760ms cubic-bezier(.2, .82, .2, 1) both;
+}
+
+@keyframes trip-shell-price-update {
+  0% { opacity: .2; transform: translateY(7px) scale(.96); }
+  45% { opacity: 1; transform: translateY(0) scale(1.06); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+html.trip-shell-embed .avia-main,
+html.trip-shell-embed .train-main {
+  min-height: 0 !important;
+}
+
+html.trip-shell-embed .avia-workspace,
+html.trip-shell-embed .train-navigation,
+html.trip-shell-embed .hotel-results-layout {
+  margin-top: 0 !important;
+}
+
+html.trip-shell-embed .train-navigation {
+  padding-top: 0 !important;
+}
+
+html.trip-shell-embed .booking-progress,
+html.trip-shell-embed .rail-progress {
+  margin-top: 0 !important;
+}
+
+html.trip-shell-embed .hotel-left {
+  padding-top: 0 !important;
+}
+
+html.trip-shell-embed .hotel-results-layout {
+  min-height: 0 !important;
+}
+
+html.trip-shell-embed .avia-search-page,
+html.trip-shell-embed .hotel-search-page,
+html.trip-shell-embed .train-search-page {
+  min-height: 0 !important;
+}
+
+html.trip-shell-embed .hotel-detail-page,
+html.trip-shell-embed .hotel-checkout-page,
+html.trip-shell-embed .avia-passengers-page,
+html.trip-shell-embed .rail-seat-page {
+  min-height: 100vh;
+  border-radius: 0 !important;
+  background: #fff !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.trip-shell-embed *,
+  html.trip-shell-embed *::before,
+  html.trip-shell-embed *::after {
+    scroll-behavior: auto !important;
+  }
+
+  html.trip-shell-embed.trip-prices-updated :is(
+    .flight-price-button,
+    .train-card__price,
+    .train-card__place-price,
+    .hotel-price__value,
+    .hotel-old-price
+  ) {
+    animation: none !important;
+  }
+}

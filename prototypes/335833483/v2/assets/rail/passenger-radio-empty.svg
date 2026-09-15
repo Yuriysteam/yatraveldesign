@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="checked">
+<circle id="Ellipse" cx="10" cy="10" r="10" fill="#FFEBA0"/>
+<circle id="bullet" cx="10" cy="10" r="4" fill="#0D0D0D"/>
+</g>
+</svg>

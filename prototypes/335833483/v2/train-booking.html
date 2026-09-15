@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Выбор мест в поезде — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./hotel-search.css?v=4">
+    <link rel="stylesheet" href="./train-booking.css?v=6">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <script src="./shared-search-header.js?v=2" defer></script>
+    <script src="./train-booking.js?v=16" defer></script>
+  </head>
+  <body>
+    <div class="rail-seat-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="rail" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <div class="rail-progress">
+        <nav class="rail-progress__steps" aria-label="Этапы оформления ж/д билета">
+          <button type="button" data-action="change-train" data-segment="outbound">Выбор поезда туда</button>
+          <img src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" data-action="change-train" data-segment="return" data-return-only>Выбор поезда обратно</button>
+          <img src="./assets/avia-booking/step-arrow.svg" alt="" data-return-only>
+          <button type="button" class="rail-progress__seat-step" data-step-segment="outbound" data-action="switch-seat-segment" data-segment="outbound">Выбор мест туда</button>
+          <img src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" class="rail-progress__seat-step" data-step-segment="return" data-action="switch-seat-segment" data-segment="return" data-return-only>Выбор мест обратно</button>
+          <img src="./assets/avia-booking/step-arrow.svg" alt="" data-return-only>
+          <span class="is-muted">Данные пассажиров</span>
+          <img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <span class="is-muted">Подтверждение</span>
+          <img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <span class="is-muted">Оплата</span>
+        </nav>
+      </div>
+
+      <main class="rail-seat-main">
+        <div class="rail-seat-layout">
+          <div class="rail-seat-left">
+            <section class="rail-card journey-card" aria-labelledby="journey-heading">
+              <h1 id="journey-heading"><strong id="journey-route">Москва — Санкт-Петербург</strong> <span id="journey-dates">туда и обратно, 29 сен — 30 сен</span></h1>
+              <div class="journey-legs" id="journey-legs"></div>
+            </section>
+
+            <section class="rail-card passengers-card" aria-labelledby="passengers-heading">
+              <h2 id="passengers-heading">Укажите количество билетов</h2>
+              <div class="passenger-controls">
+                <div class="passenger-counter" data-counter="adults">
+                  <span class="passenger-counter__label"><strong>Взрослые</strong><small>от 10 лет</small></span>
+                  <span class="counter-spinner">
+                    <button type="button" data-action="counter" data-kind="adults" data-delta="-1" aria-label="Уменьшить количество взрослых"><span aria-hidden="true">−</span></button>
+                    <output aria-live="polite">1</output>
+                    <button type="button" data-action="counter" data-kind="adults" data-delta="1" aria-label="Увеличить количество взрослых"><span aria-hidden="true">+</span></button>
+                  </span>
+                </div>
+                <div class="passenger-counter" data-counter="childWithSeat">
+                  <span class="passenger-counter__label"><strong>Дети до 10 лет</strong><small>с местом, со скидкой</small></span>
+                  <span class="counter-spinner">
+                    <button type="button" data-action="counter" data-kind="childWithSeat" data-delta="-1" aria-label="Уменьшить количество детей с местом"><span aria-hidden="true">−</span></button>
+                    <output aria-live="polite">0</output>
+                    <button type="button" data-action="counter" data-kind="childWithSeat" data-delta="1" aria-label="Увеличить количество детей с местом"><span aria-hidden="true">+</span></button>
+                  </span>
+                </div>
+                <div class="passenger-counter" data-counter="childWithoutSeat">
+                  <span class="passenger-counter__label"><strong>Дети до 5 лет</strong><small>без места, бесплатно</small></span>
+                  <span class="counter-spinner">
+                    <button type="button" data-action="counter" data-kind="childWithoutSeat" data-delta="-1" aria-label="Уменьшить количество детей без места"><span aria-hidden="true">−</span></button>
+                    <output aria-live="polite">0</output>
+                    <button type="button" data-action="counter" data-kind="childWithoutSeat" data-delta="1" aria-label="Увеличить количество детей без места"><span aria-hidden="true">+</span></button>
+                  </span>
+                </div>
+              </div>
+              <button class="discount-link" type="button" data-announce="Скидки применятся автоматически на следующих шагах">Какие скидки есть в этом поезде?</button>
+            </section>
+
+            <section class="rail-card seat-card" aria-labelledby="seat-heading">
+              <h2 id="seat-heading">Выберите тип вагона и место</h2>
+              <div class="coach-types" id="coach-types" role="radiogroup" aria-label="Тип вагона"></div>
+              <div class="carriages" id="carriages"></div>
+            </section>
+          </div>
+
+          <aside class="rail-seat-right" aria-label="Стоимость билетов">
+            <section class="rail-card price-card">
+              <h2>Стоимость билетов</h2>
+              <div class="price-breakdown" id="price-breakdown"></div>
+              <div class="price-total"><span>Итого</span><strong id="price-total">0 ₽</strong></div>
+              <button class="rail-next" id="rail-next" type="button" data-action="next">Далее</button>
+            </section>
+            <p class="price-note">Стоимость билетов указана приблизительно. Окончательная будет известна на шаге подтверждения заказа. В цену включён сбор Яндекса. С использованием веб-системы «ИМ».</p>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="rail-footer">
+        <div class="rail-footer__links">
+          <p><a href="#">Яндекс Путешествия для партнеров</a><a href="#">Программа для веб-мастеров и блогеров</a></p>
+          <p><a href="#">Условия покупки билетов на поезда</a><a href="#">О Сервисе</a><a href="#">Темная тема</a><a href="#">Служба поддержки</a></p>
+          <p><a href="#">Пользовательское соглашение</a><a href="#">Политика конфиденциальности</a><a href="#">Правила рекомендаций</a></p>
+          <p><a href="#">Участие в исследованиях</a><a href="#">Правила программы лояльности Яндекс Плюс</a></p>
+          <span>Мы в соцсетях</span>
+          <div class="rail-footer__socials" aria-label="Социальные сети"><a href="#" aria-label="ВКонтакте"><img src="./assets/avia-booking/vk-glyph.svg" alt=""></a><a href="#" aria-label="Telegram"><img src="./assets/avia-booking/telegram.svg" alt=""></a><a href="#" aria-label="Дзен"><img src="./assets/avia-booking/zen.svg" alt=""></a></div>
+        </div>
+        <div class="rail-footer__about">
+          <p>© 2009–2024 ООО «Яндекс.Вертикали»</p>
+          <p>Наши проекты: <a href="#">Яндекс Аренда</a><a href="#">Авто.ру</a><a href="#">Яндекс.Недвижимость</a><a href="#">Яндекс Услуги</a></p>
+          <p>Команда: <a href="#">Наши вакансии</a></p>
+          <p>Проект компании <img src="./assets/avia-booking/yandex-logo.svg" alt="Яндекс"></p>
+        </div>
+      </footer>
+
+      <div class="visually-hidden" id="rail-seat-announcer" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

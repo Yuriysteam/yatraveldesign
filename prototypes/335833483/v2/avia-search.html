@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5f5">
+    <title>Поиск авиабилетов — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=5">
+    <link rel="stylesheet" href="./hotel-search.css?v=5">
+    <link rel="stylesheet" href="./avia-search.css?v=9">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <link rel="stylesheet" href="../search-form-enhancements.css?v=2">
+    <script src="./shared-search-header.js?v=2" defer></script>
+    <script src="./avia-search.js?v=14" defer></script>
+    <script src="../search-form-enhancements.js?v=4" defer></script>
+  </head>
+  <body>
+    <div class="avia-search-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="avia" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <main class="avia-main">
+        <form class="avia-search-form" id="avia-search-form" novalidate>
+          <label class="avia-query-field avia-query-field--origin">
+            <span class="visually-hidden">Город вылета</span>
+            <input id="avia-origin" name="origin" autocomplete="off" value="Москва">
+            <small id="avia-origin-code">VKO</small>
+          </label>
+          <button class="avia-swap" type="button" data-action="swap" aria-label="Поменять города местами"><img src="./assets/icons/swap.svg" alt=""></button>
+          <label class="avia-query-field avia-query-field--destination">
+            <span class="visually-hidden">Город прилёта</span>
+            <input id="avia-destination" name="destination" autocomplete="off" value="Стамбул">
+            <small id="avia-destination-code">IST</small>
+          </label>
+          <label class="avia-query-field avia-query-field--date" data-calendar-field-shell="depart">
+            <span class="visually-hidden">Дата туда</span>
+            <input id="avia-depart" name="depart" autocomplete="off" value="29 сентября" aria-haspopup="dialog" aria-controls="avia-calendar" aria-expanded="false" data-calendar-field="depart" readonly>
+            <small>Туда</small>
+          </label>
+          <label class="avia-query-field avia-query-field--date" id="avia-return-field" data-calendar-field-shell="return">
+            <span class="visually-hidden">Дата обратно</span>
+            <input id="avia-return" name="return" autocomplete="off" value="30 сентября" placeholder="Без обратного билета" aria-haspopup="dialog" aria-controls="avia-calendar" aria-expanded="false" data-calendar-field="return" readonly>
+            <small id="avia-return-caption">Обратно</small>
+          </label>
+          <label class="avia-query-field avia-query-field--passengers">
+            <span class="visually-hidden">Пассажиры и класс</span>
+            <select id="avia-passengers" name="passengers" aria-label="Пассажиры">
+              <option value="1 взрослый">1 взрослый</option>
+              <option value="2 взрослых">2 взрослых</option>
+              <option value="3 взрослых">3 взрослых</option>
+              <option value="2 взрослых, 1 ребёнок">2 взрослых, 1 ребёнок</option>
+            </select>
+            <small>Эконом-класс</small>
+            <span class="avia-query-chevron" aria-hidden="true"></span>
+          </label>
+          <button class="avia-search-submit" type="submit">Найти</button>
+        </form>
+
+        <div class="avia-airport-popover" id="avia-airport-popover" role="listbox" aria-label="Выбор аэропорта" hidden></div>
+
+        <div class="popover calendar-popover avia-calendar-popover" id="avia-calendar" role="dialog" aria-label="Выбор дат перелёта" hidden></div>
+
+        <div class="avia-workspace">
+          <aside class="avia-filters" aria-label="Фильтры авиабилетов">
+            <section class="avia-filter-card avia-filter-card--quick">
+              <label class="avia-sort">
+                <span aria-hidden="true">↕</span>
+                <select id="avia-sort" aria-label="Сортировка рейсов">
+                  <option value="popular">По популярности</option>
+                  <option value="cheap">Сначала дешевле</option>
+                  <option value="fast">Сначала быстрее</option>
+                </select>
+                <i aria-hidden="true"></i>
+              </label>
+              <div class="avia-quick-chips">
+                <button type="button" data-filter-chip="direct" aria-pressed="false"><strong>Без пересадок</strong><span>от 21 939 ₽</span></button>
+                <button type="button" data-filter-chip="baggage" aria-pressed="false"><strong>С багажом</strong><span>от 26 334 ₽</span></button>
+              </div>
+            </section>
+
+            <form id="avia-filters-form">
+              <section class="avia-filter-card avia-filter-card--transfers">
+                <h2>Пересадки</h2>
+                <div class="avia-filter-options">
+                  <label><input type="radio" name="stops" value="direct"><span>Без пересадок</span></label>
+                  <label><input type="radio" name="stops" value="one" checked><span>Не более одной</span></label>
+                  <label><input type="radio" name="stops" value="any"><span>Любое количество</span></label>
+                  <label><input type="checkbox" name="noNight"><span>Без ночных пересадок</span></label>
+                </div>
+
+                <label class="avia-range-field">
+                  <strong>Длительность пересадки</strong>
+                  <span class="avia-range"><input type="range" name="transferMax" min="60" max="460" value="460" aria-label="Максимальная длительность пересадки"></span>
+                  <span class="avia-range-values"><small>1 час</small><small id="transfer-max-copy">7 ч 40 мин</small></span>
+                </label>
+
+                <button class="avia-collapse-button" type="button" data-collapse="transfer-out" aria-expanded="false">Город пересадки туда<span aria-hidden="true"></span></button>
+                <div class="avia-collapse" id="transfer-out" hidden>
+                  <label><input type="checkbox" value="Казань">Казань</label>
+                  <label><input type="checkbox" value="Баку">Баку</label>
+                  <label><input type="checkbox" value="Анталья">Анталья</label>
+                </div>
+                <button class="avia-collapse-button" type="button" data-collapse="transfer-back" data-roundtrip-only aria-expanded="false">Город пересадки назад<span aria-hidden="true"></span></button>
+                <div class="avia-collapse" id="transfer-back" data-roundtrip-only hidden>
+                  <label><input type="checkbox" value="Казань">Казань</label>
+                  <label><input type="checkbox" value="Баку">Баку</label>
+                  <label><input type="checkbox" value="Анталья">Анталья</label>
+                </div>
+              </section>
+
+              <section class="avia-filter-card avia-filter-card--times">
+                <h2>Время туда</h2>
+                <label class="avia-range-field avia-range-field--time"><strong id="depart-from-label">Вылет из Москвы</strong><span class="avia-range"><input type="range" name="departMax" min="0" max="1439" value="1439" aria-label="Время вылета туда"></span><span class="avia-range-values"><small>00:00</small><small id="depart-max-copy">23:59</small></span></label>
+                <label class="avia-range-field avia-range-field--time"><strong id="arrival-to-label">Прибытие в Стамбул</strong><span class="avia-range"><input type="range" name="arrivalMax" min="0" max="1439" value="1439" aria-label="Время прилёта туда"></span><span class="avia-range-values"><small>00:00</small><small id="arrival-max-copy">23:59</small></span></label>
+                <h2 class="avia-filter-card__subheading" data-roundtrip-only>Время обратно</h2>
+                <label class="avia-range-field avia-range-field--time" data-roundtrip-only><strong id="return-from-label">Вылет из Стамбула</strong><span class="avia-range"><input type="range" name="returnMax" min="0" max="1439" value="1439" aria-label="Время вылета обратно"></span><span class="avia-range-values"><small>00:00</small><small id="return-max-copy">23:59</small></span></label>
+                <label class="avia-range-field avia-range-field--time" data-roundtrip-only><strong id="return-arrival-label">Прибытие в Москву</strong><span class="avia-range"><input type="range" name="returnArrivalMax" min="0" max="1439" value="1439" aria-label="Время прилёта обратно"></span><span class="avia-range-values"><small>00:00</small><small id="return-arrival-max-copy">23:59</small></span></label>
+              </section>
+
+              <section class="avia-filter-card avia-filter-card--secondary">
+                <h2>Аэропорты</h2>
+                <div class="avia-filter-options" id="airport-options"></div>
+              </section>
+              <section class="avia-filter-card avia-filter-card--secondary">
+                <h2>Авиакомпании</h2>
+                <div class="avia-filter-options">
+                  <label><input type="checkbox" name="airline" value="Победа"><span>Победа</span></label>
+                  <label><input type="checkbox" name="airline" value="S7"><span>S7</span></label>
+                  <label><input type="checkbox" name="airline" value="Россия"><span>Россия</span></label>
+                </div>
+              </section>
+            </form>
+          </aside>
+
+          <section class="avia-results" aria-label="Найденные авиабилеты">
+            <div class="flight-list" id="flight-list"></div>
+            <div class="avia-empty" id="avia-empty" hidden>
+              <strong>Подходящих рейсов нет</strong>
+              <span>Измените фильтры или верните полный диапазон времени</span>
+              <button type="button" data-action="reset-filters">Сбросить фильтры</button>
+            </div>
+            <p class="avia-disclaimer">В случае, если покупка билетов происходит на партнерских сайтах, Яндекс не несет ответственности за совершаемые на них финансовые и любые другие операции; стоимость билетов примерная; информация о рейсе, а также об условиях перевозки пассажиров и багажа носит справочный характер. «Лучшая цена» выбирается из числа предложений, размещённых на сервисе Яндекс Путешествия. <button type="button" data-action="details">Подробнее</button></p>
+          </section>
+        </div>
+      </main>
+
+      <div class="visually-hidden" id="avia-announcer" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

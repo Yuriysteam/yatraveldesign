@@ -1,0 +1,255 @@
+.shared-search-header.search-header {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  width: 100%;
+  max-width: none;
+  height: 70px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 40px;
+  border-bottom: 1px solid #f1f0ed;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.shared-search-header .shared-search-header__inner {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shared-search-header .search-header__left,
+.shared-search-header .search-header__right,
+.shared-search-header .travel-brand,
+.shared-search-header .product-tabs,
+.shared-search-header .utility-actions,
+.shared-search-header .level-pill {
+  display: flex !important;
+  align-items: center;
+}
+
+.shared-search-header .search-header__left {
+  min-width: 0;
+  gap: 36px;
+}
+
+.shared-search-header .search-header__right {
+  width: 466px;
+  flex: 0 0 466px;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.shared-search-header .travel-brand {
+  flex: 0 0 auto;
+  gap: 0;
+  color: #0d0d0d;
+  text-decoration: none;
+}
+
+.shared-search-header .travel-brand__yandex {
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius: 0;
+  background: transparent;
+  object-fit: contain;
+}
+
+.shared-search-header .travel-brand__planet-slot {
+  display: grid;
+  width: 36px;
+  height: 30px;
+  flex: 0 0 36px;
+  place-items: center;
+}
+
+.shared-search-header .travel-brand__planet {
+  display: block;
+  width: 29px;
+  height: 30px;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.shared-search-header .travel-brand__wordmark {
+  display: block;
+  width: 159px;
+  height: 30px;
+  margin-left: 6px;
+  object-fit: contain;
+}
+
+.shared-search-header .product-tabs {
+  min-width: 0;
+  gap: 16px;
+  white-space: nowrap;
+}
+
+.shared-search-header .shared-product-tab {
+  display: inline-flex;
+  height: 30px;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #9d9b98;
+  font-family: "YS Text", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.shared-search-header .shared-product-tab.is-active,
+.shared-search-header .shared-product-tab:hover {
+  color: #0d0d0d;
+}
+
+.shared-search-header .utility-actions {
+  width: 200px;
+  flex: 0 0 200px;
+  justify-content: space-between;
+}
+
+.shared-search-header .search-header__right .utility-button {
+  display: grid !important;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #0d0d0d;
+  text-decoration: none;
+}
+
+.shared-search-header .utility-button:hover {
+  background: #f2f2f2;
+}
+
+.shared-search-header .utility-button img {
+  display: block;
+  width: 24px;
+  height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  object-fit: contain;
+}
+
+.shared-search-header .level-pill {
+  height: 50px;
+  flex: 0 0 auto;
+  gap: 0;
+  padding: 4px 4px 4px 8px;
+  border: 0;
+  border-radius: 32px;
+  background: #f6f6f6;
+  color: #0d0d0d;
+}
+
+.shared-search-header .level-pill__copy {
+  display: flex;
+  min-width: 98px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8px 0 12px;
+  text-align: left;
+}
+
+.shared-search-header .level-pill__copy strong {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.shared-search-header .level-pill__copy small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #9d9b98;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.shared-search-header .level-pill__copy small img {
+  display: block;
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+}
+
+.shared-search-header .level-pill__avatar {
+  display: block;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+@media (max-width: 1240px) {
+  .shared-search-header .shared-product-tab--optional {
+    display: none;
+  }
+
+  .shared-search-header .search-header__right {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  .shared-search-header.search-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .shared-search-header .search-header__left {
+    gap: 24px;
+  }
+
+  .shared-search-header .search-header__right {
+    width: 438px;
+    flex-basis: 438px;
+  }
+}
+
+.shared-search-header.search-header { border-bottom-color: #303138; background: #1d1e23; }
+.shared-search-header .travel-brand,
+.shared-search-header .shared-product-tab.is-active,
+.shared-search-header .shared-product-tab:hover,
+.shared-search-header .search-header__right .utility-button,
+.shared-search-header .level-pill { color: #f5f5f7; }
+.shared-search-header .shared-product-tab,
+.shared-search-header .level-pill__copy small { color: #9d9ea5; }
+.shared-search-header .utility-button:hover { background: #303138; }
+.shared-search-header .level-pill { background: #303138; }
+.shared-search-header .travel-brand__wordmark,
+.shared-search-header .utility-button img { filter: invert(1) brightness(1.55) grayscale(1); }
+
+/* Light surface is shared by every prototype flow. */
+.shared-search-header.search-header { border-bottom-color: #ecebed; background: #fff; }
+.shared-search-header .travel-brand,
+.shared-search-header .shared-product-tab.is-active,
+.shared-search-header .shared-product-tab:hover,
+.shared-search-header .search-header__right .utility-button,
+.shared-search-header .level-pill { color: #0d0d0f; }
+.shared-search-header .shared-product-tab,
+.shared-search-header .level-pill__copy small { color: #9c9ba2; }
+.shared-search-header .utility-button:hover,
+.shared-search-header .level-pill { background: #f5f5f5; }
+.shared-search-header .travel-brand__wordmark,
+.shared-search-header .utility-button img { filter: none; }

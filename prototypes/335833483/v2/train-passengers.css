@@ -1,0 +1,825 @@
+.rail-passengers-page {
+  min-height: 2216px;
+}
+
+.rail-passengers-page .rail-progress__steps button[aria-current="step"] {
+  color: var(--rail-text);
+}
+
+.rail-passengers-main {
+  width: min(1200px, calc(100% - 48px));
+  margin: 20px auto 0;
+}
+
+.rail-passengers-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 840px) 340px;
+  align-items: start;
+  gap: 20px;
+}
+
+.rail-passengers-left,
+.rail-passenger-cards,
+#rail-passenger-form {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rail-passengers-page .journey-leg {
+  border-color: transparent;
+}
+
+.rail-passengers-page .journey-leg.is-active {
+  padding: 16px 32px 32px;
+  border-color: transparent;
+}
+
+.rail-passengers-page .journey-leg__change {
+  margin-top: 28px;
+}
+
+.rail-passenger-card {
+  width: 840px;
+  height: 1110px;
+  padding: 28px 32px 32px;
+}
+
+.rail-passenger-card h2,
+.rail-contact-card h2,
+.rail-passengers-price-card h2 {
+  margin: 0;
+  color: var(--rail-text);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.rail-profile-chips {
+  display: flex;
+  height: 34px;
+  margin-top: 20px;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+}
+
+.rail-profile-chip {
+  display: flex;
+  height: 34px;
+  flex: 0 0 155px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 16px;
+  border-radius: 80px;
+  background: rgba(92, 138, 255, .15);
+  color: var(--rail-link);
+  text-align: left;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.rail-profile-chip:hover,
+.rail-profile-chip[aria-pressed="true"] {
+  background: rgba(92, 138, 255, .24);
+}
+
+.rail-profile-chip:active {
+  transform: scale(.985);
+}
+
+.rail-profile-chip strong {
+  width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-profile-chip small {
+  width: 100%;
+  overflow: hidden;
+  color: rgba(0, 78, 216, .6);
+  font-size: 12px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rail-passenger-body {
+  display: flex;
+  height: 922px;
+  margin-top: 20px;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.rail-identity-fields {
+  display: flex;
+  width: 776px;
+  height: 328px;
+  flex: 0 0 328px;
+  flex-direction: column;
+  gap: 29px;
+}
+
+.rail-field-row {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 7px;
+}
+
+.rail-field-row--names {
+  height: 94px;
+}
+
+.rail-field-row--personal,
+.rail-field-row--document {
+  height: 88px;
+}
+
+.rail-form-control {
+  position: relative;
+  display: flex;
+  width: 254px;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--rail-text);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-form-control--date {
+  width: 124px;
+}
+
+.rail-form-control input,
+.rail-form-control select {
+  width: 100%;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 11px 12px;
+  appearance: none;
+  border: 1px solid var(--rail-border);
+  border-radius: 8px;
+  outline: 0;
+  background: #fff;
+  color: var(--rail-text);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.rail-form-control input::placeholder {
+  color: var(--rail-text);
+  opacity: 1;
+}
+
+.rail-form-control input:focus,
+.rail-form-control select:focus {
+  border-color: #9d9b98;
+  box-shadow: 0 0 0 1px #9d9b98;
+}
+
+.rail-form-control select {
+  padding-right: 32px;
+  background-image: url("./assets/rail/passenger-select.svg");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 6px 14px;
+}
+
+.rail-form-control input:disabled {
+  background: var(--rail-control);
+  color: var(--rail-secondary);
+}
+
+.rail-form-control.is-invalid input,
+.rail-form-control.is-invalid select {
+  border-color: #e50f4f;
+  box-shadow: 0 0 0 1px #e50f4f;
+}
+
+.rail-field-help,
+.rail-field-error {
+  display: block;
+  min-height: 18px;
+  color: var(--rail-secondary);
+  font-size: 14px;
+  font-style: normal;
+  line-height: 18px;
+}
+
+.rail-field-error {
+  display: none;
+  color: #e50f4f;
+}
+
+.rail-form-control.is-invalid .rail-field-help {
+  display: none;
+}
+
+.rail-form-control.is-invalid .rail-field-error {
+  display: block;
+}
+
+.rail-middle-name-field {
+  display: flex;
+  width: 254px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rail-middle-name-field .rail-form-control {
+  width: 100%;
+}
+
+.rail-checkbox-label {
+  display: inline-flex;
+  width: max-content;
+  height: 20px;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.rail-checkbox-label input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.rail-checkbox-mark {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border: 1px solid var(--rail-border);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.rail-checkbox-label input:checked + .rail-checkbox-mark {
+  border-color: var(--rail-yellow);
+  background: var(--rail-yellow);
+}
+
+.rail-checkbox-label input:checked + .rail-checkbox-mark::after {
+  position: absolute;
+  top: 3px;
+  left: 7px;
+  width: 4px;
+  height: 9px;
+  border-right: 2px solid var(--rail-text);
+  border-bottom: 2px solid var(--rail-text);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.rail-gender-control {
+  width: 254px;
+  height: 66px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.rail-gender-control legend {
+  width: 100%;
+  height: 18px;
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-gender-options {
+  display: grid;
+  width: 254px;
+  height: 44px;
+  padding: 1px;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 8px;
+  background: var(--rail-control);
+}
+
+.rail-gender-options label {
+  cursor: pointer;
+}
+
+.rail-gender-options input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.rail-gender-options span {
+  display: grid;
+  height: 42px;
+  place-items: center;
+  border-radius: 7px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-gender-options input:checked + span {
+  background: #fff;
+  box-shadow: var(--rail-shadow);
+}
+
+.rail-tariffs {
+  display: flex;
+  width: 516px;
+  min-height: 424px;
+  flex: 0 0 424px;
+  flex-direction: column;
+}
+
+.rail-tariffs > h3 {
+  height: 22px;
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.rail-tariff-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rail-tariff-group {
+  display: flex;
+  width: 516px;
+  height: 168px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rail-tariff-group > strong {
+  height: 18px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.rail-tariff-options {
+  display: flex;
+  height: 134px;
+  gap: 16px;
+}
+
+.rail-tariff-option {
+  position: relative;
+  display: block;
+  width: 250px;
+  height: 134px;
+  cursor: pointer;
+}
+
+.rail-tariff-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.rail-tariff-option__body {
+  display: flex;
+  width: 250px;
+  height: 134px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid var(--rail-border);
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  line-height: 18px;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.rail-tariff-option input:checked + .rail-tariff-option__body {
+  border-color: var(--rail-yellow);
+}
+
+.rail-tariff-option:hover .rail-tariff-option__body {
+  background: #fffdf4;
+}
+
+.rail-tariff-option__copy {
+  display: flex;
+  width: 190px;
+  flex-direction: column;
+}
+
+.rail-tariff-option__copy strong {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.rail-tariff-radio {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  background: url("./assets/rail/passenger-radio-empty.svg") center / 20px 20px no-repeat;
+}
+
+.rail-tariff-option input:checked + .rail-tariff-option__body .rail-tariff-radio {
+  background-image: url("./assets/rail/passenger-radio-selected.svg");
+}
+
+.rail-tariff-note {
+  height: 18px;
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.rail-loyalty {
+  display: flex;
+  width: 776px;
+  height: 98px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rail-loyalty-toggle {
+  display: inline-flex;
+  width: max-content;
+  height: 22px;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent;
+  color: var(--rail-link);
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.rail-loyalty-toggle img {
+  width: 16px;
+  height: 16px;
+  transition: transform 120ms ease;
+}
+
+.rail-loyalty-toggle[aria-expanded="false"] img {
+  transform: rotate(180deg);
+}
+
+.rail-loyalty-fields {
+  display: flex;
+  height: 64px;
+  gap: 8px;
+}
+
+.rail-loyalty-fields[hidden] {
+  display: none;
+}
+
+.rail-loyalty-fields .rail-form-control > span {
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.rail-contact-card {
+  width: 840px;
+  height: 190px;
+  padding: 28px 32px 32px;
+}
+
+.rail-contact-card__title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rail-contact-card__title h2 {
+  line-height: 20px;
+}
+
+.rail-contact-card__title p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-contact-fields {
+  display: flex;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.rail-passengers-right {
+  position: sticky;
+  top: 20px;
+}
+
+.rail-passengers-price-card {
+  width: 340px;
+  min-height: 444px;
+  padding: 28px 24px;
+}
+
+.rail-passengers-price-card h2 {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -.24px;
+}
+
+.rail-passenger-price-breakdown {
+  display: flex;
+  margin-top: 16px;
+  padding-bottom: 15px;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid var(--rail-control);
+}
+
+.rail-passenger-price-leg {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rail-passenger-price-leg + .rail-passenger-price-leg {
+  padding-top: 15px;
+  border-top: 1px solid var(--rail-control);
+}
+
+.rail-passenger-price-leg > strong {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.rail-passenger-price-line {
+  display: flex;
+  min-height: 34px;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-passenger-price-line span {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.rail-passenger-price-line small {
+  color: var(--rail-secondary);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.rail-passenger-price-line b {
+  flex: 0 0 auto;
+  font-weight: 400;
+}
+
+.rail-discount-notice {
+  display: flex;
+  width: 292px;
+  min-height: 52px;
+  margin-top: 16px;
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 8px;
+  background: #f3efff;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-passenger-total {
+  display: flex;
+  height: 24px;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.24px;
+}
+
+.rail-passenger-total strong {
+  font-weight: 500;
+}
+
+.rail-add-to-trip {
+  width: 292px;
+  height: 56px;
+  margin-top: 16px;
+  border-radius: 16px;
+  background: #242326;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  transition: background 120ms ease, transform 120ms ease;
+}
+
+.rail-add-to-trip:hover:not(:disabled) {
+  background: #3a393d;
+}
+
+.rail-add-to-trip:active:not(:disabled) {
+  transform: scale(.99);
+}
+
+.rail-add-to-trip:disabled {
+  background: var(--rail-control);
+  color: var(--rail-secondary);
+  cursor: wait;
+}
+
+.rail-passenger-price-note {
+  width: 340px;
+  margin: 20px 0 0;
+  color: var(--rail-secondary);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-passenger-price-note a {
+  color: var(--rail-link);
+  text-decoration: none;
+}
+
+.rail-passengers-page .rail-footer {
+  margin-top: 96px;
+}
+
+.rail-passengers-page button:focus-visible,
+.rail-passengers-page a:focus-visible,
+.rail-passengers-page input:focus-visible,
+.rail-passengers-page select:focus-visible {
+  outline: 3px solid rgba(0, 78, 216, .35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 1240px) {
+  .rail-passengers-main {
+    width: min(840px, calc(100% - 48px));
+  }
+
+  .rail-passengers-layout {
+    grid-template-columns: minmax(0, 840px);
+  }
+
+  .rail-passengers-right {
+    position: static;
+  }
+
+  .rail-passengers-price-card,
+  .rail-passenger-price-note {
+    width: 100%;
+  }
+
+  .rail-passengers-price-card {
+    min-height: 0;
+  }
+
+  .rail-discount-notice,
+  .rail-add-to-trip {
+    width: 100%;
+  }
+
+  .rail-passengers-page .rail-footer {
+    margin-top: 72px;
+  }
+}
+
+@media (max-width: 860px) {
+  .rail-passengers-page {
+    min-height: 100vh;
+  }
+
+  .rail-passengers-main {
+    width: calc(100% - 32px);
+    margin-top: 16px;
+  }
+
+  .rail-passenger-card,
+  .rail-contact-card {
+    width: 100%;
+    height: auto;
+    padding: 24px 20px;
+  }
+
+  .rail-profile-chips {
+    overflow-x: auto;
+  }
+
+  .rail-passenger-body,
+  .rail-identity-fields,
+  .rail-tariffs,
+  .rail-loyalty {
+    width: 100%;
+    height: auto;
+    flex-basis: auto;
+  }
+
+  .rail-identity-fields {
+    gap: 20px;
+  }
+
+  .rail-field-row,
+  .rail-field-row--names,
+  .rail-field-row--personal,
+  .rail-field-row--document {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .rail-form-control,
+  .rail-middle-name-field,
+  .rail-gender-control {
+    width: min(100%, 254px);
+  }
+
+  .rail-tariff-group,
+  .rail-tariff-options {
+    width: 100%;
+    height: auto;
+  }
+
+  .rail-tariff-options {
+    flex-wrap: wrap;
+  }
+
+  .rail-tariff-option,
+  .rail-tariff-option__body {
+    width: min(100%, 250px);
+  }
+
+  .rail-tariff-note {
+    height: auto;
+    white-space: normal;
+  }
+
+  .rail-loyalty-fields,
+  .rail-contact-fields {
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .rail-passengers-page .rail-footer {
+    width: calc(100% - 32px);
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .rail-passenger-card,
+  .rail-contact-card,
+  .rail-passengers-price-card {
+    border-radius: 12px;
+  }
+
+  .rail-form-control,
+  .rail-form-control--date,
+  .rail-middle-name-field,
+  .rail-gender-control,
+  .rail-gender-options,
+  .rail-tariffs,
+  .rail-tariff-group,
+  .rail-tariff-option,
+  .rail-tariff-option__body,
+  .rail-loyalty,
+  .rail-loyalty-fields .rail-form-control,
+  .rail-contact-fields .rail-form-control {
+    width: 100%;
+    max-width: none;
+  }
+
+  .rail-tariff-options,
+  .rail-loyalty-fields,
+  .rail-contact-fields {
+    flex-direction: column;
+  }
+
+  .rail-passenger-price-note {
+    width: 100%;
+  }
+}

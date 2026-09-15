@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Создание командировки — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=14">
+    <script src="./app.js?v=21" defer></script>
+    <link rel="stylesheet" href="../corporate-profile-drawer.css">
+    <script src="../corporate-profile-drawer.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell" data-page-ready>
+      <header class="header" aria-label="Шапка Яндекс Путешествий">
+        <a class="logo" href="#main" aria-label="Яндекс Путешествия">
+          <img class="logo__planet" src="./assets/images/logo-planet.svg" alt="">
+          <img class="logo__wordmark" src="./assets/images/logo-wordmark.svg" alt="Яндекс Путешествия">
+        </a>
+        <nav class="header-actions" aria-label="Сервисы">
+          <button class="icon-button" type="button" aria-label="Избранное">
+            <img src="./assets/icons/heart.svg" alt="">
+          </button>
+          <button class="icon-button" type="button" aria-label="Мои поездки">
+            <img src="./assets/icons/trip.svg" alt="">
+          </button>
+          <button class="icon-button" type="button" aria-label="Поддержка">
+            <img src="./assets/icons/support.svg" alt="">
+          </button>
+          <div class="account-group">
+            <button class="account account--company" type="button">
+              <img src="./assets/icons/briefcase.svg" alt="">
+              <span>Айди тех</span>
+            </button>
+            <button class="account account--profile" type="button" aria-label="Профиль, новичок, 0 броней">
+              <span class="profile-copy"><strong>НОВИЧОК</strong><small>0 броней</small></span>
+              <img class="avatar" src="./assets/shared-header/figma-header-avatar.png" alt="">
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <main id="main">
+        <section class="creator" aria-labelledby="creator-title">
+          <h1 id="creator-title" class="visually-hidden">Создание командировки</h1>
+          <div class="vertical-tabs" role="tablist" aria-label="Тип поездки">
+            <button class="vertical-tab is-selected" type="button" role="tab" aria-selected="true" data-vertical="hotel">
+              <span class="vertical-tab__art"><img src="./assets/images/tab-hotel.png?v=2" alt=""></span>
+              <span>Отели</span>
+            </button>
+            <button class="vertical-tab" type="button" role="tab" aria-selected="false" data-vertical="avia">
+              <span class="vertical-tab__art"><img src="./assets/images/tab-avia.png?v=2" alt=""></span>
+              <span>Авиа</span>
+            </button>
+            <button class="vertical-tab" type="button" role="tab" aria-selected="false" data-vertical="train">
+              <span class="vertical-tab__art"><img src="./assets/images/tab-train.png?v=2" alt=""></span>
+              <span>Поезда</span>
+            </button>
+            <button class="vertical-tab" type="button" role="tab" aria-selected="false" data-vertical="tour">
+              <span class="vertical-tab__art"><img src="./assets/images/tab-tour.png?v=2" alt=""></span>
+              <span>Туры</span>
+            </button>
+            <button class="vertical-tab" type="button" role="tab" aria-selected="false" data-vertical="service">
+              <span class="vertical-tab__art"><img src="./assets/images/tab-tour.png?v=2" alt=""></span>
+              <span>Услуги</span>
+            </button>
+            <button class="vertical-tab vertical-tab--business" type="button" role="tab" aria-selected="false" data-vertical="business">
+              <span class="vertical-tab__art vertical-tab__art--business"><img src="./assets/images/tab-business.png?v=2" alt=""></span>
+              <span>Командировка</span>
+            </button>
+          </div>
+
+          <div class="search-area">
+            <form id="trip-form" class="search-form" novalidate>
+              <div id="search-fields" class="search-fields"></div>
+              <button id="search-submit" class="create-button" type="submit">Создать</button>
+            </form>
+            <div id="trip-drafts" class="trip-drafts" data-business-only hidden aria-label="Черновики командировок"></div>
+            <div id="work-trip-row" class="work-trip-row" hidden>
+              <label class="work-trip-toggle">
+                <input id="work-trip-toggle" type="checkbox" role="switch">
+                <span class="work-trip-toggle__track" aria-hidden="true"></span>
+                <span>Еду по работе</span>
+              </label>
+            </div>
+            <div id="popover-layer"></div>
+          </div>
+        </section>
+
+        <div class="home-content">
+          <section class="home-section trips-section" aria-labelledby="trips-title" data-business-only hidden>
+            <h2 id="trips-title">Мои командировки</h2>
+            <div id="trip-cards" class="trip-cards">
+              <a class="trip-image-card trip-image-card--moscow" href="./trip.html?tripId=moscow-october&amp;from=Санкт-Петербург&amp;to=Москва&amp;title=Санкт-Петербург+–+Москва&amp;depart=23+окт&amp;return=28+окт&amp;adults=3&amp;children=0&amp;traveller=3+взрослых&amp;travellerNames=Юрий+Ширяев,+Андрей+Соколов,+Наталья+Старкова&amp;passengerName=Юрий+Ширяев&amp;passengerDetails=14.04.1988+·+Паспорт+РФ&amp;railAdded=1&amp;railScope=roundtrip&amp;railStatus=paid&amp;railOutboundDate=23+окт&amp;railReturnDate=28+окт&amp;railOutboundTrainId=sapsan-770a&amp;railOutboundTrainNumber=770А&amp;railOutboundTotal=12750&amp;railOutboundDepartTime=06:40&amp;railOutboundArrivalTime=10:35&amp;railOutboundDuration=3+ч+55+мин&amp;railOutboundFromStation=Московский+вокзал&amp;railOutboundToStation=Ленинградский+вокзал&amp;railOutboundCoach=coupe&amp;railOutboundSeats=4:8,4:9,4:10&amp;railReturnTrainId=sapsan-781a&amp;railReturnTrainNumber=781А&amp;railReturnTotal=13800&amp;railReturnDepartTime=18:30&amp;railReturnArrivalTime=22:25&amp;railReturnDuration=3+ч+55+мин&amp;railReturnFromStation=Ленинградский+вокзал&amp;railReturnToStation=Московский+вокзал&amp;railReturnCoach=coupe&amp;railReturnSeats=5:6,5:7,5:8&amp;hotel=azimut&amp;hotelName=AZIMUT+Сити+Отель+Смоленская&amp;hotelAddress=Смоленская+улица,+8&amp;hotelPrice=72500&amp;hotelStatus=paid&amp;checkin=23+окт&amp;checkout=28+окт&amp;room=Стандарт+с+двуспальной+кроватью&amp;tariff=Завтрак+включён" data-trip-id="moscow-october" aria-label="Открыть оплаченную командировку Санкт-Петербург — Москва, 23–28 октября">
+                <img src="./assets/images/trip-moscow.png" alt="Москва">
+                <div class="trip-image-card__shade"></div>
+                <div class="trip-image-card__copy">
+                  <h3>МОСКВА</h3>
+                  <span>23 — 28 окт</span>
+                </div>
+              </a>
+              <a class="trip-image-card trip-image-card--kazan" href="./trip.html?tripId=spb-kazan-august&amp;from=Санкт-Петербург&amp;to=Казань&amp;title=Санкт-Петербург+–+Казань&amp;depart=10+авг&amp;return=12+авг&amp;adults=2&amp;children=1&amp;traveller=2+взрослых,+1+ребёнок&amp;travellerNames=Ольга+Лебедева,+Максим+Крылов,+Миша+Крылов+(12+лет)&amp;passengerName=Ольга+Лебедева&amp;passengerDetails=02.09.1991+·+Паспорт+РФ&amp;flightAdded=1&amp;flightScope=roundtrip&amp;flightStatus=paid&amp;flightTotalPrice=45600&amp;flightOutboundDate=10+авг&amp;flightReturnDate=12+авг&amp;flightAirline=Россия&amp;flightNumber=FV+6105&amp;flightDepartTime=08:20&amp;flightArrivalTime=10:35&amp;flightDuration=2+ч+15+мин&amp;flightFromCode=LED&amp;flightToCode=KZN&amp;flightFromAirport=Пулково&amp;flightToAirport=Казань&amp;returnAirline=Россия&amp;returnFlightNumber=FV+6106&amp;returnDepartTime=19:10&amp;returnArrivalTime=21:25&amp;returnDuration=2+ч+15+мин&amp;returnFromCode=KZN&amp;returnToCode=LED&amp;returnFromAirport=Казань&amp;returnToAirport=Пулково&amp;flightTariff=optimum&amp;flightTariffName=Эконом+Оптимум&amp;hotel=ramada&amp;hotelName=Ramada+by+Wyndham+Kazan+City+Centre&amp;hotelAddress=улица+Чернышевского,+39&amp;hotelPrice=29200&amp;hotelStatus=paid&amp;checkin=10+авг&amp;checkout=12+авг&amp;room=Семейный+номер+с+двуспальной+кроватью&amp;tariff=Завтрак+включён" data-trip-id="spb-kazan-august" aria-label="Открыть оплаченную командировку Санкт-Петербург — Казань, 10–12 августа">
+                <img src="./assets/images/trip-kazan.png" alt="Санкт-Петербург — Казань">
+                <div class="trip-image-card__shade"></div>
+                <div class="trip-image-card__copy">
+                  <h3>САНКТ-ПЕТЕРБУРГ – КАЗАНЬ</h3>
+                  <span>10 авг — 12 авг</span>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <section class="home-section approvals-section" aria-labelledby="approvals-title" hidden>
+            <h2 id="approvals-title">Согласования</h2>
+            <div class="approval-island">
+              <article class="approval-card">
+                <div class="approval-card__top">
+                  <h3>Москва</h3>
+                  <p>23 — 28 окт&nbsp; · &nbsp;Бронь действует ещё 7 часов</p>
+                </div>
+                <strong class="approval-price">89 000 ₽</strong>
+                <p class="approval-travellers">Юрий Ширяев, Андрей Соколов, Наталья Старкова, +2</p>
+                <div class="policy-warning">
+                  <span class="policy-warning__icon"><img src="./assets/icons/hotel.svg" alt=""></span>
+                  <span><strong>Превышение на 2 284 ₽</strong><small>23 000 ₽ · Штраф за отмену</small></span>
+                </div>
+                <div class="approval-actions">
+                  <button class="secondary-button approve-button" type="button"><span class="mask-icon mask-icon--check"></span>Согласовать</button>
+                  <button class="secondary-button details-button" type="button">Детали</button>
+                </div>
+              </article>
+              <article class="approval-card">
+                <div class="approval-card__top">
+                  <h3>Москва</h3>
+                  <p>23 — 28 окт&nbsp; · &nbsp;Бронь действует ещё 7 часов</p>
+                </div>
+                <strong class="approval-price">89 000 ₽</strong>
+                <p class="approval-travellers">Юрий Ширяев, Андрей Соколов, Наталья Старкова, +2</p>
+                <div class="policy-warning">
+                  <span class="policy-warning__icon"><img src="./assets/icons/hotel.svg" alt=""></span>
+                  <span><strong>Превышение на 2 284 ₽</strong><small>23 000 ₽ · Штраф за отмену</small></span>
+                </div>
+                <div class="approval-actions">
+                  <button class="secondary-button approve-button" type="button"><span class="mask-icon mask-icon--check"></span>Согласовать</button>
+                  <button class="secondary-button details-button" type="button">Детали</button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="frequent-section" aria-labelledby="frequent-title">
+            <h2 id="frequent-title">Частые направления</h2>
+            <div class="destination-grid">
+              <button class="destination-card" type="button" data-city="Екатеринбург">
+                <img src="./assets/images/city-ekaterinburg.png" alt="">
+                <span><strong>Екатеринбург</strong><small>от 23 490 ₽ / сутки</small></span>
+              </button>
+              <button class="destination-card" type="button" data-city="Пятигорск">
+                <img src="./assets/images/city-pyatigorsk.png" alt="">
+                <span><strong>Пятигорск</strong><small>от 23 490 ₽ / сутки</small></span>
+              </button>
+              <button class="destination-card" type="button" data-city="Кострома">
+                <img src="./assets/images/city-kostroma.png" alt="">
+                <span><strong>Кострома</strong><small>от 23 490 ₽ / сутки</small></span>
+              </button>
+              <button class="destination-card" type="button" data-city="Новороссийск">
+                <img src="./assets/images/city-novorossiysk.png" alt="">
+                <span><strong>Новороссийск</strong><small>от 23 490 ₽ / сутки</small></span>
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+  </body>
+</html>

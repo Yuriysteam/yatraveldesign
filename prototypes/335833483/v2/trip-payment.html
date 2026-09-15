@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f5f5">
+    <title>Проверка и оплата — командировка</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=5">
+    <link rel="stylesheet" href="./trip-payment.css?v=3">
+    <script src="./trip-payment.js?v=5" defer></script>
+    <link rel="stylesheet" href="../corporate-profile-drawer.css">
+    <script src="../corporate-profile-drawer.js" defer></script>
+  </head>
+  <body>
+    <main class="trip-payment-page" data-ready="false">
+      <section class="trip-payment-main-column">
+        <button class="trip-payment-back" id="trip-payment-back" type="button"><span aria-hidden="true">←</span> Командировка</button>
+        <header class="trip-payment-heading">
+          <h1 id="trip-payment-route">Командировка</h1>
+          <p id="trip-payment-meta"></p>
+          <h2>Проверка и оплата</h2>
+          <span id="trip-payment-caption">Проверьте выбранные услуги перед оплатой</span>
+        </header>
+        <section class="trip-payment-services" id="trip-payment-services" aria-label="Услуги к оплате"></section>
+      </section>
+
+      <aside class="trip-payment-summary" aria-label="Итог оплаты">
+        <h2>Стоимость</h2>
+        <div class="trip-payment-breakdown" id="trip-payment-breakdown"></div>
+        <h3>Способ оплаты</h3>
+        <button class="trip-payment-method is-selected" type="button" aria-pressed="true">
+          <span class="trip-payment-method__icon" aria-hidden="true"><img src="./assets/icons/briefcase.svg" alt=""></span>
+          <span><strong>Бизнес-счёт</strong><small>Айди тех · •••• 4582</small></span>
+          <i aria-hidden="true"></i>
+        </button>
+        <div class="trip-payment-total"><span>Итого к оплате</span><strong id="trip-payment-total">0 ₽</strong></div>
+        <button class="trip-payment-submit" id="trip-payment-submit" type="button">Оплатить всё</button>
+        <p>После оплаты услуги останутся внутри этой командировки.</p>
+      </aside>
+      <div class="visually-hidden" id="trip-payment-announcer" aria-live="polite"></div>
+    </main>
+  </body>
+</html>
