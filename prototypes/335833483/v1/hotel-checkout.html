@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Оформление отеля — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./hotel-search.css?v=10">
+    <link rel="stylesheet" href="./hotel-checkout.css?v=13">
+    <link rel="stylesheet" href="./shared-search-header.css?v=5">
+    <link rel="stylesheet" href="../business-trip-target.css?v=2">
+    <script src="./shared-search-header.js?v=1" defer></script>
+    <script src="../business-trip-target.js?v=4" defer></script>
+    <script src="./hotel-checkout.js?v=15" defer></script>
+  </head>
+  <body>
+    <div class="hotel-checkout-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="hotel" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <main class="checkout-main">
+        <nav class="checkout-breadcrumbs" aria-label="Хлебные крошки">
+          <button type="button" data-action="back-to-hotel">Отели</button>
+          <span aria-hidden="true">›</span>
+          <button type="button" data-action="back-to-hotel">Бронирование</button>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">Оплата</span>
+        </nav>
+
+        <section class="checkout-hotel" aria-labelledby="checkout-hotel-name">
+          <img id="checkout-hotel-image" src="./assets/hotel-detail/hero-main.png" alt="">
+          <div>
+            <div class="checkout-hotel__title-row">
+              <h1 id="checkout-hotel-name">AZIMUT Смоленская</h1>
+              <span class="checkout-hotel__grade"><b id="checkout-hotel-grade">3</b><span aria-hidden="true">★</span></span>
+            </div>
+            <p><img src="./assets/hotel-detail/location.svg" alt=""><span id="checkout-hotel-address">Москва, Смоленская улица, 16</span></p>
+          </div>
+        </section>
+
+        <div class="checkout-layout">
+          <section class="checkout-details" aria-labelledby="booking-details-title">
+            <section class="checkout-payment-setup" id="checkout-payment-setup" aria-label="Способы оплаты">
+              <div class="checkout-payment-island">
+                <div class="payment-choice-panel">
+                  <h2>Способы оплаты</h2>
+                  <button class="payment-plan is-selected" type="button" data-payment-plan="full" aria-pressed="true">
+                    <span class="payment-radio" aria-hidden="true"></span>
+                    <span><strong>Вся сумма сразу</strong></span>
+                  </button>
+                  <button class="payment-plan" type="button" data-payment-plan="split" aria-pressed="false">
+                    <span class="payment-radio" aria-hidden="true"></span>
+                    <span><strong>Частями в Сплит</strong><small><span id="split-payment">8 650 ₽</span> × 4 платежа</small></span>
+                  </button>
+                  <button class="payment-plan" type="button" data-payment-plan="deferred" aria-pressed="false">
+                    <span class="payment-radio" aria-hidden="true"></span>
+                    <span><strong>Отложенным платежом</strong><small>1 ₽ спишем сейчас, остальное — за 2 дня до поездки</small></span>
+                  </button>
+                </div>
+
+                <div class="payment-methods" role="group" aria-label="Способ оплаты">
+                  <button class="payment-method is-selected" type="button" data-payment-method="pay" aria-pressed="true">
+                    <span class="payment-method__icon payment-method__icon--pay">Я</span>
+                    <span><strong>Карта Пэй</strong><small>•• 0000</small></span>
+                  </button>
+                  <button class="payment-method" type="button" data-payment-method="business" aria-pressed="false">
+                    <span class="payment-method__icon"><img src="./assets/icons/briefcase.svg" alt=""></span>
+                    <span><strong>Бизнес-счёт</strong></span>
+                  </button>
+                  <button class="payment-method" type="button" data-payment-method="sbp" aria-pressed="false">
+                    <span class="payment-method__icon payment-method__icon--sbp">СБП</span>
+                    <span><strong>СБП</strong></span>
+                  </button>
+                  <button class="payment-method" type="button" data-payment-method="card" aria-pressed="false">
+                    <span class="payment-method__icon payment-method__icon--add">+</span>
+                    <span><strong>Добавить карту</strong></span>
+                  </button>
+                </div>
+
+                <div class="work-purpose-row">
+                  <span><strong>Еду по работе</strong><small>Подготовим справку для возмещения расходов</small></span>
+                  <button class="checkout-toggle" id="work-purpose-toggle" type="button" role="switch" aria-checked="false" data-action="toggle-work-purpose" aria-label="Еду по работе"><span></span></button>
+                </div>
+
+                <div class="business-trip-row" id="business-trip-row" hidden>
+                  <div class="business-trip-row__head">
+                    <span><strong>Добавить в командировку</strong><small>Сможете сразу оплатить отель, авиа, ж/д и другие услуги</small></span>
+                    <button class="checkout-toggle" id="add-to-trip-toggle" type="button" role="switch" aria-checked="false" data-action="toggle-add-to-trip" aria-label="Добавить в командировку"><span></span></button>
+                  </div>
+                  <div class="business-trip-kind" id="business-trip-kind" role="group" aria-label="Выбор командировки" hidden>
+                    <button class="is-selected" type="button" data-trip-kind="new" aria-pressed="true">Новая командировка</button>
+                    <button type="button" data-trip-kind="existing" aria-pressed="false">Существующая</button>
+                  </div>
+                  <label class="business-trip-target__select" id="business-trip-existing" hidden><span>Командировка</span><select id="business-trip-select" aria-label="Существующая командировка"></select></label>
+                  <p class="business-trip-target__empty" id="business-trip-empty" hidden>Нет активных командировок. Создадим новую.</p>
+                </div>
+              </div>
+            </section>
+
+            <h2 id="booking-details-title">Детали бронирования</h2>
+
+            <div class="booking-stack">
+              <div class="checkout-card__inner booking-facts">
+                <div class="booking-fact">
+                  <span>Заезд</span>
+                  <strong id="checkout-checkin">21 июня, вс</strong>
+                  <small>после 14:00</small>
+                </div>
+                <div class="booking-fact">
+                  <span>Выезд</span>
+                  <strong id="checkout-checkout">25 июня, чт</strong>
+                  <small>до 12:00</small>
+                </div>
+                <div class="booking-fact">
+                  <span>Гости</span>
+                  <strong id="checkout-adults">1 взрослый</strong>
+                  <small id="checkout-children">без детей</small>
+                </div>
+              </div>
+
+              <article class="checkout-card__inner checkout-room-card__inner">
+                <img class="checkout-room-card__image" id="checkout-room-image" src="./assets/hotel-detail/room-premium-exact.png" alt="Номер отеля">
+                <div class="checkout-room-card__body">
+                  <h3 id="checkout-room-name">Двухместный номер «Премиум» с двуспальной кроватью</h3>
+                  <p id="checkout-bed">Двуспальная кровать</p>
+                  <div class="room-feature-list" id="checkout-room-features" aria-label="Удобства номера"></div>
+                </div>
+              </article>
+
+              <div class="checkout-card__inner booking-conditions">
+                <div class="booking-condition">
+                  <span>Условия отмены</span>
+                  <p><strong id="checkout-cancellation-title">Бесплатная отмена до 20 июня</strong><small id="checkout-cancellation-copy">После — удерживается стоимость первой ночи</small></p>
+                </div>
+                <div class="booking-condition">
+                  <span>Питание</span>
+                  <p><strong id="checkout-meal">Завтрак включён</strong></p>
+                </div>
+              </div>
+            </div>
+
+            <section class="checkout-section" aria-labelledby="rules-title">
+              <h2 id="rules-title">Правила проживания</h2>
+              <div class="checkout-card checkout-card--rules">
+                <div class="checkout-card__inner booking-rules">
+                  <div class="booking-rule">
+                    <img class="booking-rule__icon" src="./assets/hotel-detail/rule-payment.svg" alt="">
+                    <div class="booking-rule__copy"><span>Курортный сбор до 100 ₽ с человека</span><small>Необходимо оплатить при заселении</small></div>
+                  </div>
+                  <div class="booking-rule">
+                    <img class="booking-rule__icon" src="./assets/hotel-detail/rule-arrival.svg" alt="">
+                    <div class="booking-rule__copy"><span>Заезд после 18:00</span></div>
+                  </div>
+                  <div class="booking-rule">
+                    <img class="booking-rule__icon" src="./assets/hotel-detail/rule-smoke.svg" alt="">
+                    <div class="booking-rule__copy"><span>Курение в номере запрещено</span></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="checkout-section" aria-labelledby="contacts-title">
+              <h2 id="contacts-title">Контакты покупателя</h2>
+              <div class="checkout-card checkout-card--form">
+                <div class="checkout-card__inner checkout-form-card">
+                  <label><span>Почта*</span><input id="buyer-email" type="email" autocomplete="email" value="yuriy@example.ru"></label>
+                  <label><span>Телефон*</span><input id="buyer-phone" type="tel" autocomplete="tel" value="+7 999 123-45-67"></label>
+                  <small>Сюда отправим информацию о бронировании</small>
+                </div>
+              </div>
+            </section>
+
+            <section class="checkout-section" aria-labelledby="guests-title">
+              <h2 id="guests-title">Данные гостей</h2>
+              <div class="checkout-card checkout-card--form">
+                <div class="checkout-card__inner checkout-form-card guest-form-card">
+                  <h3 id="guest-card-title">Гость 1, взрослый</h3>
+                  <div class="saved-guests" aria-label="Сохранённые гости">
+                    <button type="button" data-saved-guest="Иванов Иван"><strong>Иванов Иван</strong><small>13.05.1994</small></button>
+                    <button type="button" data-saved-guest="Иванова Александра"><strong>Иванова Александра</strong><small>18.05.1994</small></button>
+                  </div>
+                  <label><span>Имя*</span><input id="guest-first-name" autocomplete="given-name"></label>
+                  <label><span>Фамилия*</span><input id="guest-last-name" autocomplete="family-name"></label>
+                  <button class="add-guest-button" type="button" data-action="add-guest"><span aria-hidden="true">＋</span>Добавить гостя</button>
+                  <small>Добавление данных всех гостей необязательно, но может понадобиться для визы или при заселении в разное время</small>
+                </div>
+              </div>
+            </section>
+
+            <section class="checkout-section checkout-section--wishes" aria-labelledby="wishes-title">
+              <h2 id="wishes-title">Особые пожелания</h2>
+              <label class="checkout-card checkout-card--wishes">
+                <span class="visually-hidden">Пожелания отелю</span>
+                <textarea id="checkout-wishes" maxlength="500" placeholder="Например, тёплое одеяло или номер на верхнем этаже.&#10;Ваши пожелания постараются учесть"></textarea>
+                <span class="wishes-counter" id="wishes-counter">0 / 500</span>
+              </label>
+            </section>
+          </section>
+
+          <aside class="checkout-payment" aria-label="Оплата бронирования">
+            <div class="points-switch" role="group" aria-label="Баллы Плюса">
+              <button class="is-active" type="button" data-points-mode="earn" aria-pressed="true"><small>Начислить до</small><span><strong id="earn-points">1730</strong> <b class="plus-mark" aria-label="баллов Плюса">+</b></span></button>
+              <button type="button" data-points-mode="redeem" aria-pressed="false"><small>Списать</small><span><strong>1000</strong> <b class="plus-mark" aria-label="баллов Плюса">+</b></span></button>
+            </div>
+
+            <div class="payment-line payment-line--stay">
+              <button class="stay-summary" type="button" data-action="toggle-breakdown" aria-expanded="false"><span id="checkout-nights">4 ночи</span><span aria-hidden="true">⌄</span></button>
+              <strong id="checkout-base-price">34 600 ₽</strong>
+            </div>
+            <div class="price-breakdown" id="price-breakdown" hidden>
+              <span>Проживание и налоги</span><strong id="checkout-breakdown-price">34 600 ₽</strong>
+            </div>
+
+            <div class="promo-row">
+              <label for="promo-toggle">Промокод</label>
+              <button class="checkout-toggle" id="promo-toggle" type="button" role="switch" aria-checked="false" data-action="toggle-promo"><span></span></button>
+            </div>
+            <form class="promo-form" id="promo-form" hidden>
+              <label><span class="visually-hidden">Промокод</span><input name="promo" autocomplete="off" placeholder="Введите промокод"></label>
+              <button type="submit">Применить</button>
+            </form>
+            <p class="promo-message" id="promo-message" hidden></p>
+
+            <div class="payment-total">
+              <span id="checkout-total-label">К оплате</span>
+              <strong id="checkout-total">34 600 ₽</strong>
+            </div>
+
+            <button class="checkout-submit" id="checkout-submit" type="button" data-action="pay">Оплатить</button>
+            <p class="cancellation-note" id="checkout-green-note">Бесплатная отмена до 20 июня</p>
+            <div class="checkout-legal">
+              <p>Нажимая кнопку, вы соглашаетесь с <a href="#" data-action="legal">пользовательским соглашением</a> и <a href="#" data-action="legal">условиями бронирования</a>.</p>
+              <p id="checkout-result-copy">Мы подтвердим бронирование и сохраним его в «Моих поездках».</p>
+              <a href="#" data-action="legal">Информация об исполнителе</a>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <div class="visually-hidden" id="checkout-announcer" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

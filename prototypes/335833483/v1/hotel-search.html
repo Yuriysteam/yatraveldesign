@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1d1e23">
+    <title>Поиск отелей — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=5">
+    <link rel="stylesheet" href="./hotel-search.css?v=11">
+    <link rel="stylesheet" href="./shared-search-header.css?v=5">
+    <link rel="stylesheet" href="../search-form-enhancements.css?v=2">
+    <script src="./shared-search-header.js?v=1" defer></script>
+    <script src="./hotel-search.js?v=12" defer></script>
+    <script src="../search-form-enhancements.js?v=4" defer></script>
+  </head>
+  <body>
+    <div class="hotel-search-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="hotel" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <main class="hotel-workspace">
+        <div class="hotel-left">
+          <section class="hotel-search-hero" aria-labelledby="hotel-search-title">
+            <form id="hotel-search-form" class="hotel-search-form" novalidate>
+              <div class="hotel-search-form__fields">
+                <label class="hotel-query-field hotel-query-field--city">
+                  <span>Россия</span>
+                  <input id="hotel-city" name="city" autocomplete="off" value="Москва" aria-label="Город или отель">
+                  <button type="button" class="query-clear" data-clear="city" aria-label="Очистить город">×</button>
+                </label>
+                <label class="hotel-query-field" data-calendar-field-shell="checkin">
+                  <span>Заезд</span>
+                  <input id="hotel-checkin" name="checkin" autocomplete="off" value="21 июня" aria-label="Дата заезда" aria-haspopup="dialog" aria-controls="hotel-calendar" aria-expanded="false" data-calendar-field="checkin" readonly>
+                  <button type="button" class="query-clear" data-clear="checkin" aria-label="Очистить дату заезда">×</button>
+                </label>
+                <label class="hotel-query-field" data-calendar-field-shell="checkout">
+                  <span>Выезд</span>
+                  <input id="hotel-checkout" name="checkout" autocomplete="off" value="25 июня" aria-label="Дата выезда" aria-haspopup="dialog" aria-controls="hotel-calendar" aria-expanded="false" data-calendar-field="checkout" readonly>
+                  <button type="button" class="query-clear" data-clear="checkout" aria-label="Очистить дату выезда">×</button>
+                </label>
+                <label class="hotel-query-field hotel-query-field--guests">
+                  <span class="visually-hidden">Гости</span>
+                  <input id="hotel-traveller" name="traveller" autocomplete="off" value="1 взрослый" aria-label="Количество гостей">
+                  <span class="query-chevron" aria-hidden="true"></span>
+                </label>
+              </div>
+              <button class="hotel-search-submit" type="submit">Найти</button>
+            </form>
+            <h1 id="hotel-search-title">Отели и гостиницы Москвы</h1>
+          </section>
+
+          <div class="popover calendar-popover hotel-calendar-popover" id="hotel-calendar" role="dialog" aria-label="Выбор дат проживания" hidden></div>
+
+          <div class="hotel-results-layout">
+            <aside class="hotel-filters" aria-label="Фильтры отелей">
+              <button class="smart-filter" type="button" aria-pressed="false" data-action="smart-filter">
+                <span>Умный фильтр</span><span class="small-chevron" aria-hidden="true"></span>
+              </button>
+
+              <form id="hotel-filters-form">
+                <fieldset class="quick-filters">
+                  <legend class="visually-hidden">Быстрые фильтры</legend>
+                  <label><input type="checkbox" name="corporate"><span>Корпоративный тариф</span></label>
+                  <label><input type="checkbox" name="discount"><span>Все скидки и бонусы</span></label>
+                  <label><input type="checkbox" name="breakfast"><span>Включен завтрак</span></label>
+                  <label><input type="checkbox" name="freeCancel"><span>Бесплатная отмена</span></label>
+                  <label><input type="checkbox" name="wifi"><span>Wi‑Fi</span></label>
+                  <label><input type="checkbox" name="desk"><span>Рабочий стол</span></label>
+                </fieldset>
+
+                <section class="filter-section filter-section--price">
+                  <div class="filter-section__heading"><h2>Цена за ночь</h2><span class="filter-caret" aria-hidden="true"></span></div>
+                  <div class="price-inputs" aria-hidden="true">
+                    <span><small>От, ₽</small><b>0</b></span>
+                    <span><small>До, ₽</small><b id="price-max-copy">24 000</b></span>
+                  </div>
+                  <span class="price-range-shell">
+                    <input class="price-range" type="range" name="maxPrice" min="0" max="24000" step="1000" value="24000" aria-label="Максимальная цена за ночь">
+                  </span>
+                  <label class="toggle-row"><span>За 1 ночь</span><input type="checkbox" name="perNight"><i aria-hidden="true"></i></label>
+                </section>
+
+                <section class="filter-section">
+                  <div class="filter-section__heading"><h2>Тип размещения</h2><span class="filter-caret" aria-hidden="true"></span></div>
+                  <div class="filter-options">
+                    <label><input type="checkbox" name="type" value="hotel"><span>Отель <small>55</small></span></label>
+                    <label><input type="checkbox" name="type" value="apartment"><span>Апартаменты <small>1200</small></span></label>
+                    <label><input type="checkbox" name="type" value="sanatorium"><span>Санаторий <small>1200</small></span></label>
+                    <label><input type="checkbox" name="type" value="holiday"><span>Дом отдыха <small>12200</small></span></label>
+                    <label><input type="checkbox" name="type" value="hostel"><span>Хостел <small>72</small></span></label>
+                    <label><input type="checkbox" name="type" value="tourbase"><span>Турбаза <small>321</small></span></label>
+                    <label><input type="checkbox" name="type" value="camping"><span>Кемпинг <small>5321</small></span></label>
+                    <label><input type="checkbox" name="type" value="glamping"><span>Глэмпинг <small>5321</small></span></label>
+                  </div>
+                </section>
+
+                <section class="filter-section">
+                  <div class="filter-section__heading"><h2>Звёздность</h2><span class="filter-caret" aria-hidden="true"></span></div>
+                  <div class="filter-options filter-options--compact">
+                    <label><input type="checkbox" name="stars" value="1"><span>1* <small>55</small></span></label>
+                    <label><input type="checkbox" name="stars" value="2"><span>2* <small>1200</small></span></label>
+                    <label><input type="checkbox" name="stars" value="3"><span>3* <small>1200</small></span></label>
+                    <label><input type="checkbox" name="stars" value="4"><span>4* <small>1200</small></span></label>
+                    <label><input type="checkbox" name="stars" value="5"><span>5* <small>1200</small></span></label>
+                  </div>
+                </section>
+
+                <section class="filter-section">
+                  <div class="filter-section__heading"><h2>Рейтинг</h2><span class="filter-caret" aria-hidden="true"></span></div>
+                  <div class="filter-options filter-options--radio">
+                    <label><input type="radio" name="rating" value="0" checked><span>Любой <small>5321</small></span></label>
+                    <label><input type="radio" name="rating" value="4.5"><span>4.5 и выше <small>2139</small></span></label>
+                    <label><input type="radio" name="rating" value="4"><span>4 и выше <small>4000</small></span></label>
+                    <label><input type="radio" name="rating" value="3"><span>3 и выше <small>4000</small></span></label>
+                  </div>
+                </section>
+
+                <section class="filter-section filter-section--secondary">
+                  <div class="filter-section__heading"><h2>Расположение</h2><span class="filter-caret" aria-hidden="true"></span></div>
+                  <div class="filter-options">
+                    <label><input type="checkbox" name="center"><span>В центре <small>436</small></span></label>
+                    <label><input type="checkbox" name="metro"><span>Рядом с метро <small>981</small></span></label>
+                  </div>
+                </section>
+
+                <button class="reset-filters" type="reset">Сбросить фильтры</button>
+              </form>
+            </aside>
+
+            <section class="hotel-results" aria-label="Результаты поиска">
+              <div class="results-toolbar">
+                <strong id="results-count">Найдено 120 объектов в Москве</strong>
+                <label class="sort-control">
+                  <img class="sort-control__icon" src="./assets/icons/sort-direction.svg" alt="">
+                  <select id="hotel-sort" aria-label="Сортировка результатов">
+                    <option value="recommended">Рекомендуемая</option>
+                    <option value="price">Сначала дешевле</option>
+                    <option value="rating">С высоким рейтингом</option>
+                  </select>
+                </label>
+              </div>
+              <div id="hotel-list" class="hotel-list"></div>
+              <div id="empty-results" class="empty-results" hidden>
+                <strong>Ничего не нашли</strong>
+                <span>Измените или сбросьте фильтры</span>
+                <button type="button" data-action="reset-filters">Сбросить фильтры</button>
+              </div>
+              <div class="results-footer">
+                <button type="button" data-action="back"><span aria-hidden="true">←</span> Назад</button>
+                <button type="button" data-action="next">Далее <span aria-hidden="true">→</span></button>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <aside class="hotel-map" aria-label="Карта отелей">
+          <div class="hotel-map__canvas" id="hotel-map-canvas">
+            <div class="hotel-map__image" aria-hidden="true"></div>
+            <div id="map-pins" class="map-pins"></div>
+            <button class="map-button map-button--expand" type="button" data-map-action="expand" aria-label="Развернуть карту"><img src="./assets/hotels/map-expand.svg" alt=""></button>
+            <div class="map-controls">
+              <button class="map-button" type="button" data-map-action="zoom-in" aria-label="Приблизить карту"><img src="./assets/hotels/map-plus.svg" alt=""></button>
+              <button class="map-button" type="button" data-map-action="zoom-out" aria-label="Отдалить карту"><img src="./assets/hotels/map-minus.svg" alt=""></button>
+              <button class="map-button map-button--location" type="button" data-map-action="center" aria-label="Вернуть карту к Москве"><img src="./assets/hotels/map-location.svg" alt=""></button>
+            </div>
+            <span class="map-brand" aria-hidden="true"><b>Я</b> Карты</span>
+          </div>
+        </aside>
+      </main>
+
+      <div id="hotel-announcer" class="visually-hidden" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

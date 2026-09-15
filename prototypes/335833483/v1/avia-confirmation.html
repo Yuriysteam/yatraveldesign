@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Подтверждение авиабилета — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./hotel-search.css?v=4">
+    <link rel="stylesheet" href="./avia-passengers.css?v=8">
+    <link rel="stylesheet" href="./avia-confirmation.css?v=6">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <script src="./shared-search-header.js?v=1" defer></script>
+    <script src="./avia-confirmation.js?v=13" defer></script>
+  </head>
+  <body>
+    <div class="avia-passengers-page avia-confirmation-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="avia" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <div class="booking-progress">
+        <nav class="booking-progress__steps" aria-label="Этапы оформления авиабилета">
+          <button type="button" data-action="back-to-results">Выбор перелета</button>
+          <img class="booking-step-arrow" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" data-action="flight-details">Детали перелета</button>
+          <img class="booking-step-arrow" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" data-action="back-to-passenger">Данные пассажиров</button>
+          <img class="booking-step-arrow" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <strong aria-current="step">Подтверждение</strong>
+          <img class="booking-step-arrow is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <span class="is-muted">Оплата заказа</span>
+        </nav>
+        <p>Поможем с заказом: <a href="tel:+78005117104">8 800 511-71-04</a></p>
+      </div>
+
+      <main class="confirmation-main">
+        <div class="confirmation-layout">
+          <div class="confirmation-left">
+            <section class="confirmation-flights" id="confirmation-flights" aria-label="Детали перелета"></section>
+
+            <section class="confirmation-passengers" id="confirmation-passengers-section" aria-labelledby="confirmation-passengers-title">
+              <h1 id="confirmation-passengers-title">Данные пассажиров</h1>
+              <div class="confirmation-passenger-shell">
+                <div class="confirmation-passenger-list" id="confirmation-passenger-list"></div>
+              </div>
+            </section>
+
+            <section class="confirmation-contacts" id="confirmation-contacts-section" aria-labelledby="confirmation-contacts-title">
+              <div>
+                <h2 id="confirmation-contacts-title">Контакты покупателя</h2>
+                <p>Сюда отправим информацию о бронировании</p>
+              </div>
+              <div class="confirmation-contact-shell">
+                <div class="confirmation-contact-list">
+                  <div class="confirmation-contact-row">
+                    <span>Электронная почта</span>
+                    <strong id="confirmation-email">email@yandex.ru</strong>
+                  </div>
+                  <div class="confirmation-contact-row">
+                    <span>Мобильный телефон</span>
+                    <strong id="confirmation-phone">+7 981 859-90-23</strong>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="confirmation-error" id="confirmation-error" hidden aria-labelledby="confirmation-error-title">
+              <h1 id="confirmation-error-title">Не нашли данные пассажира</h1>
+              <p>Вернитесь на предыдущий шаг и ещё раз подтвердите заполненные данные. Маршрут и выбранный тариф сохранятся.</p>
+              <button type="button" data-action="back-to-passenger">Вернуться к данным пассажира</button>
+            </section>
+          </div>
+
+          <div class="confirmation-payment-stack">
+            <div class="confirmation-payment-timer" aria-label="Осталось 30 минут на оплату заказа">
+              <span class="confirmation-payment-timer__clock" aria-hidden="true"><i></i></span>
+              <strong>30:00 на оплату заказа</strong>
+            </div>
+            <aside class="flight-payment confirmation-payment" aria-label="Итог заказа">
+              <div class="flight-payment__heading"><strong id="confirmation-tariff">Эконом Лайт</strong><b id="confirmation-price">3 672 ₽</b></div>
+              <ul class="payment-features" id="confirmation-features">
+                <li>Ручная кладь 1 место, 10 кг, 55×40×25 см</li>
+                <li>Без багажа</li>
+                <li>Невозвратный</li>
+                <li>Обмен с доплатой</li>
+              </ul>
+              <div class="flight-payment__total">
+                <span>К оплате</span>
+                <span class="confirmation-total-value"><strong id="confirmation-total">3 672 ₽</strong><img src="./assets/avia-confirmation/info-24.svg" alt=""></span>
+              </div>
+              <button class="flight-payment__submit" id="confirmation-submit" type="button">Оплатить</button>
+              <div class="payment-legal">
+                <p>Нажимая «Оплатить», вы принимаете <a href="#" data-action="legal">пользовательское соглашение</a> сервиса «Яндекс.Путешествия», а также договор и правила продавца-перевозчика: <a href="#" data-action="legal">договор воздушной перевозки</a>, <a href="#" data-action="legal">правила тарифа</a>, <a href="#" data-action="legal">правила воздушных перевозок пассажиров и багажа</a>, <a href="#" data-action="legal">правила перевозки для транзитных пассажиров</a>.</p>
+                <p id="confirmation-seller">Продавец билета — ПАО «Аэрофлот». Юридический адрес ПАО «Аэрофлот» (для направления корреспонденции): 119019 Москва, ул. Арбат, дом 1. ОГРН: 1027700092661. ИНН: 7712040126. Режим работы — круглосуточно.</p>
+                <p>Бронирование происходит на стороне продавца билета. Указанные вами данные передаются продавцу билета в целях бронирования.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
+
+      <footer class="passenger-footer">
+        <div class="passenger-footer__links">
+          <p><a href="#">Яндекс Путешествия для партнеров</a><a href="#">Программа для веб-мастеров и блогеров</a><a href="#">О Сервисе</a></p>
+          <p><a href="#">Темная тема</a><a href="#">Служба поддержки</a><a href="#">Пользовательское соглашение</a></p>
+          <p><a href="#">Политика конфиденциальности</a><a href="#">Правила рекомендаций</a><a href="#">Участие в исследованиях</a></p>
+          <p><a href="#">Участие в исследованиях</a><a href="#">Правила программы лояльности Яндекс Плюс</a></p>
+          <span>Мы в соцсетях</span>
+          <div class="footer-socials" aria-label="Социальные сети"><a href="#" aria-label="ВКонтакте"><img src="./assets/avia-booking/vk-glyph.svg" alt=""></a><a href="#" aria-label="Telegram"><img src="./assets/avia-booking/telegram.svg" alt=""></a><a href="#" aria-label="Дзен"><img src="./assets/avia-booking/zen.svg" alt=""></a></div>
+        </div>
+        <div class="passenger-footer__about">
+          <p>© 2009–2024 ООО «Яндекс.Вертикали»</p>
+          <p>Наши проекты: <a href="#">Яндекс Аренда</a><a href="#">Авто.ру</a><a href="#">Яндекс.Недвижимость</a><a href="#">Яндекс Услуги</a></p>
+          <p>Команда: <a href="#">Наши вакансии</a></p>
+          <p>Проект компании <img class="footer-yandex-logo" src="./assets/avia-booking/yandex-logo.svg" alt="Яндекс"></p>
+          <div class="footer-apps" aria-label="Приложения"><a href="#" aria-label="Скачать в App Store"><img src="./assets/avia-booking/app-store-111.svg" alt=""></a><a href="#" aria-label="Скачать в Google Play"><img src="./assets/avia-booking/google-play-111.svg" alt=""></a><a href="#" aria-label="Скачать в App Store"><img src="./assets/avia-booking/app-store-108.svg" alt=""></a></div>
+        </div>
+      </footer>
+
+      <div id="confirmation-announcer" class="visually-hidden" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Поиск ж/д билетов — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=5">
+    <link rel="stylesheet" href="./hotel-search.css?v=5">
+    <link rel="stylesheet" href="./train-search.css?v=4">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <link rel="stylesheet" href="../search-form-enhancements.css?v=2">
+    <script src="./shared-search-header.js?v=1" defer></script>
+    <script src="./train-search.js?v=12" defer></script>
+    <script src="../search-form-enhancements.js?v=4" defer></script>
+  </head>
+  <body>
+    <div class="train-search-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="rail" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <main class="train-main">
+        <section class="train-navigation" aria-label="Поиск и фильтры">
+          <form class="train-search-form" id="train-search-form" novalidate>
+            <label class="train-query-field train-query-field--origin">
+              <span class="visually-hidden">Город отправления</span>
+              <input id="train-origin" name="origin" autocomplete="off" value="Москва">
+            </label>
+            <button class="train-swap" type="button" data-action="swap" aria-label="Поменять города местами"><img src="./assets/rail/swap.svg" alt=""></button>
+            <label class="train-query-field train-query-field--destination">
+              <span class="visually-hidden">Город прибытия</span>
+              <input id="train-destination" name="destination" autocomplete="off" value="Санкт-Петербург">
+            </label>
+            <label class="train-query-field train-query-field--date" data-calendar-field-shell="depart">
+              <span class="visually-hidden">Дата туда</span>
+              <input id="train-depart" name="depart" autocomplete="off" value="29 сентября" aria-haspopup="dialog" aria-controls="train-calendar" aria-expanded="false" data-calendar-field="depart" readonly>
+              <small>Туда</small>
+            </label>
+            <label class="train-query-field train-query-field--date" data-calendar-field-shell="return">
+              <span class="visually-hidden">Дата обратно</span>
+              <input id="train-return" name="return" autocomplete="off" value="30 сентября" placeholder="Без обратного билета" aria-haspopup="dialog" aria-controls="train-calendar" aria-expanded="false" data-calendar-field="return" readonly>
+              <small>Обратно</small>
+            </label>
+            <label class="train-query-field train-query-field--passengers">
+              <span class="visually-hidden">Пассажиры и класс</span>
+              <select id="train-passengers" name="passengers" aria-label="Пассажиры">
+                <option value="1 взрослый">1 взрослый</option>
+                <option value="2 взрослых">2 взрослых</option>
+                <option value="3 взрослых">3 взрослых</option>
+                <option value="2 взрослых, 1 ребёнок">2 взрослых, 1 ребёнок</option>
+              </select>
+              <small>Эконом-класс</small>
+              <span class="train-query-chevron" aria-hidden="true"></span>
+            </label>
+            <button class="train-search-submit" type="submit">Найти</button>
+          </form>
+
+          <div class="popover calendar-popover train-calendar-popover" id="train-calendar" role="dialog" aria-label="Выбор дат поездки" hidden></div>
+
+          <div class="train-filter-row" id="train-filter-row" aria-label="Фильтры поездов">
+            <button class="train-filter-control train-filter-control--sort" type="button" data-action="cycle-sort" aria-label="Сортировка: рекомендуемые" title="Сортировка: рекомендуемые">
+              <img src="./assets/rail/sort.svg" alt="">
+            </button>
+            <button class="train-filter-control" type="button" data-filter-toggle="speed" aria-pressed="false">Скоростные <img src="./assets/rail/arrow-down.svg" alt=""></button>
+            <button class="train-filter-control" type="button" data-filter-toggle="available" aria-pressed="false">Есть места</button>
+            <button class="train-filter-control" type="button" data-filter-toggle="lower" aria-pressed="false">Нижние места</button>
+
+            <details class="train-filter-menu">
+              <summary>Тип вагона <img src="./assets/rail/arrow-down.svg" alt=""></summary>
+              <div class="train-filter-popover">
+                <label><input type="radio" name="coach" value="" checked> Любой</label>
+                <label><input type="radio" name="coach" value="Плац"> Плацкарт</label>
+                <label><input type="radio" name="coach" value="Купе"> Купе</label>
+                <label><input type="radio" name="coach" value="СВ"> СВ</label>
+              </div>
+            </details>
+
+            <details class="train-filter-menu train-filter-menu--wide">
+              <summary>Время отпр./приб. <img src="./assets/rail/arrow-down.svg" alt=""></summary>
+              <div class="train-filter-popover">
+                <label><input type="radio" name="time" value="" checked> Любое время</label>
+                <label><input type="radio" name="time" value="night"> Ночью, 00:00–06:00</label>
+                <label><input type="radio" name="time" value="morning"> Утром, 06:00–12:00</label>
+                <label><input type="radio" name="time" value="day"> Днём, 12:00–18:00</label>
+              </div>
+            </details>
+
+            <details class="train-filter-menu">
+              <summary>Удобства <img src="./assets/rail/arrow-down.svg" alt=""></summary>
+              <div class="train-filter-popover">
+                <label><input type="radio" name="amenity" value="" checked> Любые</label>
+                <label><input type="radio" name="amenity" value="wifi"> Wi-Fi</label>
+                <label><input type="radio" name="amenity" value="dinner"> Питание</label>
+                <label><input type="radio" name="amenity" value="shower"> Душ</label>
+                <label><input type="radio" name="amenity" value="pets"> С животными</label>
+              </div>
+            </details>
+
+            <details class="train-filter-menu train-filter-menu--price">
+              <summary>Цены <img src="./assets/rail/arrow-down.svg" alt=""></summary>
+              <div class="train-filter-popover">
+                <label><input type="radio" name="price" value="" checked> Любая</label>
+                <label><input type="radio" name="price" value="3000"> До 3 000 ₽</label>
+                <label><input type="radio" name="price" value="4000"> До 4 000 ₽</label>
+                <label><input type="radio" name="price" value="6000"> До 6 000 ₽</label>
+              </div>
+            </details>
+
+            <details class="train-filter-menu">
+              <summary>Станции <img src="./assets/rail/arrow-down.svg" alt=""></summary>
+              <div class="train-filter-popover">
+                <label><input type="radio" name="station" value="" checked> Все станции</label>
+                <label><input type="radio" name="station" value="main"> Центральные вокзалы</label>
+                <label><input type="radio" name="station" value="other"> Другие станции</label>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="train-results" aria-labelledby="train-results-title">
+          <h1 id="train-results-title">Билеты на поезд</h1>
+          <div class="train-list" id="train-list"></div>
+          <div class="train-empty" id="train-empty" hidden>
+            <strong>Подходящих поездов нет</strong>
+            <span>Измените фильтры, чтобы увидеть больше вариантов</span>
+            <button type="button" data-action="reset-filters">Сбросить фильтры</button>
+          </div>
+          <p class="train-disclaimer">Стоимость билетов указана с учётом сбора Яндекса. С использованием веб-системы «ИМ».</p>
+        </section>
+      </main>
+
+      <div id="train-announcer" class="visually-hidden" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

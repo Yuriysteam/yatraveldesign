@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Данные пассажиров — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./hotel-search.css?v=4">
+    <link rel="stylesheet" href="./avia-passengers.css?v=15">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <link rel="stylesheet" href="../business-trip-target.css?v=2">
+    <script src="./shared-search-header.js?v=1" defer></script>
+    <script src="../business-trip-target.js?v=4" defer></script>
+    <script src="./avia-passengers.js?v=25" defer></script>
+  </head>
+  <body>
+    <div class="avia-passengers-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="avia" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <div class="booking-progress">
+        <nav class="booking-progress__steps" aria-label="Этапы оформления авиабилета">
+          <button type="button" data-action="back-to-results">Выбор перелета</button>
+          <img class="booking-step-arrow" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" data-action="flight-details">Детали перелета</button>
+          <img class="booking-step-arrow" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <strong aria-current="step">Данные пассажиров</strong>
+          <img class="booking-step-arrow is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <span class="is-muted">Подтверждение</span>
+          <img class="booking-step-arrow is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <span class="is-muted">Оплата заказа</span>
+        </nav>
+        <p>Поможем с заказом: <a href="tel:+78005117104">8 800 511-71-04</a></p>
+      </div>
+
+      <main class="passenger-main">
+        <div class="passenger-layout">
+          <div class="passenger-left">
+            <section class="tariff-picker" aria-label="Выбранный рейс и тариф">
+              <div class="selected-flight">
+                <img class="selected-flight__logo" id="selected-flight-logo" src="./assets/avia-booking/aeroflot.png" alt="">
+                <img class="selected-flight__logo-mark" id="selected-flight-logo-mark" src="./assets/avia/pobeda-dots.svg" alt="" hidden>
+                <div class="selected-flight__route">
+                  <strong><span id="flight-from">Москва</span> — <span id="flight-to">Санкт-Петербург</span></strong>
+                  <small><span id="flight-date">11 июл, среда</span> • <span id="flight-duration">2ч 10м</span></small>
+                </div>
+                <div class="selected-flight__time">
+                  <strong><span id="flight-depart-time">15:20</span> – <span id="flight-arrival-time">17:30</span></strong>
+                  <small><span id="flight-from-code">SVO</span><span id="flight-to-code">LED</span></small>
+                </div>
+                <button type="button" data-action="flight-details">Подробнее</button>
+              </div>
+              <div class="selected-flight selected-flight--return" id="selected-return-flight" hidden></div>
+
+              <div class="tariff-window">
+                <div class="tariff-track" id="tariff-track">
+                  <button class="tariff-option is-selected" type="button" data-tariff="light" aria-pressed="true">
+                    <span class="tariff-feature is-positive"><img src="./assets/avia-booking/hand-luggage.svg" alt="">Ручная кладь 1х10 кг</span>
+                    <span class="tariff-feature"><img src="./assets/avia-booking/without-luggage.svg" alt="">Без багажа</span>
+                    <span class="tariff-feature"><img src="./assets/avia-booking/no-return.svg" alt="">Без возврата</span>
+                    <strong data-tariff-price="light">3 672 ₽</strong>
+                  </button>
+                  <button class="tariff-option" type="button" data-tariff="optimum" aria-pressed="false">
+                    <span class="tariff-feature is-positive"><img src="./assets/avia-booking/hand-luggage.svg" alt="">Ручная кладь 1х10 кг</span>
+                    <span class="tariff-feature is-positive"><img src="./assets/avia-booking/luggage-23.svg" alt="">Багаж 1×23 кг</span>
+                    <span class="tariff-feature"><img src="./assets/avia-booking/paid-return.svg" alt="">Возврат со сбором</span>
+                    <strong data-tariff-price="optimum">6 499 ₽</strong>
+                  </button>
+                  <button class="tariff-option" type="button" data-tariff="maximum" aria-pressed="false">
+                    <span class="tariff-feature is-positive"><img src="./assets/avia-booking/hand-luggage.svg" alt="">Ручная кладь 1х10 кг</span>
+                    <span class="tariff-feature is-positive"><img src="./assets/avia-booking/luggage-30.svg" alt="">Багаж 1×30 кг</span>
+                    <span class="tariff-feature is-positive"><img src="./assets/avia-booking/return.svg" alt="">Возврат включен</span>
+                    <strong data-tariff-price="maximum">16 729 ₽</strong>
+                  </button>
+                </div>
+                <button class="tariff-next" type="button" data-action="next-tariff" aria-label="Показать следующий тариф"><img src="./assets/avia-booking/arrow-right.svg" alt=""></button>
+              </div>
+            </section>
+
+            <section class="passenger-payment-setup" aria-label="Оплата и командировка">
+              <div class="passenger-payment-card">
+                <h2>Способ оплаты</h2>
+                <div class="passenger-payment-methods" role="group" aria-label="Способ оплаты">
+                  <button class="passenger-payment-method is-selected" type="button" data-payment-method="card" aria-pressed="true">
+                    <span class="passenger-payment-method__icon passenger-payment-method__icon--card">Я</span>
+                    <span><strong>Карта или СБП</strong><small>Оплата сразу после проверки данных</small></span>
+                  </button>
+                  <button class="passenger-payment-method" type="button" data-payment-method="business" aria-pressed="false">
+                    <span class="passenger-payment-method__icon"><img src="./assets/icons/briefcase.svg" alt=""></span>
+                    <span><strong>Бизнес-счёт</strong><small>Оплата со счёта организации</small></span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="passenger-work-card">
+                <span><strong>Еду по работе</strong><small>Подготовим справку для возмещения расходов</small></span>
+                <button class="passenger-switch" id="work-purpose-toggle" type="button" role="switch" aria-checked="false" data-action="toggle-work-purpose" aria-label="Еду по работе"><span></span></button>
+              </div>
+
+              <div class="passenger-trip-card" id="business-trip-row" hidden>
+                <div class="passenger-trip-card__head">
+                  <span><strong>Добавить в командировку</strong><small>Сможете сразу оплатить отель, авиа, ж/д и другие услуги</small></span>
+                  <button class="passenger-switch" id="add-to-trip-toggle" type="button" role="switch" aria-checked="false" aria-controls="business-trip-kind" data-action="toggle-add-to-trip" aria-label="Добавить в командировку"><span></span></button>
+                </div>
+                <div class="passenger-trip-kind" id="business-trip-kind" role="group" aria-label="Выбор командировки" hidden>
+                  <button class="is-selected" type="button" data-trip-kind="new" aria-pressed="true">Новая командировка</button>
+                  <button type="button" data-trip-kind="existing" aria-pressed="false">Существующая</button>
+                </div>
+                <label class="business-trip-target__select" id="business-trip-existing" hidden><span>Командировка</span><select id="business-trip-select" aria-label="Существующая командировка"></select></label>
+                <p class="business-trip-target__empty" id="business-trip-empty" hidden>Нет активных командировок. Создадим новую.</p>
+              </div>
+            </section>
+
+            <form class="passenger-checkout-form" id="passenger-form" novalidate>
+            <section class="passenger-section" aria-labelledby="passengers-title">
+              <h1 id="passengers-title">Данные пассажиров</h1>
+              <div class="passenger-form-shell">
+                <div class="passenger-form">
+                  <h2>Пассажир 1, взрослый</h2>
+                  <div class="profile-chips" aria-label="Сохранённые пассажиры">
+                    <button type="button" data-profile="ivanov"><strong>Иван Иванов</strong><small>11.11.1990, Паспорт РФ</small></button>
+                    <button type="button" data-profile="petrov"><strong>Иван Иванов</strong><small>11.11.1990, Паспорт РФ</small></button>
+                    <button type="button" data-profile="sidorov"><strong>Иван Иванов</strong><small>11.11.1990, Паспорт РФ</small></button>
+                  </div>
+
+                  <div class="passenger-fields">
+                    <label class="passenger-control"><span class="visually-hidden">Фамилия латиницей</span><input name="surname" autocomplete="family-name" placeholder="Фамилия латиницей" required pattern="[A-Za-z -]+"></label>
+                    <label class="passenger-control"><span class="visually-hidden">Имя латиницей</span><input name="givenName" autocomplete="given-name" placeholder="Имя латиницей" required pattern="[A-Za-z -]+"></label>
+
+                    <label class="passenger-control"><span class="visually-hidden">Отчество латиницей</span><input name="middleName" autocomplete="additional-name" placeholder="Отчество латиницей" pattern="[A-Za-z -]+" required></label>
+                    <label class="middle-name-toggle"><input name="noMiddleName" type="checkbox"><span class="toggle-visual" aria-hidden="true"><i></i></span><span>Нет отчества</span></label>
+
+                    <label class="passenger-control"><span class="visually-hidden">Дата рождения</span><input name="birthDate" inputmode="numeric" autocomplete="bday" placeholder="Дата рождения" required></label>
+                    <fieldset class="gender-control">
+                      <legend class="visually-hidden">Пол</legend>
+                      <label><input type="radio" name="gender" value="male" checked><span>Мужчина</span></label>
+                      <label><input type="radio" name="gender" value="female"><span>Женщина</span></label>
+                    </fieldset>
+
+                    <label class="passenger-control passenger-control--wide passenger-control--select"><span class="visually-hidden">Документ</span><select name="documentType" required><option value="passport-rf">Паспорт РФ</option><option value="foreign-passport">Загранпаспорт РФ</option><option value="foreign-document">Иностранный паспорт</option></select></label>
+
+                    <label class="passenger-control"><span class="visually-hidden">Серия и номер документа</span><input name="documentNumber" inputmode="numeric" autocomplete="off" placeholder="Серия и номер" required></label>
+                    <label class="passenger-control passenger-control--select"><span class="visually-hidden">Страна выдачи</span><select name="country" required><option value="RU">Россия</option><option value="BY">Беларусь</option><option value="KZ">Казахстан</option><option value="other">Другая страна</option></select></label>
+
+                    <label class="passenger-control passenger-control--select"><span class="visually-hidden">Программа лояльности</span><select name="loyaltyProgram"><option value="aeroflot">Aeroflot Bonus</option><option value="pobeda">Победа</option><option value="none">Нет программы</option></select></label>
+                    <label class="passenger-control"><span class="visually-hidden">Номер участника программы</span><input name="loyaltyNumber" autocomplete="off" placeholder="Номер участника"></label>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="contacts-section" aria-labelledby="contacts-title">
+              <h2 id="contacts-title">Контакты покупателя</h2>
+              <p>Сюда отправим информацию о бронировании</p>
+              <div class="contacts-card">
+                <label class="passenger-control"><span class="visually-hidden">Электронная почта</span><input name="email" type="email" autocomplete="email" placeholder="Электронная почта" required></label>
+                <label class="passenger-control"><span class="visually-hidden">Телефон</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Телефон" required></label>
+              </div>
+            </section>
+            </form>
+          </div>
+
+          <aside class="flight-payment" aria-label="Итог заказа">
+            <div class="flight-payment__heading"><strong id="payment-tariff">Эконом Лайт</strong><b id="payment-price">3 672 ₽</b></div>
+            <div class="payment-segments" id="payment-segments" aria-label="Выбранные рейсы"></div>
+            <ul class="payment-features" id="payment-features">
+              <li>Ручная кладь 1 место, 10 кг, 55×40×25 см</li>
+              <li>Без багажа</li>
+              <li>Невозвратный</li>
+              <li>Обмен с доплатой</li>
+            </ul>
+            <div class="flight-payment__total"><span id="payment-total-label">К оплате</span><strong id="payment-total">3 672 ₽</strong></div>
+            <button class="flight-payment__submit" type="submit" form="passenger-form">Проверить данные и оплатить</button>
+            <div class="payment-legal" id="passenger-payment-legal">
+              <p>Нажимая «Оплатить», вы принимаете <a href="#" data-action="legal">пользовательское соглашение</a> сервиса «Яндекс.Путешествия», а также договор и правила продавца-перевозчика: <a href="#" data-action="legal">договор воздушной перевозки</a>, <a href="#" data-action="legal">правила тарифа</a>, <a href="#" data-action="legal">правила воздушных перевозок пассажиров и багажа</a>, <a href="#" data-action="legal">правила перевозки для транзитных пассажиров</a>.</p>
+              <p id="seller-details">Продавец билета — <span id="seller-name">ПАО «Аэрофлот»</span>. Юридический адрес ПАО «Аэрофлот» (для направления корреспонденции): 119019 Москва, ул. Арбат, дом 1. ОГРН: 1027700092661. ИНН: 7712040126. Режим работы — круглосуточно.</p>
+              <p>Бронирование происходит на стороне продавца билета. Указанные вами данные передаются продавцу билета в целях бронирования.</p>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="passenger-footer">
+        <div class="passenger-footer__links">
+          <p><a href="#">Яндекс Путешествия для партнеров</a><a href="#">Программа для веб-мастеров и блогеров</a><a href="#">О Сервисе</a></p>
+          <p><a href="#">Темная тема</a><a href="#">Служба поддержки</a><a href="#">Пользовательское соглашение</a></p>
+          <p><a href="#">Политика конфиденциальности</a><a href="#">Правила рекомендаций</a><a href="#">Участие в исследованиях</a></p>
+          <p><a href="#">Участие в исследованиях</a><a href="#">Правила программы лояльности Яндекс Плюс</a></p>
+          <span>Мы в соцсетях</span>
+          <div class="footer-socials" aria-label="Социальные сети"><a href="#" aria-label="ВКонтакте"><img src="./assets/avia-booking/vk-glyph.svg" alt=""></a><a href="#" aria-label="Telegram"><img src="./assets/avia-booking/telegram.svg" alt=""></a><a href="#" aria-label="Дзен"><img src="./assets/avia-booking/zen.svg" alt=""></a></div>
+        </div>
+        <div class="passenger-footer__about">
+          <p>© 2009–2024 ООО «Яндекс.Вертикали»</p>
+          <p>Наши проекты: <a href="#">Яндекс Аренда</a><a href="#">Авто.ру</a><a href="#">Яндекс.Недвижимость</a><a href="#">Яндекс Услуги</a></p>
+          <p>Команда: <a href="#">Наши вакансии</a></p>
+          <p>Проект компании <img class="footer-yandex-logo" src="./assets/avia-booking/yandex-logo.svg" alt="Яндекс"></p>
+          <div class="footer-apps" aria-label="Приложения"><a href="#" aria-label="Скачать в App Store"><img src="./assets/avia-booking/app-store-111.svg" alt=""></a><a href="#" aria-label="Скачать в Google Play"><img src="./assets/avia-booking/google-play-111.svg" alt=""></a><a href="#" aria-label="Скачать в App Store"><img src="./assets/avia-booking/app-store-108.svg" alt=""></a></div>
+        </div>
+      </footer>
+
+      <div class="visually-hidden" id="passenger-announcer" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+.trips-page { min-height: 100vh; background: var(--surface-primary); }
+.trips-page .header { padding: 24px 32px 12px; }
+.trips-page .trips-content { width: 1211px; margin: 34px 0 80px calc((100vw - 1204px) / 2); }
+.trips-titlebar { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.trips-topnav { display: flex; align-items: center; gap: 24px; }
+.trips-topnav__link { color: var(--text-secondary); font-family: "YS Display", Arial, sans-serif; font-size: 32px; font-weight: 500; letter-spacing: -.48px; line-height: 32px; text-decoration: none; white-space: nowrap; }
+.trips-topnav__link.is-active { color: var(--text-primary); }
+.trips-help-actions { display: flex; gap: 16px; }
+.trips-help-button { height: 56px; padding: 0 22px; border-radius: 18px; background: var(--surface-control); color: var(--text-primary); font-size: 16px; font-weight: 500; }
+.trips-help-button:hover { background: #e4e4e7; }
+.trips-titlebar, .trips-filters { width: 1204px; }
+.trips-filters { display: flex; gap: 8px; margin-top: 18px; }
+.trips-filter { height: 40px; padding: 0 18px; border-radius: 16px; background: transparent; color: var(--text-secondary); font-size: 14px; font-weight: 500; }
+.trips-filter:hover { background: #f5f5f5; color: var(--text-primary); }
+.trips-filter.is-active { background: #ededee; color: var(--text-primary); }
+.trips-grid { display: grid; grid-template-columns: repeat(2, 590px); gap: 31px; width: 1211px; margin-top: 32px; }
+.trip-list-card { position: relative; display: block; height: 514px; overflow: hidden; border-radius: 48px; color: #fff; background: #444; isolation: isolate; }
+.trip-list-card__cover { position: absolute; width: 112%; height: 100%; left: -6%; top: 0; object-fit: cover; z-index: -2; }
+.trip-list-card__shade { position: absolute; inset: 0; z-index: -1; background: rgba(0, 0, 0, .24); }
+.trip-list-card__route { position: absolute; top: 66px; left: 40px; right: 40px; font-family: "YS Text Cond", Arial, sans-serif; font-size: 56px; font-weight: 800; line-height: 52px; letter-spacing: -.8px; text-align: center; }
+.trip-list-card__dates { position: absolute; top: 184px; left: 50%; transform: translateX(-50%); padding: 7px 12px; border-radius: 12px; background: rgba(255,255,255,.24); backdrop-filter: blur(12px); font-size: 16px; line-height: 20px; white-space: nowrap; }
+.trip-list-card__details { position: absolute; bottom: 8px; display: flex; align-items: center; gap: 20px; width: 498px; min-height: 136px; padding: 20px; border-radius: 40px; background: #fff; color: var(--text-primary); }
+.trip-list-card__details--primary { left: 8px; }
+.trip-list-card__details--next { left: 515px; }
+.trip-list-card__hotel-image { width: 96px; height: 96px; flex: 0 0 96px; border-radius: 24px; object-fit: cover; }
+.trip-list-card__service-icon { display: grid; width: 96px; height: 96px; flex: 0 0 96px; place-items: center; border-radius: 24px; }
+.trip-list-card__service-icon--avia { background: #7657ff; }
+.trip-list-card__service-icon--train { background: #29282d; }
+.trip-list-card__service-icon--hotel { background: #ededee; }
+.trip-list-card__service-icon img { width: 36px; height: 36px; }
+.trip-list-card__copy { display: flex; min-width: 0; flex: 1 1 auto; flex-direction: column; gap: 8px; }
+.trip-list-card__copy strong { overflow: hidden; font-family: "YS Display", Arial, sans-serif; font-size: 20px; font-weight: 500; line-height: 24px; text-overflow: ellipsis; white-space: nowrap; }
+.trip-list-card__copy small { color: var(--text-secondary); font-size: 16px; line-height: 20px; }
+.trip-list-card__status { align-self: flex-start; padding: 6px 10px; border-radius: 10px; background: #e5f7d7; color: #2c7a17; font-size: 14px; font-weight: 500; line-height: 18px; white-space: nowrap; }
+.trip-list-card__status--cancelled { background: #f5f5f5; color: var(--text-secondary); }
+.trip-list-card__status--past { background: #f5f5f5; color: var(--text-secondary); }
+.trip-list-card.is-cancelled { filter: grayscale(.4); }
+.trips-empty { grid-column: 1 / -1; margin: 72px 0; color: var(--text-secondary); font-size: 18px; line-height: 24px; text-align: center; }
+@media (max-width: 1279px) { .trips-page .trips-content { width: auto; margin: 40px 24px; } .trips-titlebar, .trips-filters { width: auto; } .trips-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); width: auto; gap: 24px; } .trip-list-card__details { width: calc(100% - 16px); } .trip-list-card__details--next { left: calc(100% + 8px); } }
+@media (max-width: 1040px) { .trips-grid { grid-template-columns: minmax(0, 590px); max-width: 590px; } }
+@media (max-width: 1100px) { .trips-titlebar { align-items: flex-start; flex-direction: column; gap: 16px; } }
+@media (max-width: 720px) { .trips-titlebar, .trips-help-actions { align-items: flex-start; flex-direction: column; } .trips-topnav { flex-wrap: wrap; gap: 12px; } .trips-topnav__link { font-size: 26px; } .trip-list-card { height: 460px; border-radius: 32px; } .trip-list-card__route { top: 42px; font-size: 40px; line-height: 42px; } .trip-list-card__details { gap: 12px; min-height: 118px; border-radius: 26px; } .trip-list-card__hotel-image, .trip-list-card__service-icon { width: 76px; height: 76px; flex-basis: 76px; border-radius: 18px; } .trip-list-card__status { display: none; } }

@@ -1,0 +1,1163 @@
+.avia-search-page {
+  min-width: 320px;
+  min-height: 1214px;
+  overflow: hidden;
+  background: #f5f5f5;
+  color: #0d0d0f;
+}
+
+.avia-search-page .search-header {
+  height: 70px;
+  padding: 10px 40px;
+}
+
+.avia-search-page .product-tabs a {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.avia-search-page .avia-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avia-main {
+  position: relative;
+  width: 1200px;
+  margin: 20px auto 0;
+}
+
+.avia-search-form {
+  display: grid;
+  width: 1200px;
+  height: 81px;
+  padding: 2px;
+  grid-template-columns: 195.5px 42px 191.5px 209px 209px 189px 160px;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 60px;
+  background: #fff;
+}
+
+.avia-query-field {
+  position: relative;
+  display: flex;
+  height: 70px;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 20px;
+  background: #fff;
+}
+
+.avia-query-field--origin {
+  padding-left: 32px;
+}
+
+.avia-query-field--date::before,
+.avia-query-field--passengers::before {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 1px;
+  height: 40px;
+  border-radius: 10px;
+  background: #e6e5e7;
+  content: "";
+}
+
+.avia-query-field input,
+.avia-query-field select {
+  width: 100%;
+  height: 22px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #0d0d0f;
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.avia-query-field input[readonly] {
+  cursor: pointer;
+}
+
+.avia-query-field select {
+  appearance: none;
+}
+
+.avia-query-field small {
+  margin-top: 2px;
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.avia-query-field:focus-within {
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 2px #fed42b;
+}
+
+.avia-query-field.is-calendar-open {
+  border-radius: 28px;
+  box-shadow: inset 0 0 0 2px #fed42b;
+}
+
+.avia-calendar-popover {
+  z-index: 50;
+  top: 85px;
+  left: 430px;
+}
+
+.avia-calendar-popover[hidden] {
+  display: none;
+}
+
+.avia-calendar-popover .calendar-months::before {
+  top: 45px;
+}
+
+.avia-calendar-popover .calendar-day.is-in-range {
+  border-radius: 0;
+  background: #fff3bf;
+}
+
+.avia-calendar-popover .calendar-day.is-range-start,
+.avia-calendar-popover .calendar-day.is-range-end {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  background: #fed42b;
+  color: #0d0d0f;
+}
+
+.avia-calendar-popover .calendar-day.is-range-start:not(.is-range-end) {
+  border-radius: 16px 0 0 16px;
+}
+
+.avia-calendar-popover .calendar-day.is-range-end:not(.is-range-start) {
+  border-radius: 0 16px 16px 0;
+}
+
+.avia-calendar-popover .calendar-day:disabled {
+  cursor: default;
+  opacity: .35;
+}
+
+.avia-calendar-popover .calendar-day:disabled:hover {
+  background: transparent;
+}
+
+.avia-query-field.is-oneway input::placeholder {
+  color: #0d0d0f;
+  opacity: 1;
+}
+
+.avia-query-field.is-oneway small {
+  color: #0d0d0f;
+}
+
+.avia-swap {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border-radius: 16px;
+  background: #f2f2f2;
+}
+
+.avia-swap:hover {
+  background: #e9e9e9;
+}
+
+.avia-swap img {
+  width: 16px;
+  height: 16px;
+}
+
+.avia-query-field--passengers {
+  padding-right: 34px;
+}
+
+.avia-query-chevron,
+.avia-sort i,
+.avia-collapse-button > span {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 5px solid #9c9ba2;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.avia-query-chevron {
+  top: 31px;
+  right: 18px;
+}
+
+.avia-search-submit {
+  width: 160px;
+  height: 77px;
+  border-radius: 56px;
+  background: #fed42b;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.avia-search-submit:hover,
+.flight-price-button:hover {
+  background: #f5c400;
+}
+
+.avia-search-submit:active,
+.flight-price-button:active {
+  transform: scale(.985);
+}
+
+.avia-workspace {
+  display: grid;
+  width: 1200px;
+  min-height: 1050px;
+  margin-top: 20px;
+  grid-template-columns: 260px 920px;
+  align-items: start;
+  gap: 20px;
+}
+
+.avia-filters {
+  width: 260px;
+}
+
+.avia-filter-card {
+  width: 260px;
+  padding: 24px;
+  border-radius: 32px;
+  background: #fff;
+}
+
+.avia-filter-card + .avia-filter-card,
+.avia-filter-card + section,
+.avia-filter-card--secondary {
+  margin-top: 8px;
+}
+
+.avia-filter-card--quick {
+  height: 176px;
+}
+
+.avia-sort {
+  position: relative;
+  display: flex;
+  width: 212px;
+  height: 32px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: #f5f5f5;
+}
+
+.avia-sort > span {
+  flex: 0 0 auto;
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.avia-sort select {
+  min-width: 0;
+  flex: 1 1 auto;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.avia-sort i {
+  top: 14px;
+  right: 11px;
+}
+
+.avia-quick-chips {
+  display: flex;
+  margin-top: 28px;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.avia-quick-chips button {
+  display: inline-flex;
+  height: 32px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border-radius: 12px;
+  background: #f2f2f2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.avia-quick-chips button[aria-pressed="true"] {
+  background: #222125;
+  color: #fff;
+}
+
+.avia-quick-chips strong {
+  font-weight: 500;
+}
+
+.avia-quick-chips span {
+  color: #9c9ba2;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.avia-filter-card--transfers {
+  min-height: 374px;
+}
+
+#avia-filters-form {
+  margin-top: 25px;
+}
+
+#avia-filters-form > .avia-filter-card--transfers + .avia-filter-card--times {
+  margin-top: 25px;
+}
+
+.avia-filter-card h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.avia-filter-options {
+  display: flex;
+  margin-top: 14px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.avia-filter-options label,
+.avia-collapse label {
+  display: flex;
+  min-height: 18px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.avia-filter-options input,
+.avia-collapse input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin: 0;
+  accent-color: #222125;
+}
+
+.avia-range-field {
+  display: block;
+  margin-top: 26px;
+}
+
+.avia-range-field strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.avia-range {
+  position: relative;
+  display: block;
+  width: 212px;
+  height: 24px;
+  margin-top: 12px;
+}
+
+.avia-range::before {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  width: 212px;
+  height: 2px;
+  background: #222125;
+  content: "";
+}
+
+.avia-range::after {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #222125;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+  pointer-events: none;
+}
+
+.avia-range input {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 212px;
+  height: 24px;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+}
+
+.avia-range input::-webkit-slider-thumb {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: 2px solid #222125;
+  border-radius: 50%;
+  background: #fff;
+  cursor: grab;
+}
+
+.avia-range-values {
+  display: flex;
+  width: 212px;
+  justify-content: space-between;
+  margin-top: 1px;
+}
+
+.avia-range-values small {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.avia-collapse-button {
+  position: relative;
+  width: 212px;
+  height: 18px;
+  padding: 0;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+}
+
+.avia-collapse-button:first-of-type {
+  margin-top: 27px;
+}
+
+.avia-collapse-button + .avia-collapse,
+.avia-collapse + .avia-collapse-button {
+  margin-top: 28px;
+}
+
+.avia-collapse-button > span {
+  top: 7px;
+  right: 4px;
+}
+
+.avia-collapse-button[aria-expanded="true"] > span {
+  transform: rotate(180deg);
+}
+
+.avia-collapse[hidden] {
+  display: none;
+}
+
+.avia-collapse {
+  display: flex;
+  margin-top: 10px !important;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.avia-filter-card--times {
+  height: 482px;
+}
+
+.avia-search-page[data-flight-scope="oneway"] [data-roundtrip-only] {
+  display: none !important;
+}
+
+.avia-search-page[data-flight-scope="oneway"] .avia-filter-card--transfers {
+  min-height: 326px;
+}
+
+.avia-search-page[data-flight-scope="oneway"] .avia-filter-card--times {
+  height: 258px;
+}
+
+.avia-filter-card--times .avia-range-field {
+  margin-top: 22px;
+}
+
+.avia-filter-card--times .avia-range-field--time + .avia-range-field--time {
+  margin-top: 22px;
+}
+
+.avia-filter-card__subheading {
+  margin-top: 25px !important;
+}
+
+.avia-filter-card--secondary {
+  min-height: 190px;
+}
+
+.avia-results {
+  width: 920px;
+}
+
+.flight-list {
+  display: flex;
+  width: 920px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.flight-card {
+  position: relative;
+  width: 920px;
+  height: 272px;
+  padding: 28px 32px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(13, 13, 15, .08);
+  transition: box-shadow 160ms ease, transform 160ms ease;
+}
+
+.flight-card--best {
+  height: 268px;
+  padding-top: 24px;
+}
+
+.flight-card:hover,
+.flight-card:focus-within {
+  z-index: 1;
+  box-shadow: 0 8px 24px rgba(13, 13, 15, .13);
+}
+
+.flight-best-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  padding: 2px 6px;
+  border-radius: 0 0 8px;
+  background: #0ec70e;
+  color: #fff;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.flight-card__content {
+  display: grid;
+  width: 856px;
+  height: 216px;
+  grid-template-columns: 590px 266px;
+}
+
+.flight-route {
+  display: grid;
+  width: 590px;
+  height: 216px;
+  grid-template-rows: 88px 88px;
+  gap: 40px;
+}
+
+.flight-leg {
+  display: grid;
+  width: 590px;
+  height: 88px;
+  grid-template-columns: 92px 498px;
+}
+
+.flight-airline {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-airline span:last-child {
+  max-width: 88px;
+}
+
+.airline-logo {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.airline-logo > img {
+  width: 24px;
+  height: 24px;
+}
+
+.airline-logo--pobeda img:last-child {
+  position: absolute;
+  top: 9px;
+  left: 2px;
+  width: 20px;
+  height: 6px;
+}
+
+.flight-schedule {
+  width: 498px;
+  height: 88px;
+}
+
+.flight-time-row {
+  display: grid;
+  width: 498px;
+  height: 24px;
+  grid-template-columns: 82px 291px 125px;
+  align-items: center;
+}
+
+.flight-time {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.24px;
+}
+
+.flight-progress {
+  display: flex;
+  width: 279px;
+  align-items: center;
+  gap: 8px;
+}
+
+.flight-progress::before,
+.flight-progress::after {
+  height: 1px;
+  min-width: 20px;
+  flex: 1 1 auto;
+  background: #e6e5e7;
+  content: "";
+}
+
+.flight-progress span {
+  flex: 0 0 auto;
+  color: #9c9ba2;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-location-row {
+  display: grid;
+  width: 498px;
+  min-height: 60px;
+  margin-top: 4px;
+  grid-template-columns: 106px 237px 155px;
+}
+
+.flight-airport {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-airport--arrival {
+  padding-left: 30px;
+}
+
+.flight-direct {
+  padding-top: 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-fare {
+  width: 266px;
+  height: 216px;
+  padding-left: 20px;
+}
+
+.flight-fare__inner {
+  position: relative;
+  width: 246px;
+  height: 100%;
+  padding-left: 20px;
+  border-left: 1px solid #e6e5e7;
+}
+
+.flight-benefit {
+  display: grid;
+  min-height: 24px;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-benefit + .flight-benefit {
+  margin-top: 8px;
+}
+
+.flight-benefit img {
+  width: 24px;
+  height: 24px;
+}
+
+.flight-benefit > span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flight-benefit--positive {
+  height: 68px;
+  color: #02ad0d;
+}
+
+.flight-benefit--positive > span {
+  padding-top: 4px;
+}
+
+.flight-benefit--positive > span > span:first-child {
+  display: block;
+  width: 94px;
+}
+
+.flight-benefit small {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.flight-share {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  width: 32px;
+  height: 24px;
+  padding: 0;
+  place-items: center;
+  background: transparent;
+}
+
+.flight-share img {
+  width: 24px;
+  height: 24px;
+}
+
+.flight-price-button {
+  width: 225px;
+  height: 52px;
+  margin-top: 8px;
+  border-radius: 16px;
+  background: #fed42b;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.search-results-loader {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  border-radius: 24px;
+  background: #f5f5f5;
+  color: #6b6a70;
+}
+
+.flight-price-button.is-selected {
+  background: #222125;
+  color: #fff;
+}
+
+.flight-fare__caption {
+  display: block;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+}
+
+.avia-search-page[data-flight-scope="oneway"] .flight-card,
+.avia-search-page[data-flight-scope="oneway"] .flight-card--best {
+  height: 240px;
+}
+
+.avia-search-page[data-flight-scope="oneway"] .flight-card__content,
+.avia-search-page[data-flight-scope="oneway"] .flight-route,
+.avia-search-page[data-flight-scope="oneway"] .flight-fare {
+  height: 184px;
+}
+
+.avia-search-page[data-flight-scope="oneway"] .flight-route {
+  grid-template-rows: 88px;
+}
+
+.avia-search-page[data-flight-scope="oneway"] .flight-price-button {
+  margin-top: 8px;
+}
+
+.avia-disclaimer {
+  width: 832px;
+  min-height: 56px;
+  margin: 12px 0 0 4px;
+  color: #9c9ba2;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.avia-disclaimer button {
+  padding: 0;
+  background: transparent;
+  color: #067aff;
+  font-size: inherit;
+}
+
+.avia-empty {
+  display: flex;
+  width: 920px;
+  min-height: 268px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(13, 13, 15, .08);
+}
+
+.avia-empty[hidden] {
+  display: none;
+}
+
+.avia-empty strong {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.avia-empty span {
+  color: #9c9ba2;
+}
+
+.avia-empty button {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 14px;
+  background: #fed42b;
+}
+
+@media (max-width: 1240px) {
+  .avia-main,
+  .avia-search-form,
+  .avia-workspace {
+    width: calc(100vw - 48px);
+  }
+
+  .avia-search-form {
+    grid-template-columns: minmax(130px, 1fr) 42px minmax(130px, 1fr) minmax(135px, 1fr) minmax(135px, 1fr) minmax(160px, 1fr) 140px;
+  }
+
+  .avia-search-submit {
+    width: 140px;
+  }
+
+  .avia-workspace {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+
+  .avia-results,
+  .flight-list,
+  .flight-card,
+  .avia-empty {
+    width: 100%;
+  }
+
+  .flight-card {
+    height: auto;
+  }
+
+  .avia-search-page[data-flight-scope="oneway"] .flight-card,
+  .avia-search-page[data-flight-scope="oneway"] .flight-card--best {
+    height: auto;
+  }
+
+  .flight-card__content {
+    width: 100%;
+    height: auto;
+    grid-template-columns: minmax(510px, 1fr) 246px;
+  }
+
+  .avia-search-page[data-flight-scope="oneway"] .flight-card__content,
+  .avia-search-page[data-flight-scope="oneway"] .flight-route,
+  .avia-search-page[data-flight-scope="oneway"] .flight-fare {
+    height: auto;
+  }
+
+  .flight-route,
+  .flight-leg {
+    width: 100%;
+  }
+
+  .flight-leg {
+    grid-template-columns: 92px minmax(418px, 1fr);
+  }
+
+  .flight-schedule,
+  .flight-time-row,
+  .flight-location-row {
+    width: 100%;
+  }
+
+  .flight-time-row,
+  .flight-location-row {
+    grid-template-columns: 82px minmax(190px, 1fr) 125px;
+  }
+
+  .flight-progress {
+    width: calc(100% - 12px);
+  }
+
+  .flight-fare {
+    width: 246px;
+  }
+}
+
+@media (max-width: 980px) {
+  .avia-search-page .product-tabs,
+  .avia-search-page .utility-actions {
+    display: none;
+  }
+
+  .avia-main {
+    margin-top: 16px;
+  }
+
+  .avia-calendar-popover {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    z-index: 100;
+    width: auto;
+    max-height: min(70vh, 520px);
+  }
+
+  .avia-search-form {
+    display: flex;
+    height: auto;
+    padding: 8px;
+    flex-wrap: wrap;
+    border-radius: 28px;
+  }
+
+  .avia-query-field {
+    min-width: calc(50% - 24px);
+    flex: 1 1 180px;
+  }
+
+  .avia-query-field--date::before,
+  .avia-query-field--passengers::before {
+    display: none;
+  }
+
+  .avia-search-submit {
+    flex: 1 0 150px;
+  }
+
+  .avia-workspace {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .avia-filters,
+  .avia-filter-card,
+  .avia-results,
+  .flight-list,
+  .avia-empty {
+    width: 100%;
+  }
+
+  .avia-filters > form {
+    display: none;
+  }
+
+  .avia-filter-card--quick {
+    height: auto;
+  }
+
+  .avia-quick-chips {
+    margin-top: 14px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .avia-results {
+    margin-top: 12px;
+  }
+
+  .flight-card__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flight-route {
+    height: auto;
+  }
+
+  .flight-fare {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    padding: 20px 0 0;
+    border-top: 1px solid #e6e5e7;
+    border-left: 0;
+  }
+
+  .flight-fare__inner,
+  .flight-price-button {
+    width: 100%;
+  }
+
+  .avia-disclaimer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .avia-search-page .search-header {
+    height: 62px;
+    padding: 8px 16px;
+  }
+
+  .avia-search-page .travel-brand__name,
+  .avia-search-page .level-pill__copy {
+    display: none;
+  }
+
+  .avia-main,
+  .avia-search-form,
+  .avia-workspace {
+    width: calc(100vw - 24px);
+  }
+
+  .avia-query-field {
+    min-width: calc(50% - 25px);
+    padding: 8px 12px;
+  }
+
+  .avia-query-field input,
+  .avia-query-field select {
+    font-size: 16px;
+  }
+
+  .avia-query-field--origin {
+    padding-left: 12px;
+  }
+
+  .avia-search-submit {
+    width: 100%;
+    height: 52px;
+    flex-basis: 100%;
+  }
+
+  .avia-calendar-popover {
+    height: min(432px, calc(100vh - 24px));
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .avia-calendar-popover .calendar-months {
+    display: none;
+  }
+
+  .flight-card {
+    padding: 24px 16px;
+  }
+
+  .flight-card__content,
+  .flight-route,
+  .flight-leg,
+  .flight-schedule,
+  .flight-time-row,
+  .flight-location-row {
+    width: 100%;
+  }
+
+  .flight-route {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .flight-leg {
+    height: auto;
+    grid-template-columns: 68px minmax(0, 1fr);
+  }
+
+  .flight-airline {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .flight-time-row,
+  .flight-location-row {
+    grid-template-columns: 60px minmax(90px, 1fr) 76px;
+  }
+
+  .flight-time {
+    font-size: 20px;
+  }
+
+  .flight-progress span,
+  .flight-direct,
+  .flight-airport {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .flight-airport--arrival {
+    padding-left: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avia-search-page *,
+  .avia-search-page *::before,
+  .avia-search-page *::after {
+    transition-duration: .01ms !important;
+  }
+}
+
+.avia-airport-popover { position: fixed; z-index: 80; width: 280px; padding: 8px; border: 1px solid #e2e1e4; border-radius: 20px; background: #fff; box-shadow: 0 14px 36px rgb(0 0 0 / 16%); }
+.avia-airport-popover[hidden] { display: none; }
+.avia-airport-option { display: flex; width: 100%; min-height: 56px; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; border-radius: 14px; background: transparent; color: #0d0d0f; text-align: left; }
+.avia-airport-option:hover, .avia-airport-option:focus-visible { background: #f2f2f2; outline: 0; }
+.avia-airport-option span { display: flex; min-width: 0; flex-direction: column; gap: 2px; }.avia-airport-option strong { font-size: 15px; font-weight: 500; line-height: 19px; }.avia-airport-option small { color: #939298; font-size: 13px; line-height: 17px; }.avia-airport-option b { flex: 0 0 auto; color: #77767b; font-size: 14px; font-weight: 500; }

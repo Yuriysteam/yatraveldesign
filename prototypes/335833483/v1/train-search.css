@@ -1,0 +1,883 @@
+.train-search-page {
+  min-width: 320px;
+  min-height: 1401px;
+  overflow-x: hidden;
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.search-results-loader {
+  display: grid;
+  min-height: 180px;
+  place-items: center;
+  border-radius: 24px;
+  background: #f5f5f5;
+  color: #6b6a70;
+}
+
+.train-search-page .search-header {
+  height: 70px;
+  padding: 10px 0;
+  border-bottom-color: #f1f0ed;
+}
+
+.train-header-inner {
+  display: flex;
+  width: min(1200px, calc(100% - 48px));
+  height: 50px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.train-search-page .product-tabs a,
+.train-search-page .product-tabs button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #9d9b98;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.train-search-page .product-tabs a.is-active,
+.train-search-page .product-tabs a:hover,
+.train-search-page .product-tabs button:hover {
+  color: #0d0d0f;
+}
+
+.train-search-page .utility-actions {
+  width: 200px;
+}
+
+.train-search-page .search-header__right {
+  gap: 14px;
+}
+
+.plus-badge {
+  display: grid;
+  height: 20px;
+  padding: 1px 8px 0;
+  place-items: center;
+  border-radius: 48px;
+  background: linear-gradient(90deg, #ff5c4d, #eb469f 35%, #8341ef 70%, #3f68f9);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.train-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.train-main {
+  width: min(1200px, calc(100% - 48px));
+  margin: 12px auto 0;
+}
+
+.train-navigation {
+  position: relative;
+  width: 100%;
+}
+
+.train-search-page[data-rail-segment="return"] .train-search-form {
+  display: none;
+}
+
+.train-search-page[data-rail-segment="return"] .train-calendar-popover {
+  display: none;
+}
+
+.train-search-page[data-rail-segment="return"] .train-filter-row {
+  margin-top: 0;
+}
+
+.train-search-form {
+  display: grid;
+  width: 100%;
+  height: 81px;
+  padding: 2px;
+  grid-template-columns: minmax(180px, 1fr) 42px minmax(180px, 1fr) 204px 204px 163px 160px;
+  align-items: center;
+  border-radius: 60px;
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(13, 13, 15, .08);
+}
+
+.train-query-field {
+  position: relative;
+  display: flex;
+  height: 70px;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 20px;
+  overflow: hidden;
+  border-radius: 52px;
+  background: #fff;
+}
+
+.train-query-field--origin {
+  padding-left: 28px;
+}
+
+.train-query-field--date::before,
+.train-query-field--passengers::before {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 1px;
+  height: 40px;
+  border-radius: 10px;
+  background: #e6e5e7;
+  content: "";
+}
+
+.train-query-field input,
+.train-query-field select {
+  width: 100%;
+  min-width: 0;
+  height: 22px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #0d0d0f;
+  font-size: 18px;
+  line-height: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.train-query-field input[readonly] {
+  cursor: pointer;
+}
+
+.train-query-field select {
+  appearance: none;
+}
+
+.train-query-field small {
+  margin-top: 2px;
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.train-query-field:focus-within {
+  box-shadow: inset 0 0 0 2px #fed42b;
+}
+
+.train-query-field.is-calendar-open {
+  box-shadow: inset 0 0 0 2px #fed42b;
+}
+
+.train-calendar-popover {
+  z-index: 50;
+  top: 85px;
+  left: 430px;
+}
+
+.train-calendar-popover[hidden] {
+  display: none;
+}
+
+.train-calendar-popover .calendar-months::before {
+  top: 45px;
+}
+
+.train-calendar-popover .calendar-day.is-in-range {
+  border-radius: 0;
+  background: #fff3bf;
+}
+
+.train-calendar-popover .calendar-day.is-range-start,
+.train-calendar-popover .calendar-day.is-range-end {
+  position: relative;
+  z-index: 1;
+  border-radius: 16px;
+  background: #fed42b;
+  color: #0d0d0f;
+}
+
+.train-calendar-popover .calendar-day.is-range-start:not(.is-range-end) {
+  border-radius: 16px 0 0 16px;
+}
+
+.train-calendar-popover .calendar-day.is-range-end:not(.is-range-start) {
+  border-radius: 0 16px 16px 0;
+}
+
+.train-calendar-popover .calendar-day:disabled {
+  cursor: default;
+  opacity: .35;
+}
+
+.train-calendar-popover .calendar-day:disabled:hover {
+  background: transparent;
+}
+
+.train-query-field--passengers {
+  padding-right: 32px;
+}
+
+.train-query-chevron {
+  position: absolute;
+  top: 31px;
+  right: 18px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid #9c9ba2;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.train-swap {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  place-items: center;
+  border-radius: 16px;
+  background: #f2f2f2;
+}
+
+.train-swap:hover {
+  background: #e7e7e7;
+}
+
+.train-swap img {
+  width: 16px;
+  height: 16px;
+}
+
+.train-search-submit {
+  width: 160px;
+  height: 77px;
+  border-radius: 56px;
+  background: #fed42b;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.train-search-submit:hover,
+.train-card__select:hover {
+  background: #f5c400;
+}
+
+.train-search-submit:active,
+.train-card__select:active {
+  transform: scale(.985);
+}
+
+.train-filter-row {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 40px;
+  margin-top: 16px;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-filter-control,
+.train-filter-menu > summary {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 16px;
+  background: #f2f2f2;
+  color: #0d0d0f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.train-filter-control img,
+.train-filter-menu > summary img {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.train-filter-control--sort {
+  width: 40px;
+  padding: 0;
+}
+
+.train-filter-control[aria-pressed="true"],
+.train-filter-menu.is-active > summary,
+.train-filter-menu[open] > summary {
+  background: #222125;
+  color: #fff;
+}
+
+.train-filter-control[aria-pressed="true"] img,
+.train-filter-menu.is-active > summary img,
+.train-filter-menu[open] > summary img {
+  filter: invert(1);
+}
+
+.train-filter-menu {
+  position: relative;
+}
+
+.train-filter-menu > summary {
+  cursor: pointer;
+}
+
+.train-filter-menu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.train-filter-popover {
+  position: absolute;
+  top: 48px;
+  left: 0;
+  display: flex;
+  min-width: 190px;
+  padding: 12px;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(13, 13, 15, .14);
+}
+
+.train-filter-menu--wide .train-filter-popover {
+  min-width: 220px;
+}
+
+.train-filter-menu--price .train-filter-popover {
+  right: 0;
+  left: auto;
+}
+
+.train-filter-popover label {
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.train-filter-popover input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #222125;
+}
+
+.train-results {
+  margin-top: 36px;
+}
+
+.train-results h1 {
+  margin: 0 0 12px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.24px;
+}
+
+.train-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.train-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 146px;
+  padding: 0 32px 32px 0;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(13, 13, 15, .08);
+}
+
+.train-card__tags {
+  display: flex;
+  width: 100%;
+  height: 18px;
+  flex: 0 0 18px;
+  align-items: center;
+  gap: 4px;
+}
+
+.train-card__tag {
+  height: 18px;
+  padding: 1px 9px 0;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.train-card__tag--alert {
+  padding-left: 12px;
+  border-radius: 0 9px 9px 0;
+  background: #f00044;
+}
+
+.train-card__tag--success {
+  background: #02b548;
+}
+
+.train-card__content {
+  display: grid;
+  width: calc(100% - 32px);
+  height: 86px;
+  margin-left: 32px;
+  grid-template-columns: minmax(0, 900px) 1px 172px;
+  align-items: start;
+  gap: 32px;
+}
+
+.train-card__left {
+  display: grid;
+  width: 900px;
+  height: 86px;
+  grid-template-columns: 448px 262px 158px;
+  gap: 16px;
+}
+
+.train-card__route {
+  display: flex;
+  height: 86px;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.train-card__stops {
+  display: grid;
+  width: 448px;
+  height: 46px;
+  grid-template-columns: 216px 216px;
+  gap: 16px;
+}
+
+.train-card__stop {
+  min-width: 0;
+}
+
+.train-card__time-row {
+  display: flex;
+  height: 24px;
+  align-items: flex-start;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.train-card__time {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.24px;
+}
+
+.train-card__date {
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.train-card__station {
+  display: block;
+  margin-top: 2px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.train-card__amenities {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-card__amenities img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.train-card__more {
+  display: grid;
+  height: 24px;
+  min-width: 30px;
+  padding: 0 8px;
+  place-items: center;
+  border-radius: 10px;
+  background: #f2f2f2;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.train-card__info {
+  display: flex;
+  width: 262px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.train-card__duration {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.train-card__number {
+  max-width: 220px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.train-card__brand {
+  color: #eb8500;
+}
+
+.train-card__carrier {
+  color: #9c9ba2;
+}
+
+.train-card__places {
+  display: flex;
+  width: 158px;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.train-card__place {
+  display: grid;
+  grid-template-columns: 40px 32px 1fr;
+  align-items: center;
+}
+
+.train-card__place-count {
+  text-align: right;
+}
+
+.train-card__place-price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.train-card__divider {
+  width: 1px;
+  height: 86px;
+  background: #e6e5e7;
+}
+
+.train-card__right {
+  display: flex;
+  width: 172px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-card__price {
+  width: 100%;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -.24px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.train-card__select {
+  width: 172px;
+  height: 40px;
+  border-radius: 16px;
+  background: #fed42b;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.train-disclaimer {
+  margin: 16px 0 0;
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.train-empty {
+  display: flex;
+  min-height: 220px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 24px;
+  background: #f5f5f5;
+  text-align: center;
+}
+
+.train-empty[hidden] {
+  display: none;
+}
+
+.train-empty strong {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.train-empty span {
+  color: #9c9ba2;
+}
+
+.train-empty button {
+  height: 40px;
+  margin-top: 8px;
+  padding: 0 18px;
+  border-radius: 16px;
+  background: #fed42b;
+  font-weight: 500;
+}
+
+@media (max-width: 1240px) {
+  .train-header-inner,
+  .train-main {
+    width: calc(100% - 32px);
+  }
+
+  .train-search-form {
+    grid-template-columns: minmax(150px, 1fr) 42px minmax(150px, 1fr) 150px 150px 150px 132px;
+  }
+
+  .train-search-submit {
+    width: 132px;
+  }
+
+  .train-filter-row {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .train-card__content {
+    grid-template-columns: minmax(0, 1fr) 1px 156px;
+    gap: 20px;
+  }
+
+  .train-card__left {
+    width: 100%;
+    grid-template-columns: minmax(360px, 1fr) 200px 148px;
+    gap: 12px;
+  }
+
+  .train-card__route,
+  .train-card__stops {
+    width: 100%;
+  }
+
+  .train-card__stops {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .train-card__info {
+    width: 200px;
+  }
+
+  .train-card__places {
+    width: 148px;
+  }
+
+  .train-card__right,
+  .train-card__select {
+    width: 156px;
+  }
+}
+
+@media (max-width: 980px) {
+  .train-search-page {
+    min-height: 100vh;
+  }
+
+  .train-search-page .search-header {
+    height: auto;
+  }
+
+  .train-header-inner {
+    height: auto;
+    min-height: 50px;
+  }
+
+  .train-search-page .product-tabs,
+  .train-search-page .utility-actions,
+  .plus-badge,
+  .level-pill__copy {
+    display: none;
+  }
+
+  .train-search-form {
+    height: auto;
+    padding: 8px;
+    grid-template-columns: 1fr 40px 1fr;
+    border-radius: 28px;
+  }
+
+  .train-calendar-popover {
+    position: fixed;
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    z-index: 100;
+    width: auto;
+    max-height: min(70vh, 520px);
+  }
+
+  .train-query-field--date,
+  .train-query-field--passengers {
+    grid-column: span 1;
+  }
+
+  .train-search-submit {
+    width: auto;
+    grid-column: span 2;
+  }
+
+  .train-card {
+    height: auto;
+    min-height: 240px;
+    padding-bottom: 24px;
+  }
+
+  .train-card__content {
+    height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .train-card__left {
+    height: auto;
+    grid-template-columns: minmax(0, 1fr) 180px;
+  }
+
+  .train-card__places {
+    display: none;
+  }
+
+  .train-card__divider {
+    display: none;
+  }
+
+  .train-card__right {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 640px) {
+  .train-header-inner,
+  .train-main {
+    width: calc(100% - 24px);
+  }
+
+  .travel-brand__name {
+    font-size: 20px;
+  }
+
+  .train-search-form {
+    grid-template-columns: 1fr 40px 1fr;
+  }
+
+  .train-calendar-popover {
+    height: min(432px, calc(100vh - 24px));
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+
+  .train-calendar-popover .calendar-months {
+    display: none;
+  }
+
+  .train-query-field {
+    padding: 8px 12px;
+  }
+
+  .train-query-field--origin {
+    padding-left: 12px;
+  }
+
+  .train-query-field--date,
+  .train-query-field--passengers,
+  .train-search-submit {
+    grid-column: span 3;
+  }
+
+  .train-card {
+    padding-right: 18px;
+  }
+
+  .train-card__content {
+    width: calc(100% - 18px);
+    margin-left: 18px;
+  }
+
+  .train-card__left {
+    grid-template-columns: 1fr;
+  }
+
+  .train-card__info {
+    width: 100%;
+  }
+
+  .train-card__stops {
+    gap: 8px;
+  }
+
+  .train-card__stop,
+  .train-card__stops {
+    width: 100%;
+  }
+
+  .train-card__station {
+    font-size: 14px;
+  }
+
+  .train-card__right {
+    align-items: center;
+    justify-content: space-between;
+  }
+}

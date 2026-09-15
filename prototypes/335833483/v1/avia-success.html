@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Авиабилеты оплачены — Яндекс Путешествия</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <link rel="stylesheet" href="./avia-success.css?v=1">
+    <script src="./shared-search-header.js?v=1" defer></script>
+    <script src="./avia-success.js?v=2" defer></script>
+  </head>
+  <body>
+    <div class="avia-success-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="avia" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <main class="avia-success-main">
+        <section class="avia-success-island" aria-labelledby="avia-success-title">
+          <div class="avia-success-content">
+            <div class="avia-success-status" role="status">
+              <span class="avia-success-status__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="m6.5 12.1 3.35 3.35L17.7 7.6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"/>
+                </svg>
+              </span>
+              <span>Авиабилеты оплачены</span>
+            </div>
+
+            <div class="avia-success-heading">
+              <h1 id="avia-success-title">Билеты оформлены</h1>
+              <p>Все детали сохранены в разделе «Мои поездки».</p>
+            </div>
+
+            <article class="avia-success-trip" aria-labelledby="avia-success-route">
+              <div class="avia-success-trip__title-row">
+                <span class="avia-success-trip__plane" aria-hidden="true">
+                  <img src="./assets/icons/transport-plane.svg" alt="">
+                </span>
+                <h2 id="avia-success-route">Москва — Санкт-Петербург</h2>
+                <span class="avia-success-trip__work" id="avia-success-work" hidden>
+                  <img src="./assets/icons/briefcase.svg" alt="">
+                  Рабочая поездка
+                </span>
+              </div>
+
+              <div class="avia-success-legs" id="avia-success-legs">
+                <section class="avia-success-leg" id="avia-success-outbound" aria-label="Перелёт туда">
+                  <div class="avia-success-leg__caption">
+                    <strong>Туда</strong>
+                    <span id="avia-success-outbound-date">4 августа</span>
+                  </div>
+                  <div class="avia-success-leg__route">
+                    <span><strong id="avia-success-outbound-time">06:40</strong><small id="avia-success-outbound-code">LED</small></span>
+                    <span class="avia-success-leg__line" aria-hidden="true"></span>
+                    <span class="avia-success-leg__duration" id="avia-success-outbound-duration">5 ч 15 м</span>
+                    <span class="avia-success-leg__line" aria-hidden="true"></span>
+                    <span><strong id="avia-success-outbound-arrival">11:55</strong><small id="avia-success-outbound-to-code">SVX</small></span>
+                  </div>
+                  <p id="avia-success-outbound-flight">Победа · DP 993</p>
+                </section>
+
+                <section class="avia-success-leg" id="avia-success-return" aria-label="Перелёт обратно">
+                  <div class="avia-success-leg__caption">
+                    <strong>Обратно</strong>
+                    <span id="avia-success-return-date">6 августа</span>
+                  </div>
+                  <div class="avia-success-leg__route">
+                    <span><strong id="avia-success-return-time">00:40</strong><small id="avia-success-return-code">SVX</small></span>
+                    <span class="avia-success-leg__line" aria-hidden="true"></span>
+                    <span class="avia-success-leg__duration" id="avia-success-return-duration">4 ч 10 м</span>
+                    <span class="avia-success-leg__line" aria-hidden="true"></span>
+                    <span><strong id="avia-success-return-arrival">04:50</strong><small id="avia-success-return-to-code">LED</small></span>
+                  </div>
+                  <p id="avia-success-return-flight">S7 · S7 1002</p>
+                </section>
+              </div>
+            </article>
+
+            <dl class="avia-success-facts">
+              <div>
+                <dt>Пассажиры</dt>
+                <dd id="avia-success-passengers">1 взрослый</dd>
+              </div>
+              <div>
+                <dt>Тариф</dt>
+                <dd id="avia-success-tariff">Эконом Лайт</dd>
+              </div>
+              <div>
+                <dt>Оплачено</dt>
+                <dd id="avia-success-total">21 967 ₽</dd>
+              </div>
+            </dl>
+
+            <div class="avia-success-actions">
+              <a class="avia-success-action avia-success-action--primary" id="avia-success-trips" href="./trips.html#personal">Мои поездки</a>
+              <a class="avia-success-action avia-success-action--secondary" id="avia-success-home" href="./index.html">На главную</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

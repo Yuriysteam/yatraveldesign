@@ -1,0 +1,1199 @@
+.hotel-checkout-page {
+  min-width: 320px;
+  min-height: 1650px;
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.hotel-checkout-page .search-header {
+  position: relative;
+  width: 1280px;
+  margin: 0 auto;
+  padding-right: 40px;
+  padding-left: 40px;
+  border-bottom-color: #f0f0f0;
+}
+
+.hotel-checkout-page .product-tabs a {
+  font-size: 16px;
+}
+
+.hotel-checkout-page .checkout-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.checkout-main {
+  width: 1206px;
+  margin: 0 auto;
+  padding: 24px 0 82px;
+}
+
+.checkout-breadcrumbs {
+  display: flex;
+  height: 28px;
+  align-items: center;
+  gap: 9px;
+  color: #a19f9d;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.checkout-breadcrumbs button {
+  padding: 4px 0;
+  background: transparent;
+  color: #9c9ba2;
+}
+
+.checkout-breadcrumbs button:hover {
+  color: #f00044;
+}
+
+.checkout-breadcrumbs span[aria-current="page"] {
+  color: #a19f9d;
+}
+
+.checkout-hotel {
+  display: flex;
+  width: 941px;
+  height: 88px;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.checkout-hotel > img {
+  width: 88px;
+  height: 88px;
+  flex: 0 0 88px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+.checkout-hotel__title-row {
+  display: flex;
+  height: 42px;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.checkout-hotel h1 {
+  margin: 0;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: -.5px;
+}
+
+.checkout-hotel__grade {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 1px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: -.5px;
+}
+
+.checkout-hotel__grade b {
+  font: inherit;
+}
+
+.checkout-hotel__grade span {
+  margin-top: 1px;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  line-height: 17px;
+}
+
+.checkout-hotel p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 12px 0 0;
+  color: #0d0d0f;
+  font-size: 16px;
+  line-height: 20px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.checkout-hotel p img {
+  width: 16px;
+  height: 16px;
+}
+
+.checkout-layout {
+  display: grid;
+  width: 1202px;
+  grid-template-columns: 714px 448px;
+  align-items: start;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.checkout-payment-setup {
+  width: 100%;
+}
+
+.checkout-payment-island {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.payment-choice-panel,
+.payment-methods,
+.work-purpose-row,
+.business-trip-row {
+  border-radius: 40px;
+  background: #fff;
+}
+
+.payment-choice-panel {
+  display: flex;
+  min-height: 260px;
+  padding: 28px;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.payment-choice-panel h2 {
+  margin: 0 0 4px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.payment-plan {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 0;
+  background: transparent;
+  color: #0d0d0f;
+  text-align: left;
+}
+
+.payment-plan > span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.payment-plan strong,
+.payment-method strong,
+.work-purpose-row strong,
+.business-trip-row strong {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.payment-plan small,
+.payment-method small,
+.work-purpose-row small,
+.business-trip-row small {
+  color: #9c9ba2;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.payment-radio {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: 50%;
+  background: #f2f2f2;
+}
+
+.payment-plan.is-selected .payment-radio {
+  background: #222125;
+}
+
+.payment-plan.is-selected .payment-radio::after {
+  position: absolute;
+  inset: 7px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+}
+
+.payment-methods {
+  display: grid;
+  min-height: 112px;
+  padding: 20px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.payment-method {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 72px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 12px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  color: #0d0d0f;
+  flex-direction: column;
+  text-align: left;
+}
+
+.payment-method.is-selected {
+  box-shadow: inset 0 0 0 2px #222125;
+}
+
+.payment-method > span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.payment-method__icon {
+  display: grid;
+  width: 28px;
+  height: 24px;
+  place-items: center;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.payment-method__icon img {
+  width: 18px;
+  height: 18px;
+}
+
+.payment-method__icon--pay {
+  background: linear-gradient(135deg, #ff2d55 0 45%, #fff 45% 55%, #7d61ff 55%);
+  color: #fff;
+}
+
+.payment-method__icon--sbp {
+  color: #6b4eff;
+}
+
+.payment-method__icon--add {
+  border: 1px solid #dedde0;
+  background: transparent;
+  color: #0d0d0f;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.work-purpose-row,
+.business-trip-row__head {
+  display: flex;
+  min-height: 104px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+}
+
+.work-purpose-row > span,
+.business-trip-row__head > span {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.business-trip-row[hidden],
+.business-trip-kind[hidden] {
+  display: none;
+}
+
+.business-trip-kind {
+  display: flex;
+  gap: 4px;
+  padding: 0 28px 24px;
+}
+
+.business-trip-kind button {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 16px;
+  background: #f5f5f5;
+  color: #0d0d0f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.business-trip-kind button.is-selected {
+  background: #222125;
+  color: #fff;
+}
+
+.business-trip-row > .business-trip-target__select {
+  margin: -8px 28px 24px;
+}
+
+.checkout-details > .checkout-payment-setup + h2 {
+  margin-top: 64px;
+}
+
+.checkout-payment-setup[hidden] {
+  display: none;
+}
+
+.checkout-details > .checkout-payment-setup[hidden] + h2 {
+  margin-top: 0;
+}
+
+.checkout-details > h2,
+.checkout-section > h2 {
+  margin: 0;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -.28px;
+}
+
+.checkout-card {
+  width: 100%;
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.checkout-card__inner {
+  width: 100%;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.booking-stack {
+  display: flex;
+  width: 100%;
+  margin-top: 24px;
+  padding: 8px;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.checkout-card--dates {
+  margin-top: 12px;
+}
+
+.booking-facts {
+  display: flex;
+  min-height: 126px;
+  align-items: center;
+  padding: 28px 16px;
+}
+
+.booking-fact {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex: 1 1 0;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.booking-fact + .booking-fact::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 61px;
+  background: #e6e5e3;
+  content: "";
+  transform: translateY(-50%);
+}
+
+.booking-fact > span {
+  color: #9c9ba2;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.booking-condition > span {
+  color: #969491;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.booking-fact strong {
+  width: 100%;
+  margin-top: 2px;
+  overflow: hidden;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.booking-fact small {
+  margin-top: 4px;
+  color: #0d0d0f;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.checkout-room-card__inner {
+  display: grid;
+  min-height: 248px;
+  padding: 20px;
+  grid-template-columns: 224px minmax(0, 1fr);
+  gap: 24px;
+}
+
+.checkout-room-card__image {
+  width: 224px;
+  height: 156px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+
+.checkout-room-card__body {
+  min-width: 0;
+}
+
+.checkout-room-card__inner h3 {
+  margin: 0;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.checkout-room-card__inner p {
+  margin: 8px 0 16px;
+  color: #969491;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.room-feature-list {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.room-feature {
+  display: inline-flex;
+  height: 28px;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background: #f2f2f2;
+  color: #5f5e5c;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.room-feature--more {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #e6e5e3;
+  color: #252426;
+}
+
+.booking-conditions {
+  display: flex;
+  min-height: 140px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px 24px;
+}
+
+.booking-condition {
+  display: grid;
+  grid-template-columns: 188px minmax(0, 1fr);
+  gap: 20px;
+}
+
+.booking-condition > span {
+  color: #969491;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.booking-condition p {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.booking-condition strong {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.booking-condition small {
+  color: #8c8a90;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -.1px;
+  line-height: 18px;
+}
+
+.checkout-section {
+  margin-top: 56px;
+}
+
+.checkout-section > .checkout-card {
+  margin-top: 24px;
+}
+
+.booking-rules {
+  display: flex;
+  min-height: 188px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+}
+
+.booking-rule {
+  display: flex;
+  min-height: 24px;
+  align-items: center;
+  gap: 16px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.booking-rule:first-child {
+  align-items: flex-start;
+}
+
+.booking-rule__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.booking-rule__copy {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.booking-rule__copy small {
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.checkout-section--wishes {
+  margin-top: 56px;
+}
+
+.checkout-card--wishes {
+  position: relative;
+  display: block;
+  min-height: 277px;
+  padding: 8px;
+}
+
+.checkout-card--wishes textarea {
+  display: block;
+  width: 100%;
+  height: 261px;
+  padding: 30px 28px 28px;
+  resize: none;
+  border: 0;
+  border-radius: 40px;
+  outline: 0;
+  background: #fff;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.checkout-card--wishes textarea::placeholder {
+  color: #a19f9d;
+  opacity: 1;
+}
+
+.checkout-card--wishes:focus-within {
+  background: #ffcc00;
+}
+
+.checkout-card--form {
+  margin-top: 24px;
+}
+
+.checkout-form-card {
+  display: flex;
+  min-height: 208px;
+  padding: 28px;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.checkout-form-card label {
+  display: flex;
+  min-height: 46px;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid #e4e3e5;
+}
+
+.checkout-form-card label > span {
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.checkout-form-card input {
+  width: 100%;
+  padding: 0 0 8px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.checkout-form-card > small,
+.guest-form-card > small {
+  color: #9c9ba2;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.guest-form-card {
+  min-height: 352px;
+}
+
+.guest-form-card h3 {
+  margin: 0;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.saved-guests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.saved-guests button {
+  display: flex;
+  min-height: 48px;
+  padding: 8px 14px;
+  border-radius: 16px;
+  background: #f5f5f5;
+  flex-direction: column;
+  text-align: left;
+}
+
+.saved-guests strong {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.saved-guests small {
+  color: #9c9ba2;
+  font-size: 11px;
+  line-height: 14px;
+}
+
+.saved-guests button.is-selected {
+  box-shadow: inset 0 0 0 2px #222125;
+}
+
+.add-guest-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 16px;
+  background: #f2f2f2;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.wishes-counter {
+  display: none;
+}
+
+.checkout-payment {
+  position: sticky;
+  top: 24px;
+  width: 448px;
+  min-height: 552px;
+  padding: 28px 28px 32px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0 6px 32px rgba(13, 13, 15, .1);
+}
+
+.points-switch {
+  display: grid;
+  height: 64px;
+  padding: 4px;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 24px;
+  background: #f2f2f2;
+}
+
+.points-switch[hidden] {
+  display: none;
+}
+
+.points-switch button {
+  display: flex;
+  min-width: 0;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0 10px;
+  border-radius: 20px;
+  background: transparent;
+  color: #777572;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.points-switch button small {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.points-switch button > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.points-switch button strong {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.points-switch button.is-active {
+  background: #fff;
+  color: #252426;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+}
+
+.plus-mark {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+  overflow: hidden;
+  background: url("./assets/hotel-detail/plus-gradient.svg") center / 16px 16px no-repeat;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+}
+
+.payment-line,
+.promo-row,
+.payment-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-line--stay {
+  margin-top: 28px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.payment-line strong {
+  font-weight: 500;
+}
+
+.stay-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  background: transparent;
+}
+
+.price-breakdown {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  color: #969491;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.price-breakdown[hidden],
+.promo-form[hidden],
+.promo-message[hidden] {
+  display: none;
+}
+
+.price-breakdown strong {
+  font-weight: 400;
+}
+
+.promo-row {
+  min-height: 32px;
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.promo-row,
+.promo-form,
+.promo-message {
+  display: none !important;
+}
+
+.checkout-toggle {
+  position: relative;
+  width: 48px;
+  height: 32px;
+  padding: 2px;
+  border-radius: 20px;
+  background: #d8d7d5;
+  transition: background-color 150ms ease;
+}
+
+.checkout-toggle span {
+  display: block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+  transition: transform 150ms ease;
+}
+
+.checkout-toggle[aria-checked="true"] {
+  background: #ffcc00;
+}
+
+.work-purpose-row .checkout-toggle[aria-checked="true"],
+.business-trip-row .checkout-toggle[aria-checked="true"] {
+  background: #222125;
+}
+
+.checkout-toggle[aria-checked="true"] span {
+  transform: translateX(16px);
+}
+
+.promo-form {
+  display: grid;
+  margin-top: 14px;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: 8px;
+}
+
+.promo-form label,
+.promo-form input,
+.promo-form button {
+  height: 44px;
+}
+
+.promo-form input {
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid #dfdedc;
+  border-radius: 14px;
+  outline: 0;
+}
+
+.promo-form input:focus {
+  border-color: #ffcc00;
+  box-shadow: 0 0 0 2px rgba(255, 204, 0, .25);
+}
+
+.promo-form button {
+  border-radius: 14px;
+  background: #f2f2f2;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.promo-message {
+  margin: 8px 0 0;
+  color: #08a614;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.promo-message.is-error {
+  color: #f00044;
+}
+
+.payment-total {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e7e6e4;
+}
+
+.payment-total span {
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.payment-total strong {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -.3px;
+}
+
+.checkout-submit {
+  width: 100%;
+  height: 56px;
+  margin-top: 28px;
+  border-radius: 18px;
+  background: #222125;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  transition: background-color 140ms ease, transform 140ms ease;
+}
+
+.checkout-submit:hover {
+  background: #3c3c41;
+}
+
+.checkout-submit:active {
+  transform: scale(.99);
+}
+
+.checkout-submit:disabled {
+  cursor: wait;
+  opacity: .72;
+}
+
+.cancellation-note {
+  margin: 20px 0 0;
+  color: #08a614;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: left;
+}
+
+.checkout-legal {
+  display: flex;
+  margin: 24px 0 0;
+  flex-direction: column;
+  gap: 12px;
+  color: #969491;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.checkout-legal p {
+  margin: 0;
+}
+
+.checkout-legal a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 1240px) {
+  .checkout-main {
+    width: auto;
+    margin: 0 24px;
+  }
+
+  .checkout-layout {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) 448px;
+    gap: 24px;
+  }
+
+  .checkout-payment {
+    width: 448px;
+  }
+
+  .checkout-hotel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1120px) {
+  .hotel-checkout-page .product-tabs,
+  .hotel-checkout-page .utility-actions {
+    display: none;
+  }
+
+  .checkout-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkout-details,
+  .checkout-payment {
+    width: 100%;
+  }
+
+  .checkout-payment {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .hotel-checkout-page {
+    min-height: 100vh;
+  }
+
+  .hotel-checkout-page .search-header {
+    width: 100%;
+    height: 62px;
+    padding: 8px 16px;
+  }
+
+  .hotel-checkout-page .travel-brand__name,
+  .hotel-checkout-page .level-pill__copy {
+    display: none;
+  }
+
+  .checkout-main {
+    margin: 0 16px;
+    padding-top: 18px;
+  }
+
+  .checkout-hotel {
+    height: auto;
+    margin-top: 22px;
+  }
+
+  .checkout-hotel > img {
+    width: 72px;
+    height: 72px;
+    flex-basis: 72px;
+    border-radius: 20px;
+  }
+
+  .checkout-hotel h1 {
+    font-size: 25px;
+    line-height: 29px;
+  }
+
+  .checkout-layout {
+    margin-top: 28px;
+  }
+
+  .checkout-payment-island {
+    border-radius: 32px;
+  }
+
+  .payment-choice-panel,
+  .payment-methods,
+  .work-purpose-row,
+  .business-trip-row {
+    border-radius: 24px;
+  }
+
+  .payment-choice-panel,
+  .work-purpose-row,
+  .business-trip-row__head {
+    padding: 20px;
+  }
+
+  .payment-methods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .business-trip-kind {
+    padding: 0 20px 20px;
+    flex-wrap: wrap;
+  }
+
+  .business-trip-row > .business-trip-target__select {
+    margin: -4px 20px 20px;
+  }
+
+  .checkout-details > h2,
+  .checkout-section > h2 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .booking-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-room-card__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .checkout-room-card__image {
+    width: 100%;
+  }
+
+  .booking-condition {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .checkout-payment {
+    min-height: 0;
+    padding: 20px;
+    border-radius: 28px;
+  }
+
+  .points-switch {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .points-switch button {
+    height: 44px;
+  }
+
+  .payment-total strong {
+    font-size: 27px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hotel-checkout-page *,
+  .hotel-checkout-page *::before,
+  .hotel-checkout-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Командировка — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./trip-page.css?v=27">
+    <script src="./trip-page.js?v=63" defer></script>
+    <link rel="stylesheet" href="../service-details-drawer.css?v=2">
+    <script src="../service-details-drawer.js?v=2" defer></script>
+    <link rel="stylesheet" href="../corporate-profile-drawer.css">
+    <script src="../corporate-profile-drawer.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell trip-page" data-page-ready>
+      <header class="header" aria-label="Шапка Яндекс Путешествий">
+        <a class="logo" href="./index.html" aria-label="Яндекс Путешествия, на главную">
+          <img class="logo__planet" src="./assets/images/logo-planet.svg" alt="">
+          <img class="logo__wordmark" src="./assets/images/logo-wordmark.svg" alt="Яндекс Путешествия">
+        </a>
+        <nav class="header-actions" aria-label="Сервисы">
+          <button class="icon-button" type="button" aria-label="Избранное" data-header-action="Избранное">
+            <img src="./assets/icons/heart.svg" alt="">
+          </button>
+          <button class="icon-button" type="button" aria-label="Мои поездки" data-header-action="Мои поездки">
+            <img src="./assets/icons/trip.svg" alt="">
+          </button>
+          <button class="icon-button" type="button" aria-label="Поддержка" data-header-action="Поддержка">
+            <img src="./assets/icons/support.svg" alt="">
+          </button>
+          <div class="account-group">
+            <button class="account account--company" type="button" data-header-action="Айди тех">
+              <img src="./assets/icons/briefcase.svg" alt="">
+              <span>Айди тех</span>
+            </button>
+            <button class="account account--profile" type="button" aria-label="Профиль, новичок, 0 броней" data-header-action="Профиль">
+              <span class="profile-copy"><strong>НОВИЧОК</strong><small>0 броней</small></span>
+              <img class="avatar" src="./assets/shared-header/figma-header-avatar.png" alt="">
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      <main id="trip-main" class="trip-layout">
+        <div class="trip-column">
+          <section id="trip-summary" class="trip-summary" aria-labelledby="trip-title"></section>
+          <section id="trip-services" class="trip-services" aria-label="Услуги командировки"></section>
+        </div>
+        <aside id="trip-cost" class="trip-cost" aria-label="Стоимость командировки"></aside>
+      </main>
+
+      <div id="trip-popup-layer" class="trip-popup-layer" hidden></div>
+      <div id="trip-announcer" class="visually-hidden" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

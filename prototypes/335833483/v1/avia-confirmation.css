@@ -1,0 +1,759 @@
+.avia-confirmation-page {
+  min-width: 320px;
+  min-height: 1444px;
+  overflow-x: hidden;
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.avia-confirmation-page .search-header {
+  border-bottom-color: #e6e5e7;
+}
+
+.avia-confirmation-page .booking-progress__steps {
+  flex: 0 0 792px;
+}
+
+.avia-confirmation-page .booking-progress__steps button,
+.avia-confirmation-page .booking-progress__steps strong,
+.avia-confirmation-page .booking-progress__steps > span {
+  white-space: nowrap;
+}
+
+.confirmation-main {
+  width: 1200px;
+  min-height: 1224px;
+  margin: 20px auto 50px;
+}
+
+.confirmation-layout {
+  display: grid;
+  width: 1200px;
+  min-height: 1224px;
+  grid-template-columns: 712px 448px;
+  align-items: start;
+  gap: 40px;
+}
+
+.confirmation-left {
+  display: flex;
+  width: 712px;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.confirmation-flights {
+  display: flex;
+  width: 712px;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.confirmation-flights[hidden],
+.confirmation-passengers[hidden],
+.confirmation-contacts[hidden] {
+  display: none;
+}
+
+.confirmation-flight {
+  width: 712px;
+}
+
+.confirmation-flight__heading {
+  display: flex;
+  width: 712px;
+  height: 56px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.confirmation-flight__heading h2,
+.confirmation-passengers h1,
+.confirmation-contacts h2,
+.confirmation-error h1 {
+  margin: 0;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -.28px;
+}
+
+.confirmation-flight__meta {
+  display: flex;
+  height: 20px;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  color: #9c9ba2;
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.confirmation-flight__meta .meta-transfer {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #ee7d00;
+}
+
+.confirmation-flight__meta .meta-transfer img {
+  width: 16px;
+  height: 16px;
+}
+
+.confirmation-flight-card {
+  display: flex;
+  width: 712px;
+  padding: 8px;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.confirmation-flight-card[data-segments="1"] {
+  height: 216px;
+}
+
+.confirmation-flight-card[data-segments="2"] {
+  height: 468px;
+}
+
+.confirmation-segment {
+  display: flex;
+  width: 696px;
+  height: 200px;
+  flex: 0 0 200px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.confirmation-segment__route {
+  display: flex;
+  width: 420px;
+  height: 160px;
+  flex: 0 0 420px;
+  padding: 0 32px;
+  flex-direction: column;
+  gap: 16px;
+  border-right: 1px solid #e6e5e7;
+}
+
+.confirmation-segment__carrier {
+  display: flex;
+  width: 356px;
+  height: 56px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.confirmation-segment__carrier-copy,
+.confirmation-segment__number {
+  display: flex;
+  flex-direction: column;
+}
+
+.confirmation-segment__carrier-copy {
+  align-items: flex-start;
+}
+
+.confirmation-segment__carrier-copy strong {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.confirmation-segment__carrier-copy span,
+.confirmation-segment__number span {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.confirmation-segment__number {
+  align-items: flex-end;
+  gap: 4px;
+  justify-content: center;
+}
+
+.confirmation-segment__number img {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.confirmation-segment__number img.is-avia-icon {
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.confirmation-segment__travel {
+  display: flex;
+  width: 356px;
+  height: 88px;
+  flex-direction: column;
+}
+
+.confirmation-segment__time {
+  display: flex;
+  width: 356px;
+  height: 32px;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmation-time-side {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 0;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmation-time-side::after,
+.confirmation-time-side--arrival::before {
+  height: 1px;
+  min-width: 0;
+  flex: 1 1 0;
+  background: #e6e5e7;
+  content: "";
+}
+
+.confirmation-time-side--arrival::after {
+  display: none;
+}
+
+.confirmation-time-side strong {
+  flex: 0 0 auto;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -.48px;
+}
+
+.confirmation-segment__duration {
+  flex: 0 0 auto;
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.confirmation-segment__locations {
+  display: flex;
+  width: 356px;
+  height: 56px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.confirmation-location {
+  display: flex;
+  width: 185px;
+  height: 56px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.confirmation-location--arrival {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.confirmation-location strong {
+  width: 185px;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.confirmation-location--arrival strong,
+.confirmation-location--arrival span {
+  text-align: right;
+}
+
+.confirmation-location span {
+  width: 185px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.confirmation-location small {
+  width: 185px;
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.confirmation-location--arrival small {
+  text-align: right;
+}
+
+.confirmation-segment__fare {
+  display: flex;
+  width: 276px;
+  height: 132px;
+  flex: 0 0 276px;
+  padding: 0 32px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.confirmation-segment__fare-title {
+  display: flex;
+  width: 212px;
+  height: 18px;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.confirmation-segment__fare-title img {
+  width: 16px;
+  height: 16px;
+}
+
+.confirmation-segment__fare-list {
+  display: flex;
+  width: 212px;
+  height: 102px;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  gap: 4px;
+  list-style: none;
+}
+
+.confirmation-segment__fare-list li {
+  display: flex;
+  width: 212px;
+  min-height: 18px;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.confirmation-segment__fare-list img {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin-top: 1px;
+}
+
+.confirmation-transfer {
+  display: flex;
+  width: 696px;
+  height: 36px;
+  flex: 0 0 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.confirmation-transfer img {
+  width: 16px;
+  height: 16px;
+}
+
+.confirmation-passengers {
+  display: flex;
+  width: 712px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.confirmation-passenger-shell {
+  width: 712px;
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.confirmation-passenger-list {
+  width: 696px;
+  padding: 0 28px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.confirmation-passenger {
+  display: flex;
+  width: 640px;
+  min-height: 116px;
+  padding: 20px 0;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.confirmation-passenger + .confirmation-passenger {
+  border-top: 1px solid #e6e5e7;
+}
+
+.confirmation-passenger__identity {
+  display: flex;
+  height: 46px;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.confirmation-passenger__identity strong {
+  overflow: hidden;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.confirmation-passenger__identity span,
+.confirmation-passenger__fare {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.confirmation-passenger__fare {
+  color: #9c9ba2;
+}
+
+.confirmation-contacts {
+  display: flex;
+  width: 712px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.confirmation-contacts h2 {
+  margin: 0;
+}
+
+.confirmation-contacts p {
+  margin: 8px 0 0;
+  color: #9c9ba2;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.confirmation-contact-shell {
+  width: 712px;
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.confirmation-contact-list {
+  width: 696px;
+  padding: 12px 28px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.confirmation-contact-row {
+  display: flex;
+  min-height: 72px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.confirmation-contact-row + .confirmation-contact-row {
+  border-top: 1px solid #e6e5e7;
+}
+
+.confirmation-contact-row span {
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.confirmation-contact-row strong {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.confirmation-payment-stack {
+  position: sticky;
+  top: 20px;
+  width: 448px;
+  padding-top: 104px;
+}
+
+.confirmation-payment-timer {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 448px;
+  height: 104px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-radius: 40px 40px 0 0;
+  background: #fff6e8;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.confirmation-payment-timer[hidden] {
+  display: none;
+}
+
+.confirmation-payment-timer__clock {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #d8d6dc;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.confirmation-payment-timer__clock::before,
+.confirmation-payment-timer__clock i {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 1px;
+  height: 7px;
+  transform-origin: 50% 0;
+  border-radius: 1px;
+  background: #7d62ff;
+  content: "";
+}
+
+.confirmation-payment-timer__clock::before {
+  transform: rotate(180deg);
+}
+
+.confirmation-payment-timer__clock i {
+  height: 6px;
+  transform: rotate(235deg);
+}
+
+.confirmation-payment {
+  position: relative;
+  z-index: 1;
+  top: auto;
+}
+
+.confirmation-total-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.confirmation-total-value img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.confirmation-payment.is-unavailable .flight-payment__heading,
+.confirmation-payment.is-unavailable .payment-features,
+.confirmation-payment.is-unavailable .flight-payment__total,
+.confirmation-payment.is-unavailable .payment-legal {
+  opacity: .38;
+}
+
+.confirmation-error {
+  width: 712px;
+  padding: 36px;
+  border-radius: 40px;
+  background: #f5f5f5;
+}
+
+.confirmation-error[hidden] {
+  display: none;
+}
+
+.confirmation-error p {
+  max-width: 530px;
+  margin: 16px 0 28px;
+  color: #616067;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.confirmation-error button {
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 18px;
+  background: #222125;
+  color: #fff;
+  font-weight: 500;
+}
+
+.confirmation-error button:hover {
+  background: #3c3c41;
+}
+
+@media (max-width: 1240px) {
+  .avia-confirmation-page .search-header {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .avia-confirmation-page .travel-brand {
+    width: auto;
+  }
+
+  .avia-confirmation-page .product-tabs a {
+    font-size: 16px;
+  }
+
+  .booking-progress,
+  .confirmation-main,
+  .confirmation-layout {
+    width: calc(100vw - 48px);
+  }
+
+  .confirmation-payment-stack {
+    position: relative;
+    top: auto;
+  }
+
+  .confirmation-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .confirmation-payment {
+    position: static;
+    width: 448px;
+    height: 634px;
+  }
+
+  .confirmation-payment .flight-payment__heading,
+  .confirmation-payment .payment-features,
+  .confirmation-payment .flight-payment__total,
+  .confirmation-payment .flight-payment__submit,
+  .confirmation-payment .payment-legal {
+    width: 392px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .avia-confirmation-page .product-tabs,
+  .avia-confirmation-page .utility-actions,
+  .avia-confirmation-page .passenger-plus-pill,
+  .booking-progress > p {
+    display: none;
+  }
+
+  .booking-progress {
+    overflow-x: auto;
+  }
+
+  .confirmation-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .confirmation-payment {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .avia-confirmation-page .search-header {
+    padding: 10px 16px;
+  }
+
+  .avia-confirmation-page .travel-brand__name {
+    font-size: 20px;
+  }
+
+  .avia-confirmation-page .level-pill__copy,
+  .booking-progress__steps .booking-step-arrow,
+  .booking-progress__steps button:nth-of-type(-n+2) {
+    display: none;
+  }
+
+  .booking-progress,
+  .confirmation-main,
+  .confirmation-layout,
+  .confirmation-left,
+  .confirmation-flights,
+  .confirmation-flight,
+  .confirmation-flight__heading,
+  .confirmation-passengers,
+  .confirmation-passenger-shell,
+  .confirmation-contacts,
+  .confirmation-contact-shell,
+  .confirmation-error {
+    width: calc(100vw - 32px);
+  }
+
+  .confirmation-main {
+    margin-top: 16px;
+  }
+
+  .confirmation-flight-card {
+    width: 100%;
+    height: auto !important;
+    overflow-x: auto;
+    border-radius: 32px;
+  }
+
+  .confirmation-segment,
+  .confirmation-transfer {
+    flex: 0 0 696px;
+  }
+
+  .confirmation-passenger-list {
+    width: 100%;
+  }
+
+  .confirmation-passenger {
+    width: 100%;
+  }
+
+  .confirmation-contact-list {
+    width: 100%;
+  }
+
+  .confirmation-payment-stack,
+  .confirmation-payment-timer {
+    width: calc(100vw - 32px);
+  }
+
+  .confirmation-payment {
+    width: calc(100vw - 32px);
+    height: auto;
+  }
+
+  .confirmation-payment .flight-payment__heading,
+  .confirmation-payment .payment-features,
+  .confirmation-payment .flight-payment__total,
+  .confirmation-payment .flight-payment__submit,
+  .confirmation-payment .payment-legal {
+    width: 100%;
+  }
+}
