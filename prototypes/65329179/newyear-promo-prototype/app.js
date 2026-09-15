@@ -325,7 +325,7 @@ function focusCardMarkup(index, direction, offsetColumn, offsetRow, sourceCard) 
   card.dataset.sourceRow = sourceCard.dataset.row;
   card.dataset.sourceColumn = sourceCard.dataset.column;
   card.style.left = `${(device.clientWidth - FOCUS_CARD_WIDTH) / 2 + offsetColumn * FOCUS_STEP_X}px`;
-  card.style.top = `${130 + offsetRow * FOCUS_STEP_Y}px`;
+  card.style.top = `${68 + offsetRow * FOCUS_STEP_Y}px`;
   card.innerHTML = `
     <img class="focus-card__image" src="${data.image}" alt="">
     <div class="focus-card__backdrop focus-card__backdrop--compact" aria-hidden="true"></div>

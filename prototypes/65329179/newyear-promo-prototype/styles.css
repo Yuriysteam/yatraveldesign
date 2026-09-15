@@ -1,3 +1,27 @@
+@font-face {
+  font-family: "YS Text";
+  src: url("assets/fonts/YS-Text-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YS Text";
+  src: url("assets/fonts/YS-Text-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "YS Text Cond";
+  src: url("assets/fonts/YS-Text-Cond-Heavy.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
   font-family: Arial, Helvetica, sans-serif;
@@ -23,6 +47,7 @@ button { font: inherit; }
   border-radius: 0;
   background: #0d0d0f;
   box-shadow: none;
+  font-family: "YS Text", Arial, sans-serif;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -65,7 +90,7 @@ button { font: inherit; }
 .intro-start {
   position: absolute;
   left: 50%;
-  bottom: 56px;
+  bottom: 22px;
   display: flex;
   width: 301px;
   height: 56px;
@@ -94,7 +119,7 @@ button { font: inherit; }
 .hero {
   position: absolute;
   z-index: 8;
-  top: 87px;
+  top: 25px;
   left: 50%;
   width: 335px;
   text-align: center;
@@ -142,7 +167,7 @@ button { font: inherit; }
 .filters {
   position: absolute;
   z-index: 35;
-  top: 183px;
+  top: 121px;
   left: 0;
   right: 0;
   display: flex;
@@ -331,7 +356,7 @@ button { font: inherit; }
 }
 
 .explore.is-interacted .hero { opacity: 0; transform: translate(-50%, -18px) scale(.96); }
-.explore.is-interacted .filters { top: 74px; }
+.explore.is-interacted .filters { top: 12px; }
 .explore.is-interacted .viewport { top: 0; bottom: 0; }
 .explore.is-interacted .edge--top { height: 168px; }
 .explore.is-interacted .edge--bottom { height: 120px; }
@@ -343,7 +368,7 @@ button { font: inherit; }
   position: absolute;
   z-index: 22;
   left: 50%;
-  bottom: 52px;
+  bottom: 18px;
   width: 359px;
   display: flex;
   padding: 20px;
@@ -417,7 +442,7 @@ button { font: inherit; }
   font-variant-numeric: lining-nums proportional-nums;
   font-feature-settings: 'case' 1;
   text-overflow: ellipsis;
-  font-family: Arial, "YS Text", sans-serif;
+  font-family: "YS Text", Arial, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -432,7 +457,7 @@ button { font: inherit; }
   color: #9c9ba2;
   font-variant-numeric: lining-nums proportional-nums;
   text-overflow: ellipsis;
-  font-family: Arial, "YS Text", sans-serif;
+  font-family: "YS Text", Arial, sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -530,7 +555,7 @@ button { font: inherit; }
 }
 .focus-card {
   position: absolute;
-  top: 130px;
+  top: 68px;
   left: calc(50% - 140px);
   width: 280px;
   height: 520px;
@@ -641,7 +666,7 @@ button { font: inherit; }
 .focus-back {
   position: absolute;
   z-index: 24;
-  top: 90px;
+  top: 28px;
   left: 20px;
   display: flex;
   width: 40px;
@@ -677,7 +702,7 @@ button { font: inherit; }
 .finale.is-active { opacity: 1; visibility: visible; }
 .finale h2 {
   position: absolute;
-  top: 87px;
+  top: 25px;
   left: 50%;
   right: auto;
   text-align: center;
@@ -705,7 +730,7 @@ button { font: inherit; }
 .final-reset {
   position: absolute;
   left: 50%;
-  bottom: 56px;
+  bottom: 22px;
   display: flex;
   width: 301px;
   height: 56px;
