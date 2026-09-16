@@ -28,7 +28,6 @@ const BUSINESS_CANCELLED_TRIPS_STORAGE_KEY = 'business-trip-cancelled-v1'
 const BUSINESS_PAID_TRIPS_STORAGE_KEY = 'business-trip-paid-v1'
 const TRIP_SERVICES_QUERY_PARAM = 'tripServices'
 const NOT_NEEDED_QUERY_PARAM = 'notNeeded'
-const MAX_PRESERVED_SERVICES = 16
 const AVIA_FARE_FEATURES = Object.freeze({
   light: Object.freeze([
     'Ручная кладь 1 место, 10 кг, 55×40×25 см',
@@ -150,7 +149,7 @@ function snapshotTripSection(section) {
 function readPreservedTripServices() {
   try {
     const value = JSON.parse(params.get(TRIP_SERVICES_QUERY_PARAM) || '[]')
-    return Array.isArray(value) ? value.slice(0, MAX_PRESERVED_SERVICES) : []
+    return Array.isArray(value) ? value : []
   } catch {
     return []
   }
@@ -238,10 +237,9 @@ function preserveTripServicesInUrl(target, sections) {
   const snapshots = (sections || [])
     .map(snapshotTripSection)
     .filter(Boolean)
-    .slice(0, MAX_PRESERVED_SERVICES)
   if (snapshots.length > 0) target.searchParams.set(TRIP_SERVICES_QUERY_PARAM, JSON.stringify(snapshots))
   else target.searchParams.delete(TRIP_SERVICES_QUERY_PARAM)
-  return target
+  return window.TripStateTransport?.compactUrl(target) || target
 }
 
 function escapeHtml(value) {
