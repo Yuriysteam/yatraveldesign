@@ -304,6 +304,12 @@
 
 .rail-confirmation-trip-target[hidden] { display: none; }
 
+.rail-confirmation-payment[hidden],
+.rail-confirmation-work[hidden],
+.rail-confirmation-benefit[hidden] {
+  display: none;
+}
+
 .rail-confirmation-add-to-trip {
   display: flex;
   min-height: 56px;

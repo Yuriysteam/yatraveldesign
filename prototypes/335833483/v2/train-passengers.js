@@ -18,10 +18,16 @@ const tripSegment = requestedTripSegment === 'return'
   ? 'return'
   : requestedTripSegment === 'outbound' ? 'outbound' : null
 const hasExistingTripReference = Boolean(params.get('tripId')?.trim() || params.get('draftId')?.trim())
+const hasExistingTripContext = params.get('tripKind') === 'existing'
+  && hasExistingTripReference
+  && (params.get('workTrip') === '1' || params.get('addToTrip') === '1')
 const isExistingTripFlow = Boolean(
   tripSegment
-  || (params.get('addToTrip') === '1' && params.get('tripKind') === 'existing' && hasExistingTripReference)
+  || hasExistingTripContext
 )
+const isBusinessTripFlow = isExistingTripFlow
+  || params.get('workTrip') === '1'
+  || params.get('addToTrip') === '1'
 const isSingleReturn = tripSegment === 'return'
 const generatedBookingId = window.crypto?.randomUUID?.() || `rail-${Date.now().toString(36)}`
 const bookingId = params.get('railBookingId')?.trim() || generatedBookingId
@@ -36,12 +42,12 @@ function applyExistingTripContext(target) {
 }
 
 function renderTripContext() {
-  const isWorkTripFlow = params.get('workTrip') === '1' || isExistingTripFlow
-  page.dataset.tripContext = isWorkTripFlow ? 'business' : 'standalone'
+  page.dataset.tripContext = isBusinessTripFlow ? 'business' : 'standalone'
   businessTripRow.hidden = true
-  if (isExistingTripFlow) submitButton.dataset.submitMode = 'add-to-existing-trip'
+  document.querySelectorAll('[data-standalone-only]').forEach(element => { element.hidden = isBusinessTripFlow })
+  if (isBusinessTripFlow) submitButton.dataset.submitMode = 'add-to-trip'
   else delete submitButton.dataset.submitMode
-  submitButton.textContent = isExistingTripFlow ? 'Добавить в командировку' : 'Перейти к подтверждению'
+  submitButton.textContent = isBusinessTripFlow ? 'Добавить в командировку' : 'Перейти к подтверждению'
 }
 
 function readStoredBooking() {
@@ -608,6 +614,15 @@ function buildTripLink() {
     return sum + (hasRailSegment(segment) ? nonNegativeNumber(target.searchParams.get(`${prefixFor(segment)}Total`)) : 0)
   }, 0)
   target.searchParams.set('railTotalPrice', String(mergedRailTotal))
+  if (isBusinessTripFlow && !isExistingTripFlow) {
+    const draftId = params.get('draftId')?.trim() || `business-rail-${bookingId}`
+    target.searchParams.set('workTrip', '1')
+    target.searchParams.set('addToTrip', '1')
+    target.searchParams.set('tripKind', 'new')
+    target.searchParams.set('draft', '1')
+    target.searchParams.set('draftId', draftId)
+    target.searchParams.delete('tripId')
+  }
   return target
 }
 
@@ -689,13 +704,13 @@ form.addEventListener('submit', event => {
   if (state.submitting) return
   state.submitting = true
   submitButton.disabled = true
-  submitButton.textContent = isExistingTripFlow ? 'Добавляем…' : 'Переходим…'
+  submitButton.textContent = isBusinessTripFlow ? 'Добавляем…' : 'Переходим…'
   const passengers = collectPassengers()
   const contact = { email: form.elements.email.value.trim(), phone: form.elements.phone.value.trim() }
   saveBooking(passengers, contact)
   window.setTimeout(() => {
     const target = buildTripLink()
-    if (isExistingTripFlow) {
+    if (isBusinessTripFlow) {
       if (!window.TripV2Bridge?.returnToTrip(target, { result: 'service-added', kind: 'rail', segments })) window.location.href = target.href
       return
     }

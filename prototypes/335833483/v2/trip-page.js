@@ -9,7 +9,6 @@
   const BUSINESS_CANCELLED_TRIPS_STORAGE_KEY = 'business-trip-cancelled-v2'
   const BUSINESS_PAID_TRIPS_STORAGE_KEY = 'business-trip-paid-v2'
   const RAIL_BOOKING_STORAGE_PREFIX = 'rail-booking-v2:'
-  const MAX_SERVICES = 20
   const SERVICE_STATUS_LABELS = Object.freeze({
     paid: 'Оплачено',
     'awaiting-payment': 'Ожидает оплаты',
@@ -702,20 +701,6 @@
     }]
   }
 
-  function serviceSignature(service) {
-    const booking = service.booking || {}
-    return [
-      service.kind,
-      service.sourceSectionId,
-      booking.bookingId,
-      booking.hotelName,
-      booking.flightNumber,
-      booking.trainNumber,
-      service.date.day,
-      service.date.month,
-    ].join('|').toLocaleLowerCase('ru')
-  }
-
   function buildServices(source = params) {
     const removed = readRemovedServiceIds(source)
     const candidates = [
@@ -725,7 +710,6 @@
       ...queryHotelServices(source),
     ]
     const ids = new Set()
-    const signatures = new Set()
     const sourceOrder = Object.freeze({ outbound: 0, lodging: 1, return: 2 })
     return candidates.filter(service => {
       if (!service || removed.has(service.id)) return false
@@ -734,14 +718,12 @@
       if (service.kind === 'rail' && service.sourceSectionId === 'outbound' && (source.get('railOutboundRemoved') === '1' || source.get('outboundRemoved') === '1')) return false
       if (service.kind === 'rail' && service.sourceSectionId === 'return' && (source.get('railReturnRemoved') === '1' || source.get('returnRemoved') === '1')) return false
       if (service.kind === 'hotel' && source.get('lodgingRemoved') === '1') return false
-      const signature = serviceSignature(service)
-      if (ids.has(service.id) || signatures.has(signature)) return false
+      if (ids.has(service.id)) return false
       ids.add(service.id)
-      signatures.add(signature)
       return true
     }).sort((first, second) => (
       (sourceOrder[first.sourceSectionId] ?? 3) - (sourceOrder[second.sourceSectionId] ?? 3)
-    )).slice(0, MAX_SERVICES)
+    ))
   }
 
   function serviceSnapshot(service) {
@@ -1623,6 +1605,7 @@
 
   function renderAll() {
     services = buildServices(params)
+    clearIntegratedBookingContexts(params)
     syncServicesParam()
     shell.classList.remove('is-payment-page')
     shell.classList.toggle('is-order-page', isOrderPage())
@@ -1647,6 +1630,7 @@
     const origin = stringParam(params, 'from', 'Москва')
     const destination = stringParam(params, 'to', 'Санкт-Петербург')
     params.forEach((value, name) => target.searchParams.set(name, value))
+    clearPreviousBookingContext(target, vertical)
     target.searchParams.set('_prototypeRevision', VERTICALS[vertical].revision)
     target.searchParams.set('embed', EMBED_VALUE)
     target.searchParams.set('workTrip', '1')
@@ -1711,6 +1695,36 @@
       }
     }
     return target
+  }
+
+  function clearPreviousBookingContext(target, vertical) {
+    const targetParams = target.searchParams || target
+    const shouldDelete = name => {
+      if (vertical === 'hotel') {
+        return name.startsWith('hotel') || name.startsWith('room') || name.startsWith('tariff') || name === 'lodgingRemoved'
+      }
+      if (vertical === 'train') {
+        return name.startsWith('rail') || name === 'outboundRemoved' || name === 'returnRemoved'
+      }
+      return name === 'bookingId'
+        || name.startsWith('flight')
+        || name === 'outboundRemoved'
+        || name === 'returnRemoved'
+        || name === 'returnAirline'
+        || name.startsWith('returnFlight')
+        || name.startsWith('returnDepart')
+        || name.startsWith('returnArrival')
+        || name.startsWith('returnDuration')
+        || name.startsWith('returnFrom')
+        || name.startsWith('returnTo')
+    }
+    ;[...targetParams.keys()].filter(shouldDelete).forEach(name => targetParams.delete(name))
+  }
+
+  function clearIntegratedBookingContexts(target) {
+    clearPreviousBookingContext(target, 'avia')
+    clearPreviousBookingContext(target, 'train')
+    clearPreviousBookingContext(target, 'hotel')
   }
 
   function searchButtonLabel() {
@@ -2041,12 +2055,6 @@
     announceMessage('Поиск обновлён')
   }
 
-  function serviceRemovalFlags(service) {
-    if (service.kind === 'hotel') return ['lodgingRemoved']
-    const suffix = service.sourceSectionId === 'return' ? 'Return' : 'Outbound'
-    return service.kind === 'rail' ? [`rail${suffix}Removed`] : [`flight${suffix}Removed`]
-  }
-
   function normalizeReturnKind(value) {
     if (value === 'hotel' || value === 'avia' || value === 'rail') return value
     return ''
@@ -2115,7 +2123,6 @@
     const removedIds = readRemovedServiceIds(params)
     removedIds.add(id)
     params.set(REMOVED_SERVICES_PARAM, JSON.stringify([...removedIds]))
-    serviceRemovalFlags(removed).forEach(name => params.set(name, '1'))
     services = services.filter(service => service.id !== id)
     syncServicesParam()
     renderHeader()
@@ -2418,6 +2425,7 @@
         try { return new URL(message.href, window.location.href).pathname } catch { return bookingFrame.contentWindow?.location?.pathname || '' }
       })())
     services = buildServices(params)
+    clearIntegratedBookingContexts(params)
     if (message.result === 'service-added') {
       activeSearchSegment = ''
       const addedSegments = Array.isArray(message.segments) ? message.segments : []

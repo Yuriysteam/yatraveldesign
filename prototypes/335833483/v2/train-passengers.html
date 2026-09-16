@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="./shared-search-header.css?v=2">
     <link rel="stylesheet" href="../business-trip-target.css?v=2">
     <script src="./shared-search-header.js?v=3" defer></script>
-    <script src="../business-trip-target.js?v=4" defer></script>
-    <script src="./train-passengers.js?v=11" defer></script>
+    <script src="../business-trip-target.js?v=6" defer></script>
+    <script src="./train-passengers.js?v=13" defer></script>
   </head>
   <body>
     <div class="rail-seat-page rail-passengers-page" data-ready="false">
@@ -31,10 +31,10 @@
           <button type="button" data-action="change-seats" data-segment="return" data-return-only>Выбор мест обратно</button>
           <img src="./assets/avia-booking/step-arrow.svg" alt="" data-return-only>
           <button type="button" aria-current="step" disabled>Данные пассажиров</button>
-          <img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
-          <span class="is-muted">Подтверждение</span>
-          <img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
-          <span class="is-muted">Оплата</span>
+          <img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="" data-standalone-only>
+          <span class="is-muted" data-standalone-only>Подтверждение</span>
+          <img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="" data-standalone-only>
+          <span class="is-muted" data-standalone-only>Оплата</span>
         </nav>
       </div>
 
@@ -84,11 +84,11 @@
             <section class="rail-card rail-passengers-price-card">
               <h2>Стоимость билетов</h2>
               <div class="rail-passenger-price-breakdown" id="rail-passenger-price-breakdown"></div>
-              <div class="rail-discount-notice">Стоимость со всеми скидками вы увидите на следующем шаге</div>
+              <div class="rail-discount-notice" data-standalone-only>Стоимость со всеми скидками вы увидите на следующем шаге</div>
               <div class="rail-passenger-total"><span>Итого</span><strong id="rail-passenger-total">0 ₽</strong></div>
               <button class="rail-add-to-trip" id="rail-add-to-trip" type="submit" form="rail-passenger-form">Перейти к подтверждению</button>
             </section>
-            <p class="rail-passenger-price-note">Стоимость билетов указана приблизительно. Окончательная будет известна на шаге подтверждения заказа. В цену включён сбор Яндекса. Нажимая кнопку перехода к подтверждению заказа, вы соглашаетесь с <a href="#">Условиями приобретения электронных билетов</a>. С использованием веб-системы «ИМ». <a href="#">Сохраните</a> контакты в личном кабинете для быстрого оформления следующих заказов.</p>
+            <p class="rail-passenger-price-note" data-standalone-only>Стоимость билетов указана приблизительно. Окончательная будет известна на шаге подтверждения заказа. В цену включён сбор Яндекса. Нажимая кнопку перехода к подтверждению заказа, вы соглашаетесь с <a href="#">Условиями приобретения электронных билетов</a>. С использованием веб-системы «ИМ». <a href="#">Сохраните</a> контакты в личном кабинете для быстрого оформления следующих заказов.</p>
           </aside>
         </div>
       </main>

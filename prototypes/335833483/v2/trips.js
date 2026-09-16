@@ -5,7 +5,6 @@ const sectionLinks = Array.from(document.querySelectorAll('[data-trip-section]')
 const filtersRoot = document.querySelector('.trips-filters')
 const BUSINESS_CANCELLED_TRIPS_STORAGE_KEY = 'business-trip-cancelled-v2'
 const BUSINESS_PAID_TRIPS_STORAGE_KEY = 'business-trip-paid-v2'
-const BUSINESS_DRAFTS_STORAGE_KEY = 'business-trip-drafts-v2'
 const PERSONAL_TRIPS_STORAGE_KEY = 'personal-trip-bookings-v2'
 
 const cityImages = Object.freeze({
@@ -48,37 +47,6 @@ function escapeHtml(value) {
 
 function readCancelledBusinessTrips() {
   return readStoredTrips(BUSINESS_CANCELLED_TRIPS_STORAGE_KEY)
-}
-
-function readBusinessDraftTrips() {
-  return readStoredTrips(BUSINESS_DRAFTS_STORAGE_KEY).map(draft => {
-    const search = new URLSearchParams(draft.search || '')
-    const from = draft.from || search.get('from') || 'Москва'
-    const to = draft.to || search.get('to') || 'Командировка'
-    const hasFlight = search.get('flightAdded') === '1' || search.get('flightOutboundAdded') === '1' || search.get('flightReturnAdded') === '1'
-    const hasRail = search.get('railAdded') === '1' || search.get('railOutboundAdded') === '1' || search.get('railReturnAdded') === '1'
-    const hasHotel = Boolean(search.get('hotel'))
-    const transport = hasRail ? 'train' : hasFlight ? 'avia' : 'hotel'
-    const serviceCount = Number(hasFlight) + Number(hasRail) + Number(hasHotel)
-    const traveller = search.get('traveller') || `${search.get('adults') || '1'} взрослый`
-    const hotelName = search.get('hotelName')
-    const href = search.toString() ? `./trip.html?${search.toString()}` : './trip.html'
-
-    return {
-      id: draft.id,
-      state: 'upcoming',
-      serviceCount,
-      city: to,
-      transport,
-      route: `${from} — ${to}`,
-      dates: draft.dates || [draft.depart, draft.return].filter(Boolean).join(' — '),
-      title: hotelName || `Командировка в ${to}`,
-      detail: serviceCount ? `${serviceCount} ${serviceCount === 1 ? 'услуга' : 'услуги'} · ${traveller}` : traveller,
-      status: 'Черновик',
-      hotelImage: './assets/hotels/hotel-exterior.png',
-      href,
-    }
-  })
 }
 
 function readStoredTrips(key) {
@@ -169,11 +137,11 @@ function renderTrips() {
   }
   const cancelledTrips = readCancelledBusinessTrips()
   const paidBusinessTrips = readStoredTrips(BUSINESS_PAID_TRIPS_STORAGE_KEY)
-  const draftBusinessTrips = readBusinessDraftTrips()
   const storedPersonalTrips = readStoredTrips(PERSONAL_TRIPS_STORAGE_KEY)
-  const allBusinessTrips = mergeTrips(businessTrips, paidBusinessTrips, draftBusinessTrips, cancelledTrips)
+  const allBusinessTrips = mergeTrips(businessTrips, paidBusinessTrips, cancelledTrips)
+    .filter(trip => trip?.status === 'Оплачено')
   const sourceTrips = activeSection === 'business'
-    ? allBusinessTrips.filter(trip => (trip.serviceCount || trip.paidServices || trip.status === 'Черновик') > 0)
+    ? allBusinessTrips
     : mergeTrips(personalTrips, storedPersonalTrips)
   const datedTrips = sourceTrips.map(trip => window.TripDateState?.normalizeTrip(trip) || trip)
   const filteredTrips = datedTrips.filter(trip => trip.state === activeFilter)

@@ -30,6 +30,19 @@
     url.searchParams.set('addToTrip', '1')
     url.searchParams.set('tripKind', 'existing')
     url.searchParams.set('tripId', trip.id)
+    const keepCheckoutPage = ['v1', 'v2'].includes(version) && /\/hotel-checkout\.html$/u.test(url.pathname)
+    if (keepCheckoutPage) {
+      url.searchParams.set('tripSelection', 'inline')
+      ;['from', 'to', 'depart', 'return'].forEach(name => {
+        const value = source.get(name) || trip[name]
+        if (value) url.searchParams.set(`trip${name[0].toUpperCase()}${name.slice(1)}`, value)
+      })
+      window.history.replaceState(null, '', url)
+      document.dispatchEvent(new CustomEvent('business-trip-target-change', {
+        detail: { tripId: trip.id, search: url.search },
+      }))
+      return
+    }
     ;['from', 'to', 'depart', 'return'].forEach(name => {
       const value = source.get(name) || trip[name]
       if (value) url.searchParams.set(name, value)
@@ -67,11 +80,12 @@
     })
   }
   document.addEventListener('click', event => {
-    const button = event.target.closest('[data-trip-kind="existing"]')
+    const button = event.target.closest('[data-trip-kind]')
     if (!button) return
+    const showExisting = button.dataset.tripKind === 'existing'
     const available = trips()
-    document.querySelectorAll('#business-trip-existing').forEach(node => { node.hidden = !available.length })
-    document.querySelectorAll('#business-trip-empty').forEach(node => { node.hidden = Boolean(available.length) })
+    document.querySelectorAll('#business-trip-existing').forEach(node => { node.hidden = !showExisting || !available.length })
+    document.querySelectorAll('#business-trip-empty').forEach(node => { node.hidden = !showExisting || Boolean(available.length) })
   }, true)
   document.addEventListener('change', event => {
     if (event.target.id !== 'business-trip-select') return

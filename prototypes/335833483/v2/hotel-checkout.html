@@ -8,12 +8,12 @@
     <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css?v=4">
     <link rel="stylesheet" href="./hotel-search.css?v=10">
-    <link rel="stylesheet" href="./hotel-checkout.css?v=12">
+    <link rel="stylesheet" href="./hotel-checkout.css?v=13">
     <link rel="stylesheet" href="./shared-search-header.css?v=5">
     <link rel="stylesheet" href="../business-trip-target.css?v=2">
     <script src="./shared-search-header.js?v=3" defer></script>
-    <script src="../business-trip-target.js?v=4" defer></script>
-    <script src="./hotel-checkout.js?v=10" defer></script>
+    <script src="../business-trip-target.js?v=6" defer></script>
+    <script src="./hotel-checkout.js?v=16" defer></script>
   </head>
   <body>
     <div class="hotel-checkout-page" data-ready="false">
@@ -198,8 +198,8 @@
             </section>
           </section>
 
-          <aside class="checkout-payment" aria-label="Оплата бронирования">
-            <div class="points-switch" role="group" aria-label="Баллы Плюса">
+          <aside class="checkout-payment" aria-label="Стоимость бронирования">
+            <div class="points-switch" data-payment-only role="group" aria-label="Баллы Плюса">
               <button class="is-active" type="button" data-points-mode="earn" aria-pressed="true"><small>Начислить до</small><span><strong id="earn-points">1730</strong> <b class="plus-mark" aria-label="баллов Плюса">+</b></span></button>
               <button type="button" data-points-mode="redeem" aria-pressed="false"><small>Списать</small><span><strong>1000</strong> <b class="plus-mark" aria-label="баллов Плюса">+</b></span></button>
             </div>

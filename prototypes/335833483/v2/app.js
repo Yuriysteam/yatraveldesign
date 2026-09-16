@@ -289,7 +289,15 @@ function renderPaidBusinessTripCards() {
     Новороссийск: './assets/images/city-novorossiysk.png',
   }
   tripCards.querySelectorAll('[data-dynamic-business-trip]').forEach(card => card.remove())
-  const visibleTrips = paidTrips.filter(trip => ['upcoming', 'active'].includes(trip?.state) && trip?.id)
+  const staticTripIds = new Set([...tripCards.querySelectorAll('[data-trip-id]')]
+    .map(card => card.dataset.tripId)
+    .filter(Boolean))
+  const visibleTrips = paidTrips.filter(trip => (
+    ['upcoming', 'active'].includes(trip?.state)
+    && trip?.id
+    && trip?.status === 'Оплачено'
+    && !staticTripIds.has(trip.id)
+  ))
   const cards = visibleTrips.map(trip => {
     const image = cityImages[trip.city] || './assets/images/trip-kazan.png'
     return `

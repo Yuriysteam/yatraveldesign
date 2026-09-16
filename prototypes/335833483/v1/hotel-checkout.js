@@ -12,6 +12,7 @@ const checkoutSubmit = document.querySelector('#checkout-submit')
 const paymentSetup = document.querySelector('#checkout-payment-setup')
 const checkoutTotalLabel = document.querySelector('#checkout-total-label')
 const buyerContactsSection = document.querySelector('.checkout-section[aria-labelledby="contacts-title"]')
+const paymentOnlyElements = Array.from(document.querySelectorAll('[data-payment-only]'))
 
 if (!page || !announcer || !promoForm || !promoMessage || !wishes || !wishesCounter || !workPurposeToggle || !addToTripToggle || !businessTripRow || !businessTripKind || !checkoutSubmit || !paymentSetup || !checkoutTotalLabel || !buyerContactsSection) {
   throw new Error('Не найдены обязательные элементы страницы оформления отеля')
@@ -54,7 +55,7 @@ const selectedRoom = roomFromId || roomFromName || roomCatalog['premium-double']
 const initialAddToTrip = params.get('addToTrip') === '1'
 const initialTripKind = params.get('tripKind') === 'existing' ? 'existing' : 'new'
 const sourceTripId = params.get('tripId')?.trim() || params.get('draftId')?.trim() || ''
-const startedFromExistingTrip = initialAddToTrip && initialTripKind === 'existing' && Boolean(sourceTripId)
+const startedFromExistingTrip = initialAddToTrip && initialTripKind === 'existing' && Boolean(sourceTripId) && params.get('tripSelection') !== 'inline'
 const initialHotelBookingId = params.get('hotelBookingId')?.trim()
   || window.crypto?.randomUUID?.()
   || `hotel-booking-${Date.now()}`
@@ -83,7 +84,7 @@ const state = {
   paymentPlan: ['full', 'split', 'deferred'].includes(params.get('paymentPlan')) ? params.get('paymentPlan') : 'full',
   paymentMethod: ['pay', 'business', 'sbp', 'card'].includes(params.get('paymentMethod')) ? params.get('paymentMethod') : 'pay',
   workTrip: startedFromExistingTrip || params.get('workTrip') === '1' || params.get('paymentMethod') === 'business' || initialAddToTrip,
-  addToTrip: startedFromExistingTrip || initialAddToTrip,
+  addToTrip: startedFromExistingTrip,
   tripKind: startedFromExistingTrip ? 'existing' : initialTripKind,
   hotelBookingId: initialHotelBookingId,
 }
@@ -193,12 +194,20 @@ function syncSemanticParams() {
   const target = new URL(window.location.href)
   if (state.workTrip) target.searchParams.set('workTrip', '1')
   else target.searchParams.delete('workTrip')
-  target.searchParams.set('paymentMethod', state.paymentMethod)
-  target.searchParams.set('paymentPlan', state.paymentPlan)
+  if (state.addToTrip) {
+    target.searchParams.delete('paymentMethod')
+    target.searchParams.delete('paymentPlan')
+  } else {
+    target.searchParams.set('paymentMethod', state.paymentMethod)
+    target.searchParams.set('paymentPlan', state.paymentPlan)
+  }
   target.searchParams.set('hotelBookingId', state.hotelBookingId)
   if (state.addToTrip) {
     target.searchParams.set('addToTrip', '1')
     target.searchParams.set('tripKind', state.tripKind)
+    if (state.tripKind === 'new') {
+      ;['tripSelection', 'tripId', 'tripFrom', 'tripTo', 'tripDepart', 'tripReturn'].forEach(name => target.searchParams.delete(name))
+    }
   } else {
     target.searchParams.delete('addToTrip')
     target.searchParams.delete('tripKind')
@@ -222,7 +231,8 @@ function renderPaymentState() {
   if (state.workTrip) state.pointsMode = 'earn'
   paymentSetup.hidden = startedFromExistingTrip
   buyerContactsSection.hidden = startedFromExistingTrip
-  page.dataset.checkoutContext = startedFromExistingTrip ? 'existing-trip' : 'standalone'
+  paymentOnlyElements.forEach(element => { element.hidden = state.workTrip })
+  page.dataset.checkoutContext = state.workTrip ? 'work-trip' : 'standalone'
   document.querySelectorAll('[data-payment-plan]').forEach(button => {
     const selected = button.dataset.paymentPlan === state.paymentPlan
     button.classList.toggle('is-selected', selected)
@@ -242,15 +252,11 @@ function renderPaymentState() {
     button.classList.toggle('is-selected', selected)
     button.setAttribute('aria-pressed', String(selected))
   })
-  checkoutSubmit.textContent = startedFromExistingTrip
-    ? 'Добавить в командировку'
-    : state.addToTrip ? 'Оплатить и добавить' : 'Оплатить'
-  checkoutTotalLabel.textContent = startedFromExistingTrip ? 'Стоимость' : 'К оплате'
-  setText('#checkout-result-copy', startedFromExistingTrip
-    ? 'Отель появится в текущей командировке со статусом «Ожидает оплаты».'
-    : state.addToTrip
-      ? 'После оплаты отель появится в выбранной командировке.'
-      : 'После оплаты бронирование появится в «Моих поездках».')
+  checkoutSubmit.textContent = state.addToTrip ? 'Добавить в командировку' : 'Оплатить'
+  checkoutTotalLabel.textContent = state.addToTrip ? 'Стоимость' : 'К оплате'
+  setText('#checkout-result-copy', state.addToTrip
+    ? 'Жильё появится в командировке со статусом «Ожидает оплаты».'
+    : 'После оплаты бронирование появится в «Моих поездках».')
 }
 
 function renderFeatures() {
@@ -357,10 +363,10 @@ function buildTripLink(tripId = checkoutTripId()) {
   const target = new URL('./trip.html', window.location.href)
   params.forEach((value, name) => target.searchParams.set(name, value))
   const tripDepart = state.tripKind === 'existing'
-    ? params.get('depart')?.trim() || state.checkin
+    ? params.get('tripDepart')?.trim() || params.get('depart')?.trim() || state.checkin
     : state.checkin
   const tripReturn = state.tripKind === 'existing'
-    ? params.get('return')?.trim() || state.checkout
+    ? params.get('tripReturn')?.trim() || params.get('return')?.trim() || state.checkout
     : state.checkout
   const hotelCity = params.get('city')?.trim() || params.get('to')?.trim() || 'Москва'
   const origin = state.tripKind === 'existing'
@@ -392,16 +398,17 @@ function buildTripLink(tripId = checkoutTripId()) {
   target.searchParams.set('room', state.room.name)
   target.searchParams.set('roomId', state.room.id)
   target.searchParams.set('tariff', state.tariff)
-  target.searchParams.set('hotelStatus', startedFromExistingTrip ? 'awaiting-payment' : 'paid')
+  target.searchParams.set('hotelStatus', 'awaiting-payment')
   target.searchParams.set('workTrip', '1')
-  target.searchParams.set('paymentMethod', state.paymentMethod)
-  target.searchParams.set('paymentPlan', state.paymentPlan)
+  target.searchParams.delete('paymentMethod')
+  target.searchParams.delete('paymentPlan')
   target.searchParams.set('addToTrip', '1')
   target.searchParams.set('tripKind', state.tripKind)
   target.searchParams.set('tripId', tripId)
+  target.searchParams.delete('tripSelection')
   if (state.tripKind === 'new') {
-    target.searchParams.delete('draft')
-    target.searchParams.delete('draftId')
+    target.searchParams.set('draft', '1')
+    target.searchParams.set('draftId', tripId)
   }
   const wish = wishes.value.trim()
   if (wish) target.searchParams.set('hotelWish', wish)
@@ -479,19 +486,12 @@ function tripRecord(id, target, business) {
 
 function payBooking(button) {
   button.disabled = true
-  button.textContent = startedFromExistingTrip ? 'Добавляем…' : 'Оплачиваем…'
-  if (startedFromExistingTrip) {
-    const target = buildTripLink(sourceTripId)
-    announce(`${state.hotel.name} добавлен в текущую командировку`)
-    window.setTimeout(() => { window.location.href = target.href }, 350)
-    return
-  }
+  button.textContent = state.addToTrip ? 'Добавляем…' : 'Оплачиваем…'
   if (state.addToTrip) {
     const tripId = checkoutTripId()
     const target = buildTripLink(tripId)
-    saveStoredTrip(BUSINESS_PAID_TRIPS_STORAGE_KEY, tripRecord(tripId, target, true))
-    announce(`${state.hotel.name} оплачен и добавлен в командировку`)
-    window.setTimeout(() => { window.location.href = target.href }, 550)
+    announce(`${state.hotel.name} добавлен в командировку без оплаты`)
+    window.setTimeout(() => { window.location.href = target.href }, 350)
     return
   }
   const bookingId = window.crypto?.randomUUID?.() || `hotel-${Date.now()}`
@@ -565,6 +565,7 @@ document.addEventListener('click', event => {
   if (tripKindButton) {
     state.tripKind = tripKindButton.dataset.tripKind
     renderPaymentState()
+    syncSemanticParams()
     announce(state.tripKind === 'new' ? 'Будет создана новая командировка' : 'Отель будет добавлен в существующую командировку')
     return
   }
@@ -607,6 +608,7 @@ document.addEventListener('click', event => {
   } else if (action === 'toggle-add-to-trip') {
     state.addToTrip = !state.addToTrip
     renderPaymentState()
+    syncSemanticParams()
     announce(state.addToTrip ? 'Отель будет добавлен в командировку' : 'Отель останется в «Моих поездках»')
   } else if (action === 'toggle-breakdown') {
     const breakdown = document.querySelector('#price-breakdown')
@@ -621,6 +623,15 @@ document.addEventListener('click', event => {
     event.preventDefault()
     announce('Откроем юридическую информацию в полной версии')
   }
+})
+
+document.addEventListener('business-trip-target-change', event => {
+  const current = new URLSearchParams(event.detail?.search || window.location.search)
+  Array.from(params.keys()).forEach(name => params.delete(name))
+  current.forEach((value, name) => params.set(name, value))
+  state.tripKind = 'existing'
+  renderPaymentState()
+  announce('Выбрана существующая командировка')
 })
 
 syncSemanticParams()

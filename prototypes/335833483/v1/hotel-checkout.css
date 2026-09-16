@@ -767,6 +767,10 @@
   display: none;
 }
 
+[data-payment-only][hidden] {
+  display: none;
+}
+
 .points-switch button {
   display: flex;
   min-width: 0;

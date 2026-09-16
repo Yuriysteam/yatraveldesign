@@ -763,6 +763,10 @@
   background: #f2f2f2;
 }
 
+[data-payment-only][hidden] {
+  display: none;
+}
+
 .points-switch button {
   display: flex;
   min-width: 0;

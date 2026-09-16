@@ -25,8 +25,12 @@
   const tripEmpty = document.querySelector('#rail-confirmation-trip-empty')
   const submitButton = document.querySelector('#rail-confirmation-submit')
   const announcer = document.querySelector('#rail-confirmation-announcer')
+  const paymentCard = document.querySelector('.rail-confirmation-payment')
+  const workCard = document.querySelector('.rail-confirmation-work')
+  const benefitRow = document.querySelector('.rail-confirmation-benefit')
+  const totalLabel = document.querySelector('.rail-confirmation-total > span')
 
-  if (!routeRoot || !passengerRoot || !priceRoot || !totalRoot || !workToggle || !tripTarget || !tripKindRoot || !tripExisting || !tripSelect || !tripEmpty || !submitButton || !announcer || (usesSeparateAddToTrip && !addToTripToggle)) {
+  if (!routeRoot || !passengerRoot || !priceRoot || !totalRoot || !workToggle || !tripTarget || !tripKindRoot || !tripExisting || !tripSelect || !tripEmpty || !submitButton || !announcer || !paymentCard || !workCard || !benefitRow || !totalLabel || (usesSeparateAddToTrip && !addToTripToggle)) {
     throw new Error('Не найдены обязательные элементы страницы подтверждения ж/д билетов')
   }
 
@@ -200,6 +204,11 @@
     const trips = availableTrips()
     if (!state.workTrip) state.addToTrip = false
     if (state.tripKind === 'existing' && !trips.length) state.tripKind = 'new'
+    const addWithoutPayment = usesSeparateAddToTrip && state.workTrip && state.addToTrip
+    paymentCard.hidden = false
+    workCard.hidden = false
+    benefitRow.hidden = usesSeparateAddToTrip && state.workTrip
+    totalLabel.firstChild.textContent = addWithoutPayment ? 'Стоимость ' : 'Итого к оплате '
     workToggle.setAttribute('aria-checked', String(state.workTrip))
     tripTarget.hidden = !state.workTrip
     if (addToTripToggle) addToTripToggle.setAttribute('aria-checked', String(state.addToTrip))
@@ -221,7 +230,7 @@
     tripEmpty.hidden = !canChooseTrip || state.tripKind !== 'existing' || Boolean(trips.length)
     document.querySelector('[data-payment-method="business"]')?.setAttribute('aria-pressed', String(state.paymentMethod === 'business'))
     document.querySelector('[data-payment-method="card"]')?.setAttribute('aria-pressed', String(state.paymentMethod === 'card'))
-    submitButton.textContent = usesSeparateAddToTrip && state.addToTrip ? 'Добавить в командировку' : 'Оплатить'
+    submitButton.textContent = addWithoutPayment ? 'Добавить в командировку' : 'Оплатить'
     syncSemanticParams()
   }
 
@@ -229,7 +238,8 @@
     const target = new URL(window.location.href)
     if (state.workTrip) target.searchParams.set('workTrip', '1')
     else target.searchParams.delete('workTrip')
-    target.searchParams.set('paymentMethod', state.paymentMethod)
+    if (usesSeparateAddToTrip && state.addToTrip) target.searchParams.delete('paymentMethod')
+    else target.searchParams.set('paymentMethod', state.paymentMethod)
     if (usesSeparateAddToTrip && state.addToTrip) {
       target.searchParams.set('addToTrip', '1')
       target.searchParams.set('tripKind', state.tripKind)
@@ -353,11 +363,8 @@
     window.setTimeout(() => {
       if (shouldAddToTrip) {
         const target = tripTargetUrl()
-        if (version === 'v1') {
-          window.location.href = target.href
-          return
-        }
-        window.location.href = successUrl(target, 'trip').href
+        if (version === 'v2' && window.TripV2Bridge?.returnToTrip(target, { result: 'service-added', kind: 'rail', segments })) return
+        window.location.href = target.href
         return
       }
       savePersonalTrip()
@@ -370,7 +377,10 @@
     const work = event.target.closest('#rail-confirmation-work-toggle')
     if (work) {
       state.workTrip = !state.workTrip
-      if (!state.workTrip) state.addToTrip = false
+      if (!state.workTrip) {
+        state.addToTrip = false
+        if (state.paymentMethod === 'business') state.paymentMethod = 'card'
+      }
       renderWorkState()
       announcer.textContent = state.workTrip ? 'Включён режим «Еду по работе»' : 'Режим «Еду по работе» выключен'
       return
