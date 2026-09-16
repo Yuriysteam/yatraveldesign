@@ -1,0 +1,167 @@
+/* Canonical hotel details styling from Figma frame 314:50870. */
+.hotel-detail-page {
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.hotel-detail-main {
+  margin-top: 26px;
+}
+
+.hotel-pill,
+.hotel-round-button {
+  border: 0;
+  background: #f2f2f2;
+  color: #0d0d0f;
+}
+
+.hotel-pill:hover,
+.hotel-round-button:hover,
+.hotel-round-button[aria-pressed="true"] {
+  background: #e8e8e8;
+}
+
+.hotel-pill img,
+.hotel-round-button img,
+.hotel-address img,
+.offer-field img {
+  filter: none;
+}
+
+.recommend-pill {
+  border: 1px solid #e6e5e7;
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.hotel-hero h1 {
+  font-size: 32px;
+  line-height: 36px;
+}
+
+.reviews-link,
+.hotel-address,
+.hotel-offer-search h2,
+.hotel-side h2,
+.nearby-dates h3,
+.room-head h3 {
+  color: #0d0d0f;
+}
+
+.hotel-address {
+  margin-left: 16px;
+}
+
+.hotel-hero__features {
+  display: none;
+}
+
+.hotel-gallery {
+  margin-top: 32px;
+}
+
+.hotel-gallery__main {
+  border-radius: 56px 0 0 56px;
+}
+
+.hotel-gallery__map {
+  border-radius: 0 56px 56px 0;
+}
+
+.hotel-map-card {
+  background: #fff;
+  color: #0d0d0f;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+}
+
+.hotel-map-card > span,
+.room-head__copy,
+.room-head__copy--availability span:last-child::after,
+.date-wagon small {
+  color: #9c9ba2;
+}
+
+.hotel-map-card i {
+  background: #9c9ba2;
+}
+
+.hotel-gallery__map-image {
+  filter: none;
+}
+
+.hotel-detail-grid {
+  margin-top: 56px;
+}
+
+.offer-field {
+  border-color: #cdcccf;
+  background: #fff;
+}
+
+.offer-field input,
+.offer-field select {
+  color: #0d0d0f;
+}
+
+.offer-submit {
+  background: #ededee;
+  color: #0d0d0f;
+}
+
+.offer-submit:hover {
+  background: #e3e3e5;
+}
+
+.date-wagons-wrap::before {
+  background: linear-gradient(90deg, #fff 12%, rgba(255, 255, 255, 0));
+}
+
+.date-wagons-wrap::after {
+  background: linear-gradient(-90deg, #fff 12%, rgba(255, 255, 255, 0));
+}
+
+.date-wagon {
+  border-color: transparent;
+  background: #f5f5f5;
+  color: #0d0d0f;
+}
+
+.date-wagon.is-active {
+  border-color: #222125;
+  background: #fff;
+}
+
+.date-wagon__badge {
+  background: #222125;
+  color: #fff;
+}
+
+.rooms-shell {
+  background: #f5f5f5;
+}
+
+.room-group {
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.nearby-hotels,
+.guest-favorites,
+.nearby-hotel,
+.guest-favorite {
+  background: transparent;
+  color: #0d0d0f;
+}
+
+.tariff-choose {
+  border-radius: 16px;
+}
+
+.payment-options {
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nearby-hotel__meta {
+  gap: 8px;
+}

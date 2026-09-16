@@ -1,0 +1,616 @@
+.rail-confirmation-page {
+  min-height: 1569px;
+  color: #0d0d0f;
+  background: #fff;
+}
+
+.rail-confirmation-page .shared-search-header__inner {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.rail-confirmation-page .rail-progress__steps { width: min(1200px, calc(100% - 48px)); }
+
+.rail-confirmation-plus-badge {
+  display: inline-flex;
+  height: 20px;
+  padding: 0 8px;
+  align-items: center;
+  border-radius: 48px;
+  background: linear-gradient(90deg, #ff5c4d 0%, #eb469f 35%, #8341ef 70%, #3f68f9 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.rail-confirmation-main {
+  width: min(1200px, calc(100% - 48px));
+  margin: 32px auto 119px;
+}
+
+.rail-confirmation-main > h1 {
+  margin: 0 0 32px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 42px;
+  letter-spacing: -.36px;
+}
+
+.rail-confirmation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 712px) 448px;
+  align-items: start;
+  gap: 40px;
+}
+
+.rail-confirmation-left,
+.rail-confirmation-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.rail-confirmation-left { gap: 0; }
+
+.rail-confirmation-stack {
+  gap: 8px;
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.rail-confirmation-booking-stack > #rail-confirmation-routes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rail-confirmation-card {
+  padding: 28px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.rail-confirmation-route {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rail-confirmation-route__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rail-confirmation-route__icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e21b1a;
+  color: #fff;
+  font-size: 20px;
+}
+
+.rail-confirmation-route__icon img {
+  width: 20px;
+  height: 20px;
+}
+
+.rail-confirmation-route__head strong,
+.rail-confirmation-payment h2,
+.rail-confirmation-trip-target strong,
+.rail-confirmation-passenger strong,
+.rail-confirmation-contacts h3 {
+  font-family: "YS Display", Arial, sans-serif;
+  font-weight: 500;
+}
+
+.rail-confirmation-route__head strong {
+  display: block;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.rail-confirmation-work small,
+.rail-confirmation-trip-target small,
+.rail-confirmation-price-row small,
+.rail-confirmation-legal {
+  color: #9c9ba2;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-confirmation-route__head small,
+.rail-confirmation-route__details,
+.rail-confirmation-work small,
+.rail-confirmation-passenger small {
+  color: #9c9ba2;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-confirmation-route__head small { display: block; margin-top: 2px; }
+
+.rail-confirmation-route__train {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rail-confirmation-train-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-confirmation-route__timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rail-confirmation-route__time {
+  display: grid;
+  grid-template-columns: auto 1fr auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.rail-confirmation-route__time strong {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.rail-confirmation-route__time i {
+  height: 1px;
+  background: #d8d8dc;
+}
+
+.rail-confirmation-route__details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rail-confirmation-route__details span:last-child {
+  text-align: right;
+}
+
+.rail-confirmation-route__seat {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-confirmation-payment {
+  display: flex;
+  padding: 24px 28px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rail-confirmation-payment h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.rail-confirmation-methods {
+  display: flex;
+  gap: 8px;
+  padding: 2px;
+}
+
+.rail-confirmation-method {
+  display: flex;
+  width: 130px;
+  height: 88px;
+  padding: 10px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 2px solid transparent;
+  border-radius: 18px;
+  background: #f5f5f5;
+  color: #0d0d0f;
+  text-align: left;
+}
+
+.rail-confirmation-method[aria-pressed="true"] {
+  border-color: #0d0d0f;
+  background: #f2f2f2;
+}
+
+.rail-confirmation-method__icon {
+  display: grid;
+  min-width: 34px;
+  height: 22px;
+  padding: 0 6px;
+  place-items: center;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+}
+
+.rail-confirmation-method__icon img {
+  width: 16px;
+  height: 16px;
+}
+
+.rail-confirmation-method strong,
+.rail-confirmation-method small {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.rail-confirmation-method small { color: #9c9ba2; }
+
+.rail-confirmation-work {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.rail-confirmation-work strong {
+  display: block;
+  margin-bottom: 6px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.rail-confirmation-toggle {
+  position: relative;
+  width: 48px;
+  height: 32px;
+  flex: 0 0 48px;
+  border-radius: 40px;
+  background: #e6e5e7;
+  transition: background 140ms ease;
+}
+
+.rail-confirmation-toggle span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(13, 13, 15, .2);
+  transition: transform 140ms ease;
+}
+
+.rail-confirmation-toggle[aria-checked="true"] { background: #222125; }
+.rail-confirmation-toggle[aria-checked="true"] span { transform: translateX(16px); }
+
+.rail-confirmation-trip-target {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.rail-confirmation-trip-target[hidden] { display: none; }
+
+.rail-confirmation-add-to-trip {
+  display: flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.rail-confirmation-add-to-trip > span {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rail-confirmation-add-to-trip strong {
+  font-family: "YS Text", Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.rail-confirmation-add-to-trip small {
+  color: #9c9ba2;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.rail-confirmation-trip-target__heading strong,
+.rail-confirmation-trip-target__heading small { display: block; }
+
+.rail-confirmation-trip-target__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rail-confirmation-trip-target__heading strong {
+  margin: 0;
+  font-family: "YS Text", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-confirmation-trip-target__heading small,
+.rail-confirmation-trip-empty {
+  color: #77767e;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.rail-confirmation-trip-kind {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.rail-confirmation-trip-kind[hidden] { display: none; }
+
+.rail-confirmation-trip-kind button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: #f2f2f3;
+  color: #202124;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.rail-confirmation-trip-kind button[aria-pressed="true"] {
+  background: #202124;
+  color: #fff;
+}
+
+.rail-confirmation-trip-select {
+  display: flex;
+  margin-top: 12px;
+  flex-direction: column;
+  gap: 6px;
+  color: #77767e;
+  font-size: 13px;
+}
+
+.rail-confirmation-trip-select[hidden],
+.rail-confirmation-trip-empty[hidden] { display: none; }
+
+.rail-confirmation-trip-select select {
+  width: 100%;
+  height: 48px;
+  padding: 0 42px 0 14px;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  outline: none;
+  background: #f2f2f3;
+  color: #202124;
+  font: inherit;
+  font-size: 14px;
+}
+
+.rail-confirmation-trip-select select:focus {
+  border-color: #ffdb4d;
+  background: #fff;
+}
+
+.rail-confirmation-section-title {
+  margin: 56px 0 24px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.rail-confirmation-passenger,
+.rail-confirmation-contacts {
+  padding: 28px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.rail-confirmation-passenger-stack {
+  display: flex;
+  padding: 8px;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.rail-confirmation-passenger-stack > .rail-confirmation-stack {
+  gap: 8px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.rail-confirmation-passenger strong,
+.rail-confirmation-contacts h3 {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.rail-confirmation-contacts h3 { margin-bottom: 0; }
+
+.rail-confirmation-passenger small { color: #0d0d0f; }
+
+.rail-confirmation-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rail-confirmation-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-confirmation-contact-row img {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.rail-confirmation-summary {
+  position: sticky;
+  top: 24px;
+}
+
+.rail-confirmation-summary__card {
+  min-height: 332px;
+  padding: 28px 28px 32px;
+  border-radius: 40px;
+  background: #fff;
+  box-shadow: 0 6px 15px rgba(13, 13, 15, .08);
+}
+
+.rail-confirmation-summary h2 {
+  margin: 0 0 16px;
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.rail-confirmation-price-list {
+  display: flex;
+  padding-bottom: 24px;
+  flex-direction: column;
+  gap: 16px;
+  border-bottom: 1px solid #e6e5e7;
+}
+
+.rail-confirmation-price-row,
+.rail-confirmation-total,
+.rail-confirmation-benefit {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.rail-confirmation-price-row > span:first-child { min-width: 0; }
+.rail-confirmation-price-row strong,
+.rail-confirmation-price-row small { display: block; }
+.rail-confirmation-price-row strong { font-size: 16px; font-weight: 400; line-height: 20px; }
+
+.rail-confirmation-total {
+  margin-top: 24px;
+  align-items: flex-end;
+  font-size: 16px;
+}
+
+.rail-confirmation-total > span,
+.rail-confirmation-benefit > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rail-confirmation-more {
+  display: inline-grid;
+  width: 20px;
+  height: 14px;
+  padding: 1px 4px;
+  place-items: center;
+  border-radius: 4px;
+  background: #f5f5f5;
+}
+
+.rail-confirmation-more img {
+  width: 12px;
+  height: 12px;
+}
+
+.rail-confirmation-total strong {
+  font-family: "YS Display", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.rail-confirmation-benefit {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.rail-confirmation-benefit__sbp {
+  width: 14px;
+  height: 14px;
+}
+
+.rail-confirmation-benefit__plus {
+  width: 14px;
+  height: 14px;
+}
+
+.rail-confirmation-pay {
+  width: 100%;
+  height: 56px;
+  margin-top: 28px;
+  border-radius: 18px;
+  background: #222125;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.rail-confirmation-pay:disabled { opacity: .6; }
+
+.rail-confirmation-legal {
+  display: flex;
+  margin-top: 32px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rail-confirmation-legal p { margin: 0; }
+.rail-confirmation-legal a { color: inherit; }
+
+.rail-confirmation-page .rail-footer { height: 228px; }
+.rail-confirmation-page .rail-footer__links,
+.rail-confirmation-page .rail-footer__about { height: 184px; }
+.rail-confirmation-page .rail-footer__links > span { margin-top: 0; }
+
+@media (max-width: 980px) {
+  .rail-confirmation-layout { grid-template-columns: 1fr; }
+  .rail-confirmation-summary { position: static; }
+}
+
+@media (max-width: 720px) {
+  .rail-confirmation-main { width: min(100% - 24px, 696px); }
+  .rail-confirmation-main > h1 { font-size: 30px; line-height: 34px; }
+  .rail-confirmation-card,
+  .rail-confirmation-passenger,
+  .rail-confirmation-contacts,
+  .rail-confirmation-summary__card { padding: 20px; border-radius: 28px; }
+  .rail-confirmation-stack,
+  .rail-confirmation-passenger-stack { border-radius: 34px; }
+  .rail-confirmation-route__time { grid-template-columns: auto 1fr auto; }
+  .rail-confirmation-route__time i:first-of-type { display: none; }
+  .rail-confirmation-route__time strong:last-child { grid-column: 3; }
+  .rail-confirmation-methods { flex-wrap: wrap; }
+}

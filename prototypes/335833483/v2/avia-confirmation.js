@@ -55,6 +55,10 @@ function queryBookingId() {
   return (isTripSegmentFlow ? params.get('flightFlowBookingId') : params.get('bookingId'))?.trim() || ''
 }
 
+function confirmationStorageKeyForBooking(bookingId) {
+  return bookingId ? `${confirmationStorageKey}:${bookingId}` : confirmationStorageKey
+}
+
 const fareCatalog = Object.freeze({
   light: Object.freeze({
     title: 'Эконом Лайт',
@@ -93,13 +97,14 @@ const documentNames = Object.freeze({
 
 function readConfirmationSnapshot() {
   try {
-    const raw = window.sessionStorage.getItem(confirmationStorageKey)
+    const requestedBookingId = queryBookingId()
+    const raw = window.sessionStorage.getItem(confirmationStorageKeyForBooking(requestedBookingId))
+      || window.sessionStorage.getItem(confirmationStorageKey)
     if (!raw) return null
     const value = JSON.parse(raw)
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
 
     const queryFlightId = params.get('flight')?.trim()
-    const requestedBookingId = queryBookingId()
     const snapshotFlightId = value.flight?.id?.trim()
     const snapshotBookingId = value.bookingId?.trim()
     if (queryFlightId && snapshotFlightId && queryFlightId !== snapshotFlightId) return null
@@ -754,26 +759,52 @@ function addToTrip() {
     target.searchParams.set('workTrip', '1')
     const requestedSegment = params.get('segment')
     if (requestedSegment === 'outbound' || requestedSegment === 'return') {
-      const prefix = requestedSegment === 'return' ? 'flightReturn' : 'flightOutbound'
-      target.searchParams.set(`${prefix}Added`, '1')
-      target.searchParams.set(`${prefix}Total`, String(state.fare.price))
-      target.searchParams.set(`${prefix}Status`, 'awaiting-payment')
-      target.searchParams.set(`${prefix}BookingId`, state.bookingId)
-      target.searchParams.set('flightAdded', '0')
-      target.searchParams.set('flightScope', 'oneway')
-      if (requestedSegment === 'return') {
-        target.searchParams.set('flightReturnDate', state.route.depart)
-        target.searchParams.set('returnAirline', state.flight.outbound.airline)
-        target.searchParams.set('returnFlightNumber', state.flight.outbound.number)
-        target.searchParams.set('returnDepartTime', state.flight.outbound.departTime)
-        target.searchParams.set('returnArrivalTime', state.flight.outbound.arrivalTime)
-        target.searchParams.set('returnDuration', state.flight.outbound.duration)
-        target.searchParams.set('returnFromCode', state.flight.outbound.fromCode)
-        target.searchParams.set('returnToCode', state.flight.outbound.toCode)
-        target.searchParams.set('returnFromAirport', state.flight.outbound.fromAirport)
-        target.searchParams.set('returnToAirport', state.flight.outbound.toAirport)
+      const isRoundTripSelection = state.flightScope === 'roundtrip'
+        && Boolean(state.route.returning)
+        && Boolean(state.flight.returning)
+
+      if (isRoundTripSelection) {
+        target.searchParams.set('flightFrom', state.route.origin)
+        target.searchParams.set('flightTo', state.route.destination)
+        target.searchParams.set('returnFrom', state.route.destination)
+        target.searchParams.set('returnTo', state.route.origin)
+        ;['flightOutbound', 'flightReturn'].forEach(prefix => {
+          target.searchParams.set(`${prefix}Added`, '1')
+          target.searchParams.set(`${prefix}Status`, 'awaiting-payment')
+          target.searchParams.set(`${prefix}BookingId`, state.bookingId)
+        })
+        target.searchParams.set('flightOutboundTotal', String(state.fares.outbound.price))
+        target.searchParams.set('flightReturnTotal', String(state.fares.returning?.price || 0))
+        target.searchParams.set('bookingId', state.bookingId)
+        target.searchParams.set('flightStatus', 'awaiting-payment')
+        target.searchParams.set('flightAdded', '1')
+        target.searchParams.set('flightScope', 'roundtrip')
+        target.searchParams.delete('segment')
+        ;['outboundRemoved', 'returnRemoved', 'flightOutboundRemoved', 'flightReturnRemoved'].forEach(name => {
+          target.searchParams.delete(name)
+        })
       } else {
-        target.searchParams.set('flightOutboundDate', state.route.depart)
+        const prefix = requestedSegment === 'return' ? 'flightReturn' : 'flightOutbound'
+        target.searchParams.set(`${prefix}Added`, '1')
+        target.searchParams.set(`${prefix}Total`, String(state.fare.price))
+        target.searchParams.set(`${prefix}Status`, 'awaiting-payment')
+        target.searchParams.set(`${prefix}BookingId`, state.bookingId)
+        target.searchParams.set('flightAdded', '0')
+        target.searchParams.set('flightScope', 'oneway')
+        if (requestedSegment === 'return') {
+          target.searchParams.set('flightReturnDate', state.route.depart)
+          target.searchParams.set('returnAirline', state.flight.outbound.airline)
+          target.searchParams.set('returnFlightNumber', state.flight.outbound.number)
+          target.searchParams.set('returnDepartTime', state.flight.outbound.departTime)
+          target.searchParams.set('returnArrivalTime', state.flight.outbound.arrivalTime)
+          target.searchParams.set('returnDuration', state.flight.outbound.duration)
+          target.searchParams.set('returnFromCode', state.flight.outbound.fromCode)
+          target.searchParams.set('returnToCode', state.flight.outbound.toCode)
+          target.searchParams.set('returnFromAirport', state.flight.outbound.fromAirport)
+          target.searchParams.set('returnToAirport', state.flight.outbound.toAirport)
+        } else {
+          target.searchParams.set('flightOutboundDate', state.route.depart)
+        }
       }
       target.searchParams.delete('flightFlowBookingId')
     } else {
@@ -788,9 +819,11 @@ function addToTrip() {
       const tripId = params.get('tripId')?.trim() || params.get('draftId')?.trim()
       if (tripId) target.searchParams.set('tripId', tripId)
     }
-    const segments = requestedSegment === 'outbound' || requestedSegment === 'return'
-      ? [requestedSegment]
-      : state.flightScope === 'roundtrip' ? ['outbound', 'return'] : ['outbound']
+    const segments = target.searchParams.get('flightScope') === 'roundtrip' && target.searchParams.get('flightAdded') === '1'
+      ? ['outbound', 'return']
+      : requestedSegment === 'outbound' || requestedSegment === 'return'
+        ? [requestedSegment]
+        : ['outbound']
     if (!window.TripV2Bridge?.returnToTrip(target, { result: 'service-added', kind: 'avia', segments })) window.location.href = target.href
   }, 650)
 }

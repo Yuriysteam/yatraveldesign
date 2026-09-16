@@ -57,6 +57,10 @@ function queryBookingId() {
   return (isTripSegmentFlow ? params.get('flightFlowBookingId') : params.get('bookingId'))?.trim() || ''
 }
 
+function confirmationStorageKeyForBooking(bookingId) {
+  return bookingId ? `${confirmationStorageKey}:${bookingId}` : confirmationStorageKey
+}
+
 const fareCatalog = Object.freeze({
   light: Object.freeze({
     title: 'Эконом Лайт',
@@ -95,13 +99,14 @@ const documentNames = Object.freeze({
 
 function readConfirmationSnapshot() {
   try {
-    const raw = window.sessionStorage.getItem(confirmationStorageKey)
+    const requestedBookingId = queryBookingId()
+    const raw = window.sessionStorage.getItem(confirmationStorageKeyForBooking(requestedBookingId))
+      || window.sessionStorage.getItem(confirmationStorageKey)
     if (!raw) return null
     const value = JSON.parse(raw)
     if (!value || typeof value !== 'object' || Array.isArray(value)) return null
 
     const queryFlightId = params.get('flight')?.trim()
-    const requestedBookingId = queryBookingId()
     const snapshotFlightId = value.flight?.id?.trim()
     const snapshotBookingId = value.bookingId?.trim()
     if (queryFlightId && snapshotFlightId && queryFlightId !== snapshotFlightId) return null
@@ -770,8 +775,8 @@ function addToTrip() {
           target.searchParams.set(`${prefix}Status`, 'awaiting-payment')
           target.searchParams.set(`${prefix}BookingId`, state.bookingId)
         })
-        target.searchParams.set('flightOutboundTotal', String(state.fare.price))
-        target.searchParams.set('flightReturnTotal', '0')
+        target.searchParams.set('flightOutboundTotal', String(state.fares.outbound.price))
+        target.searchParams.set('flightReturnTotal', String(state.fares.returning?.price || 0))
         target.searchParams.set('bookingId', state.bookingId)
         target.searchParams.set('flightStatus', 'awaiting-payment')
         target.searchParams.set('flightAdded', '1')

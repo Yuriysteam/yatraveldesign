@@ -1,0 +1,704 @@
+.service-details-drawer[hidden] {
+  display: none;
+}
+
+.service-details-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  color: #0d0d0f;
+  font-family: "YS Text", Arial, sans-serif;
+}
+
+.service-details-drawer__scrim {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  background: rgba(13, 13, 15, 0.4);
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+
+.service-details-drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(720px, 100vw);
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 280ms cubic-bezier(.2, .8, .2, 1);
+}
+
+.service-details-drawer__close {
+  position: absolute;
+  top: 28px;
+  right: 748px;
+  z-index: 2;
+  display: grid;
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  place-items: center;
+  border: 0;
+  border-radius: 20px;
+  background: #fff;
+  opacity: 0;
+  transform: translate3d(12px, 0, 0);
+  transition: opacity 180ms ease, transform 240ms ease;
+}
+
+.service-details-drawer__close img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.service-details-drawer.is-open .service-details-drawer__scrim {
+  opacity: 1;
+}
+
+.service-details-drawer.is-open .service-details-drawer__panel {
+  transform: translate3d(0, 0, 0);
+}
+
+.service-details-drawer.is-open .service-details-drawer__close {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.service-details-drawer__scroll {
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 40px 40px 128px;
+}
+
+.service-details-drawer.is-readonly .service-details-drawer__scroll {
+  padding-bottom: 40px;
+}
+
+.service-details-drawer.is-readonly .service-details-drawer__footer {
+  display: none;
+}
+
+.service-details-drawer__title {
+  margin: 0 0 24px;
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 36px;
+  letter-spacing: -0.48px;
+}
+
+.service-details-drawer__booking {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.service-details-drawer__resume {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 28px 16px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.service-details-drawer__resume-item {
+  min-width: 0;
+  padding: 0 14px;
+  text-align: center;
+}
+
+.service-details-drawer__resume-item + .service-details-drawer__resume-item {
+  border-left: 1px solid #e6e5e7;
+}
+
+.service-details-drawer__resume-item span,
+.service-details-drawer__condition-label,
+.service-details-drawer__condition-details,
+.service-details-drawer__room-meta,
+.service-details-drawer__guest small {
+  color: #9c9ba2;
+}
+
+.service-details-drawer__resume-item span,
+.service-details-drawer__resume-item small {
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.service-details-drawer__resume-item strong {
+  display: block;
+  margin: 2px 0 4px;
+  overflow: hidden;
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.service-details-drawer__room {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  gap: 20px;
+  padding: 20px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.service-details-drawer__room-image {
+  display: block;
+  width: 224px;
+  height: 156px;
+  object-fit: cover;
+  border-radius: 24px;
+  background: #f5f5f5;
+}
+
+.service-details-drawer__room-copy {
+  min-width: 0;
+}
+
+.service-details-drawer__room-copy h2 {
+  margin: 0;
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.service-details-drawer__room-hotel,
+.service-details-drawer__room-meta {
+  margin: 6px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.service-details-drawer__room-hotel {
+  color: #0d0d0f;
+}
+
+.service-details-drawer__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 16px;
+}
+
+.service-details-drawer__feature {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 14px;
+  background: #f5f5f5;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service-details-drawer__conditions {
+  display: grid;
+  gap: 20px;
+  padding: 28px 24px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.service-details-drawer__condition {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.service-details-drawer__condition-label,
+.service-details-drawer__condition-value,
+.service-details-drawer__condition-details {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.service-details-drawer__condition-main {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.service-details-drawer__condition-main img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.service-details-drawer__condition-details {
+  display: block;
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service-details-drawer__guests {
+  margin-top: 24px;
+}
+
+.service-details-drawer__guests h2 {
+  margin: 0 0 24px;
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -0.28px;
+}
+
+.service-details-drawer__flight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.service-details-drawer__flight-segment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-details-drawer__flight-heading h2 {
+  margin: 0;
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+}
+
+.service-details-drawer__flight-heading p {
+  margin: 8px 0 0;
+  color: #9c9ba2;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.service-details-drawer__flight-card {
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.service-details-drawer__flight-card-inner {
+  display: grid;
+  grid-template-columns: 420px minmax(0, 1fr);
+  padding: 20px 0;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.service-details-drawer__flight-route {
+  min-width: 0;
+  padding: 0 32px;
+  border-right: 1px solid #e6e5e7;
+}
+
+.service-details-drawer__flight-carrier {
+  display: flex;
+  min-height: 54px;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.service-details-drawer__flight-carrier > div:first-child,
+.service-details-drawer__flight-number {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-details-drawer__flight-carrier strong,
+.service-details-drawer__flight-carrier span {
+  display: block;
+}
+
+.service-details-drawer__flight-carrier strong {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.service-details-drawer__flight-carrier span {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service-details-drawer__flight-number {
+  flex: 0 0 auto;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.service-details-drawer__flight-number img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.service-details-drawer__flight-timeline {
+  display: grid;
+  grid-template-columns: auto minmax(24px, 1fr) auto minmax(24px, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.service-details-drawer__flight-timeline strong {
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.48px;
+}
+
+.service-details-drawer__flight-timeline span {
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.service-details-drawer__flight-timeline img {
+  display: block;
+  width: 100%;
+  height: 1px;
+}
+
+.service-details-drawer__flight-locations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.service-details-drawer__flight-locations > div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.service-details-drawer__flight-locations > div:last-child {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.service-details-drawer__flight-locations strong,
+.service-details-drawer__flight-locations span,
+.service-details-drawer__flight-locations small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.service-details-drawer__flight-locations strong {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.service-details-drawer__flight-locations span,
+.service-details-drawer__flight-locations small {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service-details-drawer__flight-locations small {
+  color: #9c9ba2;
+}
+
+.service-details-drawer__flight-fare {
+  min-width: 0;
+  padding: 0 24px;
+}
+
+.service-details-drawer__flight-fare > strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.service-details-drawer__flight-feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+}
+
+.service-details-drawer__flight-feature {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service-details-drawer__flight-feature img {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.service-details-drawer__guests--flight {
+  margin-top: 24px;
+}
+
+.service-details-drawer__guests--flight h2 {
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: -0.24px;
+}
+
+.service-details-drawer__guest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 48px;
+  background: #f5f5f5;
+}
+
+.service-details-drawer__guest {
+  padding: 20px 28px;
+  border-radius: 40px;
+  background: #fff;
+}
+
+.service-details-drawer__guest strong,
+.service-details-drawer__guest small {
+  display: block;
+}
+
+.service-details-drawer__guest strong {
+  font-family: "YS Display", "YS Text", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.service-details-drawer__guest small {
+  margin-top: 2px;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.service-details-drawer__footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 20px 40px 40px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff 20px, #fff 100%);
+}
+
+.service-details-drawer__edit {
+  width: 100%;
+  min-height: 56px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 16px;
+  background: #f5f5f5;
+  color: #0d0d0f;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.service-details-drawer__edit:hover,
+.service-details-drawer__close:hover {
+  background: #ebebeb;
+}
+
+body.service-details-drawer-open {
+  overflow: hidden;
+}
+
+.trip-booking-shell--interactive,
+.trip-service-card[data-service-details] {
+  cursor: pointer;
+}
+
+.trip-service-card[data-service-details]:hover {
+  box-shadow: 0 0 0 2px rgba(13, 13, 15, 0.08);
+}
+
+@media (max-width: 860px) {
+  .service-details-drawer__close {
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    padding: 12px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(13, 13, 15, 0.12);
+  }
+
+  .service-details-drawer__scroll {
+    padding: 32px 24px 112px;
+  }
+
+  .service-details-drawer__title {
+    padding-right: 64px;
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .service-details-drawer__room {
+    grid-template-columns: 168px minmax(0, 1fr);
+  }
+
+  .service-details-drawer__room-image {
+    width: 168px;
+    height: 132px;
+  }
+
+  .service-details-drawer__footer {
+    padding: 16px 24px 24px;
+  }
+
+  .service-details-drawer__flight-card-inner {
+    grid-template-columns: minmax(0, 1.6fr) minmax(184px, 1fr);
+  }
+
+  .service-details-drawer__flight-route {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 560px) {
+  .service-details-drawer__scroll {
+    padding: 24px 16px 104px;
+  }
+
+  .service-details-drawer__title {
+    margin-bottom: 20px;
+  }
+
+  .service-details-drawer__booking,
+  .service-details-drawer__guest-list {
+    border-radius: 32px;
+  }
+
+  .service-details-drawer__resume {
+    padding: 20px 8px;
+    border-radius: 28px;
+  }
+
+  .service-details-drawer__resume-item {
+    padding: 0 6px;
+  }
+
+  .service-details-drawer__resume-item span,
+  .service-details-drawer__resume-item small {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .service-details-drawer__resume-item strong {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .service-details-drawer__room {
+    grid-template-columns: 1fr;
+    padding: 16px;
+    border-radius: 28px;
+  }
+
+  .service-details-drawer__room-image {
+    width: 100%;
+    height: 180px;
+  }
+
+  .service-details-drawer__conditions {
+    padding: 20px 16px;
+    border-radius: 28px;
+  }
+
+  .service-details-drawer__condition {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .service-details-drawer__guests h2 {
+    margin-bottom: 16px;
+  }
+
+  .service-details-drawer__guest {
+    padding: 18px 20px;
+    border-radius: 28px;
+  }
+
+  .service-details-drawer__footer {
+    padding: 12px 16px 16px;
+  }
+
+  .service-details-drawer__flight-heading h2 {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .service-details-drawer__flight-heading p {
+    font-size: 14px;
+    line-height: 18px;
+  }
+
+  .service-details-drawer__flight-card {
+    border-radius: 32px;
+  }
+
+  .service-details-drawer__flight-card-inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    border-radius: 28px;
+  }
+
+  .service-details-drawer__flight-route {
+    padding: 0 16px 20px;
+    border-right: 0;
+    border-bottom: 1px solid #e6e5e7;
+  }
+
+  .service-details-drawer__flight-fare {
+    padding: 0 16px;
+  }
+
+  .service-details-drawer__flight-timeline strong {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .service-details-drawer__flight-timeline span {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-details-drawer__scrim,
+  .service-details-drawer__panel,
+  .service-details-drawer__close {
+    transition: none;
+  }
+}

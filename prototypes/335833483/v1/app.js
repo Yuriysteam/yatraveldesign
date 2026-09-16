@@ -292,15 +292,44 @@ function renderPaidBusinessTripCards() {
   const visibleTrips = paidTrips.filter(trip => ['upcoming', 'active'].includes(trip?.state) && trip?.id)
   const cards = visibleTrips.map(trip => {
     const image = cityImages[trip.city] || './assets/images/trip-kazan.png'
-    const target = new URL(trip.href || './trips.html#business', window.location.href)
     return `
-      <a class="trip-image-card trip-image-card--created" href="${escapeHtml(target.href)}" data-trip-id="${escapeHtml(trip.id)}" data-dynamic-business-trip>
+      <a class="trip-image-card trip-image-card--created" href="${escapeHtml(businessTripHref(trip))}" data-trip-id="${escapeHtml(trip.id)}" data-dynamic-business-trip>
         <img src="${escapeHtml(image)}" alt="${escapeHtml(trip.city || 'Командировка')}">
         <div class="trip-image-card__shade"></div>
         <div class="trip-image-card__copy"><h3>${escapeHtml(String(trip.city || 'Командировка').toLocaleUpperCase('ru'))}</h3><span>${escapeHtml(trip.dates || '')}</span></div>
       </a>`
   }).join('')
   if (cards) tripCards.insertAdjacentHTML('afterbegin', cards)
+}
+
+function businessTripHref(trip) {
+  const target = new URL('./trip.html', window.location.href)
+  let sourceParams = null
+
+  try {
+    if (trip?.href && trip.href !== '#') {
+      const source = new URL(trip.href, window.location.href)
+      sourceParams = source.searchParams
+      const successTarget = sourceParams.get('successTarget')
+      if (successTarget) {
+        const nested = new URL(successTarget, window.location.href)
+        if (nested.origin === window.location.origin && nested.pathname.endsWith('/trip.html')) {
+          sourceParams = nested.searchParams
+        }
+      }
+    }
+  } catch {
+    sourceParams = null
+  }
+
+  if (!sourceParams && typeof trip?.search === 'string') {
+    sourceParams = new URLSearchParams(trip.search)
+  }
+  sourceParams?.forEach((value, name) => target.searchParams.set(name, value))
+  const transientParams = ['successMode', 'successTarget', 'embed', 'draft', 'draftId', 'cancelled']
+  transientParams.forEach(name => target.searchParams.delete(name))
+  target.searchParams.set('tripId', trip.id)
+  return target.href
 }
 
 function draftHref(draft) {

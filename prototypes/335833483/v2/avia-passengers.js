@@ -18,6 +18,10 @@ if (!page || !form || !tariffTrack || !submitButton || !announcer || !paymentSet
 const params = new URLSearchParams(window.location.search)
 const legacyStorageKey = 'business-trip-avia-passenger-draft-v2'
 const confirmationStorageKey = 'business-trip-avia-confirmation-v2'
+
+function confirmationStorageKeyForBooking(bookingId) {
+  return bookingId ? `${confirmationStorageKey}:${bookingId}` : confirmationStorageKey
+}
 const tripDepart = params.get('depart')?.trim() || '11 июл, среда'
 const tripReturn = params.get('return')?.trim() || ''
 const requestedOutbound = params.get('flightOutboundDate')?.trim() || tripDepart
@@ -611,6 +615,7 @@ function createConfirmationSnapshot() {
   }
 
   try {
+    window.sessionStorage.setItem(confirmationStorageKeyForBooking(state.bookingId), JSON.stringify(snapshot))
     window.sessionStorage.setItem(confirmationStorageKey, JSON.stringify(snapshot))
   } catch {
     // Страница подтверждения покажет безопасные демонстрационные данные.

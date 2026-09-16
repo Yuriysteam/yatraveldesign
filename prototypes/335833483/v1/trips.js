@@ -99,11 +99,36 @@ function mergeTrips(...sources) {
 }
 
 function cardHref(trip) {
-  if (!trip.href || trip.href === '#') return '#'
-  const url = new URL(trip.href, window.location.href)
-  if (trip.id) url.searchParams.set('tripId', trip.id)
-  if (trip.state) url.searchParams.set('tripState', trip.state)
-  return url.href
+  if ((!trip.href || trip.href === '#') && typeof trip.search !== 'string') return '#'
+  const target = new URL('./trip.html', window.location.href)
+  let sourceParams = null
+  try {
+    if (trip.href && trip.href !== '#') {
+      const source = new URL(trip.href, window.location.href)
+      sourceParams = source.searchParams
+      const successTarget = sourceParams.get('successTarget')
+      if (successTarget) {
+        const nested = new URL(successTarget, window.location.href)
+        if (nested.origin === window.location.origin && nested.pathname.endsWith('/trip.html')) {
+          sourceParams = nested.searchParams
+        }
+      }
+    }
+  } catch {
+    sourceParams = typeof trip.search === 'string' ? new URLSearchParams(trip.search) : null
+  }
+  if (!sourceParams && typeof trip.search === 'string') sourceParams = new URLSearchParams(trip.search)
+  sourceParams?.forEach((value, name) => target.searchParams.set(name, value))
+  const transientParams = ['successMode', 'successTarget', 'embed']
+  transientParams.forEach(name => target.searchParams.delete(name))
+  if (trip.status !== 'Черновик') {
+    target.searchParams.delete('draft')
+    target.searchParams.delete('draftId')
+  }
+  if (trip.state !== 'cancelled' && trip.status !== 'Отменена') target.searchParams.delete('cancelled')
+  if (trip.id) target.searchParams.set('tripId', trip.id)
+  if (trip.state) target.searchParams.set('tripState', trip.state)
+  return target.href
 }
 
 function renderCard(trip) {
@@ -150,7 +175,9 @@ function renderTrips() {
   const sourceTrips = activeSection === 'business'
     ? allBusinessTrips.filter(trip => (trip.serviceCount || trip.paidServices || trip.status === 'Черновик') > 0)
     : mergeTrips(personalTrips, storedPersonalTrips)
-  const visibleTrips = sourceTrips.filter(trip => trip.state === activeFilter)
+  const datedTrips = sourceTrips.map(trip => window.TripDateState?.normalizeTrip(trip) || trip)
+  const filteredTrips = datedTrips.filter(trip => trip.state === activeFilter)
+  const visibleTrips = window.TripDateState?.sortTrips(filteredTrips, activeFilter) || filteredTrips
   listRoot.innerHTML = visibleTrips.length
     ? visibleTrips.map(renderCard).join('')
     : `<p class="trips-empty">${emptyMessages[activeFilter]}</p>`

@@ -32,14 +32,14 @@ function clearReturnParams(searchParams) {
 const baseDepartDate = params.get('depart')?.trim() || '29 сентября'
 const baseReturnDate = params.get('return')?.trim() || ''
 const railIsOneWay = params.get('railScope') === 'oneway'
+const returnExplicitlyDisabled = params.get('railReturnDisabled') === '1'
 const tripSegment = params.get('tripSegment') === 'return'
   ? 'return'
   : params.get('tripSegment') === 'outbound' ? 'outbound' : null
 const isSingleReturn = tripSegment === 'return'
-const isTripSectionFlow = Boolean(tripSegment)
 const rawInitialReturn = isSingleReturn
   ? params.get('railReturnDate')?.trim() || params.get('railOutboundDate')?.trim() || baseReturnDate
-  : railIsOneWay || isTripSectionFlow
+  : returnExplicitlyDisabled || (railIsOneWay && tripSegment !== 'outbound')
     ? ''
     : params.get('railReturnDate')?.trim() || baseReturnDate
 const initialReturn = hasRealReturn(rawInitialReturn) ? rawInitialReturn : ''
@@ -72,8 +72,8 @@ function lockTripParticipantCount(control) {
 }
 
 const state = {
-  canonicalFrom: params.get('from')?.trim() || 'Москва',
-  canonicalTo: params.get('to')?.trim() || 'Санкт-Петербург',
+  canonicalFrom: params.get('tripFrom')?.trim() || params.get('from')?.trim() || 'Москва',
+  canonicalTo: params.get('tripTo')?.trim() || params.get('to')?.trim() || 'Санкт-Петербург',
   depart: isSingleReturn ? baseDepartDate : params.get('railOutboundDate')?.trim() || baseDepartDate,
   returning: initialReturn,
   traveller: travellerFromParams(),
@@ -469,16 +469,21 @@ function syncQuery() {
   if (isSingleReturn && hasRealReturn(state.returning)) {
     target.searchParams.set('railReturnDate', state.returning)
     target.searchParams.set('railScope', 'oneway')
+    target.searchParams.delete('railReturnDisabled')
     railSegment = 'return'
-  } else if (!isTripSectionFlow && hasRealReturn(state.returning)) {
+  } else if (hasRealReturn(state.returning)) {
     target.searchParams.set('railReturnDate', state.returning)
     target.searchParams.set('railScope', 'roundtrip')
+    target.searchParams.delete('railReturnDisabled')
+    target.searchParams.delete('tripSegment')
+    target.searchParams.delete('serviceSlot')
   }
   else {
     state.returning = ''
     railSegment = 'outbound'
     clearReturnParams(target.searchParams)
     target.searchParams.set('railScope', 'oneway')
+    target.searchParams.set('railReturnDisabled', '1')
   }
   target.searchParams.set('traveller', state.traveller)
   target.searchParams.set('railSegment', railSegment)
@@ -535,12 +540,17 @@ function buildBookingLink(trainId) {
   if (isSingleReturn && hasRealReturn(state.returning)) {
     target.searchParams.set('railReturnDate', state.returning)
     target.searchParams.set('railScope', 'oneway')
-  } else if (!isTripSectionFlow && hasRealReturn(state.returning)) {
+    target.searchParams.delete('railReturnDisabled')
+  } else if (hasRealReturn(state.returning)) {
     target.searchParams.set('railReturnDate', state.returning)
     target.searchParams.set('railScope', 'roundtrip')
+    target.searchParams.delete('railReturnDisabled')
+    target.searchParams.delete('tripSegment')
+    target.searchParams.delete('serviceSlot')
   } else {
     clearReturnParams(target.searchParams)
     target.searchParams.set('railScope', 'oneway')
+    target.searchParams.set('railReturnDisabled', '1')
   }
   target.searchParams.set('traveller', state.traveller)
   target.searchParams.set('railSegment', railSegment)

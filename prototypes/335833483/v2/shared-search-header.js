@@ -81,7 +81,9 @@
 
   header.querySelectorAll('[data-route]').forEach(link => {
     const target = new URL(link.dataset.route, window.location.href)
-    currentParams.forEach((value, key) => target.searchParams.set(key, value))
+    if (!target.pathname.endsWith('/index.html')) {
+      currentParams.forEach((value, key) => target.searchParams.set(key, value))
+    }
     link.href = target.href
     if (isTripV2Embed && target.pathname.endsWith('/trip.html')) {
       link.addEventListener('click', event => {

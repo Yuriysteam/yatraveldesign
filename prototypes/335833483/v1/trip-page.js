@@ -742,10 +742,13 @@ function buildCostItems(sections) {
       kind: section.serviceKind || String(key).split(':')[0],
       sections: [],
       price: 0,
+      payablePrice: 0,
     })
     const group = groups.get(key)
     group.sections.push(section)
-    group.price += Math.max(0, Number(section.price) || 0)
+    const price = Math.max(0, Number(section.price) || 0)
+    group.price += price
+    if (section.status === 'awaiting-payment') group.payablePrice += price
   })
 
   return [...groups.values()].map(group => {
@@ -769,9 +772,11 @@ function buildCostItems(sections) {
       key: group.key,
       label,
       price: group.price,
+      payablePrice: group.payablePrice,
       amount: formatMoney(group.price),
+      payableAmount: formatMoney(group.payablePrice),
       details,
-      payable: group.sections.some(item => item.status === 'awaiting-payment'),
+      payable: group.payablePrice > 0,
     }
   })
 }
@@ -1156,10 +1161,14 @@ function buildTripModel() {
   )
   const filledSections = mergedSections.filter(section => section.state === 'filled')
   const totalPrice = filledSections.reduce((sum, section) => sum + Math.max(0, Number(section.price) || 0), 0)
+  const payablePrice = filledSections
+    .filter(section => section.status === 'awaiting-payment')
+    .reduce((sum, section) => sum + Math.max(0, Number(section.price) || 0), 0)
   const needsPayment = filledSections.some(section => section.status === 'awaiting-payment')
   const hasServices = filledSections.length > 0
   const costItems = buildCostItems(mergedSections)
   const cancelled = params.get('cancelled') === '1'
+  const displayedTotal = !cancelled && needsPayment ? payablePrice : totalPrice
 
   return {
     title: params.has('tripFrom') || params.has('tripTo')
@@ -1181,7 +1190,7 @@ function buildTripModel() {
       state: hasServices ? 'filled' : 'empty',
       message: hasServices ? '' : EMPTY_COST_MESSAGE,
       label: cancelled ? 'Итого' : 'Итого к оплате',
-      total: formatMoney(totalPrice),
+      total: formatMoney(displayedTotal),
       items: costItems,
       canPay: !cancelled && needsPayment,
       timer: null,
@@ -2051,8 +2060,8 @@ function popupMarkup(kind) {
       ? trip.sections.find(item => item.id === pendingPaymentSectionId)
       : null
     const requestedGroup = requestedSection?.serviceGroup
-    const items = buildCostItems(trip.sections).filter(item => !requestedGroup || item.key === requestedGroup)
-    const total = items.reduce((sum, item) => sum + item.price, 0)
+    const items = buildCostItems(trip.sections).filter(item => item.payable && (!requestedGroup || item.key === requestedGroup))
+    const total = items.reduce((sum, item) => sum + item.payablePrice, 0)
     const title = requestedSection ? displaySectionTitle(requestedSection) : 'Все услуги командировки'
     return `
       <section class="trip-popup trip-popup--payment" role="dialog" aria-modal="true" aria-labelledby="trip-popup-title">
@@ -2541,6 +2550,9 @@ function reconcilePaymentTimer() {
   const filledSections = trip.sections.filter(section => section.state === 'filled')
   const needsPayment = filledSections.some(section => section.status === 'awaiting-payment')
   const totalPrice = filledSections.reduce((sum, section) => sum + Math.max(0, Number(section.price) || 0), 0)
+  const payablePrice = filledSections
+    .filter(section => section.status === 'awaiting-payment')
+    .reduce((sum, section) => sum + Math.max(0, Number(section.price) || 0), 0)
   trip.cost.items = buildCostItems(trip.sections)
   trip.cost.canPay = needsPayment
 
@@ -2552,7 +2564,7 @@ function reconcilePaymentTimer() {
   } else {
     trip.cost.state = 'filled'
     trip.cost.message = ''
-    trip.cost.total = formatMoney(totalPrice)
+    trip.cost.total = formatMoney(!trip.cancelled && needsPayment ? payablePrice : totalPrice)
     trip.cost.timer = null
   }
   renderCost()
@@ -2561,15 +2573,20 @@ function reconcilePaymentTimer() {
 function requestTripPayment(sectionId = '') {
   const requestedSection = sectionId ? trip.sections.find(section => section.id === sectionId) : null
   const requestedGroup = requestedSection?.serviceGroup
-  const items = buildCostItems(trip.sections).filter(item => !requestedGroup || item.key === requestedGroup)
-  if (items.length === 0 || items.every(item => !item.payable)) return
+  const items = buildCostItems(trip.sections).filter(item => item.payable && (!requestedGroup || item.key === requestedGroup))
+  if (items.length === 0) return
 
   document.dispatchEvent(new CustomEvent('trip:payment-requested', {
     detail: {
       sectionId: sectionId || null,
       serviceGroup: requestedGroup || null,
-      items: items.map(item => ({ ...item, details: [...item.details] })),
-      total: items.reduce((sum, item) => sum + item.price, 0),
+      items: items.map(item => ({
+        ...item,
+        price: item.payablePrice,
+        amount: item.payableAmount,
+        details: [...item.details],
+      })),
+      total: items.reduce((sum, item) => sum + item.payablePrice, 0),
     },
   }))
 

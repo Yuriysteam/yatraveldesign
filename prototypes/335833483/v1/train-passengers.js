@@ -6,8 +6,9 @@ const priceBreakdown = document.querySelector('#rail-passenger-price-breakdown')
 const totalElement = document.querySelector('#rail-passenger-total')
 const submitButton = document.querySelector('#rail-add-to-trip')
 const announcer = document.querySelector('#rail-passenger-announcer')
+const businessTripRow = document.querySelector('#business-trip-row')
 
-if (!page || !journeyLegs || !cardsRoot || !form || !priceBreakdown || !totalElement || !submitButton || !announcer) {
+if (!page || !journeyLegs || !cardsRoot || !form || !priceBreakdown || !totalElement || !submitButton || !announcer || !businessTripRow) {
   throw new Error('Не найдены обязательные элементы страницы данных пассажиров поезда')
 }
 
@@ -35,9 +36,12 @@ function applyExistingTripContext(target) {
 }
 
 function renderTripContext() {
-  page.dataset.tripContext = isExistingTripFlow ? 'existing' : 'standalone'
+  const isWorkTripFlow = params.get('workTrip') === '1' || isExistingTripFlow
+  page.dataset.tripContext = isWorkTripFlow ? 'business' : 'standalone'
+  businessTripRow.hidden = true
   if (isExistingTripFlow) submitButton.dataset.submitMode = 'add-to-existing-trip'
   else delete submitButton.dataset.submitMode
+  submitButton.textContent = isExistingTripFlow ? 'Добавить в командировку' : 'Перейти к подтверждению'
 }
 
 function readStoredBooking() {
@@ -685,11 +689,15 @@ form.addEventListener('submit', event => {
   if (state.submitting) return
   state.submitting = true
   submitButton.disabled = true
-  submitButton.textContent = 'Добавляем…'
+  submitButton.textContent = isExistingTripFlow ? 'Добавляем…' : 'Переходим…'
   const passengers = collectPassengers()
   const contact = { email: form.elements.email.value.trim(), phone: form.elements.phone.value.trim() }
   saveBooking(passengers, contact)
-  window.setTimeout(() => { window.location.href = buildTripLink().href }, 350)
+  window.setTimeout(() => {
+    const target = buildTripLink()
+    if (!isExistingTripFlow) target.pathname = target.pathname.replace(/\/trip\.html$/u, '/train-confirmation.html')
+    window.location.href = target.href
+  }, 350)
 })
 
 form.addEventListener('input', event => {

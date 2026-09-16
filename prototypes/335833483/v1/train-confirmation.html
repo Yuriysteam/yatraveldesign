@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <title>Подтверждение ж/д билетов — прототип</title>
+    <link rel="icon" href="./assets/images/logo-planet.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css?v=4">
+    <link rel="stylesheet" href="./hotel-search.css?v=4">
+    <link rel="stylesheet" href="./train-booking.css?v=5">
+    <link rel="stylesheet" href="./shared-search-header.css?v=2">
+    <link rel="stylesheet" href="../train-confirmation.css?v=5">
+    <script src="./shared-search-header.js?v=3" defer></script>
+    <script src="../train-confirmation.js?v=12" defer></script>
+  </head>
+  <body>
+    <div class="rail-seat-page rail-confirmation-page" data-ready="false">
+      <header class="search-header shared-search-header" data-travel-header data-active="rail" aria-label="Шапка Яндекс Путешествий"></header>
+
+      <div class="rail-progress">
+        <nav class="rail-progress__steps" aria-label="Этапы оформления ж/д билета">
+          <button type="button">Выбор поезда</button><img src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button">Выбор мест</button><img src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" onclick="history.back()">Данные пассажиров</button><img src="./assets/avia-booking/step-arrow.svg" alt="">
+          <button type="button" aria-current="step" disabled>Подтверждение</button><img class="is-muted" src="./assets/avia-booking/step-arrow.svg" alt="">
+          <span class="is-muted">Оплата</span>
+        </nav>
+      </div>
+
+      <main class="rail-confirmation-main">
+        <h1>Проверьте данные и оплатите</h1>
+        <div class="rail-confirmation-layout">
+          <div class="rail-confirmation-left">
+            <div class="rail-confirmation-stack rail-confirmation-booking-stack">
+              <div id="rail-confirmation-routes"></div>
+              <section class="rail-confirmation-card rail-confirmation-payment" aria-labelledby="rail-confirmation-payment-title">
+                <h2 id="rail-confirmation-payment-title">Способ оплаты</h2>
+                <div class="rail-confirmation-methods" role="group" aria-label="Способ оплаты">
+                  <button class="rail-confirmation-method" type="button" data-payment-method="card" aria-pressed="true"><span class="rail-confirmation-method__icon"><img src="./assets/rail/confirmation-card.svg" alt=""></span><span><strong>Карта или СБП</strong></span></button>
+                  <button class="rail-confirmation-method" type="button" data-payment-method="business" aria-pressed="false"><span class="rail-confirmation-method__icon"><img src="./assets/rail/confirmation-office.svg" alt=""></span><span><strong>Бизнес-счёт</strong><small>100 000 ₽</small></span></button>
+                </div>
+              </section>
+              <section class="rail-confirmation-card rail-confirmation-work">
+                <div><strong>Еду по работе</strong><small>Вышлем закрывающие документы в личный кабинет организации</small></div>
+                <button class="rail-confirmation-toggle" id="rail-confirmation-work-toggle" type="button" role="switch" aria-checked="false" aria-label="Еду по работе"><span></span></button>
+              </section>
+              <section class="rail-confirmation-card rail-confirmation-trip-target" id="rail-confirmation-trip-target" hidden>
+                <div class="rail-confirmation-add-to-trip"><span><strong>Добавить в командировку</strong><small>Сможете сразу оплатить отель, авиа, ж/д и другие услуги</small></span><button class="rail-confirmation-toggle" id="rail-confirmation-add-to-trip-toggle" type="button" role="switch" aria-checked="false" aria-label="Добавить в командировку"><span></span></button></div>
+                <div class="rail-confirmation-trip-kind" role="group" aria-label="Выбор командировки" hidden>
+                  <button type="button" data-trip-kind="new" aria-pressed="true">Новая командировка</button>
+                  <button type="button" data-trip-kind="existing" aria-pressed="false">Существующая</button>
+                </div>
+                <label class="rail-confirmation-trip-select" id="rail-confirmation-trip-existing" hidden><span>Командировка</span><select id="rail-confirmation-trip-select" aria-label="Существующая командировка"></select></label>
+                <p class="rail-confirmation-trip-empty" id="rail-confirmation-trip-empty" hidden>Нет активных командировок. Создадим новую.</p>
+              </section>
+            </div>
+
+            <h2 class="rail-confirmation-section-title">Пассажиры</h2>
+            <div class="rail-confirmation-passenger-stack">
+              <div class="rail-confirmation-stack" id="rail-confirmation-passengers"></div>
+              <section class="rail-confirmation-contacts">
+                <h3>Контакты покупателя</h3>
+                <div class="rail-confirmation-contact-row"><img src="./assets/rail/confirmation-mail.svg" alt=""><span id="rail-confirmation-email">example@mail.com</span></div>
+                <div class="rail-confirmation-contact-row"><img src="./assets/rail/confirmation-phone.svg" alt=""><span id="rail-confirmation-phone">+7 915 555-55-55</span></div>
+              </section>
+            </div>
+          </div>
+
+          <aside class="rail-confirmation-summary" aria-label="Стоимость билетов">
+            <div class="rail-confirmation-summary__card">
+              <h2>Стоимость билетов</h2>
+              <div class="rail-confirmation-price-list" id="rail-confirmation-price-list"></div>
+              <div class="rail-confirmation-total"><span>Итого к оплате <i class="rail-confirmation-more"><img src="./assets/rail/confirmation-more.svg" alt=""></i></span><strong id="rail-confirmation-total">0 ₽</strong></div>
+              <div class="rail-confirmation-benefit"><span>При оплате СБП <img class="rail-confirmation-benefit__sbp" src="./assets/rail/confirmation-sbp.svg" alt="СБП"> <i class="rail-confirmation-more"><img src="./assets/rail/confirmation-more.svg" alt=""></i></span><span><img class="rail-confirmation-benefit__plus" src="./assets/hotel-detail/plus-gradient.svg" alt="Плюс">250</span></div>
+              <button class="rail-confirmation-pay" id="rail-confirmation-submit" type="button">Оплатить</button>
+            </div>
+            <div class="rail-confirmation-legal"><p>В цену включён сбор Яндекса. С использованием веб-системы «ИМ»</p><p>Данные предоставлены <a href="#">партнёрами</a></p></div>
+          </aside>
+        </div>
+      </main>
+
+      <footer class="rail-footer">
+        <div class="rail-footer__links"><p><a href="#">Яндекс Путешествия для партнеров</a><a href="#">Программа для веб-мастеров и блогеров</a></p><p><a href="#">Подключить отель</a><a href="#">О Сервисе</a><a href="#">Темная тема</a><a href="#">Служба поддержки</a></p><p><a href="#">Пользовательское соглашение</a><a href="#">Политика конфиденциальности</a><a href="#">Правила рекомендаций</a></p><p><a href="#">Личный кабинет отельера</a><a href="#">Журнал для отельеров</a><a href="#">Командировки</a></p><p><a href="#">Участие в исследованиях</a><a href="#">Правила программы лояльности Яндекс Плюс</a></p><span>Мы в соцсетях</span><div class="rail-footer__socials"><a href="#" aria-label="ВКонтакте"><img src="./assets/avia-booking/vk-glyph.svg" alt=""></a><a href="#" aria-label="Телеграм"><img src="./assets/avia-booking/telegram.svg" alt=""></a><a href="#" aria-label="Дзен"><img src="./assets/avia-booking/zen.svg" alt=""></a></div></div>
+        <div class="rail-footer__about"><p>© 2009–2024 ООО «Яндекс.Вертикали»</p><p>Наши проекты: <a href="#">Яндекс Аренда</a><a href="#">Авто.ру</a><a href="#">Яндекс.Недвижимость</a><a href="#">Яндекс Услуги</a></p><p>Команда: <a href="#">Наши вакансии</a></p><p>Проект компании <img src="./assets/avia-booking/yandex-logo.svg" alt="Яндекс"></p></div>
+      </footer>
+      <div class="visually-hidden" id="rail-confirmation-announcer" aria-live="polite"></div>
+    </div>
+  </body>
+</html>

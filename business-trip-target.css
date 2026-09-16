@@ -1,0 +1,95 @@
+.business-trip-target__select {
+  position: relative;
+  display: flex;
+  margin-top: 12px;
+  flex-direction: column;
+  gap: 6px;
+  color: #77767e;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.business-trip-target__select select {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 0 44px 0 14px;
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  outline: 0;
+  background: #f2f2f3;
+  color: #202124;
+  font: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.business-trip-target__select::after {
+  position: absolute;
+  right: 18px;
+  bottom: 21px;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid #77767e;
+  border-bottom: 1.5px solid #77767e;
+  content: "";
+  pointer-events: none;
+  transform: rotate(45deg);
+}
+
+.business-trip-target__select select:hover {
+  background: #eaeaed;
+}
+
+.business-trip-target__select select:focus-visible {
+  border-color: #ffcc00;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgb(255 204 0 / 28%);
+}
+
+.business-trip-target__empty {
+  margin: 12px 0 0;
+  color: #8b8e94;
+  font-size: 14px;
+}
+
+.rail-business-trip-target {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 24px;
+}
+
+.rail-business-trip-target h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.rail-business-trip-target .business-trip-kind {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rail-business-trip-target .business-trip-kind button {
+  min-height: 40px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 20px;
+  background: #eceef1;
+  font: inherit;
+}
+
+.rail-business-trip-target .business-trip-kind button.is-selected {
+  background: #202124;
+  color: #fff;
+}
+
+.business-trip-target__select[hidden],
+.business-trip-target__empty[hidden],
+.rail-business-trip-target[hidden] {
+  display: none !important;
+}
