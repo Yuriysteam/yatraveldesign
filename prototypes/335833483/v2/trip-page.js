@@ -758,7 +758,8 @@
   }
 
   function serviceCountLabel() {
-    return `${services.length} ${serviceWord(services.length)}`
+    const activeCount = services.filter(service => service.status !== 'cancelled').length
+    return `${activeCount} ${serviceWord(activeCount)}`
   }
 
   function serviceTimelineDate(service, departure, returning) {
@@ -801,7 +802,7 @@
 
   function rebuildTimelineFreeDays(items, departure, returning) {
     if (!departure || !returning) return items
-    const hotels = services.filter(service => service.kind === 'hotel')
+    const hotels = services.filter(service => service.kind === 'hotel' && service.status !== 'cancelled')
     const tripStart = timelineCalendarDate(departure, departure)
     const tripEnd = timelineCalendarDate(returning, departure)
     if (!tripStart || !tripEnd || tripEnd < tripStart) return items
@@ -880,7 +881,7 @@
             actualDate: serviceTimelineDate(service, departure, returning),
             order: order++,
           })
-          if (service.kind === 'hotel') {
+          if (service.kind === 'hotel' && service.status !== 'cancelled') {
             const checkoutDate = normalizeTimelineDate(service.booking?.endDate)
               || parseTimelineDateRangeEnd(service.booking?.dateRange, serviceTimelineDate(service, departure, returning))
               || normalizeTimelineDate(dateParts(params.get('checkout') || params.get('return')))
@@ -895,10 +896,12 @@
             }
           }
         })
-      } else {
+      }
+      if (!related.some(service => service.status !== 'cancelled')) {
         items.push({
           type: 'empty',
           ...slot,
+          reopened: related.some(service => service.status === 'cancelled'),
           actualDate: slot.date,
           order: order++,
         })
@@ -965,7 +968,7 @@
       -1,
     )
     if (lastMeaningfulIndex < 0) return marked
-    return marked.filter((item, index) => item.type !== 'empty' || index <= lastMeaningfulIndex)
+    return marked.filter((item, index) => item.type !== 'empty' || item.reopened || index <= lastMeaningfulIndex)
   }
 
   function replaceParentUrl() {
@@ -2120,10 +2123,7 @@
     if (params.get('cancelled') === '1') return
     const removed = services.find(service => service.id === id)
     if (!removed || !isServicePayable(removed)) return
-    const removedIds = readRemovedServiceIds(params)
-    removedIds.add(id)
-    params.set(REMOVED_SERVICES_PARAM, JSON.stringify([...removedIds]))
-    services = services.filter(service => service.id !== id)
+    removed.status = 'cancelled'
     syncServicesParam()
     renderHeader()
     renderDrawer()

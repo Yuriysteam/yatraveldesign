@@ -227,7 +227,8 @@ function mergePreservedTripServices(baseSections) {
     const related = extrasBySource.get(section.id) || []
     related.forEach(saved => merged.push(saved))
     extrasBySource.delete(section.id)
-    if (!(section.state === 'empty' && related.length > 0)) merged.push(section)
+    const hasActiveRelated = related.some(saved => saved.status !== 'cancelled')
+    if (!(section.state === 'empty' && hasActiveRelated)) merged.push(section)
   })
   extrasBySource.forEach(list => list.forEach(section => merged.push(section)))
   return merged
@@ -363,13 +364,14 @@ function timelineCalendarKey(date) {
 
 function rebuildFreeDaySections(sections, departure, returning, destinationCity) {
   const withoutFreeDays = (sections || []).filter(section => section.type !== 'trip-card')
-  if (!withoutFreeDays.some(section => section.state === 'filled')) return withoutFreeDays
+  if (!withoutFreeDays.some(section => section.state === 'filled' && section.status !== 'cancelled')) return withoutFreeDays
   const tripStart = timelineCalendarDate(departure, departure)
   const tripEnd = timelineCalendarDate(returning, departure)
   if (!tripStart || !tripEnd || tripEnd < tripStart) return withoutFreeDays
 
   const lodgingSections = withoutFreeDays.filter(section => (
     section.type === 'lodging'
+    && section.status !== 'cancelled'
     && (section.state === 'filled' || section.suggestedRange)
   ))
   const occupiedDays = new Set()
@@ -533,7 +535,7 @@ function addHotelCheckoutSections(sections, departure, returning) {
   const result = []
   cleanSections.forEach(section => {
     result.push(section)
-    if (section.type !== 'lodging' || section.state !== 'filled' || !section.booking) return
+    if (section.type !== 'lodging' || section.state !== 'filled' || section.status === 'cancelled' || !section.booking) return
     const startDate = sectionTimelineDate(section, departure, returning)
     const checkoutDate = normalizeTimelineDate(section.booking.endDate)
       || parseTimelineDateRangeEnd(section.booking.dateRange, startDate)
@@ -733,7 +735,7 @@ function formatBookingDate(date) {
 
 function buildCostItems(sections) {
   const groups = new Map()
-  sections.filter(section => section.state === 'filled').forEach(section => {
+  sections.filter(section => section.state === 'filled' && section.status !== 'cancelled').forEach(section => {
     const key = section.serviceGroup || section.id
     if (!groups.has(key)) groups.set(key, {
       key,
@@ -1157,7 +1159,7 @@ function buildTripModel() {
     returning,
     destinationCity,
   )
-  const filledSections = mergedSections.filter(section => section.state === 'filled')
+  const filledSections = mergedSections.filter(section => section.state === 'filled' && section.status !== 'cancelled')
   const totalPrice = filledSections.reduce((sum, section) => sum + Math.max(0, Number(section.price) || 0), 0)
   const payablePrice = filledSections
     .filter(section => section.status === 'awaiting-payment')
@@ -2545,7 +2547,7 @@ function startPaymentTimer(durationSeconds = PAYMENT_TIMER_SECONDS) {
 }
 
 function reconcilePaymentTimer() {
-  const filledSections = trip.sections.filter(section => section.state === 'filled')
+  const filledSections = trip.sections.filter(section => section.state === 'filled' && section.status !== 'cancelled')
   const needsPayment = filledSections.some(section => section.status === 'awaiting-payment')
   const totalPrice = filledSections.reduce((sum, section) => sum + Math.max(0, Number(section.price) || 0), 0)
   const payablePrice = filledSections
@@ -2663,20 +2665,49 @@ function removeTripService(sectionId) {
   if (!requestedSection || requestedSection.state !== 'filled' || requestedSection.status === 'paid') return
 
   const removedTitle = displaySectionTitle(requestedSection)
+  const cancelledHistory = {
+    ...requestedSection,
+    id: `cancelled-${stableHash(`${serviceIdentity(requestedSection)}-${Date.now()}`)}`,
+    serviceId: serviceIdentity(requestedSection),
+    status: 'cancelled',
+    removable: false,
+    isPreserved: true,
+    actions: [],
+  }
   const serviceGroup = requestedSection.serviceGroup || ''
   const removedPrice = Math.max(0, Number(requestedSection.price) || 0)
   const isAviaService = serviceGroup.startsWith('avia-')
   const isRailService = serviceGroup.startsWith('rail-')
+  const sourceSectionId = requestedSection.sourceSectionId || requestedSection.id
+  const emptyTitle = sourceSectionId === 'lodging'
+    ? `Жильё в ${cityInCase(trip.destinationCity, 'prepositional')}`
+    : sourceSectionId === 'return'
+      ? `На чём вернёмся в ${cityInCase(trip.originCity, 'accusative')}`
+      : `На чём поедем в ${cityInCase(trip.destinationCity, 'accusative')}`
+  const emptyActions = sourceSectionId === 'lodging'
+    ? [
+        { id: 'lodging', label: 'Найти жильё', icon: './assets/icons/lodging.svg' },
+        { id: 'skip', label: 'Не нужно', compact: true },
+      ]
+    : [
+        { id: 'avia', label: 'Авиа', icon: './assets/icons/transport-plane.svg' },
+        { id: 'train', label: 'Ж/д', icon: './assets/icons/transport-train.svg' },
+        { id: 'skip', label: 'Не нужно', compact: true },
+      ]
 
   Object.assign(requestedSection, {
     state: 'empty',
+    title: emptyTitle,
     summary: '',
     booking: null,
     status: null,
     removable: false,
     serviceGroup: null,
     price: 0,
+    actions: emptyActions,
   })
+  const requestedIndex = trip.sections.indexOf(requestedSection)
+  trip.sections.splice(Math.max(0, requestedIndex), 0, cancelledHistory)
   selections.delete(sectionId)
 
   if (isAviaService || isRailService) {
