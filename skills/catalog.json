@@ -95,21 +95,6 @@
     "version": "v0.1"
   },
   {
-    "id": "large-skill-e2e",
-    "name": "large-skill-e2e",
-    "version": "v1.0.0",
-    "description": "Тестовый крупный пакет для проверки публикации в Skill store.",
-    "updated_by": "yuriysteam",
-    "updated_at": 1789763374,
-    "contributors": [
-      {
-        "id": 335833483,
-        "name": "Юрий Ширяев",
-        "avatar": "yuriy.jpeg"
-      }
-    ]
-  },
-  {
     "id": "travel-figma-spec-kit-2026-09-10",
     "name": "travel-figma-spec-kit-2026-09-10",
     "description": "Создаёт и исправляет продуктовые интерфейсы в Figma из задачи, baseframe, дизайн-системы и кода: формулирует решение, предлагает концепции, проектирует сценарий и состояния. Использовать для «собери экран», «предложи концепции», «сделай макеты»; готовые макеты в спеку упаковывает figma-spec-builder.",
