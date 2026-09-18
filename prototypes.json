@@ -68,21 +68,5 @@
     "avatar": "assets/avatars/ilya.jpeg",
     "updated_at": 1789752655,
     "url": "prototypes/1566798030/avia-fluid-flow-2030-html/"
-  },
-  {
-    "title": "Yatra Travel Design Large Prototype E2E",
-    "description": "Прототип крупного проекта Yatra Travel с E2E-архитектурой для тестирования.",
-    "author": "Юрий Ширяев",
-    "avatar": "assets/avatars/yuriy.jpeg",
-    "updated_at": 1789763171,
-    "url": "prototypes/335833483/yatraveldesign-large-prototype-e2e-20260918-224243/"
-  },
-  {
-    "title": "Publication Monitor E2E",
-    "description": "Мониторинг публикаций в режиме реального времени.",
-    "author": "Юрий Ширяев",
-    "avatar": "assets/avatars/yuriy.jpeg",
-    "updated_at": 1789763603,
-    "url": "prototypes/335833483/yatraveldesign-publication-monitor-e2e-20260918-220019/"
   }
 ]
