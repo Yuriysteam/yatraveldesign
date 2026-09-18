@@ -76,5 +76,13 @@
     "avatar": "assets/avatars/yuriy.jpeg",
     "updated_at": 1789758391,
     "url": "prototypes/335833483/yatraveldesign-publication-monitor-e2e-20260918-220019/"
+  },
+  {
+    "title": "YATravelDesign Large Prototype E2E",
+    "description": "Прототип крупного проекта YATravelDesign для тестирования E2E-процессов.",
+    "author": "Юрий Ширяев",
+    "avatar": "assets/avatars/yuriy.jpeg",
+    "updated_at": 1789761712,
+    "url": "prototypes/335833483/yatraveldesign-large-prototype-e2e-20260918-224243/"
   }
 ]
