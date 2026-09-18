@@ -25,6 +25,10 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 GIT_TIMEOUT_SECONDS = 60
+PUBLICATION_INITIAL_DELAY_SECONDS = 40
+PUBLICATION_REPAIR_ATTEMPTS = 2
+PUBLICATION_REPAIR_DELAY_SECONDS = 40
+YURIYOS_NOTIFY_SCRIPT = "/Users/Yuriy/Yuriy OS/Tools/yuriyos-local-runtime/scripts/notify.sh"
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
 OLLAMA_DEFAULT_MODEL = "qwen3:8b"
 SKILL_ID_ALIASES = {
@@ -557,6 +561,18 @@ class GitRepository:
             raise GithubError("GitHub не подтвердил commit в main.")
         return commit
 
+    def retry_pages_deployment(self, subject):
+        """Create a bounded, traceable Pages redeploy attempt for a verified miss."""
+        self.sync()
+        message = f"Retry Pages publication: {subject}"[:160]
+        self.git("-c", "user.name=YA Travel Design Bot", "-c", "user.email=yatraveldesign-bot@users.noreply.github.com", "commit", "--allow-empty", "-m", message)
+        self.git("push", "origin", self.settings.branch)
+        commit = self.git("rev-parse", "HEAD").stdout.strip()
+        remote = self.git("ls-remote", "origin", f"refs/heads/{self.settings.branch}").stdout.split()
+        if not remote or remote[0] != commit:
+            raise GithubError("GitHub не подтвердил retry commit в main.")
+        return commit
+
     def files_below(self, prefix):
         directory = self.resolve(prefix)
         if not os.path.isdir(directory):
@@ -707,10 +723,17 @@ class Bot:
         files["prototypes.json"] = json.dumps(catalog, ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
         url = f"{self.settings.public_base_url}/{prefix}"
-        if self.wait_for_publication(url):
+        published, reason = self.monitor_publication(
+            f"prototype {slug}", lambda: self.wait_for_publication(url),
+            lambda: self.prototype_publication_reason(url),
+        )
+        if published:
             self.send(author_chat(author), f"Готово — {url}\nВсе прототипы по команде /prototypes")
+            if reason:
+                self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} опубликован после повторного деплоя GitHub Pages. Причина: {reason}")
         else:
-            self.send(author_chat(author), f"Получил прототип, но нужно еще немного времени — собираю страницу.\nСкоро всё будет опубликовано: {url}")
+            self.send(author_chat(author), f"Прототип не опубликован после двух попыток GitHub Pages. Причина: {reason}\nСсылка: {url}")
+            self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} не опубликован после двух попыток. Причина: {reason}")
 
     @staticmethod
     def wait_for_publication(url):
@@ -726,6 +749,17 @@ class Bot:
             if attempt < 2:
                 time.sleep(2)
         return False
+
+    @staticmethod
+    def prototype_publication_reason(url):
+        try:
+            request = urllib.request.Request(f"{url}?published={int(time.time())}", method="HEAD", headers={"Cache-Control": "no-cache"})
+            with urllib.request.urlopen(request, timeout=12) as response:
+                return f"GitHub Pages вернул HTTP {response.status}, но не подтвердил страницу"
+        except urllib.error.HTTPError as exc:
+            return f"GitHub Pages вернул HTTP {exc.code}"
+        except urllib.error.URLError as exc:
+            return f"GitHub Pages недоступен: {exc.reason}"
 
     def publish_skill(self, user_id, filename, raw, author):
         identifier, name, version, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
@@ -761,10 +795,17 @@ class Bot:
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
-        if self.wait_for_skill_publication(identifier, updated_at):
+        published, reason = self.monitor_publication(
+            f"skill {identifier}", lambda: self.wait_for_skill_publication(identifier, updated_at),
+            lambda: self.skill_publication_reason(identifier, updated_at),
+        )
+        if published:
             self.send(author_chat(author), "Скил появится в Skill store в течении 2 минут.")
+            if reason:
+                self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} опубликован после повторного деплоя. Причина: {reason}")
         else:
-            self.send(author_chat(author), "Скилл добавлен, но каталог ещё обновляется. Откройте Скилы через минуту.")
+            self.send(author_chat(author), f"Скил не опубликован после двух попыток GitHub Pages. Причина: {reason}")
+            self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} не опубликован после двух попыток. Причина: {reason}")
 
     def wait_for_skill_publication(self, identifier, updated_at):
         raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
@@ -785,6 +826,54 @@ class Bot:
             if attempt < 2:
                 time.sleep(2)
         return False
+
+    def skill_publication_reason(self, identifier, updated_at):
+        raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+        catalog_url = f"{raw_root}/skills/catalog.json?updated={updated_at}"
+        package_url = f"{raw_root}/skills/{identifier}/skill.zip?updated={updated_at}"
+        try:
+            with urllib.request.urlopen(urllib.request.Request(catalog_url, headers={"Cache-Control": "no-cache"}), timeout=12) as response:
+                catalog = json.load(response)
+            if not any(item.get("id") == identifier and item.get("updated_at") == updated_at for item in catalog):
+                return "GitHub отдал каталог без новой версии скила"
+            with urllib.request.urlopen(urllib.request.Request(package_url, method="HEAD", headers={"Cache-Control": "no-cache"}), timeout=12) as response:
+                return f"GitHub вернул HTTP {response.status} для архива скила, но не подтвердил публикацию"
+        except urllib.error.HTTPError as exc:
+            return f"GitHub вернул HTTP {exc.code} для каталога или архива скила"
+        except (urllib.error.URLError, ValueError, json.JSONDecodeError) as exc:
+            return f"GitHub не подтвердил каталог скила: {exc}"
+
+    def monitor_publication(self, subject, checker, reason):
+        """Check after Pages has had time to deploy, then make at most two repairs."""
+        time.sleep(PUBLICATION_INITIAL_DELAY_SECONDS)
+        if checker():
+            return True, None
+        initial_reason = reason()
+        last_reason = initial_reason
+        for attempt in range(1, PUBLICATION_REPAIR_ATTEMPTS + 1):
+            try:
+                self.github.retry_pages_deployment(f"{subject} attempt {attempt}")
+            except GithubError as exc:
+                last_reason = f"{initial_reason}; повторный деплой {attempt} не запущен: {exc}"
+                continue
+            time.sleep(PUBLICATION_REPAIR_DELAY_SECONDS)
+            if checker():
+                return True, initial_reason
+            last_reason = reason()
+        return False, last_reason
+
+    @staticmethod
+    def notify_publication_result(message):
+        """Report a verified Pages failure or recovery to Yuriy's Yoshi chat."""
+        try:
+            result = subprocess.run(
+                ["bash", YURIYOS_NOTIFY_SCRIPT, "travel-design-publication", message],
+                env={**os.environ, "YURIYOS_ALERT_CHAT_ID": "335833483"}, timeout=40,
+            )
+            if result.returncode:
+                print("Не удалось отправить уведомление о публикации", flush=True)
+        except (OSError, subprocess.TimeoutExpired):
+            print("Не удалось запустить уведомление о публикации", flush=True)
 
     def callback(self, query):
         data = query.get("data", "")

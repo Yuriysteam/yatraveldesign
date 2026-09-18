@@ -325,6 +325,27 @@ description: >-
         instance.settings = SimpleNamespace(public_base_url="https://example.test")
         instance.github = SimpleNamespace(git=lambda *args: SimpleNamespace(stdout="abc123\n"))
         self.assertEqual(instance.web_app_url(), "https://example.test/skills/?v=abc123")
+    def test_monitor_publication_waits_40_seconds_and_repairs_once_when_retry_succeeds(self):
+        instance = object.__new__(bot.Bot)
+        repairs = []
+        instance.github = SimpleNamespace(retry_pages_deployment=lambda subject: repairs.append(subject))
+        checks = iter([False, True])
+        with patch("bot.time.sleep") as sleep:
+            published, reason = instance.monitor_publication("prototype test", lambda: next(checks), lambda: "GitHub Pages вернул HTTP 404")
+        self.assertTrue(published)
+        self.assertEqual(reason, "GitHub Pages вернул HTTP 404")
+        self.assertEqual(repairs, ["prototype test attempt 1"])
+        self.assertEqual([call.args[0] for call in sleep.call_args_list], [40, 40])
+
+    def test_monitor_publication_stops_after_two_repairs(self):
+        instance = object.__new__(bot.Bot)
+        repairs = []
+        instance.github = SimpleNamespace(retry_pages_deployment=lambda subject: repairs.append(subject))
+        with patch("bot.time.sleep"):
+            published, reason = instance.monitor_publication("skill test", lambda: False, lambda: "каталог не обновился")
+        self.assertFalse(published)
+        self.assertEqual(reason, "каталог не обновился")
+        self.assertEqual(repairs, ["skill test attempt 1", "skill test attempt 2"])
 
 
 if __name__ == "__main__":
