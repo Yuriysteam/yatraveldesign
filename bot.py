@@ -858,7 +858,7 @@ class Bot:
             lambda: self.skill_publication_reason(identifier, updated_at, commit), progress.advance,
         )
         if published:
-            self.send(author_chat(author), "Скил появится в Skill store в течении 2 минут.")
+            self.send(author_chat(author), "Скил уже в Skill store")
         else:
             self.send(author_chat(author), f"Скил не опубликован. Причина: {reason}")
             self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} не опубликован. Причина: {reason}")
