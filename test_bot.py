@@ -365,7 +365,7 @@ description: >-
         self.assertFalse(published)
         self.assertEqual(reason, "каталог не обновился")
         self.assertEqual(repairs, ["skill attempt 1", "skill attempt 2"])
-    def test_publication_progress_uses_each_status_once(self):
+    def test_publication_progress_uses_statuses_in_order(self):
         class FakeBot:
             def __init__(self): self.edits, self.typing_chats = [], []
             def typing(self, chat_id): self.typing_chats.append(chat_id)
@@ -376,7 +376,7 @@ description: >-
             progress.advance()
         self.assertEqual(len(fake.edits), len(bot.PROTOTYPE_PROGRESS_STATUSES))
         self.assertEqual(fake.typing_chats, [7] * len(bot.PROTOTYPE_PROGRESS_STATUSES))
-        self.assertEqual({edit[2] for edit in fake.edits}, set(bot.PROTOTYPE_PROGRESS_STATUSES))
+        self.assertEqual([edit[2] for edit in fake.edits], list(bot.PROTOTYPE_PROGRESS_STATUSES))
         self.assertTrue(all(edit[:2] == (7, 9) for edit in fake.edits))
 
 

@@ -10,7 +10,6 @@ import html
 import io
 import json
 import os
-import random
 import re
 import sqlite3
 import subprocess
@@ -46,20 +45,25 @@ PEOPLE = {
     335833483: ("Юрий Ширяев", "yuriy.jpeg"),
 }
 PROTOTYPE_PROGRESS_STATUSES = (
-    "Взял в работу",
-    "Делаю проверку на колхоз",
-    "Нью протик?",
-    "У тебя ещё токены остались?",
-    "Ты – легенда!",
-    "Протик посмотрел! Норм ваще",
-    "Уважаемо. Публикую",
+    "Взял в работу...",
+    "Делаю проверку на колхоз...",
+    "Ща, абажи...",
+    "Протик посмотрел! Норм, публикую....",
+    "Ищу куда на сервере положить...",
+    "Уважаемо. Но надо подождать...",
+    "Ещё чуть-чуть...",
+    "Может дизайны пока поделаешь? Гружу...",
 )
 SKILL_PROGRESS_STATUSES = (
-    "Так, смотрю твой скил в работу",
-    "Не в Авито подсмотрел?)",
-    "Отличный скил, расскажи команде",
-    "Моё уважение. Публикую!",
-    "Пиши ещё скилы",
+    "Смотрю твой скил....",
+    "Сейчас опубликю и команде расскажешь...",
+    "Моё уважение. Публикую....",
+    "Ещё чуть-чуть...",
+    "Терпение, публикация в процессе...",
+    "Сидишь читаешь? А я публикую...",
+    "Момент...",
+    "Большой скил видать....",
+    "Ещё чуть-чуть...",
 )
 
 
@@ -72,13 +76,12 @@ class GithubError(Exception):
 
 
 class PublicationProgress:
-    """Replace one Telegram message with playful, non-repeating publication updates."""
+    """Replace one Telegram message with ordered five-second publication updates."""
     def __init__(self, bot, message, statuses):
         self.bot = bot
         self.chat_id = message["chat"]["id"]
         self.message_id = message["message_id"]
         self.statuses = list(statuses)
-        random.SystemRandom().shuffle(self.statuses)
         self.position = 0
 
     def advance(self):
