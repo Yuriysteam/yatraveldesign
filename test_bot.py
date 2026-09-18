@@ -344,12 +344,27 @@ description: >-
         self.assertIsNone(reason)
         self.assertEqual([call.args[0] for call in waited.call_args_list], ["original-commit"])
 
-    def test_monitor_publication_does_not_create_a_repair_commit(self):
+    def test_monitor_publication_repairs_once_after_a_confirmed_workflow_but_missing_catalog(self):
         instance = object.__new__(bot.Bot)
+        repairs = []
+        instance.github = SimpleNamespace(retry_pages_deployment=lambda subject: repairs.append(subject) or "retry-commit")
+        checks = iter([False, True])
+        with patch.object(instance, "wait_for_github_actions", side_effect=[(True, None), (True, None)]) as waited:
+            published, reason = instance.monitor_publication("skill", "original-commit", lambda: next(checks), lambda: "каталог не обновился")
+        self.assertTrue(published)
+        self.assertEqual(reason, "каталог не обновился")
+        self.assertEqual(repairs, ["skill attempt 1"])
+        self.assertEqual([call.args[0] for call in waited.call_args_list], ["original-commit", "retry-commit"])
+
+    def test_monitor_publication_stops_after_two_repairs(self):
+        instance = object.__new__(bot.Bot)
+        repairs = []
+        instance.github = SimpleNamespace(retry_pages_deployment=lambda subject: repairs.append(subject) or f"retry-{len(repairs)}")
         with patch.object(instance, "wait_for_github_actions", return_value=(True, None)):
             published, reason = instance.monitor_publication("skill", "original-commit", lambda: False, lambda: "каталог не обновился")
         self.assertFalse(published)
         self.assertEqual(reason, "каталог не обновился")
+        self.assertEqual(repairs, ["skill attempt 1", "skill attempt 2"])
 
 
 if __name__ == "__main__":

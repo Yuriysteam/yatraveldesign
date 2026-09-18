@@ -886,7 +886,19 @@ class Bot:
         workflow_ok, workflow_reason = self.wait_for_github_actions(commit)
         if workflow_ok and checker():
             return True, None
-        return False, workflow_reason or reason()
+        initial_reason = workflow_reason or reason()
+        last_reason = initial_reason
+        for attempt in range(1, PUBLICATION_REPAIR_ATTEMPTS + 1):
+            try:
+                retry_commit = self.github.retry_pages_deployment(f"{subject} attempt {attempt}")
+            except GithubError as exc:
+                last_reason = f"{initial_reason}; повторный деплой {attempt} не запущен: {exc}"
+                continue
+            workflow_ok, workflow_reason = self.wait_for_github_actions(retry_commit)
+            if workflow_ok and checker():
+                return True, initial_reason
+            last_reason = workflow_reason or reason()
+        return False, last_reason
 
     @staticmethod
     def notify_publication_result(message):
