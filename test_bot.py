@@ -1,5 +1,7 @@
 import io
 import os
+import sqlite3
+import subprocess
 import unittest
 import zipfile
 from types import SimpleNamespace
@@ -20,6 +22,27 @@ def archive(entries):
 
 
 class BotTests(unittest.TestCase):
+    def test_failed_update_does_not_advance_offset(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        instance.db.executescript("create table seen_updates(id integer primary key); create table bot_state(key text primary key, value text); insert into bot_state values('offset','7');")
+        with patch.object(instance, "handle", side_effect=RuntimeError("offline")):
+            with self.assertRaises(RuntimeError):
+                instance.process_update({"update_id": 7})
+        self.assertEqual(instance.db.execute("select value from bot_state").fetchone()[0], "7")
+        with patch.object(instance, "handle") as handle:
+            self.assertEqual(instance.process_update({"update_id": 7}), 8)
+            self.assertEqual(instance.process_update({"update_id": 7}), 8)
+            handle.assert_called_once()
+        instance.db.close()
+
+    def test_git_timeout_becomes_a_publication_error(self):
+        repository = bot.GitRepository.__new__(bot.GitRepository)
+        repository.root = "."
+        with patch("bot.subprocess.run", side_effect=subprocess.TimeoutExpired("git", 60)):
+            with self.assertRaisesRegex(bot.GithubError, "60 секунд"):
+                repository.git("push")
+
     def test_detects_technical_labels_but_keeps_human_names(self):
         self.assertTrue(bot.is_technical_label("travel-feature-check"))
         self.assertTrue(bot.is_technical_label("calendar-cli"))
@@ -29,6 +52,21 @@ class BotTests(unittest.TestCase):
     def test_accepts_a_static_prototype(self):
         members = bot.safe_zip_members(archive({"index.html": "<h1>OK</h1>", "assets/app.css": "body{}"}))
         self.assertEqual([name for name, _ in members], ["index.html", "assets/app.css"])
+
+    def test_creates_index_for_a_single_named_html_entrypoint(self):
+        members = bot.safe_zip_members(archive({"flight-flow.html": "<html><head></head><body>OK</body></html>"}))
+        published = dict(members)
+        self.assertIn("flight-flow.html", published)
+        self.assertIn("index.html", published)
+        self.assertEqual(published["index.html"], published["flight-flow.html"])
+
+    def test_unwraps_a_single_named_html_entrypoint_for_the_catalog_url(self):
+        members = bot.safe_zip_members(archive({"flight-flow/main.html": "<h1>OK</h1>", "flight-flow/assets/app.css": "body{}"}))
+        self.assertEqual([name for name, _ in members], ["main.html", "assets/app.css", "index.html"])
+
+    def test_rejects_ambiguous_root_html_entrypoints(self):
+        with self.assertRaisesRegex(bot.UserError, "несколько HTML"):
+            bot.safe_zip_members(archive({"first.html": "<h1>First</h1>", "second.html": "<h1>Second</h1>"}))
 
     def test_unwraps_a_single_archive_root_for_the_catalog_url(self):
         members = bot.safe_zip_members(archive({
@@ -252,7 +290,9 @@ description: >-
 
     def test_adds_noindex_to_html(self):
         result = bot.safe_zip_members(archive({"index.html": "<html><head></head><body>OK</body></html>"}))
-        self.assertIn(b'name="robots" content="noindex, nofollow, noarchive"', result[0][1])
+        content = result[0][1]
+        self.assertIn(b'<head>  <meta name="robots" content="noindex, nofollow, noarchive">\n</head>', content)
+        self.assertNotIn(b'\\n', content)
 
     def test_wait_for_publication_accepts_http_200(self):
         class Response:

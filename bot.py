@@ -24,6 +24,7 @@ from pathlib import PurePosixPath
 MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
+GIT_TIMEOUT_SECONDS = 60
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
 OLLAMA_DEFAULT_MODEL = "qwen3:8b"
 SKILL_ID_ALIASES = {
@@ -139,6 +140,7 @@ def safe_zip_members(raw):
     members = strip_archive_root(safe_archive_members(raw, MAX_UNPACKED_BYTES))
     if not any(name.lower().endswith((".html", ".htm")) for name, _ in members):
         raise UserError("В ZIP не найдена HTML-страница.")
+    members = add_catalog_entrypoint(members)
     validate_prototype_references(members)
     return [(name, add_noindex(name, content)) for name, content in members]
 
@@ -156,9 +158,29 @@ def strip_archive_root(members):
     if len(roots) != 1 or any(len(path.parts) == 1 for path in paths):
         return members
     root = roots.pop()
-    if not any(str(path).casefold() in {f"{root}/index.html".casefold(), f"{root}/index.htm".casefold()} for path in paths):
+    if not any(path.suffix.casefold() in {".html", ".htm"} for path in paths):
         return members
     return [(str(PurePosixPath(*PurePosixPath(name).parts[1:])), content) for name, content in members]
+
+
+def add_catalog_entrypoint(members):
+    """Expose an uploaded main page at the stable catalog directory URL."""
+    root_html = [
+        (name, content) for name, content in members
+        if len(PurePosixPath(name).parts) == 1
+        and PurePosixPath(name).suffix.casefold() in {".html", ".htm"}
+    ]
+    index = next(((name, content) for name, content in root_html if name.casefold() == "index.html"), None)
+    if index:
+        return members
+    index_htm = next(((name, content) for name, content in root_html if name.casefold() == "index.htm"), None)
+    if index_htm:
+        return members + [("index.html", index_htm[1])]
+    if len(root_html) == 1:
+        return members + [("index.html", root_html[0][1])]
+    if not root_html:
+        raise UserError("Главная HTML-страница должна лежать в корне ZIP.")
+    raise UserError("В ZIP несколько HTML-страниц в корне. Назовите главную index.html.")
 
 
 def safe_archive_members(raw, max_bytes):
@@ -236,14 +258,18 @@ def add_noindex(name, content):
         source = content.decode("utf-8")
     except UnicodeDecodeError:
         return content
-    if re.search(r'<meta\\s+[^>]*name=["\\\']robots["\\\']', source, re.I):
+    if re.search(r'<meta\s+[^>]*name=["\']robots["\']', source, re.I):
         return content
     directive = '<meta name="robots" content="noindex, nofollow, noarchive">'
-    match = re.search(r"</head\\s*>", source, re.I)
+    match = re.search(r"</head\s*>", source, re.I)
     if match:
-        source = source[:match.start()] + "  " + directive + "\\n" + source[match.start():]
+        source = source[:match.start()] + "  " + directive + "\n" + source[match.start():]
     else:
-        source = directive + "\\n" + source
+        html = re.search(r"<html\b[^>]*>", source, re.I)
+        if html:
+            source = source[:html.end()] + "\n<head>" + directive + "</head>" + source[html.end():]
+        else:
+            source = "<head>" + directive + "</head>\n" + source
     return source.encode("utf-8")
 
 
@@ -479,7 +505,9 @@ class GitRepository:
 
     def git(self, *args, check=True):
         try:
-            return subprocess.run(["git", "-C", self.root, *args], check=check, capture_output=True, text=True)
+            return subprocess.run(["git", "-C", self.root, *args], check=check, capture_output=True, text=True, timeout=GIT_TIMEOUT_SECONDS)
+        except subprocess.TimeoutExpired as exc:
+            raise GithubError("Git не ответил за 60 секунд.") from exc
         except subprocess.CalledProcessError as exc:
             raise GithubError(exc.stderr.strip() or exc.stdout.strip() or "Git operation failed") from exc
 
@@ -687,7 +715,7 @@ class Bot:
     @staticmethod
     def wait_for_publication(url):
         """Avoid declaring success before GitHub Pages serves the uploaded page."""
-        for attempt in range(6):
+        for attempt in range(3):
             try:
                 request = urllib.request.Request(f"{url}?published={int(time.time())}", method="HEAD", headers={"Cache-Control": "no-cache"})
                 with urllib.request.urlopen(request, timeout=12) as response:
@@ -695,8 +723,8 @@ class Bot:
                         return True
             except urllib.error.URLError:
                 pass
-            if attempt < 5:
-                time.sleep(10)
+            if attempt < 2:
+                time.sleep(2)
         return False
 
     def publish_skill(self, user_id, filename, raw, author):
@@ -742,7 +770,7 @@ class Bot:
         raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
         catalog_url = f"{raw_root}/skills/catalog.json?updated={updated_at}"
         package_url = f"{raw_root}/skills/{identifier}/skill.zip?updated={updated_at}"
-        for attempt in range(6):
+        for attempt in range(3):
             try:
                 request = urllib.request.Request(catalog_url, headers={"Cache-Control": "no-cache"})
                 with urllib.request.urlopen(request, timeout=12) as response:
@@ -754,7 +782,7 @@ class Bot:
                         return True
             except (urllib.error.URLError, ValueError, json.JSONDecodeError):
                 pass
-            if attempt < 5:
+            if attempt < 2:
                 time.sleep(2)
         return False
 
@@ -806,11 +834,13 @@ class Bot:
                 self.send(message["chat"]["id"], str(exc))
             except Exception as exc:
                 print(exc, flush=True)
-                self.send(message["chat"]["id"], "Не удалось загрузить файл. Попробуйте ещё раз.")
+                raise
         else:
             self.send(message["chat"]["id"], "Пришли ZIP-архив с прототипом или со скилом. Все скилы доступны в меню бота.")
 
     def run(self):
+        self.db.execute("insert or replace into bot_state values ('started_at', ?)", (str(time.time()),))
+        self.db.commit()
         self.configure_menu()
         self.configure_commands()
         saved = self.db.execute("select value from bot_state where key='offset'").fetchone()
@@ -825,18 +855,25 @@ class Bot:
         while True:
             try:
                 updates = self.telegram("getUpdates", {"offset": offset, "timeout": 50, "allowed_updates": ["message", "callback_query"]})
+                self.db.execute("insert or replace into bot_state values ('poll_ok_at', ?)", (str(time.time()),))
+                self.db.commit()
                 for update in updates:
-                    offset = update["update_id"] + 1
-                    self.db.execute("insert or replace into bot_state values ('offset', ?)", (str(offset),))
-                    if self.db.execute("select 1 from seen_updates where id=?", (update["update_id"],)).fetchone():
-                        self.db.commit()
-                        continue
-                    self.handle(update)
-                    self.db.execute("insert into seen_updates values (?)", (update["update_id"],))
-                    self.db.commit()
+                    offset = self.process_update(update)
             except Exception as exc:
+                self.db.rollback()
                 print(exc, flush=True)
                 time.sleep(5)
+
+    def process_update(self, update):
+        """Acknowledge only completed updates, including after a restart."""
+        update_id = update["update_id"]
+        if not self.db.execute("select 1 from seen_updates where id=?", (update_id,)).fetchone():
+            self.handle(update)
+            self.db.execute("insert into seen_updates values (?)", (update_id,))
+        offset = update_id + 1
+        self.db.execute("insert or replace into bot_state values ('offset', ?)", (str(offset),))
+        self.db.commit()
+        return offset
 
 
 def author_chat(author):
