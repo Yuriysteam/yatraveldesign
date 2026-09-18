@@ -25,9 +25,9 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 GIT_TIMEOUT_SECONDS = 60
-PUBLICATION_INITIAL_DELAY_SECONDS = 40
+GITHUB_ACTIONS_POLL_SECONDS = 3
+GITHUB_ACTIONS_TIMEOUT_SECONDS = 600
 PUBLICATION_REPAIR_ATTEMPTS = 2
-PUBLICATION_REPAIR_DELAY_SECONDS = 40
 YURIYOS_NOTIFY_SCRIPT = "/Users/Yuriy/Yuriy OS/Tools/yuriyos-local-runtime/scripts/notify.sh"
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
 OLLAMA_DEFAULT_MODEL = "qwen3:8b"
@@ -562,7 +562,7 @@ class GitRepository:
         return commit
 
     def retry_pages_deployment(self, subject):
-        """Create a bounded, traceable Pages redeploy attempt for a verified miss."""
+        """Change a watched marker so a verified repair retry starts Pages again."""
         self.sync()
         marker = self.resolve("pages-retry.txt")
         with open(marker, "w", encoding="utf-8") as file:
@@ -576,6 +576,7 @@ class GitRepository:
         if not remote or remote[0] != commit:
             raise GithubError("GitHub не подтвердил retry commit в main.")
         return commit
+
 
     def files_below(self, prefix):
         directory = self.resolve(prefix)
@@ -725,19 +726,17 @@ class Bot:
             "updated_at": int(time.time()), "url": prefix,
         })
         files["prototypes.json"] = json.dumps(catalog, ensure_ascii=False, indent=2).encode()
-        self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
+        commit = self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
         url = f"{self.settings.public_base_url}/{prefix}"
         published, reason = self.monitor_publication(
-            f"prototype {slug}", lambda: self.wait_for_publication(url),
+            f"prototype {slug}", commit, lambda: self.wait_for_publication(url),
             lambda: self.prototype_publication_reason(url),
         )
         if published:
             self.send(author_chat(author), f"Готово — {url}\nВсе прототипы по команде /prototypes")
-            if reason:
-                self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} опубликован после повторного деплоя GitHub Pages. Причина: {reason}")
         else:
-            self.send(author_chat(author), f"Прототип не опубликован после двух попыток GitHub Pages. Причина: {reason}\nСсылка: {url}")
-            self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} не опубликован после двух попыток. Причина: {reason}")
+            self.send(author_chat(author), f"Прототип не опубликован. Причина: {reason}\nСсылка: {url}")
+            self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} не опубликован. Причина: {reason}")
 
     @staticmethod
     def wait_for_publication(url):
@@ -797,22 +796,20 @@ class Bot:
         catalog.append(item)
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
-        self.github.commit_files(files, removals, f"Update skill {display_name}")
+        commit = self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
         published, reason = self.monitor_publication(
-            f"skill {identifier}", lambda: self.wait_for_skill_publication(identifier, updated_at),
-            lambda: self.skill_publication_reason(identifier, updated_at),
+            f"skill {identifier}", commit, lambda: self.wait_for_skill_publication(identifier, updated_at, commit),
+            lambda: self.skill_publication_reason(identifier, updated_at, commit),
         )
         if published:
             self.send(author_chat(author), "Скил появится в Skill store в течении 2 минут.")
-            if reason:
-                self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} опубликован после повторного деплоя. Причина: {reason}")
         else:
-            self.send(author_chat(author), f"Скил не опубликован после двух попыток GitHub Pages. Причина: {reason}")
-            self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} не опубликован после двух попыток. Причина: {reason}")
+            self.send(author_chat(author), f"Скил не опубликован. Причина: {reason}")
+            self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} не опубликован. Причина: {reason}")
 
-    def wait_for_skill_publication(self, identifier, updated_at):
-        raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+    def wait_for_skill_publication(self, identifier, updated_at, commit):
+        raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{commit}"
         catalog_url = f"{raw_root}/skills/catalog.json?updated={updated_at}"
         package_url = f"{raw_root}/skills/{identifier}/skill.zip?updated={updated_at}"
         for attempt in range(3):
@@ -831,8 +828,8 @@ class Bot:
                 time.sleep(2)
         return False
 
-    def skill_publication_reason(self, identifier, updated_at):
-        raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+    def skill_publication_reason(self, identifier, updated_at, commit):
+        raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{commit}"
         catalog_url = f"{raw_root}/skills/catalog.json?updated={updated_at}"
         package_url = f"{raw_root}/skills/{identifier}/skill.zip?updated={updated_at}"
         try:
@@ -847,24 +844,49 @@ class Bot:
         except (urllib.error.URLError, ValueError, json.JSONDecodeError) as exc:
             return f"GitHub не подтвердил каталог скила: {exc}"
 
-    def monitor_publication(self, subject, checker, reason):
-        """Check after Pages has had time to deploy, then make at most two repairs."""
-        time.sleep(PUBLICATION_INITIAL_DELAY_SECONDS)
-        if checker():
+    def github_actions_status(self, commit):
+        url = f"https://api.github.com/repos/{self.settings.repository}/actions/runs?head_sha={urllib.parse.quote(commit)}&event=push&per_page=20"
+        request = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": "yatraveldesign-bot"})
+        try:
+            with urllib.request.urlopen(request, timeout=12) as response:
+                runs = json.load(response).get("workflow_runs", [])
+        except (urllib.error.URLError, ValueError, json.JSONDecodeError) as exc:
+            return "waiting", f"GitHub Actions пока недоступен: {exc}"
+        pages_runs = [
+            run for run in runs
+            if run.get("name") == "Publish prototypes" and run.get("head_sha") == commit
+        ]
+        if not pages_runs:
+            return "waiting", "GitHub Actions ещё не создал Pages workflow для commit"
+        run = max(pages_runs, key=lambda item: item.get("created_at", ""))
+        if run.get("status") != "completed":
+            return "waiting", "GitHub Pages ещё собирает публикацию"
+        if run.get("conclusion") == "success":
+            return "success", None
+        return "failed", f"GitHub Pages завершился со статусом {run.get('conclusion') or 'unknown'}"
+
+    def wait_for_github_actions(self, commit):
+        deadline = time.monotonic() + GITHUB_ACTIONS_TIMEOUT_SECONDS
+        last_reason = "GitHub Actions не дал статус"
+        while True:
+            status, detail = self.github_actions_status(commit)
+            if status == "success":
+                return True, None
+            if status == "failed":
+                return False, detail
+            last_reason = detail
+            if time.monotonic() >= deadline:
+                return False, last_reason
+            time.sleep(GITHUB_ACTIONS_POLL_SECONDS)
+
+    def monitor_publication(self, subject, commit, checker, reason):
+        """Wait for the exact commit's Pages workflow, then verify the public artefact."""
+        if not commit:
+            return (True, None) if checker() else (False, reason())
+        workflow_ok, workflow_reason = self.wait_for_github_actions(commit)
+        if workflow_ok and checker():
             return True, None
-        initial_reason = reason()
-        last_reason = initial_reason
-        for attempt in range(1, PUBLICATION_REPAIR_ATTEMPTS + 1):
-            try:
-                self.github.retry_pages_deployment(f"{subject} attempt {attempt}")
-            except GithubError as exc:
-                last_reason = f"{initial_reason}; повторный деплой {attempt} не запущен: {exc}"
-                continue
-            time.sleep(PUBLICATION_REPAIR_DELAY_SECONDS)
-            if checker():
-                return True, initial_reason
-            last_reason = reason()
-        return False, last_reason
+        return False, workflow_reason or reason()
 
     @staticmethod
     def notify_publication_result(message):

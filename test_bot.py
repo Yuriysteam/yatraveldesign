@@ -302,7 +302,7 @@ description: >-
         with patch("urllib.request.urlopen", return_value=Response()):
             self.assertTrue(bot.Bot.wait_for_publication("https://example.test/prototype/"))
 
-    def test_wait_for_skill_publication_checks_versioned_raw_urls(self):
+    def test_wait_for_skill_publication_checks_the_committed_raw_urls(self):
         class Response:
             def __init__(self, body, status=200):
                 self.body, self.status = io.BytesIO(body), status
@@ -313,11 +313,11 @@ description: >-
         instance.settings = SimpleNamespace(repository="example/repository", branch="main")
         catalog = b'[{"id":"research","updated_at":123}]'
         with patch("bot.urllib.request.urlopen", side_effect=[Response(catalog), Response(b"")]) as opened:
-            self.assertTrue(instance.wait_for_skill_publication("research", 123))
+            self.assertTrue(instance.wait_for_skill_publication("research", 123, "abc123"))
         urls = [call.args[0].full_url for call in opened.call_args_list]
         self.assertEqual(urls, [
-            "https://raw.githubusercontent.com/example/repository/main/skills/catalog.json?updated=123",
-            "https://raw.githubusercontent.com/example/repository/main/skills/research/skill.zip?updated=123",
+            "https://raw.githubusercontent.com/example/repository/abc123/skills/catalog.json?updated=123",
+            "https://raw.githubusercontent.com/example/repository/abc123/skills/research/skill.zip?updated=123",
         ])
 
     def test_web_app_url_uses_the_current_revision(self):
@@ -325,27 +325,31 @@ description: >-
         instance.settings = SimpleNamespace(public_base_url="https://example.test")
         instance.github = SimpleNamespace(git=lambda *args: SimpleNamespace(stdout="abc123\n"))
         self.assertEqual(instance.web_app_url(), "https://example.test/skills/?v=abc123")
-    def test_monitor_publication_waits_40_seconds_and_repairs_once_when_retry_succeeds(self):
+    def test_github_actions_status_accepts_success_only_for_exact_commit(self):
+        class Response:
+            def __enter__(self): return self
+            def __exit__(self, *args): return False
+            def read(self): return b'{"workflow_runs":[{"name":"Publish prototypes","head_sha":"other","status":"completed","conclusion":"success","created_at":"2026-09-18T00:00:00Z"},{"name":"Publish prototypes","head_sha":"abc123","status":"completed","conclusion":"success","created_at":"2026-09-18T00:01:00Z"}]}'
         instance = object.__new__(bot.Bot)
-        repairs = []
-        instance.github = SimpleNamespace(retry_pages_deployment=lambda subject: repairs.append(subject))
-        checks = iter([False, True])
-        with patch("bot.time.sleep") as sleep:
-            published, reason = instance.monitor_publication("prototype test", lambda: next(checks), lambda: "GitHub Pages вернул HTTP 404")
-        self.assertTrue(published)
-        self.assertEqual(reason, "GitHub Pages вернул HTTP 404")
-        self.assertEqual(repairs, ["prototype test attempt 1"])
-        self.assertEqual([call.args[0] for call in sleep.call_args_list], [40, 40])
+        instance.settings = SimpleNamespace(repository="example/repository")
+        with patch("bot.urllib.request.urlopen", return_value=Response()) as opened:
+            self.assertEqual(instance.github_actions_status("abc123"), ("success", None))
+        self.assertIn("head_sha=abc123", opened.call_args.args[0].full_url)
 
-    def test_monitor_publication_stops_after_two_repairs(self):
+    def test_monitor_publication_checks_url_after_exact_commit_workflow(self):
         instance = object.__new__(bot.Bot)
-        repairs = []
-        instance.github = SimpleNamespace(retry_pages_deployment=lambda subject: repairs.append(subject))
-        with patch("bot.time.sleep"):
-            published, reason = instance.monitor_publication("skill test", lambda: False, lambda: "каталог не обновился")
+        with patch.object(instance, "wait_for_github_actions", return_value=(True, None)) as waited:
+            published, reason = instance.monitor_publication("prototype", "original-commit", lambda: True, lambda: "GitHub Pages вернул HTTP 404")
+        self.assertTrue(published)
+        self.assertIsNone(reason)
+        self.assertEqual([call.args[0] for call in waited.call_args_list], ["original-commit"])
+
+    def test_monitor_publication_does_not_create_a_repair_commit(self):
+        instance = object.__new__(bot.Bot)
+        with patch.object(instance, "wait_for_github_actions", return_value=(True, None)):
+            published, reason = instance.monitor_publication("skill", "original-commit", lambda: False, lambda: "каталог не обновился")
         self.assertFalse(published)
         self.assertEqual(reason, "каталог не обновился")
-        self.assertEqual(repairs, ["skill test attempt 1", "skill test attempt 2"])
 
 
 if __name__ == "__main__":
