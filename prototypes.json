@@ -68,5 +68,13 @@
     "avatar": "assets/avatars/ilya.jpeg",
     "updated_at": 1789752655,
     "url": "prototypes/1566798030/avia-fluid-flow-2030-html/"
+  },
+  {
+    "title": "Publication Monitor E2E",
+    "description": "Мониторинг публикаций в режиме реального времени.",
+    "author": "Юрий Ширяев",
+    "avatar": "assets/avatars/yuriy.jpeg",
+    "updated_at": 1789765575,
+    "url": "prototypes/335833483/yatraveldesign-publication-monitor-e2e-20260918-220019/"
   }
 ]
