@@ -9,6 +9,7 @@ on:
       - 'skills/**'
       - 'index.html'
       - 'prototypes.json'
+      - 'pages-retry.txt'
       - 'robots.txt'
       - '.nojekyll'
       - '.github/workflows/pages.yml'

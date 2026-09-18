@@ -564,8 +564,12 @@ class GitRepository:
     def retry_pages_deployment(self, subject):
         """Create a bounded, traceable Pages redeploy attempt for a verified miss."""
         self.sync()
+        marker = self.resolve("pages-retry.txt")
+        with open(marker, "w", encoding="utf-8") as file:
+            file.write(f"Last Pages retry: {int(time.time())}\n")
         message = f"Retry Pages publication: {subject}"[:160]
-        self.git("-c", "user.name=YA Travel Design Bot", "-c", "user.email=yatraveldesign-bot@users.noreply.github.com", "commit", "--allow-empty", "-m", message)
+        self.git("add", "--", "pages-retry.txt")
+        self.git("-c", "user.name=YA Travel Design Bot", "-c", "user.email=yatraveldesign-bot@users.noreply.github.com", "commit", "-m", message)
         self.git("push", "origin", self.settings.branch)
         commit = self.git("rev-parse", "HEAD").stdout.strip()
         remote = self.git("ls-remote", "origin", f"refs/heads/{self.settings.branch}").stdout.split()
