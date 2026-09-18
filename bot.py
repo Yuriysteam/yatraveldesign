@@ -26,7 +26,7 @@ MAX_UPLOAD_BYTES = 20 * 1024 * 1024
 MAX_UNPACKED_BYTES = 100 * 1024 * 1024
 MAX_ARCHIVE_FILES = 2_000
 GIT_TIMEOUT_SECONDS = 60
-GITHUB_ACTIONS_POLL_SECONDS = 3
+GITHUB_ACTIONS_POLL_SECONDS = 5
 GITHUB_ACTIONS_TIMEOUT_SECONDS = 600
 PUBLICATION_REPAIR_ATTEMPTS = 2
 YURIYOS_NOTIFY_SCRIPT = "/Users/Yuriy/Yuriy OS/Tools/yuriyos-local-runtime/scripts/notify.sh"
@@ -87,6 +87,7 @@ class PublicationProgress:
         text = self.statuses[self.position]
         self.position += 1
         try:
+            self.bot.typing(self.chat_id)
             self.bot.edit_message(self.chat_id, self.message_id, text)
         except Exception as exc:
             print(f"Не удалось обновить статус публикации: {exc}", flush=True)
@@ -650,6 +651,9 @@ class Bot:
 
     def edit_message(self, chat_id, message_id, text):
         return self.telegram("editMessageText", {"chat_id": chat_id, "message_id": message_id, "text": text})
+
+    def typing(self, chat_id):
+        return self.telegram("sendChatAction", {"chat_id": chat_id, "action": "typing"})
 
     def is_publisher(self, user_id):
         return user_id in self.settings.allowed_user_ids
