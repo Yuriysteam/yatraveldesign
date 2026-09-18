@@ -365,6 +365,17 @@ description: >-
         self.assertFalse(published)
         self.assertEqual(reason, "каталог не обновился")
         self.assertEqual(repairs, ["skill attempt 1", "skill attempt 2"])
+    def test_publication_progress_uses_each_status_once(self):
+        class FakeBot:
+            def __init__(self): self.edits = []
+            def edit_message(self, chat_id, message_id, text): self.edits.append((chat_id, message_id, text))
+        fake = FakeBot()
+        progress = bot.PublicationProgress(fake, {"chat": {"id": 7}, "message_id": 9}, bot.PROTOTYPE_PROGRESS_STATUSES)
+        for _ in range(len(bot.PROTOTYPE_PROGRESS_STATUSES) + 1):
+            progress.advance()
+        self.assertEqual(len(fake.edits), len(bot.PROTOTYPE_PROGRESS_STATUSES))
+        self.assertEqual({edit[2] for edit in fake.edits}, set(bot.PROTOTYPE_PROGRESS_STATUSES))
+        self.assertTrue(all(edit[:2] == (7, 9) for edit in fake.edits))
 
 
 if __name__ == "__main__":

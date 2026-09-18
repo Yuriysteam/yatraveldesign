@@ -10,6 +10,7 @@ import html
 import io
 import json
 import os
+import random
 import re
 import sqlite3
 import subprocess
@@ -44,6 +45,22 @@ PEOPLE = {
     136071392: ("Алекс", "alex.jpeg"), 112174798: ("Люба", "liyba.jpeg"),
     335833483: ("Юрий Ширяев", "yuriy.jpeg"),
 }
+PROTOTYPE_PROGRESS_STATUSES = (
+    "Взял в работу",
+    "Делаю проверку на колхоз",
+    "Нью протик?",
+    "У тебя ещё токены остались?",
+    "Ты – легенда!",
+    "Протик посмотрел! Норм ваще",
+    "Уважаемо. Публикую",
+)
+SKILL_PROGRESS_STATUSES = (
+    "Так, смотрю твой скил в работу",
+    "Не в Авито подсмотрел?)",
+    "Отличный скил, расскажи команде",
+    "Моё уважение. Публикую!",
+    "Пиши ещё скилы",
+)
 
 
 class UserError(Exception):
@@ -52,6 +69,27 @@ class UserError(Exception):
 
 class GithubError(Exception):
     pass
+
+
+class PublicationProgress:
+    """Replace one Telegram message with playful, non-repeating publication updates."""
+    def __init__(self, bot, message, statuses):
+        self.bot = bot
+        self.chat_id = message["chat"]["id"]
+        self.message_id = message["message_id"]
+        self.statuses = list(statuses)
+        random.SystemRandom().shuffle(self.statuses)
+        self.position = 0
+
+    def advance(self):
+        if self.position >= len(self.statuses):
+            return
+        text = self.statuses[self.position]
+        self.position += 1
+        try:
+            self.bot.edit_message(self.chat_id, self.message_id, text)
+        except Exception as exc:
+            print(f"Не удалось обновить статус публикации: {exc}", flush=True)
 
 
 def config(name, default=None):
@@ -608,7 +646,10 @@ class Bot:
         return result["result"]
 
     def send(self, chat_id, text, **extra):
-        self.telegram("sendMessage", {"chat_id": chat_id, "text": text, **extra})
+        return self.telegram("sendMessage", {"chat_id": chat_id, "text": text, **extra})
+
+    def edit_message(self, chat_id, message_id, text):
+        return self.telegram("editMessageText", {"chat_id": chat_id, "message_id": message_id, "text": text})
 
     def is_publisher(self, user_id):
         return user_id in self.settings.allowed_user_ids
@@ -693,7 +734,7 @@ class Bot:
             return
         if document.get("file_size", 0) > MAX_UPLOAD_BYTES:
             raise UserError("Файл не должен превышать 20 МБ.")
-        self.send(message["chat"]["id"], "Загружаю…")
+        progress_message = self.send(message["chat"]["id"], "Загружаю…")
         raw = self.download_document(document)
         if pending:
             action = pending[0]
@@ -702,15 +743,19 @@ class Bot:
                 raise UserError("Для прототипа нужен ZIP." if action == "prototype" else "Пришлите ZIP или SKILL.md.")
         else:
             action = detect_upload(filename, raw)
+        statuses = PROTOTYPE_PROGRESS_STATUSES if action == "prototype" else SKILL_PROGRESS_STATUSES
+        progress = PublicationProgress(self, progress_message, statuses)
+        progress.advance()
         if action == "prototype":
-            self.publish_prototype(user_id, filename, raw, message["from"])
+            self.publish_prototype(user_id, filename, raw, message["from"], progress)
         else:
-            self.publish_skill(user_id, filename, raw, message["from"])
+            self.publish_skill(user_id, filename, raw, message["from"], progress)
         if pending:
             self.db.execute("delete from pending where user_id=?", (user_id,))
             self.db.commit()
 
-    def publish_prototype(self, user_id, filename, raw, author):
+    def publish_prototype(self, user_id, filename, raw, author, progress):
+        progress.advance()
         slug = slugify(filename.rsplit(".", 1)[0])
         if not slug:
             raise UserError("Не удалось составить ссылку из имени ZIP.")
@@ -726,11 +771,12 @@ class Bot:
             "updated_at": int(time.time()), "url": prefix,
         })
         files["prototypes.json"] = json.dumps(catalog, ensure_ascii=False, indent=2).encode()
+        progress.advance()
         commit = self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
         url = f"{self.settings.public_base_url}/{prefix}"
         published, reason = self.monitor_publication(
             f"prototype {slug}", commit, lambda: self.wait_for_publication(url),
-            lambda: self.prototype_publication_reason(url),
+            lambda: self.prototype_publication_reason(url), progress.advance,
         )
         if published:
             self.send(author_chat(author), f"Готово — {url}\nВсе прототипы по команде /prototypes")
@@ -764,7 +810,8 @@ class Bot:
         except urllib.error.URLError as exc:
             return f"GitHub Pages недоступен: {exc.reason}"
 
-    def publish_skill(self, user_id, filename, raw, author):
+    def publish_skill(self, user_id, filename, raw, author, progress):
+        progress.advance()
         identifier, name, version, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
         # Read the catalog only after synchronizing. commit_files() also syncs
@@ -796,11 +843,12 @@ class Bot:
         catalog.append(item)
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
+        progress.advance()
         commit = self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
         published, reason = self.monitor_publication(
             f"skill {identifier}", commit, lambda: self.wait_for_skill_publication(identifier, updated_at, commit),
-            lambda: self.skill_publication_reason(identifier, updated_at, commit),
+            lambda: self.skill_publication_reason(identifier, updated_at, commit), progress.advance,
         )
         if published:
             self.send(author_chat(author), "Скил появится в Skill store в течении 2 минут.")
@@ -865,7 +913,7 @@ class Bot:
             return "success", None
         return "failed", f"GitHub Pages завершился со статусом {run.get('conclusion') or 'unknown'}"
 
-    def wait_for_github_actions(self, commit):
+    def wait_for_github_actions(self, commit, on_wait=None):
         deadline = time.monotonic() + GITHUB_ACTIONS_TIMEOUT_SECONDS
         last_reason = "GitHub Actions не дал статус"
         while True:
@@ -875,15 +923,17 @@ class Bot:
             if status == "failed":
                 return False, detail
             last_reason = detail
+            if on_wait:
+                on_wait()
             if time.monotonic() >= deadline:
                 return False, last_reason
             time.sleep(GITHUB_ACTIONS_POLL_SECONDS)
 
-    def monitor_publication(self, subject, commit, checker, reason):
+    def monitor_publication(self, subject, commit, checker, reason, on_wait=None):
         """Wait for the exact commit's Pages workflow, then verify the public artefact."""
         if not commit:
             return (True, None) if checker() else (False, reason())
-        workflow_ok, workflow_reason = self.wait_for_github_actions(commit)
+        workflow_ok, workflow_reason = self.wait_for_github_actions(commit, on_wait)
         if workflow_ok and checker():
             return True, None
         initial_reason = workflow_reason or reason()
@@ -894,7 +944,7 @@ class Bot:
             except GithubError as exc:
                 last_reason = f"{initial_reason}; повторный деплой {attempt} не запущен: {exc}"
                 continue
-            workflow_ok, workflow_reason = self.wait_for_github_actions(retry_commit)
+            workflow_ok, workflow_reason = self.wait_for_github_actions(retry_commit, on_wait)
             if workflow_ok and checker():
                 return True, initial_reason
             last_reason = workflow_reason or reason()
