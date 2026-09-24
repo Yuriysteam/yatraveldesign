@@ -76,5 +76,13 @@
     "avatar": "assets/avatars/ilya.jpeg",
     "updated_at": 1790249161,
     "url": "prototypes/1566798030/avia-results-1-html/"
+  },
+  {
+    "title": "avia-results-2",
+    "description": "Показывает результаты поиска авиабилетов.",
+    "author": "Илья Скопин",
+    "avatar": "assets/avatars/ilya.jpeg",
+    "updated_at": 1790249332,
+    "url": "prototypes/1566798030/avia-results-2-html/"
   }
 ]
