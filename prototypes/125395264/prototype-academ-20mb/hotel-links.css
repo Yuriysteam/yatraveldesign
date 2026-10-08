@@ -1,0 +1,10 @@
+.hotel-name-link {
+  color: #0d0d0f;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hotel-name-link:hover {
+  text-decoration-thickness: 2px;
+}

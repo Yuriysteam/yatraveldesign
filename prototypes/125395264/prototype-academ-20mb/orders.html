@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Заказы — Академ-Онлайн</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css?v=25">
+  <link rel="stylesheet" href="profile-menu.css?v=2">
+  <link rel="stylesheet" href="table-headings.css?v=1">
+  <link rel="stylesheet" href="hotel-links.css?v=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand-image" href="#" aria-label="Академ-Онлайн"><img src="assets/academ-online-logo.png" alt="Академ-Онлайн"></a>
+      <nav><a href="index.html">Поиск</a><a class="active" href="orders.html">Заказы</a><a href="contacts.html">Контакты</a><a href="collections.html">Подборки</a></nav>
+      <button class="profile"><span><b>Иван Иванов</b><small>ООО «Ромашка»</small></span><i>И</i></button>
+    </div>
+  </header>
+
+  <section class="titlebar"><div>Заказы</div></section>
+
+  <main class="page">
+    <aside class="filters card">
+      <section><h3>Поиск по номеру</h3><label class="search-field"><span class="search-icon" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="6.75" cy="6.75" r="4.5" stroke="currentColor" stroke-width="1.5"/><path d="M10.25 10.25L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span><input id="orderSearch" placeholder="Номер заказа или услуги"></label></section>
+      <hr>
+      <section class="fields parameter-fields"><h3>Поиск по параметрам</h3><input id="guestSearch" placeholder="Фамилия гостя"><input id="hotelSearch" placeholder="Название объекта"></section>
+      <section class="fields"><h3>Заезд</h3><label class="date-field"><img src="assets/calendar.svg" alt=""><input class="date-input" type="text" placeholder="Период заезда" readonly></label></section>
+      <section class="fields"><h3>Выезд</h3><label class="date-field"><img src="assets/calendar.svg" alt=""><input class="date-input" type="text" placeholder="Период выезда" readonly></label></section>
+      <section class="fields"><h3>Период создания заказа</h3><label class="date-field"><img src="assets/calendar.svg" alt=""><input class="date-input" type="text" placeholder="Период создания" readonly></label></section>
+      <section class="fields"><h3>Кем создан</h3><div class="creator-suggest"><input id="creatorSearch" placeholder="Имя и фамилия" autocomplete="off" aria-autocomplete="list" aria-controls="creatorSuggestions" aria-expanded="false"><div id="creatorSuggestions" class="creator-suggestions" role="listbox" hidden><button type="button" role="option">Смирнова Анастасия · АКАДЕМ-ОНЛАЙН</button><button type="button" role="option">Смирный Антон · АОН.РУ</button><button type="button" role="option">Смирнов Владимир · АОН.РУ</button></div><div id="creatorChip" class="creator-chip" hidden><span>Смирный Антон · АОН.РУ</span><button id="removeCreatorChip" type="button" aria-label="Удалить Смирного Антона"><img src="assets/close-16.svg" alt=""></button></div></div></section>
+      <fieldset><legend>Статус услуги</legend>
+        <label><input type="checkbox" value="progress">В работе</label>
+        <label><input type="checkbox" value="confirmed">Подтвержден</label>
+        <label><input type="checkbox" value="cancelled">Аннулирован</label>
+        <label><input type="checkbox" value="unconfirmed">Не подтвержден</label>
+        <label><input type="checkbox" value="full">Востребован полностью</label>
+      </fieldset>
+      <fieldset><legend>Контрагент</legend><label><input type="radio" name="company" value="ООО «АОН.РУ»">ООО «АОН.РУ»</label><label><input type="radio" name="company" value="ООО «АКАДЕМ-ОНЛАЙН»">ООО «АКАДЕМ-ОНЛАЙН»</label></fieldset>
+      <div class="filter-actions"><button id="applyFilters" class="btn btn--wide" disabled>Найти</button><button id="resetFilters" class="btn btn--wide reset-btn" hidden>Сбросить все</button></div>
+    </aside>
+
+    <div class="content">
+      <div class="toolbar card">
+        <div><div class="dropdown"><button id="periodBtn" class="btn dropdown-btn" aria-haspopup="listbox" aria-expanded="false"><span class="period-label">Предстоящие</span><span class="chevron-fill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.72 6.25A1.1 1.1 0 0 1 4.58 4.5h6.84a1.1 1.1 0 0 1 .86 1.75L8.86 10.8a1.08 1.08 0 0 1-1.72 0L3.72 6.25Z" fill="currentColor"/></svg></span></button><div id="periodMenu" class="dropdown__menu" role="listbox"><button role="option" data-value="Предстоящие" class="selected">Предстоящие</button><button role="option" data-value="Прошедшие">Прошедшие</button><button role="option" data-value="Все заказы">Все заказы</button></div></div><div class="dropdown"><button id="sortBtn" class="btn dropdown-btn" aria-haspopup="listbox" aria-expanded="false"><span class="sort-label">Номер заказа</span><span class="chevron-fill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.72 6.25A1.1 1.1 0 0 1 4.58 4.5h6.84a1.1 1.1 0 0 1 .86 1.75L8.86 10.8a1.08 1.08 0 0 1-1.72 0L3.72 6.25Z" fill="currentColor"/></svg></span></button><div id="sortMenu" class="dropdown__menu" role="listbox"><button role="option" data-sort="number" class="selected">Номер заказа</button><button role="option" data-sort="created">Дата создания</button></div></div></div>
+        <button id="exportBtn" class="btn">Выгрузить в Excel</button>
+      </div>
+      <div id="orders"></div>
+      <div class="pagination card">
+        <div><div class="dropdown page-size-dropdown"><button id="pageSizeBtn" class="outline page-size-btn" aria-haspopup="listbox" aria-expanded="false"><span class="page-size-label">25 на странице</span><span class="chevron-fill" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M3.72 6.25A1.1 1.1 0 0 1 4.58 4.5h6.84a1.1 1.1 0 0 1 .86 1.75L8.86 10.8a1.08 1.08 0 0 1-1.72 0L3.72 6.25Z" fill="currentColor"/></svg></span></button><div id="pageSizeMenu" class="dropdown__menu page-size-menu" role="listbox"><button role="option" data-size="10">10 на странице</button><button role="option" data-size="25" class="selected">25 на странице</button><button role="option" data-size="50">50 на странице</button><button role="option" data-size="100">100 на странице</button></div></div><span>Показаны 1–25 из 125</span></div>
+        <div class="pages"><button class="selected">1</button><span>…</span><button>9</button><button>10</button><button>11</button><span>…</span><button>20</button><button class="page-arrow" aria-label="Следующая страница"><img src="assets/arrow-right-xs-16.svg" alt=""></button></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-left">
+      <div class="footer-links"><span>Яндекс Путешествия</span><span>Интеграция</span><span>Добавить отель</span><span>Стать агентом</span></div>
+      <div class="footer-social"><span>Мы в социальных сетях</span><div class="social-icons"><img src="assets/social-vk.svg" alt="ВКонтакте"><img src="assets/social-zen.svg" alt="Дзен"></div></div>
+    </div>
+    <div class="footer-right"><span>© 2009–2026 ООО «Яндекс.Вертикали»</span><span>Наши проекты: Яндекс Аренда · Яндекс.Недвижимость · Яндекс Услуги</span><span>Проект организации <b>Яндекс</b></span></div>
+  </footer>
+  <div id="calendarPopover" class="calendar-popover" hidden></div>
+  <div id="toast" role="status"></div>
+  <script src="app.js?v=26"></script>
+  <script src="profile-menu.js?v=5"></script>
+</body>
+</html>

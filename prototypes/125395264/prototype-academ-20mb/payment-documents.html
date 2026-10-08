@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Платёжные документы — Академ-Онлайн</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css?v=25">
+  <link rel="stylesheet" href="payment-documents.css?v=26">
+  <link rel="stylesheet" href="profile-menu.css?v=2">
+  <link rel="stylesheet" href="table-headings.css?v=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body class="documents-page" data-profile-section="documents">
+  <header class="topbar"><div class="topbar__inner">
+    <a class="brand-image" href="index.html" aria-label="Академ-Онлайн"><img src="assets/academ-online-logo.png" alt="Академ-Онлайн"></a>
+    <nav><a href="index.html">Поиск</a><a href="orders.html">Заказы</a><a href="contacts.html">Контакты</a><a href="collections.html">Подборки</a></nav>
+    <button class="profile"><span><b>Иван Иванов</b><small>ООО «Ромашка»</small></span><i>И</i></button>
+  </div></header>
+  <section class="titlebar"><div>Платёжные документы</div></section>
+
+  <main class="documents-main">
+    <section class="documents-controls">
+      <div class="documents-controls__top">
+        <div class="doc-select doc-select--company">
+          <button type="button" aria-expanded="false"><span>ООО «Бронирование гостиниц», дог 0232/20 от 01.06.2025</span><img src="assets/arrow-down-fill-16.svg" alt=""></button>
+          <div class="doc-menu"><button>ООО «Бронирование гостиниц», дог 0232/20 от 01.06.2025</button><button>ООО «АОН.РУ», дог 0082/18 от 29.03.2018</button></div>
+        </div>
+        <div class="doc-date"><button id="dateRangeButton" type="button" aria-haspopup="dialog" aria-expanded="false"><span>1 янв – 9 сен 2026</span><img src="assets/arrow-down-fill-16.svg" alt=""></button><div id="documentsCalendar" class="documents-calendar calendar-popover" role="dialog" aria-label="Выберите даты" hidden></div></div>
+        <button id="showDocuments" class="doc-primary" type="button">Показать список</button>
+      </div>
+      <div class="documents-controls__bottom">
+        <div class="doc-select doc-select--sort"><button type="button" aria-expanded="false"><span>Номер платёжного документа</span><img src="assets/arrow-down-fill-16.svg" alt=""></button><div class="doc-menu"><button data-sort="number">Номер платёжного документа</button><button data-sort="date">Дата платёжного документа</button><button data-sort="amount">Сумма платежа в валюте платежа</button><button data-sort="vat">Сумма НДС</button><button data-sort="purpose">Назначение платежа</button></div></div>
+        <button id="documentsSortDirection" class="doc-secondary doc-direction-button" type="button"><img src="assets/sorting-default-20.svg" alt=""><span>По возрастанию</span></button>
+        <div class="documents-actions"><button id="exportDocuments" class="doc-secondary" type="button">Выгрузить в Excel</button><button id="configureDocuments" class="doc-secondary" type="button">Настроить список</button></div>
+      </div>
+    </section>
+
+    <section class="documents-table-wrap"><div class="documents-table" role="table" aria-label="Платёжные документы"><div id="documentsHead" class="documents-row documents-row--head"></div><div id="documentsRows" class="documents-table__body"></div></div></section>
+  </main>
+
+  <footer><div class="footer-left"><div class="footer-links"><span>Яндекс Путешествия</span><span>Интеграция</span><span>Добавить отель</span><span>Стать агентом</span></div><div class="footer-social"><span>Мы в социальных сетях</span><div class="social-icons"><img src="assets/social-vk.svg" alt="ВКонтакте"><img src="assets/social-zen.svg" alt="Дзен"></div></div></div><div class="footer-right"><span>© 2009–2026 ООО «Яндекс.Вертикали»</span><span>Наши проекты: Яндекс Аренда · Яндекс.Недвижимость · Яндекс Услуги</span><span>Команда: Наши вакансии</span><span>Проект организации <b>Яндекс</b></span></div></footer>
+
+  <div id="documentsOverlay" class="documents-overlay" hidden><aside class="documents-panel" role="dialog" aria-modal="true" aria-labelledby="documentsPanelTitle"><header><h2 id="documentsPanelTitle">Настроить список</h2><button id="closeDocumentsPanel" type="button" aria-label="Закрыть"><img src="assets/close-16.svg" alt=""></button></header><div id="documentsColumns" class="documents-panel__list"></div><button id="saveDocumentsColumns" class="doc-primary" type="button">Сохранить</button></aside></div>
+  <div id="documentsToast" role="status"></div>
+  <script src="payment-documents.js?v=9"></script>
+  <script src="profile-menu.js?v=5"></script>
+</body>
+</html>

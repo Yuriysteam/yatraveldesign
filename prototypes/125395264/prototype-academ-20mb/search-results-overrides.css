@@ -1,0 +1,72 @@
+/* Shared hotel-summary geometry from the object/collection view. */
+.results-page .hotel-summary{display:flex;box-sizing:border-box;width:100%;height:196px;min-height:196px;padding:28px;align-items:flex-start;justify-content:space-between;gap:20px}
+.results-page .hotel-summary__content{display:flex;min-width:0;height:140px;flex:1;flex-direction:column}
+.results-page .hotel-summary__content>p{margin:6px 0 0;font-size:14px;line-height:18px}
+.results-page .hotel-summary .transport{margin-top:auto}
+.results-page .hotel-summary .hotel-photo{width:216px;height:140px;flex:0 0 216px}
+.results-page .hotel-summary .hotel-title button{display:grid;width:20px;height:20px;padding:0;place-items:center;border-radius:4px;background:#f2f2f2}
+.results-page .hotel-summary .hotel-title button img{display:block;width:16px;height:16px}
+.results-page .hotel-summary .hotel-title h2 a{color:inherit;text-decoration:none}
+.results-page .hotel-summary .hotel-title h2 a:hover{color:#555;text-decoration:none}
+.results-page .level-chips button.selected{background:#222;color:#fff}
+/* The Figma sidebar is fixed: 260 px, it never compresses with the viewport. */
+@media(max-width:1279px){.results-page{min-width:1280px}.results-page .topbar__inner,.results-page .results-search form{width:1200px}.results-page .results-layout{width:1260px;grid-template-columns:260px 986px}.results-page .filters,.results-page .filters-card,.results-page .map-card{width:260px}.results-page .results-footer{width:1280px}.results-page .search-place{width:448px}.results-page .search-date{width:390px}.results-page .search-guests{width:250px}}
+.results-page .map-card{box-sizing:border-box;padding:0;border:8px solid #fff;background:#fff}
+.results-page .map-card>img{display:block;width:244px;height:173px}
+.results-page .results-toolbar .sort-icon{width:20px;height:20px}
+.results-page .filter-chevron{display:grid;width:16px;height:18px;margin-left:auto;place-items:center}
+.results-page .filter-chevron img{display:block;width:16px;height:16px;transform:rotate(180deg)}
+.results-page .filters-card h3{min-height:18px;align-items:center}
+.results-page .filters-card h3 .filter-help{display:grid;width:16px;height:18px;margin:0 0 0 6px;flex:0 0 16px;border:0;border-radius:0;place-items:center;font-size:0;line-height:0}
+.results-page .filters-card h3 .filter-help img{display:block;width:16px;height:16px}
+.results-page .filters-card label input[type=checkbox]{position:relative;box-sizing:border-box;width:18px;height:18px;margin:0 8px 0 0;flex:0 0 18px;border:1px solid #cdcccf;border-radius:6px;background:#fff;box-shadow:none}
+.results-page .filters-card label input[type=checkbox]:checked{border:5px solid #222;background:#fff;box-shadow:none}
+.results-page .filters-card label{align-items:flex-start;gap:0}
+.results-page .more-offers{display:flex;align-items:center;justify-content:center;gap:8px}
+.results-page .more-offers img{width:16px;height:16px;transition:transform .15s ease}
+.results-page .more-offers.is-open img{transform:rotate(180deg)}
+.results-page .extra-offers{margin-top:12px;border-top:1px solid #e6e5e7}
+.results-page .extra-offers .hotel-offer-widget{min-height:150px;padding:24px 20px;border-bottom:1px solid #e6e5e7}
+.results-page .extra-offers .hotel-offer-widget:last-child{border-bottom:0}
+.results-search form{position:relative}.results-guests-popover{position:absolute;z-index:40;top:62px;right:96px;width:360px;padding:12px 24px;border-radius:28px;background:#fff;box-shadow:0 0 2px rgba(157,157,149,.3),0 12px 32px rgba(13,13,15,.16)}.results-guests-popover>div{display:flex;min-height:80px;align-items:center;justify-content:space-between;border-bottom:1px solid #ecebee}.results-guests-popover>div:last-child{border-bottom:0}.results-guests-popover>div>span{display:flex;flex-direction:column;gap:4px}.results-guests-popover b{font-weight:500}.results-guests-popover small{color:#77767d}.results-guests-popover>div>div{display:flex;align-items:center;gap:14px}.results-guests-popover button{display:grid;width:44px;height:44px;padding:0;place-items:center;border-radius:15px;background:#f1f1f3!important;font-size:22px!important}.results-guests-popover button:disabled{color:#c9c8cc}.results-guests-popover output{min-width:18px;text-align:center}
+.results-page .filters{padding:0;gap:8px}
+.results-page .primary-offer .hotel-offer-widget{min-height:160px;padding:28px 20px}
+.results-page .results-search button,.results-page .results-search input{font-family:inherit;font-size:16px;line-height:20px}
+.results-page .search-place input{font-weight:400;color:#111}
+.results-page .search-date>span{display:inline;white-space:nowrap;color:#111}
+.results-page .search-date em{color:#111;font-style:normal}
+.results-page .search-date small{color:#9c9ba2;font-size:16px;font-weight:400;line-height:20px}
+.results-page .per-page{display:flex;align-items:center;gap:8px}
+.results-page .per-page img{display:block;width:16px;height:16px}
+.results-page .home-brand{display:flex;min-width:0;align-items:center;gap:24px}
+.results-page .home-brand .brand-image{flex:0 0 auto}
+.results-page .legacy-link{color:#9c9ba2;font-size:16px;font-weight:500;line-height:20px;text-decoration:none;white-space:nowrap}
+.results-page .legacy-link:hover{color:#0d0d0f}
+.results-page .search-place>button{display:grid;width:24px;height:24px;padding:0;place-items:center}
+.results-page .search-place>button img{display:block;width:16px;height:16px}
+.results-page .filters-card label:not(.toggle-row){align-items:center}
+.results-page .filters-card label:not(.toggle-row)>span{min-width:0;line-height:18px}
+.results-page .filters-card label:not(.toggle-row)>span em{display:inline;margin-left:4px}
+.results-page .filters-card h3[role=button]{cursor:pointer;user-select:none}
+.results-page .filters-card section.is-collapsed>:not(h3){display:none}
+.results-page .filters-card section.is-collapsed .filter-chevron img{transform:none}
+.results-page .filters-card section:first-of-type .price-inputs{margin-bottom:8px}
+.results-page .filters-card section:first-of-type .range{margin-bottom:8px}
+.results-page .filters-card section:first-of-type .toggle-row{margin-top:0}
+.results-page .room-snippet{cursor:pointer}
+.results-page.room-drawer-open{overflow:hidden}
+.room-drawer-layer[hidden]{display:none}
+.room-drawer-layer{position:fixed;z-index:1000;inset:0}
+.room-drawer-backdrop{position:absolute;inset:0;background:rgba(13,13,15,.34)}
+.room-drawer{position:absolute;top:0;right:0;box-sizing:border-box;width:678px;height:100vh;overflow:auto;background:#fff;box-shadow:0 4px 40px rgba(13,13,15,.08)}
+.room-drawer-close{position:fixed;z-index:2;top:28px;right:706px;display:grid;width:56px;height:56px;padding:0;border:0;border-radius:20px;background:#fff;box-shadow:0 4px 20px rgba(13,13,15,.08);place-items:center}
+.room-drawer-close img{width:24px;height:24px}
+.room-drawer-content{box-sizing:border-box;width:603px;margin:0 auto;padding:40px 0 72px}
+.room-drawer-intro h2{margin:0;font:500 32px/36px "YS Display",Arial,sans-serif;letter-spacing:-.48px}
+.room-drawer-hotel{display:flex;margin:8px 0 24px;align-items:center;gap:6px;font-size:16px;line-height:20px}.room-stars{display:flex;height:18px;align-items:center;gap:4px}.room-stars img{display:block;width:12px;height:12px}
+.room-drawer-meta{display:flex;flex-wrap:wrap;gap:8px 12px;font-size:16px;line-height:20px}.room-drawer-meta span{display:flex;align-items:center;gap:8px;white-space:nowrap}.room-drawer-meta img{width:16px;height:16px}
+.room-drawer-muted{margin:4px 0 32px;color:#9c9ba2;font-size:16px;line-height:20px}
+.room-gallery{position:relative;width:603px;height:380px}.room-gallery-main{display:block;width:603px;height:380px;border-radius:24px;object-fit:cover}.room-gallery button{position:absolute;top:166px;width:48px;height:48px;border:0;border-radius:16px;background:#222125;color:#fff;font-size:28px}.gallery-prev{left:12px}.gallery-next{right:12px}
+.room-thumbs{display:flex;height:64px;margin-top:12px;align-items:center;justify-content:center;gap:4px;overflow:hidden}.room-thumbs i{box-sizing:border-box;width:64px;height:64px;flex:0 0 64px;border-radius:16px;background:#f5f5f5}.room-thumbs i.active{border:2px solid #222125}
+.room-drawer-section{margin-top:56px}.room-drawer-section h3{margin:0 0 16px;font:500 20px/24px "YS Display",Arial,sans-serif}.room-drawer-section>p{margin:0;font-size:14px;line-height:18px}
+.amenities-card{box-sizing:border-box;height:311px;padding:8px;border-radius:48px;background:#f5f5f5}.amenities-inner{display:flex;box-sizing:border-box;height:295px;padding:20px;flex-direction:column;gap:16px;border-radius:40px;background:#fff}.amenities-inner>button{width:100%;height:48px;flex:0 0 48px;border:0;border-radius:16px;background:#f5f5f5;font-size:16px;font-weight:500}.amenities-grid{display:grid;height:191px;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:52px 52px 87px;column-gap:16px}.amenities-grid span{display:flex;min-width:0;align-items:center;gap:8px;font-size:14px;line-height:18px}.amenities-grid img{display:block;width:20px;height:20px;flex:0 0 20px;object-fit:contain}

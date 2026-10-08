@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Компоненты результатов поиска — Академ-Онлайн</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="search-results.css?v=1">
+  <link rel="stylesheet" href="hotel-offer-widget.css?v=3">
+  <link rel="stylesheet" href="overrides.css?v=25">
+  <link rel="stylesheet" href="profile-menu.css?v=2">
+  <link rel="stylesheet" href="home.css?v=11">
+  <link rel="stylesheet" href="component-showcase.css?v=4">
+  <link rel="stylesheet" href="component-showcase-candidates.css?v=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body class="component-showcase-page">
+  <main class="showcase">
+    <header class="showcase-intro">
+      <a href="search-results.html">← Вернуться к результатам поиска</a>
+      <h1>Компоненты результата поиска</h1>
+      <p>Каждый блок ниже можно использовать независимо. Пунктиром показаны границы компонента, а синяя подпись — его имя.</p>
+    </header>
+
+    <section class="showcase-section">
+      <div class="showcase-heading"><h2>Составной компонент</h2><code>HotelResult</code></div>
+      <article class="hotel-result showcase-component showcase-hotel-result">
+        <span class="component-label">HotelResult</span>
+        <div class="hotel-head hotel-summary">
+          <div class="hotel-summary__content">
+            <div class="hotel-title"><h2><a href="hotel.html">Москва Красносельская</a></h2><span class="stars"><img src="assets/hotel/star.svg" alt=""><img src="assets/hotel/star.svg" alt=""><img src="assets/hotel/star.svg" alt=""><img class="muted" src="assets/hotel/star.svg" alt=""><img class="muted" src="assets/hotel/star.svg" alt=""></span><button aria-label="Ещё"><img src="assets/hotel/more-16.svg" alt=""></button></div>
+            <p>Москва, улица Верхняя Красносельская, 11Ас4 · 3,4 км до центра</p>
+            <div class="transport"><div><img src="assets/hotel/flight.svg" alt="">Шереметьево 26 км · Внуково 32 км · Остафьево 32 км</div><div><img src="assets/hotel/train.svg" alt="">Ярославский 1 км · Ленинградский 1 км · Казанский 1,4 км</div><div><i class="metro-dot"></i>Красносельская 0,3 км<i class="metro-dot yellow"></i>Комсомольская 0,5 км</div></div>
+          </div>
+          <div class="hotel-photo"><img src="assets/hotel-figma/image-3.png" alt="Москва Красносельская"><span class="photo-count">10 фото</span></div>
+        </div>
+        <div class="room-card">
+          <div class="room-snippet"><img src="assets/hotel-figma/image-2.png" alt="Номер"><div class="room-copy"><h3>Стандарт двухместный 1 кровать</h3><div class="room-meta"><span><img src="assets/hotel/area.svg" alt="">25м²</span><span><img src="assets/hotel/bed.svg" alt="">Двуспальная</span><span><img src="assets/hotel/bath.svg" alt="">В номере</span></div></div><button class="room-heart" aria-label="В подборку"><img src="assets/hotel/heart-new-16.svg" alt=""></button></div>
+          <div id="fullOffer"></div>
+          <button class="more-offers"><span>Показать ещё 4 предложения</span><img src="assets/arrow-down-fill-16.svg" alt=""></button>
+        </div>
+      </article>
+    </section>
+
+    <section class="showcase-section">
+      <div class="showcase-heading"><h2>Отдельные составные части</h2><p>Их можно собирать в разных сочетаниях на других страницах.</p></div>
+
+      <div class="showcase-component isolated-component">
+        <span class="component-label">HotelSummary</span>
+        <div class="hotel-head hotel-summary">
+          <div class="hotel-summary__content"><div class="hotel-title"><h2><a href="hotel.html">Москва Красносельская</a></h2><span class="stars"><img src="assets/hotel/star.svg" alt=""><img src="assets/hotel/star.svg" alt=""><img src="assets/hotel/star.svg" alt=""><img class="muted" src="assets/hotel/star.svg" alt=""><img class="muted" src="assets/hotel/star.svg" alt=""></span></div><p>Москва, улица Верхняя Красносельская, 11Ас4 · 3,4 км до центра</p><div class="transport"><div><img src="assets/hotel/train.svg" alt="">Ярославский 1 км · Ленинградский 1 км</div><div><i class="metro-dot"></i>Красносельская 0,3 км<i class="metro-dot yellow"></i>Комсомольская 0,5 км</div></div></div>
+          <div class="hotel-photo"><img src="assets/hotel-figma/image-3.png" alt="Москва Красносельская"><span class="photo-count">10 фото</span></div>
+        </div>
+      </div>
+
+      <div class="showcase-component isolated-component component-pad">
+        <span class="component-label">RoomSnippet</span>
+        <div class="room-snippet"><img src="assets/hotel-figma/image-2.png" alt="Номер"><div class="room-copy"><h3>Стандарт двухместный 1 кровать</h3><div class="room-meta"><span><img src="assets/hotel/area.svg" alt="">25м²</span><span><img src="assets/hotel/bed.svg" alt="">Двуспальная</span><span><img src="assets/hotel/bath.svg" alt="">В номере</span></div></div><button class="room-heart" aria-label="В подборку"><img src="assets/hotel/heart-new-16.svg" alt=""></button></div>
+      </div>
+
+      <div class="showcase-component isolated-component offer-component">
+        <span class="component-label">HotelOffer</span>
+        <div id="isolatedOffer"></div>
+      </div>
+
+      <div class="showcase-component isolated-component component-pad">
+        <span class="component-label">MoreOffersButton</span>
+        <button class="more-offers"><span>Показать ещё 4 предложения</span><img src="assets/arrow-down-fill-16.svg" alt=""></button>
+      </div>
+    </section>
+
+    <section class="showcase-section">
+      <div class="showcase-heading"><h2>Описание заказа</h2><code>OrderDescription</code></div>
+      <article class="order showcase-component showcase-order">
+        <span class="component-label">OrderDescription</span>
+        <h2>Заказ 87654321</h2>
+        <div class="service">
+          <div class="service-status-row"><span class="status progress">В работе</span></div>
+          <div class="service-grid">
+            <div class="meta"><div class="label">Услуга</div>327632724</div>
+            <div class="meta"><div class="label">Кем создан</div>Маша Петрова<br><b class="heading-regular">ООО «Компания Отели Онлайн»</b><br><span class="label">1 дек 2026</span></div>
+            <div class="meta"><div class="label">Проживание</div><b class="heading-regular">20 дек чт – 21 дек 2026 пт</b></div>
+            <div class="details">
+              <div class="detail"><img src="assets/map-pin.svg" alt=""><b class="heading-regular">Услуги размещения в «Шато»</b><span>Россия, Махачкала, ул. Магомедтагирова 2, корпус 2Б</span></div>
+              <div class="detail"><img src="assets/room.svg" alt=""><b class="heading-regular">1 номер</b><span>Люкс с 2 односпальными кроватями</span></div>
+              <div class="detail"><img src="assets/calendar.svg" alt=""><b>Заезд и выезд</b><span>после 14:00 2 авг, до 12:00 4 авг 2026</span></div>
+              <div class="detail"><img src="assets/breakfast.svg" alt=""><b>Завтрак включён</b><span>«Шведский стол» для 2 чел.</span></div>
+              <div class="detail"><img src="assets/people.svg" alt=""><b>Гости</b><span>Таранов Александр, Россия</span></div>
+              <div class="detail"><img src="assets/payment.svg" alt=""><b>Штрафные санкции</b><span>с 14:00 20 авг 2026 – 100% от полной стоимости в размере 9 000 ₽</span></div>
+            </div>
+            <div class="price heading-regular">5 936 ₽<div class="points"><img src="assets/coins.svg" alt="">350,22 ₽</div><small>НДС не облагается<br>Доп. выгода 150,22 ₽</small></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div id="additionalComponents"></div>
+  </main>
+  <script src="hotel-offer-widget.js?v=2"></script>
+  <script src="component-showcase-extra.js?v=4"></script>
+  <script src="component-showcase-candidates.js?v=2"></script>
+  <script>HotelOfferWidget.render(document.querySelector('#fullOffer'),'full-penalty');HotelOfferWidget.render(document.querySelector('#isolatedOffer'),'full-penalty');</script>
+</body>
+</html>

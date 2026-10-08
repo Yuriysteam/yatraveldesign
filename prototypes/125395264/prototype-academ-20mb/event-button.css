@@ -1,0 +1,35 @@
+.article-next a {
+  color: #0d0d0f;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.article-next a:visited,
+.article-next a:hover,
+.article-next a:active {
+  color: #0d0d0f;
+  text-decoration: none;
+}
+
+.article-next a:hover {
+  background: #e8e8ea;
+}
+
+.article-next a:active {
+  transform: scale(0.97);
+}
+
+.article-next a:focus-visible {
+  outline: 2px solid #0d0d0f;
+  outline-offset: 2px;
+}
+
+/* The article layout in Figma uses one 68 px vertical gap between content blocks. */
+.article-intro,
+.article-section {
+  margin-bottom: 68px;
+}

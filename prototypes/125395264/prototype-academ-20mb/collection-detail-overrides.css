@@ -1,0 +1,9 @@
+.selected-room__photo{width:81px;height:80px;border-radius:16px;object-fit:cover}
+.selected-room h3{font-weight:500}
+.selected-room__meta{display:flex;gap:16px;margin-top:8px}
+.selected-room__meta span{display:flex;align-items:center;gap:8px;font-size:16px;line-height:20px}
+.selected-room__meta img{width:16px;height:16px}
+.selected-room__stock{color:#9c9ba2;font-size:14px}
+.note{display:flex;padding:0 4px;align-items:center;gap:4px;font-weight:500}
+.note img{width:16px;height:16px}
+.export-row input{box-sizing:border-box;width:calc(100% - 170px);margin-left:170px}

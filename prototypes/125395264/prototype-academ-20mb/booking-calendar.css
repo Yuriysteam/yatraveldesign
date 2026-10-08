@@ -1,0 +1,25 @@
+.drawer-date{position:relative}
+.drawer-date__trigger{display:flex;width:100%;height:56px;padding:0 16px 0 20px;align-items:center;justify-content:space-between;border:1px solid #cdcccf;border-radius:20px;background:#fff;color:#0d0d0f;font:400 16px/20px "YS Text",Arial,sans-serif;text-align:left}
+.drawer-date__trigger img{width:24px;height:24px}
+.drawer-calendar[hidden]{display:none}
+.drawer-calendar{position:absolute;z-index:8;top:68px;left:0;width:528px;overflow:hidden;border-radius:24px;background:#fff;box-shadow:0 12px 36px rgba(13,13,15,.16)}
+.drawer-calendar .calendar-picker{display:grid;height:406px;grid-template-columns:132px 396px}
+.drawer-calendar .calendar-months{display:flex;overflow:auto;flex-direction:column;padding:8px 16px;background:#f5f5f5}
+.drawer-calendar .calendar-months button{position:relative;flex:0 0 30px;padding:6px 0;background:transparent;color:#77767d;font-size:14px;line-height:18px;text-align:left}
+.drawer-calendar .calendar-months button.selected{color:#0d0d0f}
+.drawer-calendar .calendar-months button.selected:before{position:absolute;top:3px;bottom:3px;left:-16px;width:6px;border-radius:0 12px 12px 0;background:#222125;content:""}
+.drawer-calendar .calendar-main{width:396px;padding:16px}
+.drawer-calendar .calendar-week,.drawer-calendar .calendar-days{display:grid;width:364px;grid-template-columns:repeat(7,52px);text-align:center}
+.drawer-calendar .calendar-week{height:28px;margin-bottom:8px;font-size:14px;line-height:18px}
+.drawer-calendar .weekend{color:#f00044}
+.drawer-calendar .calendar-scroll{height:338px;overflow-y:auto}
+.drawer-calendar .calendar-scroll section>b{display:block;margin:0 0 8px;font-size:16px;line-height:20px;font-weight:500}
+.drawer-calendar .calendar-days button,.drawer-calendar .calendar-days i{width:52px;height:52px;background:#fff;font-size:16px}
+.drawer-calendar .calendar-days button{position:relative;display:grid;isolation:isolate;padding:0;place-items:center;line-height:20px}
+.drawer-calendar .calendar-days button span{position:relative;z-index:2}
+.drawer-calendar .calendar-days button.in-range{background:#fff8db}
+.drawer-calendar .calendar-days button.range-start,.drawer-calendar .calendar-days button.range-end{background:transparent}
+.drawer-calendar .calendar-days button.range-start:before,.drawer-calendar .calendar-days button.range-end:before{position:absolute;z-index:1;inset:0;border-radius:20px;background:#fed42b;content:""}
+.drawer-calendar .calendar-days button.range-start:after,.drawer-calendar .calendar-days button.range-end:after{position:absolute;z-index:0;top:0;bottom:0;background:#fff8db;content:""}
+.drawer-calendar .calendar-days button.range-start:after{left:50%;right:0}
+.drawer-calendar .calendar-days button.range-end:after{left:0;right:50%}

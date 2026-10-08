@@ -1,0 +1,126 @@
+.contacts-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts-page .titlebar div {
+  font-family: "YS Display", "Arial", sans-serif;
+  font-weight: 500;
+  letter-spacing: -.48px;
+}
+
+.contacts-main {
+  width: min(1254px, calc(100% - 48px));
+  margin: 40px auto 80px;
+  flex: 1 0 auto;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.contact-card {
+  min-height: 384px;
+  padding: 28px;
+  border-radius: 40px;
+  background: #fff;
+  color: #0d0d0f;
+}
+
+.contact-card__illustration {
+  display: block;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+}
+
+.contact-card__illustration--legal {
+  width: 101px;
+}
+
+.contact-card h2 {
+  margin: 28px 0 20px;
+  font-family: "YS Display", "Arial", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: -.24px;
+}
+
+.contact-card p,
+.contact-card__link,
+.contact-card__phones a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.contact-card > p {
+  min-height: 40px;
+  margin: 0;
+}
+
+.contact-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-card__link {
+  display: inline-block;
+  margin-top: 28px;
+}
+
+.contact-card__button {
+  height: 40px;
+  margin-top: 28px;
+  padding: 0 16px;
+  border-radius: 14px;
+  background: #f1f1f3;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.contact-card__button:hover {
+  background: #e7e7e9;
+}
+
+.contact-card__phones {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-card__phones p {
+  margin: 0;
+}
+
+.contact-card__phones a {
+  display: block;
+  margin-top: 8px;
+}
+
+.contacts-page footer {
+  flex: 0 0 auto;
+  min-height: 174px;
+  padding-top: 20px;
+  padding-bottom: 24px;
+  border-radius: 56px 56px 0 0;
+}
+
+@media (max-width: 900px) {
+  .contacts-main {
+    margin-top: 24px;
+  }
+
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-card {
+    min-height: 0;
+  }
+}

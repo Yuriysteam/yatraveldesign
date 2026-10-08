@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Заказ 87654321 — Академ-Онлайн</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css?v=24">
+  <link rel="stylesheet" href="order.css?v=20">
+  <link rel="stylesheet" href="table-headings.css?v=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body class="order-page">
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand-image" href="index.html" aria-label="Академ-Онлайн"><img src="assets/academ-online-logo.png" alt="Академ-Онлайн"></a>
+      <nav><a href="index.html">Поиск</a><a class="active" href="orders.html">Заказы</a><a href="contacts.html">Контакты</a><a href="collections.html">Подборки</a></nav>
+      <button class="profile"><span><b>Иван Иванов</b><small>ООО «Ромашка»</small></span><i>И</i></button>
+    </div>
+  </header>
+
+  <main class="order-detail">
+    <a class="order-detail__title" href="index.html"><img src="assets/arrow-right-xs-16.svg" alt=""><span>Заказ <span id="orderNumber">87654321</span></span></a>
+
+    <div class="order-controls">
+      <div class="order-tabs" role="tablist">
+        <button class="active" role="tab" aria-selected="true" data-order-tab="general">Общая информация</button>
+        <button role="tab" aria-selected="false" data-order-tab="payer">Плательщик</button>
+        <button role="tab" aria-selected="false" data-order-tab="documents">Настройки документов</button>
+        <button role="tab" aria-selected="false" data-order-tab="history">История заказа</button>
+      </div>
+      <div class="order-actions">
+        <button class="order-btn order-btn--secondary"><img class="button-icon" src="assets/download-new-new-16.svg" alt="">Скачать документы</button>
+        <button class="order-btn order-btn--primary">Добавить новую услугу</button>
+      </div>
+    </div>
+
+    <section class="order-shell order-tab-panel" data-order-panel="general">
+      <article class="order-summary">
+        <dl>
+          <div><dt>Проживание</dt><dd>20 дек <span>чт</span> – 21 дек 2026 <span>пт</span></dd></div>
+          <div><dt>Контрагент</dt><dd>ООО «АКАДЕМ-ОНЛАЙН», Безналичная оплата</dd></div>
+          <div><dt>Организация</dt><dd>ООО «Компания Отели Онлайн»</dd></div>
+          <div><dt>Договор</dt><dd>0082/18 от 29.03.2018, Без НДС, Валюта: RUB</dd></div>
+          <div><dt>Ваш менеджер</dt><dd>Выходцева Ирина, +7 (495) 660-90-90 доб. 2457, acase-env000@yandex-team.ru</dd></div>
+          <div><dt>Ref No</dt><dd>CTRZINV20260706AXI9B7KQ4MZX8IPQD6V3NT5H4RL7M2K9XQR</dd></div>
+        </dl>
+        <div class="order-summary__price"><b>5 936 ₽</b><span>НДС не облагается</span><em><img src="assets/coins.svg" alt="">350,22 ₽</em><span>Доп выгода 150,22 ₽</span></div>
+      </article>
+
+      <article class="order-service-card">
+        <div class="service order-page-service">
+          <div class="service-status-row"><span class="status progress">В работе</span></div>
+          <div class="service-grid">
+            <div class="meta"><div class="label">Услуга</div>327632724</div>
+            <div class="meta creator-meta"><div class="label">Кем создан</div><div class="creator-name">Маша Петрова</div><div class="creator-company">ООО «Компания Отели Онлайн»</div><div class="label creator-date">1 дек 2026</div></div>
+            <div class="meta"><div class="label">Проживание</div><b class="heading-regular">20 дек чт – 21 дек 2026 пт</b></div>
+            <div class="details">
+              <div class="detail"><img src="assets/map-pin.svg" alt=""><b class="heading-regular">Услуги размещения в «Шато»</b><span>Россия, Махачкала, ул. Магомедтагирова 2, корпус 2Б</span></div>
+              <div class="detail"><img src="assets/room.svg" alt=""><b class="heading-regular">1 номер</b><span>Люкс с 2 односпальными кроватями</span></div>
+              <div class="detail"><img src="assets/calendar.svg" alt=""><b>Заезд и выезд</b><span>после 14:00 2 авг, до 12:00 4 авг 2026</span></div>
+              <div class="detail"><img src="assets/breakfast.svg" alt=""><b>Завтрак включён</b><span>«Шведский стол» для 2 чел.</span></div>
+              <div class="detail"><img src="assets/people.svg" alt=""><b>Гости</b><span>Таранов Александр, Россия</span></div>
+              <div class="detail"><img src="assets/payment.svg" alt=""><b>Штрафные санкции</b><span>с 14:00 20 авг 2026 – 100% от полной стоимости в размере 9 000 ₽<br>По местному времени объекта проживания</span></div>
+            </div>
+            <div class="price heading-regular">5 936 ₽<div class="points"><img src="assets/coins.svg" alt="">350,22 ₽</div><small>НДС не облагается<br>Доп. выгода 150,22 ₽</small></div>
+          </div>
+        </div>
+        <div class="service-actions"><div><button class="order-btn order-btn--secondary"><img class="button-icon" src="assets/edit-16.svg" alt="">Редактировать</button><div class="duplicate-service"><button id="duplicateServiceButton" class="order-btn order-btn--secondary" type="button" aria-haspopup="menu" aria-expanded="false"><img class="button-icon" src="assets/copy-new-16.svg" alt="">Дублировать услугу</button><div id="duplicateServiceMenu" class="duplicate-service__menu" role="menu" hidden><button type="button" role="menuitem">В текущий заказ</button><button type="button" role="menuitem">В новый заказ</button></div></div></div><button id="cancelServiceButton" class="order-btn order-btn--danger" type="button"><img class="button-icon" src="assets/cancel-new-16.svg" alt="">Отменить</button></div>
+        <div id="cancelledServiceNote" class="cancelled-service-note" hidden><b>Штраф за позднее аннулирование</b><div class="cancelled-service-note__row"><span>Услуга<br>327632724</span><span>Штраф<br>1823377</span><div class="cancelled-service-price"><strong>5 567 ₽</strong><span><img src="assets/coins.svg" alt="">0 ₽</span><small>Доп. выгода 0 ₽</small></div></div></div>
+      </article>
+    </section>
+
+    <section class="payer-shell order-tab-panel" data-order-panel="payer" hidden>
+      <article class="payer-card">
+        <dl>
+          <div><dt>Тип плательщика</dt><dd>Юридическое лицо</dd></div>
+          <div><dt>Плательщик</dt><dd>Бронирование гостиниц / АОН.РУ / агентский договор / 2</dd></div>
+          <div><dt>Наименование</dt><dd>ООО «Бронирование гостиниц»</dd></div>
+          <div><dt>Договор</dt><dd>0232/20 от 1 июн 2025</dd></div>
+          <div><dt>Тип договора</dt><dd>Прямой</dd></div>
+          <div><dt>Вид договора</dt><dd>Агентский</dd></div>
+          <div><dt>Автономность</dt><dd>Автономный</dd></div>
+          <div><dt>Ограничения НДС</dt><dd>Без ограничений</dd></div>
+          <div><dt>Страна</dt><dd>Россия</dd></div>
+          <div><dt>Город</dt><dd>Москва</dd></div>
+          <div><dt>ФИО</dt><dd>Марьянова Ильнура Фахитовна</dd></div>
+          <div><dt>E-mail</dt><dd>acase-env000@yandex-team.ru</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="document-settings-shell order-tab-panel" data-order-panel="documents" hidden>
+      <form id="documentSettingsForm" class="document-settings-card">
+        <fieldset class="document-setting document-setting--buyer">
+          <legend>Указать покупателя в счете-фактуре</legend>
+          <div class="radio-row"><label><input type="radio" name="useBuyer" value="yes"><span>Да</span></label><label><input type="radio" name="useBuyer" value="no" checked><span>Нет</span></label></div>
+          <div id="buyerControls" class="buyer-controls" hidden>
+            <div class="buyer-select">
+              <button id="buyerSelectButton" type="button" aria-haspopup="listbox" aria-expanded="false"><span>Выберите покупателя</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+              <div id="buyerSelectMenu" class="buyer-select__menu" hidden>
+                <button type="button" role="option" data-value="ООО «Бронирование гостиниц», ИНН 7703389880">ООО «Бронирование гостиниц», ИНН 7703389880</button>
+                <button type="button" role="option" data-value="ООО «Санрайс капитал», ИНН 1650266232">ООО «Санрайс капитал», ИНН 1650266232</button>
+              </div>
+            </div>
+            <button class="add-buyer-button" type="button">Добавить нового покупателя</button>
+          </div>
+        </fieldset>
+
+        <div class="document-divider"></div>
+        <section class="document-section document-section--invoice">
+          <h2>Указывать в счете</h2>
+          <div class="invoice-settings-list">
+            <fieldset class="document-setting"><legend>Тип номера</legend><div class="radio-row"><label><input type="radio" name="invoiceRoom" value="yes"><span>Да</span></label><label><input type="radio" name="invoiceRoom" value="no" checked><span>Нет</span></label><label><input type="radio" name="invoiceRoom" value="special"><span>Специальный</span></label></div><input id="invoiceRoomText" class="special-text" type="text" placeholder="Текст для типа номера" hidden></fieldset>
+            <fieldset class="document-setting"><legend>Питание</legend><div class="radio-row"><label><input type="radio" name="invoiceMeal" value="yes"><span>Да</span></label><label><input type="radio" name="invoiceMeal" value="no" checked><span>Нет</span></label></div></fieldset>
+            <div class="checkin-row">
+              <fieldset class="document-setting"><legend>Ранний заезд</legend><div class="radio-row"><label><input type="radio" name="earlyCheckin" value="yes"><span>Да</span></label><label><input type="radio" name="earlyCheckin" value="no" checked><span>Нет</span></label></div></fieldset>
+              <fieldset class="document-setting"><legend>Поздний выезд</legend><div class="radio-row"><label><input type="radio" name="lateCheckout" value="yes"><span>Да</span></label><label><input type="radio" name="lateCheckout" value="no" checked><span>Нет</span></label></div></fieldset>
+            </div>
+          </div>
+        </section>
+
+        <div class="document-divider"></div>
+        <fieldset class="document-setting"><legend>Дата выставления счетов</legend><div class="radio-row"><label><input type="radio" name="billingDate" value="current" checked><span>По текущей дате</span></label><label><input type="radio" name="billingDate" value="service"><span>По дате оказания услуг</span></label></div></fieldset>
+
+        <div class="document-divider"></div>
+        <section class="document-section">
+          <h2>Указывать в уведомлении</h2>
+          <fieldset class="document-setting"><legend>Тип номера</legend><div class="radio-row"><label><input type="radio" name="notificationRoom" value="yes"><span>Да</span></label><label><input type="radio" name="notificationRoom" value="no" checked><span>Нет</span></label><label><input type="radio" name="notificationRoom" value="special"><span>Специальный</span></label></div><input id="notificationRoomText" class="special-text" type="text" placeholder="Текст для типа номера" hidden></fieldset>
+        </section>
+        <div class="document-save-row"><button class="document-save-button" type="submit">Сохранить изменения</button></div>
+      </form>
+    </section>
+    <section class="history-panel order-tab-panel" data-order-panel="history" hidden>
+      <div class="history-filters">
+        <button type="button">Все услуги <img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+        <button type="button">Все операции <img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+        <button type="button">По дате <img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+      </div>
+      <div class="history-head" aria-hidden="true"><span>Дата, оператор</span><span>Действие</span><span>Описание</span></div>
+      <div class="history-shell">
+        <article class="history-list">
+          <div class="history-row"><div>13 июл 2026, 11:07<br>ООО «Академ-Сервис»</div><div>Уведомление выставлено<small>63166005</small></div><div>Статус рассылки: требует отправки адресату</div></div>
+          <div class="history-row"><div>13 июл 2026, 11:07<br>ООО «АОН.РУ»</div><div>Новое уведомление создано<small>63166005</small></div><div><button class="history-download" type="button"><img src="assets/profile-document-24.svg" alt="">Скачать документ</button></div></div>
+          <div class="history-row"><div>13 июл 2026, 11:04<br>ООО «АОН.РУ»</div><div>Выставлен новый счет<small>21107424</small></div><div><button class="history-download" type="button"><img src="assets/profile-document-24.svg" alt="">Скачать документ</button></div></div>
+          <div class="history-row"><div>13 июл 2026, 11:02<br>ООО «АОН.РУ»</div><div>Уведомление о заезде поставщику сформировано<small>13456876</small></div><div class="history-description"><span>Статус услуги: подтвержден</span><span>Рассылка: требует отправки адресату</span><button id="serviceDescriptionToggle" type="button" aria-expanded="false">Описание услуги <img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button><div id="serviceDescription" hidden>Услуги размещения в «Андреевский», Россия, Москва, улица Павла Андреева, 4. 1 номер: Стандарт с 2 односпальными кроватями. Заезд и выезд: после 14:00 2 авг, до 12:00 4 авг 2026. Дополнительное питание: ужин «Континентальный» для 2 чел. Гости: Иванов Иван, Россия; Владислава Петрова, Армения. Условия Кетеринга, Россия. Штрафные санкции: с 14:00 20 авг 2026 — 100% от полной стоимости в размере 9 000 ₽. По местному времени объекта проживания.</div></div></div>
+          <div class="history-row"><div>13 июл 2026,<br>11:01<br>ООО «АОН.РУ»</div><div>Добавлена новая услуга<small>13456877</small></div><div>Статус услуги: подтвержден</div></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div id="newBuyerModal" class="buyer-modal" hidden>
+    <button class="buyer-modal__backdrop" type="button" aria-label="Закрыть окно"></button>
+    <section class="buyer-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="newBuyerTitle">
+      <header class="buyer-modal__header"><h2 id="newBuyerTitle">Новый покупатель</h2><button id="closeBuyerModal" type="button" aria-label="Закрыть"><img src="assets/profile-close-24.svg" alt=""></button></header>
+      <form id="newBuyerForm" class="new-buyer-form" novalidate>
+        <div class="modal-select">
+          <button type="button" aria-haspopup="listbox" aria-expanded="false"><span>Юридическое лицо</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+          <div class="modal-select__menu" hidden><button type="button">Юридическое лицо</button><button type="button">Физическое лицо</button></div>
+        </div>
+        <div class="form-field"><input id="buyerShortName" type="text" placeholder="Наименование" required aria-describedby="buyerShortNameError"><span id="buyerShortNameError" class="field-error" hidden><i>!</i>Заполните поле</span></div>
+        <input id="buyerFullName" type="text" placeholder="Полное наименование">
+        <div class="new-buyer-form__row">
+          <div class="modal-select"><button type="button" aria-haspopup="listbox" aria-expanded="false"><span>Страна</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button><div class="modal-select__menu" hidden><button type="button">Россия</button><button type="button">Беларусь</button><button type="button">Казахстан</button></div></div>
+          <div class="modal-select"><button type="button" aria-haspopup="listbox" aria-expanded="false"><span>Город</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button><div class="modal-select__menu" hidden><button type="button">Москва</button><button type="button">Санкт-Петербург</button><button type="button">Казань</button></div></div>
+        </div>
+        <div class="new-buyer-form__row"><input type="text" inputmode="numeric" placeholder="Индекс"><input type="tel" placeholder="+7 (___) ___-__-__"></div>
+        <input type="text" placeholder="Адрес: Тверская ул., д. 7">
+        <input type="text" placeholder="Полный адрес: Москва, Тверская ул., д. 7">
+        <div class="new-buyer-form__row"><div class="form-field"><input id="buyerInn" type="text" inputmode="numeric" maxlength="10" placeholder="ИНН, 10 символов" required aria-describedby="buyerInnError"><span id="buyerInnError" class="field-error" hidden><i>!</i>Заполните поле</span></div><input type="text" inputmode="numeric" maxlength="9" placeholder="КПП, 9 символов"></div>
+        <div class="new-buyer-form__actions"><button type="submit">Добавить</button></div>
+      </form>
+    </section>
+  </div>
+
+  <div id="cancelServiceModal" class="cancel-modal" hidden>
+    <button class="cancel-modal__backdrop" type="button" aria-label="Закрыть окно"></button>
+    <section class="cancel-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="cancelServiceTitle">
+      <header><h2 id="cancelServiceTitle">Отмена со штрафом</h2><button id="closeCancelServiceModal" type="button" aria-label="Закрыть"><img src="assets/profile-close-24.svg" alt=""></button></header>
+      <p>За отмену услуги № 14639869 будет удержан штраф 4 040 ₽.<br>Всё равно отменить услугу?</p>
+      <div class="cancel-modal__actions"><button id="keepServiceButton" type="button">Не отменять</button><button id="confirmCancelServiceButton" type="button">Отменить услугу</button></div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="footer-left"><div class="footer-links"><span>Яндекс Путешествия</span><span>Интеграция</span><span>Добавить отель</span><span>Стать агентом</span></div><div class="footer-social"><span>Мы в социальных сетях</span><div class="social-icons"><img src="assets/social-vk.svg" alt="ВКонтакте"><img src="assets/social-zen.svg" alt="Дзен"></div></div></div>
+    <div class="footer-right"><span>© 2009–2026 ООО «Яндекс.Вертикали»</span><span>Наши проекты: Яндекс Аренда · Яндекс.Недвижимость · Яндекс Услуги</span><span>Команда: Наши вакансии</span><span>Проект организации <b>Яндекс</b></span></div>
+  </footer>
+  <div id="toast" role="status"></div>
+  <script src="order.js?v=11"></script>
+</body>
+</html>

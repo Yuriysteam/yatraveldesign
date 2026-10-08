@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>График платежей — Академ-Онлайн</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="overrides.css?v=25">
+  <link rel="stylesheet" href="payments.css?v=38">
+  <link rel="stylesheet" href="profile-menu.css?v=2">
+  <link rel="stylesheet" href="table-headings.css?v=5">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body class="payments-page" data-profile-section="payments">
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand-image" href="index.html" aria-label="Академ-Онлайн"><img src="assets/academ-online-logo.png" alt="Академ-Онлайн"></a>
+      <nav><a href="index.html">Поиск</a><a href="orders.html">Заказы</a><a href="contacts.html">Контакты</a><a href="collections.html">Подборки</a></nav>
+      <button id="profileButton" class="profile" type="button" aria-haspopup="menu" aria-expanded="false"><span><b>Иван Иванов</b><small>ООО «Ромашка»</small></span><i>И</i></button>
+    </div>
+  </header>
+
+  <div id="profileMenu" class="profile-menu" role="menu" hidden>
+    <button id="closeProfileMenu" class="profile-menu__close" type="button" aria-label="Закрыть"><img src="assets/profile-close-24.svg" alt=""></button>
+    <div class="profile-menu__lead">
+      <div class="profile-menu__avatar"><img src="assets/profile-avatar-80.svg" alt=""></div>
+      <strong>Иван Иванов</strong>
+      <span>ООО «Ромашка»</span>
+    </div>
+    <div class="profile-menu__group">
+      <a href="payments.html" role="menuitem" data-profile-item="payments"><img src="assets/profile-calendar-24.svg" alt=""><span>График платежей</span></a>
+      <a href="payment-documents.html" role="menuitem" data-profile-item="documents"><img src="assets/profile-document-24.svg" alt=""><span>Платежные документы</span></a>
+      <button type="button" role="menuitem"><img src="assets/profile-people-24.svg" alt=""><span>Управление пользователями</span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-bill-24.svg" alt=""><span>Покупатель в счете-фактуре</span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-document-24.svg" alt=""><span>Настройки документов</span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-route-24.svg" alt=""><span>Ценовое предложение</span></button>
+    </div>
+    <div class="profile-menu__divider"></div>
+    <div class="profile-menu__group">
+      <button type="button" role="menuitem"><img src="assets/profile-settings-24.svg" alt=""><span>Настройки</span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-language-24.svg" alt=""><span>Язык<small>Русский</small></span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-night-24.svg" alt=""><span>Тёмная тема</span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-exchange-24.svg" alt=""><span>Перейти на старую версию</span></button>
+      <button type="button" role="menuitem"><img src="assets/profile-exit-24.svg" alt=""><span>Выйти</span></button>
+    </div>
+  </div>
+
+  <section class="titlebar"><div>График платежей</div></section>
+
+  <main class="payments-main">
+    <section class="payments-filter">
+      <div class="payments-filter__controls">
+        <div class="payment-select payment-select--company">
+          <button type="button" aria-haspopup="listbox" aria-expanded="false"><span>ООО «Бронирование гостиниц», дог 0232/20 от 1 июн 2025</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+          <div class="payment-menu" role="listbox"><button role="option">ООО «Бронирование гостиниц», дог 0232/20 от 1 июн 2025</button><button role="option">ООО «АОН.РУ», дог 0082/18 от 29 мар 2018</button></div>
+        </div>
+        <div id="periodSelect" class="payment-select">
+          <button type="button" aria-haspopup="listbox" aria-expanded="false"><span>Произвольный период</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+          <div class="payment-menu" role="listbox"><button role="option" data-period="month">За месяц</button><button role="option" data-period="quarter">За квартал</button><button role="option" data-period="year">За год</button><button role="option" data-period="custom">Произвольный период</button></div>
+        </div>
+        <div id="periodValueSelect" class="payment-select payment-select--period-value">
+          <button type="button" aria-haspopup="listbox" aria-expanded="false"><span>31 авг 2025 – 13 авг 2026</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+          <div class="payment-menu payment-menu--months" role="listbox"><button role="option">Январь 2026</button><button role="option">Февраль 2026</button><button role="option">Март 2026</button><button role="option">Апрель 2026</button><button role="option">Май 2026</button><button role="option">Июнь 2026</button><button role="option">Июль 2026</button><button role="option">Август 2026</button><button role="option">Сентябрь 2026</button><button role="option">Октябрь 2026</button><button role="option">Ноябрь 2026</button><button role="option">Декабрь 2026</button></div>
+          <div id="paymentCalendar" class="payment-calendar" hidden></div>
+        </div>
+        <button id="showPayments" class="payment-button payment-button--primary" type="button">Показать</button>
+      </div>
+      <div class="payments-filter__meta">
+        <span class="payment-badge">Продажа разрешена</span>
+        <span>Тип договора: Агентский</span>
+        <span>Порядок взаиморасчетов: По балансу</span>
+        <span>Срок оплаты: 6 раб. дней</span>
+        <span>Расчетный период: Ежемесячно</span>
+      </div>
+    </section>
+
+    <section class="payments-toolbar">
+      <div>
+        <div class="payment-select payment-select--sort">
+          <button type="button" aria-haspopup="listbox" aria-expanded="false"><span>Просрочено, ₽</span><img src="assets/arrow-down-fill-16.svg?v=2" alt=""></button>
+          <div class="payment-menu payment-menu--sort-options" role="listbox"><button role="option" data-sort="date">Дата</button><button role="option" data-sort="accrued">Начислено, ₽</button><button role="option" data-sort="paid">Оплачено, ₽</button><button role="option" data-sort="balance">Баланс, ₽</button><button role="option" data-sort="payable">К оплате</button><button role="option" data-sort="debtDays">Дней после начисления</button><button role="option" data-sort="overdueDebt">Просрочено, ₽</button><button role="option" data-sort="overdueDays">Дней просрочки</button><button role="option" data-sort="futurePayments">Будущие оплаты, ₽</button></div>
+        </div>
+        <button id="sortDirection" class="payment-button payment-button--secondary" type="button"><img class="sort-glyph" src="assets/sorting-default-20.svg" alt=""><span>По возрастанию</span></button>
+      </div>
+      <div>
+        <button id="exportPayments" class="payment-button payment-button--secondary" type="button">Выгрузить в Excel</button>
+        <button id="configurePayments" class="payment-button payment-button--secondary" type="button">Настроить таблицу</button>
+      </div>
+    </section>
+
+    <section class="payments-table-wrap">
+      <div class="payments-table" role="table" aria-label="График платежей">
+        <div class="payments-row payments-row--head" role="row">
+          <span role="columnheader">Дата</span><span role="columnheader">Начислено, ₽</span><span role="columnheader">Оплачено, ₽</span><span role="columnheader">Баланс, ₽</span><span role="columnheader">К оплате, ₽</span><span role="columnheader">Дней после начисления</span><span role="columnheader">Просрочено, ₽</span><span role="columnheader">Дней просрочки</span><span role="columnheader">Будущие оплаты, ₽</span>
+        </div>
+        <div id="paymentsRows" class="payments-table__body"></div>
+      </div>
+    </section>
+  </main>
+
+  <aside id="tableHelpPopover" class="table-help-popover" role="dialog" aria-live="polite" hidden>
+    <button id="closeTableHelp" class="table-help-popover__close" type="button" aria-label="Закрыть"><img src="assets/tooltip-close-20.svg" alt=""></button>
+    <strong id="tableHelpTitle"></strong>
+    <p id="tableHelpText"></p>
+  </aside>
+
+  <footer>
+    <div class="footer-left">
+      <div class="footer-links"><span>Яндекс Путешествия</span><span>Интеграция</span><span>Добавить отель</span><span>Стать агентом</span></div>
+      <div class="footer-social"><span>Мы в социальных сетях</span><div class="social-icons"><img src="assets/social-vk.svg" alt="ВКонтакте"><img src="assets/social-zen.svg" alt="Дзен"></div></div>
+    </div>
+    <div class="footer-right"><span>© 2009–2026 ООО «Яндекс.Вертикали»</span><span>Наши проекты: Яндекс Аренда · Яндекс.Недвижимость · Яндекс Услуги</span><span>Команда: Наши вакансии</span><span>Проект организации <b>Яндекс</b></span></div>
+  </footer>
+  <div id="columnsOverlay" class="columns-overlay" hidden>
+    <aside class="columns-panel" role="dialog" aria-modal="true" aria-labelledby="columnsTitle">
+      <header class="columns-panel__header"><h2 id="columnsTitle">Настроить список</h2><button id="closeColumns" type="button" aria-label="Закрыть"><img src="assets/close-16.svg" alt=""></button></header>
+      <div id="columnsList" class="columns-panel__list"></div>
+      <button id="saveColumns" class="columns-panel__save" type="button">Сохранить</button>
+    </aside>
+  </div>
+  <div id="toast" role="status"></div>
+  <script src="payments.js?v=21"></script>
+  <script src="profile-menu.js?v=5"></script>
+</body>
+</html>
