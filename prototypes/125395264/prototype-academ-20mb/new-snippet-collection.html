@@ -1,0 +1,10 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Новый снипет — подборка</title>  <meta name="robots" content="noindex, nofollow, noarchive">
+</head><body><script>
+fetch('collection-detail-open.html?v=8').then(r=>r.text()).then(markup=>{
+  const copy=markup
+    .replace('<title>Подборка — раскрытые предложения</title>','<title>Новый снипет — подборка</title>')
+    .replaceAll('href="index.html"','href="new-snippet-search.html"')
+    .replaceAll('href="collections.html"','href="new-snippet-search.html"');
+  document.open();document.write(copy);document.close();
+});
+</script></body></html>

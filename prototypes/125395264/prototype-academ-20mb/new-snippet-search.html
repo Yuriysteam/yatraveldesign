@@ -1,0 +1,11 @@
+<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Новый снипет — выдача</title>  <meta name="robots" content="noindex, nofollow, noarchive">
+</head><body><script>
+fetch('search-results-2.html?v=23').then(r=>r.text()).then(markup=>{
+  const copy=markup
+    .replace('<title>Отели в Москве — вариант 2 — Академ-Онлайн</title>','<title>Новый снипет — выдача</title>')
+    .replace('<body class="results-page" data-page-variant="snippet-copy">','<body class="results-page" data-page-variant="snippet-copy" data-hotel-url="new-snippet-hotel.html">')
+    .replaceAll('href="collections.html"','href="new-snippet-collection.html"')
+    .replace('search-results.js?v=22','search-results.js?v=23');
+  document.open();document.write(copy);document.close();
+});
+</script></body></html>
