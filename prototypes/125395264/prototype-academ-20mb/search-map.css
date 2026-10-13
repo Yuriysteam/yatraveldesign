@@ -1,0 +1,113 @@
+/* Figma 9453:161188 — map results, first delivery: header, search and filters. */
+html:has(.results-page.results-map-variant){height:100%;overflow:hidden}
+.results-page.results-map-variant{height:100dvh;min-width:1280px;overflow:hidden;background:#f5f6f7}
+.results-map-variant .topbar{height:68px}
+.results-map-variant .topbar__inner{box-sizing:border-box;width:1200px;height:68px;margin:0 auto}
+.results-map-variant .home-brand{gap:0}
+.results-map-variant .brand-image{width:213px;height:28px}
+.results-map-variant .brand-image img{position:absolute;top:-16px;left:-15px;width:270px;max-width:none}
+.results-map-variant .legacy-link{display:none}
+.results-map-variant .topbar nav{margin-left:auto}
+.results-map-variant .topbar nav a{font-size:16px;line-height:20px}
+.results-map-variant .profile{margin-left:20px}
+.results-map-variant .results-search{box-sizing:border-box;height:95px;padding-top:17px;border-radius:0 0 40px 40px}
+.results-map-variant .results-search form{box-sizing:border-box;width:1200px;height:60px;padding:2px;border-radius:60px}
+.results-map-variant .search-place{box-sizing:border-box;width:448px;height:56px;padding:0 20px}
+.results-map-variant .search-place button{display:none}
+.results-map-variant .search-date{box-sizing:border-box;width:390px;height:56px;padding:0 20px}
+.results-map-variant .search-guests{box-sizing:border-box;width:250px;height:52px;padding:0 20px}
+.results-map-variant .search-submit{width:96px;height:56px!important;border-radius:56px!important}
+.results-map-variant .results-layout{display:grid;width:1264px;height:calc(100dvh - 179px);margin:8px auto 0;grid-template-columns:260px 340px 648px;gap:8px;align-items:start;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
+.results-map-variant .results-layout::-webkit-scrollbar{display:none}
+.results-map-variant .filters{width:260px;height:auto;gap:8px;overflow:visible}
+.results-map-variant .map-card{box-sizing:border-box;height:64px;padding:8px;border-radius:28px;background:#fff}
+.results-map-variant .map-card:after{display:none}
+.results-map-variant .map-list-back{position:absolute;top:0;right:0;bottom:0;left:0;display:flex;box-sizing:border-box;width:auto;height:auto;margin:0;padding:0;align-items:center;justify-content:center;gap:8px;border:0;border-radius:18px;background:#f2f2f2;font-size:14px;line-height:18px;font-weight:500;text-align:center}
+.results-map-variant .map-list-back img{display:block;width:20px;height:20px;flex:0 0 20px}
+.results-map-variant .filters-card{box-sizing:border-box;width:260px;height:auto;padding:20px;overflow:visible;border-radius:36px}
+.results-map-variant .hotel-filter{display:none}
+.results-map-variant .map-sort{display:flex;width:220px;height:48px;margin:0 0 20px;padding:0 16px;align-items:center;gap:8px;border:0;border-radius:16px;background:#f2f2f2;font-size:14px;line-height:18px;font-weight:500}
+.results-map-variant .map-sort .sort-label{flex:1;text-align:left}
+.results-map-variant .map-sort img{width:16px;height:16px}
+.results-map-variant .filters-card section{margin-top:20px}
+.results-map-variant .filters-card .map-radius-filter{margin-top:0}
+.results-map-variant .map-radius-filter .radius-row{margin-top:12px}
+.results-map-variant .map-radius-filter .radius-row button{border:0}
+.results-map-variant .results-content{width:340px;height:auto;overflow:visible}
+.results-map-variant .results-toolbar{box-sizing:border-box;width:340px;height:68px;padding:0 28px;border-radius:28px}
+.results-map-variant .results-toolbar b{font-size:16px;line-height:20px}
+.results-map-variant .results-toolbar>#sortButton{display:none}
+.results-map-variant #hotels,.results-map-variant .results-pagination{display:none}
+.results-map-variant .map-offers-scroll{height:auto;overflow:visible}
+.results-map-variant .map-offer-card{box-sizing:border-box;width:340px;height:364px;margin-top:8px;padding:20px;overflow:hidden;border-radius:36px;background:#fff}
+.results-map-variant .map-offer-head{height:80px}
+.results-map-variant .map-offer-head .hotel-title{height:20px;gap:8px}
+.results-map-variant .map-offer-head .stars{gap:4px}
+.results-map-variant .map-offer-head .stars img{width:16px;height:16px}
+.results-map-variant .map-offer-head .stars img.muted{opacity:.18}
+.results-map-variant .map-offer-head .hotel-title>button{display:grid;width:20px;height:20px;padding:0;place-items:center;border:0;border-radius:4px;background:#f2f2f2}
+.results-map-variant .map-offer-head .hotel-title>button img{width:16px;height:16px}
+.results-map-variant .map-offer-head .hotel-title.no-stars{display:none}
+.results-map-variant .map-offer-head h2{display:flex;margin:4px 0 0;align-items:center;gap:4px;font:500 16px/20px "YS Text",Arial,sans-serif}
+.results-map-variant .map-offer-head .hotel-title.no-stars+h2{margin-top:0}
+.results-map-variant .map-offer-head h2>button{display:grid;width:20px;height:20px;padding:0;place-items:center;border:0;border-radius:4px;background:#f2f2f2}
+.results-map-variant .map-offer-head h2>button img{width:16px;height:16px}
+.results-map-variant .map-offer-head h2 a{color:inherit;text-decoration:none}
+.results-map-variant .map-offer-head p{margin:0;font-size:14px;line-height:18px}
+.results-map-variant .map-offer-card>.hotel-photo{position:relative;width:300px;height:180px}
+.results-map-variant .map-offer-card>.hotel-photo>img{display:block;width:300px;height:180px;border-radius:28px;object-fit:cover}
+.results-map-variant .map-offer-card .photo-count{right:8px;bottom:8px;padding:5px 10px}
+.results-map-variant .map-offer-footer{display:flex;height:64px;align-items:center;justify-content:space-between}
+.results-map-variant .map-offer-footer .offer-price-main{display:flex;align-items:center;flex-wrap:wrap;column-gap:8px}
+.results-map-variant .map-offer-footer .offer-price-main strong{width:max-content;flex:0 0 auto;font:500 20px/24px "YS Display",Arial,sans-serif;white-space:nowrap}
+.results-map-variant .map-offer-footer .offer-price-main>img{width:16px;height:16px;flex:0 0 16px;margin:0}
+.results-map-variant .map-offer-footer .offer-price-main small{width:100%;flex:0 0 100%;margin-top:4px;color:#9c9ba2;font-size:14px;line-height:18px;white-space:nowrap}
+.results-map-variant .map-offer-footer>a{display:grid;box-sizing:border-box;width:118px;min-width:118px;height:48px;flex:0 0 118px;place-items:center;border-radius:16px;background:#fed42b;color:#0d0d0f;font-size:14px;line-height:18px;font-weight:500;text-decoration:none}
+.results-map-variant .map-stage{--map-zoom:1;position:sticky;top:0;box-sizing:border-box;width:648px;height:calc(100dvh - 179px);min-height:0;overflow:hidden;border-radius:36px;background:#eef0f2 url("assets/hotel/hotel-map.png") center/auto calc(100% * var(--map-zoom)) no-repeat}
+.results-map-variant .map-tools{position:absolute;z-index:2;top:20px;right:16px;left:20px;display:flex;gap:8px}
+.results-map-variant .map-tool{display:grid;width:56px;height:56px;padding:0;place-items:center;border:0;border-radius:18px;background:#fff;box-shadow:0 6px 18px #00000012}
+.results-map-variant .map-pin-tool{border-radius:20px;transition:background-color .12s ease}
+.results-map-variant .map-pin-tool.is-active{background:#fff;box-shadow:0 8px 12px #0000001f}
+.results-map-variant .map-pin-tool:hover{background:#e6e5e7}
+.results-map-variant .map-pin-tool-close{display:none}
+.results-map-variant .map-pin-tool.is-active .map-pin-tool-default{display:none}
+.results-map-variant .map-pin-tool.is-active .map-pin-tool-close{display:block}
+.results-map-variant .map-pin-selection{--pin-x:50%;--pin-y:50%;position:absolute;z-index:1;inset:0;pointer-events:none}
+.results-map-variant .map-pin-selection[hidden]{display:none}
+.results-map-variant .map-pin-radius{position:absolute;top:var(--pin-y);left:var(--pin-x);transform:translate(-50%,-50%) scale(var(--radius-scale,.8));transition:transform .18s ease}
+.results-map-variant .map-pin-marker{position:absolute;top:var(--pin-y);left:var(--pin-x);display:block;width:60px;height:68px;transform:translate(-50%,-100%);pointer-events:auto;cursor:grab;touch-action:none;user-select:none}
+.results-map-variant .map-pin-marker.is-dragging{cursor:grabbing}
+.results-map-variant .map-pin-marker>img:first-child{position:absolute;inset:0}
+.results-map-variant .map-pin-marker>img:last-child{position:absolute;top:16px;left:18px}
+.results-map-variant .map-ruler{margin-left:auto}
+.results-map-variant .map-tool img{width:24px;height:24px}
+.results-map-variant .map-location-search{display:flex;box-sizing:border-box;width:344px;height:56px;margin-left:0;padding:0 18px;align-items:center;gap:12px;border-radius:18px;background:#fff;box-shadow:0 6px 18px #00000012}
+.results-map-variant .map-location-search img{width:24px;height:24px}
+.results-map-variant .map-location-search>img{filter:brightness(0)}
+.results-map-variant .map-location-search input{width:100%;border:0;outline:0;background:transparent;font:16px/20px "YS Text",Arial,sans-serif}
+.results-map-variant .map-location-search input::placeholder{color:#9c9ba2}
+.results-map-variant .map-prices{position:absolute;inset:0}
+.results-map-variant .map-prices button{position:absolute;top:var(--y);left:var(--x);height:36px;padding:6px 12px;transform:translate(-50%,-50%);border:0;border-radius:12px;background:#fff;box-shadow:0 4px 6px #9d9d9559,0 0 1px #9d9d954d;font:400 16px/20px "YS Text",Arial,sans-serif;white-space:nowrap;transition:top .18s ease,left .18s ease,background-color .12s,color .12s,transform .12s}
+.results-map-variant .map-prices button:hover{background:#f2f2f2;transform:translate(-50%,-50%) scale(1.03)}
+.results-map-variant .map-prices button.is-active,.results-map-variant .map-prices button.is-active:hover{background:#7f5fff;color:#fff}
+.results-map-variant .map-hotel-popup{position:absolute;z-index:4;top:var(--popup-y);left:clamp(182px,var(--popup-x),calc(100% - 182px));box-sizing:border-box;width:348px;height:136px;transform:translate(-50%,calc(-100% - 18px));border-radius:28px;background:#fff;box-shadow:0 8px 12px #00000026}
+.results-map-variant .map-hotel-popup[hidden]{display:none}
+.results-map-variant .map-hotel-popup>a{display:flex;box-sizing:border-box;width:100%;height:100%;padding:16px;gap:16px;color:#0d0d0f;text-decoration:none}
+.results-map-variant .map-popup-photo{width:104px;height:104px;flex:0 0 104px;border-radius:16px;object-fit:cover}
+.results-map-variant .map-popup-copy{display:flex;min-width:0;flex:1;flex-direction:column}
+.results-map-variant .map-popup-stars{display:flex;height:18px;gap:4px}
+.results-map-variant .map-popup-stars img{width:16px;height:16px}
+.results-map-variant .map-popup-copy strong{display:-webkit-box;margin-top:6px;overflow:hidden;font:500 16px/20px "YS Text",Arial,sans-serif;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+.results-map-variant .map-popup-copy b{margin-top:auto;font:500 16px/18px "YS Text",Arial,sans-serif}
+.results-map-variant .map-hotel-popup>button{position:absolute;top:16px;right:16px;display:grid;width:24px;height:24px;padding:0;place-items:center;border:0;background:transparent}
+.results-map-variant .map-hotel-popup>button img{width:24px;height:24px}
+.results-map-variant .map-zoom{position:absolute;top:50%;right:16px;display:flex;overflow:hidden;flex-direction:column;transform:translateY(-50%);border-radius:18px;box-shadow:0 6px 18px #00000016}
+.results-map-variant .map-zoom button{display:grid;width:56px;height:56px;padding:0;place-items:center;border:0;background:#fff}
+.results-map-variant .map-zoom button img{width:20px;height:20px}
+.results-map-variant .map-zoom button:disabled{opacity:1;background:#fff}
+.results-map-variant .map-zoom button:disabled img{filter:invert(64%) sepia(5%) saturate(183%) hue-rotate(208deg) brightness(95%) contrast(89%)}
+.results-map-variant .map-zoom button+button{border-top:1px solid #eee}
+.results-map-variant .map-geolocate{position:absolute;top:calc(50% + 72px);right:16px;display:grid;width:56px;height:56px;padding:0;place-items:center;border:0;border-radius:18px;background:#fff;box-shadow:0 6px 18px #00000016}
+.results-map-variant .map-geolocate img{width:24px;height:24px}
+.results-map-variant .results-footer{display:none}
+.results-map-variant .global-view-switcher{top:auto!important;bottom:16px!important}

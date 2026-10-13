@@ -7,6 +7,106 @@
   color:#0d0d0f;
 }
 
+/* Exact touch composition from Figma node 1980:60263. */
+.touch-date-row{display:none}
+body.touch-mode{width:375px}
+body.touch-mode .topbar,body.touch-mode .topbar__inner{height:72px}
+body.touch-mode .topbar__inner{padding:0 16px}
+body.touch-mode .home-brand{width:210px;min-width:210px}
+body.touch-mode .brand-image{display:flex!important;width:210px!important;height:28px!important;align-items:center!important}
+body.touch-mode .brand-image .desktop-logo{display:block!important;width:210px!important;height:28px!important;object-fit:contain!important;object-position:left center!important}
+body.touch-mode .brand-image .touch-logo{display:none!important}
+body.touch-mode .touch-menu{top:72px;width:375px}
+body.touch-mode main{padding:0}
+body.touch-mode .home-hero{width:375px;margin:0;padding:48px 16px 16px;border-radius:0 0 24px 24px;background:#fff}
+body.touch-mode .home-hero h1{margin:0;font-family:"YS Display","Arial",sans-serif;font-size:24px;line-height:28px;font-weight:500;letter-spacing:-.24px;text-align:left}
+body.touch-mode .hotel-search{display:flex;width:335px;height:auto;margin-top:24px;padding:0;flex-direction:column;gap:16px;border-radius:0;box-shadow:none}
+body.touch-mode .search-control{width:100%;height:56px}
+body.touch-mode .search-control--city input,body.touch-mode .search-control--guests>button{border:0;border-radius:16px;background:#f1f0ed}
+body.touch-mode .search-control--date{display:none}
+body.touch-mode .touch-date-row{display:flex;width:100%;gap:8px}
+body.touch-mode .touch-date-row button{display:flex;width:calc(50% - 4px);height:56px;padding:0 12px;align-items:center;justify-content:space-between;border-radius:16px;background:#f1f0ed;color:#9c9ba2;font-size:14px}
+body.touch-mode .touch-date-row img{width:20px;height:20px}
+body.touch-mode .search-control--guests:before{display:none}
+body.touch-mode .find-button{width:100%;height:56px;margin:0;border-radius:16px}
+body.touch-mode .international-section{display:none}
+body.touch-mode .events-section{width:375px;margin:40px 0 0;padding:28px 20px 40px}
+body.touch-mode .events-section h2{margin:0 0 16px;font-size:24px;line-height:28px}
+body.touch-mode .event-card--featured,body.touch-mode .event-card--announcement{display:none}
+body.touch-mode .events-grid{display:grid;grid-template-columns:1fr;gap:8px}
+body.touch-mode .events-grid .event-card:nth-child(n+4){display:none}
+body.touch-mode .event-card{width:335px;height:335px;min-height:0;aspect-ratio:1;border-radius:24px}
+body.touch-mode .events-grid .event-card:nth-child(1)>img:first-child{content:url("assets/home/touch-event-1.png")}
+body.touch-mode .events-grid .event-card:nth-child(2)>img:first-child{content:url("assets/home/touch-event-2.png")}
+body.touch-mode .events-grid .event-card:nth-child(3)>img:first-child{content:url("assets/home/touch-event-3.png")}
+body.touch-mode .event-card>div{right:28px;bottom:28px;left:28px;text-align:center}
+body.touch-mode .event-card h3{max-width:none;font-size:20px;line-height:24px}
+body.touch-mode .event-card time{font-size:14px;line-height:18px}
+body.touch-mode .event-arrow{position:static;width:20px;height:20px;margin:4px auto 0;filter:brightness(0) invert(1)}
+body.touch-mode .more-events{width:335px;height:40px;margin:8px 0 0;border-radius:14px}
+body.touch-mode footer{width:375px;padding:20px}
+
+/* Corrections after touch review. */
+body.touch-mode .brand-image .desktop-logo{position:static!important;top:auto!important;left:auto!important;display:block!important;visibility:visible!important;opacity:1!important;width:210px!important;height:28px!important;content:url("assets/academ-online-logo.png")!important;transform:none!important}
+body.touch-mode .hotel-search>.search-control--city{flex:0 0 56px!important;width:335px!important;height:56px!important}
+body.touch-mode .search-control--city input{display:block!important;width:335px!important;height:56px!important;padding:0 16px!important;border-radius:16px!important;background:#f1f0ed!important;font-size:14px!important}
+body.touch-mode .touch-date-row{flex:0 0 56px!important;height:56px!important}
+body.touch-mode .touch-date-row button{flex:0 0 calc(50% - 4px)!important}
+body.touch-mode .search-control--guests{flex:0 0 56px!important;width:335px!important;height:56px!important}
+body.touch-mode .search-control--guests>button{height:56px!important;padding:0 16px!important}
+body.touch-mode .international-section{display:block!important;width:375px!important;margin:40px 0 0!important;padding:28px 20px 40px!important}
+body.touch-mode .international-heading h2{margin:0;font-size:24px;line-height:28px}
+body.touch-mode .international-heading p{margin:8px 0 0;font-size:14px;line-height:18px}
+body.touch-mode .destination-grid{display:grid!important;width:335px;grid-template-columns:1fr 1fr;gap:28px 8px;margin-top:24px}
+body.touch-mode .destination-card{width:auto!important}
+body.touch-mode .destination-card img{width:163.5px!important;height:163.5px!important;border-radius:24px!important}
+body.touch-mode .events-section{margin-top:0!important}
+body.touch-mode:has(.guest-popover:not([hidden])):before{position:fixed;z-index:1290;inset:0;background:rgba(13,13,15,.4);content:""}
+body.touch-mode .guest-popover{position:fixed!important;z-index:1300!important;top:auto!important;right:auto!important;bottom:0!important;left:50%!important;width:375px!important;max-height:80vh!important;margin:0!important;padding:12px 20px calc(20px + env(safe-area-inset-bottom))!important;border-radius:24px 24px 0 0!important;background:#fff!important;box-shadow:0 -10px 40px rgba(0,0,0,.16)!important;overflow:auto!important;transform:translateX(-50%)!important}
+body.touch-mode .guest-popover__head{display:flex;height:56px;align-items:center;justify-content:space-between;border-bottom:1px solid #ecebee}
+body.touch-mode .guest-popover__head strong{font-family:"YS Display","Arial",sans-serif;font-size:20px;line-height:24px;font-weight:500}
+body.touch-mode .guest-popover__head button{width:40px;height:40px;border-radius:14px;background:#f1f0ed;font-size:24px;line-height:1}
+body.touch-mode .guest-row{min-height:80px}
+body.touch-mode .stepper button{width:44px;height:44px;border-radius:14px}
+
+/* Persistent touch preview: use index.html?touch=1. This stays active while annotating. */
+body.touch-mode{width:390px;min-width:0;margin:0 auto;overflow-x:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06)}
+body.touch-mode .topbar{height:64px}
+body.touch-mode .topbar__inner{width:100%;height:64px;padding:0 16px}
+body.touch-mode .topbar nav,body.touch-mode .legacy-link,body.touch-mode .profile span,body.touch-mode .profile-chip__meta{display:none}
+body.touch-mode .topbar,body.touch-mode .topbar__inner{height:72px}
+body.touch-mode .topbar__inner{width:100%;padding:0 16px;justify-content:space-between}
+body.touch-mode .home-brand{display:flex;width:260px;min-width:260px;align-items:center}
+body.touch-mode .brand-image{position:static!important;display:flex;width:260px;height:24px;align-items:center;overflow:visible;transform:none!important}
+body.touch-mode .brand-image .desktop-logo{display:none}
+body.touch-mode .brand-image .touch-logo{position:static!important;display:block;width:260px;height:22px;max-width:none;object-fit:contain;object-position:left center;transform:none!important}
+body.touch-mode .profile,body.touch-mode .profile-chip{width:44px;height:44px;margin-left:auto;padding:0;justify-content:center;border-radius:50%}
+body.touch-mode .profile{display:none}
+body.touch-mode .profile i{width:40px;height:40px;flex:0 0 40px}
+body.touch-mode .touch-menu-button{display:flex}
+body.touch-mode .touch-menu{display:block;position:fixed;z-index:1100;top:72px;left:50%;width:390px;padding:16px 20px 24px;border-radius:0 0 24px 24px;background:#fff;box-shadow:0 18px 36px rgba(0,0,0,.14);transform:translateX(-50%)}
+body.touch-mode .touch-menu[hidden]{display:none}
+body.touch-mode .home-hero{width:auto;margin:0 16px;padding-top:40px}
+body.touch-mode .home-hero h1{margin:0;text-align:left;font-size:30px;line-height:32px}
+body.touch-mode .hotel-search{display:flex;flex-direction:column;width:100%;height:auto;margin-top:24px;padding:8px;border-radius:28px}
+body.touch-mode .search-control{width:100%;height:58px}
+body.touch-mode .search-control--date:before,body.touch-mode .search-control--guests:before{inset:0 16px auto;width:auto;height:1px}
+body.touch-mode .find-button{width:100%;height:56px;margin-top:4px;border-radius:20px}
+body.touch-mode .city-suggestions,body.touch-mode .date-popover,body.touch-mode .guest-popover{position:fixed;top:auto;right:0;bottom:0;left:0;width:390px;max-height:82vh;margin:auto;padding-bottom:calc(20px + env(safe-area-inset-bottom));border-radius:28px 28px 0 0;overflow:auto}
+body.touch-mode .international-section,body.touch-mode .events-section{width:auto;margin-right:16px;margin-left:16px}
+body.touch-mode .international-section{margin-top:56px}
+body.touch-mode .international-heading h2,body.touch-mode .events-section h2{font-size:24px;line-height:28px}
+body.touch-mode .destination-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 12px}
+body.touch-mode .destination-card img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:28px}
+body.touch-mode .events-section{margin-top:56px}
+body.touch-mode .events-grid{grid-template-columns:1fr;gap:12px}
+body.touch-mode .event-card{width:100%;height:auto;min-height:340px;aspect-ratio:1;border-radius:28px}
+body.touch-mode .event-card--featured,body.touch-mode .event-card--announcement{width:100%;height:420px;margin-left:0;aspect-ratio:auto;border-radius:28px}
+body.touch-mode .event-card--announcement>.announcement-copy{top:28px;right:24px;left:24px}
+body.touch-mode .event-card--announcement>.announcement-visual{top:auto;right:-150px;bottom:20px;width:520px}
+body.touch-mode footer{width:390px;height:auto;padding:28px 16px}
+body.touch-mode footer>div,body.touch-mode .home-footer__inner{width:auto;display:block}
+
 .event-card--announcement>.announcement-visual{
   top:38px;
   right:38px;
@@ -29,7 +129,124 @@
   font-weight:400;
 }
 
+.view-switcher{position:fixed;z-index:1200;top:16px;left:16px;right:auto;bottom:auto;display:flex;gap:2px;padding:4px;border:1px solid #e2e1e5;border-radius:18px;background:rgba(255,255,255,.96);box-shadow:0 8px 28px rgba(0,0,0,.14);backdrop-filter:blur(12px)}
+.view-switcher a{display:grid;min-width:64px;height:36px;padding:0 14px;place-items:center;border-radius:14px;color:#77767d;font-size:14px;font-weight:500;text-decoration:none}
+body:not(.touch-mode) .view-switcher a:first-child,body.touch-mode .view-switcher a:last-child{background:#222125;color:#fff}
+body:not(.touch-mode) .view-switcher{top:84px}
+body.touch-mode .view-switcher{top:16px;left:16px;right:auto;bottom:auto}
+body.home-page:not(.touch-mode) .home-brand .brand-image{position:relative;display:block;width:213px;height:30px;overflow:hidden}
+body.home-page:not(.touch-mode) .home-brand .brand-image .desktop-logo{position:absolute;top:-12px;left:-15px;display:block;width:270px;height:auto;max-width:none}
+body.home-page:not(.touch-mode) .home-brand .brand-image .touch-logo{display:none}
+.touch-menu-button{display:none;width:44px;height:44px;padding:9px;border-radius:14px;background:#fff;flex-direction:column;align-items:center;justify-content:center;gap:5px}
+.touch-menu-button span{display:block;width:20px;height:2px;border-radius:2px;background:#0d0d0f}
+.touch-menu__profile{display:flex;align-items:center;gap:12px;padding:12px 0 20px;border-bottom:1px solid #ecebee}
+.touch-menu__profile i{display:grid;width:44px;height:44px;place-items:center;border-radius:50%;background:#f1f1f3;font-style:normal}
+.touch-menu__profile span{display:flex;flex-direction:column;font-size:14px}
+.touch-menu__profile small{margin-top:2px;color:#77767d}
+.touch-menu nav{display:flex;flex-direction:column;padding-top:12px}
+.touch-menu nav a{padding:14px 4px;color:#0d0d0f;font-size:16px;text-decoration:none}
+.touch-menu nav a.active{font-weight:500}
+.touch-logo{display:none}
+
 @media(max-width:1279px){
   .event-card--announcement{width:calc(100% + 2px)}
   .event-card--announcement>.announcement-visual{right:38px;left:auto;width:624px}
 }
+
+/* Touch layout */
+@media(max-width:600px){
+  html{scroll-padding-top:72px}
+  body.home-page{min-width:0;overflow-x:hidden}
+  button,.search-field,.profile-chip,.destination-card,.event-card{touch-action:manipulation}
+  .topbar{height:64px}
+  .topbar__inner{width:auto;height:64px;padding:0 16px}
+  .topbar__nav,.topbar__legacy,.profile-chip span,.profile-chip__meta{display:none}
+  .brand{display:flex;width:190px;height:34px;overflow:visible;align-items:center}
+  .brand-image{display:block;width:184px;height:auto;transform:none}
+  .home-brand{display:flex;width:184px;min-width:184px;align-items:center}
+  .brand-image img{display:block;width:176px;height:auto;max-width:none}
+  .brand-image .desktop-logo{display:none}
+  .brand-image .touch-logo{display:block;width:260px;height:22px;object-fit:contain;object-position:left center}
+  .home-brand{width:260px;min-width:260px}
+  .brand-image{width:260px;height:24px}
+  .profile-chip{width:44px;height:44px;padding:0;border-radius:50%;justify-content:center}
+  .profile-chip__avatar{width:38px;height:38px}
+  .topbar .profile{width:44px;min-width:44px;height:44px;margin-left:auto;padding:2px;gap:0;justify-content:center;border-radius:50%}
+  .topbar .profile span{display:none}
+  .topbar .profile i{width:40px;height:40px;flex:0 0 40px}
+  .topbar .profile{display:none}
+  .touch-menu-button{display:flex}
+  .touch-menu{display:block;position:fixed;z-index:1100;top:72px;right:0;left:0;width:100%;padding:16px 20px 24px;border-radius:0 0 24px 24px;background:#fff;box-shadow:0 18px 36px rgba(0,0,0,.14)}
+  .touch-menu[hidden]{display:none}
+  .home-hero{width:auto;margin:0 16px;padding-top:40px}
+  .home-hero h1{max-width:330px;margin:0;text-align:left;font-size:30px;line-height:32px;letter-spacing:-.6px}
+  .hotel-search{display:flex;flex-direction:column;width:100%;height:auto;margin-top:24px;padding:8px;border-radius:28px;box-sizing:border-box;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+  .search-field{width:100%;height:56px;padding:0 16px;border:0;border-bottom:1px solid #ececef;border-radius:0;box-sizing:border-box}
+  .search-field:first-child{border-radius:20px 20px 0 0}
+  .search-field__label{font-size:12px;line-height:16px}
+  .search-field__value{font-size:16px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .find-button{width:100%;height:56px;margin-top:8px;border-radius:20px;font-size:16px}
+  .city-suggestions,.calendar-popover,.guests-popover,.home-city-popover,.home-calendar-popover,.home-guests-popover{position:fixed!important;left:0!important;right:0!important;top:auto!important;bottom:0!important;width:100%!important;max-width:none!important;max-height:82vh!important;margin:0!important;padding:20px 16px calc(20px + env(safe-area-inset-bottom))!important;border-radius:28px 28px 0 0!important;box-sizing:border-box;overflow:auto;z-index:1000}
+  .calendar-popover__months,.home-calendar-popover__months{display:block}
+  .calendar-month+.calendar-month{margin-top:24px}
+  .guests-row{min-height:64px}
+  .guests-stepper button{width:48px;height:48px}
+  .international-section,.events-section{width:auto;margin-left:16px;margin-right:16px}
+  .international-section{margin-top:56px}
+  .international-section h2,.events-section h2{font-size:24px;line-height:28px;letter-spacing:-.3px}
+  .destinations-grid{display:flex;gap:12px;margin-left:0;margin-right:-16px;padding-right:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .destinations-grid::-webkit-scrollbar{display:none}
+  .destination-card{flex:0 0 220px;scroll-snap-align:start}
+  .destination-card img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:28px}
+  .destination-card strong{font-size:18px;line-height:22px}
+  .events-section{margin-top:52px}
+  .events-grid{grid-template-columns:1fr;gap:12px}
+  .event-card{min-height:340px;border-radius:28px}
+  .event-card--announcement{width:100%;height:420px;margin-left:0;border-radius:28px;overflow:hidden}
+  .event-card--announcement>.announcement-copy{top:28px;left:24px;right:24px}
+  .event-card--announcement .announcement-copy h3{font-size:28px;line-height:30px}
+  .event-card--announcement .announcement-copy br{display:none}
+  .event-card--announcement>.announcement-visual{top:auto;right:-150px;bottom:20px;width:520px}
+  .home-footer{margin-top:56px;padding:28px 16px calc(28px + env(safe-area-inset-bottom))}
+  .home-footer__inner{width:auto;display:block}
+  .home-footer__right{margin-top:28px;text-align:left}
+  .footer-links{display:flex;flex-wrap:wrap;gap:16px 20px}
+  .view-switcher{top:16px;left:16px;right:auto;bottom:auto}
+}
+
+/* Keep persistent ?touch=1 preview identical at any outer browser width. */
+body.touch-mode{width:375px}
+body.touch-mode .topbar,body.touch-mode .topbar__inner{height:72px}
+body.touch-mode .topbar__inner{padding:0 16px}
+body.touch-mode .home-brand{width:210px;min-width:210px}
+body.touch-mode .brand-image{display:flex!important;width:210px!important;height:28px!important;align-items:center!important}
+body.touch-mode .brand-image .desktop-logo{display:block!important;width:210px!important;height:28px!important;object-fit:contain!important;object-position:left center!important}
+body.touch-mode .brand-image .touch-logo{display:none!important}
+body.touch-mode .touch-menu{top:72px;width:375px}
+body.touch-mode .home-hero{width:375px;margin:0;padding:48px 16px 16px;border-radius:0 0 24px 24px}
+body.touch-mode .home-hero h1{margin:0;font-size:24px;line-height:28px;letter-spacing:-.24px;text-align:left}
+body.touch-mode .hotel-search{display:flex;width:335px;height:auto;margin-top:24px;padding:0;flex-direction:column;gap:16px;border-radius:0;box-shadow:none}
+body.touch-mode .search-control{width:100%;height:56px}
+body.touch-mode .search-control--city input,body.touch-mode .search-control--guests>button{border:0;border-radius:16px;background:#f1f0ed}
+body.touch-mode .search-control--date{display:none}
+body.touch-mode .touch-date-row{display:flex;width:100%;gap:8px}
+body.touch-mode .touch-date-row button{display:flex;width:calc(50% - 4px);height:56px;padding:0 12px;align-items:center;justify-content:space-between;border-radius:16px;background:#f1f0ed;color:#9c9ba2;font-size:14px}
+body.touch-mode .touch-date-row img{width:20px;height:20px}
+body.touch-mode .search-control--guests:before{display:none}
+body.touch-mode .find-button{width:100%;height:56px;margin:0;border-radius:16px}
+body.touch-mode .international-section{display:none}
+body.touch-mode .events-section{width:375px;margin:40px 0 0;padding:28px 20px 40px}
+body.touch-mode .events-section h2{margin:0 0 16px;font-size:24px;line-height:28px}
+body.touch-mode .event-card--featured,body.touch-mode .event-card--announcement{display:none}
+body.touch-mode .events-grid{display:grid;grid-template-columns:1fr;gap:8px}
+body.touch-mode .events-grid .event-card:nth-child(n+4){display:none}
+body.touch-mode .event-card{width:335px;height:335px;min-height:0;aspect-ratio:1;border-radius:24px}
+body.touch-mode .events-grid .event-card:nth-child(1)>img:first-child{content:url("assets/home/touch-event-1.png")}
+body.touch-mode .events-grid .event-card:nth-child(2)>img:first-child{content:url("assets/home/touch-event-2.png")}
+body.touch-mode .events-grid .event-card:nth-child(3)>img:first-child{content:url("assets/home/touch-event-3.png")}
+body.touch-mode .event-card>div{right:28px;bottom:28px;left:28px;text-align:center}
+body.touch-mode .event-card h3{max-width:none;font-size:20px;line-height:24px}
+body.touch-mode .event-card time{font-size:14px;line-height:18px}
+body.touch-mode .event-arrow{position:static;width:20px;height:20px;margin:4px auto 0;filter:brightness(0) invert(1)}
+body.touch-mode .more-events{width:335px;height:40px;margin:8px 0 0;border-radius:14px}
+body.touch-mode footer{width:375px;padding:20px}

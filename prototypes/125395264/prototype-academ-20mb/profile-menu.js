@@ -1,4 +1,12 @@
 (() => {
+  const touchMode=new URLSearchParams(location.search).get('touch')==='1';
+  document.body.classList.toggle('touch-mode',touchMode);
+  if(!document.querySelector('.view-switcher')){
+    const switcher=document.createElement('nav');switcher.className='view-switcher global-view-switcher';switcher.setAttribute('aria-label','Режим отображения');
+    const webUrl=new URL(location.href);webUrl.searchParams.delete('touch');const touchUrl=new URL(location.href);touchUrl.searchParams.set('touch','1');
+    switcher.innerHTML=`<a class="${touchMode?'':'is-active'}" href="${webUrl.pathname}${webUrl.search}">Веб</a><a class="${touchMode?'is-active':''}" href="${touchUrl.pathname}${touchUrl.search}">Тач</a>`;document.body.append(switcher);
+    const style=document.createElement('style');style.textContent=`.global-view-switcher{position:fixed;z-index:5000;top:16px;left:16px;display:flex!important;gap:2px;padding:4px;border:1px solid #e2e1e5;border-radius:18px;background:rgba(255,255,255,.96);box-shadow:0 8px 28px rgba(0,0,0,.14);backdrop-filter:blur(12px)}.global-view-switcher a{display:grid;min-width:54px;height:32px;padding:0 12px;place-items:center;border-radius:14px;color:#77767d;font:500 13px/16px "YS Text",Arial,sans-serif;text-decoration:none}.global-view-switcher a.is-active{background:#222125;color:#fff}`;document.head.append(style);
+  }
   const button=document.querySelector('.profile'); if(!button)return;
   button.id='profileButton'; button.type='button'; button.setAttribute('aria-haspopup','menu'); button.setAttribute('aria-expanded','false');
   let menu=document.querySelector('#profileMenu');

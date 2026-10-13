@@ -1,0 +1,69 @@
+.collection-detail-page--open .selection-card--open .selected-room{
+  grid-template-columns:81px minmax(0,1fr) 48px;
+  margin-bottom:0;
+  border-radius:0;
+  background:#fff;
+}
+
+.collection-detail-page--open .selection-card--open .selected-room h3{
+  max-width:860px;
+}
+
+.collection-detail-page--open .selection-card--open .collection-offers-open{
+  margin:0 24px 24px 44px;
+  overflow:hidden;
+  border:1px solid #e6e5e7;
+  border-radius:32px;
+}
+
+.collection-detail-page--open .selection-card--open .collection-offer-host{
+  margin:0;
+}
+
+.collection-detail-page--open .selection-card--open .collection-offer-host .hotel-offer-widget{
+  box-sizing:border-box;
+  min-height:112px;
+  padding:20px 24px 20px 19px;
+  gap:0;
+}
+
+.collection-detail-page--open .selection-card--open .offer-toolbar{
+  display:none;
+}
+
+.collection-detail-page--open .selection-card--open .offer-grid{
+  display:grid;
+  grid-template-columns:214px minmax(0,1fr) 201px 48px;
+  column-gap:72px;
+  justify-content:normal;
+}
+
+.collection-detail-page--open .selection-card--open .offer-prices{
+  justify-self:end;
+}
+
+.collection-detail-page--open .selection-card--open .offer-booking{
+  width:48px;
+  flex:0 0 48px;
+  align-items:center;
+}
+
+.collection-detail-page--open .selection-card--open .offer-booking .collection-offer-delete{
+  display:grid;
+  width:48px;
+  height:48px;
+  padding:0;
+  place-items:center;
+  border:0;
+  border-radius:16px;
+  background:transparent;
+}
+
+.collection-detail-page--open .selection-card--open .offer-booking .collection-offer-delete:hover{
+  background:#f5f5f5;
+}
+
+.collection-detail-page--open .selection-card--open .offer-booking .collection-offer-delete img{
+  width:20px;
+  height:20px;
+}

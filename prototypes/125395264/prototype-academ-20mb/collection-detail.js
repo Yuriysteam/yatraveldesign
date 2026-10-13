@@ -2,6 +2,26 @@ document.querySelectorAll('.collection-offer-host').forEach(host=>{
   HotelOfferWidget.render(host,host.dataset.offer);
 });
 
+const selectedCollection=new URLSearchParams(location.search).get('collection');
+if(selectedCollection&&window.Favorites){
+  const items=Favorites.read().filter(item=>(item.collectionId||'москва|20 дек — 21 дек 2026')===selectedCollection);
+  if(items.length){
+    const title=document.querySelector('.collection-detail-title h1');
+    title.textContent=items[0].collectionTitle||`Город ${items[0].city||'Москва'}, Россия, ${items[0].dates||'20 дек — 21 дек 2026'}`;
+    document.querySelector('.collection-detail-title p').textContent=`${items.length} ${items.length===1?'предложение':'предложения'}`;
+    const cards=[...document.querySelectorAll('.selection-card')];
+    cards.slice(items.length).forEach(card=>card.remove());
+    items.slice(0,cards.length).forEach((item,index)=>{
+      const card=cards[index];
+      const name=card.querySelector('.hotel-summary h2');
+      if(name) name.childNodes[0].textContent=`${item.hotel} `;
+      const room=card.querySelector('.selected-room h3');if(room)room.textContent=item.room;
+      const hotelPhoto=card.querySelector('.hotel-summary>img');if(hotelPhoto)hotelPhoto.src=item.photo;
+      const roomPhoto=card.querySelector('.selected-room__photo');if(roomPhoto)roomPhoto.src=item.photo;
+    });
+  }
+}
+
 const bindSegment=segment=>{
   const buttons=[...segment.querySelectorAll('button')];
   buttons.forEach(button=>button.addEventListener('click',()=>{

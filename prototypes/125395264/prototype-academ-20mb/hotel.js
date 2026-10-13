@@ -1,13 +1,18 @@
 document.querySelectorAll('.heart').forEach((button)=>{const icon=button.querySelector('img');const updateIcon=()=>{icon.src=button.classList.contains('selected')?'assets/hotel/heart-fill-new-16.svg':'assets/hotel/heart-new-16.svg'};updateIcon();button.addEventListener('click',()=>{button.classList.toggle('selected');button.setAttribute('aria-pressed',button.classList.contains('selected'));updateIcon()})});
-const roomCard=document.querySelector('.room-card');
+const isSnippetObjectCopy=document.body.classList.contains('hotel-page--snippet-copy');
+const linkedHotelName=new URLSearchParams(location.search).get('hotel');
+if(linkedHotelName){document.querySelector('.hotel-name h1').textContent=linkedHotelName;document.title=`${linkedHotelName}${isSnippetObjectCopy?' — копия':''} — Академ-Онлайн`}
+let roomCard=document.querySelector('.room-card');
+if(isSnippetObjectCopy&&roomCard){const originalRoom=roomCard;const sourceBlock=document.createElement('div');sourceBlock.className='results-page results-list-variant full-search-block object-snippet-copy';sourceBlock.innerHTML=`<article class="hotel-result"><div class="room-card"><div class="room-snippet"><img src="assets/hotel-figma/image-2.png" alt="Номер"><div class="room-copy"><h3>Двухместный с двуспальной кроватью и общим санузлом (санузел на этаже)</h3><div class="room-meta"><span><img src="assets/hotel/area.svg" alt="">25м²</span><span><img src="assets/hotel/bed.svg" alt="">Двухъярусная кровать 90 × 200 см</span><span><img src="assets/hotel/bath.svg" alt="">В блоке комнат</span></div></div><button class="room-heart" type="button" aria-label="Добавить номер в подборку"><img src="assets/hotel/heart-new-16.svg" alt=""></button></div><div class="primary-offer room-tariffs" aria-live="polite"></div><div class="extra-offers" hidden></div><button class="more-offers room-more" type="button" aria-expanded="false"><span>Показать ещё 12 предложений</span><img src="assets/arrow-down-fill-16.svg" alt=""></button></div></article>`;originalRoom.replaceWith(sourceBlock);roomCard=sourceBlock.querySelector('.room-card')}
 const roomTariffs=roomCard?.querySelector('.room-tariffs');
+if(isSnippetObjectCopy){const originalSecond=document.querySelector('.hotel-offers>article.room-card');if(originalSecond){const secondSourceBlock=document.createElement('div');secondSourceBlock.className='results-page results-list-variant full-search-block object-snippet-copy';secondSourceBlock.innerHTML=`<article class="hotel-result"><div class="room-card"><div class="room-snippet"><img src="assets/hotel-figma/image-1.png" alt="Номер"><div class="room-copy"><h3>Номер с большой двуспальной кроватью и видом на парк</h3><div class="room-meta"><span><img src="assets/hotel/area.svg" alt="">25м²</span><span><img src="assets/hotel/bed.svg" alt="">Двуспальная</span><span><img src="assets/hotel/bath.svg" alt="">В номере</span></div></div><button class="room-heart" type="button" aria-label="Добавить номер в подборку"><img src="assets/hotel/heart-new-16.svg" alt=""></button></div><div class="primary-offer room-tariffs room-tariffs--secondary" aria-live="polite"></div><div class="extra-offers" hidden></div><button class="more-offers room-more" type="button" aria-expanded="false"><span>Показать ещё 5 предложений</span><img src="assets/arrow-down-fill-16.svg" alt=""></button></div></article>`;originalSecond.replaceWith(secondSourceBlock)}}
 const secondaryCard=document.querySelectorAll('.room-card')[1];
 const legacySecondaryOffer=secondaryCard?.querySelector('.room-offer');
-const secondaryTariffs=document.createElement('div');
-secondaryTariffs.className='room-tariffs room-tariffs--secondary';
+const secondaryTariffs=secondaryCard?.querySelector('.room-tariffs')||document.createElement('div');
+secondaryTariffs.className=`${isSnippetObjectCopy?'primary-offer ':''}room-tariffs room-tariffs--secondary`;
 secondaryTariffs.setAttribute('aria-live','polite');
-legacySecondaryOffer?.replaceWith(secondaryTariffs);
-const widgetSettings=document.createElement('div');widgetSettings.className='widget-settings';widgetSettings.innerHTML='<label><span>Вариант тарифного виджета</span><select id="offerVariant" aria-label="Вариант тарифного виджета"></select></label>';roomCard?.before(widgetSettings);
+if(legacySecondaryOffer&&!secondaryCard?.querySelector('.room-tariffs'))legacySecondaryOffer.replaceWith(secondaryTariffs);
+const widgetSettings=document.createElement('div');widgetSettings.className='widget-settings';widgetSettings.innerHTML='<label><span>Вариант тарифного виджета</span><select id="offerVariant" aria-label="Вариант тарифного виджета"></select></label>';if(!isSnippetObjectCopy)roomCard?.before(widgetSettings);
 const offerVariant=document.querySelector('#offerVariant');
 const offerVariants={
   'full-penalty':{penalty:'Отмена за 18 000 ₽',details:['до 1 дек 2026 15:00','далее — за 2000 ₽'],meal:'Без питания',mealCaption:'Можно докупить<br>за 2000 ₽'},
@@ -23,7 +28,7 @@ const offerVariants={
 const offerMarkup=(variant,overrides={})=>{const data={price:'33 000 ₽',rack:true,vat:true,commission:true,...offerVariants[variant],...overrides};const mealIcon=data.food?'assets/breakfast.svg':'assets/hotel/breakfast-no-new-24.svg';return `<div class="room-offer${data.special?' is-special':''}" data-offer-variant="${variant}"><div class="offer-toolbar"><span></span><div><button class="offer-favorite" type="button" aria-label="Добавить предложение в подборку" aria-pressed="false"><img src="assets/hotel/heart-new-16.svg" alt=""></button><button type="button" aria-label="Скопировать предложение"><img src="assets/hotel/copy-new-24.svg" alt=""></button></div></div><div class="offer-grid"><div class="offer-penalty"><img src="assets/hotel/payment-card-new-24.svg" alt=""><div><b>${data.penalty}</b>${(data.details||[]).map(line=>`<small>${line}</small>`).join('')}</div></div><div class="offer-meal"><img src="${mealIcon}" alt=""><span>${data.meal}${data.mealCaption?`<small>${data.mealCaption}</small>`:''}</span></div><div class="offer-prices"><strong>${data.price}</strong>${data.rack?'<span><img src="assets/hotel/info-new-16.svg" alt="">Rack 4 200 ₽</span>':''}${data.vat||data.commission?`<div>${data.vat?'<span>НДС 350 ₽</span>':''}${data.commission?'<b><img src="assets/hotel/coins-new-16.svg" alt="">350 ₽</b>':''}</div>`:''}</div><div class="offer-booking"><button type="button">Выбрать</button><small>В наличии: 4</small></div></div></div>`};
 const bindOfferActions=()=>{roomTariffs?.querySelectorAll('.offer-favorite').forEach(button=>button.addEventListener('click',()=>{const selected=button.getAttribute('aria-pressed')!=='true';button.setAttribute('aria-pressed',String(selected));button.querySelector('img').src=selected?'assets/hotel/heart-fill-new-16.svg':'assets/hotel/heart-new-16.svg'}))};
 if(offerVariant&&window.HotelOfferWidget)offerVariant.innerHTML=HotelOfferWidget.variants.map(item=>`<option value="${item.id}">${item.title}</option>`).join('');
-const renderRoomWidget=()=>{if(!roomTariffs)return;const variant=offerVariant?.value||'full-penalty';if(window.HotelOfferWidget){HotelOfferWidget.render(roomTariffs,variant);if(secondaryCard)HotelOfferWidget.render(secondaryTariffs,{...HotelOfferWidget.get(variant),price:'12 200 ₽'});return}roomTariffs.innerHTML=offerMarkup(variant);if(secondaryCard)secondaryTariffs.innerHTML=offerMarkup(variant,{price:'12 200 ₽'});bindOfferActions()};
+const renderRoomWidget=()=>{if(!roomTariffs)return;const variant=offerVariant?.value||'full-penalty';if(window.HotelOfferWidget){const primary=isSnippetObjectCopy?{...HotelOfferWidget.get('no-food-no-upsell'),cancellation:'free-compact'}:HotelOfferWidget.get(variant);HotelOfferWidget.render(roomTariffs,primary);if(secondaryCard)HotelOfferWidget.render(secondaryTariffs,{...primary,price:'12 200 ₽'});return}roomTariffs.innerHTML=offerMarkup(variant);if(secondaryCard)secondaryTariffs.innerHTML=offerMarkup(variant,{price:'12 200 ₽'});bindOfferActions()};
 offerVariant?.addEventListener('change',renderRoomWidget);
 renderRoomWidget();
 
@@ -32,21 +37,26 @@ if(firstMoreButton&&window.HotelOfferWidget){
   const extraOffers=document.createElement('div');
   extraOffers.className='extra-offers';
   extraOffers.hidden=true;
-  const extraData=[
+  const baseExtraData=[
     {...HotelOfferWidget.get('with-food'),price:'10 000 000 ₽',special:true},
     {...HotelOfferWidget.get('full-penalty'),price:'14 900 ₽'},
     {...HotelOfferWidget.get('with-food'),price:'19 000 ₽',special:true},
     {...HotelOfferWidget.get('full-penalty'),price:'21 900 ₽'}
   ];
+  const copyTypes=['with-food','free-cancel','no-food-no-upsell','full-penalty'];
+  const extraData=isSnippetObjectCopy?Array.from({length:12},(_,index)=>({...HotelOfferWidget.get(copyTypes[index%copyTypes.length]),price:`${45+index*2} 000 ₽`})):baseExtraData;
   extraOffers.innerHTML=extraData.map(item=>HotelOfferWidget.markup(item)).join('');
   HotelOfferWidget.bind(extraOffers);
   roomTariffs.after(extraOffers);
   firstMoreButton.addEventListener('click',()=>{
     const opening=extraOffers.hidden;
     extraOffers.hidden=!opening;
+    roomCard.classList.toggle('open',opening);
+    roomCard.closest('.hotel-result')?.classList.toggle('open',opening);
     firstMoreButton.classList.toggle('is-open',opening);
-    firstMoreButton.querySelector('span').textContent=opening?'Скрыть предложения':'Показать ещё 4 предложения';
+    firstMoreButton.querySelector('span').textContent=opening?'Скрыть предложения':`Показать ещё ${isSnippetObjectCopy?12:4} предложений`;
   });
+  if(isSnippetObjectCopy)firstMoreButton.querySelector('span').textContent='Показать ещё 12 предложений';
 }
 const secondMoreButton=secondaryCard?.querySelector('.room-more');
 const secondaryVisibleTariffs=secondaryCard?.querySelector('.room-tariffs');
@@ -67,6 +77,8 @@ if(secondMoreButton&&secondaryVisibleTariffs&&window.HotelOfferWidget){
   secondMoreButton.addEventListener('click',()=>{
     const opening=extraOffers.hidden;
     extraOffers.hidden=!opening;
+    secondaryCard.classList.toggle('open',opening);
+    secondaryCard.closest('.hotel-result')?.classList.toggle('open',opening);
     secondMoreButton.classList.toggle('is-open',opening);
     secondMoreButton.querySelector('span').textContent=opening?'Скрыть предложения':'Показать ещё 5 предложений';
   });

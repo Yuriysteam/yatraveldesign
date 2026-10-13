@@ -1,7 +1,33 @@
 const params=new URLSearchParams(location.search),number=params.get('id')||'87654321';document.querySelector('#orderNumber').textContent=number;document.title=`Заказ ${number} — Академ-Онлайн`;
 const toast=text=>{const el=document.querySelector('#toast');el.textContent=text;el.classList.add('show');clearTimeout(window.orderToast);window.orderToast=setTimeout(()=>el.classList.remove('show'),1800)};
+const editedHotel=params.get('hotel');
+const editedAddress=params.get('address');
+const editedPrice=Number(params.get('price'));
+const editedRooms=Math.max(1,Number(params.get('rooms'))||1);
+const editedAdults=Math.max(1,Number(params.get('adults'))||1);
+const editedChildren=Math.max(0,Number(params.get('children'))||0);
+if(editedHotel)document.querySelector('.order-page-service .details .detail:first-child b').textContent=editedHotel;
+if(editedAddress)document.querySelector('.order-page-service .details .detail:first-child span').textContent=editedAddress;
+if(editedPrice){document.querySelector('.order-page-service .price').firstChild.nodeValue=`${editedPrice.toLocaleString('ru-RU')} ₽`;document.querySelector('.order-summary__price b').textContent=`${editedPrice.toLocaleString('ru-RU')} ₽`}
+document.querySelector('.order-page-service .details .detail:nth-child(2) b').textContent=`${editedRooms} ${editedRooms===1?'номер':'номера'}`;
+document.querySelector('.order-page-service .details .detail:nth-child(5) span').textContent=`${editedAdults+editedChildren} ${editedAdults+editedChildren===1?'гость':'гостя'}, Россия`;
+if(params.get('updated')==='1')setTimeout(()=>toast('Изменения заказа сохранены'),100);
 document.querySelectorAll('.order-tabs button').forEach(button=>button.addEventListener('click',()=>{const tab=button.dataset.orderTab;document.querySelectorAll('.order-tabs button').forEach(item=>{const active=item===button;item.classList.toggle('active',active);item.setAttribute('aria-selected',String(active))});document.querySelectorAll('[data-order-panel]').forEach(panel=>{panel.hidden=panel.dataset.orderPanel!==tab})}));
-document.querySelectorAll('.order-btn').forEach(button=>button.addEventListener('click',()=>{if(!['duplicateServiceButton','cancelServiceButton'].includes(button.id))toast(`Демо: ${button.textContent.trim()}`)}));
+document.querySelectorAll('.order-btn').forEach(button=>button.addEventListener('click',()=>{if(!['editServiceButton','duplicateServiceButton','cancelServiceButton'].includes(button.id))toast(`Демо: ${button.textContent.trim()}`)}));
+
+const editServiceButton=document.querySelector('#editServiceButton');
+editServiceButton.addEventListener('click',()=>{
+  const editParams=new URLSearchParams(params);
+  editParams.set('mode','edit');
+  editParams.set('returnTo',`order.html?${params}`);
+  if(!editParams.get('hotel'))editParams.set('hotel','Услуги размещения в «Шато»');
+  if(!editParams.get('address'))editParams.set('address','Россия, Махачкала, ул. Магомедтагирова 2, корпус 2Б');
+  if(!editParams.get('price'))editParams.set('price','5936');
+  if(!editParams.get('adults'))editParams.set('adults','2');
+  if(!editParams.get('children'))editParams.set('children','0');
+  if(!editParams.get('rooms'))editParams.set('rooms','1');
+  window.location.href=`booking.html?${editParams}`;
+});
 
 const duplicateServiceButton=document.querySelector('#duplicateServiceButton');
 const duplicateServiceMenu=document.querySelector('#duplicateServiceMenu');

@@ -2,6 +2,7 @@ const roomCount=document.querySelector('#roomCount');
 const priceRoomCount=document.querySelector('#priceRoomCount');
 const totalPrice=document.querySelector('#totalPrice');
 const bookingParams=new URLSearchParams(window.location.search);
+const isEditMode=bookingParams.get('mode')==='edit';
 const guestWord=value=>{const mod10=value%10,mod100=value%100;return mod10===1&&mod100!==11?'гость':mod10>=2&&mod10<=4&&(mod100<12||mod100>14)?'гостя':'гостей'};
 let bookingAdults=Math.max(1,Number(bookingParams.get('adults'))||1);
 let bookingChildren=Math.max(0,Number(bookingParams.get('children'))||0);
@@ -17,8 +18,27 @@ const formatWhole=value=>`${value.toLocaleString('ru-RU')} ₽`;
 const updateBookingTotal=()=>{const count=Number(roomCount.textContent);priceRoomCount.textContent=String(count);totalPrice.textContent=`${((incomingPrice+extraStayPrice+serviceFee)*count).toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2})} ₽`};
 const hotelName=bookingParams.get('hotel');
 const hotelAddress=bookingParams.get('address');
-if(hotelName){document.querySelector('.booking-title h1').textContent=hotelName;document.querySelector('.breadcrumbs a:nth-of-type(2)').textContent=hotelName;document.title=`Новый заказ — ${hotelName}`}
+if(hotelName){document.querySelector('.booking-title h1').textContent=hotelName;document.querySelector('.breadcrumbs a:nth-of-type(2)').textContent=hotelName;document.title=`${isEditMode?'Редактирование заказа':'Новый заказ'} — ${hotelName}`}
 if(hotelAddress)document.querySelector('.booking-title>p').textContent=hotelAddress;
+if(isEditMode){
+  document.body.classList.add('booking-edit-mode');
+  const orderId=bookingParams.get('id')||'87654321';
+  const returnTo=bookingParams.get('returnTo')||`order.html?id=${orderId}`;
+  document.querySelector('.breadcrumbs').innerHTML=`<a href="orders.html">Заказы</a><span>›</span><a href="${returnTo}">Заказ ${orderId}</a><span>›</span><b>Редактирование услуги</b>`;
+  document.querySelector('.price-card h2').textContent='Редактирование заказа';
+  const action=document.querySelector('#bookButton');
+  action.textContent='Изменить';
+  action.setAttribute('aria-label','Сохранить изменения заказа');
+}
+document.querySelectorAll('.guest-name-field').forEach(field=>{
+  const input=field.querySelector('input');
+  const clear=field.querySelector('button');
+  if(isEditMode)input.value=input.name==='guestSurname'?'Таранов':'Александр';
+  const sync=()=>{const filled=Boolean(input.value.trim());field.classList.toggle('has-value',filled);clear.hidden=!filled};
+  input.addEventListener('input',sync);
+  clear.addEventListener('click',()=>{input.value='';sync();input.focus()});
+  sync();
+});
 roomCount.textContent=String(bookingRooms);
 const stayGuests=document.querySelector('.stay-summary>div:nth-child(3)');
 const syncBookingGuests=()=>{bookingGuestTotal=bookingMainGuests+bookingExtraAdults+bookingExtraChildren;bookingAdults=bookingMainGuests+bookingExtraAdults;bookingChildren=bookingExtraChildren;stayGuests.querySelector('b').textContent=`${bookingGuestTotal} ${guestWord(bookingGuestTotal)}`;stayGuests.querySelector('span').textContent=bookingExtraAdults||bookingExtraChildren?`${bookingMainGuests} на основных · ${bookingExtraAdults+bookingExtraChildren} на доп. кроватях`:'на основных кроватях';document.querySelector('.booking-details dd:first-of-type b').textContent=bookingRooms>1?`Всего ${bookingGuestTotal} ${guestWord(bookingGuestTotal)} в ${bookingRooms} номерах`:`Всего ${bookingGuestTotal} ${guestWord(bookingGuestTotal)} в номере`;bookingParams.set('adults',String(bookingAdults));bookingParams.set('children',String(bookingChildren));bookingParams.set('rooms',String(bookingRooms));bookingParams.set('extraAdults',String(bookingExtraAdults));bookingParams.set('extraChildren',String(bookingExtraChildren));history.replaceState(null,'',`${location.pathname}?${bookingParams}`)};
@@ -51,7 +71,7 @@ document.querySelectorAll('.booking-dropdown').forEach(dropdown=>{
   dropdown._close=close;
 });
 document.addEventListener('click',()=>document.querySelectorAll('.booking-dropdown.is-open').forEach(dropdown=>dropdown._close()));
-document.querySelector('#bookButton').addEventListener('click',()=>{const orderParams=new URLSearchParams({id:'87654321',hotel:hotelName||document.querySelector('.booking-title h1').textContent.trim(),address:hotelAddress||document.querySelector('.booking-title>p').textContent.trim(),price:String(incomingPrice),adults:String(bookingAdults),children:String(bookingChildren),rooms:String(bookingRooms)});window.location.href=`order.html?${orderParams}`});
+document.querySelector('#bookButton').addEventListener('click',()=>{const orderParams=new URLSearchParams({id:bookingParams.get('id')||'87654321',hotel:hotelName||document.querySelector('.booking-title h1').textContent.trim(),address:hotelAddress||document.querySelector('.booking-title>p').textContent.trim(),price:String(incomingPrice),adults:String(bookingAdults),children:String(bookingChildren),rooms:String(bookingRooms),updated:'1'});window.location.href=`order.html?${orderParams}`});
 document.querySelectorAll('.ref-field').forEach(field=>{const input=field.querySelector('input');const clear=field.querySelector('button');const update=()=>{const filled=Boolean(input.value);field.classList.toggle('has-value',filled);clear.hidden=!filled};input.addEventListener('input',update);clear.addEventListener('click',()=>{input.value='';update();input.focus()});update()});
 const conditionsModal=document.querySelector('#conditionsModal');
 const showAllConditions=document.querySelector('#showAllConditions');

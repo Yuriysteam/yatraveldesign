@@ -1,0 +1,29 @@
+@font-face{font-family:"YS Text Local";src:local("YS Text Regular"),local("YS Text-Regular"),local("YS Text");font-style:normal;font-weight:400;font-display:swap}
+
+.hotel-page--snippet-copy .object-snippet-copy{width:794px;min-width:0;background:#fff}
+.hotel-page--snippet-copy .object-snippet-copy+.object-snippet-copy{margin-top:20px}
+.hotel-page--snippet-copy .hotel-head{height:auto}
+.hotel-page--snippet-copy .object-snippet-copy .hotel-result{height:auto;margin:0;overflow:hidden;border-radius:0;background:#fff}
+.hotel-page--snippet-copy .object-snippet-copy .room-card{position:relative;height:auto;margin:0;padding:0 0 24px}
+.hotel-page--snippet-copy .object-snippet-copy .room-card:before{display:none;content:none}
+.hotel-page--snippet-copy .object-snippet-copy .room-snippet{display:flex;height:128px;padding:24px 0;align-items:center;background:#fff}
+.hotel-page--snippet-copy .object-snippet-copy .room-snippet>img{width:81px;height:80px;flex:0 0 81px;border-radius:16px;object-fit:cover}
+.hotel-page--snippet-copy .object-snippet-copy .room-copy{min-width:0;margin-left:20px;flex:1}
+.hotel-page--snippet-copy .object-snippet-copy .room-copy h3{margin:0 0 8px;font-size:16px;line-height:20px;font-weight:500;white-space:normal}
+.hotel-page--snippet-copy .object-snippet-copy .room-meta{display:flex;gap:16px}
+.hotel-page--snippet-copy .object-snippet-copy .room-meta span{display:flex;align-items:center;gap:8px;font-size:16px;line-height:20px}
+.hotel-page--snippet-copy .object-snippet-copy .room-meta img{width:16px;height:16px}
+.hotel-page--snippet-copy .object-snippet-copy .room-heart{width:40px;margin-right:0;margin-left:16px;padding:0;background:transparent}
+.hotel-page--snippet-copy .object-snippet-copy .room-heart img{width:18px}
+.hotel-page--snippet-copy .object-snippet-copy .primary-offer{margin:0}
+.hotel-page--snippet-copy .object-snippet-copy .primary-offer .hotel-offer-widget{box-sizing:border-box;width:100%;min-height:142px;margin:0;padding:20px 24px;border:1px solid #e6e5e7;border-radius:36px}
+.hotel-page--snippet-copy .object-snippet-copy .more-offers{display:flex;width:100%;height:48px;margin:24px 0 0;align-items:center;justify-content:center;gap:8px;border-radius:16px;background:#ededee;font-family:"YS Text Local","YS Text",sans-serif;font-size:16px;line-height:20px;font-weight:400}
+.hotel-page--snippet-copy .object-snippet-copy .more-offers img{width:16px;height:16px;transition:transform .15s ease}
+.hotel-page--snippet-copy .object-snippet-copy .more-offers.is-open img{transform:rotate(180deg)}
+.hotel-page--snippet-copy .object-snippet-copy .extra-offers{margin:0}
+.hotel-page--snippet-copy .object-snippet-copy .extra-offers[hidden]{display:none}
+.hotel-page--snippet-copy .object-snippet-copy .extra-offers .hotel-offer-widget{box-sizing:border-box;width:100%;min-height:138px;margin:0;padding:20px 24px;border:0;border-top:1px solid #e6e5e7;border-radius:0}
+.hotel-page--snippet-copy .object-snippet-copy .hotel-result.open .primary-offer .hotel-offer-widget{border-bottom:0;border-radius:36px 36px 0 0}
+.hotel-page--snippet-copy .object-snippet-copy .hotel-result.open .extra-offers{border:1px solid #e6e5e7;border-top:0;border-radius:0 0 36px 36px;overflow:hidden}
+.hotel-page--snippet-copy .hotel-side h2,.hotel-page--snippet-copy .about-facts b{font-family:"YS Text Local","YS Text",sans-serif;font-weight:400;font-synthesis:none}
+.hotel-page--snippet-copy .facilities .section-button{width:100%;height:48px;margin-top:24px;border-radius:16px;background:#ededee;font-family:"YS Text Local","YS Text",sans-serif;font-size:16px;line-height:20px;font-weight:400}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Страница объекта — копия</title>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+<script>
+fetch('hotel.html?v=67')
+  .then(response=>response.text())
+  .then(markup=>{
+    const copy=markup
+      .replace('<title>Хилтон Голден Инн — Академ-Онлайн</title>','<title>Хилтон Голден Инн — копия — Академ-Онлайн</title>')
+      .replace('<body class="hotel-page">','<body class="hotel-page hotel-page--snippet-copy">')
+      .replace('href="index.html" aria-label="Назад к поиску"','href="search-results-2.html?v=22" aria-label="Назад к выдаче"')
+      .replace('hotel.css?v=66','hotel.css?v=67')
+      .replace('</head>','<link rel="stylesheet" href="hotel-2.css?v=9"></head>')
+      .replace('hotel.js?v=51', 'hotel.js?v=58');
+    document.open();
+    document.write(copy);
+    document.close();
+  });
+</script>
+</body>
+</html>
