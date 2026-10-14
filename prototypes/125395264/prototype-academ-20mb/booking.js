@@ -15,7 +15,7 @@ let incomingPrice=Number((bookingParams.get('price')||'40 000').replace(/[^\d]/g
 let extraStayPrice=0;
 const serviceFee=904.92;
 const formatWhole=value=>`${value.toLocaleString('ru-RU')} ₽`;
-const updateBookingTotal=()=>{const count=Number(roomCount.textContent);priceRoomCount.textContent=String(count);totalPrice.textContent=`${((incomingPrice+extraStayPrice+serviceFee)*count).toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2})} ₽`};
+const updateBookingTotal=()=>{const count=Number(roomCount.textContent);const meals=[...document.querySelectorAll('#addedMeals .food-card__item')].reduce((sum,row)=>sum+Number(row.dataset.mealPrice)*Number(row.dataset.mealDays)*Number(row.querySelector('[data-added-count]').textContent),0);priceRoomCount.textContent=String(count);totalPrice.textContent=`${((incomingPrice+extraStayPrice+meals+serviceFee)*count).toLocaleString('ru-RU',{minimumFractionDigits:2,maximumFractionDigits:2})} ₽`;window.dispatchEvent(new Event('booking-price-updated'))};
 const hotelName=bookingParams.get('hotel');
 const hotelAddress=bookingParams.get('address');
 if(hotelName){document.querySelector('.booking-title h1').textContent=hotelName;document.querySelector('.breadcrumbs a:nth-of-type(2)').textContent=hotelName;document.title=`${isEditMode?'Редактирование заказа':'Новый заказ'} — ${hotelName}`}
