@@ -676,7 +676,7 @@ class Bot:
     def configure_commands(self):
         self.telegram("setMyCommands", {"commands": [
             {"command": "start", "description": "Как загрузить прототип или скил"},
-            {"command": "prototypes", "description": "10 последних прототипов"},
+            {"command": "prototypes", "description": "15 последних прототипов"},
         ]})
 
     def prototypes(self, message):
@@ -789,6 +789,9 @@ class Bot:
         )
         if published:
             self.send(author_chat(author), f"Готово — {url}\nВсе прототипы по команде /prototypes")
+            self.notify_publication_result(
+                f"@yatraveldesign_bot: прототип {slug} опубликован. Автор: {author.get('username') or author.get('first_name')}. {url}"
+            )
         else:
             self.send(author_chat(author), f"Прототип не опубликован. Причина: {reason}\nСсылка: {url}")
             self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} не опубликован. Причина: {reason}")
@@ -830,6 +833,7 @@ class Bot:
         self.github.sync()
         catalog = self.github.read_json("skills/catalog.json", [])
         existing = existing_catalog_item(catalog, identifier, name)
+        is_update = existing is not None
         if existing:
             identifier = existing["id"]
             if not is_technical_label(existing["name"]):
@@ -861,7 +865,15 @@ class Bot:
             lambda: self.skill_publication_reason(identifier, updated_at, commit), progress.advance,
         )
         if published:
+            raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+            prompt = installation_prompt(display_name, f"{raw_root}/skills/{identifier}/skill.zip", identifier,
+                                         f"{raw_root}/skills/catalog.json", dependency_closure(catalog, identifier)[:-1], installer)
+            team_text = f"Обновился скилл {display_name}" if is_update else f"Новый скил {display_name}\n\n{display_description}"
+            self.notify_team_publication(team_text, prompt)
             self.send(author_chat(author), "Скил уже в Skill store")
+            self.notify_publication_result(
+                f"@yatraveldesign_bot: скил {identifier} опубликован в Skill store. Автор: {author.get('username') or author.get('first_name')}"
+            )
         else:
             self.send(author_chat(author), f"Скил не опубликован. Причина: {reason}")
             self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} не опубликован. Причина: {reason}")
@@ -972,6 +984,27 @@ class Bot:
             last_reason = workflow_reason or reason()
         return False, last_reason
 
+    def notify_team_publication(self, text, prompt=None):
+        state_path = getattr(self.settings, "state_path", None)
+        if not state_path:
+            return
+        config_path = os.path.join(os.path.dirname(state_path), "publication-chat.json")
+        try:
+            with open(config_path) as stream:
+                config = json.load(stream)
+            chat_id = config["chat_id"]
+            if not isinstance(chat_id, int) or chat_id >= 0:
+                raise ValueError("Publication destination must be a group")
+            extra = {}
+            if prompt:
+                extra["reply_markup"] = {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}
+            self.send(chat_id, text, **extra)
+        except FileNotFoundError:
+            return
+        except Exception as exc:
+            # A notification failure must not replay a successful publication.
+            print(f"Не удалось отправить отбивку в группу: {type(exc).__name__}", flush=True)
+
     @staticmethod
     def notify_publication_result(message):
         """Report a verified Pages failure or recovery to Yuriy's Yoshi chat."""
@@ -1015,6 +1048,10 @@ class Bot:
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 
     def handle(self, update):
+        # Groups are outbound-only: never accept uploads, commands or callbacks.
+        incoming = update.get("message") or update.get("callback_query", {}).get("message")
+        if incoming and incoming.get("chat", {}).get("type") != "private":
+            return
         if "callback_query" in update:
             self.callback(update["callback_query"])
             return
@@ -1031,8 +1068,18 @@ class Bot:
                 self.publish_document(message)
             except UserError as exc:
                 self.send(message["chat"]["id"], str(exc))
+                document = message["document"]
+                author = message["from"]
+                self.notify_publication_result(
+                    f"@yatraveldesign_bot: ошибка загрузки файла {document.get('file_name', 'без имени')} от {author.get('username') or author.get('first_name')}. Причина: {exc}"
+                )
             except Exception as exc:
                 print(exc, flush=True)
+                document = message["document"]
+                author = message["from"]
+                self.notify_publication_result(
+                    f"@yatraveldesign_bot: ошибка загрузки файла {document.get('file_name', 'без имени')} от {author.get('username') or author.get('first_name')}. Причина: {type(exc).__name__}: {exc}"
+                )
                 raise
         else:
             self.send(message["chat"]["id"], "Пришли ZIP-архив с прототипом или со скилом. Все скилы доступны в меню бота.")
@@ -1101,7 +1148,7 @@ def split_message(text, limit=4000):
 
 def prototype_list_text(catalog, public_base_url):
     rows = ["Свежие прототипы"]
-    for item in sorted(catalog, key=lambda value: value["updated_at"], reverse=True)[:10]:
+    for item in sorted(catalog, key=lambda value: value["updated_at"], reverse=True)[:15]:
         url = f"{public_base_url}/{item['url']}"
         title = html.escape(item["title"])
         author = html.escape(item["author"])

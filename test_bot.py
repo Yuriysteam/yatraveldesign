@@ -5,7 +5,7 @@ import subprocess
 import unittest
 import zipfile
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 os.environ.setdefault("TELEGRAM_BOT_TOKEN", "token")
 os.environ.setdefault("GIT_WORKTREE", ".")
@@ -22,6 +22,35 @@ def archive(entries):
 
 
 class BotTests(unittest.TestCase):
+    def test_team_notification_contains_install_prompt(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(state_path="/tmp/state.sqlite3")
+        instance.send = Mock()
+        with patch("builtins.open", unittest.mock.mock_open(read_data='{"chat_id": -123}')):
+            instance.notify_team_publication("Скил опубликован", "Установи скил")
+        args, kwargs = instance.send.call_args
+        self.assertEqual(args[0], -123)
+        self.assertEqual(args[1], "Скил опубликован")
+        self.assertEqual(kwargs["reply_markup"]["inline_keyboard"][0][0]["copy_text"]["text"], "Установи скил")
+        instance.send.side_effect = RuntimeError("network")
+        with patch("builtins.open", unittest.mock.mock_open(read_data='{"chat_id": -123}')):
+            instance.notify_team_publication("Скил опубликован")
+
+    def test_group_inputs_are_silently_ignored(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.send = Mock()
+        instance.publish_document = Mock()
+        instance.start = Mock()
+        instance.callback = Mock()
+        for kind in ("group", "supergroup", "channel"):
+            for content in ({"document": {"file_name": "demo.zip"}}, {"text": "/start"}, {"text": "hello"}):
+                instance.handle({"message": {"chat": {"id": -123, "type": kind}, **content}})
+            instance.handle({"callback_query": {"message": {"chat": {"id": -123, "type": kind}}, "data": "skills:upload"}})
+        instance.send.assert_not_called()
+        instance.publish_document.assert_not_called()
+        instance.start.assert_not_called()
+        instance.callback.assert_not_called()
+
     def test_failed_update_does_not_advance_offset(self):
         instance = bot.Bot.__new__(bot.Bot)
         instance.db = sqlite3.connect(":memory:")
@@ -35,6 +64,62 @@ class BotTests(unittest.TestCase):
             self.assertEqual(instance.process_update({"update_id": 7}), 8)
             handle.assert_called_once()
         instance.db.close()
+
+    def test_successful_prototype_notifies_yuriy(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(public_base_url="https://example.test")
+        instance.github = SimpleNamespace(
+            files_below=lambda _: [],
+            read_json=lambda *_: [],
+            commit_files=lambda *_: "commit",
+        )
+        instance.send = Mock()
+        instance.notify_team_publication = Mock()
+        instance.monitor_publication = Mock(return_value=(True, None))
+        instance.notify_publication_result = Mock()
+        with patch("bot.safe_zip_members", return_value=[("index.html", b"ok")]), patch("bot.enrich_metadata", return_value=("Demo", "Описание")):
+            instance.publish_prototype(1, "demo.zip", b"zip", {"id": 1, "first_name": "Анна", "username": "anna"}, Mock(advance=lambda: None))
+        instance.notify_publication_result.assert_called_once_with(
+            "@yatraveldesign_bot: прототип demo опубликован. Автор: anna. https://example.test/prototypes/1/demo/"
+        )
+        instance.notify_team_publication.assert_not_called()
+
+    def test_updated_skill_notifies_team_with_update_label_and_install_prompt(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        existing = {
+            "id": "team-skill", "name": "Командный скил", "version": "v0.1",
+            "description": "Старая версия", "updated_at": 1, "contributors": [],
+        }
+        instance.settings = SimpleNamespace(repository="owner/repo", branch="main")
+        instance.github = SimpleNamespace(
+            sync=Mock(),
+            read_json=Mock(return_value=[existing]),
+            files_below=Mock(return_value=[]),
+            commit_files=Mock(return_value="commit"),
+        )
+        instance.configure_menu = Mock()
+        instance.monitor_publication = Mock(return_value=(True, None))
+        instance.notify_team_publication = Mock()
+        instance.notify_publication_result = Mock()
+        instance.send = Mock()
+        package = {"SKILL.md": b"---\\nname: team-skill\\nversion: v0.2\\n---"}
+        with patch("bot.skill_package", return_value=(
+            "team-skill", "team-skill", "v0.2", "Новое описание", "Team skill", "Новое описание", [], package,
+        )):
+            instance.publish_skill(1, "team-skill.zip", b"zip", {"id": 1, "username": "anna"}, Mock(advance=lambda: None))
+        text, prompt = instance.notify_team_publication.call_args.args
+        self.assertEqual(text, "Обновился скилл Командный скил")
+        self.assertIn("skill.zip", prompt)
+
+    def test_upload_validation_error_notifies_yuriy_with_reason(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.send = Mock()
+        instance.publish_document = Mock(side_effect=bot.UserError("В ZIP не найдена HTML-страница."))
+        instance.notify_publication_result = Mock()
+        instance.handle({"message": {"chat": {"id": 123, "type": "private"}, "from": {"id": 1, "username": "anna"}, "document": {"file_name": "demo.zip"}}})
+        instance.notify_publication_result.assert_called_once_with(
+            "@yatraveldesign_bot: ошибка загрузки файла demo.zip от anna. Причина: В ZIP не найдена HTML-страница."
+        )
 
     def test_git_timeout_becomes_a_publication_error(self):
         repository = bot.GitRepository.__new__(bot.GitRepository)
