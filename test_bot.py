@@ -336,6 +336,24 @@ description: >-
             self.assertEqual(instance.github_actions_status("abc123"), ("success", None))
         self.assertIn("head_sha=abc123", opened.call_args.args[0].full_url)
 
+    def test_github_actions_status_marks_rate_limit_as_unavailable(self):
+        instance = object.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(repository="example/repository")
+        limited = bot.urllib.error.HTTPError("https://api.github.com/rate_limit", 403, "rate limit exceeded", {}, io.BytesIO())
+        with patch("bot.urllib.request.urlopen", side_effect=limited):
+            status, reason = instance.github_actions_status("abc123")
+        self.assertEqual(status, "unavailable")
+        self.assertIn("rate limit", reason)
+
+    def test_monitor_publication_does_not_retry_when_actions_are_unavailable_but_artifact_exists(self):
+        instance = object.__new__(bot.Bot)
+        instance.github = SimpleNamespace(retry_pages_deployment=Mock())
+        with patch.object(instance, "wait_for_github_actions", return_value=(None, "GitHub Actions пока недоступен: rate limit")):
+            published, reason = instance.monitor_publication("prototype", "original-commit", lambda: True, lambda: "страница не найдена")
+        self.assertTrue(published)
+        self.assertIsNone(reason)
+        instance.github.retry_pages_deployment.assert_not_called()
+
     def test_monitor_publication_checks_url_after_exact_commit_workflow(self):
         instance = object.__new__(bot.Bot)
         with patch.object(instance, "wait_for_github_actions", return_value=(True, None)) as waited:

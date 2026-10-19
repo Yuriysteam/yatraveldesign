@@ -27,6 +27,8 @@ MAX_ARCHIVE_FILES = 2_000
 GIT_TIMEOUT_SECONDS = 60
 GITHUB_ACTIONS_POLL_SECONDS = 3.5
 GITHUB_ACTIONS_TIMEOUT_SECONDS = 600
+PUBLIC_ARTIFACT_POLL_SECONDS = 5
+PUBLIC_ARTIFACT_TIMEOUT_SECONDS = 180
 PUBLICATION_REPAIR_ATTEMPTS = 2
 YURIYOS_NOTIFY_SCRIPT = "/Users/Yuriy/Yuriy OS/Tools/yuriyos-local-runtime/scripts/notify.sh"
 MAX_SKILL_UNPACKED_BYTES = 20 * 1024 * 1024
@@ -794,7 +796,8 @@ class Bot:
     @staticmethod
     def wait_for_publication(url):
         """Avoid declaring success before GitHub Pages serves the uploaded page."""
-        for attempt in range(3):
+        deadline = time.monotonic() + PUBLIC_ARTIFACT_TIMEOUT_SECONDS
+        while True:
             try:
                 request = urllib.request.Request(f"{url}?published={int(time.time())}", method="HEAD", headers={"Cache-Control": "no-cache"})
                 with urllib.request.urlopen(request, timeout=12) as response:
@@ -802,9 +805,9 @@ class Bot:
                         return True
             except urllib.error.URLError:
                 pass
-            if attempt < 2:
-                time.sleep(2)
-        return False
+            if time.monotonic() >= deadline:
+                return False
+            time.sleep(PUBLIC_ARTIFACT_POLL_SECONDS)
 
     @staticmethod
     def prototype_publication_reason(url):
@@ -905,6 +908,10 @@ class Bot:
         try:
             with urllib.request.urlopen(request, timeout=12) as response:
                 runs = json.load(response).get("workflow_runs", [])
+        except urllib.error.HTTPError as exc:
+            if exc.code in (403, 429):
+                return "unavailable", f"GitHub Actions пока недоступен: {exc}"
+            return "waiting", f"GitHub Actions пока недоступен: {exc}"
         except (urllib.error.URLError, ValueError, json.JSONDecodeError) as exc:
             return "waiting", f"GitHub Actions пока недоступен: {exc}"
         pages_runs = [
@@ -929,6 +936,10 @@ class Bot:
                 return True, None
             if status == "failed":
                 return False, detail
+            if status == "unavailable":
+                # Do not keep querying an unauthenticated endpoint after its quota
+                # is exhausted. The public artefact remains the fallback proof.
+                return None, detail
             last_reason = detail
             if on_wait:
                 on_wait()
@@ -943,6 +954,10 @@ class Bot:
         workflow_ok, workflow_reason = self.wait_for_github_actions(commit, on_wait)
         if workflow_ok and checker():
             return True, None
+        if workflow_ok is None:
+            # A rate-limited status endpoint cannot prove that Pages failed. Never
+            # create retry commits until the public artefact itself is missing.
+            return (True, None) if checker() else (False, workflow_reason or reason())
         initial_reason = workflow_reason or reason()
         last_reason = initial_reason
         for attempt in range(1, PUBLICATION_REPAIR_ATTEMPTS + 1):
