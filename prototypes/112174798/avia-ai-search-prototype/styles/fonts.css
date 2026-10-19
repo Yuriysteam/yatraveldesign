@@ -1,0 +1,120 @@
+/**
+ * Yandex Fonts - Local
+ * YS Display - for headings
+ * YS Text - for body text
+ */
+
+/* YS Display */
+@font-face {
+  font-family: 'YS Display';
+  src: url('../fonts/YS Display-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('../fonts/YS Display-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('../fonts/YS Display-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('../fonts/YS Display-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* YS Text */
+@font-face {
+  font-family: 'YS Text';
+  src: url('../fonts/YS Text-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../fonts/YS Text-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../fonts/YS Text-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../fonts/YS Text-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../fonts/YS Text-Regular Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('../fonts/YS Text-Medium Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* YS Text Cond */
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../fonts/YS Text Cond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../fonts/YS Text Cond-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../fonts/YS Text Cond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('../fonts/YS Text Cond-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

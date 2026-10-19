@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>ИИ-поиск · Monoapp Avia</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles/fonts.css">
+  <link rel="stylesheet" href="./styles/tokens/tokens.css">
+  <link rel="stylesheet" href="./styles.css?v=37">
+  <link rel="stylesheet" href="./serp.css?v=18">
+  <link rel="stylesheet" href="./theme.css?v=13">
+  <script src="./serp.js?v=34" defer></script>
+  <script src="./prototype.js?v=84" defer></script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <div class="workspace">
+    <aside class="lab" aria-label="Панель настройки прототипа">
+      <details id="lab-details" open>
+        <summary>Настройки прототипа</summary>
+        <div class="lab-content">
+          <section class="lab-section">
+            <h2>Экран</h2>
+            <div class="lab-segments" role="group" aria-label="Экран прототипа">
+              <button type="button" data-screen="home" aria-pressed="true">Главная</button>
+              <button type="button" data-screen="results" aria-pressed="false">Выдача</button>
+            </div>
+          </section>
+          <section class="lab-section">
+            <h2>Тема</h2>
+            <div class="lab-segments" role="group" aria-label="Тема прототипа">
+              <button type="button" data-preview-theme="light" aria-pressed="true">Светлая</button>
+              <button type="button" data-preview-theme="dark" aria-pressed="false">Тёмная</button>
+            </div>
+            <p class="theme-review-note">Тёмная тема: главная, ИИ-поиск, выдача, фильтры и ошибка запроса</p>
+          </section>
+          <section class="lab-section" id="scenario-section" aria-labelledby="scenario-title" hidden>
+            <h2 id="scenario-title">Сценарии</h2>
+            <div class="lab-scenarios" id="scenario-list"></div>
+          </section>
+          <div class="lab-footer">
+            <p id="lab-status" class="sr-only" role="status" aria-live="polite">Открыта главная</p>
+            <button class="lab-button" type="button" id="reset-prototype">Сбросить поиск</button>
+          </div>
+        </div>
+      </details>
+    </aside>
+
+    <main class="stage" aria-label="Предпросмотр приложения">
+      <p id="serp-loading-status" class="sr-only" role="status" aria-live="polite"></p>
+      <div class="preview">
+        <div class="preview-caption"><span id="screen-caption">Главная</span><span>375 × 812</span></div>
+        <div class="device-slot">
+          <div class="phone" id="phone" data-node-id="618:33296">
+            <div class="home-screen" id="home-screen">
+              <div class="home-scroll" id="home-scroll">
+                <header class="app-header" data-node-id="618:33302">
+                  <div class="avatar" aria-label="Профиль">
+                    <img class="avatar-base" src="./assets/home-userpic-lopez.png" alt="">
+                    <img class="avatar-ring" src="./assets/home-graphics-userpic.svg" alt="">
+                    <div class="avatar-crop"><img src="./assets/home-avatar-login-plus.png" alt=""></div>
+                  </div>
+                </header>
+                <form class="flight-form" id="flight-form" aria-label="Поиск билетов" data-node-id="618:33297">
+                  <section class="route-card" data-node-id="618:33298">
+                    <h2>Куда полетим?</h2>
+                    <div class="route-fields">
+                      <label class="sr-only" for="origin">Откуда</label>
+                      <input id="origin" class="route-input route-input--origin" value="Москва" autocomplete="off" spellcheck="false">
+                      <div class="route-divider" aria-hidden="true"></div>
+                      <label class="sr-only" for="destination">Куда</label>
+                      <input id="destination" class="route-input route-input--destination" placeholder="Куда" autocomplete="off" spellcheck="false">
+                      <button class="swap-button" type="button" id="swap-route" aria-label="Поменять местами города"><span><img src="./assets/home-group540808.svg" alt=""></span></button>
+                    </div>
+                  </section>
+                  <button type="button" class="form-row" data-pending="Календарь ещё не подключён" data-node-id="618:33299"><span>Когда</span><strong class="dates-placeholder">Туда — обратно</strong></button>
+                  <button type="button" class="form-row" data-pending="Выбор пассажиров ещё не подключён" data-node-id="618:33300"><span>Пассажиры</span><strong>1, эконом</strong></button>
+                  <button class="find-button" type="submit" data-node-id="761:31703">Найти</button>
+                </form>
+                <section class="popular" aria-labelledby="popular-title" data-node-id="618:33303">
+                  <h2 id="popular-title" data-node-id="618:33304">Популярные направления</h2>
+                  <div class="destination-grid" id="destinations"></div>
+                </section>
+              </div>
+              <div class="status-bar" aria-hidden="true" data-node-id="618:33323"><span class="status-time">9:41</span><img class="status-icons" src="./assets/home-right-side.svg" alt=""></div>
+              <img class="home-bar" src="./assets/home-home-bar.svg" alt="" aria-hidden="true" data-node-id="618:33317">
+              <button class="ai-fab" id="ai-fab" type="button" aria-haspopup="dialog" aria-controls="ai-dialog" aria-expanded="false" data-node-id="618:33318"><img src="./assets/home-sparkles-fill.svg" alt="" data-node-id="618:33319"><span>ИИ-поиск</span></button>
+            </div>
+
+            <section class="serp-screen" id="serp-screen" aria-label="Выдача авиабилетов" hidden>
+              <div class="serp-page" id="serp-page">
+              <div class="serp-status" aria-hidden="true"><span class="status-time">9:41</span><img class="status-icons" src="./assets/home-right-side.svg" alt=""></div>
+              <header class="serp-header">
+                <div class="serp-header-top">
+                  <button type="button" class="serp-back" id="serp-back" aria-label="Назад на главную"><img src="./assets/app-icV224ArrowLeft.svg" alt=""></button>
+                  <div class="serp-summary serp-summary-skeleton" id="serp-summary-skeleton" aria-hidden="true" hidden><i class="serp-skeleton-item"></i><i class="serp-skeleton-item"></i></div>
+                  <div class="serp-summary" id="serp-summary">
+                    <strong id="serp-route">Москва — Сочи</strong>
+                    <span><span class="serp-summary-group"><img src="./assets/app-ic12Calendar.svg" alt=""><span id="serp-dates">12 октября</span></span><span class="serp-summary-group"><img src="./assets/app-ic12Kidoutlined.svg" alt=""><span id="serp-travellers">1</span></span></span>
+                  </div>
+                </div>
+                <div class="serp-quick-filters" id="serp-quick-filters" role="group" aria-label="Быстрые фильтры">
+                  <button type="button" class="serp-all-filters" id="serp-open-filters" aria-label="Все фильтры"><img src="./assets/app-ic20OutlineFilters.svg" alt=""><span id="serp-filter-dot" hidden></span></button>
+                  <button type="button" class="serp-chip" id="serp-direct" aria-pressed="false"><strong>Без пересадок</strong><span id="serp-direct-price">от 5 890 ₽</span></button>
+                  <button type="button" class="serp-chip" id="serp-baggage" aria-pressed="false"><strong>С багажом</strong><span id="serp-baggage-price">от 6 790 ₽</span></button>
+                </div>
+                <div class="serp-quick-filters serp-header-skeleton" id="serp-header-skeleton" aria-hidden="true" hidden><span class="serp-skeleton-item"></span><span class="serp-skeleton-item"></span><span class="serp-skeleton-item"></span></div>
+                <div class="serp-loading-progress" id="serp-loading-progress" aria-hidden="true" hidden><span></span></div>
+              </header>
+              <div class="serp-feed" id="serp-feed" aria-busy="false">
+                <aside class="serp-informer" id="serp-informer" aria-label="О результатах ИИ-поиска" data-node-id="703:18422" hidden>
+                  <img src="./assets/home-sparkles-fill.svg" alt="" data-node-id="703:18423">
+                  <p id="serp-informer-text" data-node-id="703:18424"></p>
+                </aside>
+                <div class="serp-cards" id="serp-cards"></div>
+                <div class="serp-cards" id="serp-skeleton-cards" aria-hidden="true" hidden></div>
+              </div>
+              <img class="serp-home-bar" src="./assets/home-home-bar.svg" alt="" aria-hidden="true">
+              </div>
+              <div class="serp-filter-layer" id="serp-filter-layer" hidden>
+                <div class="serp-filter-shade" id="serp-filter-shade"></div>
+                <div class="serp-filter-status" aria-hidden="true"><span class="status-time">9:41</span><img class="status-icons" src="./assets/home-right-side.svg" alt=""></div>
+                <section class="serp-filter-sheet" id="serp-filter-sheet" role="dialog" aria-modal="true" aria-labelledby="serp-filter-title">
+                  <div class="serp-filter-nav"><button type="button" id="serp-filter-nav-back" class="serp-filter-nav-back" aria-label="Назад"><img src="./assets/app-icV224ArrowLeft.svg" alt=""></button><button type="button" id="serp-filter-reset" class="serp-filter-reset">Сбросить</button><h2 id="serp-filter-title">Фильтры</h2><button type="button" id="serp-filter-done" class="serp-filter-done">Готово</button></div>
+                  <div class="serp-filter-body" id="serp-filter-body"></div>
+                  <div class="serp-filter-footer"><button type="button" id="serp-filter-apply">Применить</button></div>
+                </section>
+                <div class="serp-selection-layer" id="serp-selection-layer" hidden>
+                  <div class="serp-selection-shade" id="serp-selection-shade"></div>
+                  <section class="serp-filter-sheet serp-selection-sheet" id="serp-selection-sheet" role="dialog" aria-modal="true" aria-labelledby="serp-selection-title">
+                    <div class="serp-filter-nav" id="serp-selection-nav"><button type="button" id="serp-selection-reset" class="serp-filter-reset" hidden>Сбросить</button><h2 id="serp-selection-title">Сортировка</h2><button type="button" id="serp-selection-done" class="serp-filter-done">Готово</button></div>
+                    <div class="serp-sort-body" id="serp-selection-body"></div>
+                    <div class="serp-filter-footer"><button type="button" id="serp-selection-apply">Применить</button></div>
+                  </section>
+                </div>
+              </div>
+            </section>
+
+            <div class="query-error-layer" id="query-error-layer" hidden>
+              <section class="query-error-page" id="query-error-page" role="region" aria-labelledby="query-error-title" aria-describedby="query-error-description" tabindex="-1">
+                <div class="query-error-status" aria-hidden="true"><span class="status-time">9:41</span><img class="status-icons" src="./assets/home-right-side.svg" alt=""></div>
+                <div class="query-error-content">
+                  <img class="query-error-illustration" src="./assets/app-empty-arrows.png" width="180" height="180" alt="">
+                  <h2 id="query-error-title">Не получилось понять запрос</h2>
+                  <p id="query-error-description">Попробуйте описать поездку, например «На&nbsp;море через неделю»</p>
+                </div>
+                <div class="query-error-footer"><button id="query-error-edit" type="button">Изменить запрос</button><button id="query-error-back" type="button">Вернуться назад</button></div>
+                <img class="query-error-home-bar" src="./assets/modal-home-bar.svg" width="375" height="34" alt="" aria-hidden="true">
+              </section>
+            </div>
+            <div class="microphone-permission" id="microphone-permission" hidden>
+              <section class="ios-permission-dialog" id="microphone-permission-dialog" role="alertdialog" aria-modal="true" aria-labelledby="microphone-permission-title" aria-describedby="microphone-permission-description" tabindex="-1">
+                <div class="ios-permission-app" aria-hidden="true">
+                  <span class="ios-permission-resource-icon"><img src="./assets/ios-permission-mic-fill.png" alt=""></span>
+                  <span class="ios-permission-privacy"><img src="./assets/ios-privacy-hand.png?v=2" alt=""></span>
+                </div>
+                <h2 id="microphone-permission-title">Приложение «Авиабилеты» запрашивает доступ к микрофону.</h2>
+                <p id="microphone-permission-description">Доступ к микрофону нужен, чтобы вводить запросы голосом</p>
+                <div class="ios-permission-actions">
+                  <button type="button" id="microphone-permission-deny">Не разрешать</button>
+                  <button type="button" id="microphone-permission-allow">Разрешить</button>
+                </div>
+              </section>
+            </div>
+            <div class="modal-layer" id="modal-layer" hidden>
+              <div class="modal-backdrop" id="modal-backdrop"></div>
+              <div class="modal-stack" id="modal-stack">
+              <section class="ai-dialog" id="ai-dialog" role="dialog" aria-modal="true" aria-label="ИИ-поиск" tabindex="-1" data-node-id="618:33958">
+                <header class="dialog-header" data-node-id="618:33959"><button class="close-button" id="close-dialog" type="button" aria-label="Закрыть ИИ-поиск"><img src="./assets/modal-24-close.svg" alt=""></button></header>
+                <form id="ai-form" class="dialog-content" data-node-id="618:33960">
+                  <div class="query-area" data-node-id="618:33961">
+                    <label class="sr-only" for="ai-query">Что будем искать?</label>
+                    <textarea class="query-input" id="ai-query" rows="1" placeholder="Что будем искать?" spellcheck="false" autocomplete="off" inputmode="none"></textarea>
+                  </div>
+                  <div class="intent-list" aria-label="Примеры запросов" data-node-id="618:33964">
+                    <button class="intent" type="button" data-scenario-id="home-petersburg-weekend" data-query="На выходные в Петербург и обратно"><span>На выходные</span><small>в Петербург и обратно</small></button>
+                    <button class="intent" type="button" data-scenario-id="home-paris-week" data-query="Найди билеты в Париж через неделю"><span>Найди билеты</span><small>в Париж через неделю</small></button>
+                    <button class="intent" type="button" data-scenario-id="home-sea-autumn" data-query="Хочу на море осенью из Москвы"><span>Хочу на море</span><small>осенью из Москвы</small></button>
+                    <button class="intent" type="button" data-scenario-id="home-london-two" data-query="Найди билеты в Лондон на двоих"><span>Найди билеты</span><small>в Лондон на двоих</small></button>
+                    <button class="intent" type="button" data-scenario-id="home-sochi-filtered" data-query="Хочу в Сочи с багажом"><span>Хочу в Сочи</span><small>с багажом</small></button>
+                    <button class="intent" type="button" data-scenario-id="home-sydney-cheaper" data-query="Найди перелёт в Сидней подешевле"><span>Найди перелёт</span><small>в Сидней подешевле</small></button>
+                  </div>
+                  <div class="dialog-actions" data-node-id="718:21474">
+                    <div class="voice-control" data-node-id="718:21783">
+                      <div class="voice-wave" aria-hidden="true"><div class="voice-wave-track"></div></div>
+                      <span class="voice-processing-label" aria-hidden="true" data-node-id="718:22543">Переводим речь в текст</span>
+                      <span class="voice-error-label" aria-hidden="true" data-node-id="734:25390">Не получилось распознать</span>
+                      <span id="voice-state-status" class="sr-only" role="status" aria-live="polite"></span>
+                      <button class="voice-button" id="voice-mode" type="button" aria-label="Голосовой ввод" aria-pressed="false">
+                        <img class="voice-mic-icon" src="./assets/modal-microphone.svg" alt="">
+                        <span class="voice-stop-disc" aria-hidden="true" data-node-id="718:22198"><img class="voice-retry-icon" src="./assets/modal-recognition-retry.svg" width="16" height="16" alt=""><span class="voice-stop-icon" data-node-id="707:15249"></span><object class="voice-spinner" data="./assets/modal-recognition-spinner.svg" type="image/svg+xml" width="16" height="16" tabindex="-1" aria-hidden="true"></object></span>
+                      </button>
+                    </div>
+                    <button class="send-button" type="submit" aria-label="Отправить запрос" data-node-id="718:21477">
+                      <img class="send-icon" src="./assets/modal-send-white.svg" alt="">
+                      <img class="cancel-recognition-error-icon" src="./assets/modal-recognition-error-cancel.svg" width="24" height="24" alt="">
+                      <img class="cancel-recording-icon" src="./assets/modal-recording-cancel.svg" alt="">
+                    </button>
+                  </div>
+                </form>
+                <img class="dialog-home-bar" src="./assets/modal-home-bar.svg" alt="" aria-hidden="true" data-node-id="618:33982">
+              </section>
+              <div class="preview-keyboard" id="preview-keyboard" aria-label="Клавиатура" data-node-id="47:11138">
+                <div class="keyboard-rows" id="keyboard-rows"></div>
+                <div class="keyboard-footer">
+                  <img class="keyboard-footer-icon keyboard-footer-icon--language" src="./assets/keyboard-language.svg" alt="">
+                  <img class="keyboard-footer-icon keyboard-footer-icon--voice" src="./assets/keyboard-voice-input.svg" alt="">
+                  <img class="keyboard-home-bar" src="./assets/keyboard-home-bar.svg" alt="">
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

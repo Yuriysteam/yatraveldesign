@@ -1,0 +1,244 @@
+.lab-note { margin: 0; color: #777780; font-size: 12px; line-height: 18px; }
+/* iOS sources: SerpHeaderView, QuickInputsView, Chips.large, AviaSnippetView.
+   Values are points at 1 CSS px/pt. The existing preview owns the 44 pt safe area. */
+.serp-screen {
+  --serp-background: #f5f5f5;
+  --serp-surface: #fff;
+  --serp-control: #f2f2f2;
+  --serp-control-checked: #222125;
+  --serp-primary: #0d0d0f;
+  --serp-secondary: #9c9ba2;
+  --serp-positive: #0ec70e;
+  --serp-info: #7f5fff;
+  --serp-warning: #ffa41d;
+  position: absolute; inset: 0; z-index: 1; overflow: hidden;
+  color: var(--serp-primary); background: var(--serp-background);
+}
+.serp-status { position: absolute; z-index: 5; inset: 0 0 auto; height: 44px; background: var(--serp-surface); pointer-events: none; }
+.serp-header { position: absolute; z-index: 4; top: 44px; left: 0; right: 0; height: 143px; background: var(--serp-surface); border-radius: 0 0 16px 16px; }
+.serp-header-top { position: relative; height: 67px; padding-top: 16px; }
+.serp-back { position: absolute; left: 7px; top: 19.5px; width: 44px; height: 44px; padding: 10px; display: grid; place-items: center; background: transparent; }
+.serp-back img { width: 24px; height: 24px; }
+.serp-summary { position: absolute; left: 50px; right: 50px; top: 16px; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px; height: 51px; min-width: 0; padding: 0 18px; border-radius: 100px; background: var(--serp-control); }
+.serp-summary strong { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; line-height: 18px; font-weight: 500; }
+.serp-summary > span { display: flex; align-items: center; gap: 8px; max-width: 100%; height: 16px; white-space: nowrap; color: var(--serp-secondary); font-size: 14px; line-height: 16px; }
+.serp-summary-group { display: inline-flex; align-items: center; gap: 4px; }
+.serp-summary img { width: 12px; height: 12px; opacity: .4; }
+.serp-quick-filters { display: flex; padding: 12px 16px 16px; gap: 6px; }
+.serp-all-filters { position: relative; display: grid; place-items: center; flex: none; width: 48px; height: 48px; padding: 0; background: var(--serp-control); border-radius: 16px; }
+.serp-all-filters img { width: 20px; height: 20px; }
+.serp-all-filters[data-active=true] { background: var(--serp-control-checked); }
+.serp-all-filters[data-active=true] img { filter: brightness(0) invert(1); }
+#serp-filter-dot { position: absolute; right: 1px; top: 1px; width: 8px; height: 8px; border-radius: 50%; background: #f03; }
+.serp-quick-filters .serp-chip { display: flex; align-items: center; justify-content: center; flex-direction: column; flex: 1; min-width: 0; height: 48px; padding: 0 18px; background: var(--serp-control); border-radius: 16px; white-space: nowrap; }
+.serp-quick-filters .serp-chip[aria-pressed=true] { background: var(--serp-control-checked); color: #fff; }
+.serp-quick-filters .serp-chip strong { max-width: 100%; font-size: 14px; line-height: 18px; font-weight: 500; }
+.serp-quick-filters .serp-chip span { font-size: 12px; line-height: 16px; color: var(--serp-secondary); }
+.serp-quick-filters button:active:not(:disabled) { transform: scale(.97); }
+.serp-feed { position: absolute; inset: 187px 0 0; overflow: auto; overscroll-behavior: contain; scrollbar-width: none; }
+.serp-feed::-webkit-scrollbar, .serp-filter-body::-webkit-scrollbar { display: none; }
+/* Figma 702:18049 / 703:18422. The shared legacy .informer has a different
+   40 px icon and surface; this composition uses the approved frame and Base 2.0 tokens. */
+.serp-informer { display: flex; align-items: flex-start; gap: var(--space-6, 12px); margin: 8px 0 0; padding: var(--space-10, 20px); background: var(--app-surface); border-radius: var(--radius-24, 24px); overflow: hidden; }
+.serp-informer > img { flex: none; }
+.serp-informer > p { flex: 1; min-width: 0; margin: 0; color: var(--app-text); font-family: var(--font-caption-c1-family, 'YS Text'); font-size: var(--font-caption-c1-size, 14px); font-weight: var(--font-caption-c1-weight, 400); line-height: var(--font-caption-c1-lineHeight, 18px); letter-spacing: var(--font-caption-c1-letterSpacing, 0); }
+.serp-cards { display: flex; flex-direction: column; gap: 8px; padding: 8px 0 34px; }
+/* Native AviaHeaderSkeleton / AviaSkeleton: a fixed template,
+   independent of the mock ticket data. View+skeletoning.swift animates opacity
+   for 0.9 s each way (repeatForever, autoreverses), not a travelling highlight. */
+.serp-skeleton-item { display: block; flex: none; border-radius: 100px; background: var(--serp-control); animation: serp-skeleton-pulse 900ms ease-in-out infinite alternate; }
+.serp-header-skeleton .serp-skeleton-item { flex: 1; height: 48px; border-radius: 16px; }
+.serp-header-skeleton .serp-skeleton-item:first-child { flex: 0 0 48px; }
+.serp-skeleton-card { flex: none; height: 130px; padding: 16px; border-radius: 16px; background: var(--serp-surface); }
+#serp-skeleton-cards[data-direction="twoWays"] .serp-skeleton-card { height: 198px; }
+.serp-skeleton-content { display: flex; flex-direction: column; align-items: start; gap: 16px; }
+.serp-skeleton-company { display: flex; align-items: center; gap: 8px; }
+.serp-skeleton-logo { width: 26px; height: 26px; border-radius: 6px; }
+.serp-skeleton-name { width: 165px; height: 16px; }
+.serp-skeleton-price { width: 175px; height: 24px; }
+.serp-skeleton-route { display: flex; gap: 24px; }
+.serp-skeleton-route .serp-skeleton-item { width: 107px; height: 16px; }
+/* SerpHeaderView / RepeatingProgressLine: 145 × 4, linear 1.5 s. */
+.serp-loading-progress { position: absolute; left: 16px; right: 16px; bottom: -2px; height: 4px; overflow: hidden; pointer-events: none; }
+.serp-loading-progress span { display: block; position: absolute; left: calc(50% - 72.5px); width: 145px; height: 4px; border-radius: 100px; background: linear-gradient(to right, var(--serp-surface), #fed42b); animation: serp-loading-progress 1500ms linear infinite; }
+@keyframes serp-skeleton-pulse { from { opacity: 1; } to { opacity: .5; } }
+@keyframes serp-loading-progress { from { transform: translateX(-300px); } to { transform: translateX(750px); } }
+@media (prefers-reduced-motion: reduce) {
+  .serp-skeleton-item, .serp-loading-progress span { animation: none; }
+}
+.serp-card { display: flex; flex-direction: column; gap: 12px; width: 100%; padding: 16px; border-radius: 16px; background: var(--serp-surface); }
+.serp-badges { display: flex; align-items: start; gap: 8px; }
+.serp-badges span { padding: 4px 8px; border-radius: 16px; background: var(--serp-info); color: #fff; font-size: 12px; line-height: 14px; font-weight: 400; white-space: nowrap; }
+.serp-badges span[data-tone=positive] { background: var(--serp-positive); }
+.serp-card-head { display: flex; align-items: center; gap: 12px; }
+.serp-card-price { font: 500 24px/28px 'YS Display', sans-serif; }
+.serp-card-bags { display: flex; align-items: center; gap: 8px; }
+.serp-bag { position: relative; display: block; width: 24px; height: 24px; flex: none; }
+.serp-bag img { width: 24px; height: 24px; }
+.serp-bag--included::before { content: ''; position: absolute; inset: 0; background: var(--serp-positive); mask: var(--bag-icon) center / contain no-repeat; }
+.serp-bag--included img { visibility: hidden; }
+.serp-bag-weight { position: absolute; inset: 4px 0 0; display: grid; place-items: center; color: #fff; font-size: 10px; line-height: 12px; }
+.serp-card-company { display: flex; align-items: center; gap: 8px; font-size: 16px; line-height: 24px; }
+.serp-company-logos { display: flex; gap: 4px; flex: none; }
+.serp-company-logo { width: 24px; height: 24px; border-radius: 6px; object-fit: cover; }
+.serp-card-company > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.serp-flight-row { display: grid; grid-template-columns: 128px minmax(0,1fr); gap: 24px; padding-right: 30px; align-items: start; }
+.serp-flight-route { display: flex; flex-direction: column; gap: 4px; }
+.serp-flight-time { font-size: 18px; line-height: 20px; font-weight: 400; white-space: nowrap; }
+.serp-flight-airports { color: var(--serp-secondary); font-size: 14px; line-height: 16px; }
+.serp-flight-details { display: flex; flex-direction: column; gap: 5px; min-width: 0; font-size: 14px; line-height: 16px; }
+.serp-flight-duration { min-height: 20px; display: flex; align-items: end; }
+.serp-flight-arrival-date { color: var(--text-warning-color); }
+.serp-flight-transfer { color: var(--serp-secondary); }
+.serp-flight-direct { color: var(--serp-primary); }
+.serp-home-bar { position: absolute; z-index: 4; left: 0; bottom: 0; pointer-events: none; }
+/* Standalone Avia: RootCoordinator .sheet + AviaFiltersView.
+   iOS owns the transition; the browser easing/stack geometry approximate pageSheet. */
+.serp-screen[data-filter-presentation] { background: #000; }
+.serp-page { position: absolute; inset: 0; overflow: hidden; background: var(--serp-background); transform-origin: center top; transform: translateY(calc(44px * var(--filter-progress, 0))) scale(calc(1 - .053333 * var(--filter-progress, 0))); border-radius: calc(12px * var(--filter-progress, 0)); transition: transform 500ms cubic-bezier(.32,.72,0,1), border-radius 500ms; }
+.serp-page .serp-status { opacity: calc(1 - var(--filter-progress, 0)); transition: opacity 250ms; }
+.serp-filter-layer { position: absolute; z-index: 7; inset: 0; }
+.serp-filter-shade { position: absolute; inset: 0; background: #000; opacity: calc(.25 * var(--filter-progress, 0)); transition: opacity 500ms cubic-bezier(.32,.72,0,1); }
+.serp-filter-status { position: absolute; inset: 0 0 auto; height: 44px; color: #fff; opacity: var(--filter-progress, 0); transition: opacity 250ms; pointer-events: none; }
+.serp-filter-status img { filter: brightness(0) invert(1); }
+.serp-filter-status .status-time { color: #fff; }
+.serp-filter-sheet { position: absolute; inset: 54px 0 0; display: flex; flex-direction: column; border-radius: 10px 10px 0 0; overflow: hidden; background: var(--serp-background); transform: translateY(calc((1 - var(--filter-progress, 0)) * 100%)); transition: transform 500ms cubic-bezier(.32,.72,0,1); box-shadow: 0 -2px 20px #0002; }
+.serp-screen[data-filter-dragging] .serp-page,
+.serp-screen[data-filter-dragging] .serp-filter-sheet,
+.serp-screen[data-filter-dragging] .serp-filter-shade,
+.serp-screen[data-filter-dragging] .serp-status,
+.serp-screen[data-filter-dragging] .serp-filter-status { transition: none; }
+.serp-screen[data-filter-presentation=closing] .serp-filter-layer { pointer-events: none; }
+.serp-filter-nav { position: relative; flex: none; display: flex; align-items: center; justify-content: space-between; height: 44px; padding: 0 16px; background: #fff; touch-action: none; user-select: none; }
+.serp-filter-nav h2 { position: absolute; left: 96px; right: 96px; margin: 0; text-align: center; font-size: 16px; line-height: 20px; font-weight: 500; pointer-events: none; }
+.serp-filter-nav button { z-index: 1; background: transparent; font-size: 18px; line-height: 22px; }
+.serp-filter-nav-back { position: absolute; left: 8px; top: 0; width: 44px; height: 44px; display: grid; place-items: center; }
+.serp-filter-nav-back img { width: 24px; height: 24px; }
+.serp-filter-reset { margin-left: 0; padding: 11px 0; }
+.serp-filter-nav-back:not([hidden]) + .serp-filter-reset { margin-left: 36px; }
+.serp-filter-done { margin-left: auto; padding: 11px 0; }
+.serp-filter-body { flex: 1; overflow: auto; overscroll-behavior: contain; scrollbar-width: none; padding-bottom: 106px; }
+.serp-filter-main { padding: 0 16px; border-radius: 0 0 16px 16px; background: #fff; }
+.serp-filter-main-quick { display: flex; gap: 6px; padding: 8px 0 10px; }
+.serp-filter-sheet .serp-chip { display: flex; align-items: center; justify-content: center; flex-direction: column; flex: 1; min-width: 0; height: 48px; padding: 0 18px; background: var(--serp-control); border-radius: 16px; white-space: nowrap; }
+.serp-filter-sheet .serp-chip[aria-pressed=true] { background: var(--serp-control-checked); color: #fff; }
+.serp-filter-sheet .serp-chip strong { max-width: 100%; font-size: 14px; line-height: 18px; font-weight: 500; }
+.serp-filter-sheet .serp-chip span { font-size: 12px; line-height: 16px; color: var(--serp-secondary); }
+/* Chips.Tone: Controls/Disabled and Text/Disabled, iOS light colors. */
+:is(.serp-quick-filters, .serp-filter-sheet) .serp-chip:disabled { background: #f5f5f5; color: #b6b6bb; cursor: default; }
+:is(.serp-quick-filters, .serp-filter-sheet) .serp-chip:disabled span { color: #b6b6bb; }
+.serp-disclosure-row { position: relative; }
+.serp-disclosure { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 60px; padding: 0; background: transparent; text-align: left; font-size: 16px; line-height: 20px; }
+.serp-disclosure-trailing { display: flex; align-items: center; gap: 6.5px; }
+.serp-disclosure-trailing small { color: var(--serp-secondary); font-size: 14px; line-height: 18px; }
+.serp-disclosure-trailing img { width: 12px; height: 12px; opacity: .4; }
+.serp-filter-counter { position: absolute; right: 18.5px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 4px; padding: 6px 16px; border-radius: 100px; background: #fed42b; color: #000; font-size: 14px; line-height: 18px; }
+.serp-filter-counter img { width: 16px; height: 16px; }
+.serp-filter-intervals { display: flex; flex-direction: column; gap: 24px; margin-top: 8px; padding: 16px; border-radius: 16px; background: #fff; }
+.serp-filter-divider { height: 1px; margin: 0; border: 0; flex: none; background: #e6e5e7; }
+.serp-range-block h3 { margin: 0 0 16px; font: 500 20px/24px 'YS Display', sans-serif; }
+.serp-range-values { position: relative; display: flex; align-items: center; justify-content: space-between; height: 36px; font-size: 14px; line-height: 18px; }
+.serp-range-current { position: absolute; z-index: 1; top: 0; left: calc(32px + (100% - 64px) * var(--range-bubble, .5)); transform: translateX(-50%); display: flex; align-items: center; gap: 6px; height: 32px; padding: 0 8px 0 16px; border-radius: 12px; background: #3c3c41; color: #fff; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.serp-range-current button { display: grid; place-items: center; width: 16px; height: 16px; padding: 4px; border-radius: 6px; background: #222125; }
+.serp-range-current img { width: 8px; height: 8px; filter: invert(.65); }
+.serp-range-pair { position: relative; height: 36px; }
+.serp-range-track { position: absolute; top: 17px; left: 0; right: 0; height: 2px; border-radius: 2px; background: #cdcccf; }
+.serp-range-track::after { content: ''; position: absolute; top: 0; bottom: 0; left: var(--range-start, 0%); right: calc(100% - var(--range-end, 100%)); background: #222125; }
+.serp-range-pair input { position: absolute; width: 100%; left: 0; top: 0; height: 36px; margin: 0; background: transparent; pointer-events: none; appearance: none; -webkit-appearance: none; }
+.serp-range-pair input::-webkit-slider-runnable-track { height: 32px; background: transparent; }
+.serp-range-pair input::-webkit-slider-thumb { width: 32px; height: 32px; border: 2px solid #222125; border-radius: 50%; background: #fff; pointer-events: auto; appearance: none; -webkit-appearance: none; cursor: grab; transition: transform 120ms; }
+.serp-range-pair input::-moz-range-thumb { box-sizing: border-box; width: 32px; height: 32px; border: 2px solid #222125; border-radius: 50%; background: #fff; pointer-events: auto; cursor: grab; }
+.serp-range-pair input:active::-webkit-slider-thumb { transform: scale(1.125); cursor: grabbing; }
+.serp-range-pair input:focus-visible::-webkit-slider-thumb { outline: 3px solid #7f5fff; outline-offset: 3px; }
+.serp-range-ticks { position: relative; height: 20px; color: var(--serp-primary); font-size: 14px; line-height: 18px; }
+.serp-range-ticks span { position: absolute; top: 2px; transform: translateX(-50%); }
+.serp-filter-footer { position: absolute; z-index: 5; bottom: 0; left: 0; right: 0; display: flex; align-items: start; padding: 12px 16px 46px; pointer-events: none; }
+.serp-filter-footer button { width: 100%; height: 56px; border-radius: 20px; background: #fed42b; font-size: 16px; line-height: 20px; font-weight: 500; pointer-events: auto; }
+.serp-filter-footer button:active { background: #f0c624; }
+.serp-filter-sheet::after { content: ''; position: absolute; z-index: 6; left: 50%; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: #000; transform: translateX(-50%); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .serp-page, .serp-page .serp-status, .serp-filter-sheet, .serp-filter-shade, .serp-filter-status { transition: none; }
+}
+/* Nested filter choices: retained from the earlier prototype, for the next pass. */
+.serp-filter-options { min-height: 100%; padding: 8px 16px; background: #fff; }
+.serp-filter-options h3 { margin: 18px 0 8px; font-size: 14px; color: #8e8e93; font-weight: 400; }
+.serp-filter-option { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 56px; padding: 10px 0; background: #fff; text-align: left; font-size: 16px; }
+.serp-checkbox, .serp-radio { display: grid; place-items: center; width: 22px; height: 22px; flex: none; border: 2px solid #c8c8cc; }
+.serp-checkbox { border-radius: 7px; }
+.serp-radio { border-radius: 50%; }
+.serp-filter-option[aria-pressed=true] .serp-checkbox { background: #fed42b; border-color: #fed42b; }
+.serp-filter-option[aria-pressed=true] .serp-checkbox::after { content: '✓'; font-size: 16px; font-weight: 600; }
+.serp-filter-option[aria-pressed=true] .serp-radio { border-color: #fed42b; }
+.serp-filter-option[aria-pressed=true] .serp-radio::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: #fed42b; }
+.serp-filter-static { padding: 17px 0; color: #9c9ba2; font-size: 16px; }
+.serp-empty { min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; }
+.serp-empty strong { font: 500 20px/24px 'YS Display', sans-serif; }
+.serp-empty span { color: #9c9ba2; font-size: 14px; }
+.serp-empty button { margin-top: 8px; padding: 10px 14px; border-radius: 14px; background: #fff; font-size: 14px; }
+
+/* AviaFilterSelectionView: shared nested system sheet for sort and transfers. */
+.serp-selection-layer { position: absolute; z-index: 8; inset: 0; }
+.serp-selection-shade { position: absolute; inset: 44px 0 0; background: #000; opacity: calc(.25 * var(--selection-progress, 0)); transition: opacity 500ms cubic-bezier(.32,.72,0,1); }
+.serp-selection-sheet { top: 54px; transform: translateY(calc((1 - var(--selection-progress, 0)) * 100%)); }
+#serp-filter-sheet { transform-origin: center top; transform: translateY(calc((1 - var(--filter-progress, 0)) * 100% - 10px * var(--selection-progress, 0))) scale(calc(1 - .053333 * var(--selection-progress, 0))); }
+/* Only the active sheet and its immediate presenter remain visible. */
+.serp-screen[data-selection-presentation] .serp-page { opacity: calc(1 - var(--selection-progress, 0)); }
+.serp-screen[data-selection-presentation=closing] .serp-selection-layer { pointer-events: none; }
+.serp-screen[data-selection-dragging] #serp-filter-sheet,
+.serp-screen[data-selection-dragging] .serp-selection-sheet,
+.serp-screen[data-selection-dragging] .serp-page,
+.serp-screen[data-selection-dragging] .serp-selection-shade { transition: none; }
+.serp-sort-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; margin-bottom: 106px; padding: 16px; background: var(--serp-surface); }
+.serp-sort-body::-webkit-scrollbar { display: none; }
+.serp-sort-option { display: flex; align-items: start; gap: 12px; padding: 14px 0; cursor: pointer; }
+.serp-sort-option input { position: relative; flex: none; width: 28px; height: 28px; margin: 0; appearance: none; -webkit-appearance: none; border: 0; border-radius: 50%; background: var(--serp-control); cursor: pointer; }
+.serp-sort-option input:checked { background: var(--serp-control-checked); }
+.serp-sort-option input:checked::after { content: ''; position: absolute; top: 9px; left: 9px; width: 10px; height: 10px; border-radius: 50%; background: #fff; }
+.serp-sort-option span { padding-top: 3px; font-size: 16px; line-height: 20px; font-weight: 400; }
+.serp-sort-option:has(input:disabled) { opacity: .5; cursor: default; }
+/* AviaTransfersFilterView / CheckboxFilterView / TransferDurationView.
+   Checkbox.medium uses the original ic16Check asset, 24 pt and radius 10. */
+.serp-transfer-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; padding-bottom: 106px; }
+.serp-transfer-body::-webkit-scrollbar { display: none; }
+.serp-transfer-body > * + * { margin-top: 8px; }
+.serp-transfer-conditions { display: flex; flex-direction: column; gap: 16px; padding: 16px; border-radius: 0 0 16px 16px; background: var(--serp-surface); }
+:is(.serp-transfer-option, .serp-choice-option) { display: flex; align-items: center; gap: 12px; padding: 14px 0; cursor: pointer; }
+:is(.serp-transfer-option, .serp-choice-option) input { flex: none; width: 24px; height: 24px; margin: 0; border: 0; border-radius: 10px; appearance: none; -webkit-appearance: none; background: var(--serp-control); cursor: pointer; }
+:is(.serp-transfer-option, .serp-choice-option) input:checked { background: #fed42b url('./assets/app-ic16Check.svg') center / 16px 16px no-repeat; }
+:is(.serp-transfer-option, .serp-choice-option) input:focus-visible { outline: 2px solid #7f5fff; outline-offset: 3px; }
+:is(.serp-transfer-option, .serp-choice-option):has(input:disabled) { opacity: .5; cursor: default; }
+.serp-transfer-label { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; font-size: 16px; line-height: 20px; }
+.serp-transfer-label small { color: var(--serp-secondary); font-size: 14px; line-height: 18px; }
+.serp-transfer-code { margin-left: -4px; color: var(--serp-secondary); font-size: 14px; line-height: 18px; }
+.serp-transfer-block { padding: 16px; border-radius: 16px; background: var(--serp-surface); }
+.serp-transfer-airports { display: flex; flex-direction: column; gap: 16px; }
+.serp-transfer-airports h3 { margin: 0; font: 500 20px/24px 'YS Display', sans-serif; }
+[data-range-block=transfer] .serp-range-ticks { display: none; }
+/* AirportsFilterView / AirportsListView: one-way route, same CheckboxFilterView. */
+.serp-airport-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; padding-bottom: 106px; }
+.serp-airport-body::-webkit-scrollbar { display: none; }
+.serp-airport-block { padding: 16px; border-radius: 0 0 16px 16px; background: var(--serp-surface); }
+.serp-airport-direction { display: flex; flex-direction: column; gap: 16px; margin-top: 16px; }
+.serp-airport-direction h3 { margin: 0; font: 500 20px/24px 'YS Display', sans-serif; }
+.serp-airport-direction h4 { margin: 0; font-size: 16px; line-height: 20px; font-weight: 400; }
+.serp-choice-option { font-size: 16px; line-height: 20px; }
+.serp-airport-content { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.serp-airport-name { display: flex; align-items: center; gap: 6px; }
+.serp-airport-content small { color: var(--serp-secondary); font-size: 14px; line-height: 18px; }
+/* AviaCompaniesFilterView is one white scrolling surface. Original carrier SVGs
+   use the same 24 pt / radius 6 slot as AviaCompanyLogoView. */
+.serp-company-body { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; margin-bottom: 106px; padding: 16px; background: var(--serp-surface); }
+.serp-company-body::-webkit-scrollbar { display: none; }
+.serp-company-options { display: flex; flex-direction: column; gap: 16px; }
+.serp-company-option-content { display: flex; flex: 1; min-width: 0; align-items: center; gap: 8px; }
+.serp-company-option-content img { flex: none; width: 24px; height: 24px; border-radius: 6px; object-fit: cover; }
+@media (prefers-reduced-motion: reduce) {
+  .serp-selection-shade { transition: none; }
+}
+
+
+/* Both search-summary rows stay unknown until search completes (Figma 737:29062). */
+.serp-summary-skeleton { gap: 4px; }
+.serp-summary-skeleton .serp-skeleton-item { width: 160px; height: 14px; background: #e6e5e7; }
+.serp-summary-skeleton .serp-skeleton-item + .serp-skeleton-item { width: 112px; }
+.serp-screen[data-loading="true"] #ai-fab { visibility: hidden; }

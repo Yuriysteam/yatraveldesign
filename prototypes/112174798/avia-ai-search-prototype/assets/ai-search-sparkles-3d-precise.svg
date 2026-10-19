@@ -1,0 +1,57 @@
+<svg width="40" height="40" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sparkle-face" x1="4" y1="1" x2="16" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2F0FA"/>
+      <stop offset=".42" stop-color="#DED8F5"/>
+      <stop offset="1" stop-color="#A994E9"/>
+    </linearGradient>
+    <linearGradient id="sparkle-side" x1="4" y1="2" x2="17" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D8CEF3"/>
+      <stop offset=".52" stop-color="#A98CEB"/>
+      <stop offset="1" stop-color="#7953D8"/>
+    </linearGradient>
+    <linearGradient id="sparkle-edge" x1="3" y1="1" x2="17" y2="19" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".8"/>
+      <stop offset=".53" stop-color="#BCACEE" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#8B68E1" stop-opacity=".95"/>
+    </linearGradient>
+    <path id="sparkle-large" d="M13.1211 7.3418C13.5589 8.58617 13.8916 9.20914 14.3418 9.65918C14.7919 10.1093 15.4147 10.4421 16.6592 10.8799L19.001 11.6357V12.3643L16.6592 13.1201C15.4146 13.558 14.7919 13.8906 14.3418 14.3408C13.8917 14.7909 13.5589 15.4138 13.1211 16.6582L12.3652 19H11.6367L10.8809 16.6582C10.4431 15.4138 10.1102 14.7909 9.66016 14.3408C9.21009 13.8906 8.58734 13.558 7.34277 13.1201L5.00098 12.3643V11.6357L7.34277 10.8799C8.58722 10.4421 9.21009 10.1093 9.66016 9.65918C10.1103 9.20914 10.4431 8.58618 10.8809 7.3418C11.3133 6.11259 11.6288 5.02712 11.6367 5H12.3369L13.1211 7.3418Z"/>
+    <path id="sparkle-small" d="M8.20117 1.35547L7.42578 2.87012C7.03124 3.69278 6.88965 4.16038 6.88965 4.60059C6.88969 5.04067 7.03144 5.50775 7.42578 6.33008L8.20117 7.84473L7.8457 8.20117L6.33105 7.42578C5.50841 7.0313 5.04079 6.88965 4.60059 6.88965C4.16043 6.88971 3.6927 7.03131 2.87012 7.42578L1.35645 8.20117L1 7.84473L1.77539 6.33008C2.16979 5.50767 2.31148 5.0407 2.31152 4.60059C2.31152 4.16036 2.16997 3.69285 1.77539 2.87012C1.38086 2.0475 1 1.35547 1 1.35547L1.34277 1.01367L2.87012 1.77539C3.69269 2.16986 4.16043 2.31146 4.60059 2.31152C5.04079 2.31152 5.50841 2.16988 6.33105 1.77539L7.8457 1L8.20117 1.35547Z"/>
+  </defs>
+  <g fill="url(#sparkle-side)">
+    <g transform="translate(.55 .65)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.532 .628)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.513 .607)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.495 .585)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.477 .563)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.458 .542)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.44 .52)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.422 .498)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.403 .477)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.385 .455)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.367 .433)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.348 .412)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.33 .39)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.312 .368)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.293 .347)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.275 .325)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.257 .303)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.238 .282)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.22 .26)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.202 .238)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.183 .217)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.165 .195)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.147 .173)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.128 .152)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.11 .13)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.092 .108)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.073 .087)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.055 .065)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.037 .043)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+    <g transform="translate(.018 .022)"><use href="#sparkle-large"/><use href="#sparkle-small"/></g>
+  </g>
+  <g fill="url(#sparkle-face)" stroke="url(#sparkle-edge)" stroke-width=".18" stroke-linejoin="round">
+    <use href="#sparkle-large"/>
+    <use href="#sparkle-small"/>
+  </g>
+</svg>

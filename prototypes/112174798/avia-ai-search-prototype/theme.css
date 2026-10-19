@@ -1,0 +1,147 @@
+/* First dark-theme review: home + AI-search sheet. Native Travel iOS tokens
+   from DesignSystem/Travel/Resources/ExportedAssets.xcassets/Colors.
+   The rest of the screens will be reviewed separately before spec handoff. */
+.phone[data-preview-theme="dark"] :is(.home-screen, .modal-layer, .serp-page, .query-error-layer) {
+  --app-bg: #0d0d0f; /* Background/Primary */
+  --app-surface: #1b1a1e; /* Background/Secondary */
+  --app-suggest-bg: #2b2a2e; /* background/tertiary, Figma 761:32026 */
+  --app-control: #313136; /* Controls/Secondary */
+  --app-control-tertiary: #3c3c41; /* controls/tertiary, Figma 761:31579 */
+  --app-line: #3c3c41; /* background/line */
+  --controls-primary: #fac800; /* controls/primary, Figma 761:31703 */
+  --app-text: #ededee; /* Text/Primary */
+  --app-muted: #9c9ba2; /* Text/Secondary */
+  --controls-primary-black: #fff; /* Controls/PrimaryBlack */
+  --bg-line-default-color: #3c3c41; /* Controls/Line */
+  color: var(--app-text);
+  color-scheme: dark;
+}
+.phone[data-preview-theme="dark"] .home-screen { background: var(--app-bg); }
+.phone[data-preview-theme="dark"] .ai-dialog { background: var(--app-surface); }
+.phone[data-preview-theme="dark"] .home-screen .status-time { color: #fff; }
+.phone[data-preview-theme="dark"] .home-screen .status-icons { filter: brightness(0) invert(1); }
+.phone[data-preview-theme="dark"] .query-area::after { background: linear-gradient(to bottom, var(--app-surface), transparent); }
+.phone[data-preview-theme="dark"] .query-input::placeholder { color: #5e5d65; }
+.phone[data-preview-theme="dark"] :is(.close-button img, .voice-mic-icon, .cancel-recording-icon) { filter: brightness(0) invert(.93); }
+.phone[data-preview-theme="dark"] .send-icon { filter: brightness(0); }
+.phone[data-preview-theme="dark"] .voice-stop-disc { background: #3c3c41; }
+.phone[data-preview-theme="dark"] .voice-stop-icon::after { background: var(--app-text); }
+.phone[data-preview-theme="dark"] .voice-spinner { color-scheme: light; background: transparent; }
+.phone[data-preview-theme="dark"] .is-recognition-error .voice-control { background: #313136; }
+.phone[data-preview-theme="dark"] .voice-error-label { color: #ff2f5f; }
+.phone[data-preview-theme="dark"] :is(.voice-retry-icon, .cancel-recognition-error-icon) { filter: brightness(0) invert(.93); }
+/* Figma Keyboard: Dark Theme=On, source 718:19500. */
+.phone[data-preview-theme="dark"] .preview-keyboard { background: #2c2c2c; }
+.phone[data-preview-theme="dark"] .keyboard-key { background: #6b6b6b; color: #fff; box-shadow: 0 1px 0 #151515; }
+.phone[data-preview-theme="dark"] :is(.keyboard-key--control, .keyboard-key--utility, .keyboard-key--find) { background: #474747; }
+.phone[data-preview-theme="dark"] :is(.keyboard-key img, .keyboard-footer-icon, .keyboard-home-bar, .dialog-home-bar) { filter: brightness(0) invert(1); }
+/* Native iOS Avia SERP. Scope to the page: filter sheets get a separate review. */
+.phone[data-preview-theme="dark"] .serp-page {
+  --serp-background: #0d0d0f; /* Background/Primary */
+  --serp-surface: #1b1a1e; /* Background/Secondary */
+  --serp-control: #313136; /* Controls/Secondary */
+  --serp-control-checked: #f5f5f5; /* Controls/SecondaryChecked */
+  --serp-primary: #ededee; /* Text/Primary */
+  --serp-secondary: #9c9ba2; /* Text/Secondary */
+  --serp-positive: #02ad0d; /* Accent/PositiveStrong */
+  --serp-info: #7f5fff; /* Accent/InfoStrong */
+  --serp-warning: #eb8500; /* Accent/WarningStrong */
+  --text-warning-color: #ffa41d; /* Text/Warning */
+  color: var(--serp-primary);
+}
+.phone[data-preview-theme="dark"] .serp-status .status-time { color: #fff; }
+.phone[data-preview-theme="dark"] .serp-status .status-icons { filter: brightness(0) invert(1); }
+.phone[data-preview-theme="dark"] :is(.serp-back img, .serp-all-filters img) { filter: brightness(0) invert(.93); }
+.phone[data-preview-theme="dark"] .serp-summary img { filter: brightness(0) invert(1); opacity: .6; }
+.phone[data-preview-theme="dark"] .serp-all-filters[data-active=true] img { filter: brightness(0); }
+.phone[data-preview-theme="dark"] .serp-quick-filters .serp-chip[aria-pressed=true] { color: #0d0d0f; } /* Text/Inverse */
+.phone[data-preview-theme="dark"] .serp-quick-filters .serp-chip:disabled { background: #222125; color: #5e5d65; }
+.phone[data-preview-theme="dark"] .serp-quick-filters .serp-chip:disabled span { color: #5e5d65; }
+.phone[data-preview-theme="dark"] .serp-bag:not(.serp-bag--included) img { filter: invert(1); }
+.phone[data-preview-theme="dark"] .serp-summary-skeleton .serp-skeleton-item { background: #3c3c41; } /* Background/Line */
+.phone[data-preview-theme="dark"] .serp-loading-progress span { background: linear-gradient(to right, var(--serp-surface), var(--controls-primary)); }
+.phone[data-preview-theme="dark"] .serp-empty button { background: var(--serp-control); }
+/* HTML preview of native alerts. iOS renders the actual permission alert;
+   these material values approximate its dark appearance, not Travel surfaces. */
+.phone[data-preview-theme="dark"] .microphone-permission {
+  --ios-alert-surface: rgb(44 44 46 / 88%);
+  --ios-alert-border: rgb(255 255 255 / 18%);
+  --ios-alert-label: #fff;
+  --ios-alert-secondary-label: rgb(235 235 245 / 60%);
+  --ios-alert-button: rgb(118 118 128 / 36%);
+  --ios-alert-accent: #0a84ff;
+  background: rgb(0 0 0 / 40%);
+  color-scheme: dark;
+}
+.phone[data-preview-theme="dark"] .ios-permission-dialog {
+  background: var(--ios-alert-surface);
+  border-color: var(--ios-alert-border);
+  color: var(--ios-alert-label);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 28%);
+}
+.phone[data-preview-theme="dark"] .ios-permission-dialog p { color: var(--ios-alert-secondary-label); }
+.phone[data-preview-theme="dark"] .ios-permission-actions button {
+  background: var(--ios-alert-button);
+  color: var(--ios-alert-label);
+}
+.phone[data-preview-theme="dark"] #microphone-permission-allow { background: var(--ios-alert-accent); }
+.phone[data-preview-theme="dark"] .ios-permission-actions button:focus-visible { outline-color: var(--ios-alert-accent); }
+.theme-review-note { margin: 8px 0 0; color: #777780; font-size: 12px; line-height: 16px; }
+
+/* All filters: iOS AviaFiltersView, Chips.Tone and IntervalSlider.
+   Controls/TertiaryChecked is the light value bubble; handles use Background/Secondary.
+   Nested selection screens are reviewed separately. */
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] { --serp-background: #0d0d0f; --serp-surface: #1b1a1e; --serp-control: #313136; --serp-control-checked: #f5f5f5; --serp-primary: #ededee; --serp-secondary: #9c9ba2; color: var(--serp-primary); color-scheme: dark; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] :is(.serp-filter-nav, .serp-filter-main, .serp-filter-intervals) { background: var(--serp-surface); }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-chip[aria-pressed=true] { color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-chip:disabled { background: #222125; color: #5e5d65; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-chip:disabled span { color: #5e5d65; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-disclosure-trailing img { filter: brightness(0) invert(1); opacity: .6; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-filter-counter { background: #fac800; color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-filter-divider { background: #3c3c41; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-range-track { background: #3c3c41; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-range-track::after { background: var(--serp-control-checked); }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-range-pair input::-webkit-slider-thumb { border-color: var(--serp-control-checked); background: var(--serp-surface); }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-range-pair input::-moz-range-thumb { border-color: var(--serp-control-checked); background: var(--serp-surface); }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-range-current { background: #e6e5e7; color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-range-current button { background: var(--serp-control-checked); }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-filter-footer button { background: #fac800; color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"] .serp-filter-footer button:active { background: #f5bc00; }
+.phone[data-preview-theme="dark"] #serp-filter-sheet[data-section="root"]::after { background: #fff; }
+
+/* Reviewed nested sheets: sorting, transfers, airports and airlines. Native AviaFilterSelectionView. */
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-sort-body, .serp-transfer-body, .serp-airport-body, .serp-company-body) {
+  --serp-background: #0d0d0f;
+  --serp-surface: #1b1a1e;
+  --serp-control: #313136;
+  --serp-control-checked: #f5f5f5;
+  --serp-primary: #ededee;
+  --serp-secondary: #9c9ba2;
+  color: var(--serp-primary);
+  color-scheme: dark;
+}
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-sort-body, .serp-transfer-body, .serp-airport-body, .serp-company-body) .serp-filter-nav { background: var(--serp-surface); }
+.phone[data-preview-theme="dark"] .serp-sort-option input:checked::after { background: #0d0d0f; } /* Text/Inverse */
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-sort-body, .serp-transfer-body, .serp-airport-body, .serp-company-body) .serp-filter-footer button { background: #fac800; color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-sort-body, .serp-transfer-body, .serp-airport-body, .serp-company-body) .serp-filter-footer button:active { background: #f5bc00; }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-sort-body, .serp-transfer-body, .serp-airport-body, .serp-company-body)::after { background: #fff; }
+
+/* Transfers: CheckboxFilterView uses the yellow CheckboxView, not UIBase Checkbox. */
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-transfer-option input:checked { background-color: #fac800; }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-filter-divider { background: #3c3c41; }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-range-track { background: #3c3c41; }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-range-track::after { background: var(--serp-control-checked); }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-range-pair input::-webkit-slider-thumb { border-color: var(--serp-control-checked); background: var(--serp-surface); }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-range-pair input::-moz-range-thumb { border-color: var(--serp-control-checked); background: var(--serp-surface); }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-range-current { background: #e6e5e7; color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-transfer-body) .serp-range-current button { background: var(--serp-control-checked); }
+
+/* Airports and airlines use the same native CheckboxFilterView. */
+.phone[data-preview-theme="dark"] #serp-selection-sheet:has(.serp-airport-body, .serp-company-body) .serp-choice-option input:checked { background-color: #fac800; }
+
+/* Fullscreen query error: InaccessibleContentPlaceholder uses Background/Secondary. */
+.phone[data-preview-theme="dark"] .query-error-status .status-time { color: #fff; }
+.phone[data-preview-theme="dark"] .query-error-status .status-icons { filter: brightness(0) invert(1); }
+.phone[data-preview-theme="dark"] .query-error-home-bar { color-scheme: light; }
+.phone[data-preview-theme="dark"] #query-error-edit { background: var(--controls-primary); color: #0d0d0f; }
+.phone[data-preview-theme="dark"] #query-error-edit:active { background: #f5bc00; }
