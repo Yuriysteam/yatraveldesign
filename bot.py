@@ -626,8 +626,15 @@ class Bot:
     def telegram(self, method, payload=None):
         data = json.dumps(payload).encode() if payload is not None else None
         request = urllib.request.Request(self.api_base + "/" + method, data=data, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(request, timeout=65) as response:
-            result = json.load(response)
+        try:
+            with urllib.request.urlopen(request, timeout=65) as response:
+                result = json.load(response)
+        except urllib.error.HTTPError as exc:
+            try:
+                description = json.load(exc).get("description", f"HTTP {exc.code}")
+            except (ValueError, OSError):
+                description = f"HTTP {exc.code}"
+            raise RuntimeError(f"Telegram {method}: {description}") from None
         if not result.get("ok"):
             raise RuntimeError(result.get("description", "Telegram API error"))
         return result["result"]
@@ -659,6 +666,7 @@ class Bot:
             {"command": "start", "description": "Как загрузить прототип или скил"},
             {"command": "prototypes", "description": "15 последних прототипов"},
             {"command": "delete_prototype", "description": "Удалить прототип"},
+            {"command": "delete_skill", "description": "Удалить скилл"},
         ]})
 
     def prototypes(self, message):
@@ -754,6 +762,103 @@ class Bot:
                 if exc.code == 404:
                     return True
             except urllib.error.URLError:
+                pass
+            if time.monotonic() >= deadline:
+                return False
+            time.sleep(PUBLIC_ARTIFACT_POLL_SECONDS)
+
+    @staticmethod
+    def skill_delete_key(item):
+        return hashlib.sha256(item["id"].encode()).hexdigest()[:24]
+
+    def delete_skill_menu(self, message, page=0):
+        chat_id = message["chat"]["id"]
+        if not self.is_publisher(message["from"]["id"]):
+            self.send(chat_id, "Удаление доступно только участникам списка авторов.")
+            return
+        self.github.sync()
+        catalog = sorted(self.github.read_json("skills/catalog.json", []), key=lambda item: item["name"].casefold())
+        if not catalog:
+            self.send(chat_id, "Скиллов для удаления нет.")
+            return
+        page = max(0, min(page, (len(catalog) - 1) // 15))
+        buttons = [[{"text": item["name"][:100], "callback_data": f"skdelete:select:{self.skill_delete_key(item)}"}]
+                   for item in catalog[page * 15:(page + 1) * 15]]
+        navigation = []
+        if page:
+            navigation.append({"text": "Назад", "callback_data": f"skdelete:page:{page - 1}"})
+        if (page + 1) * 15 < len(catalog):
+            navigation.append({"text": "Далее", "callback_data": f"skdelete:page:{page + 1}"})
+        if navigation:
+            buttons.append(navigation)
+        self.send(chat_id, "Выберите скилл для удаления:", reply_markup={"inline_keyboard": buttons})
+
+    def skill_delete_callback(self, query):
+        chat_id = query["message"]["chat"]["id"]
+        if not self.is_publisher(query["from"]["id"]):
+            self.send(chat_id, "Удаление доступно только участникам списка авторов.")
+            return
+        action, key = query["data"].split(":", 2)[1:]
+        if action == "page":
+            if key.isdecimal():
+                self.delete_skill_menu({"chat": {"id": chat_id}, "from": query["from"]}, int(key))
+            return
+        if action == "cancel":
+            self.edit_message(chat_id, query["message"]["message_id"], "Удаление отменено.")
+            return
+        self.github.sync()
+        catalog = self.github.read_json("skills/catalog.json", [])
+        item = next((item for item in catalog if self.skill_delete_key(item) == key), None)
+        if not item:
+            self.send(chat_id, "Скилл уже удалён или больше недоступен.")
+            return
+        identifier = item["id"]
+        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", identifier):
+            raise UserError("Некорректный путь скилла. Удаление остановлено.")
+        dependents = [entry["name"] for entry in catalog if identifier in entry.get("dependencies", []) and entry["id"] != identifier]
+        if dependents:
+            raise UserError("Скилл нужен другим скиллам: " + ", ".join(dependents) + ". Сначала удалите или обновите их зависимости.")
+        if action == "select":
+            self.send(chat_id, f"Удалить скилл «{item['name']}» из Skill store?", reply_markup={"inline_keyboard": [[
+                {"text": "Удалить", "callback_data": f"skdelete:confirm:{key}"},
+                {"text": "Отмена", "callback_data": "skdelete:cancel:0"},
+            ]]})
+        elif action == "confirm":
+            progress = PublicationProgress(self, query["message"])
+            try:
+                progress.update("Удаляю скилл…")
+                prefix = f"skills/{identifier}/"
+                remaining = [entry for entry in catalog if entry["id"] != identifier]
+                commit = self.github.commit_files(
+                    {"skills/catalog.json": json.dumps(remaining, ensure_ascii=False, indent=2).encode()},
+                    self.github.files_below(prefix), f"Delete skill {identifier}")
+                progress.update("Жду обновления Skill store…")
+                removed, reason = self.monitor_publication(
+                    f"delete skill {identifier}", commit, lambda: self.wait_for_skill_removal(identifier),
+                    lambda: "Skill store не подтвердил удаление скилла")
+                progress.update("Скилл удалён ✓" if removed else f"Ошибка удаления: {reason}")
+            except Exception as exc:
+                progress.update(f"Ошибка удаления: {exc}")
+
+    def wait_for_skill_removal(self, identifier):
+        deadline = time.monotonic() + PUBLIC_ARTIFACT_TIMEOUT_SECONDS
+        root = f"{self.settings.public_base_url}/skills"
+        while True:
+            try:
+                stamp = int(time.time())
+                request = urllib.request.Request(f"{root}/catalog.json?deleted={stamp}", headers={"Cache-Control": "no-cache"})
+                with urllib.request.urlopen(request, timeout=12) as response:
+                    catalog = json.load(response)
+                    absent = response.status == 200 and isinstance(catalog, list) and all(item["id"] != identifier for item in catalog)
+                if absent:
+                    request = urllib.request.Request(f"{root}/{identifier}/skill.zip?deleted={stamp}", method="HEAD", headers={"Cache-Control": "no-cache"})
+                    try:
+                        with urllib.request.urlopen(request, timeout=12):
+                            pass
+                    except urllib.error.HTTPError as exc:
+                        if exc.code == 404:
+                            return True
+            except (urllib.error.URLError, ValueError, KeyError, TypeError):
                 pass
             if time.monotonic() >= deadline:
                 return False
@@ -1173,10 +1278,21 @@ class Bot:
             print("Не удалось запустить уведомление о публикации", flush=True)
 
     def callback(self, query):
+        try:
+            self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
+        except RuntimeError as exc:
+            # Expired button acknowledgements must not block the update queue.
+            if "query is too old" not in str(exc).lower() and "query id is invalid" not in str(exc).lower():
+                raise
         data = query.get("data", "")
         chat_id = query["message"]["chat"]["id"]
+        if data.startswith("skdelete:"):
+            try:
+                self.skill_delete_callback(query)
+            except (UserError, GithubError) as exc:
+                self.send(chat_id, f"Ошибка удаления: {exc}")
+            return
         if data.startswith("proto:"):
-            self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
             try:
                 self.prototype_delete_callback(query)
             except (UserError, GithubError) as exc:
@@ -1210,7 +1326,6 @@ class Bot:
                     required = dependency_closure(self.github.read_json("skills/catalog.json", []), identifier)
                 except UserError as error:
                     self.send(chat_id, str(error))
-                    self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
                     return
                 try:
                     archive = self.github.read_bytes(f"skills/{identifier}/skill.zip")
@@ -1221,7 +1336,6 @@ class Bot:
                 extra = {"reply_markup": {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}} if len(prompt) <= 256 else {}
                 suffix = "" if len(prompt) <= 256 else f"\n\nПромпт установки:\n{prompt}"
                 self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}{suffix}", **extra)
-        self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
 
     def pending_text(self, message):
         user_id = message["from"]["id"]
@@ -1262,6 +1376,8 @@ class Bot:
         text = message.get("text", "")
         if text == "/start" or text == "Меню":
             self.start(message)
+        elif text == "/delete_skill":
+            self.delete_skill_menu(message)
         elif text == "/delete_prototype":
             self.delete_prototype_menu(message)
         elif text == "/prototypes":

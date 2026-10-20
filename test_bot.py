@@ -496,6 +496,113 @@ description: >-
         self.assertFalse(published)
         self.assertEqual(reason, "каталог не обновился")
         self.assertEqual(repairs, ["skill attempt 1", "skill attempt 2"])
+    def test_expired_skill_button_does_not_block_following_delete_command(self):
+        instance = self.deletion_bot()
+        instance.db = sqlite3.connect(":memory:")
+        self.addCleanup(instance.db.close)
+        instance.db.executescript("create table seen_updates(id integer primary key); create table bot_state(key text primary key, value text);")
+        instance.publish_pending_skill = Mock(side_effect=bot.UserError("Нет скила, ожидающего публикации."))
+        instance.telegram.side_effect = RuntimeError("Telegram answerCallbackQuery: Bad Request: query is too old and response timeout expired or query ID is invalid")
+        query = self.deletion_query(instance, "select")
+        query["data"] = "skill:publish"
+        self.assertEqual(instance.process_update({"update_id": 10, "callback_query": query}), 11)
+        self.assertEqual(instance.process_update({"update_id": 11, "message": {
+            "chat": {"id": 1, "type": "private"}, "from": {"id": 1}, "text": "/delete_prototype"}}), 12)
+        self.assertEqual(instance.send.call_args.args[1], "Выберите прототип для удаления:")
+        instance.process_update({"update_id": 10, "callback_query": query})
+        instance.publish_pending_skill.assert_called_once()
+
+    def test_telegram_http_error_exposes_description_without_token(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.api_base = "https://api.telegram.org/botsecret"
+        error = bot.urllib.error.HTTPError(instance.api_base, 400, "Bad Request", {},
+            io.BytesIO(b'{"ok":false,"description":"Bad Request: query is too old"}'))
+        with patch("bot.urllib.request.urlopen", side_effect=error):
+            with self.assertRaisesRegex(RuntimeError, "Telegram answerCallbackQuery: Bad Request: query is too old") as caught:
+                instance.telegram("answerCallbackQuery", {"callback_query_id": "old"})
+        self.assertNotIn("secret", str(caught.exception))
+
+    def skill_deletion_bot(self):
+        instance = self.deletion_bot()
+        instance.github.read_json.return_value = [
+            {"id": "other-author", "name": "Чужой скилл", "updated_by": "other"},
+            {"id": "keep", "name": "Оставить"},
+        ]
+        instance.github.files_below.return_value = ["skills/other-author/skill.zip", "skills/other-author/metadata.json"]
+        return instance
+
+    def skill_deletion_query(self, instance, action):
+        return {"id": "callback", "from": {"id": 1}, "message": {"chat": {"id": 1, "type": "private"}, "message_id": 7},
+                "data": f"skdelete:{action}:{instance.skill_delete_key(instance.github.read_json.return_value[0])}"}
+
+    def test_delete_skill_command_lists_all_authors_and_confirms(self):
+        instance = self.skill_deletion_bot()
+        instance.handle({"message": {"chat": {"id": 1, "type": "private"}, "from": {"id": 1}, "text": "/delete_skill"}})
+        rows = instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]
+        self.assertEqual(len(rows), 2)
+        instance.callback(self.skill_deletion_query(instance, "select"))
+        self.assertIn("Чужой скилл", instance.send.call_args.args[1])
+        instance.github.commit_files.assert_not_called()
+
+    def test_delete_skill_commits_only_selected_skill_and_reports_verified_result(self):
+        for removed in (True, False):
+            instance = self.skill_deletion_bot()
+            instance.monitor_publication = Mock(side_effect=lambda subject, commit, checker, reason: (checker(), reason()))
+            instance.wait_for_skill_removal = Mock(return_value=removed)
+            instance.callback(self.skill_deletion_query(instance, "confirm"))
+            files, removals, _ = instance.github.commit_files.call_args.args
+            self.assertEqual(json.loads(files["skills/catalog.json"]), [{"id": "keep", "name": "Оставить"}])
+            self.assertEqual(removals, instance.github.files_below.return_value)
+            instance.github.files_below.assert_called_once_with("skills/other-author/")
+            instance.wait_for_skill_removal.assert_called_once_with("other-author")
+            edits = [call.args[2] for call in instance.edit_message.call_args_list]
+            self.assertEqual(edits[:2], ["Удаляю скилл…", "Жду обновления Skill store…"])
+            self.assertEqual(edits[-1], "Скилл удалён ✓" if removed else "Ошибка удаления: Skill store не подтвердил удаление скилла")
+
+    def test_delete_skill_rejects_dependencies_even_after_confirmation(self):
+        instance = self.skill_deletion_bot()
+        instance.github.read_json.return_value[1]["dependencies"] = ["other-author"]
+        instance.callback(self.skill_deletion_query(instance, "confirm"))
+        instance.github.commit_files.assert_not_called()
+        self.assertIn("Оставить", instance.send.call_args.args[1])
+
+    def test_delete_skill_cancel_missing_unauthorized_and_unsafe_do_not_commit(self):
+        for case in ("cancel", "missing", "unauthorized", "unsafe"):
+            instance = self.skill_deletion_bot()
+            if case == "unsafe":
+                instance.github.read_json.return_value[0]["id"] = "../assets"
+            query = self.skill_deletion_query(instance, "cancel" if case == "cancel" else "confirm")
+            if case == "missing":
+                instance.github.read_json.return_value = []
+            if case == "unauthorized":
+                instance.is_publisher.return_value = False
+            instance.callback(query)
+            instance.github.commit_files.assert_not_called()
+
+    def test_delete_skill_paginates_catalog(self):
+        instance = self.skill_deletion_bot()
+        instance.github.read_json.return_value = [{"id": str(i), "name": f"Skill {i:02}"} for i in range(16)]
+        instance.delete_skill_menu({"chat": {"id": 1}, "from": {"id": 1}})
+        rows = instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]
+        self.assertEqual(len(rows), 16)
+        self.assertEqual(rows[-1][0]["callback_data"], "skdelete:page:1")
+        query = self.skill_deletion_query(instance, "select")
+        query["data"] = "skdelete:page:1"
+        instance.callback(query)
+        self.assertEqual(len(instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]), 2)
+
+    def test_skill_removal_requires_updated_public_catalog_and_missing_package(self):
+        for catalog, package_code, expected in [([], 404, True), ([{"id": "demo"}], 404, False), ([], 200, False), ([], 500, False)]:
+            class Response(io.BytesIO):
+                status = 200
+                def __enter__(self): return self
+                def __exit__(self, *args): self.close()
+            responses = [Response(json.dumps(catalog).encode())]
+            responses.append(Response(b"") if package_code == 200 else bot.urllib.error.HTTPError("https://example.test", package_code, "error", {}, None))
+            instance = self.skill_deletion_bot()
+            with patch("bot.urllib.request.urlopen", side_effect=responses), patch("bot.PUBLIC_ARTIFACT_TIMEOUT_SECONDS", 0):
+                self.assertEqual(instance.wait_for_skill_removal("demo"), expected)
+
     def deletion_bot(self):
         instance = bot.Bot.__new__(bot.Bot)
         instance.settings = SimpleNamespace(public_base_url="https://example.test")
