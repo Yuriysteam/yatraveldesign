@@ -1,21 +1,5 @@
 [
   {
-    "id": "yatraveldesign-smoke-skill",
-    "name": "123",
-    "version": "v0.1.0",
-    "description": "Проверяет сценарий публикации навыка в Skill store.",
-    "updated_by": "yuriysteam",
-    "updated_at": 1792507958,
-    "contributors": [
-      {
-        "id": 335833483,
-        "name": "Юрий Ширяев",
-        "avatar": "yuriy.jpeg"
-      }
-    ],
-    "prompt": "ропнпп"
-  },
-  {
     "id": "agenda",
     "name": "Agenda",
     "description": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
