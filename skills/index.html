@@ -81,6 +81,7 @@
       };
       const prompt = required => {
         const selected = required[required.length - 1];
+        if (selected.prompt) return selected.prompt;
         if (selected.installation?.type === 'script') {
           return `Установи комплект «${selected.name}» из ${packageUrl(selected)}. Распакуй во временную папку, прочитай README.md и в корне выполни python3 install.py --check, затем python3 install.py. При конфликте не заменяй skills.`;
         }

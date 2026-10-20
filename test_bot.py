@@ -1,4 +1,5 @@
 import io
+import json
 import os
 import sqlite3
 import subprocess
@@ -106,10 +107,37 @@ class BotTests(unittest.TestCase):
         with patch("bot.skill_package", return_value=(
             "team-skill", "team-skill", "v0.2", "Новое описание", "Team skill", "Новое описание", [], package,
         )):
-            instance.publish_skill(1, "team-skill.zip", b"zip", {"id": 1, "username": "anna"}, Mock(advance=lambda: None))
+            instance.publish_skill(1, "team-skill.zip", b"zip", {"id": 1, "username": "anna"}, Mock(advance=lambda: None), custom_prompt="Установи ровно этот скил")
         text, prompt = instance.notify_team_publication.call_args.args
         self.assertEqual(text, "Обновился скилл Командный скил")
-        self.assertIn("skill.zip", prompt)
+        self.assertEqual(prompt, "Установи ровно этот скил")
+        files = instance.github.commit_files.call_args.args[0]
+        self.assertEqual(json.loads(files["skills/catalog.json"])[0]["prompt"], "Установи ровно этот скил")
+
+    def test_skill_review_offers_publish_or_customize(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        instance.db.execute("create table pending (user_id integer primary key, action text not null, name text, version text, filename text, raw blob, author text, identifier text)")
+        instance.settings = SimpleNamespace(repository="owner/repo", branch="main")
+        instance.github = SimpleNamespace(sync=Mock(), read_json=Mock(return_value=[]))
+        instance.send = Mock()
+        package = {"SKILL.md": b"---\nname: smoke\nversion: v0.1\n---"}
+        with patch("bot.skill_package", return_value=("smoke", "Smoke", "v0.1", "", "Smoke skill", "", [], package)):
+            instance.review_skill(1, "smoke.zip", b"zip", {"id": 1, "username": "anna"})
+        self.assertEqual(instance.pending_skill(1)[0], "skill:review")
+        markup = instance.send.call_args.kwargs["reply_markup"]
+        self.assertEqual([button["text"] for button in markup["inline_keyboard"][0]], ["Опубликовать как есть", "Настроить"])
+
+    def test_customize_skill_collects_name_then_replacing_prompt(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        instance.db.execute("create table pending (user_id integer primary key, action text not null, name text, version text, filename text, raw blob, author text, identifier text)")
+        instance.db.execute("insert into pending values (1, 'skill:storefront_name', 'Old', 'Automatic', 'smoke.zip', x'00', '{}', 'smoke')")
+        instance.send = Mock()
+        self.assertTrue(instance.pending_text({"from": {"id": 1}, "chat": {"id": 1}, "text": "Smoke showcase"}))
+        self.assertEqual(instance.pending_skill(1)[:3], ("skill:custom_prompt", "Smoke showcase", "Automatic"))
+        self.assertTrue(instance.pending_text({"from": {"id": 1}, "chat": {"id": 1}, "text": "Мой полный промпт"}))
+        self.assertEqual(instance.pending_skill(1)[:3], ("skill:review", "Smoke showcase", "Мой полный промпт"))
 
     def test_upload_validation_error_notifies_yuriy_with_reason(self):
         instance = bot.Bot.__new__(bot.Bot)

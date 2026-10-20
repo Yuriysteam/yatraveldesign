@@ -637,10 +637,18 @@ class Bot:
         self.db = sqlite3.connect(settings.state_path)
         self.db.execute("create table if not exists seen_updates (id integer primary key)")
         self.db.execute("create table if not exists pending (user_id integer primary key, action text not null, name text, version text)")
+        self._migrate_pending()
         self.db.execute("create table if not exists bot_state (key text primary key, value text not null)")
         self.db.execute("create table if not exists skills_seen (user_id integer primary key, seen_at integer not null)")
         self.db.commit()
         self.api_base = f"https://api.telegram.org/bot{settings.telegram_token}"
+
+    def _migrate_pending(self):
+        """Keep in-progress skill reviews across bot restarts."""
+        columns = {row[1] for row in self.db.execute("pragma table_info(pending)")}
+        for column, kind in (("filename", "text"), ("raw", "blob"), ("author", "text"), ("identifier", "text")):
+            if column not in columns:
+                self.db.execute(f"alter table pending add column {column} {kind}")
 
     def telegram(self, method, payload=None):
         data = json.dumps(payload).encode() if payload is not None else None
@@ -758,10 +766,60 @@ class Bot:
         if action == "prototype":
             self.publish_prototype(user_id, filename, raw, message["from"], progress)
         else:
-            self.publish_skill(user_id, filename, raw, message["from"], progress)
+            self.review_skill(user_id, filename, raw, message["from"])
+            return
         if pending:
             self.db.execute("delete from pending where user_id=?", (user_id,))
             self.db.commit()
+
+    def review_skill(self, user_id, filename, raw, author):
+        """Validate a skill before asking whether to publish or customize it."""
+        identifier, name, _, _, display_name, _, dependencies, package = skill_package(filename, raw)
+        self.github.sync()
+        catalog = self.github.read_json("skills/catalog.json", [])
+        existing = existing_catalog_item(catalog, identifier, name)
+        if existing and not is_technical_label(existing["name"]):
+            display_name = existing["name"]
+        if dependencies:
+            candidate = [item for item in catalog if item.get("id") != identifier]
+            candidate.append({"id": identifier, "dependencies": dependencies})
+            dependency_closure(candidate, identifier)
+        default_prompt = installation_prompt(
+            display_name,
+            f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/{identifier}/skill.zip",
+            identifier,
+            f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/catalog.json",
+            dependencies,
+            bundle_installer(package),
+        )
+        self.db.execute(
+            "insert or replace into pending (user_id, action, name, version, filename, raw, author, identifier) values (?, ?, ?, ?, ?, ?, ?, ?)",
+            (user_id, "skill:review", display_name, default_prompt, filename, raw, json.dumps(author, ensure_ascii=False), identifier),
+        )
+        self.db.commit()
+        self.send(author_chat(author),
+                  f"Скилл проверен.\nИмя в Skill store: «{display_name}»\nПромпт для установки подготовлен автоматически.",
+                  reply_markup={"inline_keyboard": [[
+                      {"text": "Опубликовать как есть", "callback_data": "skill:publish"},
+                      {"text": "Настроить", "callback_data": "skill:configure"},
+                  ]]})
+
+    def pending_skill(self, user_id):
+        return self.db.execute(
+            "select action, name, version, filename, raw, author, identifier from pending where user_id=?", (user_id,)
+        ).fetchone()
+
+    def publish_pending_skill(self, user_id):
+        pending = self.pending_skill(user_id)
+        if not pending or pending[0] not in {"skill:review", "skill:publish"}:
+            raise UserError("Нет скила, ожидающего публикации.")
+        _, display_name, custom_prompt, filename, raw, author_json, _ = pending
+        author = json.loads(author_json)
+        self.db.execute("update pending set action='skill:publish' where user_id=?", (user_id,))
+        self.db.commit()
+        self.publish_skill(user_id, filename, raw, author, None, display_name, custom_prompt)
+        self.db.execute("delete from pending where user_id=?", (user_id,))
+        self.db.commit()
 
     def publish_prototype(self, user_id, filename, raw, author, progress):
         progress.advance()
@@ -823,8 +881,9 @@ class Bot:
         except urllib.error.URLError as exc:
             return f"GitHub Pages недоступен: {exc.reason}"
 
-    def publish_skill(self, user_id, filename, raw, author, progress):
-        progress.advance()
+    def publish_skill(self, user_id, filename, raw, author, progress, storefront_name=None, custom_prompt=None):
+        if progress:
+            progress.advance()
         identifier, name, version, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
         # Read the catalog only after synchronizing. commit_files() also syncs
@@ -838,6 +897,8 @@ class Bot:
             identifier = existing["id"]
             if not is_technical_label(existing["name"]):
                 display_name = existing["name"]
+        if storefront_name:
+            display_name = storefront_name
         contributors = recent_contributors(existing, author)
         updated_by = author.get("username") or author.get("first_name")
         prefix = f"skills/{identifier}/"
@@ -845,6 +906,8 @@ class Bot:
             "id": identifier, "name": display_name, "version": version, "description": display_description,
             "updated_by": updated_by, "updated_at": updated_at, "contributors": contributors,
         }
+        if custom_prompt:
+            item["prompt"] = custom_prompt
         installer = bundle_installer(package)
         if installer:
             item["installation"] = {"type": "script", "root": installer}
@@ -857,17 +920,18 @@ class Bot:
         catalog.append(item)
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
-        progress.advance()
+        if progress:
+            progress.advance()
         commit = self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
         published, reason = self.monitor_publication(
             f"skill {identifier}", commit, lambda: self.wait_for_skill_publication(identifier, updated_at, commit),
-            lambda: self.skill_publication_reason(identifier, updated_at, commit), progress.advance,
+            lambda: self.skill_publication_reason(identifier, updated_at, commit), progress.advance if progress else None,
         )
         if published:
             raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
-            prompt = installation_prompt(display_name, f"{raw_root}/skills/{identifier}/skill.zip", identifier,
-                                         f"{raw_root}/skills/catalog.json", dependency_closure(catalog, identifier)[:-1], installer)
+            prompt = custom_prompt or installation_prompt(display_name, f"{raw_root}/skills/{identifier}/skill.zip", identifier,
+                                                           f"{raw_root}/skills/catalog.json", dependency_closure(catalog, identifier)[:-1], installer)
             team_text = f"Обновился скилл {display_name}" if is_update else f"Новый скил {display_name}\n\n{display_description}"
             self.notify_team_publication(team_text, prompt)
             self.send(author_chat(author), "Скил уже в Skill store")
@@ -997,7 +1061,10 @@ class Bot:
                 raise ValueError("Publication destination must be a group")
             extra = {}
             if prompt:
-                extra["reply_markup"] = {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}
+                if len(prompt) <= 256:
+                    extra["reply_markup"] = {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}
+                else:
+                    text += f"\n\nПромпт установки:\n{prompt}"
             self.send(chat_id, text, **extra)
         except FileNotFoundError:
             return
@@ -1023,6 +1090,19 @@ class Bot:
         chat_id = query["message"]["chat"]["id"]
         if data == "skills:upload":
             self.begin_skill_upload(chat_id, query["from"]["id"])
+        elif data == "skill:publish":
+            try:
+                self.publish_pending_skill(query["from"]["id"])
+            except UserError as error:
+                self.send(chat_id, str(error))
+        elif data == "skill:configure":
+            pending = self.pending_skill(query["from"]["id"])
+            if not pending or pending[0] != "skill:review":
+                self.send(chat_id, "Нет скила, ожидающего настройки.")
+            else:
+                self.db.execute("update pending set action='skill:storefront_name' where user_id=?", (query["from"]["id"],))
+                self.db.commit()
+                self.send(chat_id, "Пришлите имя для витрины Skill store.")
         elif data.startswith("skill:"):
             identifier = data.split(":", 1)[1]
             item = next((item for item in self.github.read_json("skills/catalog.json", []) if item["id"] == identifier), None)
@@ -1043,9 +1123,36 @@ class Bot:
                     installer = bundle_installer(dict(safe_archive_members(archive, MAX_SKILL_UNPACKED_BYTES)))
                 except (OSError, UserError):
                     installer = None
-                prompt = installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1], installer)
-                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}", reply_markup={"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]})
+                prompt = item.get("prompt") or installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1], installer)
+                extra = {"reply_markup": {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}} if len(prompt) <= 256 else {}
+                suffix = "" if len(prompt) <= 256 else f"\n\nПромпт установки:\n{prompt}"
+                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}{suffix}", **extra)
         self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
+
+    def pending_text(self, message):
+        user_id = message["from"]["id"]
+        pending = self.pending_skill(user_id)
+        if not pending:
+            return False
+        action, _, _, _, _, _, _ = pending
+        text = message.get("text", "").strip()
+        if action == "skill:storefront_name":
+            if not text or len(text) > 100:
+                self.send(message["chat"]["id"], "Имя должно содержать от 1 до 100 символов.")
+                return True
+            self.db.execute("update pending set action='skill:custom_prompt', name=? where user_id=?", (text, user_id))
+            self.db.commit()
+            self.send(message["chat"]["id"], "Пришлите кастомный промпт для установки. Он полностью заменит автоматический.")
+            return True
+        if action == "skill:custom_prompt":
+            if not text or len(text) > 3500:
+                self.send(message["chat"]["id"], "Промпт должен содержать от 1 до 3500 символов.")
+                return True
+            self.db.execute("update pending set action='skill:review', version=? where user_id=?", (text, user_id))
+            self.db.commit()
+            self.send(message["chat"]["id"], "Настройки сохранены.", reply_markup={"inline_keyboard": [[{"text": "Опубликовать", "callback_data": "skill:publish"}]]})
+            return True
+        return False
 
     def handle(self, update):
         # Groups are outbound-only: never accept uploads, commands or callbacks.
@@ -1081,7 +1188,7 @@ class Bot:
                     f"@yatraveldesign_bot: ошибка загрузки файла {document.get('file_name', 'без имени')} от {author.get('username') or author.get('first_name')}. Причина: {type(exc).__name__}: {exc}"
                 )
                 raise
-        else:
+        elif not self.pending_text(message):
             self.send(message["chat"]["id"], "Пришли ZIP-архив с прототипом или со скилом. Все скилы доступны в меню бота.")
 
     def run(self):
