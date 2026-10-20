@@ -255,5 +255,21 @@
         "avatar": "igor.jpeg"
       }
     ]
+  },
+  {
+    "id": "yatraveldesign-smoke-skill",
+    "name": "Тестовый скил",
+    "version": "v0.1.0",
+    "description": "Проверяет сценарий публикации навыка в Skill store.",
+    "updated_by": "yuriysteam",
+    "updated_at": 1792507386,
+    "contributors": [
+      {
+        "id": 335833483,
+        "name": "Юрий Ширяев",
+        "avatar": "yuriy.jpeg"
+      }
+    ],
+    "prompt": "Ой да ставь как-то там сам скил"
   }
 ]
