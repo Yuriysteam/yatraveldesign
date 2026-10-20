@@ -46,27 +46,6 @@ PEOPLE = {
     136071392: ("Алекс", "alex.jpeg"), 112174798: ("Люба", "liyba.jpeg"),
     335833483: ("Юрий Ширяев", "yuriy.jpeg"),
 }
-PROTOTYPE_PROGRESS_STATUSES = (
-    "Взял в работу...",
-    "Делаю проверку на колхоз...",
-    "Ща, абажи...",
-    "Протик посмотрел! Норм, публикую....",
-    "Ищу куда на сервере положить...",
-    "Уважаемо. Но надо подождать...",
-    "Ещё чуть-чуть...",
-    "Может дизайны пока поделаешь? Гружу...",
-)
-SKILL_PROGRESS_STATUSES = (
-    "Смотрю твой скил....",
-    "Сейчас опубликю и команде расскажешь...",
-    "Моё уважение. Публикую....",
-    "Ещё чуть-чуть...",
-    "Терпение, публикация в процессе...",
-    "Сидишь читаешь? А я публикую...",
-    "Момент...",
-    "Большой скил видать....",
-    "Ещё чуть-чуть...",
-)
 
 
 class UserError(Exception):
@@ -78,24 +57,18 @@ class GithubError(Exception):
 
 
 class PublicationProgress:
-    """Replace one Telegram message with ordered five-second publication updates."""
-    def __init__(self, bot, message, statuses):
+    """Keep publication stages and the final result in one Telegram message."""
+    def __init__(self, bot, message):
         self.bot = bot
         self.chat_id = message["chat"]["id"]
         self.message_id = message["message_id"]
-        self.statuses = list(statuses)
-        self.position = 0
+        self.text = None
 
-    def advance(self):
-        if self.position >= len(self.statuses):
+    def update(self, text):
+        if text == self.text:
             return
-        text = self.statuses[self.position]
-        self.position += 1
-        try:
-            self.bot.typing(self.chat_id)
-            self.bot.edit_message(self.chat_id, self.message_id, text)
-        except Exception as exc:
-            print(f"Не удалось обновить статус публикации: {exc}", flush=True)
+        self.bot.edit_message(self.chat_id, self.message_id, text)
+        self.text = text
 
 
 def config(name, default=None):
@@ -685,6 +658,7 @@ class Bot:
         self.telegram("setMyCommands", {"commands": [
             {"command": "start", "description": "Как загрузить прототип или скил"},
             {"command": "prototypes", "description": "15 последних прототипов"},
+            {"command": "delete_prototype", "description": "Удалить прототип"},
         ]})
 
     def prototypes(self, message):
@@ -693,6 +667,97 @@ class Bot:
             self.send(message["chat"]["id"], "Свежих прототипов пока нет.")
             return
         self.send(message["chat"]["id"], prototype_list_text(catalog, self.settings.public_base_url), parse_mode="HTML", disable_web_page_preview=True)
+
+    @staticmethod
+    def prototype_delete_key(item):
+        return hashlib.sha256(item["url"].encode()).hexdigest()[:24]
+
+    def delete_prototype_menu(self, message, page=0):
+        chat_id = message["chat"]["id"]
+        if not self.is_publisher(message["from"]["id"]):
+            self.send(chat_id, "Удаление доступно только участникам списка авторов.")
+            return
+        self.github.sync()
+        catalog = sorted(self.github.read_json("prototypes.json", []), key=lambda item: item.get("updated_at", 0), reverse=True)
+        if not catalog:
+            self.send(chat_id, "Прототипов для удаления нет.")
+            return
+        page = max(0, min(page, (len(catalog) - 1) // 15))
+        buttons = [[{"text": f"{item['title']} · {item.get('author', '')}"[:100],
+                     "callback_data": f"proto:select:{self.prototype_delete_key(item)}"}]
+                   for item in catalog[page * 15:(page + 1) * 15]]
+        navigation = []
+        if page:
+            navigation.append({"text": "Назад", "callback_data": f"proto:page:{page - 1}"})
+        if (page + 1) * 15 < len(catalog):
+            navigation.append({"text": "Далее", "callback_data": f"proto:page:{page + 1}"})
+        if navigation:
+            buttons.append(navigation)
+        self.send(chat_id, "Выберите прототип для удаления:", reply_markup={"inline_keyboard": buttons})
+
+    def prototype_delete_callback(self, query):
+        chat_id = query["message"]["chat"]["id"]
+        message_id = query["message"]["message_id"]
+        if not self.is_publisher(query["from"]["id"]):
+            self.send(chat_id, "Удаление доступно только участникам списка авторов.")
+            return
+        action, key = query["data"].split(":", 2)[1:]
+        if action == "page":
+            if key.isdecimal():
+                self.delete_prototype_menu({"chat": {"id": chat_id}, "from": query["from"]}, int(key))
+            return
+        if action == "cancel":
+            self.edit_message(chat_id, message_id, "Удаление отменено.")
+            return
+        self.github.sync()
+        catalog = self.github.read_json("prototypes.json", [])
+        item = next((item for item in catalog if self.prototype_delete_key(item) == key), None)
+        if not item:
+            self.send(chat_id, "Прототип уже удалён или больше недоступен.")
+            return
+        prefix = item["url"]
+        if not re.fullmatch(r"prototypes/[0-9]+/[a-z0-9]+(?:-[a-z0-9]+)*/", prefix):
+            raise UserError("Некорректный путь прототипа. Удаление остановлено.")
+        if action == "select":
+            self.send(chat_id, f"Удалить прототип «{item['title']}»?\n{self.settings.public_base_url}/{prefix}",
+                      reply_markup={"inline_keyboard": [[
+                          {"text": "Удалить", "callback_data": f"proto:confirm:{key}"},
+                          {"text": "Отмена", "callback_data": "proto:cancel:0"},
+                      ]]})
+        elif action == "confirm":
+            progress = PublicationProgress(self, query["message"])
+            try:
+                progress.update("Удаляю прототип…")
+                removals = self.github.files_below(prefix)
+                remaining = [entry for entry in catalog if entry["url"] != prefix]
+                commit = self.github.commit_files(
+                    {"prototypes.json": json.dumps(remaining, ensure_ascii=False, indent=2).encode()},
+                    removals, f"Delete prototype {prefix}")
+                progress.update("Жду удаления страницы…")
+                url = f"{self.settings.public_base_url}/{prefix}"
+                removed, reason = self.monitor_publication(
+                    f"delete {prefix}", commit, lambda: self.wait_for_prototype_removal(url),
+                    lambda: "GitHub Pages не подтвердил удаление страницы")
+                progress.update("Прототип удалён ✓" if removed else f"Ошибка удаления: {reason}")
+            except Exception as exc:
+                progress.update(f"Ошибка удаления: {exc}")
+
+    @staticmethod
+    def wait_for_prototype_removal(url):
+        deadline = time.monotonic() + PUBLIC_ARTIFACT_TIMEOUT_SECONDS
+        while True:
+            try:
+                request = urllib.request.Request(f"{url}?deleted={int(time.time())}", method="HEAD", headers={"Cache-Control": "no-cache"})
+                with urllib.request.urlopen(request, timeout=12):
+                    pass
+            except urllib.error.HTTPError as exc:
+                if exc.code == 404:
+                    return True
+            except urllib.error.URLError:
+                pass
+            if time.monotonic() >= deadline:
+                return False
+            time.sleep(PUBLIC_ARTIFACT_POLL_SECONDS)
 
     def catalog(self, message):
         chat_id = message["chat"]["id"]
@@ -751,26 +816,34 @@ class Bot:
             return
         if document.get("file_size", 0) > MAX_UPLOAD_BYTES:
             raise UserError("Файл не должен превышать 20 МБ.")
-        progress_message = self.send(message["chat"]["id"], "Загружаю…")
-        raw = self.download_document(document)
-        if pending:
-            action = pending[0]
-            allowed = filename.lower().endswith(".zip") if action == "prototype" else (filename.lower().endswith(".zip") or filename.lower() == "skill.md")
-            if not allowed:
-                raise UserError("Для прототипа нужен ZIP." if action == "prototype" else "Пришлите ZIP или SKILL.md.")
-        else:
-            action = detect_upload(filename, raw)
-        statuses = PROTOTYPE_PROGRESS_STATUSES if action == "prototype" else SKILL_PROGRESS_STATUSES
-        progress = PublicationProgress(self, progress_message, statuses)
-        progress.advance()
-        if action == "prototype":
-            self.publish_prototype(user_id, filename, raw, message["from"], progress)
-        else:
-            self.review_skill(user_id, filename, raw, message["from"])
-            return
-        if pending:
-            self.db.execute("delete from pending where user_id=?", (user_id,))
-            self.db.commit()
+        initial = "Загружаю скилл…" if pending and pending[0] == "skill" or filename.lower() == "skill.md" else "Загружаю прототип…"
+        progress = PublicationProgress(self, self.send(message["chat"]["id"], initial))
+        try:
+            raw = self.download_document(document)
+            progress.update("Проверяю архив…" if filename.lower().endswith(".zip") else "Проверяю скилл…")
+            if pending:
+                action = pending[0]
+                allowed = filename.lower().endswith(".zip") if action == "prototype" else (filename.lower().endswith(".zip") or filename.lower() == "skill.md")
+                if not allowed:
+                    raise UserError("Для прототипа нужен ZIP." if action == "prototype" else "Пришлите ZIP или SKILL.md.")
+            else:
+                action = detect_upload(filename, raw)
+            if action == "prototype":
+                self.publish_prototype(user_id, filename, raw, message["from"], progress)
+            else:
+                self.review_skill(user_id, filename, raw, message["from"])
+                progress.update("Скилл проверен. Ожидает подтверждения публикации.")
+                return
+            if pending:
+                self.db.execute("delete from pending where user_id=?", (user_id,))
+                self.db.commit()
+        except Exception as exc:
+            progress.update(f"Ошибка публикации: {exc}")
+            if not isinstance(exc, UserError):
+                raise
+            self.notify_publication_result(
+                f"@yatraveldesign_bot: ошибка загрузки файла {filename} от {message['from'].get('username') or message['from'].get('first_name')}. Причина: {exc}"
+            )
 
     def review_skill(self, user_id, filename, raw, author):
         """Validate a skill before asking whether to publish or customize it."""
@@ -817,12 +890,17 @@ class Bot:
         author = json.loads(author_json)
         self.db.execute("update pending set action='skill:publish' where user_id=?", (user_id,))
         self.db.commit()
-        self.publish_skill(user_id, filename, raw, author, None, display_name, custom_prompt)
+        progress = PublicationProgress(self, self.send(author_chat(author), "Загружаю скилл…"))
+        try:
+            self.publish_skill(user_id, filename, raw, author, progress, display_name, custom_prompt)
+        except Exception as exc:
+            progress.update(f"Ошибка публикации скилла: {exc}")
+            raise
         self.db.execute("delete from pending where user_id=?", (user_id,))
         self.db.commit()
 
     def publish_prototype(self, user_id, filename, raw, author, progress):
-        progress.advance()
+        progress.update("Проверяю архив…")
         slug = slugify(filename.rsplit(".", 1)[0])
         if not slug:
             raise UserError("Не удалось составить ссылку из имени ZIP.")
@@ -838,20 +916,21 @@ class Bot:
             "updated_at": int(time.time()), "url": prefix,
         })
         files["prototypes.json"] = json.dumps(catalog, ensure_ascii=False, indent=2).encode()
-        progress.advance()
+        progress.update("Загружаю на сервер…")
         commit = self.github.commit_files(files, removed, f"Publish prototype {slug} by {author.get('username') or author.get('first_name')}")
         url = f"{self.settings.public_base_url}/{prefix}"
+        progress.update("Жду публикацию страницы…")
         published, reason = self.monitor_publication(
             f"prototype {slug}", commit, lambda: self.wait_for_publication(url),
-            lambda: self.prototype_publication_reason(url), progress.advance,
+            lambda: self.prototype_publication_reason(url),
         )
         if published:
-            self.send(author_chat(author), f"Готово — {url}\nВсе прототипы по команде /prototypes")
+            progress.update(f"Загружено ✓\n\n{url}")
             self.notify_publication_result(
                 f"@yatraveldesign_bot: прототип {slug} опубликован. Автор: {author.get('username') or author.get('first_name')}. {url}"
             )
         else:
-            self.send(author_chat(author), f"Прототип не опубликован. Причина: {reason}\nСсылка: {url}")
+            progress.update(f"Ошибка публикации: {reason}")
             self.notify_publication_result(f"@yatraveldesign_bot: прототип {slug} не опубликован. Причина: {reason}")
 
     @staticmethod
@@ -883,7 +962,7 @@ class Bot:
 
     def publish_skill(self, user_id, filename, raw, author, progress, storefront_name=None, custom_prompt=None):
         if progress:
-            progress.advance()
+            progress.update("Проверяю скилл…")
         identifier, name, version, description, display_name, display_description, dependencies, package = skill_package(filename, raw)
         updated_at = int(time.time())
         # Read the catalog only after synchronizing. commit_files() also syncs
@@ -921,12 +1000,14 @@ class Bot:
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
         if progress:
-            progress.advance()
+            progress.update("Загружаю на сервер…")
         commit = self.github.commit_files(files, removals, f"Update skill {display_name}")
         self.configure_menu()
+        if progress:
+            progress.update("Жду публикацию скилла…")
         published, reason = self.monitor_publication(
             f"skill {identifier}", commit, lambda: self.wait_for_skill_publication(identifier, updated_at, commit),
-            lambda: self.skill_publication_reason(identifier, updated_at, commit), progress.advance if progress else None,
+            lambda: self.skill_publication_reason(identifier, updated_at, commit),
         )
         if published:
             raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
@@ -934,12 +1015,18 @@ class Bot:
                                                            f"{raw_root}/skills/catalog.json", dependency_closure(catalog, identifier)[:-1], installer)
             team_text = f"Обновился скилл {display_name}" if is_update else f"Новый скил {display_name}\n\n{display_description}"
             self.notify_team_publication(team_text, prompt)
-            self.send(author_chat(author), "Скил уже в Skill store")
+            if progress:
+                progress.update("Загружено ✓\n\nСкилл опубликован в Skill store.")
+            else:
+                self.send(author_chat(author), "Скилл опубликован в Skill store.")
             self.notify_publication_result(
                 f"@yatraveldesign_bot: скил {identifier} опубликован в Skill store. Автор: {author.get('username') or author.get('first_name')}"
             )
         else:
-            self.send(author_chat(author), f"Скил не опубликован. Причина: {reason}")
+            if progress:
+                progress.update(f"Ошибка публикации скилла: {reason}")
+            else:
+                self.send(author_chat(author), f"Скил не опубликован. Причина: {reason}")
             self.notify_publication_result(f"@yatraveldesign_bot: скил {identifier} не опубликован. Причина: {reason}")
 
     def wait_for_skill_publication(self, identifier, updated_at, commit):
@@ -1088,6 +1175,13 @@ class Bot:
     def callback(self, query):
         data = query.get("data", "")
         chat_id = query["message"]["chat"]["id"]
+        if data.startswith("proto:"):
+            self.telegram("answerCallbackQuery", {"callback_query_id": query["id"]})
+            try:
+                self.prototype_delete_callback(query)
+            except (UserError, GithubError) as exc:
+                self.send(chat_id, f"Ошибка удаления: {exc}")
+            return
         if data == "skills:upload":
             self.begin_skill_upload(chat_id, query["from"]["id"])
         elif data == "skill:publish":
@@ -1168,6 +1262,8 @@ class Bot:
         text = message.get("text", "")
         if text == "/start" or text == "Меню":
             self.start(message)
+        elif text == "/delete_prototype":
+            self.delete_prototype_menu(message)
         elif text == "/prototypes":
             self.prototypes(message)
         elif "document" in message:

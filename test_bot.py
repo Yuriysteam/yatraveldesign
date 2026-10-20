@@ -496,19 +496,134 @@ description: >-
         self.assertFalse(published)
         self.assertEqual(reason, "каталог не обновился")
         self.assertEqual(repairs, ["skill attempt 1", "skill attempt 2"])
-    def test_publication_progress_uses_statuses_in_order(self):
-        class FakeBot:
-            def __init__(self): self.edits, self.typing_chats = [], []
-            def typing(self, chat_id): self.typing_chats.append(chat_id)
-            def edit_message(self, chat_id, message_id, text): self.edits.append((chat_id, message_id, text))
-        fake = FakeBot()
-        progress = bot.PublicationProgress(fake, {"chat": {"id": 7}, "message_id": 9}, bot.PROTOTYPE_PROGRESS_STATUSES)
-        for _ in range(len(bot.PROTOTYPE_PROGRESS_STATUSES) + 1):
-            progress.advance()
-        self.assertEqual(len(fake.edits), len(bot.PROTOTYPE_PROGRESS_STATUSES))
-        self.assertEqual(fake.typing_chats, [7] * len(bot.PROTOTYPE_PROGRESS_STATUSES))
-        self.assertEqual([edit[2] for edit in fake.edits], list(bot.PROTOTYPE_PROGRESS_STATUSES))
-        self.assertTrue(all(edit[:2] == (7, 9) for edit in fake.edits))
+    def deletion_bot(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(public_base_url="https://example.test")
+        instance.is_publisher = Mock(return_value=True)
+        instance.send = Mock()
+        instance.edit_message = Mock()
+        instance.telegram = Mock()
+        instance.github = SimpleNamespace(sync=Mock(), read_json=Mock(return_value=[
+            {"title": "Чужой прототип", "author": "Другой автор", "url": "prototypes/99/demo/"},
+            {"title": "Другой", "url": "prototypes/2/keep/"},
+        ]), files_below=Mock(return_value=["prototypes/99/demo/index.html", "prototypes/99/demo/app.css"]),
+            commit_files=Mock(return_value="commit"))
+        instance.wait_for_github_actions = Mock(return_value=(True, None))
+        return instance
+
+    def deletion_query(self, instance, action):
+        item = instance.github.read_json.return_value[0]
+        return {"id": "callback", "from": {"id": 1}, "message": {"chat": {"id": 1, "type": "private"}, "message_id": 7},
+                "data": f"proto:{action}:{instance.prototype_delete_key(item)}"}
+
+    def test_delete_command_lists_other_authors_and_requires_confirmation(self):
+        instance = self.deletion_bot()
+        instance.handle({"message": {"chat": {"id": 1, "type": "private"}, "from": {"id": 1}, "text": "/delete_prototype"}})
+        rows = instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]
+        self.assertEqual(len(rows), 2)
+        self.assertIn("Чужой прототип", rows[0][0]["text"])
+        instance.callback(self.deletion_query(instance, "select"))
+        self.assertIn("Удалить прототип", instance.send.call_args.args[1])
+        instance.github.commit_files.assert_not_called()
+
+    def test_delete_removes_only_selected_files_and_catalog_entry_and_checks_page(self):
+        for removed in (True, False):
+            with self.subTest(removed=removed):
+                instance = self.deletion_bot()
+                instance.wait_for_prototype_removal = Mock(return_value=removed)
+                instance.github.retry_pages_deployment = Mock(return_value="retry")
+                instance.callback(self.deletion_query(instance, "confirm"))
+                files, removals, _ = instance.github.commit_files.call_args.args
+                self.assertEqual(json.loads(files["prototypes.json"]), [{"title": "Другой", "url": "prototypes/2/keep/"}])
+                self.assertEqual(removals, instance.github.files_below.return_value)
+                instance.wait_for_prototype_removal.assert_called_with("https://example.test/prototypes/99/demo/")
+                final = instance.edit_message.call_args.args
+                self.assertEqual(final[:2], (1, 7))
+                self.assertEqual(final[2], "Прототип удалён ✓" if removed else "Ошибка удаления: GitHub Pages не подтвердил удаление страницы")
+
+    def test_delete_cancel_missing_unauthorized_and_unsafe_path_do_not_commit(self):
+        for case in ("cancel", "missing", "unauthorized", "unsafe"):
+            with self.subTest(case=case):
+                instance = self.deletion_bot()
+                if case == "unsafe":
+                    instance.github.read_json.return_value[0]["url"] = "prototypes/../skills/"
+                query = self.deletion_query(instance, "cancel" if case == "cancel" else "confirm")
+                if case == "missing":
+                    instance.github.read_json.return_value = []
+                if case == "unauthorized":
+                    instance.is_publisher.return_value = False
+                instance.callback(query)
+                instance.github.commit_files.assert_not_called()
+
+    def test_removal_requires_http_404(self):
+        for code in (404, 403, 500):
+            error = bot.urllib.error.HTTPError("https://example.test", code, "error", {}, None)
+            with patch("bot.urllib.request.urlopen", side_effect=error), patch("bot.PUBLIC_ARTIFACT_TIMEOUT_SECONDS", 0):
+                self.assertEqual(bot.Bot.wait_for_prototype_removal("https://example.test"), code == 404)
+        response = Mock()
+        response.__enter__ = Mock(return_value=response)
+        response.__exit__ = Mock(return_value=False)
+        with patch("bot.urllib.request.urlopen", return_value=response), patch("bot.PUBLIC_ARTIFACT_TIMEOUT_SECONDS", 0):
+            self.assertFalse(bot.Bot.wait_for_prototype_removal("https://example.test"))
+
+    def test_document_publication_updates_original_message_after_http_check(self):
+        for published in (True, False):
+            with self.subTest(published=published):
+                instance = bot.Bot.__new__(bot.Bot)
+                instance.db = sqlite3.connect(":memory:")
+                self.addCleanup(instance.db.close)
+                instance.db.execute("create table pending (user_id integer, action text, name text, version text)")
+                instance.settings = SimpleNamespace(public_base_url="https://yuriysteam.github.io/yatraveldesign")
+                instance.is_publisher = Mock(return_value=True)
+                instance.send = Mock(return_value={"chat": {"id": 7}, "message_id": 9})
+                instance.edit_message = Mock()
+                instance.download_document = Mock(return_value=archive({"index.html": "<html>OK</html>"}))
+                instance.github = SimpleNamespace(files_below=Mock(return_value=[]), read_json=Mock(return_value=[]),
+                                                  commit_files=Mock(return_value="commit"), retry_pages_deployment=Mock(return_value="retry"))
+                instance.wait_for_github_actions = Mock(return_value=(True, None))
+                instance.prototype_publication_reason = Mock(return_value="GitHub Pages вернул HTTP 404")
+                instance.notify_publication_result = Mock()
+                url = "https://yuriysteam.github.io/yatraveldesign/prototypes/1/demo/"
+
+                class Response:
+                    status = 200 if published else 404
+                    def __enter__(self): return self
+                    def __exit__(self, *args): return False
+
+                def check_response(*args, **kwargs):
+                    self.assertEqual(instance.edit_message.call_args.args, (7, 9, "Жду публикацию страницы…"))
+                    return Response()
+
+                with patch("bot.enrich_metadata", return_value=("Demo", "Описание")), patch("bot.urllib.request.urlopen", side_effect=check_response), patch("bot.PUBLIC_ARTIFACT_TIMEOUT_SECONDS", 0):
+                    instance.publish_document({"chat": {"id": 7}, "from": {"id": 1, "username": "anna"},
+                                               "document": {"file_name": "demo.zip"}})
+                instance.send.assert_called_once_with(7, "Загружаю прототип…")
+                edits = instance.edit_message.call_args_list
+                self.assertTrue(all(call.args[:2] == (7, 9) for call in edits))
+                self.assertEqual([call.args[2] for call in edits[:3]], [
+                    "Проверяю архив…", "Загружаю на сервер…", "Жду публикацию страницы…"])
+                final = edits[-1].args[2]
+                if published:
+                    self.assertEqual(final, f"Загружено ✓\n\n{url}")
+                else:
+                    self.assertIn("Ошибка публикации", final)
+                    self.assertNotIn("Загружено", final)
+                    self.assertNotIn(url, final)
+
+    def test_invalid_archive_updates_original_status(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        self.addCleanup(instance.db.close)
+        instance.db.execute("create table pending (user_id integer, action text, name text, version text)")
+        instance.is_publisher = Mock(return_value=True)
+        instance.send = Mock(return_value={"chat": {"id": 7}, "message_id": 9})
+        instance.edit_message = Mock()
+        instance.download_document = Mock(return_value=b"invalid zip")
+        instance.notify_publication_result = Mock()
+        instance.publish_document({"chat": {"id": 7}, "from": {"id": 1}, "document": {"file_name": "demo.zip"}})
+        instance.send.assert_called_once()
+        self.assertIn("Ошибка публикации", instance.edit_message.call_args.args[2])
+        self.assertNotIn("Загружено", instance.edit_message.call_args.args[2])
 
 
 if __name__ == "__main__":
