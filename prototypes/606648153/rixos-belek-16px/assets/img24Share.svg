@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="24/Share">
+<mask id="stroke0_0_958" fill="white">
+<path d="M22 12L13.4286 3.5H12.4762V8.22222C8.09908 8.9645 2.81263 12.2047 2.09848 17.9365C2.03379 18.4557 2 18.9954 2 19.5556H3.42857C5.32091 16.9418 9.47898 15.7778 12.4762 15.7778V20.5H13.4286L22 12Z"/>
+</mask>
+<path id="Shape" d="M22 12L13.4286 3.5H12.4762V8.22222C8.09908 8.9645 2.81263 12.2047 2.09848 17.9365C2.03379 18.4557 2 18.9954 2 19.5556H3.42857C5.32091 16.9418 9.47898 15.7778 12.4762 15.7778V20.5H13.4286L22 12Z" stroke-width="3.8" stroke="black" mask="url(#stroke0_0_958)"/>
+</g>
+</svg>

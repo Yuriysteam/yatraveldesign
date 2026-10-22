@@ -1,0 +1,15 @@
+/* YS Text 16/20 variant, based on the 20 review annotations and Figma Body/B3.
+   The original page and shared 14 px secondary text remain unchanged. */
+.highlight > div:last-child > p,
+.feature-title,
+.location-rows .icon-row > div,
+.search-form > button,
+.room-info > h3,
+.about-copy,
+.amenities-list,
+.amenities-list .icon-row > div,
+.rules-list .icon-row > div,
+.review-summary-copy {
+  font-size: 16px;
+  line-height: 20px;
+}
