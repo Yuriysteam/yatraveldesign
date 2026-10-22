@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f9">
+  <meta name="description" content="Локальный конструктор схем пассажирских самолётов. Одно кресло — один модуль.">
+  <title>Салон — конструктор схем самолётов</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23252530'/%3E%3Cpath d='M11 11h7v8h-7zm11 0h7v8h-7zm-11 12h7v8h-7zm11 0h7v8h-7z' fill='%23e6f184'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="app.js"></script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#" aria-label="Салон — на главную"><span class="brand-mark"><i></i><i></i><i></i><i></i></span><span>салон<span class="brand-dot">.</span></span><span class="beta">конструктор</span></a>
+    <div class="header-center"><span class="document-dot"></span><span id="document-name">Airbus A320-200</span><span class="header-divider">/</span><span class="muted">Схема салона</span></div>
+    <div class="header-actions"><span class="save-status" id="save-status"><span></span>Сохранено на устройстве</span><button class="button" id="export-button" aria-expanded="false"><span data-icon="download"></span><span class="export-label">Экспорт</span><span data-icon="chevron"></span></button><button class="button primary" id="preview-button"><span data-icon="eye"></span><span>Предпросмотр</span></button></div>
+    <div class="export-menu" id="export-menu" hidden><button data-export="svg"><span data-icon="image"></span>Схема в SVG<span>.svg</span></button><button data-export="json"><span data-icon="code"></span>Проект в JSON<span>.json</span></button><button id="import-button"><span data-icon="upload"></span>Открыть проект<span>.json</span></button></div>
+    <input type="file" id="import-file" accept=".json,application/json" hidden>
+  </header>
+
+  <div class="workspace">
+    <aside class="left-panel">
+      <div class="panel-heading"><span>Библиотека</span><span class="tiny-tag">4 модели</span></div>
+      <section class="panel-section aircraft-section"><div class="section-heading">САМОЛЁТЫ</div><div id="model-list" class="model-list"></div><p class="caption template-note">Примеры компоновок. Схему каждого самолёта можно изменить.</p></section>
+      <section class="panel-section"><div class="section-heading"><span>МОДУЛИ</span><span class="tiny-tag">1 × 1</span></div><div id="module-list" class="module-list"></div><p class="caption">Выберите модуль и нажмите на кресло. Проведите с зажатой кнопкой, чтобы изменить несколько.</p></section>
+      <div class="unit-card"><div class="unit-illustration"><span></span><i>1</i><b>1</b></div><div><strong>Всё начинается с кресла</strong><p>Один модуль — одна ячейка.<br>Из них собирается весь салон.</p></div></div>
+      <button class="help-link" id="help-button"><span data-icon="help"></span>Как это работает<span>?</span></button>
+    </aside>
+
+    <main class="editor">
+      <div class="editor-heading"><div><div class="eyebrow">ВАША СХЕМА</div><h1 id="canvas-title">Airbus A320-200</h1><p><span id="canvas-layout">3 + 3</span><span class="middle-dot">·</span><span id="canvas-seats">180 кресел</span><span class="middle-dot">·</span><span class="example-label">Пример компоновки</span></p></div><div class="history"><button class="icon-button" id="undo" title="Отменить · ⌘Z" aria-label="Отменить"><span data-icon="undo"></span></button><button class="icon-button" id="redo" title="Повторить · ⇧⌘Z" aria-label="Повторить"><span data-icon="redo"></span></button><span class="vertical-rule"></span><button class="icon-button" id="reset" title="Восстановить шаблон" aria-label="Восстановить шаблон"><span data-icon="reset"></span></button><button class="icon-button mobile-settings-button" id="mobile-settings" title="Параметры схемы" aria-label="Параметры схемы" aria-expanded="false"><span data-icon="sliders"></span></button></div></div>
+      <div class="canvas-toolbar"><div class="tool-group"><button class="tool active" data-tool="select" title="Выделение · V" aria-label="Выделение"><span data-icon="cursor"></span></button><button class="tool" data-tool="paint" title="Кисть · B" aria-label="Кисть"><span data-icon="paint"></span></button><button class="tool" data-tool="erase" title="Ластик · E" aria-label="Ластик"><span data-icon="eraser"></span></button></div><span id="tool-hint">Нажмите на кресло, чтобы изменить его</span><div class="view-options"><label title="Показывать номера кресел"><input id="show-labels" type="checkbox" checked><span>Номера мест</span></label></div></div>
+      <div class="canvas" id="canvas"><div class="canvas-tag"><span class="live-dot"></span><span id="canvas-tag">Режим редактирования</span></div><div class="aircraft-stage" id="aircraft-stage"><div class="aircraft-sheet" id="aircraft-sheet"></div></div><div class="canvas-empty" id="canvas-empty" hidden></div></div>
+      <div class="canvas-footer"><div class="footer-hint"><span data-icon="cursor"></span><span id="footer-hint">Shift + клик — выбрать несколько кресел</span></div><div class="zoom-control"><button id="zoom-out" aria-label="Уменьшить масштаб">−</button><button id="zoom-label" title="Масштаб 100%">85%</button><button id="zoom-in" aria-label="Увеличить масштаб">+</button><span></span><button id="fit" title="Вписать по ширине" aria-label="Вписать по ширине"><span data-icon="fit"></span></button></div></div>
+      <div class="preview-selection" id="preview-selection" hidden><span>Выбрано мест: <b id="preview-count">0</b></span><button class="button" id="clear-preview">Снять выбор</button></div>
+    </main>
+
+    <aside class="right-panel">
+      <div class="panel-heading">Параметры схемы<span data-icon="sliders"></span></div>
+      <section class="panel-section"><div class="section-heading">КОМПОНОВКА</div><label class="field-label" for="layout">Кресла в ряду</label><div class="select-wrap"><select id="layout"><option value="2-2">2 + 2 · один проход</option><option value="3-3">3 + 3 · один проход</option><option value="2-4-2">2 + 4 + 2 · два прохода</option><option value="3-3-3">3 + 3 + 3 · два прохода</option><option value="3-4-3">3 + 4 + 3 · два прохода</option></select><span data-icon="chevron"></span></div><div class="field-row"><label class="field-label" for="rows">Количество рядов</label><div class="stepper"><button id="rows-less" aria-label="Убрать последний ряд">−</button><input id="rows" type="number" min="4" max="65" value="30" aria-label="Количество рядов"><button id="rows-more" aria-label="Добавить ряд">+</button></div></div><div class="range-label"><label class="field-label" for="pitch">Шаг ряда</label><span id="pitch-value">1,3 модуля</span></div><input class="range" id="pitch" type="range" min="1.2" max="2" step="0.1" value="1.3"><div class="range-ends"><span>Плотнее</span><span>Просторнее</span></div></section>
+      <section class="panel-section"><div class="section-heading">ЭЛЕМЕНТЫ СХЕМЫ</div><label class="switch-field"><span><span data-icon="door"></span>Аварийные выходы</span><input type="checkbox" class="switch" id="show-exits" checked></label><label class="switch-field"><span><span data-icon="wings"></span>Крылья</span><input type="checkbox" class="switch" id="show-wings" checked></label><label class="switch-field"><span><span data-icon="grid"></span>Сетка модулей</span><input type="checkbox" class="switch" id="show-grid"></label></section>
+      <section class="panel-section selection-section"><div class="section-heading">ВЫБРАННЫЙ ЭЛЕМЕНТ<span id="selection-badge" class="tiny-tag" hidden>0</span></div><div id="selection-panel"></div></section>
+      <section class="panel-section summary-section"><div class="section-heading">САЛОН В ЦИФРАХ</div><div class="capacity"><strong id="total-seats">180</strong><span>пассажирских кресел</span></div><div class="distribution" id="distribution"></div><div id="statistics" class="statistics"></div></section>
+      <div class="local-note"><span data-icon="lock"></span><span>Проект хранится в этом браузере.<br>Скачайте JSON, чтобы перенести его.</span></div>
+    </aside>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="help-dialog"><button class="dialog-close icon-button" aria-label="Закрыть" id="close-help"><span data-icon="close"></span></button><span class="dialog-kicker">БЫСТРЫЙ СТАРТ</span><h2>Соберите свой салон</h2><div class="help-steps"><p><b>01</b><span><strong>Выберите самолёт</strong>Четыре шаблона с разным числом кресел и проходов.</span></p><p><b>02</b><span><strong>Настройте компоновку</strong>Меняйте количество рядов, кресла в ряду и расстояние между ними.</span></p><p><b>03</b><span><strong>Расставьте модули</strong>Выберите тип слева и рисуйте по схеме. Клавиша V вернёт выделение.</span></p><p><b>04</b><span><strong>Сохраните результат</strong>SVG — изображение схемы. JSON — редактируемый проект.</span></p></div><div class="shortcuts"><span><kbd>V</kbd>Выделение</span><span><kbd>B</kbd>Кисть</span><span><kbd>E</kbd>Ластик</span><span><kbd>⌘ Z</kbd>Отменить</span></div><p class="caption">Шаблоны иллюстрируют компоновки и не воспроизводят салоны конкретных авиакомпаний. Размеры заданы в условных модулях.</p></dialog>
+</body>
+</html>

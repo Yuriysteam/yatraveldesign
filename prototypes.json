@@ -132,5 +132,13 @@
     "avatar": "assets/avatars/artem.jpeg",
     "updated_at": 1792664247,
     "url": "prototypes/606648153/rixos-belek-16px/"
+  },
+  {
+    "title": "aircraft-cabin-builder",
+    "description": "Без описания",
+    "author": "Юрий Ширяев",
+    "avatar": "assets/avatars/yuriy.jpeg",
+    "updated_at": 1792679615,
+    "url": "prototypes/335833483/aircraft-cabin-builder/"
   }
 ]
