@@ -1,0 +1,680 @@
+---
+name: makedesign
+description: "Pixel-perfect HTML-прототип из Figma-фрейма на Base 2.0. Извлекает дизайн через Figma MCP, маппит компоненты и токены, верстает HTML. Триггер: «makedesign», «прототип из figma». Не используется в design-process — только standalone."
+version: 1.0.0
+updated: 2026-05-04
+last_editor: Yuriy
+status: standalone
+owner: Yuriy
+auto_trigger: false
+type: standalone
+parents: []
+---
+
+# makedesign — Pixel-Perfect Прототип из Figma
+
+**Жёсткие ограничения (на ВСЕХ шагах):**
+- Только чистый CSS в `<style>`. Tailwind и фреймворки запрещены.
+- Токены `var(--)` из `Base2.0/tokens/tokens.css` — единственный источник цветов, типографики, скруглений, теней.
+- Emoji запрещены — только SVG-иконки.
+- Файл: `{person_dir}/{stream}/{filename}.html` или `Base2.0/{stream}/{filename}.html`. Не в корне.
+- В `<style>` ЗАПРЕЩЕНО дублировать: @font-face, reset, body, .header, .footer, классы из таблицы маппинга.
+- Auto Layout из Figma → верстать ТОЛЬКО через flex/gap. `position: absolute` — только оверлеи, тосты, sticky.
+
+---
+
+## Шаг −1: Аудит среды (САМЫЙ ПЕРВЫЙ — выполнить автоматически)
+
+**До любого взаимодействия с пользователем** проверь, что работа идет в актуальном проекте и доступны локальные ресурсы прототипирования: дизайн-система, токены, шрифты и ассеты. Не требуй от пользователя локальные пути и не завязывай выполнение на конкретное расположение репозитория.
+
+Если нужные ресурсы недоступны, остановись и коротко сообщи, чего именно не хватает: дизайн-системы, токенов, шрифтов, ассетов или доступа к Figma.
+
+---
+
+## Шаг 0: Кто работает? (ОБЯЗАТЕЛЬНО — спросить первым делом)
+
+**ПЕРЕД любой работой** спроси у пользователя:
+
+> Кто сейчас работает? Выбери имя:
+> Lena, Dima, Artem, Bogdan, Igor, Yuriy, Luba, Ilya, Christina, Ivan
+
+На основании ответа определяется `{person_dir}` — персональная папка для файлов.
+
+### Маршрутизация файлов
+
+| Участник | Папка | Пример пути |
+|----------|-------|-------------|
+| Yuriy | `Yuriy/` | `Yuriy/B2B/checkout.html` |
+| Lena | `Lena/` | `Lena/B2C/search.html` |
+| Dima | `Dima/` | `Dima/Extranet/bookings.html` |
+| Artem | `Artem/` | `Artem/App/main.html` |
+| Bogdan | `Bogdan/` | `Bogdan/B2B/trips.html` |
+| Igor | `Igor/` | `Igor/B2C/hotel.html` |
+| Luba | `Luba/` | `Luba/Landing/index.html` |
+| Ilya | `Ilya/` | `Ilya/Academ/search.html` |
+| Christina | `Christina/` | `Christina/B2B/settings.html` |
+| Ivan | `Ivan/` | `Ivan/App/profile.html` |
+
+### Правила размещения
+
+1. **Новый прототип** → создавать в `{person_dir}/{stream}/{filename}.html`
+2. **Доработка существующего** из `Base2.0/{stream}/` → скопировать в `{person_dir}/{stream}/`, работать там
+3. **Общие компоненты** (Base2.0/styles/, Base2.0/tokens/) → НЕ копировать, ссылаться из персональной папки через `../../Base2.0/` или `/Base2.0/`
+4. **Шрифты** — единственный источник: `/Base2.0/Fonts/`. Не копировать в персональные папки
+5. **Ассеты** — единственный источник: `/Base2.0/assets/`. Новые ассеты сохранять туда же
+
+### Предотвращение конфликтов (команда 9 человек)
+
+- Каждый работает ТОЛЬКО в своей папке `{person_dir}/`
+- Перед редактированием файла из `Base2.0/` — сообщи в командный чат какой файл берёшь
+- НЕ редактируй чужие папки без согласования
+- При работе с общими файлами (`Base2.0/styles/components.css`, `index.html`) — предупреди команду
+
+---
+
+## Входные данные
+
+Пользователь ДОЛЖЕН передать:
+1. **Кто работает** (имя из списка выше) — если не указано, спроси
+2. **Стрим**: `B2B`, `B2C`, `Extranet`, `App` или `Академ`
+3. **Ссылку на Figma-фрейм**: `https://www.figma.com/design/{fileKey}/{fileName}?node-id={nodeId}`
+
+Если имя не указано — спроси. Если стрим не указан — спроси. Если ссылка не передана — запроси.
+
+---
+
+## Шаг 1: Извлечение node-id
+
+Из URL `node-id=114-1388547` → `114:1388547`.
+
+---
+
+## Шаг 2: Получение данных из Figma
+
+### Шаг 2.0: Каскадная стратегия (ОБЯЗАТЕЛЬНО перед вызовами)
+
+**Сначала** вызови `get_metadata` для root nodeId — получи список дочерних секций и их nodeId.
+
+Затем оцени размер фрейма:
+- Если фрейм — **целая страница** (header + sidebar + content + footer): вызывай `get_design_context` **отдельно для каждой ключевой секции** (не для root), чтобы избежать файлов >20KB.
+- Если фрейм — **отдельный компонент / модалка / оверлей**: вызывай `get_design_context` для root напрямую.
+
+**Правило размера:** если `get_design_context` вернул файл >20KB — не читать целиком. Вместо этого:
+```
+Grep "componentName" в сохранённом файле → имена компонентов
+Grep "variantProperties" в файле → варианты (Solid/Outlined, Primary/Secondary...)
+Grep нужного компонента (напр. "Input") → все его вхождения
+```
+
+### Шаг 2.1: Основные вызовы (параллельно)
+
+1. **get_metadata** — `nodeId`: root ID → структура и дочерние nodeId
+2. **get_screenshot** — `nodeId`: root ID → общий вид для layout
+3. **get_variable_defs** — `nodeId`: root ID → реальные токены как приоритетный источник
+4. **get_design_context** — для каждой **нужной секции** отдельно (не root если страница большая)
+   - `clientLanguages`: `html,css`
+   - `clientFrameworks`: `unknown`
+   - `artifactType`: `WEB_PAGE_OR_APP_SCREEN`
+   - `dirForAssetWrites`: `{workspace}/Base2.0/assets`
+
+### Шаг 2.2: Извлечение componentName (ОБЯЗАТЕЛЬНО)
+
+После получения `get_design_context` — для **каждого интерактивного элемента** (инпуты, кнопки, тоглы, дропдауны) явно выпиши:
+
+```
+Элемент: {описание}
+  componentName: {точное имя из Figma}
+  variantProperties: {вариант — Solid/Outlined/Primary/Secondary/...}
+  → CSS-класс: .{класс из таблицы маппинга Шага 4}
+```
+
+**Запрещено:** определять компонент по скриншоту или внешнему виду. Только по `componentName` из `get_design_context`.
+
+### Шаг 2.3: Проверка полноты данных
+
+- Если `get_design_context` вернул меньше секций чем видно на скриншоте → вызови `get_metadata` для дочерних nodeId, затем `get_design_context` для каждой секции отдельно. Не продолжай с неполными данными.
+- Если ошибка записи ассетов («file already exists» / пустой ответ) → повтори без `dirForAssetWrites`. Если снова ошибка → запроси CSS из Figma Dev Mode.
+
+---
+
+## Шаг 3: Инвентаризация UI (ОБЯЗАТЕЛЬНО — не пропускать)
+
+### Шаг 3.0: Проверка типа фрейма — оверлей или новая страница?
+
+**ПЕРВЫМ ДЕЛОМ** определи тип фрейма:
+
+```
+[ ] Фрейм — самостоятельная страница (новый layout) → создать новый {filename}.html
+[ ] Фрейм — оверлей/модалка/drawer поверх существующей страницы → ПЕРЕИСПОЛЬЗОВАТЬ базовую страницу
+```
+
+**Если фрейм = оверлей:**
+1. Glob `{stream}/*.html` → найти HTML базовой страницы
+2. Скопировать базовую страницу в `{stream}/{filename}.html`
+3. Добавить только HTML оверлея (`.popup-overlay` + содержимое)
+4. Добавить только CSS оверлея в `<style>`
+5. **Не пересобирать** хедер, сайдбар, контент, футер заново
+
+Признаки оверлея в Figma: фрейм содержит затемнённый фон (overlay), модалку, drawer, bottom-sheet поверх страницы.
+
+### Шаг 3.1: Полная инвентаризация
+
+Перед написанием любого кода **опиши что получено** из Figma:
+
+**Layout:**
+- Ширина фрейма: ___px (если >1440 — @2x, делить на 2)
+- Тип: одна колонка / sidebar+контент / сетка N колонок
+- Header: да/нет | Footer: да/нет | Sidebar: да/нет
+
+**Секции страницы (сверху вниз):**
+1. ___ 2. ___ 3. ___
+
+**Компоненты design system — СТРОГО по componentName из get_design_context:**
+| Figma componentName | variantProperties | CSS-класс |
+|---|---|---|
+| ___ | ___ | ___ |
+
+**Иконки (имя + размер из Figma) — Glob-проверка ДО генерации (Шаг 5):**
+- `{имя}` {size}px → `Base2.0/icons/{size}/{Name}.svg` ✓/✗
+
+**Ассеты (изображения, не иконки):**
+- `{описание}` → переиспользовать `{путь}` / сохранить новый
+
+**Новые компоненты (нет в таблице маппинга):**
+- ___
+
+→ **Переходи к Шагу 4 только после заполнения всех пунктов.**
+
+---
+
+## Шаг 4: Маппинг компонентов на дизайн-систему
+
+**ПРАВИЛО:** маппинг — ТОЛЬКО по `componentName` и `variantProperties` из `get_design_context`.
+**ЗАПРЕЩЕНО** определять компонент по скриншоту, цвету фона или визуальному сходству.
+
+Пример правильного маппинга:
+- `componentName: "Input"` + `variantProperties: { Style: "Solid" }` → `.input-solid` ✓
+- `componentName: "Input"` + `variantProperties: { Style: "Outlined" }` → `.input-outlined` ✓
+- Угадал по белому фону на скриншоте → `.input-outlined` ✗ **ОШИБКА**
+
+**ПЕРЕД написанием CSS** — ищи компонент в `Base2.0/styles/components.css` по аннотации `/* figma: "..." */` (Grep по имени из Figma). Если найден — используй CSS-класс, не пиши заново:
+
+| Figma-компонент | CSS-класс |
+|---|---|
+| Button / Primary | `.btn.btn--primary` |
+| Button / Secondary | `.btn.btn--secondary` |
+| Button / Dark | `.btn.btn--dark` |
+| Input / Solid | `.input-solid` |
+| Input / Outlined | `.input-outlined` |
+| Dropdown | `.dropdown` |
+| Checkbox | `.checkbox` |
+| Radio | `.radio` |
+| Toggle | `.toggle`, `.toggle-row` |
+| Segmented Control | `.segmented-control` |
+| Trip Card | `.trip-card` |
+| Employee Snippet | `.employee-snippet` |
+| Service Badge | `.service-badge` |
+| Rating Badge | `.rating-badge` |
+| Plus Badge | `.plus-badge` |
+| Pill Badge | `.pill-badge` |
+| Settings List | `.settings-list` |
+| Suggest Chip | `.suggest-chip` |
+| Popup / Modal | `.popup`, `.popup-overlay` |
+| Side Menu | `.side-menu` |
+| Balance Card | `.balance-card` |
+| Page Header | `.page-header` |
+| Booking Item | `.booking-item` |
+| Hotel Gallery | `.hotel-gallery` |
+| Tariff Card | `.tariff-card` |
+| Room Card | `.room-card` |
+| Review Card | `.review-card` |
+| FAQ Accordion | `.faq-item` |
+| Breadcrumbs | `.hotel-breadcrumb` |
+
+**Правило:** компонент есть в таблице → используй CSS-класс, НЕ пиши CSS заново. Нет в таблице → пиши CSS, после генерации предложи добавить в components.css.
+
+---
+
+## Шаг 5: Маппинг иконок и ассетов (Glob-проверка ОБЯЗАТЕЛЬНА)
+
+### 5.1. Иконки
+
+Библиотека: `Base2.0/icons/{6,8,10,12,14,16,20,24,32,36}/`, нейминг PascalCase.
+
+Для каждой иконки из Figma — **выполни Glob ДО написания HTML**:
+
+```
+1. Имя и размер из componentName / get_metadata
+2. Нормализуй: kebab-case → PascalCase, убери размер из имени
+3. Алиасы: close→Cross, back→ArrowLeft, chevron-right→ChevronRight,
+   chevron-down→ChevronBottom, search→MagnifyingGlass, settings→Settings,
+   edit→Pencil, delete→Trash, favorite→HeartOutline, share→Share
+4. Glob: Base2.0/icons/{size}/{Name}.svg
+   ✓ найден → <img src="{prefix}/Base2.0/icons/{size}/{Name}.svg">
+   ✗ не найден → inline SVG из get_design_context
+```
+
+**Запрещено:** писать путь к иконке без предварительной Glob-проверки.
+**Запрещено:** сохранять иконки в `assets/` — только в `Base2.0/icons/`.
+
+Результат фиксируй в инвентаризации (Шаг 3.1) со статусом ✓/✗.
+
+### 5.2. Ассеты (не иконки)
+
+Перед каждым `<img>` из Figma — каскад проверки:
+
+```
+[ ] Это иконка? → см. §5.1, НЕ в assets
+[ ] Логотип Яндекса? → assets/logos/logo-yandex.svg / logo-sign.svg / logo-text.svg
+[ ] Аватар? → Glob assets/avatars/* → любой найденный
+[ ] Сервис-иконка (авиа/жд/отель/трансфер)? → Glob assets/service-icons/*
+[ ] Фото города/отеля? → Glob assets/photos/* → по размеру похожее
+[ ] Иллюстрация/баннер? → Glob assets/illustrations/* → проверить похожую
+[ ] Ничего не подошло → сохранить через MCP
+```
+
+**Категория-папки обязательны** (плоское сохранение в корень `assets/` запрещено):
+- `assets/avatars/` — портретные изображения
+- `assets/photos/` — фото отелей, городов, транспорта
+- `assets/service-icons/` — иконки сервисов
+- `assets/illustrations/` — баннеры, иллюстрации, empty-states
+- `assets/logos/` — логотипы
+
+### 5.3. Запрет хеш-имён
+
+- ✓ Латиница, kebab-case: `room-bed-double.svg`, `hotel-balcony-01.png`
+- ✗ Запрещены SHA-имена вида `a48e61edb99211f4685e797be1886bbcb42b241b.svg`
+
+После сохранения MCP:
+1. Если файл с хеш-именем → сразу переименовать в осмысленное
+2. Перед переименованием проверить (md5/sha) — нет ли файла с таким содержимым в assets/ (если есть — использовать существующий, новый удалить)
+3. Обновить путь в HTML
+
+---
+
+## Шаг 6: Генерация HTML
+
+### Пути (КРИТИЧНО)
+
+Структура проекта после реорганизации:
+
+```
+TravelDesignAI/
+├── index.html
+├── error.html
+├── Base2.0/           ← общие ресурсы, шаблоны, подпроекты
+│   ├── Fonts/         ← ЕДИНСТВЕННЫЙ источник шрифтов
+│   ├── assets/        ← ЕДИНСТВЕННЫЙ источник общих картинок/иконок
+│   ├── styles/        ← общие стили (components.css, fonts.css, main.css)
+│   ├── tokens/        ← дизайн-токены
+│   ├── icons/         ← библиотека иконок
+│   ├── App/           ← шаблоны App
+│   ├── B2C/           ← шаблоны B2C
+│   ├── Extranet/      ← шаблоны Extranet
+│   └── Landing/       ← шаблоны Landing
+├── Yuriy/             ← персональные папки (Academ/, B2B/, ...)
+├── Lena/ Dima/ Artem/ Bogdan/ Igor/ Luba/ Ilya/ Christina/ Ivan/
+├── Skills/            ← скиллы
+├── Archive/           ← отчёты
+└── package/           ← package.json
+```
+
+**Пути из персональной папки `{person_dir}/{stream}/`:**
+
+| Ресурс | Абсолютный путь (рекомендуется) | Относительный путь |
+|---|---|---|
+| Токены | `/Base2.0/tokens/tokens.css` | `../../Base2.0/tokens/tokens.css` |
+| Components | `/Base2.0/styles/components.css` | `../../Base2.0/styles/components.css` |
+| Fonts CSS | `/Base2.0/styles/fonts.css` | `../../Base2.0/styles/fonts.css` |
+| Ассеты | `/Base2.0/assets/` | `../../Base2.0/assets/` |
+| Иконки | `/Base2.0/icons/{size}/` | `../../Base2.0/icons/{size}/` |
+| Шрифты | `/Base2.0/Fonts/` | НЕ ссылаться напрямую, через fonts.css |
+
+**Пути из `Base2.0/{stream}/`** (legacy/шаблоны):
+
+| Ресурс | Путь |
+|---|---|
+| Токены | `../tokens/tokens.css` |
+| Components | `../styles/components.css` |
+| Ассеты | `../assets/` |
+| Иконки | `../icons/{size}/` |
+
+### HTML-шаблон (ОБЯЗАТЕЛЬНО: базируйся на Base2.0/templates/)
+
+**Перед написанием HTML — проверь и используй canonical шаблон из `Base2.0/templates/`:**
+
+| Стрим | Шаблон | Что в нём уже есть |
+|-------|--------|---------------------|
+| B2B | `Base2.0/templates/_layout-B2B.html` | header, sidebar с меню, footer, respons |
+| B2C | `Base2.0/templates/_layout-B2C.html` | header с gradient, user-panel |
+| App | `Base2.0/templates/_layout-App.html` | phone-frame, app-header, анимационные vars |
+| Extranet | `Base2.0/templates/_layout-Extranet.html` | left-menu, top-nav |
+| Academ | `Base2.0/templates/_layout-Academ.html` | top header с навигацией |
+
+**Правило templates-lookup (перед генерацией):**
+
+```
+1. Glob: Base2.0/templates/_layout-{stream}.html
+   ✓ найден → скопировать в {person_dir}/{stream}/{filename}.html
+   ✗ не найден → запросить у пользователя, нужно ли создать новый canonical шаблон
+2. Glob: {person_dir}/{stream}/*.html
+   Если есть похожая страница (тот же стрим, близкий скоп) — предложить пользователю
+   использовать её как базу вместо шаблона.
+3. Никогда не начинать HTML с нуля, если есть canonical шаблон или похожая страница.
+```
+
+**Пути в шаблоне — всегда абсолютные:** `/Base2.0/tokens/tokens.css`, `/Base2.0/styles/fonts.css`, `/Base2.0/styles/components.css`, `/Base2.0/assets/...`, `/Base2.0/icons/{size}/...`.
+
+В `<style>` шаблона: reset, body, header, sidebar, footer — **уже есть**.
+Шрифты подключены через `/Base2.0/styles/fonts.css` — **НЕ добавлять `@font-face`**.
+Добавляй ТОЛЬКО page-specific стили. **Запрещено** дублировать уже присутствующее.
+
+Минимальная структура нового файла:
+```html
+<!DOCTYPE html> <!-- взять из Base2.0/templates/_layout-{stream}.html -->
+...
+<style>
+  /* ТОЛЬКО стили для нового контента страницы */
+  /* Никаких @font-face, reset, body, .header, .footer, .sidebar */
+</style>
+...
+<body>
+  <div class="page">
+    <!-- хедер/сайдбар/футер из templates/_layout-{stream}.html — НЕ менять -->
+
+    <div class="main-content">
+      <!-- PAGE CONTENT — сюда вставлять контент страницы -->
+    </div>
+  </div>
+</body>
+```
+
+**App**: phone-frame обёртка и `.app-header` уже в шаблоне. Добавляй content внутрь `.phone-frame` после хедера.
+
+### Респонсивность (десктоп)
+
+```css
+@media (max-width: 1439px) {
+  .header { padding: 10px 40px; }
+  .content-wrapper { padding: 40px 40px 0; }
+  .footer { padding: 0 40px 24px; }
+}
+@media (max-width: 1279px) {
+  .header { padding: 10px 24px; }
+  .content-wrapper { padding: 40px 24px 0; }
+  .footer { padding: 0 24px 24px; }
+}
+@media (max-width: 1199px) {
+  .header-nav { display: none; }
+}
+```
+
+---
+
+## Шаг 7: Layout-правила
+
+### Auto Layout → Flexbox
+
+| Figma Auto Layout | CSS |
+|---|---|
+| direction: horizontal | `display: flex; flex-direction: row;` |
+| direction: vertical | `display: flex; flex-direction: column;` |
+| spacing: N | `gap: {токен или Npx};` |
+| padding: T R B L | `padding: T R B L;` |
+| alignment: center | `align-items: center;` |
+| alignment: space-between | `justify-content: space-between;` |
+| wrap | `flex-wrap: wrap;` |
+| fill container | `flex: 1;` или `width: 100%;` |
+| hug contents | `width: fit-content;` |
+| columns N | `display: grid; grid-template-columns: repeat(N, 1fr);` |
+
+**Запрещено:** `position: absolute` внутри Auto Layout. Исключения: оверлеи, тосты, sticky, декор поверх контента.
+
+### Фильтрация Figma-артефактов (ОБЯЗАТЕЛЬНО)
+
+Figma часто генерирует избыточный CSS — **всегда нормализуй**:
+
+| Figma-артефакт | Что делать |
+|---|---|
+| `position: absolute` у секций страницы (header/content/footer) | → заменить на flex-item в колонке `.phone-frame` / `.page` |
+| `width: 375px` / `width: 1440px` (фиксированная ширина фрейма) | → заменить на `width: 100%` |
+| `left: 0; right: 0` на дочернем элементе | → убрать, использовать `width: 100%` или flex |
+| Зазор между секциями через `top: Y` | → вычислить разницу координат из `get_metadata` → `margin-top: Npx` или `gap` на родителе |
+| `<button>` без явного фона в дизайне | → всегда добавлять `border: none; background: none;` |
+
+**App phone-frame:** всегда `display: flex; flex-direction: column`. Секции (status-bar, toolbar, filterbar, content) — flex-items с `flex-shrink: 0`. Контентная область — `flex: 1`. Floating-элементы (кнопки поверх контента) — единственное законное применение `position: absolute` внутри frame.
+
+### Интерактивные состояния
+
+**Десктоп:**
+```css
+.btn { transition: background-color 0.2s ease, transform 0.1s ease; }
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.98); }
+.card { transition: box-shadow 0.2s ease; cursor: pointer; }
+.card:hover { box-shadow: var(--shadow-soft-m-both-themes); }
+a { transition: color 0.2s ease; }
+```
+
+**App:**
+```css
+.interactive { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+.interactive:active { transform: scale(0.97); }
+```
+
+### Боковые панели (drawer, side panel)
+
+| Ошибка | Правильно |
+|--------|-----------|
+| Панель как колонка с border-bottom у каждого пункта | Пункты: отдельные строки, padding 12px, gap 16px, min-height 48px, border-radius 16px |
+| Блок бонусов/карточек в колонку | flex row, gap 6px, overflow-x auto; карточки min-width 108px, flex: none |
+| Кнопка закрытия большая по центру | position: absolute; top: 24px; right: 24px; 24×24; Base2.0/icons/24/Cross.svg |
+
+---
+
+## Шаг 8: Валидация CSS-токенов
+
+При написании CSS — сверяй КАЖДОЕ свойство по таблицам ниже.
+**Приоритет:** значения из `get_variable_defs` (Шаг 2) → таблицы ниже → `Base2.0/tokens/semantic/colors.css`.
+
+### Цвета HEX → токен
+
+**Текст:**
+| HEX | Токен |
+|---|---|
+| `#0d0d0f` | `var(--text-primary-color)` |
+| `#9c9ba2` | `var(--text-secondary-color)` |
+| `#b6b6bb` | `var(--text-generic-disabled-color)` |
+| `#02ad0d` | `var(--text-success-color)` |
+| `#ffa41d` | `var(--text-warning-color)` |
+| `#ff2f5f` | `var(--text-error-color)` |
+
+**Фон:**
+| HEX | Токен |
+|---|---|
+| `#ffffff`, `#fff` | `var(--bg-fill-primary-color)` или `var(--bg-card-primary-color)` |
+| `#f5f5f5` | `var(--bg-fill-secondary-color)` или `var(--bg-card-secondary-color)` |
+| `#f2f2f2` | `var(--bg-button-secondary-color)` |
+| `#ededee` | `var(--bg-fill-tertiary-color)` |
+| `#e6e5e7` | `var(--bg-line)` |
+
+**Кнопки/контролы:**
+| HEX | Токен |
+|---|---|
+| `#fed42b` | `var(--bg-button-primary-color)` или `var(--controls-primary)` |
+| `#222125` | `var(--controls-primary-black)` |
+
+**Бордеры / Ссылки:**
+| HEX | Токен |
+|---|---|
+| `#cdcccf` | `var(--border-outlineControl-default-color)` |
+| `#7f5fff` | `var(--link-primary-color)` |
+
+**Константы:**
+| Паттерн | Токен |
+|---|---|
+| `#ffffff` на тёмном фоне | `var(--constant-white)` |
+| `#0d0d0f` | `var(--constant-black)` |
+
+**Статусы:**
+| HEX | Токен |
+|---|---|
+| `#0ec70e` | `var(--color-frog-600)` |
+| `#a7e8a7` | `var(--color-frog-400)` |
+| `#ffeef2` | `var(--color-crimson-100)` |
+| `#fff7eb` | `var(--color-vitamin-100)` |
+
+**Overlay:**
+| Паттерн | Токен |
+|---|---|
+| `rgba(0,0,0, 0.4)` | `var(--overlay-light)` |
+| `rgba(0,0,0, 0.5)` | `var(--overlay-medium)` |
+
+Нет в таблице → читай `Base2.0/tokens/base/colors.css` + `semantic/colors.css`, НЕ хардкодь HEX.
+
+### Типографика px → токен
+
+| Figma size/weight | Токен (size) | Токен (lineHeight) | Family |
+|---|---|---|---|
+| 40px medium | `--font-headline-h0-size` | `--font-headline-h0-lineHeight` | Display |
+| 32px medium | `--font-headline-h1-size` | `--font-headline-h1-lineHeight` | Display |
+| 28px medium | `--font-headline-h2-size` | `--font-headline-h2-lineHeight` | Display |
+| 24px medium | `--font-headline-h3-size` | `--font-headline-h3-lineHeight` | Display |
+| 20px medium | `--font-title-t1-size` | `--font-title-t1-lineHeight` | Display |
+| 18px medium | `--font-title-t2-size` | `--font-title-t2-lineHeight` | Text |
+| 16px medium | `--font-title-t3-size` | `--font-title-t3-lineHeight` | Text |
+| 20px regular | `--font-body-b1-size` | `--font-body-b1-lineHeight` | Text |
+| 18px regular | `--font-body-b2-size` | `--font-body-b2-lineHeight` | Text |
+| 16px regular | `--font-body-b3-size` | `--font-body-b3-lineHeight` | Text |
+| 14px regular | `--font-caption-c1-size` | `--font-caption-c1-lineHeight` | Text |
+| 14px medium | `--font-caption-c1-fat-size` | `--font-caption-c1-fat-lineHeight` | Text |
+| 12px regular | `--font-caption-c2-size` | `--font-caption-c2-lineHeight` | Text |
+| 12px medium | `--font-caption-c2-fat-size` | `--font-caption-c2-fat-lineHeight` | Text |
+| 11px regular | `--font-caption-c3-size` | `--font-caption-c3-lineHeight` | Text |
+| 11px medium | `--font-caption-c3-fat-size` | `--font-caption-c3-fat-lineHeight` | Text |
+
+Многострочный текст: `-long` вариант lineHeight.
+Font-weight: 400→`var(--font-weight-regular)`, 500→`var(--font-weight-medium)`, 700→`var(--font-weight-bold)`, 800→`var(--font-weight-heavy)`.
+Font-family: ТОЛЬКО `var(--font-family-text)`, `var(--font-family-display)`, `var(--font-family-text-cond)`. Строки 'YS Text'/'YS Display' запрещены.
+
+### Скругления px → токен
+
+4→`--border-radius-small-xs` | 6→`small-s` | 8→`small-m` | 10→`small-l` | 12→`small-xl` | 16→`medium-s` | 20→`medium-m` | 24→`medium-l` | 28→`large-s` | 32→`large-m` | 36→`large-l` | 40→`extralarge-s` | 48→`extralarge-m` | 56→`extralarge-l` | 999→`--border-radius-full`
+
+### Отступы px → токен
+
+1→`--space-0-5` | 2→`--space-1` | 3→`--space-1-5` | 4→`--space-2` | 6→`--space-3` | 8→`--space-4` | 10→`--space-5` | 12→`--space-6` | 14→`--space-7` | 16→`--space-8` | 20→`--space-10` | 24→`--space-12` | 28→`--space-14` | 32→`--space-16` | 40→`--space-20` | 48→`--space-24`
+
+Допустимы хардкод: width/height элементов, position-координаты, transform, специфичные layout-отступы (100px, 120px).
+
+### Тени → токен
+
+`0 4px 20px` мелкая→`var(--shadow-soft-s-both-themes)` | карточка снизу→`var(--shadow-soft-s-both-themes-bottom)` | `0 6px 30px` средняя→`var(--shadow-soft-m-both-themes)` | `0 4px 40px` крупная→`var(--shadow-soft-l-both-themes)` | `0 4px 32px`→`var(--shadow-medium-s-both-themes)` | dropdown→`var(--shadow-dropdown)` | модалка→`var(--shadow-modal)` | карточка→`var(--shadow-card)` | phone-frame→`var(--shadow-phone-frame)`
+
+---
+
+## Шаг 9: Автоматическая валидация (перед браузером)
+
+Короткий чеклист. Подробные правила — в ссылках на шаги-источники.
+
+```
+CSS-токены (Шаг 8):
+[ ] Нет HEX — все цвета через var(--) по таблице цветов
+[ ] Нет rgba() в box-shadow/background — токены теней/overlay (кроме backdrop-filter, glass)
+[ ] font-size, line-height, border-radius, font-weight, font-family — через токены
+[ ] Нет строк 'YS Text' / 'YS Display'
+
+Компоненты и иконки (Шаги 4, 5):
+[ ] Компоненты из таблицы маппинга — используют CSS-класс, не пишутся заново
+[ ] Все иконки прошли Glob-проверку (статус ✓ в Шаге 3.1)
+[ ] Иконки не в assets/ (только Base2.0/icons/)
+[ ] Нет SHA-имён в assets/, все пути существуют на диске
+
+Дублирование (Шаг 6):
+[ ] Нет @font-face в <style> (fonts.css)
+[ ] Нет reset/body/.header/.footer/.sidebar в <style> (main.css, components.css)
+[ ] Классы из таблицы маппинга не переписаны локально
+
+Layout (Шаг 7):
+[ ] Нет position: absolute внутри flex-контейнеров (кроме оверлеев/декора)
+[ ] Auto Layout из Figma → flex/gap, не absolute
+[ ] CSS-классы в BEM (block__element--modifier)
+```
+
+---
+
+## Шаг 10: Проверка в браузере — Pixel-Perfect Diff
+
+### Шаг 11.0: Подготовка браузера
+
+```bash
+# Закрыть Chrome если запущен (иначе Playwright не может подключиться)
+pkill -f "Google Chrome" 2>/dev/null; sleep 1
+
+# Запустить сервер если не запущен
+python3 -m http.server 2026 &
+```
+
+Затем вызови `browser_navigate`. Если ошибка запуска → `browser_install`, затем повтори `browser_navigate`. Если снова ошибка → сообщи пользователю запустить Chrome вручную и открыть `http://localhost:2026/{stream}/{filename}.html`.
+
+### Шаг 11.1: Снимок и сравнение
+
+1. `browser_resize` width=1440, height=900 (App: width=375, height=812)
+2. `browser_navigate` → `http://localhost:2026/{stream}/{filename}.html`
+3. `browser_take_screenshot` → сохранить в `.temp/{filename}-vN.png`
+4. Сравни со скриншотом Figma из Шага 2. **Обязательный diff-чеклист:**
+   ```
+   [ ] Количество секций совпадает
+   [ ] Ширина контентной области совпадает
+   [ ] Шрифты загружены — YS Text / YS Display (не Arial / sans-serif)
+   [ ] Все иконки отображаются (нет битых src, нет квадратиков)
+   [ ] Размеры заголовков совпадают
+   [ ] Отступы между секциями совпадают (±2px)
+   [ ] Размеры карточек / кнопок совпадают
+   [ ] Цвета фонов и текста совпадают
+   [ ] Хедер и футер на месте (для десктоп)
+   [ ] Нет горизонтального скролла
+   ```
+5. **Перечисли каждое расхождение явно** в формате:
+   - Элемент: `{название}` — {что не так} ({на сколько px / какой цвет})
+
+   Если расхождений нет → написать **«Расхождений нет»**.
+6. Если есть расхождения >2px → внести правки и повторить пункты 2–5.
+   **Повторять до «Расхождений нет».**
+
+---
+
+## Шаг 11: Завершение
+
+1. Если были новые компоненты (не из таблицы маппинга) — предложить добавить в `Base2.0/styles/components.css`
+2. Удалить временные скриншоты из `.temp/`
+3. **Предложить опубликовать в Arcadia** — спросить: «Запушить изменения в Аркадию?»
+   - Если да → выполнить `/publish` (или workflow из `Skills/publish/SKILL.md`)
+
+---
+
+## Справка
+
+- Токены: `Base2.0/tokens/README.md`
+- Компоненты: `Base2.0/styles/components.css`
+- Шрифты: `Base2.0/Fonts/` (canonical), CSS: `Base2.0/styles/fonts.css`
+- Layout/reset: `Base2.0/styles/main.css`
+- Иконки: `Base2.0/icons/{6,8,10,12,14,16,20,24,32,36}/`
+- Ассеты: `Base2.0/assets/` (canonical, НЕ дублировать в персональные папки)
+- Временные файлы: `.temp/` (не коммитить)
+- Публикация: `/publish` или `Skills/publish/SKILL.md`
+
+## Персональные папки участников
+
+| Имя | Папка | Основные стримы |
+|-----|-------|-----------------|
+| Yuriy | `Yuriy/` | B2B, Academ |
+| Lena | `Lena/` | — |
+| Dima | `Dima/` | — |
+| Artem | `Artem/` | — |
+| Bogdan | `Bogdan/` | — |
+| Igor | `Igor/` | — |
+| Luba | `Luba/` | — |
+| Ilya | `Ilya/` | — |
+| Christina | `Christina/` | — |
+| Ivan | `Ivan/` | — |

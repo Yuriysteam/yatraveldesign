@@ -1,0 +1,4 @@
+interface:
+  display_name: "UX-редактор Путешествий"
+  short_description: "Тексты интерфейса по ToV и редполитике Путешествий"
+  default_prompt: "Используй $yandex-travel-ux-writing и покажи приветствие из WELCOME.md целиком."

@@ -1,0 +1,1100 @@
+{
+  "schema_version": "1.0",
+  "retrieved_at": "2026-09-07",
+  "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+  "source_grid_id": "7d45e2cd-7730-4de3-b61b-7bace4456969",
+  "source_grid_revision": "667",
+  "source_grid_created_at": "2026-04-09T07:39:08.649Z",
+  "coverage": {
+    "retrieved_rows": 59,
+    "stored_rows": 59,
+    "from": "2026-01-15",
+    "to": "2026-08-27",
+    "method": "GetPageDetails → embedded wgrid → GetGrid. Full returned grid, no pagination fields. Not all historical RFD logs."
+  },
+  "semantics": "RFD/RFS — решения о готовности дизайна/проработки; не свидетельство запуска, 100% rollout или результата эксперимента.",
+  "redaction": "Колонка записи с видеоссылками и паролями полностью исключена. В комментариях сохранены только безопасные ссылки wiki/tracker/delta; остальные ссылки заменены указателем на исходный лог.",
+  "decisions": [
+    {
+      "source_row_id": "61",
+      "review_date": "2026-08-27",
+      "review_type": "RFD-MINI",
+      "project_title": "Точка входа в подключение своего объекта",
+      "resolution_events": [
+        {
+          "date": "2026-08-27",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "60",
+      "review_date": "2026-08-27",
+      "review_type": "RFD",
+      "project_title": "Платформенная экономика\nи 1it центра уведомлений в Экстранете",
+      "resolution_events": [
+        {
+          "date": "2026-08-27",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "59",
+      "review_date": "2026-08-27",
+      "review_type": "RFD",
+      "project_title": "Новые градусники",
+      "resolution_events": [
+        {
+          "date": "2026-08-27",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "57",
+      "review_date": "2026-08-20",
+      "review_type": "RFD",
+      "project_title": "Витрина апартов на вебе",
+      "resolution_events": [
+        {
+          "date": "2026-08-20",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "58",
+      "review_date": "2026-08-20",
+      "review_type": "RFD",
+      "project_title": "Рефакторинг отзывов в вебе",
+      "resolution_events": [
+        {
+          "date": "2026-08-20",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "55",
+      "review_date": "2026-08-20",
+      "review_type": "RFD",
+      "project_title": "Топ фичи номеров",
+      "resolution_events": [
+        {
+          "date": "2026-08-20",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "56",
+      "review_date": "2026-08-14",
+      "review_type": "RFD-MINI",
+      "project_title": "Тачовые разделы Экстранета",
+      "resolution_events": [
+        {
+          "date": "2026-08-14",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "54",
+      "review_date": "2026-08-13",
+      "review_type": "RFD",
+      "project_title": "Раздел команда в личном кабинете B2B",
+      "resolution_events": [
+        {
+          "date": "2026-08-13",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "52",
+      "review_date": "2026-08-06",
+      "review_type": "RFS",
+      "project_title": "Рост вертикалей: плитки на главной app/touch и новая навигация в touch",
+      "resolution_events": [
+        {
+          "date": "2026-08-06",
+          "resolution": "Approve",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Approve",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "53",
+      "review_date": "2026-08-06",
+      "review_type": "RFD",
+      "project_title": "Апартаменты в межнаре",
+      "resolution_events": [
+        {
+          "date": "2026-08-06",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "49",
+      "review_date": "2026-07-30",
+      "review_type": "RFD",
+      "project_title": "Баллы Плюса за отзыв",
+      "resolution_events": [
+        {
+          "date": "2026-07-30",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "51",
+      "review_date": "2026-07-30",
+      "review_type": "RFD",
+      "project_title": "Content Score",
+      "resolution_events": [
+        {
+          "date": "2026-07-30",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "50",
+      "review_date": "2026-07-30",
+      "review_type": "RFD",
+      "project_title": "Правила проживания в отелях",
+      "resolution_events": [
+        {
+          "date": "2026-07-30",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "45",
+      "review_date": "2026-07-23",
+      "review_type": "RFD",
+      "project_title": "Флоу бронирования в Академе",
+      "resolution_events": [
+        {
+          "date": "2026-07-23",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "46",
+      "review_date": "2026-07-23",
+      "review_type": "RFD",
+      "project_title": "Дефицитные удобства",
+      "resolution_events": [
+        {
+          "date": "2026-07-23",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "42",
+      "review_date": "2026-07-01",
+      "review_type": "RFD",
+      "project_title": "Промо-полка на главной",
+      "resolution_events": [
+        {
+          "date": "2026-07-01",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "43",
+      "review_date": "2026-07-01",
+      "review_type": "RFD",
+      "project_title": "Оферта для выкупов в Академе",
+      "resolution_events": [
+        {
+          "date": "2026-07-01",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "47",
+      "review_date": "2026-06-30",
+      "review_type": "RFD-MINI",
+      "project_title": "Аналитика в апартаментах",
+      "resolution_events": [
+        {
+          "date": "2026-06-30",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "41",
+      "review_date": "2026-06-18",
+      "review_type": "RFD-MINI",
+      "project_title": "Подтверждение бронирования в межнаре",
+      "resolution_events": [
+        {
+          "date": "2026-06-18",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "40",
+      "review_date": "2026-06-18",
+      "review_type": "RFS",
+      "project_title": "Анимации переходов в App",
+      "resolution_events": [
+        {
+          "date": "2026-06-18",
+          "resolution": "Approve",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Approve",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "39",
+      "review_date": "2026-06-18",
+      "review_type": "RFD",
+      "project_title": "Чат отельер-гость",
+      "resolution_events": [
+        {
+          "date": "2026-06-18",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "38",
+      "review_date": "2026-06-11",
+      "review_type": "RFD",
+      "project_title": "Content LLM",
+      "resolution_events": [
+        {
+          "date": "2026-06-11",
+          "resolution": "Need information",
+          "date_source": "status_cell"
+        }
+      ],
+      "latest_resolution": "Need information",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "37",
+      "review_date": "2026-06-11",
+      "review_type": "RFD",
+      "project_title": "История изменений в Экстракте",
+      "resolution_events": [
+        {
+          "date": "2026-06-11",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "36",
+      "review_date": "2026-06-09",
+      "review_type": "RFD-MINI",
+      "project_title": "ЖД: нативная страница ввода данных пассажира",
+      "resolution_events": [
+        {
+          "date": "2026-06-09",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "Ссылка на обсуждение в исходном логе; содержимое обсуждения не прочитано.",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "33",
+      "review_date": "2026-05-28",
+      "review_type": "RFD",
+      "project_title": "Добавление гостей в чёрный список в Экстранете",
+      "resolution_events": [
+        {
+          "date": "2026-05-28",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "–",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "30",
+      "review_date": "2026-05-28",
+      "review_type": "RFD",
+      "project_title": "Бейдж для новых отелей",
+      "resolution_events": [
+        {
+          "date": "2026-05-28",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "–",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "31",
+      "review_date": "2026-05-28",
+      "review_type": "RFD",
+      "project_title": "Развитие каналов Go / ПП / WL",
+      "resolution_events": [
+        {
+          "date": "2026-05-28",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "–",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "32",
+      "review_date": "2026-05-28",
+      "review_type": "RFD",
+      "project_title": "Оплата с бизнес-счёта Ж/Д",
+      "resolution_events": [
+        {
+          "date": "2026-05-28",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "–",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "29",
+      "review_date": "2026-05-21",
+      "review_type": "RFD",
+      "project_title": "Услуги в экстранете",
+      "resolution_events": [
+        {
+          "date": "2026-05-21",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "28",
+      "review_date": "2026-05-14",
+      "review_type": "RFD",
+      "project_title": "All Inclusive",
+      "resolution_events": [
+        {
+          "date": "2026-05-14",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "https://delta.yandex-team.ru/page/epad/page/doxt7tpjdh2wonwk",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "34",
+      "review_date": "2026-05-13",
+      "review_type": "RFD-MINI",
+      "project_title": "Точка входа на лендинг Б2Б. Эксп",
+      "resolution_events": [
+        {
+          "date": "2026-05-13",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "35",
+      "review_date": "2026-06-05",
+      "review_type": "RFD-MINI",
+      "project_title": "Дискавери в моно-аппе Авиа",
+      "resolution_events": [
+        {
+          "date": "2026-06-05",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "27",
+      "review_date": "2026-04-30",
+      "review_type": "RFS",
+      "project_title": "Академ – Реновация",
+      "resolution_events": [
+        {
+          "date": "2026-04-30",
+          "resolution": "Approve",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Approve",
+      "comments": "https://delta.yandex-team.ru/page/epad/page/7capurf4p57u1v6q",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "26",
+      "review_date": "2026-04-30",
+      "review_type": "RFD",
+      "project_title": "Интеграция Взгляд в App",
+      "resolution_events": [
+        {
+          "date": "2026-04-30",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "–",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "25",
+      "review_date": "2026-04-23",
+      "review_type": "RFD",
+      "project_title": "Авиабилеты в Авиа",
+      "resolution_events": [
+        {
+          "date": "2026-04-23",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "–",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "24",
+      "review_date": "2026-04-16",
+      "review_type": "RFD",
+      "project_title": "Софинансирование плюсов объектами",
+      "resolution_events": [
+        {
+          "date": "2026-04-16",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "https://delta.yandex-team.ru/page/epad/page/z7zez3wbht5wavhi",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "1",
+      "review_date": "2026-04-09",
+      "review_type": "RFD",
+      "project_title": "Лувр",
+      "resolution_events": [
+        {
+          "date": "2026-04-09",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "https://delta.yandex-team.ru/page/epad/page/ft027dl2ggrjx97e",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "48",
+      "review_date": "2026-04-02",
+      "review_type": "RFD-MINI",
+      "project_title": "Рейтинг и отзывы на межнаре",
+      "resolution_events": [
+        {
+          "date": "2026-04-02",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "2",
+      "review_date": "2026-03-24",
+      "review_type": "RFD",
+      "project_title": "Контент на главной",
+      "resolution_events": [
+        {
+          "date": "2026-03-24",
+          "resolution": "Need information",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Need information",
+      "comments": "24.03.2026\n\nНужно допинать вопросы на стыке\nCX & PM",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "3",
+      "review_date": "2026-03-24",
+      "review_type": "RFD",
+      "project_title": "NavBar",
+      "resolution_events": [
+        {
+          "date": "2026-03-24",
+          "resolution": "Need information",
+          "date_source": "review_date"
+        },
+        {
+          "date": "2026-04-20",
+          "resolution": "Ready for development",
+          "date_source": "status_cell"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "24.03.2026\n\nНужно допинать вопросы на стыке\nCX & PM",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "22",
+      "review_date": "2026-03-20",
+      "review_type": "RFD-MINI",
+      "project_title": "Обновление блока цен и сценария перехода в приложение",
+      "resolution_events": [
+        {
+          "date": "2026-03-20",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "4",
+      "review_date": "2026-03-19",
+      "review_type": "RFD",
+      "project_title": "Обновление чекаута в ЖД",
+      "resolution_events": [
+        {
+          "date": "2026-03-19",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "21",
+      "review_date": "2026-03-19",
+      "review_type": "RFD-MINI",
+      "project_title": "Эксперимент с прямой скидкой при оплате картой Яндекс Пэй.",
+      "resolution_events": [
+        {
+          "date": "2026-03-19",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "5",
+      "review_date": "2026-03-10",
+      "review_type": "RFD",
+      "project_title": "Реферальная программа — новые точки входа",
+      "resolution_events": [
+        {
+          "date": "2026-03-10",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "6",
+      "review_date": "2026-03-10",
+      "review_type": "RFD",
+      "project_title": "App Feed",
+      "resolution_events": [
+        {
+          "date": "2026-03-10",
+          "resolution": "Need information",
+          "date_source": "status_cell"
+        }
+      ],
+      "latest_resolution": "Need information",
+      "comments": "10.03.2026\n\nНужно допинать вопросы на стыке\nCX & PM",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "7",
+      "review_date": "2026-03-03",
+      "review_type": "RFD",
+      "project_title": "Лотерея на постоянку",
+      "resolution_events": [
+        {
+          "date": "2026-03-03",
+          "resolution": "Need information",
+          "date_source": "status_cell"
+        },
+        {
+          "date": "2026-04-20",
+          "resolution": "Ready for development",
+          "date_source": "status_cell"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "03.03.2026\n\nЕгор ушёл допинать вопросы с Артёмом,  Женей, Ваней и Михой",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "8",
+      "review_date": "2026-03-03",
+      "review_type": "RFD",
+      "project_title": "Шаблоны сообщений в Экстранете",
+      "resolution_events": [
+        {
+          "date": "2026-03-03",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "20",
+      "review_date": "2026-03-02",
+      "review_type": "RFD-MINI",
+      "project_title": null,
+      "resolution_events": [
+        {
+          "date": "2026-03-02",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": [
+        "В источнике отсутствует название"
+      ]
+    },
+    {
+      "source_row_id": "10",
+      "review_date": "2026-02-25",
+      "review_type": "RFD",
+      "project_title": "Инструменты для ревенью менеджмента для отелей",
+      "resolution_events": [
+        {
+          "date": "2026-02-25",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "9",
+      "review_date": "2026-02-25",
+      "review_type": "RFD",
+      "project_title": "Новая галерея на Web",
+      "resolution_events": [
+        {
+          "date": "2026-02-25",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": null,
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "19",
+      "review_date": "2026-02-11",
+      "review_type": "RFD-MINI",
+      "project_title": "В рамках антикризисного плана реализуем полку похожих объектов на странице объекта без доступности",
+      "resolution_events": [
+        {
+          "date": "2026-02-11",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "18",
+      "review_date": "2026-02-09",
+      "review_type": "RFD-MINI",
+      "project_title": "Обновляем Happy Page в ЖД",
+      "resolution_events": [
+        {
+          "date": "2026-02-09",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "16",
+      "review_date": "2026-02-06",
+      "review_type": "RFD-MINI",
+      "project_title": "Запускаем точку входа на портале для привлечения лидов.",
+      "resolution_events": [
+        {
+          "date": "2026-02-06",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "Ссылка на обсуждение в исходном логе; содержимое обсуждения не прочитано.",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "17",
+      "review_date": "2026-02-06",
+      "review_type": "RFD-MINI",
+      "project_title": "Обработка комментов с RFD",
+      "resolution_events": [
+        {
+          "date": "2026-02-06",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "11",
+      "review_date": "2026-01-29",
+      "review_type": "RFD",
+      "project_title": "Эксперимент с новыми промо местами",
+      "resolution_events": [
+        {
+          "date": "2026-01-29",
+          "resolution": "Deferred",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Deferred",
+      "comments": "https://delta.yandex-team.ru/page/epad/page/u7zds583xv66i39y",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": [
+        "Лишняя точка в дате источника; нормализовано как 29.01.2026"
+      ]
+    },
+    {
+      "source_row_id": "12",
+      "review_date": "2026-01-29",
+      "review_type": "RFD",
+      "project_title": "Конструктор офферов",
+      "resolution_events": [
+        {
+          "date": "2026-01-29",
+          "resolution": "Need information",
+          "date_source": "status_cell"
+        },
+        {
+          "date": "2026-02-06",
+          "resolution": "Ready for development",
+          "date_source": "status_cell"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "https://delta.yandex-team.ru/page/epad/page/hnv3angxqh6hes2f",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "14",
+      "review_date": "2026-01-22",
+      "review_type": "RFD",
+      "project_title": "Алисизация в Путешествиях",
+      "resolution_events": [
+        {
+          "date": "2026-01-22",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "15",
+      "review_date": "2026-01-22",
+      "review_type": "RFD-MINI",
+      "project_title": "Автоизменения количества гостей",
+      "resolution_events": [
+        {
+          "date": "2026-01-22",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "[ссылка в исходном логе]",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    },
+    {
+      "source_row_id": "13",
+      "review_date": "2026-01-15",
+      "review_type": "RFD",
+      "project_title": "Контент в Экстранете (Памир)",
+      "resolution_events": [
+        {
+          "date": "2026-01-15",
+          "resolution": "Ready for development",
+          "date_source": "review_date"
+        }
+      ],
+      "latest_resolution": "Ready for development",
+      "comments": "—",
+      "additional": null,
+      "source_url": "https://wiki.yandex-team.ru/travel/novaja-viki/osobennosti-po-specialnostjam/dizajjnvjandeksputeshestvijax/dizajjn-processy/chto-takoe-rfd/rfd-log",
+      "issues": []
+    }
+  ]
+}

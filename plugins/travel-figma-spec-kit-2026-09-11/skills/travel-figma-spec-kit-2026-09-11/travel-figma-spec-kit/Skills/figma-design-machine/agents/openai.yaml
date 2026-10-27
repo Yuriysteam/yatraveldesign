@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Design Machine"
+  short_description: "Создаёт концепции и продуктовые экраны в Figma"
+  default_prompt: "Use $figma-design-machine to turn this product task into Figma concepts, approved screens, and relevant interface states."

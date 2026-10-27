@@ -1,0 +1,2656 @@
+{
+  "source": {
+    "name": "Base 2.0",
+    "fileKey": "nS3RFzW68XXRzFtw8OtRnL",
+    "url": "https://www.figma.com/design/nS3RFzW68XXRzFtw8OtRnL/Base-2.0",
+    "auditedAt": "2026-08-21",
+    "pagesAudited": 57
+  },
+  "pages": [
+    {
+      "index": 0,
+      "id": "12254:152444",
+      "name": "◆ Principles",
+      "sections": [
+        "Layout",
+        "Colors",
+        "Typography",
+        "Effects",
+        "Blocks"
+      ],
+      "componentSets": []
+    },
+    {
+      "index": 1,
+      "id": "142:1712",
+      "name": "◆ Graphics",
+      "sections": [],
+      "componentSets": [
+        {
+          "id": "8141:2822",
+          "key": "572651ca35dc5d4019dcc7bdb718519075444027",
+          "name": "Favorite",
+          "variants": 6,
+          "axes": {
+            "Size": [
+              "24",
+              "12"
+            ],
+            "State": [
+              "Default",
+              "Active"
+            ],
+            "Style": [
+              "Constant",
+              "Outline"
+            ]
+          }
+        },
+        {
+          "id": "15352:32738",
+          "key": "9b58887faf72889e47e1a0cb239dcaa1c5ffd3cb",
+          "name": "Trust",
+          "variants": 4,
+          "axes": {
+            "Size": [
+              "24",
+              "20",
+              "16",
+              "12"
+            ]
+          }
+        },
+        {
+          "id": "15714:45993",
+          "key": "0cf3d976ad95d2cdfac449bdd3a66105fe2c73f4",
+          "name": "Plus",
+          "variants": 28,
+          "axes": {
+            "Size": [
+              "32",
+              "24",
+              "20",
+              "16",
+              "14",
+              "12",
+              "10"
+            ],
+            "Color": [
+              "Gradient",
+              "Dark",
+              "White",
+              "Disabled"
+            ]
+          }
+        },
+        {
+          "id": "32972:42060",
+          "key": "0a5acb70d199d18c57718737eccc170ff2966548",
+          "name": "More",
+          "variants": 2,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "11804:13337",
+          "key": "8135e7ec61f4ff6b352d6ecf8ed8bb7b4d054119",
+          "name": "Uchouten-Ava/48",
+          "variants": 3,
+          "axes": {
+            "Style": [
+              "48/NoImg",
+              "48/Img",
+              "48/Number"
+            ]
+          }
+        },
+        {
+          "id": "11815:20002",
+          "key": "6cf104e4bb93859b0d6ce2c6d6afdde80fd63c9e",
+          "name": "Uchouten-Ava/40",
+          "variants": 3,
+          "axes": {
+            "Style": [
+              "40/NoImg",
+              "40/Img",
+              "40/Number"
+            ]
+          }
+        },
+        {
+          "id": "6723:10529",
+          "key": "1d54767ee52ac733082b20fbd947a52f7ec07399",
+          "name": "Loyalty Scene",
+          "variants": 16,
+          "axes": {
+            "Orientation": [
+              "Landscape",
+              "Portret"
+            ],
+            "Level": [
+              "1",
+              "2",
+              "3",
+              "4"
+            ],
+            "Active": [
+              "True",
+              "False"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "id": "104:2",
+      "name": "◆ Constant ",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 3,
+      "id": "30687:15773",
+      "name": "◆ Colors temp",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 4,
+      "id": "11615:1524",
+      "name": "◆ Animation & Haptic",
+      "sections": [
+        "Template Component Name I Mobile",
+        "Pull to refresh",
+        "Skeleton",
+        "❖ Spinner",
+        "Хаптики"
+      ],
+      "componentSets": [
+        {
+          "id": "20175:46325",
+          "key": "689ebc4f309370ce8390717c56552bae99c5afa5",
+          "name": "Spinner",
+          "variants": 4,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Brand"
+            ],
+            "Size": [
+              "S · 16",
+              "L · 36"
+            ]
+          }
+        },
+        {
+          "id": "20175:46337",
+          "key": "ce21dd925aee3f94d698b84c1cf46df0232387a6",
+          "name": ".Notification",
+          "variants": 10,
+          "axes": {
+            "Type": [
+              "Neutral White",
+              "Neutral Grey",
+              "Positive",
+              "Warning",
+              "Critical"
+            ],
+            "Subtitle": [
+              "Yes",
+              "No"
+            ]
+          }
+        },
+        {
+          "id": "32215:15542",
+          "key": "92f33f67be4f0436433276f7e0601fd956387fd0",
+          "name": "Haptic",
+          "variants": 11,
+          "axes": {
+            "Category": [
+              "Impact",
+              "Selection",
+              "Notification",
+              "Toggle"
+            ],
+            "Type": [
+              "Rigid",
+              "Medium",
+              "Heavy",
+              "Soft",
+              "Light",
+              "Selection",
+              "Success",
+              "Warning",
+              "Error",
+              "On",
+              "Off"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "id": "13832:20180",
+      "name": "❖ Text Area",
+      "sections": [
+        "Text Area | Design",
+        "Text Area",
+        "Ревью",
+        "Text Area / Dymanic | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "16552:29528",
+          "key": "07a6cb3501d92ecbe3880f8b2655e3fd4ee12a89",
+          "name": "TextArea",
+          "variants": 45,
+          "axes": {
+            "Dynamic": [
+              "on",
+              "off"
+            ],
+            "Type": [
+              "Solid",
+              "Outlined"
+            ],
+            "State": [
+              "Empty",
+              "Filled",
+              "Hover",
+              "Focused",
+              "Disabled",
+              "Error",
+              "Skeleton",
+              "Hover Filled"
+            ],
+            "Inverse": [
+              "Off",
+              "On"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "id": "32356:193029",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 7,
+      "id": "32356:179073",
+      "name": "    BUTTONS",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 8,
+      "id": "2049:7511",
+      "name": "❖ Button 🟠",
+      "sections": [
+        "Button | IOS, Android, Touch, Desktop",
+        "Button | Design",
+        "Icon Button | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "7226:85855",
+          "key": "e1353aa32102afbd0e8bc34deea0a1749ceac3d7",
+          "name": "Button",
+          "variants": 250,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Secondary",
+              "Outlined",
+              "Floating (Raised)",
+              "Light (Plain)",
+              "Dark",
+              "Attention",
+              "Constant white",
+              "Blur",
+              "Inverse"
+            ],
+            "Size": [
+              "XL · 56",
+              "L · 48",
+              "M · 40",
+              "S · 32",
+              "XS · 24"
+            ],
+            "State": [
+              "Default",
+              "Hover/Active",
+              "Disabled",
+              "Skeleton",
+              "Processing"
+            ]
+          }
+        },
+        {
+          "id": "7229:97460",
+          "key": "ec3d93516e5b0dc046268ee09305eca59df0385c",
+          "name": "RoundedButton",
+          "variants": 250,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Secondary",
+              "Outlined",
+              "White",
+              "Dark",
+              "Floating",
+              "Attention",
+              "Blured",
+              "Inverse",
+              "Transparent"
+            ],
+            "Size": [
+              "XL · 56",
+              "L · 48",
+              "M · 40",
+              "S · 32",
+              "XS · 24"
+            ],
+            "State": [
+              "Default",
+              "Hover/Active",
+              "Disabled",
+              "Skeleton",
+              "Processing"
+            ]
+          }
+        },
+        {
+          "id": "7555:4416",
+          "key": "550be575b3adfbe651539636b81b343ca14b39dd",
+          "name": "IconContainer",
+          "variants": 5,
+          "axes": {
+            "size": [
+              "XL · 24",
+              "L · 20",
+              "M · 16",
+              "S · 12",
+              "XS · 10"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "id": "13832:64851",
+      "name": "❖ Button Group",
+      "sections": [
+        "Button Group | Design",
+        "Button Group | IOS, Android, Touch, Desktop"
+      ],
+      "componentSets": [
+        {
+          "id": "6338:33054",
+          "key": "090dc7d029cdc7a12ecd0c0688de3f027f6e8213",
+          "name": "Button Group",
+          "variants": 3,
+          "axes": {
+            "Buttons": [
+              "Single",
+              "Horisontal",
+              "Vertical"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "id": "2049:7521",
+      "name": "❖ Chips 🟠",
+      "sections": [
+        "Chips | IOS, Android, Touch, Desktop",
+        "Chips | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "9091:7321",
+          "key": "661f6a8f721223be80b07a367702164060cdbe31",
+          "name": "Chips",
+          "variants": 40,
+          "axes": {
+            "Type": [
+              "Default",
+              "Floating (Raised)",
+              "Intent"
+            ],
+            "Size": [
+              "XL · 56",
+              "L · 48",
+              "M · 40",
+              "S · 32"
+            ],
+            "State": [
+              "Default",
+              "Disabled"
+            ],
+            "Checked": [
+              "off",
+              "on"
+            ],
+            "Text size": [
+              "14",
+              "16"
+            ]
+          }
+        },
+        {
+          "id": "11201:28064",
+          "key": "01deb09499e387854727969d25c333b2496bd258",
+          "name": "Chips",
+          "variants": 32,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Floating (Raised)"
+            ],
+            "Size": [
+              "XL · 56",
+              "L · 48",
+              "M · 40",
+              "S · 32"
+            ],
+            "State": [
+              "Default",
+              "Disabled"
+            ],
+            "Checked": [
+              "off",
+              "on"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "id": "36524:81542",
+      "name": "❖ More Button / Kebab",
+      "sections": [
+        "More Button / Kebab | IOS, Android, Touch, Desktop",
+        "More Button / Kebab | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "36524:85350",
+          "key": "d47ac3aeb9a4f1b48cf672f5af29c7aa4b60be9b",
+          "name": "More",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Secondary",
+              "Transparent"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "id": "30245:30904",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 13,
+      "id": "32356:193039",
+      "name": "    INPUT & SELECTION",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 14,
+      "id": "1949:2166",
+      "name": "❖ Checkbox",
+      "sections": [
+        "Checkbox | IOS, Android, Touch, Desktop",
+        "Checkbox | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "10246:3057",
+          "key": "c9a97396486fa3d659dff7495b56de263c4fc3d0",
+          "name": "CheckboxSolid",
+          "variants": 64,
+          "axes": {
+            "State": [
+              "Default",
+              "Disabled",
+              "Error",
+              "Skeleton"
+            ],
+            "Size": [
+              "L · 28",
+              "XL · 32",
+              "S · 18",
+              "M · 22"
+            ],
+            "TextSize": [
+              "One-line",
+              "Multi-line"
+            ],
+            "Align": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        {
+          "id": "8490:8466",
+          "key": "9f817340e8d45c3c9f582447ffc4cb240130cf57",
+          "name": "TextSize",
+          "variants": 2,
+          "axes": {
+            "Size": [
+              "Huge",
+              "Oneline"
+            ]
+          }
+        },
+        {
+          "id": "21999:54269",
+          "key": "0e3ceae2213c893fc13ae67136e8b830d440c4cf",
+          "name": "CheckboxOutlined",
+          "variants": 80,
+          "axes": {
+            "State": [
+              "Default",
+              "Disabled",
+              "Error",
+              "Skeleton",
+              "Hover"
+            ],
+            "Size": [
+              "S · 18",
+              "L · 28",
+              "XL · 32",
+              "M · 22"
+            ],
+            "TextSize": [
+              "One-line",
+              "Multi-line"
+            ],
+            "Align": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        {
+          "id": "21999:54665",
+          "key": "cbc712f8b224c76e91c26b8659f41ab0701cd8b4",
+          "name": "TextSize",
+          "variants": 2,
+          "axes": {
+            "Size": [
+              "Huge",
+              "Oneline"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "id": "2316:150",
+      "name": "❖ Dropdown",
+      "sections": [
+        "Dropdown | Desktop",
+        "🟠 Dropdown chips",
+        "Dropdown | App, touch",
+        "Multiselect | Desktop",
+        "Select | Desktop",
+        "Dropdown | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "5775:7597",
+          "key": "28b4f8dfd6a6e18d0d96b5d81754ec07605a31ce",
+          "name": "Dropdown",
+          "variants": 144,
+          "axes": {
+            "View": [
+              "Solid",
+              "Outline"
+            ],
+            "State": [
+              "Empty",
+              "Empty Placeholder",
+              "Filled",
+              "Hover",
+              "Disabled",
+              "Focused",
+              "Error",
+              "Error Placeholder",
+              "Skeleton"
+            ],
+            "Size": [
+              "XL (56)",
+              "L (48)",
+              "M (40)",
+              "S (32)"
+            ],
+            "Weight": [
+              "On",
+              "Off"
+            ]
+          }
+        },
+        {
+          "id": "43416:14719",
+          "key": "ac86572ec4ebada2d00b6f5d12667ba70a1dc7a3",
+          "name": "Dropdown chips",
+          "variants": 32,
+          "axes": {
+            "Type": [
+              "Default",
+              "Floating (Raised)"
+            ],
+            "Size": [
+              "XL · 56",
+              "L · 48",
+              "M · 40",
+              "S · 32"
+            ],
+            "State": [
+              "Default",
+              "Disabled"
+            ],
+            "Checked": [
+              "Off",
+              "On"
+            ]
+          }
+        },
+        {
+          "id": "5716:9136",
+          "key": "50700fd8c4ef99647b2924d64d0d3d02c3a72a7c",
+          "name": "Select",
+          "variants": 10,
+          "axes": {
+            "Type": [
+              "Select",
+              "Multiselect"
+            ],
+            "State": [
+              "Default",
+              "Selected",
+              "Loading",
+              "Error"
+            ],
+            "Group select": [
+              "On",
+              "Off"
+            ]
+          }
+        },
+        {
+          "id": "5709:1689",
+          "key": "e6c732694fb09ab04e17c47ae0dc8c02684bf614",
+          "name": "Stroke",
+          "variants": 4,
+          "axes": {
+            "View": [
+              "Select",
+              "Multiselect"
+            ],
+            "State": [
+              "Default",
+              "Selected"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "id": "1993:202",
+      "name": "❖ Input",
+      "sections": [
+        "InputSolid | IOS, Android, Touch, Desktop",
+        "InputSolidWhite | IOS, Android, Touch, Desktop",
+        "InputOutlined | IOS, Android, Touch, Desktop",
+        "InputTransparent | IOS, Android, Touch, Desktop",
+        "InputUnderlined | IOS, Android, Touch, Desktop",
+        "InputSolid | Design",
+        "InputSolidWhite | Design",
+        "InputOutlined | Design",
+        "InputTranceperent | Design",
+        "InputUnderlined | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "7307:32192",
+          "key": "a63928aec22d55d8365f13ef1360c5e6ca53897f",
+          "name": "InputSolid",
+          "variants": 32,
+          "axes": {
+            "State": [
+              "Empty",
+              "Filled",
+              "Disabled",
+              "Hover",
+              "Focused",
+              "Error",
+              "Error Empty",
+              "Skeleton"
+            ],
+            "Size": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ]
+          }
+        },
+        {
+          "id": "30425:30771",
+          "key": "be88cbe39dbb9a805f1d2a676eb2cd3177731027",
+          "name": "WhiteInputSolid",
+          "variants": 32,
+          "axes": {
+            "State": [
+              "Empty",
+              "Filled",
+              "Hover",
+              "Disabled",
+              "Focused",
+              "Error",
+              "Error Empty",
+              "Skeleton"
+            ],
+            "Size": [
+              "S-32",
+              "M-40",
+              "L-48",
+              "XL-56"
+            ]
+          }
+        },
+        {
+          "id": "17910:33465",
+          "key": "9994649fd5350c71efb08f5e1afc8cd33a0d114d",
+          "name": "InputOutlined",
+          "variants": 32,
+          "axes": {
+            "State": [
+              "Empty",
+              "Filled",
+              "Disabled",
+              "Hover",
+              "Focused",
+              "Error",
+              "Error Empty",
+              "Skeleton"
+            ],
+            "Size": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ]
+          }
+        },
+        {
+          "id": "32853:13387",
+          "key": "085e3789e0745154b2c631582b073132fed7a97c",
+          "name": "InputTranceperent",
+          "variants": 10,
+          "axes": {
+            "State": [
+              "Skeleton",
+              "Focused",
+              "Filled",
+              "Error",
+              "Default"
+            ],
+            "Size": [
+              "M",
+              "S"
+            ]
+          }
+        },
+        {
+          "id": "2082:15104",
+          "key": "77ae62034f6b21371c4247613413245215bc41fd",
+          "name": "InputUnderlined",
+          "variants": 6,
+          "axes": {
+            "State": [
+              "Empty Default",
+              "Empty Focused",
+              "Filled Focused",
+              "Filled Default",
+              "Filled Error",
+              "Empty Error"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "id": "12254:52943",
+      "name": "❖ Radiobutton",
+      "sections": [
+        "Radiobutton | IOS, Android, Touch, Desktop",
+        "Radiobutton | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "11702:41126",
+          "key": "f30bcb9e75b89402d7ca4827a6acfc6dc459a6b9",
+          "name": " RadiobuttonSolid",
+          "variants": 64,
+          "axes": {
+            "State": [
+              "Default",
+              "Disabled",
+              "Error",
+              "Skeleton"
+            ],
+            "Size": [
+              "S · 18",
+              "M · 22",
+              "L · 28",
+              "XL · 32"
+            ],
+            "TextSize": [
+              "One-line",
+              "Multi-line"
+            ],
+            "Align": [
+              "Left",
+              "Right"
+            ]
+          }
+        },
+        {
+          "id": "22011:36237",
+          "key": "abe3e89f47e7a5deb9645c9f51b1514baf3d3c13",
+          "name": " RadiobuttonOutlined",
+          "variants": 80,
+          "axes": {
+            "State": [
+              "Default",
+              "Disabled",
+              "Error",
+              "Skeleton",
+              "Hover"
+            ],
+            "Size": [
+              "S · 18",
+              "M · 22",
+              "L · 28",
+              "XL · 32"
+            ],
+            "TextSize": [
+              "One-line",
+              "Multi-line"
+            ],
+            "Align": [
+              "Left",
+              "Right"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "id": "12272:54959",
+      "name": "❖ Range",
+      "sections": [
+        "Range | Design",
+        "Range | IOS, Android, Touch, Desktop"
+      ],
+      "componentSets": [
+        {
+          "id": "14607:40054",
+          "key": "61d1040e0da5d838167f8d325e2bcc829a639973",
+          "name": "Range",
+          "variants": 6,
+          "axes": {
+            "Size": [
+              "S",
+              "L"
+            ],
+            "State": [
+              "Default",
+              "Disabled",
+              "Skeleton"
+            ]
+          }
+        },
+        {
+          "id": "14488:50610",
+          "key": "a256c5cca802f383ccc0594aa094a6ea1b9be009",
+          "name": "Knob",
+          "variants": 8,
+          "axes": {
+            "Size": [
+              "S",
+              "L"
+            ],
+            "State": [
+              "Default",
+              "Hover",
+              "Pressed",
+              "Disabled"
+            ]
+          }
+        },
+        {
+          "id": "14496:39738",
+          "key": "feed5243270f1ea06fb4cf35faf3359d9e5f483f",
+          "name": "Marks",
+          "variants": 6,
+          "axes": {
+            "Number": [
+              "2",
+              "3",
+              "4"
+            ],
+            "⛔ Disabled": [
+              "false",
+              "true"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "id": "3171:22604",
+      "name": "❖ Segmented Control",
+      "sections": [
+        "❖ Segmented Control",
+        "❖ Segmented Control | IOS, Android, Touch"
+      ],
+      "componentSets": [
+        {
+          "id": "5640:1327",
+          "key": "323af97ebb6498d2550d4bf360bdef9b17064528",
+          "name": "Segmented control",
+          "variants": 36,
+          "axes": {
+            "Size": [
+              "L",
+              "XXL",
+              "M",
+              "XL"
+            ],
+            "Tab": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6"
+            ],
+            "Yandex Plus": [
+              "Off",
+              "On"
+            ],
+            "Weight": [
+              "Off",
+              "On"
+            ]
+          }
+        },
+        {
+          "id": "5645:5277",
+          "key": "fc490550f19f35f67002721be5f3d237093525e1",
+          "name": "⚙️ Tab XXL",
+          "variants": 8,
+          "axes": {
+            "State": [
+              "Active",
+              "Default",
+              "Disabled",
+              "Blocked"
+            ],
+            "Weight": [
+              "Off",
+              "On"
+            ]
+          }
+        },
+        {
+          "id": "8080:14470",
+          "key": "a193f6e604feccd534a8a81cf7e826514547aa29",
+          "name": "⚙️ Tab XL",
+          "variants": 16,
+          "axes": {
+            "State": [
+              "Active",
+              "Default",
+              "Disabled",
+              "Blocked"
+            ],
+            "Font": [
+              "16",
+              "14"
+            ],
+            "Weight": [
+              "Off",
+              "On"
+            ]
+          }
+        },
+        {
+          "id": "5636:1198",
+          "key": "9031eda383e1cff47d23caae40ec8f160942d4a1",
+          "name": "⚙️ Tab L",
+          "variants": 16,
+          "axes": {
+            "State": [
+              "Active",
+              "Default",
+              "Disabled",
+              "Blocked"
+            ],
+            "16 Font": [
+              "On",
+              "Off"
+            ],
+            "Weight": [
+              "Off",
+              "On"
+            ]
+          }
+        },
+        {
+          "id": "16042:36390",
+          "key": "044533faa76e540d556c01acb98577150803102e",
+          "name": "⚙️ Tab M",
+          "variants": 8,
+          "axes": {
+            "State": [
+              "Active",
+              "Default",
+              "Disabled",
+              "Blocked"
+            ],
+            "Weight": [
+              "Off",
+              "On"
+            ]
+          }
+        },
+        {
+          "id": "5645:5300",
+          "key": "ee5881e0feaa6237fe15483e3f52a1917c3f1726",
+          "name": "Yandex plus tags",
+          "variants": 2,
+          "axes": {
+            "Size": [
+              "M",
+              "L"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "id": "12272:38933",
+      "name": "❖ Stepper",
+      "sections": [
+        "Stepper | Design",
+        "Stepper"
+      ],
+      "componentSets": [
+        {
+          "id": "31903:71256",
+          "key": "8c36462593a44c5025dfad613e0e3db1b204eae7",
+          "name": "Stepper",
+          "variants": 8,
+          "axes": {}
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "id": "11203:93255",
+      "name": "❖ Suggest",
+      "sections": [
+        "Intent | Design",
+        "Intent | IOS, Android, Touch, Desktop",
+        "Ревью"
+      ],
+      "componentSets": [
+        {
+          "id": "15848:124409",
+          "key": "2b0d6e8db206b0eb911e46eeecf482ae2ba5d0f1",
+          "name": "Intent",
+          "variants": 16,
+          "axes": {
+            "Size": [
+              "XL · 56",
+              "L · 48",
+              "M · 40",
+              "S · 32"
+            ],
+            "State": [
+              "Default",
+              "Hover/Active",
+              "Disabled",
+              "Skeleton"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "id": "12254:52944",
+      "name": "❖ Switch",
+      "sections": [
+        "Switch (Toggle) | Design",
+        "Switch (Toggle) | IOS, Android, Touch, Desktop"
+      ],
+      "componentSets": [
+        {
+          "id": "21645:131543",
+          "key": "d31921249a6d8c1ae205d955019c4926329b6bc7",
+          "name": "Switch",
+          "variants": 36,
+          "axes": {
+            "Color": [
+              "Black",
+              "Primary",
+              "Secondary"
+            ],
+            "Size": [
+              "M · 22",
+              "L · 28",
+              "XL · 32"
+            ],
+            "State": [
+              "Default",
+              "Hover/Active",
+              "Disabled",
+              "Readonly"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "id": "30245:71173",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 24,
+      "id": "32356:193079",
+      "name": "    INDICATION & STATUS",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 25,
+      "id": "2049:7509",
+      "name": "❖ Badges 🟠 (см FAQ PillBadge)",
+      "sections": [
+        "Badges | For designers",
+        "PillBadge",
+        "Recommend Badge",
+        "PlusBadge",
+        "Snippet Badge",
+        "Discount Badge",
+        "PlusBadge | For designers"
+      ],
+      "componentSets": [
+        {
+          "id": "5362:7512",
+          "key": "67104eacfa8ff60df0bc88c394505f38910c3ec1",
+          "name": "Discount Badge",
+          "variants": 10,
+          "axes": {
+            "Type": [
+              "Double",
+              "Loyalty",
+              "Default"
+            ],
+            "Size": [
+              "M",
+              "S",
+              "XL",
+              "L"
+            ]
+          }
+        },
+        {
+          "id": "5391:41",
+          "key": "ca25c186239e6f8a399abbbc4745647d883f75f7",
+          "name": "PillBadge",
+          "variants": 160,
+          "axes": {
+            "Size": [
+              "20-Small",
+              "24-Medium",
+              "28-Large",
+              "32-X-Large"
+            ],
+            "Type": [
+              "Primary",
+              "Secondary",
+              "Accent",
+              "Accent Const",
+              "Tertiary"
+            ],
+            "Tone": [
+              "Neutral",
+              "Positive",
+              "Info",
+              "Negative",
+              "Off",
+              "Warning",
+              "Blur",
+              "Floating"
+            ]
+          }
+        },
+        {
+          "id": "5454:6627",
+          "key": "6634ed7a606390cb93035d5a0ad405f7c53b5c87",
+          "name": "Recommend Badge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "31306:30165",
+          "key": "063555a5c10e33560ba5b5acc9a4cacba42ea006",
+          "name": "Trust Badge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "31337:30207",
+          "key": "d073f12d76176f5e87c676df2501e4a04b175011",
+          "name": "Guest Favourite Badge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "22551:39990",
+          "key": "3a0ad52fcbcb53865ca8f33576799c982ca67a3e",
+          "name": "SuperHost Badge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "34826:30199",
+          "key": "3d1df0a0087f76a0a09899be74016da5d7ba580e",
+          "name": "FamilyBadge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "34839:30317",
+          "key": "c23f81809cf73c597e0133299523a48323c32d8d",
+          "name": "FamilyBadge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "34839:30346",
+          "key": "d385844b98f7b24ccc16be1edf321499b3a2cbc4",
+          "name": "FamilyBadge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Secondary"
+            ]
+          }
+        },
+        {
+          "id": "24353:30814",
+          "key": "041bb4f6be2c15d4be1f04381fbe478bfa148d5e",
+          "name": "Nice2Stay Badge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Type3"
+            ]
+          }
+        },
+        {
+          "id": "24610:30819",
+          "key": "09c38d3f7d32d1d3c8134c2799638641b96fb8ff",
+          "name": "3DTour Badge",
+          "variants": 3,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Default",
+              "Type3"
+            ]
+          }
+        },
+        {
+          "id": "5490:6360",
+          "key": "9408cad234cc8de0cb80390fa16a20ca424a947b",
+          "name": "Snippet badge",
+          "variants": 6,
+          "axes": {
+            "Type": [
+              "Default",
+              "Split"
+            ],
+            "Size": [
+              "L",
+              "M",
+              "S"
+            ]
+          }
+        },
+        {
+          "id": "22542:40127",
+          "key": "cc162dd419e434640750a9e998d896b74d7688c0",
+          "name": "Badge new object",
+          "variants": 2,
+          "axes": {
+            "Size": [
+              "M",
+              "S"
+            ]
+          }
+        },
+        {
+          "id": "25939:67081",
+          "key": "4d2c27339ce06477cde2e103fa47c0a15710f37d",
+          "name": "Icon PillBadge",
+          "variants": 100,
+          "axes": {
+            "Size": [
+              "20-Small",
+              "24-Medium",
+              "28-Large",
+              "32-X-Large"
+            ],
+            "Type": [
+              "Primary",
+              "Secondary",
+              "Accent",
+              "Accent Const"
+            ],
+            "Tone": [
+              "Neutral",
+              "Positive",
+              "Info",
+              "Negative",
+              "Off",
+              "Warning",
+              "Blur"
+            ]
+          }
+        },
+        {
+          "id": "27850:88476",
+          "key": "33619e650ea9048ff0a0e0e2b12903d2f6edd357",
+          "name": "PlusBadge",
+          "variants": 20,
+          "axes": {
+            "Type": [
+              "Default",
+              "Count"
+            ],
+            "Size": [
+              "S · 16",
+              "M · 20",
+              "L · 32",
+              "XL · 36",
+              "XXL · 40"
+            ],
+            "Gradient": [
+              "No",
+              "Yes"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "id": "2049:7519",
+      "name": "❖ Informer",
+      "sections": [
+        "Informers Old | For designers",
+        "Informer | For designers",
+        "Informer Compact | For designers",
+        "Informers Old",
+        "Informer I Desktop",
+        "Informer I IOS, Android, Touch"
+      ],
+      "componentSets": [
+        {
+          "id": "15500:44788",
+          "key": "41fc574b403a16a197f4e613d17d73c2c0fd04a5",
+          "name": "Informer",
+          "variants": 20,
+          "axes": {
+            "Scheme": [
+              "Vertical",
+              "Horizontal"
+            ],
+            "Type": [
+              "Info",
+              "Warning",
+              "Success",
+              "Alert",
+              "Neutral"
+            ],
+            "TextSize": [
+              "2+",
+              "1"
+            ]
+          }
+        },
+        {
+          "id": "32258:9551",
+          "key": "0c2c317512add6d50485bb16aa1b3cf8d7274023",
+          "name": "Informer",
+          "variants": 12,
+          "axes": {
+            "Align": [
+              "Center",
+              "Top Left"
+            ],
+            "Type": [
+              "White",
+              "Neutral",
+              "Info",
+              "Warning",
+              "Success",
+              "Alert"
+            ]
+          }
+        },
+        {
+          "id": "32233:24891",
+          "key": "533325b2d12c8ef0b29d812d0faf3cd377e605a4",
+          "name": "Left",
+          "variants": 2,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Illustration"
+            ]
+          }
+        },
+        {
+          "id": "32233:25411",
+          "key": "dd32d8ff9f50374f91293a7946d483b7ac77a841",
+          "name": "Right",
+          "variants": 4,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Chevron",
+              "Button Group",
+              "More"
+            ]
+          }
+        },
+        {
+          "id": "32233:25668",
+          "key": "92d54f86d54d02a23a41907562421680c6c72054",
+          "name": "Middle",
+          "variants": 4,
+          "axes": {
+            "Type": [
+              "Text 1 line",
+              "Text 2+ line",
+              "Title+subtitle horizontal",
+              "Title+subtitle vertical"
+            ]
+          }
+        },
+        {
+          "id": "32309:40625",
+          "key": "6194f4fd60ade578a300eac4256558c792cd446a",
+          "name": "Informer Compact",
+          "variants": 24,
+          "axes": {
+            "Size": [
+              "L",
+              "M",
+              "S"
+            ],
+            "Align": [
+              "Top Left",
+              "Center"
+            ],
+            "Type": [
+              "White",
+              "Neutral",
+              "Info",
+              "Warning",
+              "Success",
+              "Alert"
+            ]
+          }
+        },
+        {
+          "id": "32307:143842",
+          "key": "2202340f6e6942cfbb65fea9a20217128ff4e3ac",
+          "name": "Middle",
+          "variants": 5,
+          "axes": {
+            "Type": [
+              "Text 1 line",
+              "Text 2+ line",
+              "Title+subtitle vertical S",
+              "Title+subtitle horizontal",
+              "Title+subtitle vertical L"
+            ]
+          }
+        },
+        {
+          "id": "32307:143901",
+          "key": "1ff6bbc43c757b795895d108a103e573c3d5c48d",
+          "name": "Left",
+          "variants": 2,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Illustration"
+            ]
+          }
+        },
+        {
+          "id": "32308:39323",
+          "key": "1c8515ba23586218c595d620ad7ab829d6ec2566",
+          "name": "Right",
+          "variants": 4,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Chevron",
+              "More",
+              "Button"
+            ]
+          }
+        },
+        {
+          "id": "15666:17258",
+          "key": "76792de483423af35c5c6ac0e84fabd05a5a60a6",
+          "name": "InformerDesktopLight",
+          "variants": 8,
+          "axes": {
+            "Type": [
+              "Info",
+              "Alarm",
+              "Warning",
+              "Success"
+            ],
+            "Button": [
+              "off"
+            ],
+            "Size": [
+              "M",
+              "S"
+            ]
+          }
+        },
+        {
+          "id": "15666:17307",
+          "key": "d296c9b982327d0c9923becbbd312c143be7dc5c",
+          "name": "InformerMobileLight",
+          "variants": 8,
+          "axes": {
+            "Type": [
+              "Success",
+              "Info",
+              "Alarm",
+              "Warning",
+              "Type5",
+              "Type6",
+              "Type7",
+              "Type8"
+            ],
+            "Size": [
+              "XS",
+              "S"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "id": "13832:79487",
+      "name": "❖ Position Indicator",
+      "sections": [
+        "Position Indicator | For designers",
+        "Position Indicator I App, Touch"
+      ],
+      "componentSets": [
+        {
+          "id": "5774:16605",
+          "key": "dd3dc848363d5ce4dfb219bc2c60ce72fdbd3477",
+          "name": "Position Indicator",
+          "variants": 9,
+          "axes": {
+            "Number": [
+              "Two",
+              "Three",
+              "Four"
+            ],
+            "State": [
+              "One",
+              "Two",
+              "Three",
+              "Four"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "id": "38778:52395",
+      "name": "❖ Plus Points",
+      "sections": [
+        "PlusPoints",
+        "PlusPoints | For designers"
+      ],
+      "componentSets": [
+        {
+          "id": "5417:2537",
+          "key": "01d8ccce92538f30b6e6c9d30c702b90319ce663",
+          "name": "Plus Badge",
+          "variants": 4,
+          "axes": {
+            "Size": [
+              "S",
+              "M",
+              "L",
+              "XS"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "id": "13832:91184",
+      "name": "❖ Rating",
+      "sections": [
+        "Rating",
+        "Rating New | Design",
+        "Rating New "
+      ],
+      "componentSets": [
+        {
+          "id": "6175:1233",
+          "key": "26a60c8a9136382f5898a87c2c22e6d1ccf796e5",
+          "name": "Rating Badge",
+          "variants": 19,
+          "axes": {
+            "Size": [
+              "24-Medium",
+              "20-Small",
+              "32-Large",
+              "40-ExtraLarge",
+              "18-ExtraSmall"
+            ],
+            "Status": [
+              "Positive",
+              "Neutral",
+              "Monochrome"
+            ],
+            "Type": [
+              "Icon",
+              "Text"
+            ]
+          }
+        },
+        {
+          "id": "32422:6711",
+          "key": "eada51b9daf1d20ed9a4bfa90bc24080b4bb1209",
+          "name": "Right",
+          "variants": 10,
+          "axes": {
+            "Size": [
+              "XL 56",
+              "L 40",
+              "M 32",
+              "S 24",
+              "XS 20"
+            ],
+            "Type": [
+              "Estimate",
+              "Icon"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "id": "2052:7522",
+      "name": "❖ Spinner",
+      "sections": [
+        "❖ Spinner",
+        "Spinner"
+      ],
+      "componentSets": [
+        {
+          "id": "14042:129243",
+          "key": "a1ff87d6c8ab437523300ced8d65b9d71332e641",
+          "name": "Spinner",
+          "variants": 14,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Brand"
+            ],
+            "Size": [
+              "XXXL · 160",
+              "XXL · 72",
+              "XL · 56",
+              "L · 36",
+              "M · 24",
+              "S · 16",
+              "XS · 12"
+            ]
+          }
+        },
+        {
+          "id": "14037:26538",
+          "key": "18e0f3ac08b7cf5d29aca89a76573297492a268a",
+          "name": ".Notification",
+          "variants": 10,
+          "axes": {
+            "Type": [
+              "Neutral White",
+              "Neutral Grey",
+              "Positive",
+              "Warning",
+              "Critical"
+            ],
+            "Subtitle": [
+              "Yes",
+              "No"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "id": "30245:76776",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 32,
+      "id": "32356:193138",
+      "name": "    CONTENT DISPLAY",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 33,
+      "id": "13224:221621",
+      "name": "❖ Accordion",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 34,
+      "id": "13224:221622",
+      "name": "❖ Avatar",
+      "sections": [
+        "Avatar | Design",
+        "Avatar"
+      ],
+      "componentSets": [
+        {
+          "id": "29537:6641",
+          "key": "0eee2e5764f083316acb24abe7e3d5242f9d8cb5",
+          "name": "Yandex Avatar",
+          "variants": 7,
+          "axes": {
+            "Size": [
+              "XXS · 20",
+              "XS · 32",
+              "S · 40",
+              "M · 48",
+              "L · 56",
+              "XL · 60",
+              "XXL · 80"
+            ]
+          }
+        },
+        {
+          "id": "31867:364394",
+          "key": "0c960748005d5eea435521d0c4124728bbd903a9",
+          "name": "Avatar",
+          "variants": 42,
+          "axes": {
+            "Size": [
+              "XXL · 80",
+              "XL · 60",
+              "L · 56",
+              "M · 48",
+              "S · 40",
+              "XS · 32",
+              "XXS · 20"
+            ],
+            "State": [
+              "Img",
+              "Empty",
+              "Text"
+            ],
+            "Shape": [
+              "Circle",
+              "Rectangular"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "id": "39937:9068",
+      "name": "❖ Notification Dot",
+      "sections": [
+        "Notification Dot | Design",
+        "Notification Dot"
+      ],
+      "componentSets": [
+        {
+          "id": "39937:9100",
+          "key": "34430d5bf55aba0017fc301ed5fa06533fefd3c0",
+          "name": "Notification dot",
+          "variants": 15,
+          "axes": {
+            "Size": [
+              "S · 10",
+              "M · 12",
+              "L · 14",
+              "XL · 24"
+            ],
+            "Theme": [
+              "Red",
+              "Grey",
+              "Black"
+            ],
+            "Counter": [
+              "Yes",
+              "No"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "id": "12672:47691",
+      "name": "❖ Divider",
+      "sections": [
+        "Devider | Design",
+        "Divider"
+      ],
+      "componentSets": [
+        {
+          "id": "12672:84224",
+          "key": "457e04c3d1358cbec280f9dc46dc1fe97eb3b478",
+          "name": "Divider",
+          "variants": 10,
+          "axes": {
+            "Margin": [
+              "16",
+              "20",
+              "24",
+              "28",
+              "0"
+            ],
+            "Alignment": [
+              "Horizontal",
+              "Vertical"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "id": "4316:20665",
+      "name": "❖ List item",
+      "sections": [
+        "❖ List item",
+        "❖ List item (в процессе обсуждения)"
+      ],
+      "componentSets": [
+        {
+          "id": "6456:12718",
+          "key": "ace12720833781f5a24f1e15a76361a1d011e91e",
+          "name": "List item",
+          "variants": 9,
+          "axes": {
+            "Size": [
+              "S",
+              "M",
+              "L"
+            ],
+            "Theme": [
+              "Default",
+              "SecondaryOnPrimary",
+              "Skeleton"
+            ]
+          }
+        },
+        {
+          "id": "4355:10726",
+          "key": "d4ff7e56817aa505836050a3d912936e6ca15aa3",
+          "name": "List item/SectionRight",
+          "variants": 8,
+          "axes": {
+            "Type": [
+              "Text",
+              "Toggle",
+              "Close",
+              "Adder",
+              "Text Double",
+              "Informer",
+              "Chevron ML",
+              "Chevron S"
+            ]
+          }
+        },
+        {
+          "id": "4458:8900",
+          "key": "bbb5f810af56f2d6be7281934299ed3015a66bc5",
+          "name": "List item/SectionLeft",
+          "variants": 12,
+          "axes": {
+            "Type": [
+              "Icon",
+              "Img",
+              "Illustration"
+            ],
+            "State": [
+              "Default",
+              "Active"
+            ],
+            "Size": [
+              "M",
+              "L"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "id": "13256:22670",
+      "name": "❖ Text+Icon ",
+      "sections": [
+        "❖ Text+Icon",
+        "Text+Icon | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "31131:56400",
+          "key": "f40f51435e284d919a925f431208dc33ac0d9222",
+          "name": "Component 6",
+          "variants": 1,
+          "axes": {
+            "Property 1": [
+              "Default"
+            ]
+          }
+        },
+        {
+          "id": "14982:16143",
+          "key": "09395e5a0e78002e3104659a54120190d7691601",
+          "name": "Text + Icon",
+          "variants": 10,
+          "axes": {
+            "Size": [
+              "XL",
+              "L",
+              "M",
+              "S",
+              "XXL"
+            ],
+            "Weight": [
+              "On",
+              "Off"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "id": "32669:74433",
+      "name": "❖ Price [Freeze design – code ok]",
+      "sections": [
+        "❖ Price",
+        "Price | Design"
+      ],
+      "componentSets": [
+        {
+          "id": "32669:77153",
+          "key": "d33ecf0a60e972001741606e6be4e094d5a31adb",
+          "name": "Component 6",
+          "variants": 1,
+          "axes": {}
+        },
+        {
+          "id": "32669:78003",
+          "key": "85dd766aca4c7cb2af0f9e9e69500c5b3af643f0",
+          "name": "Price",
+          "variants": 17,
+          "axes": {}
+        },
+        {
+          "id": "32669:85429",
+          "key": "b9a8aa237a902546a9ff421de7b819748a44961b",
+          "name": "Discount",
+          "variants": 3,
+          "axes": {}
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "id": "30245:107337",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 41,
+      "id": "32356:193162",
+      "name": "    MESSAGING",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 42,
+      "id": "13224:221625",
+      "name": "❖ Snackbar",
+      "sections": [
+        "Snackbar | Design",
+        "Snackbar | IOS, Android, Touch",
+        "Snackbar | Desktop"
+      ],
+      "componentSets": [
+        {
+          "id": "6257:31804",
+          "key": "f36eda8616ef3f3d889879bd8418cef34f15ab9b",
+          "name": "Snackbar",
+          "variants": 3,
+          "axes": {
+            "Image": [
+              "Off",
+              "On"
+            ],
+            "Horizontal": [
+              "Off",
+              "On"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "id": "2053:7524",
+      "name": "❖ Toast",
+      "sections": [
+        "Toast | Design",
+        "Toast | IOS, Android, Touch",
+        "Toast | Web Desktop"
+      ],
+      "componentSets": [
+        {
+          "id": "5426:3111",
+          "key": "be6409e1776580ab3e7962237a02eb0bba010e9d",
+          "name": "Toast",
+          "variants": 3,
+          "axes": {
+            "State": [
+              "Positive",
+              "Neutral",
+              "Negativ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "id": "2053:7523",
+      "name": "❖ Tooltip",
+      "sections": [
+        "Tooltip",
+        "Tooltip | Design",
+        "Tooltip | IOS, Android, Touch, Desktop",
+        "Ревью"
+      ],
+      "componentSets": [
+        {
+          "id": "16526:96328",
+          "key": "f72a980e7574f37fc391242ed210e43cdadf2608",
+          "name": "Tooltip",
+          "variants": 4,
+          "axes": {
+            "Size": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ]
+          }
+        },
+        {
+          "id": "22877:17570",
+          "key": "c261e352c41183d05a64858e80eb3f0443911bdc",
+          "name": "Tooltip-Promo",
+          "variants": 6,
+          "axes": {
+            "Type": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "id": "30245:119001",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 46,
+      "id": "32356:193163",
+      "name": "    NAVIGATION",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 47,
+      "id": "13224:221623",
+      "name": "❖ Navigation Breadcrumbs",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 48,
+      "id": "30190:17962",
+      "name": "❖ Tabs",
+      "sections": [
+        "TabPanel  | Design",
+        "TabPanel",
+        "Атомы для прототипа",
+        "Ревью"
+      ],
+      "componentSets": [
+        {
+          "id": "30190:36385",
+          "key": "ea68b23ecbf9bc49f2be8a0a02c4ffcb8040ab06",
+          "name": "Tabitem",
+          "variants": 96,
+          "axes": {
+            "View": [
+              "White",
+              "Black",
+              "Inverse"
+            ],
+            "Size": [
+              "XL 56",
+              "L 48",
+              "M 40",
+              "S 32"
+            ],
+            "State": [
+              "Default",
+              "Hover",
+              "Active",
+              "Disable"
+            ],
+            "Horizontal": [
+              "False",
+              "True"
+            ]
+          }
+        },
+        {
+          "id": "30190:75630",
+          "key": "3105fff4758073071a2efca7ec1d73d0422e6042",
+          "name": "Для прототипа",
+          "variants": 6,
+          "axes": {
+            "Property 1": [
+              "Frame 2136139395",
+              "Variant2",
+              "Variant3",
+              "Variant4",
+              "Variant5",
+              "Variant6"
+            ]
+          }
+        },
+        {
+          "id": "36946:75360",
+          "key": "d40aa27341754bd5e5098b273021f04e49c905c2",
+          "name": "Для прототипа 3",
+          "variants": 5,
+          "axes": {
+            "Property 1": [
+              "Variant 1",
+              "Variant2",
+              "Variant3",
+              "Variant4",
+              "Variant5"
+            ]
+          }
+        },
+        {
+          "id": "38142:79791",
+          "key": "8bfc15d632d63b7699c582579635424f138cf6a7",
+          "name": "Для прототипа 2",
+          "variants": 2,
+          "axes": {
+            "Property 1": [
+              "1",
+              "2"
+            ]
+          }
+        },
+        {
+          "id": "38806:14403",
+          "key": "123f73c0ec8dede6b2fd28f56f81437d089e8fbd",
+          "name": "Табы прото",
+          "variants": 10,
+          "axes": {
+            "Property 1": [
+              "Tab 2",
+              "Variant2",
+              "Variant3",
+              "Variant4",
+              "Variant5",
+              "Variant6",
+              "Variant7",
+              "Variant8",
+              "Variant10",
+              "Variant9"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "id": "12272:56893",
+      "name": "❖ Link",
+      "sections": [
+        "Link | Design",
+        "Link"
+      ],
+      "componentSets": [
+        {
+          "id": "12286:31301",
+          "key": "12609dca53ade65f21a728dca9e515eef62483c4",
+          "name": "Link",
+          "variants": 8,
+          "axes": {
+            "Type": [
+              "Primary",
+              "Secondary"
+            ],
+            "State": [
+              "Default",
+              "Hover",
+              "Click",
+              "Disabled"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "id": "22259:11526",
+      "name": "❖ Tab Bar Menu",
+      "sections": [
+        "Tab bar | Design",
+        "Tabs | IOS, Android, Touch"
+      ],
+      "componentSets": [
+        {
+          "id": "22260:45159",
+          "key": "cf74b575ee3ddd0af90550c6613a70ba8ae6a03f",
+          "name": "TabBar",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "22259:11998",
+          "key": "c45dcdcfdd78459583185ff1a005b3f2f6c9feb3",
+          "name": "Tab",
+          "variants": 8,
+          "axes": {}
+        },
+        {
+          "id": "22260:45275",
+          "key": "deb9541d1fe5a069600c705e3b801cc636cbfc63",
+          "name": "NavBar",
+          "variants": 3,
+          "axes": {}
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "id": "1949:2167",
+      "name": "---",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 52,
+      "id": "5891:49799",
+      "name": "❖ System",
+      "sections": [
+        "❖ Platform Components"
+      ],
+      "componentSets": [
+        {
+          "id": "5960:33398",
+          "key": "8443a01f54ae1be8c874073077bc2f2441925cee",
+          "name": "Numeric Keyboard",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "5960:33435",
+          "key": "350c3a04d8b10cc7b16ee87797f272707980107e",
+          "name": "Alphabetic Keyboard",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "6508:6860",
+          "key": "b79b7977f86005236a3606f2cb298a3178185687",
+          "name": "Statusbar",
+          "variants": 9,
+          "axes": {}
+        },
+        {
+          "id": "6508:7050",
+          "key": "0927a6defeb02f2c02461859c721c33e1f0fa1ce",
+          "name": "HomeBar",
+          "variants": 7,
+          "axes": {}
+        },
+        {
+          "id": "6508:7071",
+          "key": "a00e6d754f59c7fb0fbf81e1915831aa4d50a3fc",
+          "name": "Navbar",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "6508:9603",
+          "key": "0b91b7ae53971dc884e7b28e903adaa712dc5de1",
+          "name": "Bottom Bar",
+          "variants": 6,
+          "axes": {}
+        },
+        {
+          "id": "6508:7199",
+          "key": "f10973f35d6f170ccc3b50c50707d0becf59a59d",
+          "name": "Keyboard",
+          "variants": 16,
+          "axes": {}
+        },
+        {
+          "id": "6508:8250",
+          "key": "ccead19f2bab3a4135bcc482db47da1ee99afdc1",
+          "name": "Suggestion",
+          "variants": 6,
+          "axes": {}
+        },
+        {
+          "id": "7943:11336",
+          "key": "4aa9aa73efadcf143ebd99fe3edf76132be8e105",
+          "name": "Component 2",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "7943:11481",
+          "key": "d9cd6b8223e6efd68b34dc95f1b4b24938c8f7ea",
+          "name": "Component 3",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "7943:11498",
+          "key": "de3f5bf91d18f20a3f8be800beb5b95c2166611b",
+          "name": "Connected Device",
+          "variants": 3,
+          "axes": {}
+        },
+        {
+          "id": "7943:11574",
+          "key": "2154217b7e8d5fb5302deba352c437b0af9f07b9",
+          "name": "Call Time",
+          "variants": 2,
+          "axes": {}
+        },
+        {
+          "id": "7943:11689",
+          "key": "86b7a4cf07231418d57aa75ba53d3fdd0eaf6c07",
+          "name": "Music Player",
+          "variants": 3,
+          "axes": {}
+        },
+        {
+          "id": "7943:11808",
+          "key": "9da8a013a70ba7e146396fd4eb4b8c212fbfa1c8",
+          "name": "Figma Comment",
+          "variants": 3,
+          "axes": {}
+        },
+        {
+          "id": "7943:11896",
+          "key": "ff7daa9dd2f9f202c8972f4bb290aee5e853f083",
+          "name": "Lyft Waiting",
+          "variants": 3,
+          "axes": {}
+        },
+        {
+          "id": "7943:11960",
+          "key": "05e55cfd0fb3f3caac67c6bf13e9b4f9abcbcf32",
+          "name": "Component 5",
+          "variants": 2,
+          "axes": {}
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "id": "8476:31036",
+      "name": "Template",
+      "sections": [
+        "Component Name I Mobile"
+      ],
+      "componentSets": [
+        {
+          "id": "150:1683",
+          "key": "99b8385491244f4b7b18bf58bddd2c550ac565e1",
+          "name": "color",
+          "variants": 2,
+          "axes": {
+            "Theme": [
+              "Light",
+              "Dark"
+            ]
+          }
+        },
+        {
+          "id": "6417:15399",
+          "key": "419c85c5c86d53e729b8821a0ec79ffc06b749c4",
+          "name": "Status",
+          "variants": 5,
+          "axes": {
+            "State": [
+              "В работе",
+              "Готов",
+              "На ревью",
+              "Не взят в работу",
+              "Есть изменения"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "id": "12309:41466",
+      "name": "-",
+      "sections": [],
+      "componentSets": []
+    },
+    {
+      "index": 55,
+      "id": "14332:7100",
+      "name": "Trash",
+      "sections": [
+        "Informer | For designers"
+      ],
+      "componentSets": [
+        {
+          "id": "4980:13400",
+          "key": "8571b043e18dfa611be6cc99a9744c840f84ad14",
+          "name": "InformerDesktopLight",
+          "variants": 8,
+          "axes": {
+            "Type": [
+              "Info",
+              "Alarm",
+              "Warning",
+              "Success"
+            ],
+            "Button": [
+              "off"
+            ],
+            "Size": [
+              "M",
+              "S"
+            ]
+          }
+        },
+        {
+          "id": "9536:3670",
+          "key": "30c3fc7416456b1548bf0bc086914eb64b63f5fb",
+          "name": "InformerMobileLight",
+          "variants": 8,
+          "axes": {
+            "Type": [
+              "Success",
+              "Info",
+              "Alarm",
+              "Warning",
+              "Type5",
+              "Type6",
+              "Type7",
+              "Type8"
+            ],
+            "Size": [
+              "XS",
+              "S"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "id": "0:1",
+      "name": "Cover",
+      "sections": [],
+      "componentSets": []
+    }
+  ]
+}
+

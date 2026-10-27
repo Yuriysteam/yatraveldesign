@@ -1,0 +1,299 @@
+{
+  "asOf": "2026-09-07",
+  "projects": [
+    {
+      "projectId": "669486",
+      "coverage": {
+        "pagesRead": 1,
+        "pagesTotal": 1,
+        "total": 4
+      },
+      "issues": [
+        {
+          "createdAt": "2026-08-24T10:09:39.105+0000",
+          "key": "EXTRANET-11210",
+          "status": "inProgress",
+          "summary": "[постпэй] Ресерч и диздок",
+          "updatedAt": "2026-09-07T08:41:34.753+0000"
+        },
+        {
+          "createdAt": "2026-09-04T07:53:41.331+0000",
+          "key": "EXTRANET-11412",
+          "status": "open",
+          "summary": "[Постпей] Интеграция ЧМ",
+          "updatedAt": "2026-09-04T07:56:27.069+0000"
+        },
+        {
+          "createdAt": "2026-08-07T13:27:40.538+0000",
+          "key": "TRAVELANALYTICS-10970",
+          "status": "open",
+          "summary": "Пилотирование постпэй",
+          "updatedAt": "2026-08-31T19:15:39.362+0000"
+        },
+        {
+          "createdAt": "2026-07-13T16:07:52.815+0000",
+          "key": "TRAVELDESIGN-2190",
+          "status": "inProgress",
+          "summary": "Дизайн - [Апартементы] постпей концепт",
+          "updatedAt": "2026-07-20T13:46:04.406+0000"
+        }
+      ]
+    },
+    {
+      "projectId": "749963",
+      "coverage": {
+        "pagesRead": 1,
+        "pagesTotal": 1,
+        "total": 17
+      },
+      "issues": [
+        {
+          "createdAt": "2026-09-02T15:09:04.731+0000",
+          "key": "TRAVELFRONT-33720",
+          "status": "awaitingRelease",
+          "summary": "[web] Content score. Поддержать optional включенности удобства",
+          "updatedAt": "2026-09-07T12:18:14.224+0000"
+        },
+        {
+          "createdAt": "2026-08-14T11:00:43.005+0000",
+          "key": "TRAVELFRONT-33217",
+          "status": "inProgress",
+          "summary": "[web] Content score",
+          "updatedAt": "2026-09-07T12:18:12.384+0000"
+        },
+        {
+          "createdAt": "2026-08-28T12:05:08.713+0000",
+          "key": "TRAVELFRONT-33583",
+          "status": "awaitingRelease",
+          "summary": " [web] Content score. Штора с включением/выключением важных удобств",
+          "updatedAt": "2026-09-07T12:18:01.845+0000"
+        },
+        {
+          "createdAt": "2026-08-26T15:28:08.638+0000",
+          "key": "EXTRANET-11264",
+          "status": "onReview",
+          "summary": "[ContentScore] Реализация ручки сохранения удобств",
+          "updatedAt": "2026-09-07T07:55:00.355+0000"
+        },
+        {
+          "createdAt": "2026-08-26T15:29:42.817+0000",
+          "key": "EXTRANET-11265",
+          "status": "onReview",
+          "summary": "[ContentScore] Реализация ручки получения информации о рекомендациях и score",
+          "updatedAt": "2026-09-07T07:54:44.120+0000"
+        },
+        {
+          "createdAt": "2026-08-06T13:21:31.696+0000",
+          "key": "EXTRANET-11017",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[ContentScore] Диздока",
+          "updatedAt": "2026-09-04T10:00:49.373+0000"
+        },
+        {
+          "createdAt": "2026-09-02T12:59:37.370+0000",
+          "key": "TRAVELFRONT-33708",
+          "status": "open",
+          "summary": "[web] Content score. Прикрутить бэк + прочие доделки",
+          "updatedAt": "2026-09-04T09:16:47.658+0000"
+        },
+        {
+          "createdAt": "2026-08-14T11:01:41.096+0000",
+          "key": "TRAVELFRONT-33219",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[web] Content score. Завести флаг",
+          "updatedAt": "2026-09-03T01:01:13.354+0000"
+        },
+        {
+          "createdAt": "2026-08-20T14:40:32.277+0000",
+          "key": "TRAVELFRONT-33374",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[web] Content score. Прикрутить шторы редактирования удобств к таскам про удобства",
+          "updatedAt": "2026-09-02T14:53:25.766+0000"
+        },
+        {
+          "createdAt": "2026-09-02T11:36:08.233+0000",
+          "key": "TRAVELFRONT-33706",
+          "status": "open",
+          "summary": "[web] Content score. Реализовать логику переходов на страницы по заданиям (кроме удобств) ",
+          "updatedAt": "2026-09-02T12:59:49.698+0000"
+        },
+        {
+          "createdAt": "2026-08-12T08:37:10.094+0000",
+          "key": "TRAVELFRONT-33125",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[web] Content score. Новый фильтр удобств \"Важные\"",
+          "updatedAt": "2026-09-01T01:20:51.455+0000"
+        },
+        {
+          "createdAt": "2026-08-17T11:04:29.492+0000",
+          "key": "TRAVELFRONT-33278",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[web] Content score. Верстка страницы  с заданиями для content score ",
+          "updatedAt": "2026-09-01T01:20:49.970+0000"
+        },
+        {
+          "createdAt": "2026-08-17T10:56:02.437+0000",
+          "key": "TRAVELFRONT-33277",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[web] Content score. Завести страницу + пункт в меню",
+          "updatedAt": "2026-09-01T01:20:48.262+0000"
+        },
+        {
+          "createdAt": "2026-08-12T08:23:04.482+0000",
+          "key": "EXTRANET-11074",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[ContentScore] Новый фильтр удобств \"Важные\"",
+          "updatedAt": "2026-08-27T22:58:24.517+0000"
+        },
+        {
+          "createdAt": "2026-08-11T13:44:25.550+0000",
+          "key": "EXTRANET-11066",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "[ContentScore] Спека для фронта",
+          "updatedAt": "2026-08-27T12:28:52.368+0000"
+        },
+        {
+          "createdAt": "2026-08-14T11:19:41.487+0000",
+          "key": "TRAVELFRONT-33222",
+          "status": "open",
+          "summary": "[web] Content score. Удалить флаг",
+          "updatedAt": "2026-08-17T10:24:47.917+0000"
+        },
+        {
+          "createdAt": "2026-08-14T11:03:51.008+0000",
+          "key": "TRAVELFRONT-33220",
+          "status": "open",
+          "summary": "[web] Content score. Тестирование фичи",
+          "updatedAt": "2026-08-14T20:28:48.236+0000"
+        }
+      ]
+    },
+    {
+      "projectId": "769787",
+      "coverage": {
+        "pagesRead": 1,
+        "pagesTotal": 1,
+        "total": 9
+      },
+      "issues": [
+        {
+          "createdAt": "2026-08-20T06:45:45.166+0000",
+          "key": "TRAVELITM-2939",
+          "status": "inProgress",
+          "summary": "RSRCH: модель данных для RMS",
+          "updatedAt": "2026-09-07T06:18:13.971+0000"
+        },
+        {
+          "createdAt": "2026-08-13T11:23:58.384+0000",
+          "key": "TRAVELITM-2911",
+          "status": "inProgress",
+          "summary": "RSRCH: back поднятие веб-сервиса для RM SaaS",
+          "updatedAt": "2026-09-07T06:18:07.666+0000"
+        },
+        {
+          "createdAt": "2026-08-31T12:52:53.255+0000",
+          "key": "TRAVELANALYTICS-11232",
+          "status": "open",
+          "summary": "Ревью модели данных для RM SaaS",
+          "updatedAt": "2026-09-04T09:33:53.103+0000"
+        },
+        {
+          "createdAt": "2026-08-13T12:46:42.121+0000",
+          "key": "TRAVELFRONT-33171",
+          "status": "inProgress",
+          "summary": "RSRCH: front поднятие веб-сервиса для RM SaaS",
+          "updatedAt": "2026-09-03T08:29:43.255+0000"
+        },
+        {
+          "createdAt": "2026-08-31T11:16:09.609+0000",
+          "key": "TRAVELITM-2975",
+          "status": "open",
+          "summary": "[RSRCH] RM SaaS тарифы компсета по прямому каналу",
+          "updatedAt": "2026-09-02T11:11:45.175+0000"
+        },
+        {
+          "createdAt": "2026-08-14T14:09:31.159+0000",
+          "key": "TRAVELITM-2917",
+          "status": "open",
+          "summary": "[product] рабочая группа по RM SaaS",
+          "updatedAt": "2026-08-27T13:09:23.304+0000"
+        },
+        {
+          "createdAt": "2026-08-21T07:55:53.461+0000",
+          "key": "TRAVELITM-2945",
+          "resolution": {
+            "display": "Решен",
+            "id": "1",
+            "key": "fixed",
+            "self": "https://st-api.yandex-team.ru/v2/resolutions/1"
+          },
+          "status": "closed",
+          "summary": "Завести s3 бакет для получения данных RMS",
+          "updatedAt": "2026-08-27T09:37:30.998+0000"
+        },
+        {
+          "createdAt": "2026-08-03T11:02:30.083+0000",
+          "key": "TRAVELDESIGN-2213",
+          "status": "inProgress",
+          "summary": "Дизайн концепция - MVP RMS",
+          "updatedAt": "2026-08-20T06:45:45.166+0000"
+        },
+        {
+          "createdAt": "2026-08-13T12:57:14.849+0000",
+          "key": "TRAVELITM-2912",
+          "status": "open",
+          "summary": "RSRCH: как должна выглядеть интеграция PMS HRS <--> RMS ЯП",
+          "updatedAt": "2026-08-18T11:50:33.484+0000"
+        }
+      ]
+    }
+  ]
+}

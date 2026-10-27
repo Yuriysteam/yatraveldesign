@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Design Machine · роутер"
+  short_description: "Выбирает этапы создания макетов, текстов и спек"
+  default_prompt: "Используй $figma-workflow-router: определи нужные этапы по моим исходникам и доведи задачу до запрошенных макетов, спеки или аудита."

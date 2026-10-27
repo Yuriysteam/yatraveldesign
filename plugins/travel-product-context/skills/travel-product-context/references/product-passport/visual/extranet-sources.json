@@ -1,0 +1,1207 @@
+{
+  "schemaVersion": 1,
+  "readAt": "2026-09-07",
+  "scope": "Extranet/Supply/apartments/content score/revenue management",
+  "method": {
+    "mode": "read-only",
+    "inventory": "figma-use root.children",
+    "visual": "get_screenshot inline + get_metadata hierarchy",
+    "productionVerified": false,
+    "versionHistoryRead": false,
+    "libraryBindingsAudited": false,
+    "screenshotsStoredLocally": false
+  },
+  "coverage": {
+    "filesInventoried": 4,
+    "pagesInventoried": 144,
+    "visualNodesRead": 17,
+    "pageTreesRead": 6,
+    "additionalSubtreeRead": 1,
+    "warning": "Page inventory is not a claim of visual review of all pages. Current file content is not an immutable historical snapshot."
+  },
+  "files": [
+    {
+      "fileKey": "jnlF7hX01MH8zXbnRGwzYw",
+      "title": "Extranet-based",
+      "url": "https://www.figma.com/design/jnlF7hX01MH8zXbnRGwzYw",
+      "sources": [
+        {
+          "url": "https://st.yandex-team.ru/EXTRANET-1044",
+          "createdAt": "2023-08-02",
+          "updatedAt": "2024-01-23",
+          "relation": "description links to file and chessboard page"
+        }
+      ],
+      "pages": [
+        {
+          "id": "0:1",
+          "name": "Шахматка",
+          "readLevel": "metadata+selected-screenshots"
+        },
+        {
+          "id": "406:213063",
+          "name": "        ↴   Ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3:6013",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4641:159316",
+          "name": "        ↴   Для писем картинки",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "5741:590126",
+          "name": "        ↴   Редактировать на период + тарифы",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3:6014",
+          "name": "Онбординг",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3:6015",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4198:229019",
+          "name": "        ↴   Прототип",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3857:166722",
+          "name": "        ↴   Ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1433:35313",
+          "name": "Тачи",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1447:35314",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3:6017",
+          "name": "——————",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "6122:107078",
+          "name": "РЗПВ",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "39:49817",
+          "name": "Прототип Шахматка",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1355:322213",
+          "name": "Визуальная коммуникация в экстранете",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1126:223949",
+          "name": "Прототип Онбординг",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1733:208179",
+          "name": "Page 1",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "846:435132",
+          "name": "Мусор",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "7:56480",
+          "name": "Обложка",
+          "readLevel": "inventory-only"
+        }
+      ],
+      "readAreas": [
+        {
+          "id": "0:1",
+          "name": "Шахматка",
+          "level": "metadata+selected-screenshots"
+        }
+      ],
+      "sections": [
+        {
+          "id": "846:309880",
+          "name": "Section 2"
+        },
+        {
+          "id": "846:309881",
+          "name": "Лейаут"
+        },
+        {
+          "id": "846:309896",
+          "name": "Первый уровень редактирования"
+        },
+        {
+          "id": "846:309932",
+          "name": "Второй уровень редактирвания"
+        },
+        {
+          "id": "846:311349",
+          "name": "Настройка отображения полей на шахматке"
+        },
+        {
+          "id": "2985:188590",
+          "name": "Section 6"
+        },
+        {
+          "id": "846:311459",
+          "name": "Редактирования ограничений"
+        },
+        {
+          "id": "846:311562",
+          "name": "Если нет вложенности у тарифа"
+        },
+        {
+          "id": "846:311567",
+          "name": "Закрытые тарифы для ЧМ объектов"
+        },
+        {
+          "id": "846:312205",
+          "name": "Стейты"
+        },
+        {
+          "id": "846:314891",
+          "name": "Наследуемый тариф"
+        },
+        {
+          "id": "846:314867",
+          "name": "Стейты"
+        },
+        {
+          "id": "2931:104135",
+          "name": "Нейминг"
+        },
+        {
+          "id": "846:315423",
+          "name": "Анимация изменения"
+        },
+        {
+          "id": "1745:297511",
+          "name": "Section 3"
+        },
+        {
+          "id": "2422:82410",
+          "name": "Section 4"
+        },
+        {
+          "id": "2272:392814",
+          "name": "Редактирование прошлого"
+        },
+        {
+          "id": "2737:401801",
+          "name": "Section 5"
+        },
+        {
+          "id": "2922:92754",
+          "name": "Дизейбл, если не было изменений"
+        },
+        {
+          "id": "4746:121530",
+          "name": "Section 7"
+        },
+        {
+          "id": "4975:110120",
+          "name": "Сброс дат"
+        }
+      ],
+      "visualNodes": [
+        {
+          "nodeId": "846:309882",
+          "name": "Общий вид шахматки",
+          "size": "1440×1000",
+          "finding": "Categories with dates as columns; status/availability/active bookings/tariff rows; collapsible sidebar, date/category/display controls.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/jnlF7hX01MH8zXbnRGwzYw?node-id=846-309882"
+        },
+        {
+          "nodeId": "846:309917",
+          "name": "Быстрое редактирование",
+          "size": "1440×1000",
+          "finding": "Selected date-cell range retains visible sheet; anchored popup has availability stepper, price, full-edit link and cancel/save.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/jnlF7hX01MH8zXbnRGwzYw?node-id=846-309917"
+        },
+        {
+          "nodeId": "846:311265",
+          "name": "Полное редактирование периода",
+          "size": "1440×1370",
+          "finding": "Right-side form with tariff, dates, weekday subset, availability/open-close, occupancy prices, restrictions and bottom actions.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/jnlF7hX01MH8zXbnRGwzYw?node-id=846-311265"
+        }
+      ]
+    },
+    {
+      "fileKey": "TCcT2nzJQqeiLmmKlOihjQ",
+      "title": "Content Score",
+      "url": "https://www.figma.com/design/TCcT2nzJQqeiLmmKlOihjQ",
+      "sources": [
+        {
+          "url": "https://st.yandex-team.ru/TRAVELDESIGN-2067",
+          "sourceCommentDate": "2026-08-22",
+          "relation": "Specification link in comment, per existing domain note; current source task not refetched during visual pass"
+        },
+        {
+          "url": "https://st.yandex-team.ru/pages/projects/749963",
+          "snapshotReadAt": "2026-09-07",
+          "relation": "Hotel-only requirements in passport, conflict with apartment visual example"
+        }
+      ],
+      "pages": [
+        {
+          "id": "5071:636",
+          "name": "📗  SPECA",
+          "readLevel": "metadata+selected-screenshots"
+        },
+        {
+          "id": "70:1445",
+          "name": "🔎  Research",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "5411:29271",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "5411:29270",
+          "name": "🏁  RFD",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2380:18001",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2190:3458",
+          "name": "🗑  Драфты",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "71:1446",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1:7233",
+          "name": "🖼 Cover",
+          "readLevel": "inventory-only"
+        }
+      ],
+      "readAreas": [
+        {
+          "id": "5071:636",
+          "name": "📗  SPECA",
+          "level": "metadata+selected-screenshots"
+        }
+      ],
+      "sections": [
+        {
+          "id": "5071:38995",
+          "name": "Content Score"
+        },
+        {
+          "id": "5403:16679",
+          "name": "Сценарии"
+        },
+        {
+          "id": "5214:3743",
+          "name": "Компоненты"
+        }
+      ],
+      "visualNodes": [
+        {
+          "nodeId": "5084:4480",
+          "name": "Вход из Объекта",
+          "size": "1440×900",
+          "finding": "Expanded Object submenu contains Content fullness with current progress and New badge.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/TCcT2nzJQqeiLmmKlOihjQ?node-id=5084-4480"
+        },
+        {
+          "nodeId": "5370:5026",
+          "name": "Список объектов с полнотой",
+          "size": "1440×900",
+          "finding": "Apartment list uses image/title/ID + score gauge + channel manager + moderation status; conflicts with hotel-only stated project scope.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/TCcT2nzJQqeiLmmKlOihjQ?node-id=5370-5026"
+        },
+        {
+          "nodeId": "5111:3996",
+          "name": "Полнота контента — низкое заполнение",
+          "size": "1440×900",
+          "finding": "Task list in center, each row status/title/help/action; right rail score with how-it-works and nearby benchmark.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/TCcT2nzJQqeiLmmKlOihjQ?node-id=5111-3996"
+        },
+        {
+          "nodeId": "5542:32328",
+          "name": "Прокрутка рекомендаций — фото",
+          "size": "1440×900",
+          "finding": "Photo tasks: at least 30 photos, facade/entrance, low-quality replacement and duplicate cleanup; visible side summary retained in this scroll example.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/TCcT2nzJQqeiLmmKlOihjQ?node-id=5542-32328"
+        },
+        {
+          "nodeId": "5111:8169",
+          "name": "Полнота контента — 100%",
+          "size": "1440×900",
+          "finding": "All four groups collapsed with Done badges and Show all, green 100% gauge; no empty blank page.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/TCcT2nzJQqeiLmmKlOihjQ?node-id=5111-8169"
+        }
+      ]
+    },
+    {
+      "fileKey": "yqD5aKzj4M4AmndFFRpCb9",
+      "title": "Новый Extranet. Часть 2",
+      "url": "https://www.figma.com/design/yqD5aKzj4M4AmndFFRpCb9",
+      "sources": [
+        {
+          "url": "https://st.yandex-team.ru/TRAVELDESIGN-1690",
+          "createdAt": "2025-08-13",
+          "updatedAt": "2025-09-22",
+          "sourceCommentDate": "2025-08-18",
+          "relation": "Spec link to node 22166:52104; September comment points implementation to TRAVELFRONT-23135"
+        }
+      ],
+      "pages": [
+        {
+          "id": "7533:32824",
+          "name": "0 ✅  Общий флоу (апарты + отели) ",
+          "readLevel": "metadata+selected-screenshots"
+        },
+        {
+          "id": "3464:287818",
+          "name": "        ↴   Общий флоу (апарты + отели) OLD",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2349:50694",
+          "name": "        ↴  Регистрация (саджест)",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2349:52230",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:217692",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3:6013",
+          "name": "1  ✅  Начало работы / Синхронизация первичная",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "177:31653",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "179:46538",
+          "name": "——————",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "143:1399",
+          "name": "8  ✅  Общие настройки",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18213:69203",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3626:27218",
+          "name": "9  🛠  Реквизиты + контакты",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "8018:137558",
+          "name": "        ↴  ✅ Казначейский счёт ",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "178:46535",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3:6017",
+          "name": "——————",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "623:78526",
+          "name": "10 ✅  Бронирования",
+          "readLevel": "metadata+selected-screenshots"
+        },
+        {
+          "id": "623:82880",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "831:28120",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "283:20994",
+          "name": "11  🚫 Чат с гостем",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "623:78532",
+          "name": "——————",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "9886:39949",
+          "name": "        ↴  ✅  Название категории",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "10191:15290",
+          "name": "         ↴  ✅  Ошибки в категориях номера",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "726:85580",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "726:85581",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "7:56480",
+          "name": "13  ✅  Роли",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "831:23782",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2660:248232",
+          "name": "        ↴   Ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1382:54515",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1372:47378",
+          "name": "14  ✅  Смена ЧМ ",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "9492:235859",
+          "name": "        ↴  ✅  Переход с движка на менеджер каналов",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "9887:144498",
+          "name": "        ↴  ✅  Перенос бронирований",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1372:91045",
+          "name": "        ↴  Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16729:137603",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "13428:32296",
+          "name": "15   ✅ iCal",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "14275:94347",
+          "name": "        ↴  Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1810:25348",
+          "name": "--",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "10691:281170",
+          "name": "16  ✅ История изменений 2.0 ",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1808:15046",
+          "name": "        ↴   🚫   История изменений (старая версия)",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1808:15047",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "9921:54009",
+          "name": "        ↴  Draft",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "963:14798",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "1583:188738",
+          "name": "17  🚫  Новые карточки",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2212:88777",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2212:76650",
+          "name": "18  ✅  Удобства в номерах",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "726:62918",
+          "name": "12 ✅ Выбор категории номеров",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2216:112535",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3007:31701",
+          "name": "        ↴   Ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3445:61181",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2711:20048",
+          "name": "19 ✅ Промо-акции",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2711:20049",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3445:61182",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3441:49713",
+          "name": "20  ✅  Категории",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3441:49714",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3445:61183",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3445:61184",
+          "name": "21  ✅  Аккаунт + навигация",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3445:61187",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4144:13776",
+          "name": "        ↴   Ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:104658",
+          "name": "--",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3787:187738",
+          "name": "22  ✅ Тарифы",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3787:189066",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:133908",
+          "name": "--",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "3454:94640",
+          "name": "23  🚫 Подсказки",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4094:90293",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:157752",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4764:116785",
+          "name": "24  🚫 Переезд",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4764:116786",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:216598",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "6139:39006",
+          "name": "25  ✅ Адрес объекта",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "6139:39007",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:202423",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "6801:23039",
+          "name": "26  🚫 Дети в экстранете",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "6801:23040",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16932:22039",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16919:135269",
+          "name": "27  ✅  Центр уведомлений",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "17271:25539",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "20184:8197",
+          "name": "        ↴   RFD",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:202422",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18370:103617",
+          "name": "28  ✅  Удаление объекта",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "22166:52076",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "22156:51759",
+          "name": "29  ✅  Итерация 1 | Видеопроверка объекта",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "29801:814230",
+          "name": "       ✅  Итерация 2 | Загрузчик видео (UPD TEXT)",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "27589:61111",
+          "name": "        ↴   Драфты",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18370:103618",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "13940:332615",
+          "name": " 30 ✅  Скидки",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "14175:59243",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16267:202421",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18262:60260",
+          "name": "31  ✅ Отзывы / рейтинг",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18651:917952",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "20852:95560",
+          "name": "        ↴   Ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18651:951221",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "22769:146108",
+          "name": " 32 ✅ Выпадающий список",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "24242:2541",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "24241:51959",
+          "name": " 33 ✅ Апдейт фото ",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "24242:4322",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "15513:63588",
+          "name": " 34 ✅ РЗПВ",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18948:79744",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "24266:82135",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "14343:16647",
+          "name": "35  ✅ Детские тарифы",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "14960:35449",
+          "name": "        ↴   Процесс",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "27066:136770",
+          "name": "-",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "28165:116844",
+          "name": "✅ Обновление правил проживания",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18590:7065",
+          "name": "Информер о проблеме с токеном",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "26697:65581",
+          "name": "Новая навигация",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18341:20977",
+          "name": "Дизайн-ревью",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "25722:242161",
+          "name": "Ревью цвета",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "12206:34987",
+          "name": "Санатории MVP",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "13188:39526",
+          "name": "Для тестинга",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "18927:113094",
+          "name": "Браузер устарел",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "16024:110390",
+          "name": "Обновление цветов и компонентов",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "4094:90292",
+          "name": "Draft",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "20018:76607",
+          "name": "Главная",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "828:17445",
+          "name": "Обложка",
+          "readLevel": "inventory-only"
+        }
+      ],
+      "readAreas": [
+        {
+          "id": "7533:32824",
+          "name": "0 ✅  Общий флоу (апарты + отели) ",
+          "level": "metadata+selected-screenshots"
+        },
+        {
+          "id": "623:78526",
+          "name": "10 ✅  Бронирования",
+          "level": "metadata+selected-screenshots"
+        },
+        {
+          "id": "22166:52104",
+          "name": "Видеопроверка, direct spec subtree",
+          "level": "metadata+selected-screenshot; parent page not verified"
+        }
+      ],
+      "sections": [
+        {
+          "id": "7533:32967",
+          "name": "Все флоу регистрации"
+        },
+        {
+          "id": "7533:32968",
+          "name": "Экстранет бейзд апарты и отели"
+        },
+        {
+          "id": "7533:35315",
+          "name": "Флоу ЧМ апарты"
+        },
+        {
+          "id": "7533:36076",
+          "name": "Флоу ЧМ отели"
+        },
+        {
+          "id": "7533:36726",
+          "name": "Экстранет бейзд апарты и отели"
+        },
+        {
+          "id": "7533:38462",
+          "name": "Экстранет бейзд апарты и отели"
+        },
+        {
+          "id": "7533:39445",
+          "name": "Экстранет бейзд апарты и отели"
+        },
+        {
+          "id": "8609:32506",
+          "name": "Флоу ЧМ отели на Bnovo и TravelLine"
+        },
+        {
+          "id": "16309:44542",
+          "name": "Extranet based apartments"
+        },
+        {
+          "id": "16309:50718",
+          "name": "ЧМ кроме Realty и Bnovo"
+        },
+        {
+          "id": "16309:83617",
+          "name": "Extranet apartments Realty"
+        },
+        {
+          "id": "23300:157156",
+          "name": "Онбординг и выпадающее меню"
+        },
+        {
+          "id": "28855:128671",
+          "name": "Доработки по новому онбордингу"
+        },
+        {
+          "id": "25691:240533",
+          "name": "Ревью"
+        },
+        {
+          "id": "29436:76362",
+          "name": "ПИАР"
+        },
+        {
+          "id": "30718:56162",
+          "name": "Скидка на первые 3 брони в онбординге"
+        }
+      ],
+      "visualNodes": [
+        {
+          "nodeId": "13131:40463",
+          "name": "Регистрация с саджестом объекта",
+          "size": "1512×900",
+          "finding": "Centered bounded form, account informer, property type and property suggest with secondary address/type, bottom back/next; next disabled before completion.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/yqD5aKzj4M4AmndFFRpCb9?node-id=13131-40463"
+        },
+        {
+          "nodeId": "25839:1020324",
+          "name": "Мобильные обязательные действия",
+          "size": "375×1026",
+          "finding": "Stack of centered object cards. Video-check action before publishing and repeat attempt after failure, explicit object context.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/yqD5aKzj4M4AmndFFRpCb9?node-id=25839-1020324"
+        },
+        {
+          "nodeId": "1060:119301",
+          "name": "Бронирования — список",
+          "size": "1440×888",
+          "finding": "Search by name/booking number, date-kind and range filters, display controls, sortable table, status badges, amount totals, page size and pagination.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/yqD5aKzj4M4AmndFFRpCb9?node-id=1060-119301"
+        },
+        {
+          "nodeId": "1060:119338",
+          "name": "Бронирование — деталка",
+          "size": "1440×888 node with overflow content",
+          "finding": "Right detail panel preserves source row/table; sections for basic info, contact fields, accommodation by room/guest, comments, payments, tariff and channel synchronization. No example PII saved.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/yqD5aKzj4M4AmndFFRpCb9?node-id=1060-119338"
+        }
+      ]
+    },
+    {
+      "fileKey": "ea5xEuouvb4vG8z0FbJBXn",
+      "title": "Revenue Management",
+      "url": "https://www.figma.com/design/ea5xEuouvb4vG8z0FbJBXn",
+      "sources": [
+        {
+          "url": "https://st.yandex-team.ru/TRAVELDESIGN-2049",
+          "createdAt": "2026-03-30",
+          "sourceCommentDate": "2026-04-09",
+          "relation": "Design link for loading and absent data states 647:329505"
+        },
+        {
+          "url": "https://st.yandex-team.ru/TRAVELDESIGN-1960",
+          "sourceCommentDate": "2026-04-10",
+          "relation": "Spotlight onboarding option 686:110571, not visually examined"
+        },
+        {
+          "url": "https://st.yandex-team.ru/TRAVELDESIGN-2216",
+          "createdAt": "2026-08-04",
+          "updatedAt": "2026-08-31",
+          "sourceCommentDate": "2026-08-19",
+          "relation": "Updated competitor spec 2269:363039 supersedes example link 2186:166732 as newer cited iteration, not release proof"
+        },
+        {
+          "url": "https://st.yandex-team.ru/TRAVELDESIGN-2213",
+          "updatedAt": "2026-08-20",
+          "relation": "SaaS concept task, initial prototype discussion on 2026-08-13; exact correspondence to SAAS page not confirmed by direct link"
+        }
+      ],
+      "pages": [
+        {
+          "id": "591:74998",
+          "name": "SPECA",
+          "readLevel": "metadata+selected-screenshots"
+        },
+        {
+          "id": "628:230093",
+          "name": "---",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "2207:234324",
+          "name": "SAAS",
+          "readLevel": "metadata+selected-screenshots"
+        },
+        {
+          "id": "0:1",
+          "name": "Intro",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "7:8",
+          "name": "Research",
+          "readLevel": "inventory-only"
+        },
+        {
+          "id": "8:21",
+          "name": "WIP",
+          "readLevel": "inventory-only"
+        }
+      ],
+      "readAreas": [
+        {
+          "id": "591:74998",
+          "name": "SPECA",
+          "level": "metadata+selected-screenshots"
+        },
+        {
+          "id": "2207:234324",
+          "name": "SAAS",
+          "level": "metadata+selected-screenshot"
+        }
+      ],
+      "sections": [
+        {
+          "id": "591:75008",
+          "name": "RM | Экстранет | SPECA"
+        },
+        {
+          "id": "2186:166732",
+          "name": "RM | Экстранет | TRAVELDESIGN-2216"
+        },
+        {
+          "id": "2269:363039",
+          "name": "RM | Экстранет | TRAVELDESIGN-2216"
+        },
+        {
+          "id": "2199:212173",
+          "name": "RM | Экстранет | TRAVELDESIGN-2217"
+        },
+        {
+          "id": "2200:225114",
+          "name": "RM | Экстранет | TRAVELDESIGN-2215"
+        }
+      ],
+      "visualNodes": [
+        {
+          "nodeId": "617:194480",
+          "name": "RM внутри Аналитики",
+          "size": "1440×1024",
+          "finding": "Management tab, beta marker, monthly calendar with filters/badges; selected date drives adjacent rail of metrics.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/ea5xEuouvb4vG8z0FbJBXn?node-id=617-194480"
+        },
+        {
+          "nodeId": "2269:363123",
+          "name": "Сравнение цен с подборкой",
+          "size": "1440×1024",
+          "finding": "Calendar remains under overlay as context for editing competitor set.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/ea5xEuouvb4vG8z0FbJBXn?node-id=2269-363123"
+        },
+        {
+          "nodeId": "2269:363356",
+          "name": "Моя подборка",
+          "size": "1440×1026",
+          "finding": "Right drawer with 3–10 guidance, outlined search, explanatory informer and Smart selection rows with add controls. Count is design-copy observation, not independently verified live rule.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/ea5xEuouvb4vG8z0FbJBXn?node-id=2269-363356"
+        },
+        {
+          "nodeId": "2209:236084",
+          "name": "SAAS дашборд",
+          "size": "1640×1024",
+          "finding": "Own left nav, shared property header, top filter bar and KPI grid with chart/comparison/drilldown patterns; concept data includes inconsistent measurement examples, not metrics contract.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/ea5xEuouvb4vG8z0FbJBXn?node-id=2209-236084"
+        },
+        {
+          "nodeId": "647:329789",
+          "name": "RM — скелетон",
+          "size": "1440×1024",
+          "finding": "Keeps shell, title/tab, calendar grid and metric-card containers; placeholders replace data/control content, not whole page.",
+          "evidence": "screenshot visually read + metadata",
+          "url": "https://www.figma.com/design/ea5xEuouvb4vG8z0FbJBXn?node-id=647-329789"
+        }
+      ]
+    }
+  ],
+  "gaps": [
+    "Most pages inventoried only; no full review of roles/payments/iCal/tariffs/amenities/reviews/RZPV or all notification states.",
+    "No browser production access, no historic version export, no proof of final design approval from checkmark in page name.",
+    "Content Score apartment example conflicts with current hotel-only scope; benchmark presence and scoring table are not proven implementation.",
+    "SaaS page visual concept found within Revenue Management file; exact link from current SaaS project and rollout remain unverified."
+  ]
+}

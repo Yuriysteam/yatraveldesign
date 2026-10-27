@@ -5,6 +5,186 @@
   },
   "plugins": [
     {
+      "name": "agenda",
+      "source": {
+        "source": "local",
+        "path": "./plugins/agenda"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "calendar-cli",
+      "source": {
+        "source": "local",
+        "path": "./plugins/calendar-cli"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "internal-research",
+      "source": {
+        "source": "local",
+        "path": "./plugins/internal-research"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "shared-durable-memory",
+      "source": {
+        "source": "local",
+        "path": "./plugins/shared-durable-memory"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-3d-icons",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-3d-icons"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-feature-check",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-feature-check"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-codex-0-5-1",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-codex-0-5-1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-codex-0-6-1",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-codex-0-6-1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-codex-0-6-2",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-codex-0-6-2"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-codex-0-8-1",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-codex-0-8-1"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-spec-kit-2026-09-10",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-spec-kit-2026-09-10"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-spec-kit-2026-09-11",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-spec-kit-2026-09-11"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-figma-spec-kit-2026-10-20",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-figma-spec-kit-2026-10-20"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-product-context",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-product-context"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "travel-ui-delivery",
+      "source": {
+        "source": "local",
+        "path": "./plugins/travel-ui-delivery"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
       "name": "yandex-travel-ux-writing",
       "source": {
         "source": "local",

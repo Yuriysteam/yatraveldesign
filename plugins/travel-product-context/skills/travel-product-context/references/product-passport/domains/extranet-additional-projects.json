@@ -1,0 +1,70 @@
+{
+  "asOf": "2026-09-07",
+  "coverage": "Целевой поиск ключевых проектов; дополнение к extranet-projects.json",
+  "projects": [
+    {
+      "id": "6a1550a962bbed27973bec95",
+      "shortId": 669486,
+      "updatedAt": "2026-09-01T13:49:38.990+0000",
+      "createdAt": "2026-05-26T07:50:01.486+0000",
+      "end": null,
+      "entityStatus": "in_progress",
+      "parentEntity": {
+        "display": "🚀Apartments v-team",
+        "id": "676a5d67ee1bf34f46ee1323",
+        "self": "https://st-api.yandex-team.ru/v2/entities/portfolio/676a5d67ee1bf34f46ee1323"
+      },
+      "start": null,
+      "summary": "Постпей в апартаментах",
+      "sourceUrl": "https://st.yandex-team.ru/pages/projects/669486"
+    },
+    {
+      "id": "6a6b4ad07429773817776501",
+      "shortId": 749963,
+      "updatedAt": "2026-09-03T09:46:15.447+0000",
+      "createdAt": "2026-07-30T13:00:00.585+0000",
+      "end": "2026-09-30",
+      "entityStatus": "in_progress",
+      "parentEntity": {
+        "display": "[q3]2026 content",
+        "id": "6a5525117692c3585048b8c7",
+        "self": "https://st-api.yandex-team.ru/v2/entities/portfolio/6a5525117692c3585048b8c7"
+      },
+      "start": null,
+      "summary": "[new] Content score",
+      "sourceUrl": "https://st.yandex-team.ru/pages/projects/749963"
+    },
+    {
+      "id": "6a7d6fca2feca83c1674eb0f",
+      "shortId": 769787,
+      "updatedAt": "2026-09-01T12:29:55.551+0000",
+      "createdAt": "2026-08-13T07:18:34.682+0000",
+      "end": "2026-12-31",
+      "entityStatus": "draft",
+      "parentEntity": {
+        "display": "Revenue Management",
+        "id": "69d38ea45b39471a86ca33a5",
+        "self": "https://st-api.yandex-team.ru/v2/entities/portfolio/69d38ea45b39471a86ca33a5"
+      },
+      "start": null,
+      "summary": "☂ MVP RMS SaaS H2' 2026",
+      "sourceUrl": "https://st.yandex-team.ru/pages/projects/769787"
+    },
+    {
+      "id": "6a9599c54436de766f723f50",
+      "shortId": 792259,
+      "updatedAt": "2026-09-07T13:04:05.826+0000",
+      "createdAt": "2026-08-31T15:12:05.119+0000",
+      "end": null,
+      "entityStatus": "in_progress",
+      "parentEntity": {
+        "display": "2026H2 Пользовательские и коммуникационные сервисы",
+        "id": "6a7061b5742977381780b62e",
+        "self": "https://st-api.yandex-team.ru/v2/entities/portfolio/6a7061b5742977381780b62e"
+      },
+      "start": null,
+      "summary": "[travel] Ответы на карточные отзывы: экран отельера на новой ручке",
+      "sourceUrl": "https://st.yandex-team.ru/pages/projects/792259"
+    }
+  ]
+}

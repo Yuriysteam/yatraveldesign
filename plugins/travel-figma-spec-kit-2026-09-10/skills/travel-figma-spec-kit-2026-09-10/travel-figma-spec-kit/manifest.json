@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "name": "travel-figma-spec-kit",
+  "release": "2026-09-10",
+  "entrypoint": "figma-workflow-router",
+  "packages": [
+    {
+      "name": "html-to-figma-spec",
+      "version": "0.1.1",
+      "skillSha256": "9160cd864b8b00b02feaafa2560e3bde5d624b8f983c65db2ff8cfc06ba67514"
+    },
+    {
+      "name": "figma-design-machine",
+      "version": "0.3.1",
+      "skillSha256": "8630b90e82758e7c71a0bb33ff571c753bc81e3e0a2db72169c0fc1568054ae1"
+    },
+    {
+      "name": "figma-spec-builder",
+      "version": "0.5.0",
+      "skillSha256": "65248bbec707019c8d88d46bddf84dc041f6f34f959cfcfae14a63af2b7e833a"
+    },
+    {
+      "name": "travel-figma-design-system",
+      "version": "0.1.1",
+      "skillSha256": "b03a9640dad3dae5772a4607de5704d21dd295f0d038e6f420e80df269144874"
+    },
+    {
+      "name": "sasha",
+      "version": null,
+      "skillSha256": "f1e9316d041169c3fa7dcedf7554ef6dfce7aebfd0a0fb3ab6846862f10df2e1"
+    },
+    {
+      "name": "figma-workflow-router",
+      "version": "0.1.0",
+      "skillSha256": "f321710707909faeb7f31852e96270044e72f3febfc4f8bbb12479f19efac4b6"
+    }
+  ],
+  "sourceSnapshotCount": 29,
+  "externalRequirements": [
+    "Codex Figma plugin",
+    "Figma file and library access",
+    "prototype runtime"
+  ],
+  "files": [
+    {
+      "path": "README.md",
+      "size": 12341,
+      "sha256": "c2189afbfc36cdcc8eaff5fa2bfc152dc47e136a372dba898023dbab951b509c"
+    },
+    {
+      "path": "Skills/figma-design-machine/CHANGELOG.md",
+      "size": 1397,
+      "sha256": "094a7cf7da820f1a062469d0062ecc81f51b669036c4d1ba0f1890824d1d0407"
+    },
+    {
+      "path": "Skills/figma-design-machine/SKILL.md",
+      "size": 10243,
+      "sha256": "8630b90e82758e7c71a0bb33ff571c753bc81e3e0a2db72169c0fc1568054ae1"
+    },
+    {
+      "path": "Skills/figma-design-machine/agents/openai.yaml",
+      "size": 297,
+      "sha256": "38274c7223d1605d52698a1569f51aa9de27c12d501c0b82fb88e730c25cc403"
+    },
+    {
+      "path": "Skills/figma-design-machine/references/b2b-travel-builder.md",
+      "size": 3628,
+      "sha256": "84e42af56914ae2358c2cec0cdfbbfaac96cae9c599fce534cfa6397de8cdcfa"
+    },
+    {
+      "path": "Skills/figma-spec-builder/CHANGELOG.md",
+      "size": 6614,
+      "sha256": "0215518c83f3473df68e6bfdde32391a74c4ff69d1cba5d25957d629c749e337"
+    },
+    {
+      "path": "Skills/figma-spec-builder/README.md",
+      "size": 9599,
+      "sha256": "6349cddb6a6c8c302cf5b6b36f2c5cc1020bbd61b6c7fabb3b1445b45c037690"
+    },
+    {
+      "path": "Skills/figma-spec-builder/SKILL.md",
+      "size": 10998,
+      "sha256": "65248bbec707019c8d88d46bddf84dc041f6f34f959cfcfae14a63af2b7e833a"
+    },
+    {
+      "path": "Skills/figma-spec-builder/agents/openai.yaml",
+      "size": 444,
+      "sha256": "2125f45993eb94672afd8a6c53e4e01be92efe5e372e643efc788bfc5da563a6"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/arrow-routing.md",
+      "size": 16702,
+      "sha256": "c568e22b0e69b077c6c6e2f51f4b069074dc8775a568dc0f551a72f6e7a877ef"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/design-system-and-components.md",
+      "size": 20441,
+      "sha256": "802a7be0b6ddf1bfe19832e5633851021031b260ad9b6a6b2414068747761ee8"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/figma-spec-sufficiency.md",
+      "size": 18489,
+      "sha256": "145deee340bf7f7f03dad833560cd5d3268fd41af36b20f51265d61e25c5bd26"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/organize-and-shell.md",
+      "size": 14278,
+      "sha256": "3f8e783e848529384d47b5c2a4f89880f2f7b86cc757c6298b15b2a0e9f84a68"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/postpay-reference-pattern.md",
+      "size": 16101,
+      "sha256": "d658535661fa3e7d19daea1e99c449b49722fb9ceb1f9f5fde4e888d078d610d"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/quality-gates.md",
+      "size": 17407,
+      "sha256": "d3a94e5a83f58b49b4a777773b6f63f40212f890258d17fe5aac013db6548ec8"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/scenarios-states-and-overlays.md",
+      "size": 20846,
+      "sha256": "409ab25e290b52fd6edadf66fc85df6331456995c7f3567fe5bdb03c3776795d"
+    },
+    {
+      "path": "Skills/figma-spec-builder/references/workflow.md",
+      "size": 15346,
+      "sha256": "e1968ba6ac3c115f3cde8bacdb8b5bccbc79f6babb0c7b2b010018830771ccdd"
+    },
+    {
+      "path": "Skills/figma-spec-builder/scripts/install.sh",
+      "size": 5456,
+      "sha256": "f8345cdad725ed11b7f662cf923fef6b3bedaf2c46a8790e2a37740baf52582b"
+    },
+    {
+      "path": "Skills/figma-spec-builder/scripts/validate-package.mjs",
+      "size": 11044,
+      "sha256": "bf7c6ca107c2b347aba8850ad8e1fb5811581b16b71e90d723ca829f71a00181"
+    },
+    {
+      "path": "Skills/figma-spec-builder/scripts/validate.sh",
+      "size": 883,
+      "sha256": "7e6091ab04b2b54cccc17d81b6ffdd35c7d12ad2bea64014644a9d28bc461b33"
+    },
+    {
+      "path": "Skills/figma-spec-builder/tests/behavior-cases.md",
+      "size": 13989,
+      "sha256": "b2c51000b42ec242944458666db140275ac25837d17dc80ded704da06347e484"
+    },
+    {
+      "path": "Skills/figma-spec-builder/tests/install.test.mjs",
+      "size": 6562,
+      "sha256": "82232a46bbebf9ff575e83919569adf175c56f17cce6235869fdf2f4ae2c5566"
+    },
+    {
+      "path": "Skills/figma-spec-builder/tests/validate-package.test.mjs",
+      "size": 6583,
+      "sha256": "57e0a0dc4942f418a99b762703efe426fa9ff8b8a5aad3d6bc7606950d4fbaca"
+    },
+    {
+      "path": "Skills/figma-spec-builder/tests/validation-2026-09-08.md",
+      "size": 3957,
+      "sha256": "915e65daf06454aeff94118aef5560ad4aa3f6d8935a410ce2e7c5d9ebefdbaa"
+    },
+    {
+      "path": "Skills/figma-workflow-router/CHANGELOG.md",
+      "size": 667,
+      "sha256": "757e9c84762f23dd14c87b78cb881bd5dcb6cd9d73beaed05336d102a3ac533c"
+    },
+    {
+      "path": "Skills/figma-workflow-router/SKILL.md",
+      "size": 14438,
+      "sha256": "f321710707909faeb7f31852e96270044e72f3febfc4f8bbb12479f19efac4b6"
+    },
+    {
+      "path": "Skills/figma-workflow-router/agents/openai.yaml",
+      "size": 421,
+      "sha256": "279625345f760f48bd7cbc497b2522e0ad6fc2844b7aa37873488fbb0198c5dd"
+    },
+    {
+      "path": "Skills/figma-workflow-router/tests/behavior-cases.md",
+      "size": 3417,
+      "sha256": "3f6d26ff6a9bd298f733c41a36ab5c4d3c1676806663287546e982eab00190a5"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/CHANGELOG.md",
+      "size": 1266,
+      "sha256": "faf5bbe303b32c98c1a3532d3f7b221312bcf7966c0cc5b6c90f051d42d3016b"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/SKILL.md",
+      "size": 13752,
+      "sha256": "9160cd864b8b00b02feaafa2560e3bde5d624b8f983c65db2ff8cfc06ba67514"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/agents/openai.yaml",
+      "size": 442,
+      "sha256": "58d270df8d8ac41dfb06dc252de7df903acd302f6904292c8cbbc8afd4ddf08d"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/component-map.json",
+      "size": 102864,
+      "sha256": "142c1257a78a200dfb78e3510ac003b75efce44e8c2085f3bf42268ea1d4aeba"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/component-mapping.md",
+      "size": 12614,
+      "sha256": "463a9da8b2bbdcd5aa4e119a9aa3ae509b9b3017c7cfb1c08382956600607f46"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-and-state-contract.md",
+      "size": 8971,
+      "sha256": "265d47a6dc3e3f8a7dd1b88b0df16f3a80deec12e71c3113d9a3b3ff671f68db"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/Base2.0/styles/components.css",
+      "size": 78493,
+      "sha256": "64fbe8b825f56b36f247b46be7ba0473fc180db9a59a4bcddabb9cef3eb59dfe"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/components.json",
+      "size": 47566,
+      "sha256": "3d7666e78d2a67eafadb8300a0f828988faa0964f3a6a5dd78a4655e9d999058"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/icons/index.json",
+      "size": 257571,
+      "sha256": "9a60720adcb69b6cfc11d2c4914eb62d459c2451f4737b8dfe375e45abb2ef87"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/manifest.json",
+      "size": 34419,
+      "sha256": "68d543cd6039c2ec8634080f60e6b448eb5f8cd02effb57925d3d4852e6a9106"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/principles/tokens.md.txt",
+      "size": 2352,
+      "sha256": "d5ed21f53e85a69b24805841ca52019648caa4b5e190161127c66394f10ae629"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/button/button-simple.html",
+      "size": 330,
+      "sha256": "64e1177801b3852af460fce2a454f889889728dfd443c7138e28b247657d5484"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/checkbox/checkbox-outlined-simple.html",
+      "size": 559,
+      "sha256": "6faa1d087f8f37b62c2b521f9ebc38d87b903815eca3698ad0e43999a499d245"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/checkbox/checkbox-solid-simple.html",
+      "size": 559,
+      "sha256": "343eb036fc0777a4acb56f6f8950cc47cae21e17952d679bd98c0f84bc88b984"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/input/input-outlined-simple.html",
+      "size": 447,
+      "sha256": "d968eabdb65d7d611dbbc3b69f829d664c2349953ea75fd0f095b57174b014da"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/input/input-outlinedlight-simple.html",
+      "size": 444,
+      "sha256": "e63956bbb33f2fbfa00e8e380821d91fd289d905eda8a54a14d96aaccf29929c"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/input/input-solid-simple.html",
+      "size": 442,
+      "sha256": "cbc8f4070625f1c57cdbe230eb2f94082fbfb3cb04c952c1e9a331cfe6138981"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/input/input-solidwhite-simple.html",
+      "size": 438,
+      "sha256": "25b558a617bfd85bcdfd879f840863eb3424bfd9a286ef3dc4fca33841081858"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/input/input-transparent-simple.html",
+      "size": 348,
+      "sha256": "6b7c511b29735de5905751660ce86cb14caea919f89ddd33a610c57dfe58c2cd"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/input/input-underlined-simple.html",
+      "size": 444,
+      "sha256": "49ad9d48094891dc83b0e790cded0f9e853c9c75bc0348ff9c0b7ec5fd18516f"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/radiogroup/radiogroup-outlined-simple.html",
+      "size": 1942,
+      "sha256": "0a834b9fd88925f093591de52e72149a8e95ab311829c73704e4816500609085"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/radiogroup/radiogroup-solid-simple.html",
+      "size": 1942,
+      "sha256": "3acf98b9aa2f61d98ffea427bb909ecfca605140a97e67c4079cda79508be384"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/switch/switch-simple.html",
+      "size": 209,
+      "sha256": "008c7596ed955e04b1dad3fae764657f62539eb303b02e2a3b1c9bcb2fd1cb9e"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/textarea/textarea-inversed-simple.html",
+      "size": 232,
+      "sha256": "32b0f43c19d8216490f39d83f28ba8550694217afc8bf2dd111b18bc4a37cd5f"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/textarea/textarea-outlined-simple.html",
+      "size": 232,
+      "sha256": "674deea4531507ea90a0ebdac8ce4c31eb60e2125f2a0a9e2fa9acd198e06234"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/controls/textarea/textarea-solid-simple.html",
+      "size": 232,
+      "sha256": "1ac47a80f73626bb103ca0d72fcb5cb4b39d2f4499c484e0fd959c61dfcef715"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/overlays/bottomsheet/bottomsheet-simple.html",
+      "size": 264,
+      "sha256": "58018e1c620bf17c449513c427bfcc389ea0f4583b6c26f77aee09f58972c43a"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/overlays/drawer/drawer-simple.html",
+      "size": 260,
+      "sha256": "4185c13c49cc577d38f9b94dacdbbf26010b7a8f2dc89c69749c13b3c01108c1"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/overlays/modal/modal-simple.html",
+      "size": 270,
+      "sha256": "5a080693bda12c850d9130832d4084e1c58b632a57be284a1a6867d0e4fe0acd"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/overlays/sidepanel/sidepanel-simple.html",
+      "size": 264,
+      "sha256": "58018e1c620bf17c449513c427bfcc389ea0f4583b6c26f77aee09f58972c43a"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/snippets/snippets.json",
+      "size": 682876,
+      "sha256": "5b7c549b9960dc796fbb6b5743e0b31d5e2d3b13e2f2969cdf65be490a15e51d"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/BaseAI/tokens/theme-vars.css",
+      "size": 32342,
+      "sha256": "41bfb11dee1ae13ea922263edc99594e6b284a381dd411f14ce1c8493f9deb98"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/Skills/design/tools/makedesign/SKILL.md.txt",
+      "size": 36452,
+      "sha256": "f66668817a453b5c02cb085a75427b2bdbc07f0133d345c6312bdc531f8cd88b"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/Skills/travel-figma-design-system/references/base20-figma-components.json",
+      "size": 61102,
+      "sha256": "53b1b2a26523d94a3a8a71a4de15021a5b5337bedeab5b04ba2c31e8b021094c"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/references/source-snapshots/Skills/travel-figma-design-system/references/organisms20-figma-map.md.txt",
+      "size": 27254,
+      "sha256": "973524e61cca285145c0bb8524784826f833741b72c87197bb1929f106a3a377"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/scripts/inspect_html.py",
+      "size": 19595,
+      "sha256": "64657df92974da156cde960cb60d90252318f3d769583989595d55959d3942e8"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/tests/test_inspect_html.py",
+      "size": 7964,
+      "sha256": "e66bd10703d28a2254392e17fa8a8194e1700ba1818a284d0a5f81a87d4bc66d"
+    },
+    {
+      "path": "Skills/html-to-figma-spec/tests/validation-2026-09-08.md",
+      "size": 2306,
+      "sha256": "03992d7dc671bbad099be2f77ab9d0f816ae7d72a71cd7c99bce2282f31b3915"
+    },
+    {
+      "path": "Skills/sasha/SKILL.md",
+      "size": 5048,
+      "sha256": "f1e9316d041169c3fa7dcedf7554ef6dfce7aebfd0a0fb3ab6846862f10df2e1"
+    },
+    {
+      "path": "Skills/sasha/agents/openai.yaml",
+      "size": 222,
+      "sha256": "3ab87c8afcc4d343f9041b80fb3734e004289c7d5f4c6a3ac1d96c71391a96df"
+    },
+    {
+      "path": "Skills/sasha/references/01-principles.md",
+      "size": 6096,
+      "sha256": "d32d3893fb999998ef49ad1a5f9438a486475e90794c5f622a0ce447f211eb07"
+    },
+    {
+      "path": "Skills/sasha/references/02-components.md",
+      "size": 7091,
+      "sha256": "d69556775f9dca348a513e51f1a7e3490213e406f8bc35d7740622b603e52ec4"
+    },
+    {
+      "path": "Skills/sasha/references/03-errors.md",
+      "size": 3933,
+      "sha256": "1abd36ae181cc6fa98eac09b0b1f44c563cd5ccdc622e4bc1b9ce3cb5dfa4745"
+    },
+    {
+      "path": "Skills/sasha/references/04-typography.md",
+      "size": 7970,
+      "sha256": "95a60bcc73e1e17b3b98fd9e7d312e9b0043800975932f8bede545baff0c7dc3"
+    },
+    {
+      "path": "Skills/sasha/references/05-code-review.md",
+      "size": 2430,
+      "sha256": "8ce0b4fe069b156a0744052452722262436244ced4f312057488eece262e1459"
+    },
+    {
+      "path": "Skills/sasha/references/06-examples.md",
+      "size": 3148,
+      "sha256": "be61b81d19906d9151333f999d74fb346ebe920d50b9ccea784fb0dc8bdd18e7"
+    },
+    {
+      "path": "Skills/sasha/references/rules.json",
+      "size": 2854,
+      "sha256": "99aa13b9f5395c98a902df73f5e83428ea08d1bb9ce816f0b470fa6121d78b8b"
+    },
+    {
+      "path": "Skills/sasha/scripts/extract_ui_strings.py",
+      "size": 7098,
+      "sha256": "47e52c31ef2bd5d23d9ef286a990329315e7ecd2ffe93feda9c11f564be40fa7"
+    },
+    {
+      "path": "Skills/sasha/scripts/ui_text_lint.py",
+      "size": 9779,
+      "sha256": "8daeaa8800bdf004e9d572e28a6719d4ad941918c5a9f8bf86941855d2bf9f4a"
+    },
+    {
+      "path": "Skills/travel-figma-design-system/CHANGELOG.md",
+      "size": 752,
+      "sha256": "733448238f1d67721fd1c9c3a469019cb408654d738102de6eb08de5f3f8cc52"
+    },
+    {
+      "path": "Skills/travel-figma-design-system/SKILL.md",
+      "size": 6614,
+      "sha256": "b03a9640dad3dae5772a4607de5704d21dd295f0d038e6f420e80df269144874"
+    },
+    {
+      "path": "Skills/travel-figma-design-system/agents/openai.yaml",
+      "size": 272,
+      "sha256": "cc92b60ea40b74d098baa13d30fc27544fe8c793e7cabdeeaf21b1ae0b352b5d"
+    },
+    {
+      "path": "Skills/travel-figma-design-system/references/base20-figma-components.json",
+      "size": 61102,
+      "sha256": "53b1b2a26523d94a3a8a71a4de15021a5b5337bedeab5b04ba2c31e8b021094c"
+    },
+    {
+      "path": "Skills/travel-figma-design-system/references/base20-figma-map.md",
+      "size": 19025,
+      "sha256": "9c26139521649371721800b002aa818c33d0857c344082d25d87d0169e49d25b"
+    },
+    {
+      "path": "Skills/travel-figma-design-system/references/organisms20-figma-map.md",
+      "size": 27254,
+      "sha256": "973524e61cca285145c0bb8524784826f833741b72c87197bb1929f106a3a377"
+    },
+    {
+      "path": "VALIDATION.md",
+      "size": 3810,
+      "sha256": "0c0a16e03065dc130359114af42bc2330e941d1d4f32031606bca9120b94ab23"
+    },
+    {
+      "path": "install.py",
+      "size": 14075,
+      "sha256": "f8e6fb0ed7c67d6bb01342e72a675e14038cf807f0515a10876cf6a4bcb916be"
+    },
+    {
+      "path": "tests/test_install.py",
+      "size": 14376,
+      "sha256": "6a22da235f174fcc514bdb82b3f4c659a898e220ba7c7df6cad829361a65a214"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "name": "agenda",
+  "version": "0.1.0+02609661fc74",
+  "description": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
+  "author": {
+    "name": "Travel Design"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Agenda",
+    "shortDescription": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
+    "longDescription": "Собирает короткую рабочую адженду из задач, календаря и явно подключённых источников.",
+    "developerName": "Travel Design",
+    "category": "Productivity"
+  }
+}

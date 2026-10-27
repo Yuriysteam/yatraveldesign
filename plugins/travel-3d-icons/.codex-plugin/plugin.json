@@ -1,0 +1,16 @@
+{
+  "name": "travel-3d-icons",
+  "version": "0.1.0+9810d5737c09",
+  "description": "Generate, edit, harmonize, concept-sketch, visually QA, and package branded Travel 3D room-category icons. Use for L/M room illustrations, composition variants, targeted object or material changes, camera/scale alignment, transparency cleanup, and consistent icon-set updates.",
+  "author": {
+    "name": "Travel Design"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "travel-3d-icons",
+    "shortDescription": "Generate, edit, harmonize, concept-sketch, visually QA, and package branded Travel 3D room-category icons. Use for L/M room illustrations, composition variants, targeted object or material changes, ca",
+    "longDescription": "Generate, edit, harmonize, concept-sketch, visually QA, and package branded Travel 3D room-category icons. Use for L/M room illustrations, composition variants, targeted object or material changes, camera/scale alignment, transparency cleanup, and consistent icon-set updates.",
+    "developerName": "Travel Design",
+    "category": "Productivity"
+  }
+}

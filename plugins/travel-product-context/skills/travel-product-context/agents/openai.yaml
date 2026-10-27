@@ -1,0 +1,4 @@
+interface:
+  display_name: "Travel Product Context"
+  short_description: "Внутренний контекст продукта Путешествий"
+  default_prompt: "Используй $travel-product-context, чтобы найти релевантный контекст продукта и обозначить источники и границы актуальности."

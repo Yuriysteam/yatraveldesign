@@ -1,0 +1,4 @@
+interface:
+  display_name: "Корнеры Travel-фичи"
+  short_description: "Проверяет состояния и пробелы в дизайн-спеке"
+  default_prompt: "Используй $travel-feature-check, чтобы проверить тикет, Figma-спеку и текущий код Travel перед передачей дизайна в разработку."

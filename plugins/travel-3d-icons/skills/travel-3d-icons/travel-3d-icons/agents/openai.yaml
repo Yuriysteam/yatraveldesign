@@ -1,0 +1,7 @@
+interface:
+  display_name: "Travel 3D Icons"
+  short_description: "Create consistent Travel room icons and L/M variants"
+  icon_small: "./assets/canonical-bedroom.png"
+  icon_large: "./assets/canonical-bedroom.png"
+  brand_color: "#A98BFF"
+  default_prompt: "Use $travel-3d-icons to sketch, create, edit, or harmonize Travel 3D room icons and their L/M variants."

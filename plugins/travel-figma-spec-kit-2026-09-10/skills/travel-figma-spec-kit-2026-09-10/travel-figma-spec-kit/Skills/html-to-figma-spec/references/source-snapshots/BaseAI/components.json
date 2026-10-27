@@ -1,0 +1,1869 @@
+[
+  {
+    "name": "ColorsShowcase",
+    "category": "Common",
+    "path": "components/ColorsShowcase/",
+    "markup": "components/ColorsShowcase/markup.html",
+    "meta": "components/ColorsShowcase/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Common/ColorsShowcase"
+    ]
+  },
+  {
+    "name": "Button",
+    "category": "Controls",
+    "path": "components/Button/",
+    "markup": "components/Button/markup.html",
+    "meta": "components/Button/meta.json",
+    "behavior": "components/Button/behavior.json",
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Button"
+    ]
+  },
+  {
+    "name": "ButtonGroup",
+    "category": "Controls",
+    "path": "components/ButtonGroup/",
+    "markup": "components/ButtonGroup/markup.html",
+    "meta": "components/ButtonGroup/meta.json",
+    "behavior": "components/ButtonGroup/behavior.json",
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Controls/ButtonGroup"
+    ]
+  },
+  {
+    "name": "Checkbox",
+    "category": "Controls",
+    "path": "components/Checkbox/",
+    "markup": "components/Checkbox/markup.html",
+    "meta": "components/Checkbox/meta.json",
+    "behavior": "components/Checkbox/behavior.json",
+    "storiesCount": 20,
+    "views": [
+      "Outlined",
+      "Solid"
+    ],
+    "sourceTitles": [
+      "Controls/Checkbox/Outlined",
+      "Controls/Checkbox/Solid"
+    ]
+  },
+  {
+    "name": "CheckButton",
+    "category": "Controls",
+    "path": "components/CheckButton/",
+    "markup": "components/CheckButton/markup.html",
+    "meta": "components/CheckButton/meta.json",
+    "behavior": "components/CheckButton/behavior.json",
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Controls/CheckButton"
+    ]
+  },
+  {
+    "name": "Chips",
+    "category": "Controls",
+    "path": "components/Chips/",
+    "markup": "components/Chips/markup.html",
+    "meta": "components/Chips/meta.json",
+    "behavior": "components/Chips/behavior.json",
+    "storiesCount": 10,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Chips"
+    ]
+  },
+  {
+    "name": "DateInput",
+    "category": "Controls",
+    "path": "components/DateInput/",
+    "markup": "components/DateInput/markup.html",
+    "meta": "components/DateInput/meta.json",
+    "behavior": "components/DateInput/behavior.json",
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Controls/DateInput"
+    ]
+  },
+  {
+    "name": "DatePicker",
+    "category": "Controls",
+    "path": "components/DatePicker/",
+    "markup": "components/DatePicker/markup.html",
+    "meta": "components/DatePicker/meta.json",
+    "behavior": "components/DatePicker/behavior.json",
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Controls/DatePicker"
+    ]
+  },
+  {
+    "name": "DateTriggerInput",
+    "category": "Controls",
+    "path": "components/DateTriggerInput/",
+    "markup": "components/DateTriggerInput/markup.html",
+    "meta": "components/DateTriggerInput/meta.json",
+    "behavior": "components/DateTriggerInput/behavior.json",
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Controls/DateTriggerInput"
+    ]
+  },
+  {
+    "name": "Dropdown",
+    "category": "Controls",
+    "path": "components/Dropdown/",
+    "markup": "components/Dropdown/markup.html",
+    "meta": "components/Dropdown/meta.json",
+    "behavior": "components/Dropdown/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Dropdown"
+    ]
+  },
+  {
+    "name": "FilterCheckList",
+    "category": "Controls",
+    "path": "components/FilterCheckList/",
+    "markup": "components/FilterCheckList/markup.html",
+    "meta": "components/FilterCheckList/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Controls/FilterCheckList"
+    ]
+  },
+  {
+    "name": "ImagesSelector",
+    "category": "Controls",
+    "path": "components/ImagesSelector/",
+    "markup": "components/ImagesSelector/markup.html",
+    "meta": "components/ImagesSelector/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/ImagesSelector"
+    ]
+  },
+  {
+    "name": "Indicator",
+    "category": "Controls",
+    "path": "components/Indicator/",
+    "markup": "components/Indicator/markup.html",
+    "meta": "components/Indicator/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Indicator"
+    ]
+  },
+  {
+    "name": "Input",
+    "category": "Controls",
+    "path": "components/Input/",
+    "markup": "components/Input/markup.html",
+    "meta": "components/Input/meta.json",
+    "behavior": "components/Input/behavior.json",
+    "storiesCount": 47,
+    "views": [
+      "Outlined",
+      "OutlinedLight",
+      "Solid",
+      "SolidWhite",
+      "Transparent",
+      "Underlined"
+    ],
+    "sourceTitles": [
+      "Controls/Input/Outlined",
+      "Controls/Input/OutlinedLight",
+      "Controls/Input/Solid",
+      "Controls/Input/SolidWhite",
+      "Controls/Input/Transparent",
+      "Controls/Input/Underlined"
+    ]
+  },
+  {
+    "name": "InputRange",
+    "category": "Controls",
+    "path": "components/InputRange/",
+    "markup": "components/InputRange/markup.html",
+    "meta": "components/InputRange/meta.json",
+    "behavior": "components/InputRange/behavior.json",
+    "storiesCount": 8,
+    "views": [],
+    "sourceTitles": [
+      "Controls/InputRange"
+    ]
+  },
+  {
+    "name": "InputWithCopyButton",
+    "category": "Controls",
+    "path": "components/InputWithCopyButton/",
+    "markup": "components/InputWithCopyButton/markup.html",
+    "meta": "components/InputWithCopyButton/meta.json",
+    "behavior": "components/InputWithCopyButton/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/InputWithCopyButton"
+    ]
+  },
+  {
+    "name": "InputWithLoader",
+    "category": "Controls",
+    "path": "components/InputWithLoader/",
+    "markup": "components/InputWithLoader/markup.html",
+    "meta": "components/InputWithLoader/meta.json",
+    "behavior": "components/InputWithLoader/behavior.json",
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Controls/InputWithLoader"
+    ]
+  },
+  {
+    "name": "LinkButton",
+    "category": "Controls",
+    "path": "components/LinkButton/",
+    "markup": "components/LinkButton/markup.html",
+    "meta": "components/LinkButton/meta.json",
+    "behavior": "components/LinkButton/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/LinkButton"
+    ]
+  },
+  {
+    "name": "MaskedInput",
+    "category": "Controls",
+    "path": "components/MaskedInput/",
+    "markup": "components/MaskedInput/markup.html",
+    "meta": "components/MaskedInput/meta.json",
+    "behavior": "components/MaskedInput/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/MaskedInput"
+    ]
+  },
+  {
+    "name": "MoreButton",
+    "category": "Controls",
+    "path": "components/MoreButton/",
+    "markup": "components/MoreButton/markup.html",
+    "meta": "components/MoreButton/meta.json",
+    "behavior": "components/MoreButton/behavior.json",
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Controls/MoreButton"
+    ]
+  },
+  {
+    "name": "NativeSelect",
+    "category": "Controls",
+    "path": "components/NativeSelect/",
+    "markup": "components/NativeSelect/markup.html",
+    "meta": "components/NativeSelect/meta.json",
+    "behavior": "components/NativeSelect/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/NativeSelect"
+    ]
+  },
+  {
+    "name": "NumberInput",
+    "category": "Controls",
+    "path": "components/NumberInput/",
+    "markup": "components/NumberInput/markup.html",
+    "meta": "components/NumberInput/meta.json",
+    "behavior": "components/NumberInput/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/NumberInput"
+    ]
+  },
+  {
+    "name": "PhoneInput",
+    "category": "Controls",
+    "path": "components/PhoneInput/",
+    "markup": "components/PhoneInput/markup.html",
+    "meta": "components/PhoneInput/meta.json",
+    "behavior": "components/PhoneInput/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/PhoneInput"
+    ]
+  },
+  {
+    "name": "PositionIndicator",
+    "category": "Controls",
+    "path": "components/PositionIndicator/",
+    "markup": "components/PositionIndicator/markup.html",
+    "meta": "components/PositionIndicator/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Controls/PositionIndicator"
+    ]
+  },
+  {
+    "name": "Pressable",
+    "category": "Controls",
+    "path": "components/Pressable/",
+    "markup": "components/Pressable/markup.html",
+    "meta": "components/Pressable/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Pressable"
+    ]
+  },
+  {
+    "name": "PriceInput",
+    "category": "Controls",
+    "path": "components/PriceInput/",
+    "markup": "components/PriceInput/markup.html",
+    "meta": "components/PriceInput/meta.json",
+    "behavior": "components/PriceInput/behavior.json",
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Controls/PriceInput"
+    ]
+  },
+  {
+    "name": "RadioBlockGroup",
+    "category": "Controls",
+    "path": "components/RadioBlockGroup/",
+    "markup": "components/RadioBlockGroup/markup.html",
+    "meta": "components/RadioBlockGroup/meta.json",
+    "behavior": "components/RadioBlockGroup/behavior.json",
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Controls/RadioBlockGroup"
+    ]
+  },
+  {
+    "name": "RadioGroup",
+    "category": "Controls",
+    "path": "components/RadioGroup/",
+    "markup": "components/RadioGroup/markup.html",
+    "meta": "components/RadioGroup/meta.json",
+    "behavior": null,
+    "storiesCount": 18,
+    "views": [
+      "Generic",
+      "Outlined",
+      "Solid"
+    ],
+    "sourceTitles": [
+      "Controls/RadioGroup/Generic",
+      "Controls/RadioGroup/Outlined",
+      "Controls/RadioGroup/Solid"
+    ]
+  },
+  {
+    "name": "RotatingArrowIcon",
+    "category": "Controls",
+    "path": "components/RotatingArrowIcon/",
+    "markup": "components/RotatingArrowIcon/markup.html",
+    "meta": "components/RotatingArrowIcon/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Controls/RotatingArrowIcon"
+    ]
+  },
+  {
+    "name": "SearchControl",
+    "category": "Controls",
+    "path": "components/SearchControl/",
+    "markup": "components/SearchControl/markup.html",
+    "meta": "components/SearchControl/meta.json",
+    "behavior": "components/SearchControl/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/SearchControl"
+    ]
+  },
+  {
+    "name": "SegmentedControl",
+    "category": "Controls",
+    "path": "components/SegmentedControl/",
+    "markup": "components/SegmentedControl/markup.html",
+    "meta": "components/SegmentedControl/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Controls/SegmentedControl"
+    ]
+  },
+  {
+    "name": "Select",
+    "category": "Controls",
+    "path": "components/Select/",
+    "markup": "components/Select/markup.html",
+    "meta": "components/Select/meta.json",
+    "behavior": "components/Select/behavior.json",
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Select"
+    ]
+  },
+  {
+    "name": "Stepper",
+    "category": "Controls",
+    "path": "components/Stepper/",
+    "markup": "components/Stepper/markup.html",
+    "meta": "components/Stepper/meta.json",
+    "behavior": null,
+    "storiesCount": 10,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Stepper"
+    ]
+  },
+  {
+    "name": "Suggest",
+    "category": "Controls",
+    "path": "components/Suggest/",
+    "markup": "components/Suggest/markup.html",
+    "meta": "components/Suggest/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Suggest"
+    ]
+  },
+  {
+    "name": "Switch",
+    "category": "Controls",
+    "path": "components/Switch/",
+    "markup": "components/Switch/markup.html",
+    "meta": "components/Switch/meta.json",
+    "behavior": "components/Switch/behavior.json",
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Controls/Switch"
+    ]
+  },
+  {
+    "name": "TextArea",
+    "category": "Controls",
+    "path": "components/TextArea/",
+    "markup": "components/TextArea/markup.html",
+    "meta": "components/TextArea/meta.json",
+    "behavior": "components/TextArea/behavior.json",
+    "storiesCount": 33,
+    "views": [
+      "Inversed",
+      "Outlined",
+      "Solid"
+    ],
+    "sourceTitles": [
+      "Controls/TextArea/Inversed",
+      "Controls/TextArea/Outlined",
+      "Controls/TextArea/Solid"
+    ]
+  },
+  {
+    "name": "TimeRange",
+    "category": "Controls",
+    "path": "components/TimeRange/",
+    "markup": "components/TimeRange/markup.html",
+    "meta": "components/TimeRange/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Controls/TimeRange"
+    ]
+  },
+  {
+    "name": "TriggerInput",
+    "category": "Controls",
+    "path": "components/TriggerInput/",
+    "markup": "components/TriggerInput/markup.html",
+    "meta": "components/TriggerInput/meta.json",
+    "behavior": "components/TriggerInput/behavior.json",
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Controls/TriggerInput"
+    ]
+  },
+  {
+    "name": "AttentionSticker",
+    "category": "Data display",
+    "path": "components/AttentionSticker/",
+    "markup": "components/AttentionSticker/markup.html",
+    "meta": "components/AttentionSticker/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Data display/AttentionSticker"
+    ]
+  },
+  {
+    "name": "Avatar",
+    "category": "Data display",
+    "path": "components/Avatar/",
+    "markup": "components/Avatar/markup.html",
+    "meta": "components/Avatar/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Avatar"
+    ]
+  },
+  {
+    "name": "BorderPositioned",
+    "category": "Data display",
+    "path": "components/BorderPositioned/",
+    "markup": "components/BorderPositioned/markup.html",
+    "meta": "components/BorderPositioned/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Data display/BorderPositioned"
+    ]
+  },
+  {
+    "name": "Calendar",
+    "category": "Data display",
+    "path": "components/Calendar/",
+    "markup": "components/Calendar/markup.html",
+    "meta": "components/Calendar/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Calendar"
+    ]
+  },
+  {
+    "name": "Carousel",
+    "category": "Data display",
+    "path": "components/Carousel/",
+    "markup": "components/Carousel/markup.html",
+    "meta": "components/Carousel/meta.json",
+    "behavior": null,
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Carousel"
+    ]
+  },
+  {
+    "name": "Copyright",
+    "category": "Data display",
+    "path": "components/Copyright/",
+    "markup": "components/Copyright/markup.html",
+    "meta": "components/Copyright/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Data Display/Copyright"
+    ]
+  },
+  {
+    "name": "DateLabel",
+    "category": "Data display",
+    "path": "components/DateLabel/",
+    "markup": "components/DateLabel/markup.html",
+    "meta": "components/DateLabel/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Data display/DateLabel"
+    ]
+  },
+  {
+    "name": "DiscountBadge",
+    "category": "Data display",
+    "path": "components/DiscountBadge/",
+    "markup": "components/DiscountBadge/markup.html",
+    "meta": "components/DiscountBadge/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/DiscountBadge"
+    ]
+  },
+  {
+    "name": "FieldLabel",
+    "category": "Data display",
+    "path": "components/FieldLabel/",
+    "markup": "components/FieldLabel/markup.html",
+    "meta": "components/FieldLabel/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Data display/FieldLabel"
+    ]
+  },
+  {
+    "name": "Hint",
+    "category": "Data display",
+    "path": "components/Hint/",
+    "markup": "components/Hint/markup.html",
+    "meta": "components/Hint/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data Display/Hint"
+    ]
+  },
+  {
+    "name": "HorizontalScroller",
+    "category": "Data display",
+    "path": "components/HorizontalScroller/",
+    "markup": "components/HorizontalScroller/markup.html",
+    "meta": "components/HorizontalScroller/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Data display/HorizontalScroller"
+    ]
+  },
+  {
+    "name": "ImagesCarousel",
+    "category": "Data display",
+    "path": "components/ImagesCarousel/",
+    "markup": "components/ImagesCarousel/markup.html",
+    "meta": "components/ImagesCarousel/meta.json",
+    "behavior": null,
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Data display/ImagesCarousel"
+    ]
+  },
+  {
+    "name": "ImagesSwipeCarousel",
+    "category": "Data display",
+    "path": "components/ImagesSwipeCarousel/",
+    "markup": "components/ImagesSwipeCarousel/markup.html",
+    "meta": "components/ImagesSwipeCarousel/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Data display/ImagesSwipeCarousel"
+    ]
+  },
+  {
+    "name": "Intent",
+    "category": "Data display",
+    "path": "components/Intent/",
+    "markup": "components/Intent/markup.html",
+    "meta": "components/Intent/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Intent"
+    ]
+  },
+  {
+    "name": "Label",
+    "category": "Data display",
+    "path": "components/Label/",
+    "markup": "components/Label/markup.html",
+    "meta": "components/Label/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Label"
+    ]
+  },
+  {
+    "name": "NotificationDot",
+    "category": "Data display",
+    "path": "components/NotificationDot/",
+    "markup": "components/NotificationDot/markup.html",
+    "meta": "components/NotificationDot/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/NotificationDot"
+    ]
+  },
+  {
+    "name": "Phone",
+    "category": "Data display",
+    "path": "components/Phone/",
+    "markup": "components/Phone/markup.html",
+    "meta": "components/Phone/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Phone"
+    ]
+  },
+  {
+    "name": "PhoneWithTitle",
+    "category": "Data display",
+    "path": "components/PhoneWithTitle/",
+    "markup": "components/PhoneWithTitle/markup.html",
+    "meta": "components/PhoneWithTitle/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Data display/PhoneWithTitle"
+    ]
+  },
+  {
+    "name": "PlusPoints",
+    "category": "Data display",
+    "path": "components/PlusPoints/",
+    "markup": "components/PlusPoints/markup.html",
+    "meta": "components/PlusPoints/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/PlusPoints"
+    ]
+  },
+  {
+    "name": "Price",
+    "category": "Data display",
+    "path": "components/Price/",
+    "markup": "components/Price/markup.html",
+    "meta": "components/Price/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Price"
+    ]
+  },
+  {
+    "name": "Rating",
+    "category": "Data display",
+    "path": "components/Rating/",
+    "markup": "components/Rating/markup.html",
+    "meta": "components/Rating/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Rating"
+    ]
+  },
+  {
+    "name": "RecommendBadge",
+    "category": "Data display",
+    "path": "components/RecommendBadge/",
+    "markup": "components/RecommendBadge/markup.html",
+    "meta": "components/RecommendBadge/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Data display/RecommendBadge"
+    ]
+  },
+  {
+    "name": "SnippetBadge",
+    "category": "Data display",
+    "path": "components/SnippetBadge/",
+    "markup": "components/SnippetBadge/markup.html",
+    "meta": "components/SnippetBadge/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Data display/SnippetBadge"
+    ]
+  },
+  {
+    "name": "Stars",
+    "category": "Data display",
+    "path": "components/Stars/",
+    "markup": "components/Stars/markup.html",
+    "meta": "components/Stars/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Stars"
+    ]
+  },
+  {
+    "name": "Status",
+    "category": "Data display",
+    "path": "components/Status/",
+    "markup": "components/Status/markup.html",
+    "meta": "components/Status/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Status"
+    ]
+  },
+  {
+    "name": "Swipeable",
+    "category": "Data display",
+    "path": "components/Swipeable/",
+    "markup": "components/Swipeable/markup.html",
+    "meta": "components/Swipeable/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Swipeable"
+    ]
+  },
+  {
+    "name": "SwipeDown",
+    "category": "Data display",
+    "path": "components/SwipeDown/",
+    "markup": "components/SwipeDown/markup.html",
+    "meta": "components/SwipeDown/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Data display/SwipeDown"
+    ]
+  },
+  {
+    "name": "Table",
+    "category": "Data display",
+    "path": "components/Table/",
+    "markup": "components/Table/markup.html",
+    "meta": "components/Table/meta.json",
+    "behavior": null,
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Table"
+    ]
+  },
+  {
+    "name": "TravelImage",
+    "category": "Data display",
+    "path": "components/TravelImage/",
+    "markup": "components/TravelImage/markup.html",
+    "meta": "components/TravelImage/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Data display/TravelImage"
+    ]
+  },
+  {
+    "name": "YandexAvatar",
+    "category": "Data display",
+    "path": "components/YandexAvatar/",
+    "markup": "components/YandexAvatar/markup.html",
+    "meta": "components/YandexAvatar/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/YandexAvatar"
+    ]
+  },
+  {
+    "name": "Zoomable",
+    "category": "Data display",
+    "path": "components/Zoomable/",
+    "markup": "components/Zoomable/markup.html",
+    "meta": "components/Zoomable/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Data display/Zoomable"
+    ]
+  },
+  {
+    "name": "ZoomableImage",
+    "category": "Data display",
+    "path": "components/ZoomableImage/",
+    "markup": "components/ZoomableImage/markup.html",
+    "meta": "components/ZoomableImage/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Data display/ZoomableImage"
+    ]
+  },
+  {
+    "name": "ButtonSkeleton",
+    "category": "Feedback",
+    "path": "components/ButtonSkeleton/",
+    "markup": "components/ButtonSkeleton/markup.html",
+    "meta": "components/ButtonSkeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/ButtonSkeleton"
+    ]
+  },
+  {
+    "name": "CellWithSquareIconSkeleton",
+    "category": "Feedback",
+    "path": "components/CellWithSquareIconSkeleton/",
+    "markup": "components/CellWithSquareIconSkeleton/markup.html",
+    "meta": "components/CellWithSquareIconSkeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/CellWithSquareIconSkeleton"
+    ]
+  },
+  {
+    "name": "FullscreenSpinner",
+    "category": "Feedback",
+    "path": "components/FullscreenSpinner/",
+    "markup": "components/FullscreenSpinner/markup.html",
+    "meta": "components/FullscreenSpinner/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/FullscreenSpinner"
+    ]
+  },
+  {
+    "name": "Informer",
+    "category": "Feedback",
+    "path": "components/Informer/",
+    "markup": "components/Informer/markup.html",
+    "meta": "components/Informer/meta.json",
+    "behavior": null,
+    "storiesCount": 12,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/Informer"
+    ]
+  },
+  {
+    "name": "InputSkeleton",
+    "category": "Feedback",
+    "path": "components/InputSkeleton/",
+    "markup": "components/InputSkeleton/markup.html",
+    "meta": "components/InputSkeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/InputSkeleton"
+    ]
+  },
+  {
+    "name": "ProgressBar",
+    "category": "Feedback",
+    "path": "components/ProgressBar/",
+    "markup": "components/ProgressBar/markup.html",
+    "meta": "components/ProgressBar/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/ProgressBar"
+    ]
+  },
+  {
+    "name": "RadioIndicator",
+    "category": "Feedback",
+    "path": "components/RadioIndicator/",
+    "markup": "components/RadioIndicator/markup.html",
+    "meta": "components/RadioIndicator/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/RadioIndicator"
+    ]
+  },
+  {
+    "name": "Skeleton",
+    "category": "Feedback",
+    "path": "components/Skeleton/",
+    "markup": "components/Skeleton/markup.html",
+    "meta": "components/Skeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/Skeleton"
+    ]
+  },
+  {
+    "name": "Snackbar",
+    "category": "Feedback",
+    "path": "components/Snackbar/",
+    "markup": "components/Snackbar/markup.html",
+    "meta": "components/Snackbar/meta.json",
+    "behavior": null,
+    "storiesCount": 9,
+    "views": [
+      "HorizontalSnackbar",
+      "SnackbarWithImage",
+      "VerticalSnackbar"
+    ],
+    "sourceTitles": [
+      "Feedback/Snackbar/HorizontalSnackbar",
+      "Feedback/Snackbar/SnackbarWithImage",
+      "Feedback/Snackbar/VerticalSnackbar"
+    ]
+  },
+  {
+    "name": "Spinner",
+    "category": "Feedback",
+    "path": "components/Spinner/",
+    "markup": "components/Spinner/markup.html",
+    "meta": "components/Spinner/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/Spinner"
+    ]
+  },
+  {
+    "name": "SquareBackgroundSkeleton",
+    "category": "Feedback",
+    "path": "components/SquareBackgroundSkeleton/",
+    "markup": "components/SquareBackgroundSkeleton/markup.html",
+    "meta": "components/SquareBackgroundSkeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/SquareBackgroundSkeleton"
+    ]
+  },
+  {
+    "name": "TabsSkeleton",
+    "category": "Feedback",
+    "path": "components/TabsSkeleton/",
+    "markup": "components/TabsSkeleton/markup.html",
+    "meta": "components/TabsSkeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/TabsSkeleton"
+    ]
+  },
+  {
+    "name": "TextSkeleton",
+    "category": "Feedback",
+    "path": "components/TextSkeleton/",
+    "markup": "components/TextSkeleton/markup.html",
+    "meta": "components/TextSkeleton/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/TextSkeleton"
+    ]
+  },
+  {
+    "name": "Toast",
+    "category": "Feedback",
+    "path": "components/Toast/",
+    "markup": "components/Toast/markup.html",
+    "meta": "components/Toast/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/Toast"
+    ]
+  },
+  {
+    "name": "Toaster",
+    "category": "Feedback",
+    "path": "components/Toaster/",
+    "markup": "components/Toaster/markup.html",
+    "meta": "components/Toaster/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/Toaster"
+    ]
+  },
+  {
+    "name": "useVisualNotificationState",
+    "category": "Feedback",
+    "path": "components/useVisualNotificationState/",
+    "markup": "components/useVisualNotificationState/markup.html",
+    "meta": "components/useVisualNotificationState/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Feedback/useVisualNotificationState"
+    ]
+  },
+  {
+    "name": "Accordion",
+    "category": "Layout",
+    "path": "components/Accordion/",
+    "markup": "components/Accordion/markup.html",
+    "meta": "components/Accordion/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Accordion"
+    ]
+  },
+  {
+    "name": "AutoHeightAnimateControl",
+    "category": "Layout",
+    "path": "components/AutoHeightAnimateControl/",
+    "markup": "components/AutoHeightAnimateControl/markup.html",
+    "meta": "components/AutoHeightAnimateControl/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/AutoHeightAnimateControl"
+    ]
+  },
+  {
+    "name": "BottomFading",
+    "category": "Layout",
+    "path": "components/BottomFading/",
+    "markup": "components/BottomFading/markup.html",
+    "meta": "components/BottomFading/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Layout/BottomFading"
+    ]
+  },
+  {
+    "name": "Box",
+    "category": "Layout",
+    "path": "components/Box/",
+    "markup": "components/Box/markup.html",
+    "meta": "components/Box/meta.json",
+    "behavior": null,
+    "storiesCount": 10,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Box"
+    ]
+  },
+  {
+    "name": "Card",
+    "category": "Layout",
+    "path": "components/Card/",
+    "markup": "components/Card/markup.html",
+    "meta": "components/Card/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Card"
+    ]
+  },
+  {
+    "name": "CardsGroup",
+    "category": "Layout",
+    "path": "components/CardsGroup/",
+    "markup": "components/CardsGroup/markup.html",
+    "meta": "components/CardsGroup/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Layout/CardsGroup"
+    ]
+  },
+  {
+    "name": "CardWithDeviceLayout",
+    "category": "Layout",
+    "path": "components/CardWithDeviceLayout/",
+    "markup": "components/CardWithDeviceLayout/markup.html",
+    "meta": "components/CardWithDeviceLayout/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/CardWithDeviceLayout"
+    ]
+  },
+  {
+    "name": "Cell",
+    "category": "Layout",
+    "path": "components/Cell/",
+    "markup": "components/Cell/markup.html",
+    "meta": "components/Cell/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Cell"
+    ]
+  },
+  {
+    "name": "CellWithImage",
+    "category": "Layout",
+    "path": "components/CellWithImage/",
+    "markup": "components/CellWithImage/markup.html",
+    "meta": "components/CellWithImage/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/CellWithImage"
+    ]
+  },
+  {
+    "name": "CellWithSquareIcon",
+    "category": "Layout",
+    "path": "components/CellWithSquareIcon/",
+    "markup": "components/CellWithSquareIcon/markup.html",
+    "meta": "components/CellWithSquareIcon/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Layout/CellWithSquareIcon"
+    ]
+  },
+  {
+    "name": "CellWithSquareIllustration",
+    "category": "Layout",
+    "path": "components/CellWithSquareIllustration/",
+    "markup": "components/CellWithSquareIllustration/markup.html",
+    "meta": "components/CellWithSquareIllustration/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Layout/CellWithSquareIllustration"
+    ]
+  },
+  {
+    "name": "Center",
+    "category": "Layout",
+    "path": "components/Center/",
+    "markup": "components/Center/markup.html",
+    "meta": "components/Center/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Center"
+    ]
+  },
+  {
+    "name": "Divider",
+    "category": "Layout",
+    "path": "components/Divider/",
+    "markup": "components/Divider/markup.html",
+    "meta": "components/Divider/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Divider"
+    ]
+  },
+  {
+    "name": "Fade",
+    "category": "Layout",
+    "path": "components/Fade/",
+    "markup": "components/Fade/markup.html",
+    "meta": "components/Fade/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Fade"
+    ]
+  },
+  {
+    "name": "Flex",
+    "category": "Layout",
+    "path": "components/Flex/",
+    "markup": "components/Flex/markup.html",
+    "meta": "components/Flex/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Flex"
+    ]
+  },
+  {
+    "name": "Intersperse",
+    "category": "Layout",
+    "path": "components/Intersperse/",
+    "markup": "components/Intersperse/markup.html",
+    "meta": "components/Intersperse/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/Intersperse"
+    ]
+  },
+  {
+    "name": "NavBar",
+    "category": "Layout",
+    "path": "components/NavBar/",
+    "markup": "components/NavBar/markup.html",
+    "meta": "components/NavBar/meta.json",
+    "behavior": null,
+    "storiesCount": 7,
+    "views": [],
+    "sourceTitles": [
+      "Layout/NavBar"
+    ]
+  },
+  {
+    "name": "ScreenReaderOnly",
+    "category": "Layout",
+    "path": "components/ScreenReaderOnly/",
+    "markup": "components/ScreenReaderOnly/markup.html",
+    "meta": "components/ScreenReaderOnly/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Layout/ScreenReaderOnly"
+    ]
+  },
+  {
+    "name": "SpaceSeparator",
+    "category": "Layout",
+    "path": "components/SpaceSeparator/",
+    "markup": "components/SpaceSeparator/markup.html",
+    "meta": "components/SpaceSeparator/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Layout/SpaceSeparator"
+    ]
+  },
+  {
+    "name": "SquareBackground",
+    "category": "Layout",
+    "path": "components/SquareBackground/",
+    "markup": "components/SquareBackground/markup.html",
+    "meta": "components/SquareBackground/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Layout/SquareBackground"
+    ]
+  },
+  {
+    "name": "StickyBottom",
+    "category": "Layout",
+    "path": "components/StickyBottom/",
+    "markup": "components/StickyBottom/markup.html",
+    "meta": "components/StickyBottom/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Layout/StickyBottom"
+    ]
+  },
+  {
+    "name": "TwoColumnLayout",
+    "category": "Layout",
+    "path": "components/TwoColumnLayout/",
+    "markup": "components/TwoColumnLayout/markup.html",
+    "meta": "components/TwoColumnLayout/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Layout/TwoColumnLayout"
+    ]
+  },
+  {
+    "name": "Anchor",
+    "category": "Navigation",
+    "path": "components/Anchor/",
+    "markup": "components/Anchor/markup.html",
+    "meta": "components/Anchor/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/Anchor"
+    ]
+  },
+  {
+    "name": "Link",
+    "category": "Navigation",
+    "path": "components/Link/",
+    "markup": "components/Link/markup.html",
+    "meta": "components/Link/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/Link"
+    ]
+  },
+  {
+    "name": "LinkNew",
+    "category": "Navigation",
+    "path": "components/LinkNew/",
+    "markup": "components/LinkNew/markup.html",
+    "meta": "components/LinkNew/meta.json",
+    "behavior": null,
+    "storiesCount": 5,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/LinkNew"
+    ]
+  },
+  {
+    "name": "TabBar",
+    "category": "Navigation",
+    "path": "components/TabBar/",
+    "markup": "components/TabBar/markup.html",
+    "meta": "components/TabBar/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/TabBar"
+    ]
+  },
+  {
+    "name": "TabOutlined",
+    "category": "Navigation",
+    "path": "components/TabOutlined/",
+    "markup": "components/TabOutlined/markup.html",
+    "meta": "components/TabOutlined/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/TabOutlined"
+    ]
+  },
+  {
+    "name": "Tabs",
+    "category": "Navigation",
+    "path": "components/Tabs/",
+    "markup": "components/Tabs/markup.html",
+    "meta": "components/Tabs/meta.json",
+    "behavior": "components/Tabs/behavior.json",
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/Tabs"
+    ]
+  },
+  {
+    "name": "TabsNew",
+    "category": "Navigation",
+    "path": "components/TabsNew/",
+    "markup": "components/TabsNew/markup.html",
+    "meta": "components/TabsNew/meta.json",
+    "behavior": "components/TabsNew/behavior.json",
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Navigation/TabsNew"
+    ]
+  },
+  {
+    "name": "YandexMaps",
+    "category": "Other",
+    "path": "components/YandexMaps/",
+    "markup": "components/YandexMaps/markup.html",
+    "meta": "components/YandexMaps/meta.json",
+    "behavior": null,
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Other/YandexMaps"
+    ]
+  },
+  {
+    "name": "BottomSheet",
+    "category": "Overlays",
+    "path": "components/BottomSheet/",
+    "markup": "components/BottomSheet/markup.html",
+    "meta": "components/BottomSheet/meta.json",
+    "behavior": "components/BottomSheet/behavior.json",
+    "storiesCount": 9,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/BottomSheet"
+    ]
+  },
+  {
+    "name": "Drawer",
+    "category": "Overlays",
+    "path": "components/Drawer/",
+    "markup": "components/Drawer/markup.html",
+    "meta": "components/Drawer/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/Drawer"
+    ]
+  },
+  {
+    "name": "DropdownFilter",
+    "category": "Overlays",
+    "path": "components/DropdownFilter/",
+    "markup": "components/DropdownFilter/markup.html",
+    "meta": "components/DropdownFilter/meta.json",
+    "behavior": "components/DropdownFilter/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/DropdownFilter"
+    ]
+  },
+  {
+    "name": "DropdownWithTrigger",
+    "category": "Overlays",
+    "path": "components/DropdownWithTrigger/",
+    "markup": "components/DropdownWithTrigger/markup.html",
+    "meta": "components/DropdownWithTrigger/meta.json",
+    "behavior": "components/DropdownWithTrigger/behavior.json",
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/DropdownWithTrigger"
+    ]
+  },
+  {
+    "name": "Hanging",
+    "category": "Overlays",
+    "path": "components/Hanging/",
+    "markup": "components/Hanging/markup.html",
+    "meta": "components/Hanging/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/Hanging"
+    ]
+  },
+  {
+    "name": "Modal",
+    "category": "Overlays",
+    "path": "components/Modal/",
+    "markup": "components/Modal/markup.html",
+    "meta": "components/Modal/meta.json",
+    "behavior": "components/Modal/behavior.json",
+    "storiesCount": 13,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/Modal"
+    ]
+  },
+  {
+    "name": "ModalWithTrigger",
+    "category": "Overlays",
+    "path": "components/ModalWithTrigger/",
+    "markup": "components/ModalWithTrigger/markup.html",
+    "meta": "components/ModalWithTrigger/meta.json",
+    "behavior": "components/ModalWithTrigger/behavior.json",
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/ModalWithTrigger"
+    ]
+  },
+  {
+    "name": "Popup",
+    "category": "Overlays",
+    "path": "components/Popup/",
+    "markup": "components/Popup/markup.html",
+    "meta": "components/Popup/meta.json",
+    "behavior": null,
+    "storiesCount": 7,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/Popup"
+    ]
+  },
+  {
+    "name": "SidePanel",
+    "category": "Overlays",
+    "path": "components/SidePanel/",
+    "markup": "components/SidePanel/markup.html",
+    "meta": "components/SidePanel/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/SidePanel"
+    ]
+  },
+  {
+    "name": "Tooltip",
+    "category": "Overlays",
+    "path": "components/Tooltip/",
+    "markup": "components/Tooltip/markup.html",
+    "meta": "components/Tooltip/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Overlays/Tooltip"
+    ]
+  },
+  {
+    "name": "CenteredIcon",
+    "category": "Typography",
+    "path": "components/CenteredIcon/",
+    "markup": "components/CenteredIcon/markup.html",
+    "meta": "components/CenteredIcon/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Typography/CenteredIcon"
+    ]
+  },
+  {
+    "name": "CloseIcon",
+    "category": "Typography",
+    "path": "components/CloseIcon/",
+    "markup": "components/CloseIcon/markup.html",
+    "meta": "components/CloseIcon/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Typography/CloseIcon"
+    ]
+  },
+  {
+    "name": "DotSeparator",
+    "category": "Typography",
+    "path": "components/DotSeparator/",
+    "markup": "components/DotSeparator/markup.html",
+    "meta": "components/DotSeparator/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Typography/DotSeparator"
+    ]
+  },
+  {
+    "name": "Heading",
+    "category": "Typography",
+    "path": "components/Heading/",
+    "markup": "components/Heading/markup.html",
+    "meta": "components/Heading/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Typography/Heading"
+    ]
+  },
+  {
+    "name": "HorizontalKebab",
+    "category": "Typography",
+    "path": "components/HorizontalKebab/",
+    "markup": "components/HorizontalKebab/markup.html",
+    "meta": "components/HorizontalKebab/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Typography/HorizontalKebab"
+    ]
+  },
+  {
+    "name": "Icon",
+    "category": "Typography",
+    "path": "components/Icon/",
+    "markup": "components/Icon/markup.html",
+    "meta": "components/Icon/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Typography/Icon"
+    ]
+  },
+  {
+    "name": "IconWithRoundBackground",
+    "category": "Typography",
+    "path": "components/IconWithRoundBackground/",
+    "markup": "components/IconWithRoundBackground/markup.html",
+    "meta": "components/IconWithRoundBackground/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Typography/IconWithRoundBackground"
+    ]
+  },
+  {
+    "name": "IconWithSquareBackground",
+    "category": "Typography",
+    "path": "components/IconWithSquareBackground/",
+    "markup": "components/IconWithSquareBackground/markup.html",
+    "meta": "components/IconWithSquareBackground/meta.json",
+    "behavior": null,
+    "storiesCount": 4,
+    "views": [],
+    "sourceTitles": [
+      "Typography/IconWithSquareBackground"
+    ]
+  },
+  {
+    "name": "PillBadge",
+    "category": "Typography",
+    "path": "components/PillBadge/",
+    "markup": "components/PillBadge/markup.html",
+    "meta": "components/PillBadge/meta.json",
+    "behavior": null,
+    "storiesCount": 6,
+    "views": [],
+    "sourceTitles": [
+      "Typography/PillBadge"
+    ]
+  },
+  {
+    "name": "PlusBadge",
+    "category": "Typography",
+    "path": "components/PlusBadge/",
+    "markup": "components/PlusBadge/markup.html",
+    "meta": "components/PlusBadge/meta.json",
+    "behavior": null,
+    "storiesCount": 2,
+    "views": [],
+    "sourceTitles": [
+      "Typography/PlusBadge"
+    ]
+  },
+  {
+    "name": "StrikethroughText",
+    "category": "Typography",
+    "path": "components/StrikethroughText/",
+    "markup": "components/StrikethroughText/markup.html",
+    "meta": "components/StrikethroughText/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Typography/StrikethroughText"
+    ]
+  },
+  {
+    "name": "Text",
+    "category": "Typography",
+    "path": "components/Text/",
+    "markup": "components/Text/markup.html",
+    "meta": "components/Text/meta.json",
+    "behavior": null,
+    "storiesCount": 3,
+    "views": [],
+    "sourceTitles": [
+      "Typography/Text"
+    ]
+  },
+  {
+    "name": "TextWithHorizontalKebab",
+    "category": "Typography",
+    "path": "components/TextWithHorizontalKebab/",
+    "markup": "components/TextWithHorizontalKebab/markup.html",
+    "meta": "components/TextWithHorizontalKebab/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Typography/TextWithHorizontalKebab"
+    ]
+  },
+  {
+    "name": "TextWithIcon",
+    "category": "Typography",
+    "path": "components/TextWithIcon/",
+    "markup": "components/TextWithIcon/markup.html",
+    "meta": "components/TextWithIcon/meta.json",
+    "behavior": null,
+    "storiesCount": 8,
+    "views": [],
+    "sourceTitles": [
+      "Typography/TextWithIcon"
+    ]
+  },
+  {
+    "name": "TruncateText",
+    "category": "Typography",
+    "path": "components/TruncateText/",
+    "markup": "components/TruncateText/markup.html",
+    "meta": "components/TruncateText/meta.json",
+    "behavior": null,
+    "storiesCount": 1,
+    "views": [],
+    "sourceTitles": [
+      "Typography/TruncateText"
+    ]
+  }
+]

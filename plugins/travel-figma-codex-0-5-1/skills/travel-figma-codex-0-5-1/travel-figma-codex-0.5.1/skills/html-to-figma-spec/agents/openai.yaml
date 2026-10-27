@@ -1,0 +1,4 @@
+interface:
+  display_name: "HTML → Figma-спека"
+  short_description: "Переносит HTML в компоненты Figma и рабочую спеку"
+  default_prompt: "Используй $html-to-figma-spec, чтобы разобрать HTML-прототип, сопоставить компоненты и состояния с дизайн-системой и собрать Figma-спеку в указанном файле."

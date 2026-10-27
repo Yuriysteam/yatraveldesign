@@ -1,0 +1,815 @@
+{
+  "version": "1.0.0-full",
+  "status": "full-snapshot",
+  "snapshotDate": "2026-05-25",
+  "generatedAt": "2026-05-25T22:06:51.034Z",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "storybookIndex": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/index.json",
+  "designSystem": "new",
+  "groupingRule": "Storybook sub-sections after Category/Component are grouped as view variants in one semantic component folder.",
+  "storyEntries": 628,
+  "semanticComponents": 141,
+  "productPatterns": 0,
+  "categories": [
+    {
+      "category": "Common",
+      "components": 1,
+      "stories": 1
+    },
+    {
+      "category": "Controls",
+      "components": 37,
+      "stories": 228
+    },
+    {
+      "category": "Data display",
+      "components": 32,
+      "stories": 130
+    },
+    {
+      "category": "Feedback",
+      "components": 16,
+      "stories": 56
+    },
+    {
+      "category": "Layout",
+      "components": 22,
+      "stories": 84
+    },
+    {
+      "category": "Navigation",
+      "components": 7,
+      "stories": 33
+    },
+    {
+      "category": "Other",
+      "components": 1,
+      "stories": 9
+    },
+    {
+      "category": "Overlays",
+      "components": 10,
+      "stories": 45
+    },
+    {
+      "category": "Typography",
+      "components": 15,
+      "stories": 42
+    }
+  ],
+  "cssChunks": [
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/121.acc3ce73.css",
+      "bytes": 25455,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/3630.4d99de66.css",
+      "bytes": 17460,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/5661.dea3ac84.css",
+      "bytes": 20619,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/8611.d2e0b6fc.css",
+      "bytes": 23916,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Accordion-Accordion-stories.ce9dbd73.css",
+      "bytes": 7163,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Anchor-Anchor-stories.abe30546.css",
+      "bytes": 123,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-AttentionSticker-AttentionSticker-stories.c6a88ba6.css",
+      "bytes": 23717,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-AutoHeightAnimateControl-AutoHeightAnimateControl-stories.12c8a04d.css",
+      "bytes": 10297,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Avatar-Avatar-stories.848c6f14.css",
+      "bytes": 3742,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-BorderPositioned-BorderPositioned-stories.4f976659.css",
+      "bytes": 11104,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-BottomFading-BottomFading-stories.05e35f08.css",
+      "bytes": 15542,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-BottomSheet-BottomSheet-stories.f4d1c31a.css",
+      "bytes": 14782,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Box-Box-stories.43130159.css",
+      "bytes": 555,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Button-Button-stories.538d9aa1.css",
+      "bytes": 11063,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ButtonGroup-ButtonGroup-stories.6ada4e34.css",
+      "bytes": 11336,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Calendar-Calendar-stories.119edeef.css",
+      "bytes": 12097,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Card-Card-stories.960344f9.css",
+      "bytes": 7462,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CardWithDeviceLayout-CardWithDeviceLayout-stories.43367eb7.css",
+      "bytes": 17535,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CardsGroup-CardsGroup-stories.2b7cb188.css",
+      "bytes": 8297,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Carousel-Carousel-stories.d644da0b.css",
+      "bytes": 460,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Cell-Cell-stories.deeebc1e.css",
+      "bytes": 4562,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CellWithImage-CellWithImage-stories.c636dde8.css",
+      "bytes": 5171,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CellWithSquareIcon-CellWithSquareIcon-stories.9dfbeaae.css",
+      "bytes": 3043,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CellWithSquareIllustration-CellWithSquareIllustration-stories.510a5d84.css",
+      "bytes": 3029,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Center-Center-stories.34e20179.css",
+      "bytes": 195,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CenteredIcon-CenteredIcon-stories.7edc738d.css",
+      "bytes": 139,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CheckButton-CheckButton-stories.b2eaf792.css",
+      "bytes": 11519,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Checkbox-CheckboxOutlined-stories.52ec47c1.css",
+      "bytes": 5811,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Checkbox-CheckboxSolid-stories.bcbeadfc.css",
+      "bytes": 5808,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Chips-Chips-stories.fd86947d.css",
+      "bytes": 12632,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-CloseIcon-CloseIcon-stories.cf6144a1.css",
+      "bytes": 1437,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DateInput-DateInput-stories.bd32d51f.css",
+      "bytes": 567,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DatePicker-DatePicker-stories.85cf6fa2.css",
+      "bytes": 32327,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DateTriggerInput-DateTriggerInput-stories.089047b9.css",
+      "bytes": 1332,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DiscountBadge-DiscountBadge-stories.7a07fbc0.css",
+      "bytes": 2155,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Divider-Divider-stories.dd828004.css",
+      "bytes": 2675,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DotSeparator-DotSeparator-stories.611b727b.css",
+      "bytes": 523,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Drawer-Drawer-stories.262769a4.css",
+      "bytes": 13770,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DropdownFilter-DropdownFilter-stories.9ae12264.css",
+      "bytes": 3551,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-DropdownWithTrigger-DropdownWithTrigger-stories.7c9f5fbc.css",
+      "bytes": 3561,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Fade-Fade-stories.0e49b41c.css",
+      "bytes": 6691,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-FieldLabel-FieldLabel-stories.7a9db471.css",
+      "bytes": 898,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-FilterCheckList-FilterCheckList-stories.c995e37e.css",
+      "bytes": 7053,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Flex-Flex-stories.31a74de0.css",
+      "bytes": 1342,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-FullscreenSpinner-FullscreenSpinner-stories.5940f06d.css",
+      "bytes": 2089,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Hanging-Hanging-stories.5c7a2b49.css",
+      "bytes": 1410,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Heading-Heading-stories.f1ae65d5.css",
+      "bytes": 563,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Hint-Hint-stories.5ab1f275.css",
+      "bytes": 4654,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-HorizontalKebab-HorizontalKebab-stories.688710c4.css",
+      "bytes": 276,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-HorizontalScroller-HorizontalScroller-stories.8162a3ac.css",
+      "bytes": 11523,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Icon-Icon-stories.312a81cf.css",
+      "bytes": 1544,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-IconWithRoundBackground-IconWithRoundBackground-stories.2c3ce435.css",
+      "bytes": 1317,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-IconWithSquareBackground-IconWithSquareBackground-stories.af244918.css",
+      "bytes": 9044,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ImagesCarousel-ImagesCarousel-stories.7ed75f95.css",
+      "bytes": 10152,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ImagesSelector-ImagesSelector-stories.85820b02.css",
+      "bytes": 13952,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ImagesSwipeCarousel-ImagesSwipeCarousel-stories.85b2ad5c.css",
+      "bytes": 4516,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Indicator-Indicator-stories.d20e24ba.css",
+      "bytes": 673,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Informer-Informer-stories.8088e822.css",
+      "bytes": 13319,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Input-InputOutlined-stories.80e647a6.css",
+      "bytes": 384,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Input-InputOutlinedLight-stories.c00e6787.css",
+      "bytes": 389,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Input-InputSolid-stories.6df40534.css",
+      "bytes": 381,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Input-InputSolidWhite-stories.a3c1a5cd.css",
+      "bytes": 386,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-InputRange-InputRange-stories.b2ade4c1.css",
+      "bytes": 8985,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-InputWithCopyButton-InputWithCopyButton-stories.6cc9076d.css",
+      "bytes": 937,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-InputWithLoader-InputWithLoader-stories.e1e91cbc.css",
+      "bytes": 2439,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Intent-Intent-stories.975dcc38.css",
+      "bytes": 12584,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Intersperse-Intersperse-stories.d1c9be59.css",
+      "bytes": 147,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Label-Label-stories.4304c07d.css",
+      "bytes": 5944,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Link-Link-stories.4d332c5f.css",
+      "bytes": 4310,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Link-LinkNew-stories.b3fbeb39.css",
+      "bytes": 4428,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-LinkButton-LinkButton-stories.d8375d7b.css",
+      "bytes": 3807,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Modal-Modal-stories.84bab075.css",
+      "bytes": 3196,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ModalWithTrigger-ModalWithTrigger-stories.76e780c6.css",
+      "bytes": 278,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-MoreButton-MoreButton-stories.f0bfc536.css",
+      "bytes": 1139,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-NativeSelect-NativeSelect-stories.6c3005c6.css",
+      "bytes": 801,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-NavBar-NavBar-stories.f88d5fe5.css",
+      "bytes": 1221,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-NotificationDot-NotificationDot-stories.953f4765.css",
+      "bytes": 1918,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Phone-Phone-stories.3163fcee.css",
+      "bytes": 164,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-PhoneWithTitle-PhoneWithTitle-stories.05540f04.css",
+      "bytes": 470,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-PillBadge-PillBadge-stories.e9b20030.css",
+      "bytes": 5201,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-PlusBadge-PlusBadge-stories.f419b36e.css",
+      "bytes": 3236,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-PlusPoints-PlusPoints-stories.d1614d4b.css",
+      "bytes": 2104,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Popup-Popup-stories.2d180e2c.css",
+      "bytes": 14988,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-PositionIndicator-PositionIndicator-stories.8f526833.css",
+      "bytes": 11439,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Price-Price-stories.21de2408.css",
+      "bytes": 1013,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-PriceInput-PriceInput-stories.3ed338aa.css",
+      "bytes": 1258,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ProgressBar-ProgressBar-stories.5524db6d.css",
+      "bytes": 1490,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RadioBlockGroup-RadioBlockGroup-stories.a8a2a275.css",
+      "bytes": 2590,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RadioGroup-RadioGroupGeneric-stories.c8e2fb4e.css",
+      "bytes": 5270,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RadioGroup-RadioGroupOutlined-stories.323023dc.css",
+      "bytes": 5942,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RadioGroup-RadioGroupSolid-stories.84d8d465.css",
+      "bytes": 5939,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RadioIndicator-RadioIndicator-stories.1a800661.css",
+      "bytes": 1277,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Rating-Rating-stories.80bd3964.css",
+      "bytes": 4760,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RecommendBadge-RecommendBadge-stories.3a1beeb6.css",
+      "bytes": 9541,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-RotatingArrowIcon-RotatingArrowIcon-stories.01f79adc.css",
+      "bytes": 10357,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ScreenReaderOnly-ScreenReaderOnly-stories.b236158c.css",
+      "bytes": 245,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SearchControl-SearchControl-stories.f232db26.css",
+      "bytes": 1584,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SegmentedControl-SegmentedControl-stories.6cbd4e1c.css",
+      "bytes": 4555,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Select-Select-stories.1aee8ad7.css",
+      "bytes": 7815,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SidePanel-SidePanel-stories.7729e565.css",
+      "bytes": 14521,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-ButtonSkeleton-ButtonSkeleton-stories.5b9efb72.css",
+      "bytes": 1444,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-CellWithSquareIconSkeleton-CellWithSquareIconSkeleton-stories.c77c3187.css",
+      "bytes": 6681,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-InputSkeleton-InputSkeleton-stories.a638f850.css",
+      "bytes": 1548,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-Skeleton-Skeleton-stories.16db0c65.css",
+      "bytes": 257,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-SquareBackgroundSkeleton-SquareBackgroundSkeleton-stories.c417097a.css",
+      "bytes": 886,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-TabsSkeleton-TabsSkeleton-stories.64da460d.css",
+      "bytes": 20594,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Skeletons-TextSkeleton-TextSkeleton-stories.0ba0718b.css",
+      "bytes": 4641,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Snackbars-components-HorizontalSnackbar-HorizontalSnackbar-stories.b9ad0be3.css",
+      "bytes": 13729,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Snackbars-components-SnackbarWithImage-SnackbarWithImage-stories.10bb4644.css",
+      "bytes": 15938,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Snackbars-components-VerticalSnackbar-VerticalSnackbar-stories.5234315a.css",
+      "bytes": 14027,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SnippetBadge-SnippetBadge-stories.5c7c0638.css",
+      "bytes": 2251,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SpaceSeparator-SpaceSeparator-stories.f755db69.css",
+      "bytes": 5248,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Spinner-Spinner-stories.0a5cfe85.css",
+      "bytes": 2187,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SquareBackground-SquareBackground-stories.8f738f2b.css",
+      "bytes": 1875,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Stars-Stars-stories.f677c379.css",
+      "bytes": 2201,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Status-Status-stories.1cfa59d9.css",
+      "bytes": 1075,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Stepper-Stepper-stories.8b48e55e.css",
+      "bytes": 253,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-StickyBottom-StickyBottom-stories.bbc30e75.css",
+      "bytes": 363,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-StrikethroughText-StrikethroughText-stories.6d0fe8db.css",
+      "bytes": 1020,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Suggest-Suggest-stories.a5a74d6c.css",
+      "bytes": 12487,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-SwipeDown-SwipeDown-stories.b9772ee0.css",
+      "bytes": 108,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Swipeable-Swipeable-stories.c17c6e25.css",
+      "bytes": 5078,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Switch-Switch-stories.5430ea38.css",
+      "bytes": 2870,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TabBar-TabBar-stories.4ca701cc.css",
+      "bytes": 6848,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TabOutlined-TabOutlined-stories.9fc2da9d.css",
+      "bytes": 1703,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Table-Table-stories.3bf21e2a.css",
+      "bytes": 11045,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Tabs-Tabs-stories.25e70397.css",
+      "bytes": 21537,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TabsNew-TabsNew-stories.32d888f3.css",
+      "bytes": 8603,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Text-Text-stories.ffa004c4.css",
+      "bytes": 557,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TextArea-InversedTextArea-stories.daf9f342.css",
+      "bytes": 6473,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TextArea-OutlinedTextArea-stories.5ba73274.css",
+      "bytes": 6473,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TextArea-SolidTextArea-stories.03bbbc5f.css",
+      "bytes": 6470,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TextWithHorizontalKebab-TextWithHorizontalKebab-stories.4fa1a213.css",
+      "bytes": 1474,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TextWithIcon-TextWithIcon-stories.361b45b8.css",
+      "bytes": 1726,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TimeRange-TimeRange-stories.a3404438.css",
+      "bytes": 7110,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Toast-Toast-stories.ba76958f.css",
+      "bytes": 15819,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Toaster-Toaster-stories.b05e8b51.css",
+      "bytes": 15782,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TravelImage-TravelImage-stories.e2597e88.css",
+      "bytes": 2423,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TriggerInput-TriggerInput-stories.fb3c7a31.css",
+      "bytes": 1812,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TruncateText-TruncateText-stories.71eac425.css",
+      "bytes": 3837,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-TwoColumnLayout-TwoColumnLayout-stories.96cdc4ec.css",
+      "bytes": 974,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-YandexAvatar-YandexAvatar-stories.abc07f05.css",
+      "bytes": 5516,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-YandexMaps-YandexMaps-stories.ada54270.css",
+      "bytes": 34887,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Zoomable-Zoomable-stories.5543a4c4.css",
+      "bytes": 397,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-ZoomableImage-ZoomableImage-stories.b64859ac.css",
+      "bytes": 3635,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/hooks-useVisualNotificationState-useVisualNotificationState-stories.dbaa578f.css",
+      "bytes": 3556,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/styles-docs-ColorsShowcase-ColorsShowcase-stories.7d09e0ff.css",
+      "bytes": 64228,
+      "ok": true
+    },
+    {
+      "url": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/main.206694bc.css",
+      "bytes": 85408,
+      "ok": true
+    }
+  ],
+  "fonts": [
+    "YS Display",
+    "YS Display Cond",
+    "YS Display Wide",
+    "YS Logotype 290822",
+    "YS Text",
+    "YS Text Cond",
+    "YS Text Variable 290822",
+    "YS Text Wide",
+    "YS Text-Display Wide Variable 290822",
+    "Yandex Serif Display"
+  ],
+  "failures": []
+}

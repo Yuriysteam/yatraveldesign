@@ -1,0 +1,16 @@
+{
+  "name": "travel-product-context",
+  "version": "0.1.0+710299d5c788",
+  "description": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
+  "author": {
+    "name": "Travel Design"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Travel Product Context",
+    "shortDescription": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
+    "longDescription": "Даёт контекст Yandex Travel для продуктовой, UX- и дизайн-работы, сохраняя даты источников, область применения и неопределённость.",
+    "developerName": "Travel Design",
+    "category": "Productivity"
+  }
+}

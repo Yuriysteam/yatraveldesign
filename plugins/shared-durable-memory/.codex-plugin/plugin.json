@@ -1,0 +1,16 @@
+{
+  "name": "shared-durable-memory",
+  "version": "0.1.0+f82cab8a0afc",
+  "description": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
+  "author": {
+    "name": "Travel Design"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Personal Durable Memory",
+    "shortDescription": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
+    "longDescription": "Ведёт компактную личную долговременную память в выбранном пользователем хранилище.",
+    "developerName": "Travel Design",
+    "category": "Productivity"
+  }
+}

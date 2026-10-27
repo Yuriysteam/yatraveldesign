@@ -1,0 +1,497 @@
+{
+  "schemaVersion": 1,
+  "readAt": "2026-09-07",
+  "scope": "Гостевые Отели: Selection, Deal, лояльность; read-only проход",
+  "coverage": {
+    "fileCount": 4,
+    "pageEntries": 74,
+    "visuallyReadNodes": 12,
+    "allPagesVisuallyRead": false
+  },
+  "files": [
+    {
+      "fileKey": "gCNXA0ck5i39hF1AVTyjfu",
+      "label": "Поиск и фильтры / Сниппет",
+      "issues": [
+        "HOTELS-7754",
+        "HOTELS-8768"
+      ],
+      "metadataNodes": [
+        {
+          "id": "2831:73364",
+          "inspection": "metadata_structure"
+        },
+        {
+          "id": "9458:1848",
+          "inspection": "metadata_structure"
+        }
+      ],
+      "visualNodes": [
+        {
+          "id": "2854:118760",
+          "observation": "App выдача: крупное фото, badge, избранное, рейтинг/гео, цена и способы оплаты, плавающая Карта",
+          "url": "https://www.figma.com/design/gCNXA0ck5i39hF1AVTyjfu/?node-id=2854-118760",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "2854:122415",
+          "observation": "Длинное название, обрезка гео при сохранении расстояния, скидка, 2 номера",
+          "url": "https://www.figma.com/design/gCNXA0ck5i39hF1AVTyjfu/?node-id=2854-122415",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "9901:12622",
+          "observation": "Zero-search: открытая клавиатура, продолжить поиск, популярные направления, Отели рядом",
+          "url": "https://www.figma.com/design/gCNXA0ck5i39hF1AVTyjfu/?node-id=9901-12622",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        }
+      ],
+      "pages": [
+        {
+          "id": "0:1",
+          "name": "Cover"
+        },
+        {
+          "id": "1:8",
+          "name": "---"
+        },
+        {
+          "id": "9458:1848",
+          "name": "🕘 Полнотестовый поиск"
+        },
+        {
+          "id": "10276:16290",
+          "name": "Draft"
+        },
+        {
+          "id": "985:5802",
+          "name": "---"
+        },
+        {
+          "id": "6200:13285",
+          "name": "⚡️ SPECA app лоадер и рефреш"
+        },
+        {
+          "id": "1000:61399",
+          "name": "⚡️ SPECA app фильтры"
+        },
+        {
+          "id": "2831:73364",
+          "name": "⚡️ SPECA app сниппет"
+        },
+        {
+          "id": "1869:139791",
+          "name": "⚡️ SPECA web фильтры"
+        },
+        {
+          "id": "1869:152717",
+          "name": "⚡️ SPECA web сниппет"
+        },
+        {
+          "id": "7327:68156",
+          "name": "⚡️ SPECA Эксперимент Split-режим на выдаче"
+        },
+        {
+          "id": "12943:18005",
+          "name": "Календарь цен на выдаче"
+        },
+        {
+          "id": "10196:12831",
+          "name": "        ↴   Draft"
+        },
+        {
+          "id": "1869:140119",
+          "name": "---"
+        },
+        {
+          "id": "10964:17860",
+          "name": "All-inclusive"
+        },
+        {
+          "id": "12621:17620",
+          "name": "           ↴   Ревью"
+        },
+        {
+          "id": "11578:27457",
+          "name": "RFD"
+        },
+        {
+          "id": "11086:25457",
+          "name": "        ↴   Драфты"
+        },
+        {
+          "id": "10964:17861",
+          "name": "-"
+        },
+        {
+          "id": "534:35512",
+          "name": "Concept"
+        },
+        {
+          "id": "6063:52970",
+          "name": "Фильтры для скидок"
+        },
+        {
+          "id": "4236:20635",
+          "name": "Плюс"
+        },
+        {
+          "id": "6564:89954",
+          "name": "Расстояние до подъемника "
+        },
+        {
+          "id": "5071:36326",
+          "name": "Районы на выдаче | HOTELSCONTENT-66"
+        },
+        {
+          "id": "3268:5006",
+          "name": "Каунтеры+кнопка"
+        },
+        {
+          "id": "7704:76989",
+          "name": "Пустая выдача"
+        },
+        {
+          "id": "864:21723",
+          "name": "Преза"
+        },
+        {
+          "id": "1869:135458",
+          "name": "Page 10"
+        },
+        {
+          "id": "1310:46330",
+          "name": "Old"
+        },
+        {
+          "id": "10070:100991",
+          "name": "Page 25"
+        },
+        {
+          "id": "1:9",
+          "name": "Old"
+        },
+        {
+          "id": "762:40384",
+          "name": "Old"
+        },
+        {
+          "id": "7760:32325",
+          "name": "Утиль"
+        }
+      ],
+      "pageInventoryMethod": "use_figma: root.children; get_metadata without nodeId was incomplete"
+    },
+    {
+      "fileKey": "Vqw1wJhI3dfWukG3FB2kia",
+      "label": "Конструктор офферов",
+      "issues": [
+        "HOTELS-8164"
+      ],
+      "metadataNodes": [
+        {
+          "id": "176:15054",
+          "inspection": "metadata_structure"
+        }
+      ],
+      "visualNodes": [
+        {
+          "id": "182:241297",
+          "observation": "Сравнение текущего/нового отображения; full desktop layouts; обзор композиции",
+          "url": "https://www.figma.com/design/Vqw1wJhI3dfWukG3FB2kia/?node-id=182-241297",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "236:59019",
+          "observation": "Детальный новый конструктор: питание / отмена / цена / один CTA на категорию",
+          "url": "https://www.figma.com/design/Vqw1wJhI3dfWukG3FB2kia/?node-id=236-59019",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "3632:92519",
+          "observation": "Desktop вариант карточки с фиксированными условиями без альтернатив; боковая колонка/контекст объекта",
+          "url": "https://www.figma.com/design/Vqw1wJhI3dfWukG3FB2kia/?node-id=3632-92519",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        }
+      ],
+      "pages": [
+        {
+          "id": "3579:78461",
+          "name": "Доделки"
+        },
+        {
+          "id": "153:118926",
+          "name": "OVERVIEW"
+        },
+        {
+          "id": "3068:2",
+          "name": "Design review"
+        },
+        {
+          "id": "153:110879",
+          "name": "   "
+        },
+        {
+          "id": "347:8914",
+          "name": "🪀 SPECA MVP"
+        },
+        {
+          "id": "176:15054",
+          "name": "        ↴   WEB"
+        },
+        {
+          "id": "347:8913",
+          "name": "        ↴   APP [gr 1]"
+        },
+        {
+          "id": "585:64716",
+          "name": "        ↴   APP [gr 2]"
+        },
+        {
+          "id": "446:32979",
+          "name": "   "
+        },
+        {
+          "id": "865:193572",
+          "name": "🪀 SPECA Добавление фильтров"
+        },
+        {
+          "id": "865:144641",
+          "name": "        ↴    WEB"
+        },
+        {
+          "id": "865:193573",
+          "name": "        ↴    APP"
+        },
+        {
+          "id": "957:160490",
+          "name": "   "
+        },
+        {
+          "id": "957:160489",
+          "name": "🪀 SPECA Перепоиск"
+        },
+        {
+          "id": "957:160491",
+          "name": "        ↴   APP"
+        },
+        {
+          "id": "865:193574",
+          "name": "   "
+        },
+        {
+          "id": "1047:110848",
+          "name": "🧩 Анимки"
+        },
+        {
+          "id": "1047:110849",
+          "name": "   "
+        },
+        {
+          "id": "443:166652",
+          "name": "MVP → Развитие услуг"
+        },
+        {
+          "id": "463:35370",
+          "name": "   "
+        },
+        {
+          "id": "452:198510",
+          "name": "❤️ Для редакторов"
+        },
+        {
+          "id": "75:58071",
+          "name": "   "
+        },
+        {
+          "id": "3:2",
+          "name": "↘ Drafts"
+        },
+        {
+          "id": "196:6374",
+          "name": "↘ Бенчмарки"
+        },
+        {
+          "id": "193:121518",
+          "name": "Ещё подход"
+        },
+        {
+          "id": "136:63161",
+          "name": "   "
+        },
+        {
+          "id": "3:60995",
+          "name": "Components"
+        },
+        {
+          "id": "0:1",
+          "name": "Cover"
+        }
+      ],
+      "pageInventoryMethod": "use_figma: root.children; get_metadata without nodeId was incomplete"
+    },
+    {
+      "fileKey": "COAuahp5VtqYloSIKLLeh9",
+      "label": "Новый чекаут ч.2",
+      "issues": [
+        "HOTELS-8133"
+      ],
+      "metadataNodes": [
+        {
+          "id": "3:45382",
+          "inspection": "metadata_structure"
+        }
+      ],
+      "visualNodes": [
+        {
+          "id": "8:75248",
+          "observation": "Полная оплата, карусель карт, промо Плюса, sticky CTA",
+          "url": "https://www.figma.com/design/COAuahp5VtqYloSIKLLeh9/?node-id=8-75248",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "8:75279",
+          "observation": "Вариант карусели без промобейджей",
+          "url": "https://www.figma.com/design/COAuahp5VtqYloSIKLLeh9/?node-id=8-75279",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "26:26071",
+          "observation": "Бизнес-счет недоступен, выбрана новая карта",
+          "url": "https://www.figma.com/design/COAuahp5VtqYloSIKLLeh9/?node-id=26-26071",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "8:75341",
+          "observation": "Выбран Сплит, карточной карусели нет, встроенный план 2–24 месяца, CTA «Забронировать в Сплит»",
+          "url": "https://www.figma.com/design/COAuahp5VtqYloSIKLLeh9/?node-id=8-75341",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        }
+      ],
+      "pages": [
+        {
+          "id": "3522:92994",
+          "name": "Оплата новой картой через обязательную привязку"
+        },
+        {
+          "id": "3522:92995",
+          "name": "        ↴   WEB"
+        },
+        {
+          "id": "3522:92996",
+          "name": "        ↴   APP"
+        },
+        {
+          "id": "3522:92997",
+          "name": "   "
+        },
+        {
+          "id": "3:2",
+          "name": "🪀 SPECA | Вынос карт на чекаут"
+        },
+        {
+          "id": "2146:93982",
+          "name": "Design Review"
+        },
+        {
+          "id": "3608:13155",
+          "name": "Drafts"
+        },
+        {
+          "id": "0:1",
+          "name": "Cover"
+        }
+      ],
+      "pageInventoryMethod": "use_figma: root.children; get_metadata without nodeId was incomplete"
+    },
+    {
+      "fileKey": "45axp7XOy9ZNU2AeDFUCdF",
+      "label": "Контекстные сценарии",
+      "issues": [
+        "TRAVELITM-2190",
+        "TRAVELSPRINT-4926"
+      ],
+      "metadataNodes": [
+        {
+          "id": "0:1",
+          "inspection": "metadata_structure"
+        },
+        {
+          "id": "2713:116549",
+          "inspection": "metadata_structure"
+        }
+      ],
+      "visualNodes": [
+        {
+          "id": "1:22032",
+          "observation": "Исторический профиль v1.0: четыре уровня и 5/10/15/20% Плюса",
+          "url": "https://www.figma.com/design/45axp7XOy9ZNU2AeDFUCdF/?node-id=1-22032",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        },
+        {
+          "id": "1532:148069",
+          "observation": "Профиль v1.5: бейдж уровня у портрета, полка выгод; неподтвержденная хронология",
+          "url": "https://www.figma.com/design/45axp7XOy9ZNU2AeDFUCdF/?node-id=1532-148069",
+          "inspection": "inline_screenshot_read+metadata; mutable Figma snapshot; not production proof"
+        }
+      ],
+      "unreadable": [
+        {
+          "id": "1192:152098",
+          "reason": "Screenshot 1×1; скрытый предок 1192:152091"
+        },
+        {
+          "id": "1192:152166",
+          "reason": "Screenshot 1×1; visible:true у узла, но предок 1192:152091 visible:false"
+        },
+        {
+          "id": "3837:227614",
+          "reason": "Ссылка из TRAVELITM-2190 не разрешена в metadata; актуальная ветка Гостинцев не установлена"
+        }
+      ],
+      "pages": [
+        {
+          "id": "3584:279869",
+          "name": "v 1.6 (эксп без кб на 1 уровне)"
+        },
+        {
+          "id": "2713:116549",
+          "name": "v 1.5 (появление скидок)"
+        },
+        {
+          "id": "0:1",
+          "name": "v 1.0 (стартовый сетап)"
+        },
+        {
+          "id": "2:38255",
+          "name": "Drafts"
+        },
+        {
+          "id": "2:160303",
+          "name": "Cover"
+        }
+      ],
+      "pageInventoryMethod": "use_figma: root.children; get_metadata without nodeId was incomplete"
+    }
+  ],
+  "leads": [
+    {
+      "fileKey": "M9yJrIkbwXowlXaY5ROtxB",
+      "label": "Солдауты",
+      "issue": "HOTELS-8510",
+      "nodeIds": [
+        "1:34847",
+        "1:101693"
+      ],
+      "inspection": "lead_only; get_metadata без nodeId вернул страницу 0:1; целевые узлы не проверены"
+    }
+  ],
+  "cautions": [
+    "Pages inventory includes drafts,separators,old;not count of product screens",
+    "No media downloaded or screenshots persisted;use exactsource links to reopen",
+    "UI sample identities/paymentamounts not treated as real customerdata and not retained",
+    "Versionnames not release dates;current Figma master can diverge from historicalissue",
+    "No Figma writes performed",
+    "Page child counts omitted: lazy-loaded page children are not a reliable measure of page fullness."
+  ]
+}
