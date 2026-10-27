@@ -1,0 +1,20 @@
+{
+  "name": "travel-design",
+  "interface": {
+    "displayName": "Travel Design"
+  },
+  "plugins": [
+    {
+      "name": "yandex-travel-ux-writing",
+      "source": {
+        "source": "local",
+        "path": "./plugins/yandex-travel-ux-writing"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

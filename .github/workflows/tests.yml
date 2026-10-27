@@ -1,0 +1,29 @@
+name: Test bot and Codex marketplace
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'bot.py'
+      - 'test_bot.py'
+      - 'test_marketplace.py'
+      - '.github/workflows/tests.yml'
+  pull_request:
+    paths:
+      - 'bot.py'
+      - 'test_bot.py'
+      - 'test_marketplace.py'
+      - '.github/workflows/tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+      - run: python3 -m unittest -q test_bot.py test_marketplace.py

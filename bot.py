@@ -363,6 +363,113 @@ def skill_package(filename, raw):
     return identifier, name, version, description, display_name, display_description, dependencies, files
 
 
+
+MARKETPLACE_PATH = ".agents/plugins/marketplace.json"
+MARKETPLACE_NAME = "travel-design"
+
+
+def marketplace_catalog(repository):
+    catalog = repository.read_json(MARKETPLACE_PATH, {
+        "name": MARKETPLACE_NAME,
+        "interface": {"displayName": "Travel Design"},
+        "plugins": [],
+    })
+    if not isinstance(catalog, dict) or not isinstance(catalog.get("plugins"), list):
+        raise UserError("Некорректный каталог Codex. Публикация остановлена до изменения файлов.")
+    return catalog
+
+
+def codex_plugin_files(item, packages):
+    """Mirror complete archives without executing installers or rewriting skills."""
+    identifier = item["id"]
+    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", identifier):
+        raise UserError("Некорректный идентификатор пакета Codex.")
+    prefix = f"plugins/{identifier}/"
+    files = {}
+    for package_id, package in packages:
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", package_id):
+            raise UserError("Некорректный идентификатор зависимости Codex.")
+        if not any(PurePosixPath(name).name.casefold() == "skill.md" for name in package):
+            raise UserError("В зависимости Codex отсутствует SKILL.md.")
+        for name, content in package.items():
+            path = PurePosixPath(name)
+            if path.is_absolute() or ".." in path.parts or not path.parts:
+                raise UserError("Небезопасный путь в пакете Codex.")
+            if path.name.casefold() == "skill.md":
+                path = path.with_name("SKILL.md")
+            files[f"{prefix}skills/{package_id}/{path}"] = content
+    digest = hashlib.sha256()
+    for name, content in sorted(files.items()):
+        digest.update(name.encode() + b"\0" + hashlib.sha256(content).digest())
+    version = item["version"].lstrip("v").split("+", 1)[0]
+    core, dash, prerelease = version.partition("-")
+    if len(core.split(".")) == 2:
+        core += ".0"
+    version = core + (dash + prerelease if dash else "") + "+" + digest.hexdigest()[:12]
+    manifest = {
+        "name": identifier, "version": version,
+        "description": item.get("description") or item["name"],
+        "author": {"name": "Travel Design"},
+        "skills": "./skills/",
+        "interface": {"displayName": item["name"],
+                      "shortDescription": (item.get("description") or item["name"])[:200],
+                      "longDescription": item.get("description") or item["name"],
+                      "developerName": "Travel Design", "category": "Productivity"},
+    }
+    files[prefix + ".codex-plugin/plugin.json"] = json.dumps(manifest, ensure_ascii=False, indent=2).encode()
+    return files
+
+
+def marketplace_entry(identifier):
+    return {"name": identifier, "source": {"source": "local", "path": f"./plugins/{identifier}"},
+            "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
+            "category": "Productivity"}
+
+
+def skill_marketplace_changes(repository, catalog, identifier, package):
+    """Update the new package and any already-exported dependent in one commit."""
+    marketplace = marketplace_catalog(repository)
+    by_id = {item["id"]: item for item in catalog}
+    exported = {entry["name"] for entry in marketplace["plugins"]
+                if entry.get("source") == {"source": "local", "path": f"./plugins/{entry.get('name')}"}}
+    targets = {identifier}
+    for candidate in exported & by_id.keys():
+        if identifier in {item["id"] for item in dependency_closure(catalog, candidate)}:
+            targets.add(candidate)
+    packages = {identifier: package}
+    files, removals = {}, []
+    for target in sorted(targets):
+        conflicting = [entry for entry in marketplace["plugins"] if entry.get("name") == target
+                       and entry.get("source") != {"source": "local", "path": f"./plugins/{target}"}]
+        if conflicting:
+            raise UserError("Имя пакета Codex уже занято другим источником.")
+        required = dependency_closure(catalog, target)
+        for item in required:
+            if item["id"] not in packages:
+                raw = repository.read_bytes(f"skills/{item['id']}/skill.zip")
+                packages[item["id"]] = dict(safe_archive_members(raw, MAX_SKILL_UNPACKED_BYTES))
+        generated = codex_plugin_files(by_id[target], [(item["id"], packages[item["id"]]) for item in required])
+        prefix = f"plugins/{target}/"
+        removals.extend(path for path in repository.files_below(prefix) if path not in generated)
+        files.update(generated)
+        marketplace["plugins"] = [entry for entry in marketplace["plugins"] if entry.get("name") != target]
+        marketplace["plugins"].append(marketplace_entry(target))
+    marketplace["plugins"].sort(key=lambda entry: entry["name"])
+    files[MARKETPLACE_PATH] = json.dumps(marketplace, ensure_ascii=False, indent=2).encode()
+    return files, removals
+
+
+def skill_marketplace_removal(repository, identifier):
+    marketplace = marketplace_catalog(repository)
+    matching = [entry for entry in marketplace["plugins"] if entry.get("name") == identifier]
+    if not matching:
+        return {}, []
+    if any(entry.get("source") != {"source": "local", "path": f"./plugins/{identifier}"} for entry in matching):
+        raise UserError("Пакет Codex использует другой источник. Удаление остановлено.")
+    marketplace["plugins"] = [entry for entry in marketplace["plugins"] if entry.get("name") != identifier]
+    return {MARKETPLACE_PATH: json.dumps(marketplace, ensure_ascii=False, indent=2).encode()}, repository.files_below(f"plugins/{identifier}/")
+
+
 def make_zip(files):
     result = io.BytesIO()
     with zipfile.ZipFile(result, "w", zipfile.ZIP_DEFLATED) as archive:
@@ -829,9 +936,11 @@ class Bot:
                 progress.update("Удаляю скилл…")
                 prefix = f"skills/{identifier}/"
                 remaining = [entry for entry in catalog if entry["id"] != identifier]
+                files = {"skills/catalog.json": json.dumps(remaining, ensure_ascii=False, indent=2).encode()}
+                marketplace_files, marketplace_removals = skill_marketplace_removal(self.github, identifier)
+                files.update(marketplace_files)
                 commit = self.github.commit_files(
-                    {"skills/catalog.json": json.dumps(remaining, ensure_ascii=False, indent=2).encode()},
-                    self.github.files_below(prefix), f"Delete skill {identifier}")
+                    files, self.github.files_below(prefix) + marketplace_removals, f"Delete skill {identifier}")
                 progress.update("Жду обновления Skill store…")
                 removed, reason = self.monitor_publication(
                     f"delete skill {identifier}", commit, lambda: self.wait_for_skill_removal(identifier),
@@ -1104,6 +1213,9 @@ class Bot:
         catalog.append(item)
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
+        marketplace_files, marketplace_removals = skill_marketplace_changes(self.github, catalog, identifier, package)
+        files.update(marketplace_files)
+        removals.extend(marketplace_removals)
         if progress:
             progress.update("Загружаю на сервер…")
         commit = self.github.commit_files(files, removals, f"Update skill {display_name}")

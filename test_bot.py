@@ -98,6 +98,7 @@ class BotTests(unittest.TestCase):
             files_below=Mock(return_value=[]),
             commit_files=Mock(return_value="commit"),
         )
+        instance.github.read_json.side_effect = lambda path, fallback: fallback if path == bot.MARKETPLACE_PATH else instance.github.read_json.return_value
         instance.configure_menu = Mock()
         instance.monitor_publication = Mock(return_value=(True, None))
         instance.notify_team_publication = Mock()
@@ -528,6 +529,7 @@ description: >-
             {"id": "other-author", "name": "Чужой скилл", "updated_by": "other"},
             {"id": "keep", "name": "Оставить"},
         ]
+        instance.github.read_json.side_effect = lambda path, fallback: fallback if path == bot.MARKETPLACE_PATH else instance.github.read_json.return_value
         instance.github.files_below.return_value = ["skills/other-author/skill.zip", "skills/other-author/metadata.json"]
         return instance
 
