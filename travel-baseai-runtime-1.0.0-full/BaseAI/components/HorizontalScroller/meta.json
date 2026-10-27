@@ -1,0 +1,39 @@
+{
+  "name": "HorizontalScroller",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Data display/HorizontalScroller"
+  ],
+  "stories": [
+    {
+      "id": "data-display-horizontalscroller--arrows",
+      "title": "Data display/HorizontalScroller",
+      "name": "Arrows",
+      "view": null,
+      "variant": "arrows",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-horizontalscroller--arrows&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-horizontalscroller--scroll-to-element",
+      "title": "Data display/HorizontalScroller",
+      "name": "Scroll To Element",
+      "view": null,
+      "variant": "scroll-to-element",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-horizontalscroller--scroll-to-element&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-horizontalscroller--simple",
+      "title": "Data display/HorizontalScroller",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-horizontalscroller--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

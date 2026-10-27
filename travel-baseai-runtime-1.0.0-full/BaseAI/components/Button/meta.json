@@ -1,0 +1,87 @@
+{
+  "name": "Button",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Button"
+  ],
+  "stories": [
+    {
+      "id": "controls-button--error-state",
+      "title": "Controls/Button",
+      "name": "Error State",
+      "view": null,
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--shapes",
+      "title": "Controls/Button",
+      "name": "Shapes",
+      "view": null,
+      "variant": "shapes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--shapes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--simple",
+      "title": "Controls/Button",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--sizes",
+      "title": "Controls/Button",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--text-overflow",
+      "title": "Controls/Button",
+      "name": "Text Overflow",
+      "view": null,
+      "variant": "text-overflow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--text-overflow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--themes",
+      "title": "Controls/Button",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--widths",
+      "title": "Controls/Button",
+      "name": "Widths",
+      "view": null,
+      "variant": "widths",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--widths&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--with-caption",
+      "title": "Controls/Button",
+      "name": "With Caption",
+      "view": null,
+      "variant": "with-caption",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--with-caption&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-button--with-icons",
+      "title": "Controls/Button",
+      "name": "With Icons",
+      "view": null,
+      "variant": "with-icons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-button--with-icons&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

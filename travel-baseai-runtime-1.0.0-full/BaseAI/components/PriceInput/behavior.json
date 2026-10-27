@@ -1,0 +1,13 @@
+{
+  "component": "PriceInput",
+  "kind": "money-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "filled", "invalid", "error", "disabled"],
+  "triggers": [
+    { "event": "input", "effect": "format amount" },
+    { "event": "blur", "effect": "validate amount" },
+    { "event": "clear", "to": "empty" }
+  ],
+  "a11y": { "role": "textbox", "inputmode": "decimal", "stateAttrs": ["aria-invalid", "disabled"] },
+  "preview": "Keep currency sign, grouped digits and validation hint in the same control."
+}

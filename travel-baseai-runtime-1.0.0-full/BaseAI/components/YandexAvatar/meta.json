@@ -1,0 +1,47 @@
+{
+  "name": "YandexAvatar",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Data display/YandexAvatar"
+  ],
+  "stories": [
+    {
+      "id": "data-display-yandexavatar--empty-avatar",
+      "title": "Data display/YandexAvatar",
+      "name": "Empty Avatar",
+      "view": null,
+      "variant": "empty-avatar",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-yandexavatar--empty-avatar&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-yandexavatar--letter-placeholder",
+      "title": "Data display/YandexAvatar",
+      "name": "Letter Placeholder",
+      "view": null,
+      "variant": "letter-placeholder",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-yandexavatar--letter-placeholder&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-yandexavatar--simple",
+      "title": "Data display/YandexAvatar",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-yandexavatar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-yandexavatar--sizes",
+      "title": "Data display/YandexAvatar",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-yandexavatar--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

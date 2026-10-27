@@ -1,0 +1,23 @@
+{
+  "name": "BottomFading",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Layout/BottomFading"
+  ],
+  "stories": [
+    {
+      "id": "layout-bottomfading--simple",
+      "title": "Layout/BottomFading",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-bottomfading--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

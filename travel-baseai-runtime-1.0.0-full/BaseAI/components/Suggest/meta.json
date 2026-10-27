@@ -1,0 +1,39 @@
+{
+  "name": "Suggest",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Suggest"
+  ],
+  "stories": [
+    {
+      "id": "controls-suggest--bottom-sheet-container",
+      "title": "Controls/Suggest",
+      "name": "Bottom Sheet Container",
+      "view": null,
+      "variant": "bottom-sheet-container",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-suggest--bottom-sheet-container&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-suggest--loading-state",
+      "title": "Controls/Suggest",
+      "name": "Loading State",
+      "view": null,
+      "variant": "loading-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-suggest--loading-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-suggest--popup-container",
+      "title": "Controls/Suggest",
+      "name": "Popup Container",
+      "view": null,
+      "variant": "popup-container",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-suggest--popup-container&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

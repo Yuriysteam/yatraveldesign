@@ -1,0 +1,39 @@
+{
+  "name": "Intersperse",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Intersperse"
+  ],
+  "stories": [
+    {
+      "id": "layout-intersperse--element-separator",
+      "title": "Layout/Intersperse",
+      "name": "Element Separator",
+      "view": null,
+      "variant": "element-separator",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-intersperse--element-separator&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-intersperse--function-separator",
+      "title": "Layout/Intersperse",
+      "name": "Function Separator",
+      "view": null,
+      "variant": "function-separator",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-intersperse--function-separator&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-intersperse--simple",
+      "title": "Layout/Intersperse",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-intersperse--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

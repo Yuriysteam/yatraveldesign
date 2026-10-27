@@ -1,0 +1,63 @@
+{
+  "name": "Avatar",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Avatar"
+  ],
+  "stories": [
+    {
+      "id": "data-display-avatar--letter-placeholder",
+      "title": "Data display/Avatar",
+      "name": "Letter Placeholder",
+      "view": null,
+      "variant": "letter-placeholder",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-avatar--letter-placeholder&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-avatar--radiuses",
+      "title": "Data display/Avatar",
+      "name": "Radiuses",
+      "view": null,
+      "variant": "radiuses",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-avatar--radiuses&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-avatar--simple",
+      "title": "Data display/Avatar",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-avatar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-avatar--simple-letter-placeholder",
+      "title": "Data display/Avatar",
+      "name": "Simple Letter Placeholder",
+      "view": null,
+      "variant": "simple-letter-placeholder",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-avatar--simple-letter-placeholder&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-avatar--sizes",
+      "title": "Data display/Avatar",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-avatar--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-avatar--with-notification-dot",
+      "title": "Data display/Avatar",
+      "name": "With Notification Dot",
+      "view": null,
+      "variant": "with-notification-dot",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-avatar--with-notification-dot&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

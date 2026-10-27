@@ -1,0 +1,31 @@
+{
+  "name": "ImagesSwipeCarousel",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Data display/ImagesSwipeCarousel"
+  ],
+  "stories": [
+    {
+      "id": "data-display-imagesswipecarousel--custom-node",
+      "title": "Data display/ImagesSwipeCarousel",
+      "name": "Custom Node",
+      "view": null,
+      "variant": "custom-node",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagesswipecarousel--custom-node&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagesswipecarousel--simple",
+      "title": "Data display/ImagesSwipeCarousel",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagesswipecarousel--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

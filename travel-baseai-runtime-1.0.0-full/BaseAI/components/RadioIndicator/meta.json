@@ -1,0 +1,31 @@
+{
+  "name": "RadioIndicator",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/RadioIndicator"
+  ],
+  "stories": [
+    {
+      "id": "feedback-radioindicator--simple",
+      "title": "Feedback/RadioIndicator",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-radioindicator--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-radioindicator--states",
+      "title": "Feedback/RadioIndicator",
+      "name": "States",
+      "view": null,
+      "variant": "states",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-radioindicator--states&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

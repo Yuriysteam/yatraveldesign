@@ -1,0 +1,75 @@
+{
+  "version": "1.0.0",
+  "sourceOfTruth": {
+    "layouts": "principles/layouts.md",
+    "visualStyle": "principles/visual-style.md",
+    "tokens": "principles/tokens.md",
+    "generationGuards": "principles/generation-guards.md",
+    "validation": "principles/validation.md"
+  },
+  "readOrder": [
+    "principles/layouts.md",
+    "principles/visual-style.md",
+    "principles/tokens.md",
+    "principles/generation-guards.md",
+    "AI_USAGE.md",
+    "snippets/snippets.json",
+    "components.json",
+    "principles/validation.md"
+  ],
+  "layoutModels": {
+    "flat": {
+      "file": "principles/layouts.md",
+      "sections": ["1. Flat Layout", "1A. Flat Layout For Touch And Mobile/App"],
+      "useFor": ["home", "visual detail", "trip", "inspiration", "editorial", "photo text cards", "events"]
+    },
+    "island": {
+      "file": "principles/layouts.md",
+      "sections": ["2. Island Layout For Desktop", "2A. Island Layout For Touch And Mobile/App"],
+      "useFor": ["search results", "product snippets", "checkout", "forms", "functional detail blocks", "map results"]
+    },
+    "inset": {
+      "file": "principles/layouts.md",
+      "sections": ["3. Inset Layout For Desktop", "3A. Inset Layout For Touch And Mobile/App"],
+      "useFor": ["settings", "bookings", "account groups", "homogeneous lists", "subcategory card groups"]
+    },
+    "combined": {
+      "file": "principles/layouts.md",
+      "isStandalonePrinciple": false,
+      "useFor": ["page phases that intentionally switch between flat, island, and inset"],
+      "rule": "Each phase must follow a documented layout model. Do not use combined composition to bypass layout rules."
+    }
+  },
+  "routeHints": [
+    { "scenario": "home", "desktop": "flat", "touch": "flat", "app": "flat" },
+    { "scenario": "hotel detail", "desktop": "flat", "touch": "island", "app": "island" },
+    { "scenario": "object detail", "desktop": "flat", "touch": "island", "app": "island" },
+    { "scenario": "search results", "desktop": "island", "touch": "island", "app": "island" },
+    { "scenario": "map search results", "desktop": "island", "touch": "island", "app": "island" },
+    { "scenario": "checkout", "desktop": "combined", "touch": "island", "app": "island" },
+    { "scenario": "bookings", "desktop": "inset", "touch": "inset", "app": "inset" },
+    { "scenario": "settings", "desktop": "inset", "touch": "inset", "app": "inset" },
+    { "scenario": "account", "desktop": "inset", "touch": "inset", "app": "inset" },
+    { "scenario": "events", "desktop": "flat", "touch": "flat", "app": "flat" }
+  ],
+  "tokenMapping": {
+    "Background Primary": "var(--yatraveluikit-bg-fill-secondary-color)",
+    "Background Secondary": "var(--yatraveluikit-bg-fill-primary-color)",
+    "Card Primary": "var(--yatraveluikit-bg-card-primary-color)",
+    "Card Secondary": "var(--yatraveluikit-bg-card-secondary-color)",
+    "Text Primary": "var(--yatraveluikit-text-primary-color)",
+    "Text Secondary": "var(--yatraveluikit-text-secondary-color)",
+    "Text Inverse": "var(--yatraveluikit-text-inverse-color)"
+  },
+  "generationGuards": {
+    "noB2CDashboardsByDefault": {
+      "enabled": true,
+      "status": "temporary",
+      "file": "principles/generation-guards.md",
+      "scope": "B2C generated prototypes",
+      "rule": "Do not generate dashboard-style interfaces for B2C products unless the user explicitly asks for a dashboard, analytics view, or metric-heavy screen.",
+      "removeIf": "B2C dashboard-like products become explicitly required or this preference is no longer useful."
+    }
+  },
+  "validation": "principles/validation.md"
+}

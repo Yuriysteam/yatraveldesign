@@ -1,0 +1,31 @@
+{
+  "name": "Icon",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Typography/Icon"
+  ],
+  "stories": [
+    {
+      "id": "typography-icon--simple",
+      "title": "Typography/Icon",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-icon--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-icon--typography",
+      "title": "Typography/Icon",
+      "name": "Typography",
+      "view": null,
+      "variant": "typography",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-icon--typography&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

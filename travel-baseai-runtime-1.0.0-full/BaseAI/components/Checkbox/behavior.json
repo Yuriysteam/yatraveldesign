@@ -1,0 +1,14 @@
+{
+  "component": "Checkbox",
+  "kind": "boolean-control",
+  "defaultState": "unchecked",
+  "states": ["unchecked", "checked", "indeterminate", "focus-visible", "error", "disabled"],
+  "triggers": [
+    { "event": "click", "from": "unchecked", "to": "checked" },
+    { "event": "click", "from": "checked", "to": "unchecked" },
+    { "event": "keydown:Space", "effect": "toggle checked" },
+    { "event": "api:set-indeterminate", "to": "indeterminate" }
+  ],
+  "a11y": { "role": "checkbox", "stateAttrs": ["checked", "aria-checked", "disabled"], "keyboard": ["Space"] },
+  "preview": "Toggle native input checked/disabled together with visible data-checked/data-disabled classes."
+}

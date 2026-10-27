@@ -1,0 +1,79 @@
+{
+  "name": "TextWithIcon",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 8,
+  "views": [],
+  "sourceTitles": [
+    "Typography/TextWithIcon"
+  ],
+  "stories": [
+    {
+      "id": "typography-textwithicon--caption",
+      "title": "Typography/TextWithIcon",
+      "name": "Caption",
+      "view": null,
+      "variant": "caption",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--caption&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--custom-icon",
+      "title": "Typography/TextWithIcon",
+      "name": "Custom Icon",
+      "view": null,
+      "variant": "custom-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--custom-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--deprecated-sizes",
+      "title": "Typography/TextWithIcon",
+      "name": "Deprecated Sizes",
+      "view": null,
+      "variant": "deprecated-sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--deprecated-sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--events",
+      "title": "Typography/TextWithIcon",
+      "name": "Events",
+      "view": null,
+      "variant": "events",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--events&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--icon-element",
+      "title": "Typography/TextWithIcon",
+      "name": "Icon Element",
+      "view": null,
+      "variant": "icon-element",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--icon-element&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--multiline",
+      "title": "Typography/TextWithIcon",
+      "name": "Multiline",
+      "view": null,
+      "variant": "multiline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--multiline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--simple",
+      "title": "Typography/TextWithIcon",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-textwithicon--typography",
+      "title": "Typography/TextWithIcon",
+      "name": "Typography",
+      "view": null,
+      "variant": "typography",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-textwithicon--typography&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

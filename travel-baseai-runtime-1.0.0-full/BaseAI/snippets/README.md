@@ -1,0 +1,147 @@
+# BaseAI Snippets
+
+Production-safe reusable HTML snippets extracted from Storybook markup. These snippets are meant for AI prototype generation.
+
+Total snippets: 1506
+
+Machine index: `snippets/snippets.json`.
+
+Cleanup report: `_build/snippets-cleanup-report.json`.
+
+Excluded from generation: Storybook tables, code/props blocks, lorem placeholders, demo-only colored blocks, and reference-only helper components. Full raw Storybook markup remains available in `components/`.
+
+## Components
+
+- Controls/Button: 30
+- Controls/ButtonGroup: 6
+- Controls/CheckButton: 6
+- Controls/Checkbox: 52
+- Controls/Chips: 18
+- Controls/DateInput: 11
+- Controls/DatePicker: 10
+- Controls/DateTriggerInput: 2
+- Controls/Dropdown: 1
+- Controls/FilterCheckList: 2
+- Controls/ImagesSelector: 1
+- Controls/Indicator: 1
+- Controls/Input: 59
+- Controls/InputRange: 13
+- Controls/InputWithCopyButton: 1
+- Controls/InputWithLoader: 4
+- Controls/LinkButton: 1
+- Controls/MaskedInput: 1
+- Controls/MoreButton: 6
+- Controls/NativeSelect: 1
+- Controls/NumberInput: 1
+- Controls/PhoneInput: 1
+- Controls/PositionIndicator: 3
+- Controls/PriceInput: 8
+- Controls/RadioBlockGroup: 3
+- Controls/RadioGroup: 28
+- Controls/RotatingArrowIcon: 2
+- Controls/SearchControl: 1
+- Controls/SegmentedControl: 11
+- Controls/Select: 13
+- Controls/Stepper: 10
+- Controls/Suggest: 3
+- Controls/Switch: 6
+- Controls/TextArea: 33
+- Controls/TimeRange: 1
+- Controls/TriggerInput: 6
+- Data display/AttentionSticker: 12
+- Data display/Avatar: 25
+- Data display/BorderPositioned: 6
+- Data display/Calendar: 84
+- Data display/Carousel: 9
+- Data display/Copyright: 1
+- Data display/DateLabel: 6
+- Data display/DiscountBadge: 11
+- Data display/FieldLabel: 1
+- Data display/Hint: 8
+- Data display/HorizontalScroller: 1
+- Data display/ImagesCarousel: 9
+- Data display/ImagesSwipeCarousel: 2
+- Data display/Intent: 10
+- Data display/Label: 31
+- Data display/NotificationDot: 11
+- Data display/Phone: 1
+- Data display/PhoneWithTitle: 1
+- Data display/PlusPoints: 10
+- Data display/Price: 3
+- Data display/Rating: 14
+- Data display/RecommendBadge: 4
+- Data display/SnippetBadge: 8
+- Data display/Stars: 5
+- Data display/Status: 4
+- Data display/SwipeDown: 1
+- Data display/Swipeable: 5
+- Data display/Table: 77
+- Data display/TravelImage: 4
+- Data display/YandexAvatar: 10
+- Data display/Zoomable: 4
+- Data display/ZoomableImage: 2
+- Feedback/ButtonSkeleton: 7
+- Feedback/CellWithSquareIconSkeleton: 8
+- Feedback/FullscreenSpinner: 1
+- Feedback/Informer: 17
+- Feedback/InputSkeleton: 11
+- Feedback/ProgressBar: 1
+- Feedback/RadioIndicator: 3
+- Feedback/Skeleton: 1
+- Feedback/Snackbar: 9
+- Feedback/Spinner: 9
+- Feedback/SquareBackgroundSkeleton: 4
+- Feedback/TabsSkeleton: 5
+- Feedback/TextSkeleton: 47
+- Feedback/Toast: 1
+- Layout/Accordion: 3
+- Layout/BottomFading: 1
+- Layout/Box: 55
+- Layout/Card: 37
+- Layout/CardWithDeviceLayout: 3
+- Layout/CardsGroup: 24
+- Layout/Cell: 9
+- Layout/CellWithImage: 5
+- Layout/CellWithSquareIcon: 6
+- Layout/CellWithSquareIllustration: 4
+- Layout/Center: 3
+- Layout/Divider: 11
+- Layout/Fade: 26
+- Layout/Flex: 24
+- Layout/NavBar: 7
+- Layout/SpaceSeparator: 13
+- Layout/SquareBackground: 10
+- Layout/StickyBottom: 2
+- Navigation/Anchor: 1
+- Navigation/Link: 11
+- Navigation/LinkNew: 13
+- Navigation/TabBar: 3
+- Navigation/TabOutlined: 6
+- Navigation/Tabs: 9
+- Navigation/TabsNew: 16
+- Other/YandexMaps: 9
+- Overlays/BottomSheet: 9
+- Overlays/Drawer: 6
+- Overlays/DropdownFilter: 1
+- Overlays/DropdownWithTrigger: 1
+- Overlays/Hanging: 2
+- Overlays/Modal: 13
+- Overlays/ModalWithTrigger: 2
+- Overlays/Popup: 10
+- Overlays/SidePanel: 3
+- Overlays/Tooltip: 1
+- Typography/CenteredIcon: 1
+- Typography/CloseIcon: 10
+- Typography/DotSeparator: 3
+- Typography/Heading: 4
+- Typography/HorizontalKebab: 1
+- Typography/Icon: 47
+- Typography/IconWithRoundBackground: 8
+- Typography/IconWithSquareBackground: 10
+- Typography/PillBadge: 16
+- Typography/PlusBadge: 6
+- Typography/StrikethroughText: 51
+- Typography/Text: 66
+- Typography/TextWithHorizontalKebab: 1
+- Typography/TextWithIcon: 62
+- Typography/TruncateText: 1

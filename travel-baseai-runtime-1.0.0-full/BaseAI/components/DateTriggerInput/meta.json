@@ -1,0 +1,31 @@
+{
+  "name": "DateTriggerInput",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Controls/DateTriggerInput"
+  ],
+  "stories": [
+    {
+      "id": "controls-datetriggerinput--range",
+      "title": "Controls/DateTriggerInput",
+      "name": "Range",
+      "view": null,
+      "variant": "range",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datetriggerinput--range&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-datetriggerinput--simple",
+      "title": "Controls/DateTriggerInput",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datetriggerinput--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

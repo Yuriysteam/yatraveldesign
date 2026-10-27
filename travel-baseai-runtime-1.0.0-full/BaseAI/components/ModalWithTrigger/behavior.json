@@ -1,0 +1,13 @@
+{
+  "component": "ModalWithTrigger",
+  "kind": "triggered-dialog-overlay",
+  "defaultState": "closed",
+  "states": ["closed", "trigger-focus", "open", "closing"],
+  "triggers": [
+    { "event": "click:trigger", "from": "closed", "to": "open" },
+    { "event": "click:close", "from": "open", "to": "closed" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "button + dialog", "stateAttrs": ["aria-expanded", "aria-modal"] },
+  "preview": "Keep trigger and opened modal markup together when demonstrating open state."
+}

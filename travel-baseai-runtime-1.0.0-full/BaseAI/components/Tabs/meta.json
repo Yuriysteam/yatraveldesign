@@ -1,0 +1,87 @@
+{
+  "name": "Tabs",
+  "category": "Navigation",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Navigation/Tabs"
+  ],
+  "stories": [
+    {
+      "id": "navigation-tabs--auto-scroll-to-active-tab",
+      "title": "Navigation/Tabs",
+      "name": "Auto Scroll To Active Tab",
+      "view": null,
+      "variant": "auto-scroll-to-active-tab",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--auto-scroll-to-active-tab&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--bold",
+      "title": "Navigation/Tabs",
+      "name": "Bold",
+      "view": null,
+      "variant": "bold",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--bold&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--simple",
+      "title": "Navigation/Tabs",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--two-row-tab",
+      "title": "Navigation/Tabs",
+      "name": "Two Row Tab",
+      "view": null,
+      "variant": "two-row-tab",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--two-row-tab&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--with-additional",
+      "title": "Navigation/Tabs",
+      "name": "With Additional",
+      "view": null,
+      "variant": "with-additional",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--with-additional&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--with-arrow",
+      "title": "Navigation/Tabs",
+      "name": "With Arrow",
+      "view": null,
+      "variant": "with-arrow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--with-arrow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--with-border",
+      "title": "Navigation/Tabs",
+      "name": "With Border",
+      "view": null,
+      "variant": "with-border",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--with-border&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--with-border-and-arrow",
+      "title": "Navigation/Tabs",
+      "name": "With Border And Arrow",
+      "view": null,
+      "variant": "with-border-and-arrow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--with-border-and-arrow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabs--with-disabled",
+      "title": "Navigation/Tabs",
+      "name": "With Disabled",
+      "view": null,
+      "variant": "with-disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabs--with-disabled&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

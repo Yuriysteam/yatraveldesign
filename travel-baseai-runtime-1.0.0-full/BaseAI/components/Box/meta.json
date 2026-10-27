@@ -1,0 +1,95 @@
+{
+  "name": "Box",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 10,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Box"
+  ],
+  "stories": [
+    {
+      "id": "layout-box--above",
+      "title": "Layout/Box",
+      "name": "Above",
+      "view": null,
+      "variant": "above",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--above&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--below",
+      "title": "Layout/Box",
+      "name": "Below",
+      "view": null,
+      "variant": "below",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--below&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--between",
+      "title": "Layout/Box",
+      "name": "Between",
+      "view": null,
+      "variant": "between",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--between&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--inline",
+      "title": "Layout/Box",
+      "name": "Inline",
+      "view": null,
+      "variant": "inline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--inline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--inset",
+      "title": "Layout/Box",
+      "name": "Inset",
+      "view": null,
+      "variant": "inset",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--inset&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--simple",
+      "title": "Layout/Box",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--size-x",
+      "title": "Layout/Box",
+      "name": "Size X",
+      "view": null,
+      "variant": "size-x",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--size-x&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--size-y",
+      "title": "Layout/Box",
+      "name": "Size Y",
+      "view": null,
+      "variant": "size-y",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--size-y&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--sizes",
+      "title": "Layout/Box",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-box--squish",
+      "title": "Layout/Box",
+      "name": "Squish",
+      "view": null,
+      "variant": "squish",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-box--squish&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

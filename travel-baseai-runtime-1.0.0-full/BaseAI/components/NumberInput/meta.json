@@ -1,0 +1,23 @@
+{
+  "name": "NumberInput",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Controls/NumberInput"
+  ],
+  "stories": [
+    {
+      "id": "controls-numberinput--simple",
+      "title": "Controls/NumberInput",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-numberinput--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

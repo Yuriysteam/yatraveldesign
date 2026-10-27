@@ -1,0 +1,13 @@
+{
+  "component": "NativeSelect",
+  "kind": "native-select-control",
+  "defaultState": "closed",
+  "states": ["closed", "focused", "selected", "error", "disabled"],
+  "triggers": [
+    { "event": "change", "effect": "select option" },
+    { "event": "focus", "to": "focused" },
+    { "event": "blur", "effect": "validate when required" }
+  ],
+  "a11y": { "role": "combobox", "stateAttrs": ["disabled", "aria-invalid", "aria-describedby"] },
+  "preview": "Use native <select> semantics; do not replace with custom dropdown unless using Select."
+}

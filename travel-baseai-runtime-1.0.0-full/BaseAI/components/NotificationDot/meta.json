@@ -1,0 +1,47 @@
+{
+  "name": "NotificationDot",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Data display/NotificationDot"
+  ],
+  "stories": [
+    {
+      "id": "data-display-notificationdot--dot-types",
+      "title": "Data display/NotificationDot",
+      "name": "Dot Types",
+      "view": null,
+      "variant": "dot-types",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-notificationdot--dot-types&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-notificationdot--simple",
+      "title": "Data display/NotificationDot",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-notificationdot--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-notificationdot--sizes",
+      "title": "Data display/NotificationDot",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-notificationdot--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-notificationdot--themes",
+      "title": "Data display/NotificationDot",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-notificationdot--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

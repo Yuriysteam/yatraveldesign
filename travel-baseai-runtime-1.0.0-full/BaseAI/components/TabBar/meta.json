@@ -1,0 +1,39 @@
+{
+  "name": "TabBar",
+  "category": "Navigation",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Navigation/TabBar"
+  ],
+  "stories": [
+    {
+      "id": "navigation-tabbar--simple",
+      "title": "Navigation/TabBar",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabbar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabbar--with-disabled",
+      "title": "Navigation/TabBar",
+      "name": "With Disabled",
+      "view": null,
+      "variant": "with-disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabbar--with-disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabbar--with-shadow",
+      "title": "Navigation/TabBar",
+      "name": "With Shadow",
+      "view": null,
+      "variant": "with-shadow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabbar--with-shadow&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

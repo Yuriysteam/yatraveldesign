@@ -1,0 +1,23 @@
+{
+  "name": "TimeRange",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Controls/TimeRange"
+  ],
+  "stories": [
+    {
+      "id": "controls-timerange--simple",
+      "title": "Controls/TimeRange",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-timerange--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

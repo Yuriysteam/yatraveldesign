@@ -1,0 +1,39 @@
+{
+  "name": "TriggerInput",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Controls/TriggerInput"
+  ],
+  "stories": [
+    {
+      "id": "controls-triggerinput--interactive",
+      "title": "Controls/TriggerInput",
+      "name": "Interactive",
+      "view": null,
+      "variant": "interactive",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-triggerinput--interactive&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-triggerinput--simple",
+      "title": "Controls/TriggerInput",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-triggerinput--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-triggerinput--states",
+      "title": "Controls/TriggerInput",
+      "name": "States",
+      "view": null,
+      "variant": "states",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-triggerinput--states&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

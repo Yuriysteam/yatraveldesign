@@ -1,0 +1,93 @@
+{
+  "name": "Snackbar",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component with view variants",
+  "storiesCount": 9,
+  "views": [
+    "HorizontalSnackbar",
+    "SnackbarWithImage",
+    "VerticalSnackbar"
+  ],
+  "sourceTitles": [
+    "Feedback/Snackbar/HorizontalSnackbar",
+    "Feedback/Snackbar/SnackbarWithImage",
+    "Feedback/Snackbar/VerticalSnackbar"
+  ],
+  "stories": [
+    {
+      "id": "feedback-snackbar-horizontalsnackbar--simple",
+      "title": "Feedback/Snackbar/HorizontalSnackbar",
+      "name": "Simple",
+      "view": "HorizontalSnackbar",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-horizontalsnackbar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-horizontalsnackbar--text-and-icon",
+      "title": "Feedback/Snackbar/HorizontalSnackbar",
+      "name": "Text And Icon",
+      "view": "HorizontalSnackbar",
+      "variant": "text-and-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-horizontalsnackbar--text-and-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-horizontalsnackbar--text-only",
+      "title": "Feedback/Snackbar/HorizontalSnackbar",
+      "name": "Text Only",
+      "view": "HorizontalSnackbar",
+      "variant": "text-only",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-horizontalsnackbar--text-only&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-horizontalsnackbar--text-overflow",
+      "title": "Feedback/Snackbar/HorizontalSnackbar",
+      "name": "Text Overflow",
+      "view": "HorizontalSnackbar",
+      "variant": "text-overflow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-horizontalsnackbar--text-overflow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-snackbarwithimage--simple",
+      "title": "Feedback/Snackbar/SnackbarWithImage",
+      "name": "Simple",
+      "view": "SnackbarWithImage",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-snackbarwithimage--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-snackbarwithimage--text-overflow",
+      "title": "Feedback/Snackbar/SnackbarWithImage",
+      "name": "Text Overflow",
+      "view": "SnackbarWithImage",
+      "variant": "text-overflow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-snackbarwithimage--text-overflow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-verticalsnackbar--simple",
+      "title": "Feedback/Snackbar/VerticalSnackbar",
+      "name": "Simple",
+      "view": "VerticalSnackbar",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-verticalsnackbar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-verticalsnackbar--text-and-icon",
+      "title": "Feedback/Snackbar/VerticalSnackbar",
+      "name": "Text And Icon",
+      "view": "VerticalSnackbar",
+      "variant": "text-and-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-verticalsnackbar--text-and-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-snackbar-verticalsnackbar--text-overflow",
+      "title": "Feedback/Snackbar/VerticalSnackbar",
+      "name": "Text Overflow",
+      "view": "VerticalSnackbar",
+      "variant": "text-overflow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-snackbar-verticalsnackbar--text-overflow&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,14 @@
+{
+  "component": "TriggerInput",
+  "kind": "input-like-trigger",
+  "defaultState": "closed",
+  "states": ["closed", "open", "empty", "filled", "focus-visible", "error", "disabled"],
+  "triggers": [
+    { "event": "click", "from": "closed", "to": "open" },
+    { "event": "keydown:Enter|Space", "from": "closed", "to": "open" },
+    { "event": "select", "from": "open", "to": "filled" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "button or combobox", "stateAttrs": ["aria-expanded", "aria-invalid", "disabled"] },
+  "preview": "Use for picker/popover entry points; keep it visually input-like, not button-like."
+}

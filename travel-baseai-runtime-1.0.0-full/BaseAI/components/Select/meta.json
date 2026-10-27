@@ -1,0 +1,55 @@
+{
+  "name": "Select",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Select"
+  ],
+  "stories": [
+    {
+      "id": "controls-select--disable-scale",
+      "title": "Controls/Select",
+      "name": "Disable Scale",
+      "view": null,
+      "variant": "disable-scale",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-select--disable-scale&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-select--simple",
+      "title": "Controls/Select",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-select--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-select--sizes",
+      "title": "Controls/Select",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-select--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-select--themes",
+      "title": "Controls/Select",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-select--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-select--weights",
+      "title": "Controls/Select",
+      "name": "Weights",
+      "view": null,
+      "variant": "weights",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-select--weights&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

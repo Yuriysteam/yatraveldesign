@@ -1,0 +1,55 @@
+{
+  "name": "CardsGroup",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Layout/CardsGroup"
+  ],
+  "stories": [
+    {
+      "id": "layout-cardsgroup--double-card",
+      "title": "Layout/CardsGroup",
+      "name": "Double Card",
+      "view": null,
+      "variant": "double-card",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardsgroup--double-card&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cardsgroup--grid-card",
+      "title": "Layout/CardsGroup",
+      "name": "Grid Card",
+      "view": null,
+      "variant": "grid-card",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardsgroup--grid-card&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cardsgroup--radius",
+      "title": "Layout/CardsGroup",
+      "name": "Radius",
+      "view": null,
+      "variant": "radius",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardsgroup--radius&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cardsgroup--single-card",
+      "title": "Layout/CardsGroup",
+      "name": "Single Card",
+      "view": null,
+      "variant": "single-card",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardsgroup--single-card&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cardsgroup--triple-card-with-transparent",
+      "title": "Layout/CardsGroup",
+      "name": "Triple Card With Transparent",
+      "view": null,
+      "variant": "triple-card-with-transparent",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardsgroup--triple-card-with-transparent&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

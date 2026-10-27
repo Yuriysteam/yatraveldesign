@@ -1,0 +1,14 @@
+{
+  "component": "DropdownFilter",
+  "kind": "filter-dropdown",
+  "defaultState": "closed",
+  "states": ["closed", "open", "empty", "filtered", "selected", "disabled"],
+  "triggers": [
+    { "event": "click:trigger", "effect": "open or close popup" },
+    { "event": "input", "effect": "filter options" },
+    { "event": "click:item", "effect": "select filter value" },
+    { "event": "clear", "to": "empty" }
+  ],
+  "a11y": { "role": "combobox", "stateAttrs": ["aria-expanded", "aria-controls", "aria-activedescendant"] },
+  "preview": "Use for searchable filter selection; keep clear and selected states visible when present."
+}

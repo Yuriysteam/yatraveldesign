@@ -1,0 +1,39 @@
+{
+  "name": "Stars",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Stars"
+  ],
+  "stories": [
+    {
+      "id": "data-display-stars--simple",
+      "title": "Data display/Stars",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-stars--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-stars--sizes",
+      "title": "Data display/Stars",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-stars--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-stars--themes",
+      "title": "Data display/Stars",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-stars--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

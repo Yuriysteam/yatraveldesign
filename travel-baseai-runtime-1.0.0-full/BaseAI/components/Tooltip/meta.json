@@ -1,0 +1,23 @@
+{
+  "name": "Tooltip",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/Tooltip"
+  ],
+  "stories": [
+    {
+      "id": "overlays-tooltip--simple",
+      "title": "Overlays/Tooltip",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-tooltip--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

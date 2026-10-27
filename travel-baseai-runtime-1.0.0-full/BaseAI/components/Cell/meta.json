@@ -1,0 +1,63 @@
+{
+  "name": "Cell",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Cell"
+  ],
+  "stories": [
+    {
+      "id": "layout-cell--long-text",
+      "title": "Layout/Cell",
+      "name": "Long Text",
+      "view": null,
+      "variant": "long-text",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cell--long-text&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cell--simple",
+      "title": "Layout/Cell",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cell--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cell--sizes",
+      "title": "Layout/Cell",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cell--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cell--title-max-lines",
+      "title": "Layout/Cell",
+      "name": "Title Max Lines",
+      "view": null,
+      "variant": "title-max-lines",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cell--title-max-lines&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cell--with-hover",
+      "title": "Layout/Cell",
+      "name": "With Hover",
+      "view": null,
+      "variant": "with-hover",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cell--with-hover&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cell--with-toggle",
+      "title": "Layout/Cell",
+      "name": "With Toggle",
+      "view": null,
+      "variant": "with-toggle",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cell--with-toggle&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

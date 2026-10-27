@@ -1,0 +1,14 @@
+{
+  "component": "DatePicker",
+  "kind": "calendar-picker",
+  "defaultState": "closed",
+  "states": ["closed", "open", "date-hover", "date-selected", "range-start", "range-end", "range-preview", "disabled"],
+  "triggers": [
+    { "event": "click:trigger", "from": "closed", "to": "open" },
+    { "event": "click:date", "effect": "select date or range boundary" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" },
+    { "event": "click:outside", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "dialog or grid", "keyboard": ["Arrow keys", "Enter", "Escape", "Tab"] },
+  "preview": "Keep calendar grid, selected/range classes and trigger markup together; do not replace with a native date input."
+}

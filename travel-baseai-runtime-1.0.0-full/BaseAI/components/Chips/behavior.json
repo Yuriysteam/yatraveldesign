@@ -1,0 +1,13 @@
+{
+  "component": "Chips",
+  "kind": "choice-control",
+  "defaultState": "idle",
+  "states": ["idle", "hover", "focus-visible", "selected", "disabled"],
+  "selectionModes": ["single", "multiple"],
+  "triggers": [
+    { "event": "click", "effect": "select or toggle item" },
+    { "event": "keydown:Enter|Space", "effect": "select or toggle focused item" }
+  ],
+  "a11y": { "role": "listbox or group", "itemRole": "option or button", "keyboard": ["Tab", "Enter", "Space"] },
+  "preview": "Use selected chips for active filters; do not restyle them as buttons."
+}

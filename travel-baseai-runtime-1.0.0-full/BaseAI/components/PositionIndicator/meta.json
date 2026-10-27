@@ -1,0 +1,39 @@
+{
+  "name": "PositionIndicator",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Controls/PositionIndicator"
+  ],
+  "stories": [
+    {
+      "id": "controls-positionindicator--different-counts",
+      "title": "Controls/PositionIndicator",
+      "name": "Different Counts",
+      "view": null,
+      "variant": "different-counts",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-positionindicator--different-counts&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-positionindicator--loop",
+      "title": "Controls/PositionIndicator",
+      "name": "Loop",
+      "view": null,
+      "variant": "loop",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-positionindicator--loop&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-positionindicator--simple",
+      "title": "Controls/PositionIndicator",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-positionindicator--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

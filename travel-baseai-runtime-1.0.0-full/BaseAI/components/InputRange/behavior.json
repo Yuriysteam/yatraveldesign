@@ -1,0 +1,14 @@
+{
+  "component": "InputRange",
+  "kind": "range-control",
+  "defaultState": "idle",
+  "states": ["idle", "focus-visible", "dragging", "filled", "error", "disabled"],
+  "triggers": [
+    { "event": "pointerdown:thumb", "from": "idle", "to": "dragging" },
+    { "event": "pointermove", "from": "dragging", "effect": "update value and active track" },
+    { "event": "pointerup", "from": "dragging", "to": "idle" },
+    { "event": "keydown:ArrowLeft|ArrowRight", "effect": "step value" }
+  ],
+  "a11y": { "role": "slider", "stateAttrs": ["aria-valuemin", "aria-valuemax", "aria-valuenow", "disabled"] },
+  "preview": "Keep numeric input, thumb position and active track value in sync."
+}

@@ -1,0 +1,39 @@
+{
+  "name": "AutoHeightAnimateControl",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Layout/AutoHeightAnimateControl"
+  ],
+  "stories": [
+    {
+      "id": "layout-autoheightanimatecontrol--animated",
+      "title": "Layout/AutoHeightAnimateControl",
+      "name": "Animated",
+      "view": null,
+      "variant": "animated",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-autoheightanimatecontrol--animated&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-autoheightanimatecontrol--collapsed",
+      "title": "Layout/AutoHeightAnimateControl",
+      "name": "Collapsed",
+      "view": null,
+      "variant": "collapsed",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-autoheightanimatecontrol--collapsed&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-autoheightanimatecontrol--expanded",
+      "title": "Layout/AutoHeightAnimateControl",
+      "name": "Expanded",
+      "view": null,
+      "variant": "expanded",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-autoheightanimatecontrol--expanded&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

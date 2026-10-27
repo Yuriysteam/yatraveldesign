@@ -1,0 +1,31 @@
+{
+  "name": "Status",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Status"
+  ],
+  "stories": [
+    {
+      "id": "data-display-status--simple",
+      "title": "Data display/Status",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-status--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-status--types",
+      "title": "Data display/Status",
+      "name": "Types",
+      "view": null,
+      "variant": "types",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-status--types&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

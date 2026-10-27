@@ -1,0 +1,47 @@
+{
+  "name": "CellWithSquareIcon",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Layout/CellWithSquareIcon"
+  ],
+  "stories": [
+    {
+      "id": "layout-cellwithsquareicon--active",
+      "title": "Layout/CellWithSquareIcon",
+      "name": "Active",
+      "view": null,
+      "variant": "active",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithsquareicon--active&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cellwithsquareicon--hover",
+      "title": "Layout/CellWithSquareIcon",
+      "name": "Hover",
+      "view": null,
+      "variant": "hover",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithsquareicon--hover&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cellwithsquareicon--simple",
+      "title": "Layout/CellWithSquareIcon",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithsquareicon--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cellwithsquareicon--sizes",
+      "title": "Layout/CellWithSquareIcon",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithsquareicon--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

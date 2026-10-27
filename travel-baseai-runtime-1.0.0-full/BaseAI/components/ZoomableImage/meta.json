@@ -1,0 +1,55 @@
+{
+  "name": "ZoomableImage",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Data display/ZoomableImage"
+  ],
+  "stories": [
+    {
+      "id": "data-display-zoomableimage--horizontal",
+      "title": "Data display/ZoomableImage",
+      "name": "Horizontal",
+      "view": null,
+      "variant": "horizontal",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomableimage--horizontal&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomableimage--simple",
+      "title": "Data display/ZoomableImage",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomableimage--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomableimage--small",
+      "title": "Data display/ZoomableImage",
+      "name": "Small",
+      "view": null,
+      "variant": "small",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomableimage--small&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomableimage--vertical",
+      "title": "Data display/ZoomableImage",
+      "name": "Vertical",
+      "view": null,
+      "variant": "vertical",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomableimage--vertical&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomableimage--with-swipeable",
+      "title": "Data display/ZoomableImage",
+      "name": "With Swipeable",
+      "view": null,
+      "variant": "with-swipeable",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomableimage--with-swipeable&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

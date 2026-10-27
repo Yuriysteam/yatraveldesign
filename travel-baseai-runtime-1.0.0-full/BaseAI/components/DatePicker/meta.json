@@ -1,0 +1,63 @@
+{
+  "name": "DatePicker",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Controls/DatePicker"
+  ],
+  "stories": [
+    {
+      "id": "controls-datepicker--custom-trigger",
+      "title": "Controls/DatePicker",
+      "name": "Custom Trigger",
+      "view": null,
+      "variant": "custom-trigger",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datepicker--custom-trigger&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-datepicker--simple",
+      "title": "Controls/DatePicker",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datepicker--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-datepicker--sizes",
+      "title": "Controls/DatePicker",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datepicker--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-datepicker--touch-single-bottom-sheet-select",
+      "title": "Controls/DatePicker",
+      "name": "Touch Single Bottom Sheet Select",
+      "view": null,
+      "variant": "touch-single-bottom-sheet-select",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datepicker--touch-single-bottom-sheet-select&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-datepicker--trigger-view-types",
+      "title": "Controls/DatePicker",
+      "name": "Trigger View Types",
+      "view": null,
+      "variant": "trigger-view-types",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datepicker--trigger-view-types&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-datepicker--with-footer",
+      "title": "Controls/DatePicker",
+      "name": "With Footer",
+      "view": null,
+      "variant": "with-footer",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-datepicker--with-footer&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

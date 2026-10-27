@@ -1,0 +1,55 @@
+{
+  "name": "Flex",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Flex"
+  ],
+  "stories": [
+    {
+      "id": "layout-flex--align-items",
+      "title": "Layout/Flex",
+      "name": "Align Items",
+      "view": null,
+      "variant": "align-items",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-flex--align-items&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-flex--flex-direction",
+      "title": "Layout/Flex",
+      "name": "Flex Direction",
+      "view": null,
+      "variant": "flex-direction",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-flex--flex-direction&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-flex--flex-wrap",
+      "title": "Layout/Flex",
+      "name": "Flex Wrap",
+      "view": null,
+      "variant": "flex-wrap",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-flex--flex-wrap&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-flex--justify-content",
+      "title": "Layout/Flex",
+      "name": "Justify Content",
+      "view": null,
+      "variant": "justify-content",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-flex--justify-content&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-flex--simple",
+      "title": "Layout/Flex",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-flex--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

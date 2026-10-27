@@ -1,0 +1,30 @@
+{
+  "id": "layout.combined",
+  "name": "Combined layout",
+  "type": "layout-principle",
+  "intent": "Combine flat, island, and inset principles across page zones or platforms when the page has mixed semantic structures.",
+  "routeHints": ["Выдача авиа", "Страница отеля", "Страница жд", "Страница авиа", "Чекаут"],
+  "allowedPrinciples": ["layout.flat", "layout.island", "layout.inset"],
+  "platforms": {
+    "app": { "islandOuterRadius": 32 },
+    "touch": { "islandOuterRadius": 32 },
+    "desktop": { "islandOuterRadius": 40, "contentWidth": 1200 }
+  },
+  "separation": {
+    "method": "mixed-by-zone",
+    "rule": "Do not mix spacing, background gaps, and inset gaps at the same semantic hierarchy level."
+  },
+  "zoneRules": [
+    "Hero or broad marketing content may use flat.",
+    "Independent listing, map, and sidebar zones may use island.",
+    "Forms, checkout steps, booking groups, and settings groups may use inset."
+  ],
+  "preferredComponents": ["Layout/TwoColumnLayout", "Layout/Card", "Layout/CardsGroup", "Layout/Box", "Layout/Flex", "Layout/Cell"],
+  "avoid": ["Randomly alternating surface models", "Using combined when one principle is enough"],
+  "validation": [
+    "Every major zone has a local principle.",
+    "Separation methods do not conflict at the same hierarchy level.",
+    "No zone creates standalone Background Primary content chunks.",
+    "App/touch island radius is 32px and desktop island radius is 40px where islands are used."
+  ]
+}

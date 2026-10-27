@@ -1,0 +1,39 @@
+{
+  "name": "SidePanel",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/SidePanel"
+  ],
+  "stories": [
+    {
+      "id": "overlays-sidepanel--nested",
+      "title": "Overlays/SidePanel",
+      "name": "Nested",
+      "view": null,
+      "variant": "nested",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-sidepanel--nested&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-sidepanel--simple",
+      "title": "Overlays/SidePanel",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-sidepanel--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-sidepanel--with-scroll",
+      "title": "Overlays/SidePanel",
+      "name": "With Scroll",
+      "view": null,
+      "variant": "with-scroll",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-sidepanel--with-scroll&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

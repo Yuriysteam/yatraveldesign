@@ -1,0 +1,285 @@
+{
+  "name": "TextArea",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component with view variants",
+  "storiesCount": 33,
+  "views": [
+    "Inversed",
+    "Outlined",
+    "Solid"
+  ],
+  "sourceTitles": [
+    "Controls/TextArea/Inversed",
+    "Controls/TextArea/Outlined",
+    "Controls/TextArea/Solid"
+  ],
+  "stories": [
+    {
+      "id": "controls-textarea-inversed--clear-and-custom-icons",
+      "title": "Controls/TextArea/Inversed",
+      "name": "ClearAndCustomIcons",
+      "view": "Inversed",
+      "variant": "clear-and-custom-icons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--clear-and-custom-icons&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--clear-icon",
+      "title": "Controls/TextArea/Inversed",
+      "name": "ClearIcon",
+      "view": "Inversed",
+      "variant": "clear-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--clear-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--clear-icon-with-handler",
+      "title": "Controls/TextArea/Inversed",
+      "name": "ClearIconWithHandler",
+      "view": "Inversed",
+      "variant": "clear-icon-with-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--clear-icon-with-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--custom-icon",
+      "title": "Controls/TextArea/Inversed",
+      "name": "CustomIcon",
+      "view": "Inversed",
+      "variant": "custom-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--custom-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--disabled-state",
+      "title": "Controls/TextArea/Inversed",
+      "name": "DisabledState",
+      "view": "Inversed",
+      "variant": "disabled-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--disabled-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--dynamic",
+      "title": "Controls/TextArea/Inversed",
+      "name": "Dynamic",
+      "view": "Inversed",
+      "variant": "dynamic",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--dynamic&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--error-hint",
+      "title": "Controls/TextArea/Inversed",
+      "name": "ErrorHint",
+      "view": "Inversed",
+      "variant": "error-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--error-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--error-state",
+      "title": "Controls/TextArea/Inversed",
+      "name": "ErrorState",
+      "view": "Inversed",
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--hint",
+      "title": "Controls/TextArea/Inversed",
+      "name": "Hint",
+      "view": "Inversed",
+      "variant": "hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--rows",
+      "title": "Controls/TextArea/Inversed",
+      "name": "Rows",
+      "view": "Inversed",
+      "variant": "rows",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--rows&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-inversed--simple",
+      "title": "Controls/TextArea/Inversed",
+      "name": "Simple",
+      "view": "Inversed",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-inversed--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--clear-and-custom-icons",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Clear And Custom Icons",
+      "view": "Outlined",
+      "variant": "clear-and-custom-icons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--clear-and-custom-icons&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--clear-icon",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Clear Icon",
+      "view": "Outlined",
+      "variant": "clear-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--clear-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--clear-icon-with-handler",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Clear Icon With Handler",
+      "view": "Outlined",
+      "variant": "clear-icon-with-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--clear-icon-with-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--custom-icon",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Custom Icon",
+      "view": "Outlined",
+      "variant": "custom-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--custom-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--disabled-state",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Disabled State",
+      "view": "Outlined",
+      "variant": "disabled-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--disabled-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--dynamic",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Dynamic",
+      "view": "Outlined",
+      "variant": "dynamic",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--dynamic&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--error-hint",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Error Hint",
+      "view": "Outlined",
+      "variant": "error-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--error-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--error-state",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Error State",
+      "view": "Outlined",
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--hint",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Hint",
+      "view": "Outlined",
+      "variant": "hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--rows",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Rows",
+      "view": "Outlined",
+      "variant": "rows",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--rows&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-outlined--simple",
+      "title": "Controls/TextArea/Outlined",
+      "name": "Simple",
+      "view": "Outlined",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-outlined--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--clear-and-custom-icons",
+      "title": "Controls/TextArea/Solid",
+      "name": "ClearAndCustomIcons",
+      "view": "Solid",
+      "variant": "clear-and-custom-icons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--clear-and-custom-icons&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--clear-icon",
+      "title": "Controls/TextArea/Solid",
+      "name": "ClearIcon",
+      "view": "Solid",
+      "variant": "clear-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--clear-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--clear-icon-with-handler",
+      "title": "Controls/TextArea/Solid",
+      "name": "ClearIconWithHandler",
+      "view": "Solid",
+      "variant": "clear-icon-with-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--clear-icon-with-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--custom-icon",
+      "title": "Controls/TextArea/Solid",
+      "name": "CustomIcon",
+      "view": "Solid",
+      "variant": "custom-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--custom-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--disabled-state",
+      "title": "Controls/TextArea/Solid",
+      "name": "DisabledState",
+      "view": "Solid",
+      "variant": "disabled-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--disabled-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--dynamic",
+      "title": "Controls/TextArea/Solid",
+      "name": "Dynamic",
+      "view": "Solid",
+      "variant": "dynamic",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--dynamic&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--error-hint",
+      "title": "Controls/TextArea/Solid",
+      "name": "ErrorHint",
+      "view": "Solid",
+      "variant": "error-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--error-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--error-state",
+      "title": "Controls/TextArea/Solid",
+      "name": "ErrorState",
+      "view": "Solid",
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--hint",
+      "title": "Controls/TextArea/Solid",
+      "name": "Hint",
+      "view": "Solid",
+      "variant": "hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--rows",
+      "title": "Controls/TextArea/Solid",
+      "name": "Rows",
+      "view": "Solid",
+      "variant": "rows",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--rows&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-textarea-solid--simple",
+      "title": "Controls/TextArea/Solid",
+      "name": "Simple",
+      "view": "Solid",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-textarea-solid--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

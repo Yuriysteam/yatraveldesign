@@ -1,0 +1,87 @@
+{
+  "name": "Table",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Table"
+  ],
+  "stories": [
+    {
+      "id": "data-display-table--loading",
+      "title": "Data display/Table",
+      "name": "Loading",
+      "view": null,
+      "variant": "loading",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--loading&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--simple",
+      "title": "Data display/Table",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-alignment-center",
+      "title": "Data display/Table",
+      "name": "With Alignment Center",
+      "view": null,
+      "variant": "with-alignment-center",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-alignment-center&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-alignment-left",
+      "title": "Data display/Table",
+      "name": "With Alignment Left",
+      "view": null,
+      "variant": "with-alignment-left",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-alignment-left&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-alignment-right",
+      "title": "Data display/Table",
+      "name": "With Alignment Right",
+      "view": null,
+      "variant": "with-alignment-right",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-alignment-right&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-custom-rows",
+      "title": "Data display/Table",
+      "name": "With Custom Rows",
+      "view": null,
+      "variant": "with-custom-rows",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-custom-rows&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-custom-rows-only",
+      "title": "Data display/Table",
+      "name": "With Custom Rows Only",
+      "view": null,
+      "variant": "with-custom-rows-only",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-custom-rows-only&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-detached-disclaimer",
+      "title": "Data display/Table",
+      "name": "With Detached Disclaimer",
+      "view": null,
+      "variant": "with-detached-disclaimer",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-detached-disclaimer&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-table--with-disclaimer",
+      "title": "Data display/Table",
+      "name": "With Disclaimer",
+      "view": null,
+      "variant": "with-disclaimer",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-table--with-disclaimer&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

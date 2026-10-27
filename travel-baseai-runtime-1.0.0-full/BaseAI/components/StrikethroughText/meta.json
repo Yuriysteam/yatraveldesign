@@ -1,0 +1,39 @@
+{
+  "name": "StrikethroughText",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Typography/StrikethroughText"
+  ],
+  "stories": [
+    {
+      "id": "typography-strikethroughtext--simple",
+      "title": "Typography/StrikethroughText",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-strikethroughtext--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-strikethroughtext--themes",
+      "title": "Typography/StrikethroughText",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-strikethroughtext--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-strikethroughtext--typography",
+      "title": "Typography/StrikethroughText",
+      "name": "Typography",
+      "view": null,
+      "variant": "typography",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-strikethroughtext--typography&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

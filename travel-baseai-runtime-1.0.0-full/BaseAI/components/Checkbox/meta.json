@@ -1,0 +1,179 @@
+{
+  "name": "Checkbox",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component with view variants",
+  "storiesCount": 20,
+  "views": [
+    "Outlined",
+    "Solid"
+  ],
+  "sourceTitles": [
+    "Controls/Checkbox/Outlined",
+    "Controls/Checkbox/Solid"
+  ],
+  "stories": [
+    {
+      "id": "controls-checkbox-outlined--disabled",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Disabled",
+      "view": "Outlined",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--error",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Error",
+      "view": "Outlined",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--indeterminate",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Indeterminate",
+      "view": "Outlined",
+      "variant": "indeterminate",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--indeterminate&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--indeterminate-interactive",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Indeterminate Interactive",
+      "view": "Outlined",
+      "variant": "indeterminate-interactive",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--indeterminate-interactive&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--indeterminate-sizes",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Indeterminate Sizes",
+      "view": "Outlined",
+      "variant": "indeterminate-sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--indeterminate-sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--label-positions",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Label Positions",
+      "view": "Outlined",
+      "variant": "label-positions",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--label-positions&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--multiline",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Multiline",
+      "view": "Outlined",
+      "variant": "multiline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--multiline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--multiline-simple",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Multiline Simple",
+      "view": "Outlined",
+      "variant": "multiline-simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--multiline-simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--simple",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Simple",
+      "view": "Outlined",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-outlined--sizes",
+      "title": "Controls/Checkbox/Outlined",
+      "name": "Sizes",
+      "view": "Outlined",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-outlined--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--disabled",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Disabled",
+      "view": "Solid",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--error",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Error",
+      "view": "Solid",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--indeterminate",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Indeterminate",
+      "view": "Solid",
+      "variant": "indeterminate",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--indeterminate&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--indeterminate-interactive",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Indeterminate Interactive",
+      "view": "Solid",
+      "variant": "indeterminate-interactive",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--indeterminate-interactive&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--indeterminate-sizes",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Indeterminate Sizes",
+      "view": "Solid",
+      "variant": "indeterminate-sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--indeterminate-sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--label-positions",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Label Positions",
+      "view": "Solid",
+      "variant": "label-positions",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--label-positions&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--multiline",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Multiline",
+      "view": "Solid",
+      "variant": "multiline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--multiline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--multiline-simple",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Multiline Simple",
+      "view": "Solid",
+      "variant": "multiline-simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--multiline-simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--simple",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Simple",
+      "view": "Solid",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbox-solid--sizes",
+      "title": "Controls/Checkbox/Solid",
+      "name": "Sizes",
+      "view": "Solid",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbox-solid--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

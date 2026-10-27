@@ -1,0 +1,47 @@
+{
+  "name": "Zoomable",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Zoomable"
+  ],
+  "stories": [
+    {
+      "id": "data-display-zoomable--horizontal-cropped",
+      "title": "Data display/Zoomable",
+      "name": "Horizontal Cropped",
+      "view": null,
+      "variant": "horizontal-cropped",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomable--horizontal-cropped&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomable--simple",
+      "title": "Data display/Zoomable",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomable--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomable--small",
+      "title": "Data display/Zoomable",
+      "name": "Small",
+      "view": null,
+      "variant": "small",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomable--small&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-zoomable--vertical-cropped",
+      "title": "Data display/Zoomable",
+      "name": "Vertical Cropped",
+      "view": null,
+      "variant": "vertical-cropped",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-zoomable--vertical-cropped&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

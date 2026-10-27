@@ -1,0 +1,63 @@
+{
+  "name": "Card",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Card"
+  ],
+  "stories": [
+    {
+      "id": "layout-card--background",
+      "title": "Layout/Card",
+      "name": "Background",
+      "view": null,
+      "variant": "background",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-card--background&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-card--border",
+      "title": "Layout/Card",
+      "name": "Border",
+      "view": null,
+      "variant": "border",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-card--border&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-card--individual-radius",
+      "title": "Layout/Card",
+      "name": "Individual Radius",
+      "view": null,
+      "variant": "individual-radius",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-card--individual-radius&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-card--radius",
+      "title": "Layout/Card",
+      "name": "Radius",
+      "view": null,
+      "variant": "radius",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-card--radius&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-card--shadow",
+      "title": "Layout/Card",
+      "name": "Shadow",
+      "view": null,
+      "variant": "shadow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-card--shadow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-card--simple",
+      "title": "Layout/Card",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-card--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

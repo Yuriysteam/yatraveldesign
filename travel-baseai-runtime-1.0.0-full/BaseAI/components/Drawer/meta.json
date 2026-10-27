@@ -1,0 +1,63 @@
+{
+  "name": "Drawer",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/Drawer"
+  ],
+  "stories": [
+    {
+      "id": "overlays-drawer--max-size",
+      "title": "Overlays/Drawer",
+      "name": "Max Size",
+      "view": null,
+      "variant": "max-size",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-drawer--max-size&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-drawer--nested",
+      "title": "Overlays/Drawer",
+      "name": "Nested",
+      "view": null,
+      "variant": "nested",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-drawer--nested&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-drawer--scroll-content",
+      "title": "Overlays/Drawer",
+      "name": "Scroll Content",
+      "view": null,
+      "variant": "scroll-content",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-drawer--scroll-content&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-drawer--simple",
+      "title": "Overlays/Drawer",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-drawer--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-drawer--with-close",
+      "title": "Overlays/Drawer",
+      "name": "With Close",
+      "view": null,
+      "variant": "with-close",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-drawer--with-close&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-drawer--with-title",
+      "title": "Overlays/Drawer",
+      "name": "With Title",
+      "view": null,
+      "variant": "with-title",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-drawer--with-title&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

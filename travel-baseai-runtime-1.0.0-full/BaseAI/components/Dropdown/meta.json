@@ -1,0 +1,23 @@
+{
+  "name": "Dropdown",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Dropdown"
+  ],
+  "stories": [
+    {
+      "id": "controls-dropdown--simple",
+      "title": "Controls/Dropdown",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dropdown--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,31 @@
+{
+  "name": "Heading",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Typography/Heading"
+  ],
+  "stories": [
+    {
+      "id": "typography-heading--levels",
+      "title": "Typography/Heading",
+      "name": "Levels",
+      "view": null,
+      "variant": "levels",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-heading--levels&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-heading--simple",
+      "title": "Typography/Heading",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-heading--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

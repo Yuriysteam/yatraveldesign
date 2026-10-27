@@ -1,0 +1,13 @@
+{
+  "component": "InputWithCopyButton",
+  "kind": "text-input-with-action",
+  "defaultState": "filled",
+  "states": ["empty", "focused", "filled", "copied", "error", "disabled"],
+  "triggers": [
+    { "event": "input", "effect": "update value" },
+    { "event": "click:copy", "to": "copied", "effect": "copy current value" },
+    { "event": "timeout:copied", "from": "copied", "to": "filled" }
+  ],
+  "a11y": { "role": "textbox + button", "liveRegion": "copy status" },
+  "preview": "Keep copy button adjacent to the input; copied state may be shown with tooltip/snackbar text."
+}

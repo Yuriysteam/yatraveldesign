@@ -1,0 +1,55 @@
+{
+  "name": "TabsSkeleton",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/TabsSkeleton"
+  ],
+  "stories": [
+    {
+      "id": "feedback-tabsskeleton--simple",
+      "title": "Feedback/TabsSkeleton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-tabsskeleton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-tabsskeleton--with-additional",
+      "title": "Feedback/TabsSkeleton",
+      "name": "With Additional",
+      "view": null,
+      "variant": "with-additional",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-tabsskeleton--with-additional&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-tabsskeleton--with-arrow",
+      "title": "Feedback/TabsSkeleton",
+      "name": "With Arrow",
+      "view": null,
+      "variant": "with-arrow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-tabsskeleton--with-arrow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-tabsskeleton--with-border",
+      "title": "Feedback/TabsSkeleton",
+      "name": "With Border",
+      "view": null,
+      "variant": "with-border",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-tabsskeleton--with-border&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-tabsskeleton--with-border-and-arrow",
+      "title": "Feedback/TabsSkeleton",
+      "name": "With Border And Arrow",
+      "view": null,
+      "variant": "with-border-and-arrow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-tabsskeleton--with-border-and-arrow&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

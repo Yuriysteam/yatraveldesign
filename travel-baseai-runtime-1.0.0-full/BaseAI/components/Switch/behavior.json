@@ -1,0 +1,25 @@
+{
+  "component": "Switch",
+  "kind": "boolean-switch",
+  "defaultState": "off",
+  "states": ["off", "on", "focus-visible", "disabled"],
+  "variants": ["default", "contrast", "secondary"],
+  "sizes": {
+    "m": "switch--size-m",
+    "l": "switch--size-l",
+    "xl": "switch--size-xl"
+  },
+  "triggers": [
+    { "event": "click", "from": "off", "to": "on" },
+    { "event": "click", "from": "on", "to": "off" },
+    { "event": "keydown:Space", "effect": "toggle checked" }
+  ],
+  "a11y": { "role": "switch", "stateAttrs": ["aria-checked", "disabled"], "keyboard": ["Space"] },
+  "classPolicy": "Do not expose extracted CSS-module/hash classes as generated component API. Use semantic wrapper classes and data attributes; raw copied snippet internals may keep source classes only as implementation detail.",
+  "stateContract": {
+    "checked": "Set data-checked=true and aria-checked=true; preserve the selected visual variant.",
+    "unchecked": "Set data-checked=false and aria-checked=false; preserve the selected visual variant.",
+    "disabled": "Set data-disabled=true, remove keyboard focus from active flow, and preserve checked state if already checked."
+  },
+  "preview": "Toggle semantic checked state and ARIA together. Do not document or rely on extracted CSS-module class names as public API."
+}

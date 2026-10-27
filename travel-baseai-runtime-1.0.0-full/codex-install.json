@@ -1,0 +1,38 @@
+{
+  "$schema": "internal://travel-design/codex-runtime-pack/v1",
+  "schemaVersion": 1,
+  "kind": "codex-runtime-pack",
+  "package": "travel-baseai-runtime",
+  "version": "1.0.0-full",
+  "classification": "internal",
+  "supportedPlatforms": ["darwin"],
+  "requiresExplicitUserInstallRequest": true,
+  "install": {
+    "strategy": "bootstrap-managed-copy",
+    "entrypoint": "bootstrap.sh",
+    "defaultInstallRoot": "${CODEX_HOME}/team-runtimes/BaseAI/${version}",
+    "activeReceipt": "${CODEX_HOME}/team-runtimes/BaseAI/.active",
+    "idempotent": true,
+    "onConflict": "abort",
+    "overwriteExisting": false,
+    "networkRequired": false
+  },
+  "verify": {
+    "entrypoint": "doctor.sh",
+    "packArgs": ["--pack-only"],
+    "installedArgs": ["--installed"]
+  },
+  "integrity": {
+    "algorithm": "sha256",
+    "manifest": "MANIFEST.sha256",
+    "rejectUnsafeArchivePaths": true,
+    "rejectPackageSymlinks": true
+  },
+  "permissions": {
+    "writes": ["${CODEX_HOME}/team-runtimes/BaseAI"],
+    "deletes": [],
+    "network": false,
+    "secrets": false,
+    "hostApprovalMayBeRequired": true
+  }
+}

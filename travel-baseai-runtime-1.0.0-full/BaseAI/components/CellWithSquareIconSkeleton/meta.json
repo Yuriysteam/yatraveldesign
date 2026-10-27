@@ -1,0 +1,55 @@
+{
+  "name": "CellWithSquareIconSkeleton",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/CellWithSquareIconSkeleton"
+  ],
+  "stories": [
+    {
+      "id": "feedback-cellwithsquareiconskeleton--right-content",
+      "title": "Feedback/CellWithSquareIconSkeleton",
+      "name": "Right Content",
+      "view": null,
+      "variant": "right-content",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-cellwithsquareiconskeleton--right-content&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-cellwithsquareiconskeleton--simple",
+      "title": "Feedback/CellWithSquareIconSkeleton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-cellwithsquareiconskeleton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-cellwithsquareiconskeleton--sizes",
+      "title": "Feedback/CellWithSquareIconSkeleton",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-cellwithsquareiconskeleton--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-cellwithsquareiconskeleton--text-widths",
+      "title": "Feedback/CellWithSquareIconSkeleton",
+      "name": "Text Widths",
+      "view": null,
+      "variant": "text-widths",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-cellwithsquareiconskeleton--text-widths&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-cellwithsquareiconskeleton--with-subtitle",
+      "title": "Feedback/CellWithSquareIconSkeleton",
+      "name": "With Subtitle",
+      "view": null,
+      "variant": "with-subtitle",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-cellwithsquareiconskeleton--with-subtitle&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

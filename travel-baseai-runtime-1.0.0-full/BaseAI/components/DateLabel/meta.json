@@ -1,0 +1,63 @@
+{
+  "name": "DateLabel",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Data display/DateLabel"
+  ],
+  "stories": [
+    {
+      "id": "data-display-datelabel--equal-dates",
+      "title": "Data display/DateLabel",
+      "name": "Equal Dates",
+      "view": null,
+      "variant": "equal-dates",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-datelabel--equal-dates&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-datelabel--equal-month",
+      "title": "Data display/DateLabel",
+      "name": "Equal Month",
+      "view": null,
+      "variant": "equal-month",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-datelabel--equal-month&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-datelabel--equal-year",
+      "title": "Data display/DateLabel",
+      "name": "Equal Year",
+      "view": null,
+      "variant": "equal-year",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-datelabel--equal-year&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-datelabel--next-year",
+      "title": "Data display/DateLabel",
+      "name": "Next Year",
+      "view": null,
+      "variant": "next-year",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-datelabel--next-year&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-datelabel--next-year-equal-dates",
+      "title": "Data display/DateLabel",
+      "name": "Next Year Equal Dates",
+      "view": null,
+      "variant": "next-year-equal-dates",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-datelabel--next-year-equal-dates&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-datelabel--next-year-equal-month",
+      "title": "Data display/DateLabel",
+      "name": "Next Year Equal Month",
+      "view": null,
+      "variant": "next-year-equal-month",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-datelabel--next-year-equal-month&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

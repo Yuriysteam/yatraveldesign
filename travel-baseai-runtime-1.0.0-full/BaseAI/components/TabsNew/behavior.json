@@ -1,0 +1,13 @@
+{
+  "component": "TabsNew",
+  "kind": "tab-navigation",
+  "defaultState": "one-active",
+  "states": ["one-active", "tab-hover", "tab-focus-visible", "tab-disabled", "scrollable", "with-icon", "with-sub-label"],
+  "triggers": [
+    { "event": "click:tab", "effect": "activate tab" },
+    { "event": "keydown:ArrowLeft|ArrowRight", "effect": "move focus or active tab" },
+    { "event": "scroll", "effect": "reveal hidden tabs when scrollable" }
+  ],
+  "a11y": { "role": "tablist", "itemRole": "tab", "stateAttrs": ["aria-selected", "aria-disabled"] },
+  "preview": "Prefer TabsNew for new layouts when snippets exist; preserve icons/sub-labels from source."
+}

@@ -1,0 +1,63 @@
+{
+  "name": "SegmentedControl",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Controls/SegmentedControl"
+  ],
+  "stories": [
+    {
+      "id": "controls-segmentedcontrol--items-count",
+      "title": "Controls/SegmentedControl",
+      "name": "Items Count",
+      "view": null,
+      "variant": "items-count",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-segmentedcontrol--items-count&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-segmentedcontrol--simple",
+      "title": "Controls/SegmentedControl",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-segmentedcontrol--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-segmentedcontrol--sizes",
+      "title": "Controls/SegmentedControl",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-segmentedcontrol--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-segmentedcontrol--states",
+      "title": "Controls/SegmentedControl",
+      "name": "States",
+      "view": null,
+      "variant": "states",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-segmentedcontrol--states&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-segmentedcontrol--with-icons",
+      "title": "Controls/SegmentedControl",
+      "name": "With Icons",
+      "view": null,
+      "variant": "with-icons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-segmentedcontrol--with-icons&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-segmentedcontrol--with-tags",
+      "title": "Controls/SegmentedControl",
+      "name": "With Tags",
+      "view": null,
+      "variant": "with-tags",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-segmentedcontrol--with-tags&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Price",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Price"
+  ],
+  "stories": [
+    {
+      "id": "data-display-price--simple",
+      "title": "Data display/Price",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-price--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-price--with-formats",
+      "title": "Data display/Price",
+      "name": "With Formats",
+      "view": null,
+      "variant": "with-formats",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-price--with-formats&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-price--without-converter",
+      "title": "Data display/Price",
+      "name": "Without Converter",
+      "view": null,
+      "variant": "without-converter",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-price--without-converter&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

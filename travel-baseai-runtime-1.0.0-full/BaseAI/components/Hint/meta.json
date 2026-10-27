@@ -1,0 +1,47 @@
+{
+  "name": "Hint",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Data Display/Hint"
+  ],
+  "stories": [
+    {
+      "id": "data-display-hint--error",
+      "title": "Data Display/Hint",
+      "name": "Error",
+      "view": null,
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-hint--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-hint--simple",
+      "title": "Data Display/Hint",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-hint--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-hint--sizes",
+      "title": "Data Display/Hint",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-hint--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-hint--with-icon",
+      "title": "Data Display/Hint",
+      "name": "With Icon",
+      "view": null,
+      "variant": "with-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-hint--with-icon&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

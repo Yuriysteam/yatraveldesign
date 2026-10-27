@@ -1,0 +1,13 @@
+{
+  "component": "MaskedInput",
+  "kind": "masked-text-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "partial", "filled", "invalid", "error", "disabled"],
+  "triggers": [
+    { "event": "input", "effect": "apply mask and caret position" },
+    { "event": "blur", "effect": "validate mask completeness" },
+    { "event": "clear", "to": "empty" }
+  ],
+  "a11y": { "role": "textbox", "stateAttrs": ["aria-invalid", "aria-describedby", "disabled"] },
+  "preview": "Keep mask placeholder, hint and error states visible; do not show raw unformatted values."
+}

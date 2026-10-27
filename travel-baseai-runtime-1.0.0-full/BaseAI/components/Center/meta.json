@@ -1,0 +1,39 @@
+{
+  "name": "Center",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Center"
+  ],
+  "stories": [
+    {
+      "id": "layout-center--disable-horizontal",
+      "title": "Layout/Center",
+      "name": "Disable Horizontal",
+      "view": null,
+      "variant": "disable-horizontal",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-center--disable-horizontal&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-center--disable-vertical",
+      "title": "Layout/Center",
+      "name": "Disable Vertical",
+      "view": null,
+      "variant": "disable-vertical",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-center--disable-vertical&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-center--simple",
+      "title": "Layout/Center",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-center--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

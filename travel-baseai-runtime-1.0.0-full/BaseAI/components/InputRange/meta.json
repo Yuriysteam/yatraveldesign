@@ -1,0 +1,79 @@
+{
+  "name": "InputRange",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 8,
+  "views": [],
+  "sourceTitles": [
+    "Controls/InputRange"
+  ],
+  "stories": [
+    {
+      "id": "controls-inputrange--disabled",
+      "title": "Controls/InputRange",
+      "name": "Disabled",
+      "view": null,
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--double-handlers-with-ticks",
+      "title": "Controls/InputRange",
+      "name": "Double Handlers With Ticks",
+      "view": null,
+      "variant": "double-handlers-with-ticks",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--double-handlers-with-ticks&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--simple",
+      "title": "Controls/InputRange",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--single-handler",
+      "title": "Controls/InputRange",
+      "name": "Single Handler",
+      "view": null,
+      "variant": "single-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--single-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--single-handler-with-ticks",
+      "title": "Controls/InputRange",
+      "name": "Single Handler With Ticks",
+      "view": null,
+      "variant": "single-handler-with-ticks",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--single-handler-with-ticks&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--sizes",
+      "title": "Controls/InputRange",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--themes",
+      "title": "Controls/InputRange",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-inputrange--with-custom-tick-labels",
+      "title": "Controls/InputRange",
+      "name": "With Custom Tick Labels",
+      "view": null,
+      "variant": "with-custom-tick-labels",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-inputrange--with-custom-tick-labels&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

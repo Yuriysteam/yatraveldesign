@@ -1,0 +1,47 @@
+{
+  "name": "Toast",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/Toast"
+  ],
+  "stories": [
+    {
+      "id": "feedback-toast--animation",
+      "title": "Feedback/Toast",
+      "name": "Animation",
+      "view": null,
+      "variant": "animation",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-toast--animation&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-toast--custom-icon",
+      "title": "Feedback/Toast",
+      "name": "Custom Icon",
+      "view": null,
+      "variant": "custom-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-toast--custom-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-toast--long-text",
+      "title": "Feedback/Toast",
+      "name": "Long Text",
+      "view": null,
+      "variant": "long-text",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-toast--long-text&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-toast--simple",
+      "title": "Feedback/Toast",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-toast--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

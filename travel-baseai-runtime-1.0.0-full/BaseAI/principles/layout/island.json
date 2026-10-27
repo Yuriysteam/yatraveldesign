@@ -1,0 +1,33 @@
+{
+  "id": "layout.island",
+  "name": "Island layout",
+  "type": "layout-principle",
+  "intent": "Place independent content sections as Background Secondary islands on a Background Primary page background.",
+  "routeHints": ["Выдача Отелей", "Выдача жд", "Выдача авиа", "Карты на странице Отеля"],
+  "layers": [
+    {
+      "role": "page-background",
+      "token": "Background Primary",
+      "cssCandidates": ["--yatraveluikit-bg-fill-primary-color", "--yatraveluikit-bg-card-primary-color"]
+    },
+    {
+      "role": "island",
+      "token": "Background Secondary",
+      "cssCandidates": ["--yatraveluikit-bg-fill-secondary-color", "--yatraveluikit-bg-card-secondary-color"]
+    }
+  ],
+  "platforms": {
+    "app": { "islandRadius": 36, "islandGap": 8 },
+    "touch": { "islandRadius": 36, "islandGap": 8 },
+    "desktop": { "islandRadius": 40, "islandGap": 8 }
+  },
+  "separation": { "method": "background-gap", "gap": 8 },
+  "preferredComponents": ["Layout/Card", "Layout/CardsGroup", "Layout/Box", "Layout/Flex", "Layout/TwoColumnLayout"],
+  "avoid": ["Replacing island gaps with large margins", "Using dividers between top-level islands"],
+  "validation": [
+    "Background Primary is visible between islands.",
+    "Background Primary is not used as a standalone content-card fill.",
+    "Top-level island gaps are 8px.",
+    "Island radius is 36px on app/touch and 40px on desktop."
+  ]
+}

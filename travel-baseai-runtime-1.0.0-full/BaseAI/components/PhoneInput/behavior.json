@@ -1,0 +1,13 @@
+{
+  "component": "PhoneInput",
+  "kind": "phone-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "partial", "filled", "invalid", "error", "disabled"],
+  "triggers": [
+    { "event": "input", "effect": "format phone number" },
+    { "event": "blur", "effect": "validate phone number" },
+    { "event": "clear", "to": "empty" }
+  ],
+  "a11y": { "role": "textbox", "inputmode": "tel", "stateAttrs": ["aria-invalid", "disabled"] },
+  "preview": "Use tel input semantics and keep country/format affordances from snippets."
+}

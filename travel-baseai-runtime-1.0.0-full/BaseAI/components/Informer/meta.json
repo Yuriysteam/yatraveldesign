@@ -1,0 +1,111 @@
+{
+  "name": "Informer",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 12,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/Informer"
+  ],
+  "stories": [
+    {
+      "id": "feedback-informer--bordered",
+      "title": "Feedback/Informer",
+      "name": "Bordered",
+      "view": null,
+      "variant": "bordered",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--bordered&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--simple",
+      "title": "Feedback/Informer",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--themes",
+      "title": "Feedback/Informer",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--types",
+      "title": "Feedback/Informer",
+      "name": "Types",
+      "view": null,
+      "variant": "types",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--types&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--vertical-alignment",
+      "title": "Feedback/Informer",
+      "name": "Vertical Alignment",
+      "view": null,
+      "variant": "vertical-alignment",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--vertical-alignment&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--with-custom-icon",
+      "title": "Feedback/Informer",
+      "name": "With Custom Icon",
+      "view": null,
+      "variant": "with-custom-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--with-custom-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--with-icon-button",
+      "title": "Feedback/Informer",
+      "name": "With Icon Button",
+      "view": null,
+      "variant": "with-icon-button",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--with-icon-button&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--with-line-break",
+      "title": "Feedback/Informer",
+      "name": "With Line Break",
+      "view": null,
+      "variant": "with-line-break",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--with-line-break&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--with-one-button",
+      "title": "Feedback/Informer",
+      "name": "With One Button",
+      "view": null,
+      "variant": "with-one-button",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--with-one-button&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--with-two-buttons",
+      "title": "Feedback/Informer",
+      "name": "With Two Buttons",
+      "view": null,
+      "variant": "with-two-buttons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--with-two-buttons&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--with-xs-size",
+      "title": "Feedback/Informer",
+      "name": "With Xs Size",
+      "view": null,
+      "variant": "with-xs-size",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--with-xs-size&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-informer--without-icon",
+      "title": "Feedback/Informer",
+      "name": "Without Icon",
+      "view": null,
+      "variant": "without-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-informer--without-icon&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

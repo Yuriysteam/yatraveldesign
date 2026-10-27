@@ -1,0 +1,87 @@
+{
+  "name": "BottomSheet",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/BottomSheet"
+  ],
+  "stories": [
+    {
+      "id": "overlays-bottomsheet--background",
+      "title": "Overlays/BottomSheet",
+      "name": "Background",
+      "view": null,
+      "variant": "background",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--background&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--maps",
+      "title": "Overlays/BottomSheet",
+      "name": "Maps",
+      "view": null,
+      "variant": "maps",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--maps&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--scroll-content",
+      "title": "Overlays/BottomSheet",
+      "name": "Scroll Content",
+      "view": null,
+      "variant": "scroll-content",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--scroll-content&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--simple",
+      "title": "Overlays/BottomSheet",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--with-center-title",
+      "title": "Overlays/BottomSheet",
+      "name": "With Center Title",
+      "view": null,
+      "variant": "with-center-title",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--with-center-title&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--with-close-button",
+      "title": "Overlays/BottomSheet",
+      "name": "With Close Button",
+      "view": null,
+      "variant": "with-close-button",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--with-close-button&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--with-footer-button",
+      "title": "Overlays/BottomSheet",
+      "name": "With Footer Button",
+      "view": null,
+      "variant": "with-footer-button",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--with-footer-button&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--with-subtitle",
+      "title": "Overlays/BottomSheet",
+      "name": "With Subtitle",
+      "view": null,
+      "variant": "with-subtitle",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--with-subtitle&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-bottomsheet--without-overlay",
+      "title": "Overlays/BottomSheet",
+      "name": "Without Overlay",
+      "view": null,
+      "variant": "without-overlay",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-bottomsheet--without-overlay&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

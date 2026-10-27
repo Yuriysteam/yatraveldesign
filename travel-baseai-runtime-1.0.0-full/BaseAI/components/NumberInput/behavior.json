@@ -1,0 +1,14 @@
+{
+  "component": "NumberInput",
+  "kind": "numeric-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "filled", "invalid", "error", "disabled"],
+  "triggers": [
+    { "event": "input", "effect": "accept numeric value" },
+    { "event": "keydown:ArrowUp", "effect": "increment" },
+    { "event": "keydown:ArrowDown", "effect": "decrement" },
+    { "event": "blur", "effect": "validate min/max/format" }
+  ],
+  "a11y": { "role": "spinbutton or textbox", "stateAttrs": ["aria-valuemin", "aria-valuemax", "aria-valuenow", "aria-invalid"] },
+  "preview": "Keep formatted numeric value and validation hint together."
+}

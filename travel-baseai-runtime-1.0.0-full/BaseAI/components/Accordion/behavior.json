@@ -1,0 +1,13 @@
+{
+  "component": "Accordion",
+  "kind": "disclosure",
+  "defaultState": "collapsed",
+  "states": ["collapsed", "expanded", "header-hover", "header-focus-visible", "disabled"],
+  "triggers": [
+    { "event": "click:header", "from": "collapsed", "to": "expanded" },
+    { "event": "click:header", "from": "expanded", "to": "collapsed" },
+    { "event": "keydown:Enter|Space", "effect": "toggle focused panel" }
+  ],
+  "a11y": { "role": "button + region", "stateAttrs": ["aria-expanded", "aria-controls", "hidden"], "keyboard": ["Enter", "Space"] },
+  "preview": "Keep aria-expanded, arrow rotation and visible content state in sync."
+}

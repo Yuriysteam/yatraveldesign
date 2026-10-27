@@ -1,0 +1,39 @@
+{
+  "name": "CardWithDeviceLayout",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Layout/CardWithDeviceLayout"
+  ],
+  "stories": [
+    {
+      "id": "layout-cardwithdevicelayout--aside",
+      "title": "Layout/CardWithDeviceLayout",
+      "name": "Aside",
+      "view": null,
+      "variant": "aside",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardwithdevicelayout--aside&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cardwithdevicelayout--sectioned",
+      "title": "Layout/CardWithDeviceLayout",
+      "name": "Sectioned",
+      "view": null,
+      "variant": "sectioned",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardwithdevicelayout--sectioned&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cardwithdevicelayout--simple",
+      "title": "Layout/CardWithDeviceLayout",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cardwithdevicelayout--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

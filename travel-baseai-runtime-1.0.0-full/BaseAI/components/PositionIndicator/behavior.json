@@ -1,0 +1,11 @@
+{
+  "component": "PositionIndicator",
+  "kind": "control",
+  "defaultState": "position-0",
+  "states": ["position-0", "position-1", "position-2", "position-3", "position-4"],
+  "triggers": [
+    { "event": "next", "from": "*", "to": "next-position" },
+    { "event": "prev", "from": "*", "to": "previous-position" }
+  ],
+  "notes": "Carousel-like position indicator. Translate active marker between positions."
+}

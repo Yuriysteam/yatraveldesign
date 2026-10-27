@@ -1,0 +1,87 @@
+{
+  "name": "ImagesCarousel",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Data display/ImagesCarousel"
+  ],
+  "stories": [
+    {
+      "id": "data-display-imagescarousel--aspect-ratio",
+      "title": "Data display/ImagesCarousel",
+      "name": "Aspect Ratio",
+      "view": null,
+      "variant": "aspect-ratio",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--aspect-ratio&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--custom-node",
+      "title": "Data display/ImagesCarousel",
+      "name": "Custom Node",
+      "view": null,
+      "variant": "custom-node",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--custom-node&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--equal-height-container",
+      "title": "Data display/ImagesCarousel",
+      "name": "Equal Height Container",
+      "view": null,
+      "variant": "equal-height-container",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--equal-height-container&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--gradient",
+      "title": "Data display/ImagesCarousel",
+      "name": "Gradient",
+      "view": null,
+      "variant": "gradient",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--gradient&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--lazy-load",
+      "title": "Data display/ImagesCarousel",
+      "name": "Lazy Load",
+      "view": null,
+      "variant": "lazy-load",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--lazy-load&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--simple",
+      "title": "Data display/ImagesCarousel",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--spacing",
+      "title": "Data display/ImagesCarousel",
+      "name": "Spacing",
+      "view": null,
+      "variant": "spacing",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--spacing&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--with-click-handler",
+      "title": "Data display/ImagesCarousel",
+      "name": "With Click Handler",
+      "view": null,
+      "variant": "with-click-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--with-click-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-imagescarousel--with-position-indicator",
+      "title": "Data display/ImagesCarousel",
+      "name": "With Position Indicator",
+      "view": null,
+      "variant": "with-position-indicator",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-imagescarousel--with-position-indicator&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

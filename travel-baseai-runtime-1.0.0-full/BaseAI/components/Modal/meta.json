@@ -1,0 +1,119 @@
+{
+  "name": "Modal",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 13,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/Modal"
+  ],
+  "stories": [
+    {
+      "id": "overlays-modal--animations",
+      "title": "Overlays/Modal",
+      "name": "Animations",
+      "view": null,
+      "variant": "animations",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--animations&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--auto-focus",
+      "title": "Overlays/Modal",
+      "name": "Auto Focus",
+      "view": null,
+      "variant": "auto-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--auto-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--big-content",
+      "title": "Overlays/Modal",
+      "name": "Big Content",
+      "view": null,
+      "variant": "big-content",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--big-content&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--custom-close",
+      "title": "Overlays/Modal",
+      "name": "Custom Close",
+      "view": null,
+      "variant": "custom-close",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--custom-close&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--fullscreen",
+      "title": "Overlays/Modal",
+      "name": "Fullscreen",
+      "view": null,
+      "variant": "fullscreen",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--fullscreen&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--plain-shape",
+      "title": "Overlays/Modal",
+      "name": "Plain Shape",
+      "view": null,
+      "variant": "plain-shape",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--plain-shape&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--prevent-body-scroll",
+      "title": "Overlays/Modal",
+      "name": "Prevent Body Scroll",
+      "view": null,
+      "variant": "prevent-body-scroll",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--prevent-body-scroll&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--simple",
+      "title": "Overlays/Modal",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--themes",
+      "title": "Overlays/Modal",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--vertical-align-bottom",
+      "title": "Overlays/Modal",
+      "name": "Vertical Align Bottom",
+      "view": null,
+      "variant": "vertical-align-bottom",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--vertical-align-bottom&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--vertical-align-top",
+      "title": "Overlays/Modal",
+      "name": "Vertical Align Top",
+      "view": null,
+      "variant": "vertical-align-top",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--vertical-align-top&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--with-image-compensation",
+      "title": "Overlays/Modal",
+      "name": "With Image Compensation",
+      "view": null,
+      "variant": "with-image-compensation",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--with-image-compensation&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modal--with-subtitle",
+      "title": "Overlays/Modal",
+      "name": "With Subtitle",
+      "view": null,
+      "variant": "with-subtitle",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modal--with-subtitle&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

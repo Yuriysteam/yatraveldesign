@@ -1,0 +1,39 @@
+{
+  "name": "Text",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Typography/Text"
+  ],
+  "stories": [
+    {
+      "id": "typography-text--colors",
+      "title": "Typography/Text",
+      "name": "Colors",
+      "view": null,
+      "variant": "colors",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-text--colors&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-text--simple",
+      "title": "Typography/Text",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-text--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-text--typography",
+      "title": "Typography/Text",
+      "name": "Typography",
+      "view": null,
+      "variant": "typography",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-text--typography&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

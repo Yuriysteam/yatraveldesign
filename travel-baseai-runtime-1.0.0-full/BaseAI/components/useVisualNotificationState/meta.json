@@ -1,0 +1,31 @@
+{
+  "name": "useVisualNotificationState",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/useVisualNotificationState"
+  ],
+  "stories": [
+    {
+      "id": "feedback-usevisualnotificationstate--use-visual-notification-state",
+      "title": "Feedback/useVisualNotificationState",
+      "name": "Use Visual Notification State",
+      "view": null,
+      "variant": "use-visual-notification-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-usevisualnotificationstate--use-visual-notification-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-usevisualnotificationstate--use-visual-notification-state-once",
+      "title": "Feedback/useVisualNotificationState",
+      "name": "Use Visual Notification State Once",
+      "view": null,
+      "variant": "use-visual-notification-state-once",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-usevisualnotificationstate--use-visual-notification-state-once&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

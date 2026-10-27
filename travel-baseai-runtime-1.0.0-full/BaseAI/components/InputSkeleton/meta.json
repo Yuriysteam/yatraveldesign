@@ -1,0 +1,39 @@
+{
+  "name": "InputSkeleton",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/InputSkeleton"
+  ],
+  "stories": [
+    {
+      "id": "feedback-inputskeleton--simple",
+      "title": "Feedback/InputSkeleton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-inputskeleton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-inputskeleton--sizes",
+      "title": "Feedback/InputSkeleton",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-inputskeleton--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-inputskeleton--themes",
+      "title": "Feedback/InputSkeleton",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-inputskeleton--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

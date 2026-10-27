@@ -1,0 +1,71 @@
+{
+  "name": "NavBar",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 7,
+  "views": [],
+  "sourceTitles": [
+    "Layout/NavBar"
+  ],
+  "stories": [
+    {
+      "id": "layout-navbar--back-arrow-only",
+      "title": "Layout/NavBar",
+      "name": "Back Arrow Only",
+      "view": null,
+      "variant": "back-arrow-only",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--back-arrow-only&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-navbar--close-only",
+      "title": "Layout/NavBar",
+      "name": "Close Only",
+      "view": null,
+      "variant": "close-only",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--close-only&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-navbar--left-aligned",
+      "title": "Layout/NavBar",
+      "name": "Left Aligned",
+      "view": null,
+      "variant": "left-aligned",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--left-aligned&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-navbar--left-aligned-title-only",
+      "title": "Layout/NavBar",
+      "name": "Left Aligned Title Only",
+      "view": null,
+      "variant": "left-aligned-title-only",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--left-aligned-title-only&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-navbar--simple",
+      "title": "Layout/NavBar",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-navbar--title-only",
+      "title": "Layout/NavBar",
+      "name": "Title Only",
+      "view": null,
+      "variant": "title-only",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--title-only&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-navbar--without-buttons",
+      "title": "Layout/NavBar",
+      "name": "Without Buttons",
+      "view": null,
+      "variant": "without-buttons",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-navbar--without-buttons&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

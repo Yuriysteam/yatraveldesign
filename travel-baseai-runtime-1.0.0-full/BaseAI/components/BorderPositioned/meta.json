@@ -1,0 +1,31 @@
+{
+  "name": "BorderPositioned",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Data display/BorderPositioned"
+  ],
+  "stories": [
+    {
+      "id": "data-display-borderpositioned--positions",
+      "title": "Data display/BorderPositioned",
+      "name": "Positions",
+      "view": null,
+      "variant": "positions",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-borderpositioned--positions&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-borderpositioned--simple",
+      "title": "Data display/BorderPositioned",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-borderpositioned--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,12 @@
+{
+  "component": "ButtonGroup",
+  "kind": "grouped-action-control",
+  "defaultState": "idle",
+  "states": ["idle", "item-hover", "item-focus-visible", "item-pressed", "item-disabled"],
+  "triggers": [
+    { "event": "click:item", "effect": "fire item action" },
+    { "event": "keydown:Enter|Space", "effect": "fire focused item action" }
+  ],
+  "a11y": { "role": "group", "itemRole": "button", "keyboard": ["Tab", "Enter", "Space"] },
+  "preview": "Keep adjacent buttons visually connected; do not add gaps between grouped items unless the source snippet has them."
+}

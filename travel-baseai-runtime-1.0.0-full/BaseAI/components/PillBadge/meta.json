@@ -1,0 +1,63 @@
+{
+  "name": "PillBadge",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Typography/PillBadge"
+  ],
+  "stories": [
+    {
+      "id": "typography-pillbadge--as-icon",
+      "title": "Typography/PillBadge",
+      "name": "As Icon",
+      "view": null,
+      "variant": "as-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-pillbadge--as-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-pillbadge--multiline",
+      "title": "Typography/PillBadge",
+      "name": "Multiline",
+      "view": null,
+      "variant": "multiline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-pillbadge--multiline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-pillbadge--simple",
+      "title": "Typography/PillBadge",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-pillbadge--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-pillbadge--sizes",
+      "title": "Typography/PillBadge",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-pillbadge--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-pillbadge--theme-and-fill",
+      "title": "Typography/PillBadge",
+      "name": "Theme And Fill",
+      "view": null,
+      "variant": "theme-and-fill",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-pillbadge--theme-and-fill&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-pillbadge--wrapping",
+      "title": "Typography/PillBadge",
+      "name": "Wrapping",
+      "view": null,
+      "variant": "wrapping",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-pillbadge--wrapping&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

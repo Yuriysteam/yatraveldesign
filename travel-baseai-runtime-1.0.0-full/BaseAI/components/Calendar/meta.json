@@ -1,0 +1,47 @@
+{
+  "name": "Calendar",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Calendar"
+  ],
+  "stories": [
+    {
+      "id": "data-display-calendar--range-selected",
+      "title": "Data display/Calendar",
+      "name": "Range Selected",
+      "view": null,
+      "variant": "range-selected",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-calendar--range-selected&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-calendar--simple",
+      "title": "Data display/Calendar",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-calendar--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-calendar--single-selected",
+      "title": "Data display/Calendar",
+      "name": "Single Selected",
+      "view": null,
+      "variant": "single-selected",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-calendar--single-selected&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-calendar--with-months",
+      "title": "Data display/Calendar",
+      "name": "With Months",
+      "view": null,
+      "variant": "with-months",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-calendar--with-months&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

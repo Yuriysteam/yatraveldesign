@@ -1,0 +1,55 @@
+{
+  "name": "LinkNew",
+  "category": "Navigation",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Navigation/LinkNew"
+  ],
+  "stories": [
+    {
+      "id": "navigation-linknew--additional-elements",
+      "title": "Navigation/LinkNew",
+      "name": "Additional Elements",
+      "view": null,
+      "variant": "additional-elements",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-linknew--additional-elements&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-linknew--overflow",
+      "title": "Navigation/LinkNew",
+      "name": "Overflow",
+      "view": null,
+      "variant": "overflow",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-linknew--overflow&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-linknew--simple",
+      "title": "Navigation/LinkNew",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-linknew--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-linknew--themes",
+      "title": "Navigation/LinkNew",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-linknew--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-linknew--typography",
+      "title": "Navigation/LinkNew",
+      "name": "Typography",
+      "view": null,
+      "variant": "typography",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-linknew--typography&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,14 @@
+{
+  "component": "Stepper",
+  "kind": "counter-control",
+  "defaultState": "idle",
+  "states": ["idle", "min", "max", "button-focus-visible", "disabled"],
+  "triggers": [
+    { "event": "click:increment", "effect": "increase value" },
+    { "event": "click:decrement", "effect": "decrease value" },
+    { "event": "keydown:ArrowUp", "effect": "increase value" },
+    { "event": "keydown:ArrowDown", "effect": "decrease value" }
+  ],
+  "a11y": { "role": "group or spinbutton", "stateAttrs": ["aria-valuemin", "aria-valuemax", "aria-valuenow"] },
+  "preview": "Disable decrement at min and increment at max; keep visible value synchronized."
+}

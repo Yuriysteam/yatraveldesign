@@ -1,0 +1,95 @@
+{
+  "name": "Stepper",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 10,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Stepper"
+  ],
+  "stories": [
+    {
+      "id": "controls-stepper--different-container-widths",
+      "title": "Controls/Stepper",
+      "name": "Different Container Widths",
+      "view": null,
+      "variant": "different-container-widths",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--different-container-widths&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--disabled",
+      "title": "Controls/Stepper",
+      "name": "Disabled",
+      "view": null,
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--max-value",
+      "title": "Controls/Stepper",
+      "name": "Max Value",
+      "view": null,
+      "variant": "max-value",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--max-value&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--min-value",
+      "title": "Controls/Stepper",
+      "name": "Min Value",
+      "view": null,
+      "variant": "min-value",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--min-value&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--simple",
+      "title": "Controls/Stepper",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--size-l",
+      "title": "Controls/Stepper",
+      "name": "Size L",
+      "view": null,
+      "variant": "size-l",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--size-l&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--size-m",
+      "title": "Controls/Stepper",
+      "name": "Size M",
+      "view": null,
+      "variant": "size-m",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--size-m&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--with-label",
+      "title": "Controls/Stepper",
+      "name": "With Label",
+      "view": null,
+      "variant": "with-label",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--with-label&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--with-label-and-hint",
+      "title": "Controls/Stepper",
+      "name": "With Label And Hint",
+      "view": null,
+      "variant": "with-label-and-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--with-label-and-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-stepper--with-tooltip",
+      "title": "Controls/Stepper",
+      "name": "With Tooltip",
+      "view": null,
+      "variant": "with-tooltip",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-stepper--with-tooltip&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

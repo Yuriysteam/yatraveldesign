@@ -1,0 +1,63 @@
+{
+  "name": "AttentionSticker",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Data display/AttentionSticker"
+  ],
+  "stories": [
+    {
+      "id": "data-display-attentionsticker--on-bottom-sheet",
+      "title": "Data display/AttentionSticker",
+      "name": "On Bottom Sheet",
+      "view": null,
+      "variant": "on-bottom-sheet",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-attentionsticker--on-bottom-sheet&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-attentionsticker--on-card",
+      "title": "Data display/AttentionSticker",
+      "name": "On Card",
+      "view": null,
+      "variant": "on-card",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-attentionsticker--on-card&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-attentionsticker--radius",
+      "title": "Data display/AttentionSticker",
+      "name": "Radius",
+      "view": null,
+      "variant": "radius",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-attentionsticker--radius&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-attentionsticker--simple",
+      "title": "Data display/AttentionSticker",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-attentionsticker--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-attentionsticker--sizes",
+      "title": "Data display/AttentionSticker",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-attentionsticker--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-attentionsticker--themes",
+      "title": "Data display/AttentionSticker",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-attentionsticker--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,39 @@
+{
+  "name": "SpaceSeparator",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Layout/SpaceSeparator"
+  ],
+  "stories": [
+    {
+      "id": "layout-spaceseparator--horizontal",
+      "title": "Layout/SpaceSeparator",
+      "name": "Horizontal",
+      "view": null,
+      "variant": "horizontal",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-spaceseparator--horizontal&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-spaceseparator--simple",
+      "title": "Layout/SpaceSeparator",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-spaceseparator--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-spaceseparator--spaces",
+      "title": "Layout/SpaceSeparator",
+      "name": "Spaces",
+      "view": null,
+      "variant": "spaces",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-spaceseparator--spaces&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

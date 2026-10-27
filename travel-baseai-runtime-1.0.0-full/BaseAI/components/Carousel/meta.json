@@ -1,0 +1,87 @@
+{
+  "name": "Carousel",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Carousel"
+  ],
+  "stories": [
+    {
+      "id": "data-display-carousel--arrow-positions",
+      "title": "Data display/Carousel",
+      "name": "Arrow Positions",
+      "view": null,
+      "variant": "arrow-positions",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--arrow-positions&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--dont-need-arrows",
+      "title": "Data display/Carousel",
+      "name": "Dont Need Arrows",
+      "view": null,
+      "variant": "dont-need-arrows",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--dont-need-arrows&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--gradient",
+      "title": "Data display/Carousel",
+      "name": "Gradient",
+      "view": null,
+      "variant": "gradient",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--gradient&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--mini",
+      "title": "Data display/Carousel",
+      "name": "Mini",
+      "view": null,
+      "variant": "mini",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--mini&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--native-scroll",
+      "title": "Data display/Carousel",
+      "name": "Native Scroll",
+      "view": null,
+      "variant": "native-scroll",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--native-scroll&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--scroll-to-initial",
+      "title": "Data display/Carousel",
+      "name": "Scroll To Initial",
+      "view": null,
+      "variant": "scroll-to-initial",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--scroll-to-initial&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--scroll-to-item",
+      "title": "Data display/Carousel",
+      "name": "Scroll To Item",
+      "view": null,
+      "variant": "scroll-to-item",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--scroll-to-item&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--simple",
+      "title": "Data display/Carousel",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-carousel--spacing",
+      "title": "Data display/Carousel",
+      "name": "Spacing",
+      "view": null,
+      "variant": "spacing",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-carousel--spacing&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

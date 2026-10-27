@@ -1,0 +1,32 @@
+<!-- component: Popup | variant: Clicktrough | story-id: overlays-popup--clicktrough -->
+<div class="flex ui-surface ui__auto-067" data-qa="root" style="width: 250px; height: 200px;"><div data-qa="toggle-root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="toggle-button" style="cursor: pointer;">Тоггл</button></div><div data-qa="notToggle-root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="notToggle-button" style="cursor: pointer;">Не Тоггл</button></div></div>
+
+<!-- component: Popup | variant: Gap | story-id: overlays-popup--gap -->
+<div class="ui__auto-309 stack-gap-m"><h3 class="text-title-l text-title-m text--default">Gap</h3></div><table><tbody><tr class=""><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><span class="text-title-m text--default">SMALL</span></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Trigger small</button></div></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><code><div>gap="small"</div></code></div></td></tr><tr class=""><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><span class="text-title-m text--default">MEDIUM</span></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Trigger medium</button></div></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><code><div>gap="medium"</div></code></div></td></tr><tr class=""><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><span class="text-title-m text--default">BIG</span></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Trigger big</button></div></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><code><div>gap="big"</div></code></div></td></tr></tbody></table>
+
+<!-- component: Popup | variant: Has Underlay | story-id: overlays-popup--has-underlay -->
+<div class="ui__auto-309 stack-gap-m"><h3 class="text-title-l text-title-m text--default">HasUnderlay</h3><div style="margin-bottom: 12px;"><span class="text-body-m text--secondary">Попробуй нажать на правую кнопку, увидишь попап; А теперь
+                попробуй не закрывая попап, нажать левую. React Aria не даст
+                этого сделать, первый клик закроет попап, второй откроет новый.
+                История показывает, что при флаге withUnderlay добавляется
+                доп. оверлей, который не дает элементам наводится.
+                Примечательно, что наличие/отсутствие оверлея не влияет на
+                сам функционал, который идет из коробки. Пока делаем флагом,
+                так как не везде это поведение нужно, а дальше будем думать
+                в рамках коммуникации с дизайном.</span></div></div><div><div class="flex flex--align-center ui-surface ui__auto-067"><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Left</button></div><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Right</button></div><button type="button" data-react-aria-pressable="true" class="button button--size-m button--secondary button--width-auto" tabindex="0"><span class="button__content"><span class="button__text-stack"><span class="button__label text-label-m text--primary">Hover me</span></span></span></button></div></div>
+
+<!-- component: Popup | variant: Kit Button | story-id: overlays-popup--kit-button -->
+<div><button type="button" data-react-aria-pressable="true" class="button button--size-m button--secondary button--width-auto" tabindex="0"><span class="button__content"><span class="button__text-stack"><span class="button__label text-label-m text--primary">Я кнопка</span></span></span></button></div>
+
+<!-- component: Popup | variant: Max Height | story-id: overlays-popup--max-height -->
+<div><style>
+                .storybookPopup {
+                    overflow: scroll;
+                }
+            </style><button type="button" data-react-aria-pressable="true" class="button button--size-m button--secondary button--width-auto" tabindex="0"><span class="button__content"><span class="button__text-stack"><span class="button__label text-label-m text--primary">Я кнопка</span></span></span></button></div>
+
+<!-- component: Popup | variant: Simple | story-id: overlays-popup--simple -->
+<div data-qa="simple-root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="simple-button" style="cursor: pointer;">Show</button></div>
+
+<!-- component: Popup | variant: Tail | story-id: overlays-popup--tail -->
+<div class="ui__auto-309 stack-gap-m"><h3 class="text-title-l text-title-m text--default">Tail</h3></div><table><tbody><tr class=""><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><span class="text-title-m text--default">TRUE</span></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Trigger with  tail</button></div></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><code><div>hasTail=true</div></code></div></td></tr><tr class=""><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><span class="text-title-m text--default">FALSE</span></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><div data-qa="root"><button class="ui__auto-462" type="button" aria-expanded="false" data-react-aria-pressable="true" data-qa="button" style="cursor: pointer;">Trigger with no tail</button></div></div></td><td><div class="ui-kit-scope ui-kit-theme ui-surface ui-kit-density"><code><div>hasTail=false</div></code></div></td></tr></tbody></table>

@@ -1,0 +1,47 @@
+{
+  "name": "ButtonGroup",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Controls/ButtonGroup"
+  ],
+  "stories": [
+    {
+      "id": "controls-buttongroup--direction",
+      "title": "Controls/ButtonGroup",
+      "name": "Direction",
+      "view": null,
+      "variant": "direction",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-buttongroup--direction&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-buttongroup--simple",
+      "title": "Controls/ButtonGroup",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-buttongroup--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-buttongroup--single-button",
+      "title": "Controls/ButtonGroup",
+      "name": "Single Button",
+      "view": null,
+      "variant": "single-button",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-buttongroup--single-button&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-buttongroup--width",
+      "title": "Controls/ButtonGroup",
+      "name": "Width",
+      "view": null,
+      "variant": "width",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-buttongroup--width&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

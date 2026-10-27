@@ -1,0 +1,39 @@
+{
+  "name": "ButtonSkeleton",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/ButtonSkeleton"
+  ],
+  "stories": [
+    {
+      "id": "feedback-buttonskeleton--shapes",
+      "title": "Feedback/ButtonSkeleton",
+      "name": "Shapes",
+      "view": null,
+      "variant": "shapes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-buttonskeleton--shapes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-buttonskeleton--simple",
+      "title": "Feedback/ButtonSkeleton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-buttonskeleton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-buttonskeleton--sizes",
+      "title": "Feedback/ButtonSkeleton",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-buttonskeleton--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

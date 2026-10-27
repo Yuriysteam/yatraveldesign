@@ -1,0 +1,11 @@
+{
+  "name": "travel-baseai-runtime",
+  "version": "1.0.0-full",
+  "releasedAt": "2026-10-05",
+  "classification": "internal",
+  "runtime": {
+    "name": "BaseAI",
+    "version": "1.0.0-full",
+    "sourceSnapshot": "2026-05-25"
+  }
+}

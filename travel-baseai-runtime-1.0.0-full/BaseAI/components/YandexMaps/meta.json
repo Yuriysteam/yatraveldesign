@@ -1,0 +1,87 @@
+{
+  "name": "YandexMaps",
+  "category": "Other",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Other/YandexMaps"
+  ],
+  "stories": [
+    {
+      "id": "other-yandexmaps--bounds",
+      "title": "Other/YandexMaps",
+      "name": "Bounds",
+      "view": null,
+      "variant": "bounds",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--bounds&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--clusters",
+      "title": "Other/YandexMaps",
+      "name": "Clusters",
+      "view": null,
+      "variant": "clusters",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--clusters&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--custom-clusters",
+      "title": "Other/YandexMaps",
+      "name": "Custom Clusters",
+      "view": null,
+      "variant": "custom-clusters",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--custom-clusters&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--custom-markers",
+      "title": "Other/YandexMaps",
+      "name": "Custom Markers",
+      "view": null,
+      "variant": "custom-markers",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--custom-markers&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--feature-points",
+      "title": "Other/YandexMaps",
+      "name": "Feature Points",
+      "view": null,
+      "variant": "feature-points",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--feature-points&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--on-init",
+      "title": "Other/YandexMaps",
+      "name": "On Init",
+      "view": null,
+      "variant": "on-init",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--on-init&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--polygon",
+      "title": "Other/YandexMaps",
+      "name": "Polygon",
+      "view": null,
+      "variant": "polygon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--polygon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--simple",
+      "title": "Other/YandexMaps",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "other-yandexmaps--with-controls-and-location",
+      "title": "Other/YandexMaps",
+      "name": "With Controls And Location",
+      "view": null,
+      "variant": "with-controls-and-location",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=other-yandexmaps--with-controls-and-location&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

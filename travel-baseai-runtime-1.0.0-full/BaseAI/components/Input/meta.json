@@ -1,0 +1,403 @@
+{
+  "name": "Input",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component with view variants",
+  "storiesCount": 47,
+  "views": [
+    "Outlined",
+    "OutlinedLight",
+    "Solid",
+    "SolidWhite",
+    "Transparent",
+    "Underlined"
+  ],
+  "sourceTitles": [
+    "Controls/Input/Outlined",
+    "Controls/Input/OutlinedLight",
+    "Controls/Input/Solid",
+    "Controls/Input/SolidWhite",
+    "Controls/Input/Transparent",
+    "Controls/Input/Underlined"
+  ],
+  "stories": [
+    {
+      "id": "controls-input-outlined--disabled",
+      "title": "Controls/Input/Outlined",
+      "name": "Disabled",
+      "view": "Outlined",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--error",
+      "title": "Controls/Input/Outlined",
+      "name": "Error",
+      "view": "Outlined",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--has-clear",
+      "title": "Controls/Input/Outlined",
+      "name": "Has Clear",
+      "view": "Outlined",
+      "variant": "has-clear",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--has-clear&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--icon",
+      "title": "Controls/Input/Outlined",
+      "name": "Icon",
+      "view": "Outlined",
+      "variant": "icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--icon-right-whith-handler",
+      "title": "Controls/Input/Outlined",
+      "name": "Icon Right Whith Handler",
+      "view": "Outlined",
+      "variant": "icon-right-whith-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--icon-right-whith-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--long-hint",
+      "title": "Controls/Input/Outlined",
+      "name": "Long Hint",
+      "view": "Outlined",
+      "variant": "long-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--long-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--program-focus",
+      "title": "Controls/Input/Outlined",
+      "name": "Program Focus",
+      "view": "Outlined",
+      "variant": "program-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--program-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--simple",
+      "title": "Controls/Input/Outlined",
+      "name": "Simple",
+      "view": "Outlined",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlined--sizes",
+      "title": "Controls/Input/Outlined",
+      "name": "Sizes",
+      "view": "Outlined",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlined--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--disabled",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Disabled",
+      "view": "OutlinedLight",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--error",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Error",
+      "view": "OutlinedLight",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--has-clear",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Has Clear",
+      "view": "OutlinedLight",
+      "variant": "has-clear",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--has-clear&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--icon",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Icon",
+      "view": "OutlinedLight",
+      "variant": "icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--icon-right-whith-handler",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Icon Right Whith Handler",
+      "view": "OutlinedLight",
+      "variant": "icon-right-whith-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--icon-right-whith-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--long-hint",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Long Hint",
+      "view": "OutlinedLight",
+      "variant": "long-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--long-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--program-focus",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Program Focus",
+      "view": "OutlinedLight",
+      "variant": "program-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--program-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--simple",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Simple",
+      "view": "OutlinedLight",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-outlinedlight--sizes",
+      "title": "Controls/Input/OutlinedLight",
+      "name": "Sizes",
+      "view": "OutlinedLight",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-outlinedlight--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--disabled",
+      "title": "Controls/Input/Solid",
+      "name": "Disabled",
+      "view": "Solid",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--error",
+      "title": "Controls/Input/Solid",
+      "name": "Error",
+      "view": "Solid",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--has-clear",
+      "title": "Controls/Input/Solid",
+      "name": "Has Clear",
+      "view": "Solid",
+      "variant": "has-clear",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--has-clear&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--icon",
+      "title": "Controls/Input/Solid",
+      "name": "Icon",
+      "view": "Solid",
+      "variant": "icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--icon-right-whith-handler",
+      "title": "Controls/Input/Solid",
+      "name": "Icon Right Whith Handler",
+      "view": "Solid",
+      "variant": "icon-right-whith-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--icon-right-whith-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--long-hint",
+      "title": "Controls/Input/Solid",
+      "name": "Long Hint",
+      "view": "Solid",
+      "variant": "long-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--long-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--program-focus",
+      "title": "Controls/Input/Solid",
+      "name": "Program Focus",
+      "view": "Solid",
+      "variant": "program-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--program-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--simple",
+      "title": "Controls/Input/Solid",
+      "name": "Simple",
+      "view": "Solid",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solid--sizes",
+      "title": "Controls/Input/Solid",
+      "name": "Sizes",
+      "view": "Solid",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solid--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--disabled",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Disabled",
+      "view": "SolidWhite",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--error",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Error",
+      "view": "SolidWhite",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--has-clear",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Has Clear",
+      "view": "SolidWhite",
+      "variant": "has-clear",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--has-clear&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--icon",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Icon",
+      "view": "SolidWhite",
+      "variant": "icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--icon-right-whith-handler",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Icon Right Whith Handler",
+      "view": "SolidWhite",
+      "variant": "icon-right-whith-handler",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--icon-right-whith-handler&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--long-hint",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Long Hint",
+      "view": "SolidWhite",
+      "variant": "long-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--long-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--program-focus",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Program Focus",
+      "view": "SolidWhite",
+      "variant": "program-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--program-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--simple",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Simple",
+      "view": "SolidWhite",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-solidwhite--sizes",
+      "title": "Controls/Input/SolidWhite",
+      "name": "Sizes",
+      "view": "SolidWhite",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-solidwhite--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-transparent--disabled",
+      "title": "Controls/Input/Transparent",
+      "name": "Disabled",
+      "view": "Transparent",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-transparent--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-transparent--error",
+      "title": "Controls/Input/Transparent",
+      "name": "Error",
+      "view": "Transparent",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-transparent--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-transparent--long-hint",
+      "title": "Controls/Input/Transparent",
+      "name": "Long Hint",
+      "view": "Transparent",
+      "variant": "long-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-transparent--long-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-transparent--program-focus",
+      "title": "Controls/Input/Transparent",
+      "name": "Program Focus",
+      "view": "Transparent",
+      "variant": "program-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-transparent--program-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-transparent--simple",
+      "title": "Controls/Input/Transparent",
+      "name": "Simple",
+      "view": "Transparent",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-transparent--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-underlined--disabled",
+      "title": "Controls/Input/Underlined",
+      "name": "Disabled",
+      "view": "Underlined",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-underlined--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-underlined--error",
+      "title": "Controls/Input/Underlined",
+      "name": "Error",
+      "view": "Underlined",
+      "variant": "error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-underlined--error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-underlined--has-clear",
+      "title": "Controls/Input/Underlined",
+      "name": "Has Clear",
+      "view": "Underlined",
+      "variant": "has-clear",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-underlined--has-clear&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-underlined--long-hint",
+      "title": "Controls/Input/Underlined",
+      "name": "Long Hint",
+      "view": "Underlined",
+      "variant": "long-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-underlined--long-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-underlined--program-focus",
+      "title": "Controls/Input/Underlined",
+      "name": "Program Focus",
+      "view": "Underlined",
+      "variant": "program-focus",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-underlined--program-focus&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-input-underlined--simple",
+      "title": "Controls/Input/Underlined",
+      "name": "Simple",
+      "view": "Underlined",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-input-underlined--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

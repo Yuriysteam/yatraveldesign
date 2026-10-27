@@ -1,0 +1,39 @@
+{
+  "name": "Link",
+  "category": "Navigation",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Navigation/Link"
+  ],
+  "stories": [
+    {
+      "id": "navigation-link--simple",
+      "title": "Navigation/Link",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-link--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-link--themes",
+      "title": "Navigation/Link",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-link--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-link--with-hidden-outline",
+      "title": "Navigation/Link",
+      "name": "With Hidden Outline",
+      "view": null,
+      "variant": "with-hidden-outline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-link--with-hidden-outline&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

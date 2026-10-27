@@ -1,0 +1,13 @@
+{
+  "component": "Tabs",
+  "kind": "tab-navigation",
+  "defaultState": "one-active",
+  "states": ["one-active", "tab-hover", "tab-focus-visible", "tab-disabled", "scrollable"],
+  "triggers": [
+    { "event": "click:tab", "effect": "activate tab" },
+    { "event": "keydown:ArrowLeft|ArrowRight", "effect": "move focus or active tab" },
+    { "event": "keydown:Home|End", "effect": "move to first or last tab" }
+  ],
+  "a11y": { "role": "tablist", "itemRole": "tab", "panelRole": "tabpanel", "stateAttrs": ["aria-selected", "aria-controls"] },
+  "preview": "Exactly one tab is active unless the source story shows another mode."
+}

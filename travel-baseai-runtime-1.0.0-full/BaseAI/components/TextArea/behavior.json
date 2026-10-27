@@ -1,0 +1,14 @@
+{
+  "component": "TextArea",
+  "kind": "multiline-text-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "filled", "auto-height", "error", "disabled", "readonly"],
+  "triggers": [
+    { "event": "focus", "to": "focused" },
+    { "event": "input", "effect": "update value and height when auto-height" },
+    { "event": "clear", "to": "empty" },
+    { "event": "blur", "effect": "validate when required" }
+  ],
+  "a11y": { "role": "textbox", "stateAttrs": ["aria-multiline", "aria-invalid", "aria-describedby", "disabled", "readonly"] },
+  "preview": "Preserve resize/auto-height wrappers, placeholder, hint and error markup."
+}

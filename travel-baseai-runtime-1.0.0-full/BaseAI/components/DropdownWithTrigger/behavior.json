@@ -1,0 +1,14 @@
+{
+  "component": "DropdownWithTrigger",
+  "kind": "triggered-dropdown",
+  "defaultState": "closed",
+  "states": ["closed", "open", "trigger-focus", "item-hover", "item-selected", "disabled"],
+  "triggers": [
+    { "event": "click:trigger", "effect": "toggle popup" },
+    { "event": "click:item", "effect": "select item and close popup" },
+    { "event": "keydown:Escape", "to": "closed" },
+    { "event": "click:outside", "to": "closed" }
+  ],
+  "a11y": { "role": "button + menu/listbox", "stateAttrs": ["aria-expanded", "aria-controls"] },
+  "preview": "Always keep trigger and dropdown surface together in examples."
+}

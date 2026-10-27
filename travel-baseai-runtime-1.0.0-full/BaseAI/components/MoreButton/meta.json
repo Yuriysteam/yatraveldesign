@@ -1,0 +1,47 @@
+{
+  "name": "MoreButton",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Controls/MoreButton"
+  ],
+  "stories": [
+    {
+      "id": "controls-morebutton--simple",
+      "title": "Controls/MoreButton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-morebutton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-morebutton--themes",
+      "title": "Controls/MoreButton",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-morebutton--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-morebutton--types",
+      "title": "Controls/MoreButton",
+      "name": "Types",
+      "view": null,
+      "variant": "types",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-morebutton--types&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-morebutton--with-tooltip",
+      "title": "Controls/MoreButton",
+      "name": "With Tooltip",
+      "view": null,
+      "variant": "with-tooltip",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-morebutton--with-tooltip&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Intent",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Intent"
+  ],
+  "stories": [
+    {
+      "id": "data-display-intent--disabled",
+      "title": "Data display/Intent",
+      "name": "Disabled",
+      "view": null,
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-intent--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-intent--icon",
+      "title": "Data display/Intent",
+      "name": "Icon",
+      "view": null,
+      "variant": "icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-intent--icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-intent--simple",
+      "title": "Data display/Intent",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-intent--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-intent--sizes",
+      "title": "Data display/Intent",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-intent--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-intent--themes",
+      "title": "Data display/Intent",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-intent--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-intent--with-cancel",
+      "title": "Data display/Intent",
+      "name": "With Cancel",
+      "view": null,
+      "variant": "with-cancel",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-intent--with-cancel&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,14 @@
+{
+  "component": "Input",
+  "kind": "text-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "filled", "with-clear", "with-icon", "error", "disabled", "readonly"],
+  "triggers": [
+    { "event": "focus", "to": "focused" },
+    { "event": "input", "effect": "update value and filled state" },
+    { "event": "clear", "to": "empty" },
+    { "event": "blur", "effect": "validate when required" }
+  ],
+  "a11y": { "role": "textbox", "stateAttrs": ["aria-invalid", "aria-describedby", "disabled", "readonly"] },
+  "preview": "Preserve label, hint, clear button, icon slots, error message and view-specific classes."
+}

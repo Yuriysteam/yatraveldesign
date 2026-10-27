@@ -1,0 +1,12 @@
+{
+  "component": "MoreButton",
+  "kind": "expand-action",
+  "defaultState": "collapsed",
+  "states": ["collapsed", "expanded", "hover", "focus-visible", "disabled"],
+  "triggers": [
+    { "event": "click", "from": "collapsed", "to": "expanded" },
+    { "event": "click", "from": "expanded", "to": "collapsed" }
+  ],
+  "a11y": { "role": "button", "stateAttrs": ["aria-expanded", "aria-controls"] },
+  "preview": "Use for revealing hidden content; pair with the content block it controls when showing expanded state."
+}

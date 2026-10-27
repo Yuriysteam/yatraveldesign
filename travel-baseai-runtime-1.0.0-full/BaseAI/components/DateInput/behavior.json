@@ -1,0 +1,14 @@
+{
+  "component": "DateInput",
+  "kind": "masked-date-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "filled", "invalid", "error", "disabled"],
+  "triggers": [
+    { "event": "focus", "to": "focused" },
+    { "event": "input", "effect": "format date mask" },
+    { "event": "blur", "effect": "validate complete date" },
+    { "event": "clear", "to": "empty" }
+  ],
+  "a11y": { "role": "textbox", "inputmode": "numeric", "stateAttrs": ["aria-invalid", "disabled"] },
+  "preview": "Preserve mask placeholder, label, clear affordance, hint and error markup from the source snippet."
+}

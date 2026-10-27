@@ -1,0 +1,31 @@
+{
+  "name": "ModalWithTrigger",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/ModalWithTrigger"
+  ],
+  "stories": [
+    {
+      "id": "overlays-modalwithtrigger--custom-trigger",
+      "title": "Overlays/ModalWithTrigger",
+      "name": "Custom Trigger",
+      "view": null,
+      "variant": "custom-trigger",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modalwithtrigger--custom-trigger&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-modalwithtrigger--simple",
+      "title": "Overlays/ModalWithTrigger",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-modalwithtrigger--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

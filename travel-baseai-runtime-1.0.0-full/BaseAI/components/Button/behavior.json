@@ -1,0 +1,14 @@
+{
+  "component": "Button",
+  "kind": "action-control",
+  "defaultState": "idle",
+  "states": ["idle", "hover", "focus-visible", "pressed", "loading", "error", "disabled"],
+  "triggers": [
+    { "event": "click", "from": "idle", "to": "pressed", "effect": "fire action" },
+    { "event": "pointerdown", "from": "idle", "to": "pressed" },
+    { "event": "pointerup", "from": "pressed", "to": "idle" },
+    { "event": "keydown:Enter|Space", "from": "focus-visible", "to": "pressed", "effect": "fire action" }
+  ],
+  "a11y": { "role": "button", "disabledAttr": "disabled or aria-disabled", "keyboard": ["Enter", "Space"] },
+  "preview": "Use native <button> markup from snippets. Preserve data-qa and disabled/loading/error classes when present."
+}

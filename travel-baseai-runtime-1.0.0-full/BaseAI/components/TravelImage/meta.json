@@ -1,0 +1,55 @@
+{
+  "name": "TravelImage",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 5,
+  "views": [],
+  "sourceTitles": [
+    "Data display/TravelImage"
+  ],
+  "stories": [
+    {
+      "id": "data-display-travelimage--height-crop",
+      "title": "Data display/TravelImage",
+      "name": "Height Crop",
+      "view": null,
+      "variant": "height-crop",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-travelimage--height-crop&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-travelimage--image-error",
+      "title": "Data display/TravelImage",
+      "name": "Image Error",
+      "view": null,
+      "variant": "image-error",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-travelimage--image-error&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-travelimage--lazy",
+      "title": "Data display/TravelImage",
+      "name": "Lazy",
+      "view": null,
+      "variant": "lazy",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-travelimage--lazy&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-travelimage--simple",
+      "title": "Data display/TravelImage",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-travelimage--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-travelimage--width-crop",
+      "title": "Data display/TravelImage",
+      "name": "Width Crop",
+      "view": null,
+      "variant": "width-crop",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-travelimage--width-crop&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

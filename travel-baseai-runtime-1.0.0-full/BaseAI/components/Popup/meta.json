@@ -1,0 +1,71 @@
+{
+  "name": "Popup",
+  "category": "Overlays",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 7,
+  "views": [],
+  "sourceTitles": [
+    "Overlays/Popup"
+  ],
+  "stories": [
+    {
+      "id": "overlays-popup--clicktrough",
+      "title": "Overlays/Popup",
+      "name": "Clicktrough",
+      "view": null,
+      "variant": "clicktrough",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--clicktrough&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-popup--gap",
+      "title": "Overlays/Popup",
+      "name": "Gap",
+      "view": null,
+      "variant": "gap",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--gap&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-popup--has-underlay",
+      "title": "Overlays/Popup",
+      "name": "Has Underlay",
+      "view": null,
+      "variant": "has-underlay",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--has-underlay&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-popup--kit-button",
+      "title": "Overlays/Popup",
+      "name": "Kit Button",
+      "view": null,
+      "variant": "kit-button",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--kit-button&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-popup--max-height",
+      "title": "Overlays/Popup",
+      "name": "Max Height",
+      "view": null,
+      "variant": "max-height",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--max-height&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-popup--simple",
+      "title": "Overlays/Popup",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "overlays-popup--tail",
+      "title": "Overlays/Popup",
+      "name": "Tail",
+      "view": null,
+      "variant": "tail",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=overlays-popup--tail&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

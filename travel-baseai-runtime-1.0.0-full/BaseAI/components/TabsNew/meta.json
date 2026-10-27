@@ -1,0 +1,87 @@
+{
+  "name": "TabsNew",
+  "category": "Navigation",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 9,
+  "views": [],
+  "sourceTitles": [
+    "Navigation/TabsNew"
+  ],
+  "stories": [
+    {
+      "id": "navigation-tabsnew--simple",
+      "title": "Navigation/TabsNew",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--sizes",
+      "title": "Navigation/TabsNew",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--themes",
+      "title": "Navigation/TabsNew",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--vertical",
+      "title": "Navigation/TabsNew",
+      "name": "Vertical",
+      "view": null,
+      "variant": "vertical",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--vertical&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--with-disabled",
+      "title": "Navigation/TabsNew",
+      "name": "With Disabled",
+      "view": null,
+      "variant": "with-disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--with-disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--with-icon",
+      "title": "Navigation/TabsNew",
+      "name": "With Icon",
+      "view": null,
+      "variant": "with-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--with-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--with-modal",
+      "title": "Navigation/TabsNew",
+      "name": "With Modal",
+      "view": null,
+      "variant": "with-modal",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--with-modal&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--with-scroll",
+      "title": "Navigation/TabsNew",
+      "name": "With Scroll",
+      "view": null,
+      "variant": "with-scroll",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--with-scroll&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "navigation-tabsnew--with-sub-label",
+      "title": "Navigation/TabsNew",
+      "name": "With Sub Label",
+      "view": null,
+      "variant": "with-sub-label",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=navigation-tabsnew--with-sub-label&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

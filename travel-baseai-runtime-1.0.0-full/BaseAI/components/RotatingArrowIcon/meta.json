@@ -1,0 +1,31 @@
+{
+  "name": "RotatingArrowIcon",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Controls/RotatingArrowIcon"
+  ],
+  "stories": [
+    {
+      "id": "controls-rotatingarrowicon--dynamic",
+      "title": "Controls/RotatingArrowIcon",
+      "name": "Dynamic",
+      "view": null,
+      "variant": "dynamic",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-rotatingarrowicon--dynamic&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-rotatingarrowicon--simple",
+      "title": "Controls/RotatingArrowIcon",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-rotatingarrowicon--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

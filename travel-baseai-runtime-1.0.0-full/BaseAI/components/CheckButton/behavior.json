@@ -1,0 +1,12 @@
+{
+  "component": "CheckButton",
+  "kind": "toggle-button",
+  "defaultState": "unchecked",
+  "states": ["unchecked", "checked", "focus-visible", "disabled"],
+  "triggers": [
+    { "event": "click", "effect": "toggle checked" },
+    { "event": "keydown:Enter|Space", "effect": "toggle checked" }
+  ],
+  "a11y": { "role": "button", "stateAttrs": ["aria-pressed", "disabled"], "keyboard": ["Enter", "Space"] },
+  "preview": "Use for compact filter-like toggles, not for form agreements."
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Spinner",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/Spinner"
+  ],
+  "stories": [
+    {
+      "id": "feedback-spinner--colors",
+      "title": "Feedback/Spinner",
+      "name": "Colors",
+      "view": null,
+      "variant": "colors",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-spinner--colors&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-spinner--simple",
+      "title": "Feedback/Spinner",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-spinner--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-spinner--sizes",
+      "title": "Feedback/Spinner",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-spinner--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

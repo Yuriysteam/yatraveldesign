@@ -1,0 +1,14 @@
+{
+  "component": "DateTriggerInput",
+  "kind": "date-picker-trigger",
+  "defaultState": "closed",
+  "states": ["closed", "open", "empty", "filled", "focus-visible", "error", "disabled"],
+  "triggers": [
+    { "event": "click", "from": "closed", "to": "open" },
+    { "event": "keydown:Enter|Space", "from": "closed", "to": "open" },
+    { "event": "select:date", "from": "open", "to": "filled" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "button or combobox", "stateAttrs": ["aria-expanded", "aria-invalid", "disabled"] },
+  "preview": "Pair with DatePicker/BottomSheet markup when showing the opened state."
+}

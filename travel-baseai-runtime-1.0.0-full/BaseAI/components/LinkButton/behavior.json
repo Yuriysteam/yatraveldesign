@@ -1,0 +1,10 @@
+{
+  "component": "LinkButton",
+  "kind": "control",
+  "defaultState": "idle",
+  "states": ["idle", "hover", "pressed", "disabled"],
+  "triggers": [
+    { "event": "click", "from": "idle", "to": "pressed" }
+  ],
+  "notes": "Text-like action control. Can navigate or trigger inline action."
+}

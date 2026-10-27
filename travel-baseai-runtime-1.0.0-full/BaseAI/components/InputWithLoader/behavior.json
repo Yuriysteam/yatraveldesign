@@ -1,0 +1,14 @@
+{
+  "component": "InputWithLoader",
+  "kind": "async-text-input",
+  "defaultState": "empty",
+  "states": ["empty", "focused", "loading", "filled", "error", "disabled"],
+  "triggers": [
+    { "event": "input", "to": "loading", "effect": "start async lookup" },
+    { "event": "resolve", "from": "loading", "to": "filled" },
+    { "event": "reject", "from": "loading", "to": "error" },
+    { "event": "clear", "to": "empty" }
+  ],
+  "a11y": { "role": "textbox", "stateAttrs": ["aria-busy", "aria-invalid", "disabled"] },
+  "preview": "Keep loader inside the input control, not as a separate page spinner."
+}

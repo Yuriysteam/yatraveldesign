@@ -1,0 +1,39 @@
+{
+  "name": "CheckButton",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Controls/CheckButton"
+  ],
+  "stories": [
+    {
+      "id": "controls-checkbutton--disabled",
+      "title": "Controls/CheckButton",
+      "name": "Disabled",
+      "view": null,
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbutton--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbutton--simple",
+      "title": "Controls/CheckButton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbutton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-checkbutton--themes",
+      "title": "Controls/CheckButton",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-checkbutton--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

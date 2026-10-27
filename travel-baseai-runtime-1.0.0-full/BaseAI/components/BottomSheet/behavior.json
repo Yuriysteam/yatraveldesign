@@ -1,0 +1,14 @@
+{
+  "component": "BottomSheet",
+  "kind": "mobile-overlay",
+  "defaultState": "closed",
+  "states": ["closed", "opening", "open", "dragging", "closing"],
+  "triggers": [
+    { "event": "click:trigger", "from": "closed", "to": "open" },
+    { "event": "drag:down", "from": "open", "to": "closing" },
+    { "event": "click:scrim", "from": "open", "to": "closed" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "dialog", "stateAttrs": ["aria-modal", "aria-labelledby"], "keyboard": ["Escape", "Tab"] },
+  "preview": "Use on app/touch for modal pickers and actions; keep scrim, sheet, drag handle and body-scroll lock state together."
+}

@@ -1,0 +1,39 @@
+{
+  "name": "PriceInput",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Controls/PriceInput"
+  ],
+  "stories": [
+    {
+      "id": "controls-priceinput--simple",
+      "title": "Controls/PriceInput",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-priceinput--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-priceinput--sizes",
+      "title": "Controls/PriceInput",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-priceinput--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-priceinput--states",
+      "title": "Controls/PriceInput",
+      "name": "States",
+      "view": null,
+      "variant": "states",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-priceinput--states&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

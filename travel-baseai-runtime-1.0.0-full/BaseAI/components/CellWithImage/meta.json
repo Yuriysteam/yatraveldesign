@@ -1,0 +1,39 @@
+{
+  "name": "CellWithImage",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Layout/CellWithImage"
+  ],
+  "stories": [
+    {
+      "id": "layout-cellwithimage--active",
+      "title": "Layout/CellWithImage",
+      "name": "Active",
+      "view": null,
+      "variant": "active",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithimage--active&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cellwithimage--simple",
+      "title": "Layout/CellWithImage",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithimage--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-cellwithimage--sizes",
+      "title": "Layout/CellWithImage",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-cellwithimage--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

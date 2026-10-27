@@ -1,0 +1,13 @@
+{
+  "component": "RadioGroup",
+  "kind": "radio-group",
+  "defaultState": "none-selected",
+  "states": ["none-selected", "selected", "item-focus-visible", "item-disabled", "group-disabled", "error"],
+  "triggers": [
+    { "event": "click:item", "effect": "select one item" },
+    { "event": "keydown:Arrow keys", "effect": "move selection" },
+    { "event": "keydown:Space", "effect": "select focused item" }
+  ],
+  "a11y": { "role": "radiogroup", "itemRole": "radio", "keyboard": ["Arrow keys", "Space", "Tab"] },
+  "preview": "Only one radio item is selected; keep native input checked and visual indicator synced."
+}

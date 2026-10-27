@@ -1,0 +1,39 @@
+{
+  "name": "CloseIcon",
+  "category": "Typography",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 3,
+  "views": [],
+  "sourceTitles": [
+    "Typography/CloseIcon"
+  ],
+  "stories": [
+    {
+      "id": "typography-closeicon--simple",
+      "title": "Typography/CloseIcon",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-closeicon--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-closeicon--sizes",
+      "title": "Typography/CloseIcon",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-closeicon--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "typography-closeicon--themes",
+      "title": "Typography/CloseIcon",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=typography-closeicon--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

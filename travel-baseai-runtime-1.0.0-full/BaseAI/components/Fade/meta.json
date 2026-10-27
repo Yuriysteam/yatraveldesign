@@ -1,0 +1,63 @@
+{
+  "name": "Fade",
+  "category": "Layout",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Layout/Fade"
+  ],
+  "stories": [
+    {
+      "id": "layout-fade--fixed",
+      "title": "Layout/Fade",
+      "name": "Fixed",
+      "view": null,
+      "variant": "fixed",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-fade--fixed&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-fade--full-size",
+      "title": "Layout/Fade",
+      "name": "Full Size",
+      "view": null,
+      "variant": "full-size",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-fade--full-size&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-fade--placements",
+      "title": "Layout/Fade",
+      "name": "Placements",
+      "view": null,
+      "variant": "placements",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-fade--placements&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-fade--simple",
+      "title": "Layout/Fade",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-fade--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-fade--sizes",
+      "title": "Layout/Fade",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-fade--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "layout-fade--themes",
+      "title": "Layout/Fade",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=layout-fade--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

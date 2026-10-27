@@ -1,0 +1,47 @@
+{
+  "name": "DiscountBadge",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 4,
+  "views": [],
+  "sourceTitles": [
+    "Data display/DiscountBadge"
+  ],
+  "stories": [
+    {
+      "id": "data-display-discountbadge--redesigned",
+      "title": "Data display/DiscountBadge",
+      "name": "Redesigned",
+      "view": null,
+      "variant": "redesigned",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-discountbadge--redesigned&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-discountbadge--simple",
+      "title": "Data display/DiscountBadge",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-discountbadge--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-discountbadge--sizes",
+      "title": "Data display/DiscountBadge",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-discountbadge--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-discountbadge--themes",
+      "title": "Data display/DiscountBadge",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-discountbadge--themes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

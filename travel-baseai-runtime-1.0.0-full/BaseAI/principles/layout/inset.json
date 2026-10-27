@@ -1,0 +1,47 @@
+{
+  "id": "layout.inset",
+  "name": "Inset layout",
+  "type": "layout-principle",
+  "intent": "Cut Background Primary islands into a shared Background Secondary container; keep inner content on the island surface unless it is a control that needs its own secondary fill.",
+  "routeHints": ["Раздел Мои бронирования", "Настройки"],
+  "layers": [
+    {
+      "role": "outer-container",
+      "token": "Background Secondary",
+      "cssCandidates": ["--yatraveluikit-bg-fill-secondary-color", "--yatraveluikit-bg-card-secondary-color"]
+    },
+    {
+      "role": "inset-island",
+      "token": "Background Primary",
+      "cssCandidates": ["--yatraveluikit-bg-fill-primary-color", "--yatraveluikit-bg-card-primary-color"]
+    },
+    {
+      "role": "inner-content",
+      "token": "no additional surface by default",
+      "cssCandidates": []
+    }
+  ],
+  "contentRules": {
+    "secondaryBackgroundAllowedFor": ["Button", "Chip", "Input", "Dropdown"],
+    "secondaryBackgroundRareForOtherElements": true,
+    "typicalInnerComponents": ["TextWithIcon", "ListItem"],
+    "rareInnerComponents": ["Other elements"]
+  },
+  "platforms": {
+    "app": { "outerRadius": 32, "containerPadding": 8, "insetGap": 4, "innerRadiusFormula": "outerRadius - 8" },
+    "touch": { "outerRadius": 32, "containerPadding": 8, "insetGap": 4, "innerRadiusFormula": "outerRadius - 8" },
+    "desktop": { "outerRadius": 40, "containerPadding": 8, "insetGap": 4, "innerRadiusFormula": "outerRadius - 8" }
+  },
+  "separation": { "method": "inset-gap", "gap": 4, "containerPadding": 8 },
+  "desktopRules": ["Section titles may be placed outside inset islands."],
+  "preferredComponents": ["TextWithIcon", "ListItem", "Layout/Card", "Layout/CardsGroup", "Layout/Cell", "Layout/Box", "Layout/Flex"],
+  "avoid": ["Flattening nested groups into one undifferentiated surface", "Using 8px top-level island gaps inside inset groups"],
+  "validation": [
+    "Outer container uses Background Secondary.",
+    "Inset islands use Background Primary.",
+    "Inner content does not create Background Secondary surfaces except for controls such as buttons, chips, inputs, and dropdowns.",
+    "Typical inner content uses TextWithIcon and ListItem.",
+    "Inset gaps are 4px and container padding is 8px.",
+    "Inner radius equals outerRadius minus 8px."
+  ]
+}

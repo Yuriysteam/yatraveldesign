@@ -1,0 +1,14 @@
+{
+  "component": "Modal",
+  "kind": "dialog-overlay",
+  "defaultState": "closed",
+  "states": ["closed", "opening", "open", "closing", "fullscreen"],
+  "triggers": [
+    { "event": "click:trigger", "from": "closed", "to": "open" },
+    { "event": "click:close", "from": "open", "to": "closed" },
+    { "event": "click:scrim", "from": "open", "to": "closed" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "dialog", "stateAttrs": ["aria-modal", "aria-labelledby", "aria-describedby"], "keyboard": ["Escape", "Tab"] },
+  "preview": "Keep overlay, focus trap intent, close control and body-scroll lock together."
+}

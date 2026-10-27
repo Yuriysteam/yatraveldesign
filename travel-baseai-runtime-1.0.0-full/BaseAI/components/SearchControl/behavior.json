@@ -1,0 +1,12 @@
+{
+  "component": "SearchControl",
+  "kind": "control",
+  "defaultState": "empty",
+  "states": ["empty", "typing", "suggestions", "value", "disabled"],
+  "triggers": [
+    { "event": "input", "from": "empty", "to": "typing" },
+    { "event": "focus", "from": "typing", "to": "suggestions" },
+    { "event": "select-suggestion", "from": "suggestions", "to": "value" }
+  ],
+  "notes": "Search field with suggestions rendered inline in HTML prototypes."
+}

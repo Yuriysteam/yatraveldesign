@@ -1,0 +1,15 @@
+{
+  "component": "Select",
+  "kind": "custom-select-control",
+  "defaultState": "closed",
+  "states": ["closed", "open", "selected", "item-hover", "item-focus", "error", "disabled"],
+  "triggers": [
+    { "event": "click:trigger", "from": "closed", "to": "open" },
+    { "event": "click:option", "from": "open", "to": "selected" },
+    { "event": "keydown:ArrowDown|ArrowUp", "effect": "move active option" },
+    { "event": "keydown:Enter", "effect": "select active option" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "combobox/listbox", "stateAttrs": ["aria-expanded", "aria-activedescendant", "aria-invalid"] },
+  "preview": "Keep trigger value synchronized with selected option and popup selected item."
+}

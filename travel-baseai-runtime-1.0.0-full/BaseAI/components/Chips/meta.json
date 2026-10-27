@@ -1,0 +1,95 @@
+{
+  "name": "Chips",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 10,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Chips"
+  ],
+  "stories": [
+    {
+      "id": "controls-chips--icon",
+      "title": "Controls/Chips",
+      "name": "Icon",
+      "view": null,
+      "variant": "icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--simple",
+      "title": "Controls/Chips",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--sizes",
+      "title": "Controls/Chips",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--states",
+      "title": "Controls/Chips",
+      "name": "States",
+      "view": null,
+      "variant": "states",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--states&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--text-with-caption",
+      "title": "Controls/Chips",
+      "name": "Text With Caption",
+      "view": null,
+      "variant": "text-with-caption",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--text-with-caption&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--text-with-icon",
+      "title": "Controls/Chips",
+      "name": "Text With Icon",
+      "view": null,
+      "variant": "text-with-icon",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--text-with-icon&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--text-with-icon-and-caption",
+      "title": "Controls/Chips",
+      "name": "Text With Icon And Caption",
+      "view": null,
+      "variant": "text-with-icon-and-caption",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--text-with-icon-and-caption&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--themes",
+      "title": "Controls/Chips",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--with-counter",
+      "title": "Controls/Chips",
+      "name": "With Counter",
+      "view": null,
+      "variant": "with-counter",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--with-counter&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-chips--with-sub-title",
+      "title": "Controls/Chips",
+      "name": "With Sub Title",
+      "view": null,
+      "variant": "with-sub-title",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-chips--with-sub-title&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

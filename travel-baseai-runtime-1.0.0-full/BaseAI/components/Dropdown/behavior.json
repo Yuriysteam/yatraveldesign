@@ -1,0 +1,15 @@
+{
+  "component": "Dropdown",
+  "kind": "popup-list",
+  "defaultState": "closed",
+  "states": ["closed", "open", "item-hover", "item-selected", "empty", "disabled"],
+  "triggers": [
+    { "event": "click:trigger", "from": "closed", "to": "open" },
+    { "event": "input", "effect": "filter options when editable" },
+    { "event": "click:item", "from": "open", "to": "closed", "effect": "select item" },
+    { "event": "keydown:Escape", "from": "open", "to": "closed" },
+    { "event": "click:outside", "from": "open", "to": "closed" }
+  ],
+  "a11y": { "role": "combobox/listbox or menu", "stateAttrs": ["aria-expanded", "aria-controls", "aria-activedescendant"] },
+  "preview": "Keep trigger, popup, item hover/selected classes and placement wrapper from snippets."
+}

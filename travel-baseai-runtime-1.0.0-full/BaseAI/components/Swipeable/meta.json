@@ -1,0 +1,63 @@
+{
+  "name": "Swipeable",
+  "category": "Data display",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Data display/Swipeable"
+  ],
+  "stories": [
+    {
+      "id": "data-display-swipeable--initial-index",
+      "title": "Data display/Swipeable",
+      "name": "Initial Index",
+      "view": null,
+      "variant": "initial-index",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-swipeable--initial-index&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-swipeable--lazy-stub",
+      "title": "Data display/Swipeable",
+      "name": "Lazy Stub",
+      "view": null,
+      "variant": "lazy-stub",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-swipeable--lazy-stub&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-swipeable--outer-state",
+      "title": "Data display/Swipeable",
+      "name": "Outer State",
+      "view": null,
+      "variant": "outer-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-swipeable--outer-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-swipeable--scroll-snap",
+      "title": "Data display/Swipeable",
+      "name": "Scroll Snap",
+      "view": null,
+      "variant": "scroll-snap",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-swipeable--scroll-snap&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-swipeable--simple",
+      "title": "Data display/Swipeable",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-swipeable--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "data-display-swipeable--without-dots",
+      "title": "Data display/Swipeable",
+      "name": "Without Dots",
+      "view": null,
+      "variant": "without-dots",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=data-display-swipeable--without-dots&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,13 @@
+{
+  "component": "SegmentedControl",
+  "kind": "segmented-selection-control",
+  "defaultState": "single-selected",
+  "states": ["single-selected", "item-hover", "item-focus-visible", "item-disabled", "disabled"],
+  "triggers": [
+    { "event": "click:item", "effect": "select item" },
+    { "event": "keydown:ArrowLeft|ArrowRight", "effect": "move selection" },
+    { "event": "keydown:Enter|Space", "effect": "select focused item" }
+  ],
+  "a11y": { "role": "radiogroup or tablist", "keyboard": ["Arrow keys", "Enter", "Space"] },
+  "preview": "Keep selected segment visually pressed; do not use for multi-select filters."
+}

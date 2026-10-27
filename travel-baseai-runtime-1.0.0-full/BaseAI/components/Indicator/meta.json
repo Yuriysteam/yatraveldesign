@@ -1,0 +1,23 @@
+{
+  "name": "Indicator",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Controls/Indicator"
+  ],
+  "stories": [
+    {
+      "id": "controls-indicator--simple",
+      "title": "Controls/Indicator",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-indicator--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

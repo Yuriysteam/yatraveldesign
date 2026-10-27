@@ -1,0 +1,31 @@
+{
+  "name": "SquareBackgroundSkeleton",
+  "category": "Feedback",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 2,
+  "views": [],
+  "sourceTitles": [
+    "Feedback/SquareBackgroundSkeleton"
+  ],
+  "stories": [
+    {
+      "id": "feedback-squarebackgroundskeleton--simple",
+      "title": "Feedback/SquareBackgroundSkeleton",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-squarebackgroundskeleton--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "feedback-squarebackgroundskeleton--sizes",
+      "title": "Feedback/SquareBackgroundSkeleton",
+      "name": "Sizes",
+      "view": null,
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=feedback-squarebackgroundskeleton--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

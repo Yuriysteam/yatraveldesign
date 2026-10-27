@@ -1,0 +1,63 @@
+{
+  "name": "DateInput",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 6,
+  "views": [],
+  "sourceTitles": [
+    "Controls/DateInput"
+  ],
+  "stories": [
+    {
+      "id": "controls-dateinput--disabled",
+      "title": "Controls/DateInput",
+      "name": "Disabled",
+      "view": null,
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dateinput--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-dateinput--error-state",
+      "title": "Controls/DateInput",
+      "name": "Error State",
+      "view": null,
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dateinput--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-dateinput--simple",
+      "title": "Controls/DateInput",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dateinput--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-dateinput--themes",
+      "title": "Controls/DateInput",
+      "name": "Themes",
+      "view": null,
+      "variant": "themes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dateinput--themes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-dateinput--with-hint",
+      "title": "Controls/DateInput",
+      "name": "With Hint",
+      "view": null,
+      "variant": "with-hint",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dateinput--with-hint&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-dateinput--with-label",
+      "title": "Controls/DateInput",
+      "name": "With Label",
+      "view": null,
+      "variant": "with-label",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-dateinput--with-label&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

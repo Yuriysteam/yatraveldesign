@@ -1,0 +1,15 @@
+{
+  "component": "Tooltip",
+  "kind": "contextual-popup",
+  "defaultState": "hidden",
+  "states": ["hidden", "visible", "interactive", "placement-top", "placement-bottom", "placement-left", "placement-right"],
+  "triggers": [
+    { "event": "mouseenter", "from": "hidden", "to": "visible" },
+    { "event": "mouseleave", "from": "visible", "to": "hidden" },
+    { "event": "focus", "from": "hidden", "to": "visible" },
+    { "event": "blur", "from": "visible", "to": "hidden" },
+    { "event": "keydown:Escape", "from": "visible", "to": "hidden" }
+  ],
+  "a11y": { "role": "tooltip", "stateAttrs": ["aria-describedby"], "keyboard": ["Escape"] },
+  "preview": "Keep trigger and tooltip placement wrapper related; do not show a detached floating label."
+}

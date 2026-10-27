@@ -1,0 +1,30 @@
+{
+  "id": "layout.flat",
+  "name": "Flat layout",
+  "type": "layout-principle",
+  "intent": "Use one continuous Background Secondary surface and separate content blocks with spacing.",
+  "routeHints": ["Главная", "Раздел Моя поездка", "Страница Моей поездки"],
+  "layers": [
+    {
+      "role": "page",
+      "token": "Background Secondary",
+      "cssCandidates": ["--yatraveluikit-bg-fill-secondary-color", "--yatraveluikit-bg-card-secondary-color"]
+    }
+  ],
+  "platforms": {
+    "app": { "outerPadding": 20, "sectionGap": 40 },
+    "touch": { "outerPadding": 20, "sectionGap": 40 },
+    "desktop": { "contentWidth": 1200, "sectionGap": 120 }
+  },
+  "separation": {
+    "method": "spacing",
+    "avoid": ["background-gaps", "nested-islands-by-default"]
+  },
+  "preferredComponents": ["Layout/Box", "Layout/Flex", "Layout/SpaceSeparator", "Layout/TwoColumnLayout"],
+  "avoid": ["Creating cards only to separate sections", "Using shadows as section separators"],
+  "validation": [
+    "Page has a single Background Secondary surface.",
+    "Major blocks are separated by platform sectionGap.",
+    "Desktop content stays inside 1200px column."
+  ]
+}

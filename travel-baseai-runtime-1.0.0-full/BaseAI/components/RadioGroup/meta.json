@@ -1,0 +1,165 @@
+{
+  "name": "RadioGroup",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component with view variants",
+  "storiesCount": 18,
+  "views": [
+    "Generic",
+    "Outlined",
+    "Solid"
+  ],
+  "sourceTitles": [
+    "Controls/RadioGroup/Generic",
+    "Controls/RadioGroup/Outlined",
+    "Controls/RadioGroup/Solid"
+  ],
+  "stories": [
+    {
+      "id": "controls-radiogroup-generic--boolean",
+      "title": "Controls/RadioGroup/Generic",
+      "name": "Boolean",
+      "view": "Generic",
+      "variant": "boolean",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-generic--boolean&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-generic--number",
+      "title": "Controls/RadioGroup/Generic",
+      "name": "Number",
+      "view": "Generic",
+      "variant": "number",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-generic--number&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-generic--object",
+      "title": "Controls/RadioGroup/Generic",
+      "name": "Object",
+      "view": "Generic",
+      "variant": "object",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-generic--object&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-generic--string",
+      "title": "Controls/RadioGroup/Generic",
+      "name": "String",
+      "view": "Generic",
+      "variant": "string",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-generic--string&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--align",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Align",
+      "view": "Outlined",
+      "variant": "align",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--align&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--disabled",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Disabled",
+      "view": "Outlined",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--error-state",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Error State",
+      "view": "Outlined",
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--multiline",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Multiline",
+      "view": "Outlined",
+      "variant": "multiline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--multiline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--row-direction",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Row Direction",
+      "view": "Outlined",
+      "variant": "row-direction",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--row-direction&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--simple",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Simple",
+      "view": "Outlined",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-outlined--sizes",
+      "title": "Controls/RadioGroup/Outlined",
+      "name": "Sizes",
+      "view": "Outlined",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-outlined--sizes&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--align",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Align",
+      "view": "Solid",
+      "variant": "align",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--align&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--disabled",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Disabled",
+      "view": "Solid",
+      "variant": "disabled",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--disabled&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--error-state",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Error State",
+      "view": "Solid",
+      "variant": "error-state",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--error-state&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--multiline",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Multiline",
+      "view": "Solid",
+      "variant": "multiline",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--multiline&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--row-direction",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Row Direction",
+      "view": "Solid",
+      "variant": "row-direction",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--row-direction&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--simple",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Simple",
+      "view": "Solid",
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--simple&globals=designSystem:new&viewMode=story"
+    },
+    {
+      "id": "controls-radiogroup-solid--sizes",
+      "title": "Controls/RadioGroup/Solid",
+      "name": "Sizes",
+      "view": "Solid",
+      "variant": "sizes",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-radiogroup-solid--sizes&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}

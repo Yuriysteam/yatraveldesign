@@ -1,0 +1,23 @@
+{
+  "name": "ImagesSelector",
+  "category": "Controls",
+  "source": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/",
+  "designSystem": "new",
+  "grouping": "single component",
+  "storiesCount": 1,
+  "views": [],
+  "sourceTitles": [
+    "Controls/ImagesSelector"
+  ],
+  "stories": [
+    {
+      "id": "controls-imagesselector--simple",
+      "title": "Controls/ImagesSelector",
+      "name": "Simple",
+      "view": null,
+      "variant": "simple",
+      "sourceUrl": "https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/iframe.html?id=controls-imagesselector--simple&globals=designSystem:new&viewMode=story"
+    }
+  ],
+  "failures": []
+}
