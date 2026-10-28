@@ -1042,8 +1042,7 @@ class Bot:
             return
         if document.get("file_size", 0) > MAX_UPLOAD_BYTES:
             raise UserError("Файл не должен превышать 20 МБ.")
-        initial = "Загружаю скилл…" if pending and pending[0] == "skill" or filename.lower() == "skill.md" else "Загружаю прототип…"
-        progress = PublicationProgress(self, self.send(message["chat"]["id"], initial))
+        progress = PublicationProgress(self, self.send(message["chat"]["id"], "Загружаю файл…"))
         try:
             raw = self.download_document(document)
             progress.update("Проверяю архив…" if filename.lower().endswith(".zip") else "Проверяю скилл…")
@@ -1054,6 +1053,7 @@ class Bot:
                     raise UserError("Для прототипа нужен ZIP." if action == "prototype" else "Пришлите ZIP или SKILL.md.")
             else:
                 action = detect_upload(filename, raw)
+            progress.update("Проверяю прототип…" if action == "prototype" else "Проверяю скилл…")
             if action == "prototype":
                 self.publish_prototype(user_id, filename, raw, message["from"], progress)
             else:
@@ -1119,7 +1119,7 @@ class Bot:
         self.db.commit()
 
     def publish_prototype(self, user_id, filename, raw, author, progress):
-        progress.update("Проверяю архив…")
+        progress.update("Проверяю прототип…")
         slug = slugify(filename.rsplit(".", 1)[0])
         if not slug:
             raise UserError("Не удалось составить ссылку из имени ZIP.")

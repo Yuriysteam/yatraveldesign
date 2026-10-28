@@ -748,11 +748,11 @@ description: >-
                 with patch("bot.enrich_metadata", return_value=("Demo", "Описание")), patch("bot.urllib.request.urlopen", side_effect=check_response), patch("bot.PUBLIC_ARTIFACT_TIMEOUT_SECONDS", 0):
                     instance.publish_document({"chat": {"id": 7}, "from": {"id": 1, "username": "anna"},
                                                "document": {"file_name": "demo.zip"}})
-                instance.send.assert_called_once_with(7, "Загружаю прототип…")
+                instance.send.assert_called_once_with(7, "Загружаю файл…")
                 edits = instance.edit_message.call_args_list
                 self.assertTrue(all(call.args[:2] == (7, 9) for call in edits))
-                self.assertEqual([call.args[2] for call in edits[:3]], [
-                    "Проверяю архив…", "Загружаю на сервер…", "Жду публикацию страницы…"])
+                self.assertEqual([call.args[2] for call in edits[:4]], [
+                    "Проверяю архив…", "Проверяю прототип…", "Загружаю на сервер…", "Жду публикацию страницы…"])
                 final = edits[-1].args[2]
                 if published:
                     self.assertEqual(final, f"Загружено ✓\n\n{url}")
@@ -760,6 +760,27 @@ description: >-
                     self.assertIn("Ошибка публикации", final)
                     self.assertNotIn("Загружено", final)
                     self.assertNotIn(url, final)
+
+    def test_unsolicited_skill_zip_has_neutral_then_skill_status_in_same_message(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        self.addCleanup(instance.db.close)
+        instance.db.execute("create table pending (user_id integer, action text, name text, version text)")
+        instance.is_publisher = Mock(return_value=True)
+        instance.send = Mock(return_value={"chat": {"id": 7}, "message_id": 9})
+        instance.edit_message = Mock()
+        instance.download_document = Mock(return_value=archive({"SKILL.md": "---\nname: sample\nversion: v0.1\n---\n"}))
+        instance.publish_prototype = Mock()
+        instance.review_skill = Mock()
+        instance.publish_document({"chat": {"id": 7}, "from": {"id": 1}, "document": {"file_name": "sample.zip"}})
+        instance.send.assert_called_once_with(7, "Загружаю файл…")
+        self.assertEqual([call.args for call in instance.edit_message.call_args_list], [
+            (7, 9, "Проверяю архив…"),
+            (7, 9, "Проверяю скилл…"),
+            (7, 9, "Скилл проверен. Ожидает подтверждения публикации."),
+        ])
+        instance.review_skill.assert_called_once()
+        instance.publish_prototype.assert_not_called()
 
     def test_invalid_archive_updates_original_status(self):
         instance = bot.Bot.__new__(bot.Bot)
