@@ -6,6 +6,7 @@
     <meta name="robots" content="noindex, nofollow, noarchive">
     <title>Skill Store — Travel Design</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="install.js"></script>
     <style>
       @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
       @font-face { font-family: "YS Text"; src: url("../assets/fonts/ys-text-medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
@@ -36,6 +37,7 @@
       button:active { background: #4a4950; transform: scale(.98); }
       button:disabled { cursor: not-allowed; opacity: .55; }
       button:focus-visible { outline: 2px solid #ffed2f; outline-offset: 2px; }
+      .install-link { color: #b8a7ff; font-size: 14px; line-height: 20px; }
       .empty { margin: 0; padding: 24px; border-radius: 32px; background: #1b1a1e; color: #9c9ba2; }
       .skill-accordion { margin-top: 8px; overflow: hidden; border-radius: 32px; background: #1b1a1e; }
       .skill-accordion summary { display: flex; align-items: center; justify-content: space-between; min-height: 88px; padding: 24px; cursor: pointer; list-style: none; font-family: "YS Display", "YS Text", sans-serif; font-size: 20px; font-weight: 500; line-height: 22px; }
@@ -50,7 +52,7 @@
     <main>
       <header class="intro">
         <div class="intro__title"><h1>Skill Store</h1></div>
-        <p class="intro__text">Скопируйте промпт, вставьте в Кодекс и он сам установит нужные скилы</p>
+        <p class="intro__text">Впервые? Скопируйте промпт в ChatGPT — он подключит командный каталог и установит скилл. Каталог уже подключён? Откройте установку в ChatGPT на Mac.</p>
       </header>
       <section id="skills" aria-live="polite"><p class="empty">Загружаем скилы…</p></section>
       <details id="base" class="skill-accordion" hidden>
@@ -64,10 +66,8 @@
       const baseTarget = document.querySelector('#base-skills');
       const baseSection = document.querySelector('#base');
       const baseSkillIds = ['internal-research', 'calendar-cli', 'agenda'];
-      const rawRoot = 'https://raw.githubusercontent.com/Yuriysteam/yatraveldesign/main';
       const monthNames = ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
       const formatDate = timestamp => { const value = new Date(timestamp * 1000); return `${value.getDate()} ${monthNames[value.getMonth()]}`; };
-      const packageUrl = item => `${rawRoot}/skills/${item.id}/skill.zip?updated=${encodeURIComponent(item.updated_at)}`;
       const dependencyClosure = (item, byId) => {
         const result = []; const visiting = new Set(); const visited = new Set();
         const visit = current => {
@@ -79,24 +79,6 @@
         };
         visit(item); return result;
       };
-      const prompt = required => {
-        const selected = required[required.length - 1];
-        if (selected.prompt) return selected.prompt;
-        if (selected.installation?.type === 'script') {
-          return `Установи комплект «${selected.name}» из ${packageUrl(selected)}. Распакуй во временную папку, прочитай README.md и в корне выполни python3 install.py --check, затем python3 install.py. При конфликте не заменяй skills.`;
-        }
-        return `Установи скил «${selected.name}» и все нужные для него скилы.\n\nУстанови по порядку:\n${required.map((item, index) => `${index + 1}. ${item.name}: ${packageUrl(item)}`).join('\n')}\n\nКаждый архив распакуй в отдельную папку скилов текущего инструмента. Не меняй остальные скилы. После установки проверь, что у каждого скила доступен SKILL.md.`;
-      };
-      async function copy(text, button) {
-        let copied = false;
-        try { await navigator.clipboard.writeText(text); copied = true; }
-        catch {
-          const field = document.createElement('textarea'); field.value = text; document.body.append(field); field.select();
-          try { copied = document.execCommand('copy'); } finally { field.remove(); }
-        }
-        button.textContent = copied ? 'Промпт скопирован' : 'Не удалось скопировать';
-        setTimeout(() => button.textContent = 'Скопировать промпт', 1800);
-      }
       fetch(`catalog.json?updated=${Date.now()}`, { cache: 'no-store' }).then(response => response.ok ? response.json() : Promise.reject()).then(items => {
         target.replaceChildren(); if (!items.length) { target.innerHTML = '<p class="empty">Скилы пока не опубликованы.</p>'; return; }
         const byId = new Map(items.map(item => [item.id, item]));
@@ -124,8 +106,15 @@
             avatar.className = 'author-avatar'; avatars.append(avatar);
           });
           updated.append(version, dot, date, dot.cloneNode(true), label, avatars);
-          const button = document.createElement('button'); button.type = 'button'; button.textContent = dependencyError ? 'Нельзя установить' : 'Скопировать промпт'; button.disabled = Boolean(dependencyError); button.addEventListener('click', () => copy(prompt(required), button));
-          content.append(title, description); if (dependencyNote.textContent) content.append(dependencyNote); card.append(content, updated, button); container.append(card);
+          const button = document.createElement('button'); button.type = 'button'; button.textContent = dependencyError ? 'Нельзя установить' : 'Скопировать промпт'; button.disabled = Boolean(dependencyError); button.addEventListener('click', () => TravelSkillInstall.copy(TravelSkillInstall.prompt(item.id), button));
+          content.append(title, description); if (dependencyNote.textContent) content.append(dependencyNote); card.append(content, updated, button);
+          if (!dependencyError && TravelSkillInstall.validId(item.id)) {
+            const open = document.createElement('a'); open.className = 'install-link'; open.textContent = 'Открыть установку в ChatGPT';
+            open.href = `install.html?skill=${encodeURIComponent(item.id)}`;
+            if (telegram?.openLink) open.addEventListener('click', event => { event.preventDefault(); telegram.openLink(new URL(open.href).href); });
+            card.append(open);
+          }
+          container.append(card);
         };
         items.filter(item => !baseSkillIds.includes(item.id)).sort((a, b) => b.updated_at - a.updated_at).forEach(item => renderCard(item, target));
         const baseItems = baseSkillIds.map(id => byId.get(id)).filter(Boolean);

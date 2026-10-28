@@ -37,6 +37,47 @@ class BotTests(unittest.TestCase):
         with patch("builtins.open", unittest.mock.mock_open(read_data='{"chat_id": -123}')):
             instance.notify_team_publication("Скил опубликован")
 
+    def test_codex_install_prompt_connects_refreshes_and_installs_selected_plugin(self):
+        prompt = bot.codex_installation_prompt("agenda")
+        self.assertIn("Если travel-design ещё не подключён", prompt)
+        self.assertIn("codex plugin marketplace add Yuriysteam/yatraveldesign --ref main --sparse .agents/plugins --sparse plugins", prompt)
+        self.assertIn("codex plugin marketplace upgrade travel-design", prompt)
+        self.assertIn("codex plugin add agenda@travel-design --json", prompt)
+        self.assertNotIn("skill.zip", prompt)
+        with self.assertRaises(bot.UserError):
+            bot.codex_installation_prompt("../bad; command")
+
+    def test_codex_install_options_use_https_and_handle_telegram_copy_limit(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(public_base_url="https://example.test")
+        for prompt in ("Установи скилл", "x" * 257):
+            note, options = instance.skill_installation_options("agenda", prompt)
+            buttons = options["reply_markup"]["inline_keyboard"]
+            self.assertEqual(len(buttons), 2)
+            if len(prompt) <= 256:
+                self.assertEqual(buttons[0][0]["copy_text"]["text"], prompt)
+            else:
+                self.assertEqual(buttons[0][0]["url"], "https://example.test/skills/install.html?skill=agenda#first-time")
+            self.assertEqual(buttons[1][0]["url"], "https://example.test/skills/install.html?skill=agenda#connected")
+            self.assertIn("Каталог уже подключён", note)
+
+    def test_team_notification_and_skill_callback_offer_both_install_methods(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(state_path="/tmp/state.sqlite3", public_base_url="https://example.test", repository="Yuriysteam/yatraveldesign", branch="main")
+        instance.send = Mock()
+        instance.telegram = Mock()
+        prompt = bot.codex_installation_prompt("agenda")
+        with patch("builtins.open", unittest.mock.mock_open(read_data='{"chat_id": -123}')):
+            instance.notify_team_publication("Новый скил Agenda", prompt, "agenda")
+        self.assertEqual(len(instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]), 2)
+        item = {"id": "agenda", "name": "Agenda", "description": "Описание", "updated_at": 1, "updated_by": "team", "prompt": "Установи старый ZIP"}
+        instance.github = SimpleNamespace(read_json=Mock(return_value=[item]))
+        instance.callback({"id": "cb", "data": "skill:agenda", "from": {"id": 1}, "message": {"chat": {"id": 1}}})
+        buttons = instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]
+        self.assertEqual(len(buttons), 2)
+        self.assertIn("install.html?skill=agenda", buttons[0][0]["url"])
+        self.assertNotIn("старый ZIP", instance.send.call_args.args[1])
+
     def test_group_inputs_are_silently_ignored(self):
         instance = bot.Bot.__new__(bot.Bot)
         instance.send = Mock()
@@ -109,9 +150,10 @@ class BotTests(unittest.TestCase):
             "team-skill", "team-skill", "v0.2", "Новое описание", "Team skill", "Новое описание", [], package,
         )):
             instance.publish_skill(1, "team-skill.zip", b"zip", {"id": 1, "username": "anna"}, Mock(advance=lambda: None), custom_prompt="Установи ровно этот скил")
-        text, prompt = instance.notify_team_publication.call_args.args
+        text, prompt, identifier = instance.notify_team_publication.call_args.args
         self.assertEqual(text, "Обновился скилл Командный скил")
-        self.assertEqual(prompt, "Установи ровно этот скил")
+        self.assertEqual(identifier, "team-skill")
+        self.assertEqual(prompt, bot.codex_installation_prompt("team-skill", "owner/repo", "main"))
         files = instance.github.commit_files.call_args.args[0]
         self.assertEqual(json.loads(files["skills/catalog.json"])[0]["prompt"], "Установи ровно этот скил")
 

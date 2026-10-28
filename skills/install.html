@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Установка скилла — Travel Design</title>
+  <style>
+    :root { color-scheme: dark; font: 16px/1.5 -apple-system, BlinkMacSystemFont, sans-serif; color: #ededee; background: #0d0d0f; }
+    body { margin: 0; padding: 24px; } main { max-width: 560px; margin: 24px auto; }
+    h1 { font-size: 28px; } h2 { font-size: 20px; } section { padding: 20px; margin: 16px 0; background: #1b1a1e; border-radius: 24px; }
+    button, .button { display: inline-block; padding: 12px 16px; border: 0; border-radius: 14px; font: inherit; color: #ededee; background: #35343a; text-decoration: none; cursor: pointer; }
+    button:focus-visible, a:focus-visible { outline: 2px solid #ffed2f; outline-offset: 3px; }
+    textarea { box-sizing: border-box; width: 100%; min-height: 160px; margin-top: 16px; padding: 12px; color: inherit; background: #0d0d0f; border: 1px solid #555; border-radius: 12px; font: inherit; resize: vertical; }
+    a { color: #b8a7ff; } [hidden] { display: none !important; } #status { min-height: 24px; }
+  </style>
+  <script src="install.js"></script>
+</head>
+<body>
+<main>
+  <a href="./">← Skill Store</a>
+  <h1 id="title">Установка скилла</h1>
+  <p id="status" role="status">Проверяем скилл…</p>
+  <div id="options" hidden>
+    <section id="first-time">
+      <h2>Впервые устанавливаете скилл?</h2>
+      <p>Скопируйте промпт и вставьте в ChatGPT на Mac. Он один раз подключит командный каталог Travel Design и установит выбранный скилл.</p>
+      <button id="copy" type="button">Скопировать промпт</button>
+      <textarea id="prompt" aria-label="Промпт установки" readonly></textarea>
+    </section>
+    <section id="connected">
+      <h2>Каталог уже подключён?</h2>
+      <p>Откройте карточку в приложении ChatGPT на Mac и подтвердите установку.</p>
+      <a id="open" class="button">Открыть в ChatGPT</a>
+      <p>Если приложение не открылось, откройте эту страницу в Safari или Chrome. Если вместо карточки открылся общий раздел Plugins, используйте промпт выше: каталог или скилл ещё не найден.</p>
+    </section>
+    <details id="author-note" hidden>
+      <summary>Дополнительная инструкция автора</summary>
+      <p>Сохранённый текст из карточки скилла. Для установки в ChatGPT используйте способы выше.</p>
+      <textarea id="author-prompt" aria-label="Дополнительная инструкция автора" readonly></textarea>
+    </details>
+  </div>
+</main>
+<script>
+  (async () => {
+    const status = document.querySelector('#status');
+    const id = new URLSearchParams(location.search).get('skill');
+    if (!TravelSkillInstall.validId(id)) { status.textContent = 'Выберите скилл в Skill Store.'; return; }
+    try {
+      const response = await fetch(`catalog.json?updated=${Date.now()}`, { cache: 'no-store' });
+      if (!response.ok) throw new Error('catalog');
+      const items = await response.json();
+      const item = items.find(item => item.id === id);
+      if (!item) { status.textContent = 'Скилл удалён или больше недоступен. Выберите другой в Skill Store.'; return; }
+      document.querySelector('#title').textContent = item.name;
+      document.querySelector('#prompt').value = TravelSkillInstall.prompt(id);
+      document.querySelector('#copy').addEventListener('click', () => TravelSkillInstall.copy(TravelSkillInstall.prompt(id), document.querySelector('#copy')));
+      document.querySelector('#open').href = TravelSkillInstall.deepLink(id);
+      if (item.prompt && item.prompt !== TravelSkillInstall.prompt(id)) {
+        document.querySelector('#author-prompt').value = item.prompt;
+        document.querySelector('#author-note').hidden = false;
+      }
+      document.querySelector('#options').hidden = false;
+      if (location.hash === '#connected' || location.hash === '#first-time') document.querySelector(location.hash).scrollIntoView();
+      status.textContent = 'Выберите способ установки.';
+    } catch { status.textContent = 'Не удалось проверить скилл. Обновите страницу или откройте Skill Store позже.'; }
+  })();
+</script>
+</body>
+</html>
