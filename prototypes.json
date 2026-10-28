@@ -102,14 +102,6 @@
     "url": "prototypes/1223378011/postpay-extranet-prototype-v2-2026-10-07/"
   },
   {
-    "title": "prototype-Academ-20mb",
-    "description": "Без описания",
-    "author": "Екатерина Сучкова",
-    "avatar": "assets/avatars/katya.jpeg",
-    "updated_at": 1791992179,
-    "url": "prototypes/125395264/prototype-academ-20mb/"
-  },
-  {
     "title": "avia-ai-search-prototype",
     "description": "Без описания",
     "author": "Люба",
@@ -140,5 +132,13 @@
     "avatar": "assets/avatars/yuriy.jpeg",
     "updated_at": 1792679615,
     "url": "prototypes/335833483/aircraft-cabin-builder/"
+  },
+  {
+    "title": "prototype-Academ-20mb",
+    "description": "Без описания",
+    "author": "Екатерина Сучкова",
+    "avatar": "assets/avatars/katya.jpeg",
+    "updated_at": 1793190467,
+    "url": "prototypes/125395264/prototype-academ-20mb/"
   }
 ]

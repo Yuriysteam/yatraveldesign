@@ -1,0 +1,23 @@
+/* Shared popup actions, Figma 11160:22222: full width, 48px / radius 16px. */
+:root body :is(.buyer-editor-actions,.new-buyer-form__actions,.users-editor-actions,.users-confirm-actions,.collections-modal__actions,.cancel-modal__actions,.price-modal__actions){
+  display:flex;width:100%;justify-content:stretch;gap:8px;margin-top:24px;
+}
+:root body :is(.buyer-editor-actions,.new-buyer-form__actions,.users-editor-actions,.users-confirm-actions,.collections-modal__actions,.cancel-modal__actions,.price-modal__actions,.meal-drawer__actions)>button,
+:root body :is(.users-editor .editor-save,.columns-panel__save,#saveDocumentsColumns){
+  box-sizing:border-box;display:flex;align-items:center;justify-content:center;flex:1 1 0;min-width:0;width:100%;height:48px;min-height:48px;padding:14px 18px;border:0;border-radius:16px;font:500 16px/20px "YS Text",Arial,sans-serif;text-align:center;cursor:pointer;
+}
+:root body .users-editor .editor-save{margin-top:24px}
+:root body :is(.buyer-editor-actions,.new-buyer-form__actions,.price-modal__actions)>button,
+:root body :is(.users-editor .editor-save,.columns-panel__save,#saveDocumentsColumns),
+:root body .cancel-modal__actions>button:last-child,
+:root body .meal-drawer__actions>.primary{
+  background:#fed42b;color:#0d0d0f;
+}
+:root body :is(.buyer-editor-actions,.new-buyer-form__actions,.price-modal__actions)>button:hover,
+:root body :is(.users-editor .editor-save,.columns-panel__save,#saveDocumentsColumns):hover,
+:root body .cancel-modal__actions>button:last-child:hover,
+:root body .meal-drawer__actions>.primary:hover{background:#fc0}
+:root body :is(.buyer-editor-actions,.new-buyer-form__actions,.users-editor-actions,.users-confirm-actions,.collections-modal__actions,.cancel-modal__actions,.price-modal__actions,.meal-drawer__actions)>button:focus-visible,
+:root body :is(.users-editor .editor-save,.columns-panel__save,#saveDocumentsColumns):focus-visible{outline:2px solid #07f;outline-offset:2px}
+:root body :is(.buyer-editor-actions,.new-buyer-form__actions,.users-editor-actions,.users-confirm-actions,.collections-modal__actions,.cancel-modal__actions,.price-modal__actions,.meal-drawer__actions)>button:disabled,
+:root body :is(.users-editor .editor-save,.columns-panel__save,#saveDocumentsColumns):disabled{background:#ededee;color:#9c9ba2;cursor:default}

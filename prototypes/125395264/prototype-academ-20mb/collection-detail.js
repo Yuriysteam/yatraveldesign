@@ -1,5 +1,17 @@
+// Use the approved second widget layout in the main collection as well.
+document.body.classList.add('collection-detail-page--open');
+document.querySelectorAll('.selection-card').forEach(card=>{
+  card.classList.add('selection-card--open');
+  card.querySelector('.selected-room__stock')?.remove();
+  const offers=[...card.querySelectorAll(':scope > .collection-offer-host')];
+  if(offers.length){const group=document.createElement('div');group.className='collection-offers-open';offers[0].before(group);group.append(...offers);}
+});
 document.querySelectorAll('.collection-offer-host').forEach(host=>{
   HotelOfferWidget.render(host,host.dataset.offer);
+  host.querySelector('.offer-toolbar')?.remove();
+  const action=host.querySelector('.offer-booking');
+  action.innerHTML='<button class="collection-offer-delete" type="button" aria-label="Удалить предложение из подборки"><img src="assets/collections/trash.svg" alt=""></button>';
+  action.querySelector('button').addEventListener('click',()=>host.remove());
 });
 
 const selectedCollection=new URLSearchParams(location.search).get('collection');

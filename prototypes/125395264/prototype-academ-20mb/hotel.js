@@ -1,7 +1,7 @@
 document.querySelectorAll('.heart').forEach((button)=>{const icon=button.querySelector('img');const updateIcon=()=>{icon.src=button.classList.contains('selected')?'assets/hotel/heart-fill-new-16.svg':'assets/hotel/heart-new-16.svg'};updateIcon();button.addEventListener('click',()=>{button.classList.toggle('selected');button.setAttribute('aria-pressed',button.classList.contains('selected'));updateIcon()})});
 const isSnippetObjectCopy=document.body.classList.contains('hotel-page--snippet-copy');
 const linkedHotelName=new URLSearchParams(location.search).get('hotel');
-if(linkedHotelName){document.querySelector('.hotel-name h1').textContent=linkedHotelName;document.title=`${linkedHotelName}${isSnippetObjectCopy?' — копия':''} — Академ-Онлайн`}
+if(linkedHotelName){document.querySelector('.hotel-name h1').textContent=linkedHotelName;document.title=`${linkedHotelName} — Академ-Онлайн`}
 let roomCard=document.querySelector('.room-card');
 if(isSnippetObjectCopy&&roomCard){const originalRoom=roomCard;const sourceBlock=document.createElement('div');sourceBlock.className='results-page results-list-variant full-search-block object-snippet-copy';sourceBlock.innerHTML=`<article class="hotel-result"><div class="room-card"><div class="room-snippet"><img src="assets/hotel-figma/image-2.png" alt="Номер"><div class="room-copy"><h3>Двухместный с двуспальной кроватью и общим санузлом (санузел на этаже)</h3><div class="room-meta"><span><img src="assets/hotel/area.svg" alt="">25м²</span><span><img src="assets/hotel/bed.svg" alt="">Двухъярусная кровать 90 × 200 см</span><span><img src="assets/hotel/bath.svg" alt="">В блоке комнат</span></div></div><button class="room-heart" type="button" aria-label="Добавить номер в подборку"><img src="assets/hotel/heart-new-16.svg" alt=""></button></div><div class="primary-offer room-tariffs" aria-live="polite"></div><div class="extra-offers" hidden></div><button class="more-offers room-more" type="button" aria-expanded="false"><span>Показать ещё 12 предложений</span><img src="assets/arrow-down-fill-16.svg" alt=""></button></div></article>`;originalRoom.replaceWith(sourceBlock);roomCard=sourceBlock.querySelector('.room-card')}
 const roomTariffs=roomCard?.querySelector('.room-tariffs');
@@ -54,6 +54,7 @@ if(firstMoreButton&&window.HotelOfferWidget){
     roomCard.classList.toggle('open',opening);
     roomCard.closest('.hotel-result')?.classList.toggle('open',opening);
     firstMoreButton.classList.toggle('is-open',opening);
+    firstMoreButton.setAttribute('aria-expanded',String(opening));
     firstMoreButton.querySelector('span').textContent=opening?'Скрыть предложения':`Показать ещё ${isSnippetObjectCopy?12:4} предложений`;
   });
   if(isSnippetObjectCopy)firstMoreButton.querySelector('span').textContent='Показать ещё 12 предложений';
@@ -80,6 +81,7 @@ if(secondMoreButton&&secondaryVisibleTariffs&&window.HotelOfferWidget){
     secondaryCard.classList.toggle('open',opening);
     secondaryCard.closest('.hotel-result')?.classList.toggle('open',opening);
     secondMoreButton.classList.toggle('is-open',opening);
+    secondMoreButton.setAttribute('aria-expanded',String(opening));
     secondMoreButton.querySelector('span').textContent=opening?'Скрыть предложения':'Показать ещё 5 предложений';
   });
 }

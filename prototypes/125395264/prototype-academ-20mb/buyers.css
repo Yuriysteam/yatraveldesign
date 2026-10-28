@@ -1,0 +1,36 @@
+.buyers-page{min-width:0}.buyers-page .topbar__inner{max-width:1200px;width:calc(100% - 80px)}
+.buyers-main{max-width:1252px;width:calc(100% - 48px);margin:33px auto 28px;min-height:calc(100vh - 303px)}
+.buyers-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-left:27px;margin-bottom:32px;min-height:48px}
+.buyers-heading h1{margin:0;font:500 32px/32px "YS Display",Arial,sans-serif;letter-spacing:-1.5px}
+.buyers-toolbar{display:flex;justify-content:space-between;gap:24px;align-items:center;padding:28px;border-radius:36px;background:#fff;margin-bottom:24px}
+.buyers-search{display:flex;gap:8px;min-width:0;flex:0 1 694px}.buyers-search input{height:48px;min-width:0;flex:1;padding:12px 16px;border:1px solid #cdcccf;border-radius:16px;background:#fff;color:#0d0d0f;font:400 16px/20px "YS Text",Arial,sans-serif}
+.buyers-search input::placeholder{color:#9c9ba2}.buyers-secondary{height:48px;padding:0 20px;border-radius:16px;background:#f5f5f5;color:#0d0d0f;font:500 14px/18px "YS Text",Arial,sans-serif}.buyers-secondary:hover{background:#e6e5e7}
+.buyers-filters{display:flex;gap:8px;flex:0 0 auto}.buyers-filters>div:first-child{width:175px}.buyers-filters>div:last-child{width:228px}
+.buyers-page .ds-dropdown-trigger>img{position:static;width:20px;height:20px;flex:0 0 20px}.buyers-filters .ds-dropdown-trigger{background:#ededee}
+.buyers-grid{display:grid;grid-template-columns:18px minmax(300px,520px) minmax(170px,220px) 200px 88px;column-gap:16px;align-items:start}
+.buyers-table-head{height:38px;margin-bottom:8px;padding:10px 28px;color:#9c9ba2;font:400 14px/18px "YS Text",Arial,sans-serif}
+.buyers-table-head>span{white-space:nowrap;min-width:0}.buyers-table-head>span:last-child{display:flex;align-items:center;justify-content:flex-end;height:18px}
+.buyers-grid>span:nth-child(3),.buyers-grid>span:nth-child(4){justify-self:end;width:100%}
+.buyers-rows{padding:0 28px;border-radius:36px;background:#fff}.buyer-row{position:relative;padding:22px 0;min-height:84px}.buyer-row+.buyer-row{border-top:1px solid #e6e5e7}
+.buyer-row>span{position:relative;z-index:1;min-width:0}.buyer-name{line-height:20px}.buyer-name small{display:block;color:#9c9ba2;font:400 16px/20px "YS Text",Arial,sans-serif}.buyer-location,.buyer-tax{line-height:20px}
+.buyer-row:before{position:absolute;inset:8px 96px 8px 23px;border-radius:16px;background:#e6e5e7;content:"";opacity:0}
+.buyer-row:hover:before,.buyer-row:focus-within:before,.buyer-row.is-hover:before{opacity:1}
+.buyer-actions{display:flex;gap:8px;height:40px;align-self:center;align-items:center;opacity:0}.buyer-row:hover .buyer-actions,.buyer-row:focus-within .buyer-actions,.buyer-row.is-hover .buyer-actions{opacity:1}
+.buyer-actions button{display:grid;place-items:center;width:40px;height:40px;flex:0 0 40px;border-radius:16px;padding:0;background:transparent}.buyer-actions button:hover{background:#ededee}.buyer-actions img{width:16px;height:16px}
+.buyer-row.is-inactive .buyer-name{color:#9c9ba2}.buyers-empty{display:flex;min-height:484px;align-items:center;justify-content:center;text-align:center}.buyers-empty>div{display:flex;flex-direction:column;align-items:center;width:438px;max-width:100%}
+.buyers-empty-illustration{position:relative;width:96px;height:96px;margin-bottom:16px}.buyers-empty-illustration img{position:absolute;left:0;top:0;width:102.481px;height:96.608px;object-fit:cover}
+.buyers-empty h2{margin:0 0 8px;font:500 20px/24px "YS Display",Arial,sans-serif;letter-spacing:-.2px}.buyers-empty p{max-width:360px;margin:0 0 16px;font:400 16px/20px "YS Text",Arial,sans-serif}
+.buyers-editor{width:540px;max-width:calc(100vw - 32px);max-height:calc(100dvh - 32px);margin:auto;padding:28px 32px 32px;border:0;border-radius:32px;background:#fff;color:#0d0d0f;overflow:auto;overscroll-behavior:contain;box-shadow:0 8px 40px #0002}
+.buyers-editor::backdrop{background:#0005}.buyers-editor h2{margin:4px 24px 24px 0;font:500 24px/24px "YS Display",Arial,sans-serif;letter-spacing:-1px;outline:none}
+.buyers-editor-close{position:absolute;top:32px;right:32px;width:24px;height:24px;background:transparent;padding:0}.buyers-editor-close img{width:24px;height:24px}
+.buyers-editor .ds-dropdown-trigger.is-placeholder{color:#0d0d0f}
+.buyer-fields{display:flex;flex-direction:column;gap:16px}.buyer-fields input{width:100%;min-width:0;height:48px;padding:12px 16px;border:1px solid #cdcccf;border-radius:16px;background:#fff;color:#0d0d0f;font:400 16px/20px "YS Text",Arial,sans-serif;text-overflow:ellipsis}
+.buyer-fields input::placeholder{color:#9c9ba2}.buyer-field-row{display:flex;gap:8px}.buyer-field-row>*{flex:1;min-width:0}.buyer-field-row:last-child input{height:56px;border-radius:20px;padding:16px 20px}
+.buyer-editor-actions{display:flex;justify-content:flex-end;margin-top:24px}.buyers-editor .buyer-error{margin:12px 0 0;color:#f00044;font:400 14px/18px "YS Text",Arial,sans-serif}.buyer-fields input[aria-invalid=true]{border-color:#f00044}
+.buyers-confirm{padding:24px 28px 28px;border-radius:28px}.buyers-confirm h2{line-height:24px;margin:4px 32px 24px 0;letter-spacing:-1px}.buyers-confirm .users-confirm-close{top:28px}.buyers-page:has(dialog[open]){overflow:hidden}
+.buyers-confirm h2:focus{outline:none}
+.buyers-page .users-footer-inner{max-width:1200px;width:100%}
+@media(min-width:1350px){.buyers-grid{grid-template-columns:18px 520px 220px 200px 88px;column-gap:16px}.buyers-grid>span:nth-child(3){margin-left:43px}.buyers-grid>span:nth-child(4){margin-left:86px}.buyers-grid>span:nth-child(5){margin-left:86px}}
+@media(max-width:1349px){.buyers-filters>div:first-child{width:160px}.buyers-filters>div:last-child{width:210px}.buyers-toolbar{gap:16px}.buyers-grid{grid-template-columns:18px minmax(260px,1fr) 190px 200px 88px}}
+@media(max-width:1050px){.buyers-grid{grid-template-columns:18px minmax(220px,1fr) 155px 180px 88px}.buyers-toolbar{flex-wrap:wrap}.buyers-search{flex:1 0 100%}.buyers-filters{margin-left:auto}.buyers-heading h1{font-size:28px}.buyers-main{width:calc(100% - 32px)}.buyers-page .topbar__inner{width:calc(100% - 48px)}.buyers-page .users-footer{padding:24px}.buyers-page .users-footer-inner{gap:24px}.buyers-page .users-footer-right{max-width:55%}}
+@media(max-width:760px){.buyers-heading{padding:0;flex-wrap:wrap}.buyers-grid{grid-template-columns:18px minmax(160px,1fr) 130px 160px 88px}.buyers-table{overflow:auto}.buyers-table-head,.buyers-rows{min-width:780px}.buyers-page .users-footer-inner{flex-wrap:wrap}.buyers-page .users-footer-right{max-width:none;text-align:left}}
