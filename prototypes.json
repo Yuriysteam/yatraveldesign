@@ -135,10 +135,10 @@
   },
   {
     "title": "prototype-Academ-20mb",
-    "description": "Без описания",
+    "description": "Прототип для тестирования с ограничением 20 МБ.",
     "author": "Екатерина Сучкова",
     "avatar": "assets/avatars/katya.jpeg",
-    "updated_at": 1793190467,
+    "updated_at": 1793191055,
     "url": "prototypes/125395264/prototype-academ-20mb/"
   }
 ]
