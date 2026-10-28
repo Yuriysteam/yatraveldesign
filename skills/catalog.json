@@ -227,6 +227,22 @@
     }
   },
   {
+    "id": "travel-install-test-5fbf31",
+    "name": "travel-install-test-5fbf31",
+    "version": "v0.1",
+    "description": "Проверочный скилл для тестирования установки, отвечает фразой с маркером 5FBF31 по запросу.",
+    "updated_by": "yuriysteam",
+    "updated_at": 1793223292,
+    "contributors": [
+      {
+        "id": 335833483,
+        "name": "Юрий Ширяев",
+        "avatar": "yuriy.jpeg"
+      }
+    ],
+    "prompt": "Если travel-design ещё не подключён в ChatGPT, выполни: codex plugin marketplace add Yuriysteam/yatraveldesign --ref main --sparse .agents/plugins --sparse plugins. Обнови каталог: codex plugin marketplace upgrade travel-design. Затем установи: codex plugin add travel-install-test-5fbf31@travel-design --json"
+  },
+  {
     "id": "travel-ui-delivery",
     "name": "travel-ui-delivery",
     "description": "Доставка интерфейса для приложения Travel.",

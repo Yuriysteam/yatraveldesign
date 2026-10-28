@@ -1,0 +1,16 @@
+{
+  "name": "travel-install-test-5fbf31",
+  "version": "0.1.0+815f016885b0",
+  "description": "Проверочный скилл для тестирования установки, отвечает фразой с маркером 5FBF31 по запросу.",
+  "author": {
+    "name": "Travel Design"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "travel-install-test-5fbf31",
+    "shortDescription": "Проверочный скилл для тестирования установки, отвечает фразой с маркером 5FBF31 по запросу.",
+    "longDescription": "Проверочный скилл для тестирования установки, отвечает фразой с маркером 5FBF31 по запросу.",
+    "developerName": "Travel Design",
+    "category": "Productivity"
+  }
+}
