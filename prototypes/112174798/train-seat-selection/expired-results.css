@@ -1,0 +1,46 @@
+/* Isolated iframe: BaseAI must not restyle the existing train page.
+   Live UI Kit Modal shell, inspected 2026-10-22 (local snapshot lacks open-overlay markup). */
+.idlyD { visibility: hidden; background-color: var(--yatraveluikit-bg-specific-modalBackground-color); flex-direction: column; align-items: center; width: 100%; max-width: 100vw; height: 100%; margin: -9999px; display: flex; position: fixed; top: 0; left: 0; overflow-y: auto; }
+.idlyD.idlyD { cursor: auto; }
+.idlyD .ML4aW { flex-direction: column; max-width: 100%; margin: 0; display: flex; position: relative; }
+.idlyD .Ui1Qh { max-width: 100%; margin: calc(1 * var(--yatraveluikit-base-space)); border-radius: var(--yatraveluikit-border-radius-large-s); }
+.Q6DaW { visibility: visible; margin: 0; }
+.AJAoa .Ui1Qh { background-color: var(--yatraveluikit-bg-card-primary-color); }
+.k4Hk9 .ML4aW { margin-top: auto; margin-bottom: auto; }
+.rVCQa { height: auto; font: inherit; cursor: default; color: inherit; -webkit-tap-highlight-color: transparent; background-color: transparent; border: none; border-radius: 0; margin: 0; padding: 0; text-decoration: none; }
+.md_iv { cursor: pointer; }
+
+/* Semantic aliases retain the main prototype's light/dark surfaces. */
+:root {
+  --yatraveluikit-text-primary-color: var(--text-primary-color);
+  --yatraveluikit-bg-card-primary-color: var(--bg-fill-primary-color);
+  --yatraveluikit-bg-button-secondary-color: var(--bg-button-secondary-color);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; height: 100%; background: transparent; }
+.expired-dialog { position: relative; width: 540px; padding: 16px 32px 32px; display: flex; flex-direction: column; align-items: center; gap: 24px; color: var(--text-primary-color); }
+.expired-illustration { position: relative; width: 508px; height: 288px; flex: none; }
+.expired-art-desktop { position: absolute; top: 42px; left: 149px; display: block; }
+.expired-art-mobile { display: none; }
+.expired-close { position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; display: grid; place-items: center; z-index: 1; }
+.expired-copy { display: flex; flex-direction: column; gap: 8px; text-align: center; width: 100%; }
+.expired-copy h1, .expired-copy p { margin: 0; }
+.expired-actions { display: flex; gap: 8px; width: 100%; }
+.expired-actions > button { flex: 1; min-width: 0; }
+.expired-homebar { display: none; }
+.expired-dialog:focus { outline: none; }
+html[data-view="mobile"] .ML4aW { width: 100%; margin-top: auto; margin-bottom: 0; }
+html[data-view="mobile"] .idlyD .Ui1Qh { margin: 0; width: 100%; border-radius: var(--yatraveluikit-border-radius-large-s) var(--yatraveluikit-border-radius-large-s) 0 0; }
+html[data-view="mobile"] .expired-dialog { padding: 24px 20px 20px; gap: 0; }
+html[data-view="mobile"] .expired-illustration { width: 180px; height: 180px; margin-bottom: 12px; }
+html[data-view="mobile"] .expired-art-desktop { display: none; }
+html[data-view="mobile"] .expired-art-mobile { display: block; position: absolute; top: 6px; left: 9px; }
+html[data-view="mobile"] .expired-close { top: 20px; right: 12px; }
+html[data-view="mobile"] .expired-copy { gap: 12px; }
+html[data-view="mobile"] .expired-actions { flex-direction: column; margin-top: 28px; }
+html[data-view="mobile"] .expired-actions > button { flex: none; }
+html[data-view="mobile"] .expired-homebar { display: none; }
+html[data-view="mobile"][data-surface="app"] .expired-dialog { padding-bottom: 8px; }
+html[data-view="mobile"][data-surface="app"] .expired-homebar { display: block; flex: none; width: calc(100% + 40px); height: 34px; margin: 0 -20px; }
+.expired-homebar img { display: block; width: 100%; height: 34px; }
+html[data-theme="dark"] .expired-homebar img { filter: invert(1); }

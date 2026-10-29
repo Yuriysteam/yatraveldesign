@@ -1,0 +1,12 @@
+/* Existing Navbar Sheet / Secondary XL / HomeBar, Figma 19982:475369. */
+.m-fare-info { padding:0; overflow:hidden; box-shadow:none; font-feature-settings:'case' 1,'lnum' 1,'pnum' 1; }
+.m-fare-info[open] { display:flex; flex-direction:column; }
+.m-fare-info > .m-amenities-sheet__header { flex:none; padding-bottom:16px; }
+.m-fare-info__body { display:flex; flex-direction:column; gap:12px; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:0 20px; }
+.m-fare-info__body > * { flex:none; }
+.m-fare-info__rules { align-self:flex-start; text-align:left; text-decoration:underline dotted var(--text-secondary-color); text-underline-offset:3px; }
+.m-fare-info__footer { flex:none; padding-top:12px; }
+.m-fare-info__actions { padding:8px 20px; }
+.m-fare-info .m-fare-info__done { background:var(--bg-button-secondary-color); color:var(--text-primary-color); font:500 16px/20px 'YS Text',sans-serif; }
+html[data-theme="dark"] .m-fare-info { background:var(--bg-fill-primary-color); }
+html[data-theme="dark"] .m-fare-info .m-fare-info__done { color:var(--text-primary-color); }

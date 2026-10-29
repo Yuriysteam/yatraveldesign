@@ -1,0 +1,63 @@
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-trip-details__inset {
+  display: grid;
+  gap: 8px;
+}
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .m-trip-details__inset {
+  display: grid;
+  gap: 4px;
+}
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .roundtrip-direction.ui-kit-scope {
+  align-self: flex-start;
+  padding: 0;
+  --yatraveluikit-text-primary-color: var(--text-primary-color);
+  --yatraveluikit-bg-label-neutral-color: var(--bg-label-neutral-color, var(--bg-fill-secondary-color));
+}
+/* Current Figma PillBadge 28 Large uses 5px vertically; the bundled L snippet uses 6px. */
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .roundtrip-direction > .pill-badge__auto-017 { cursor: default; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-trip-details__card .roundtrip-direction > .pill-badge__auto-017 { padding-block: 5px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-trip-details__card { gap: 20px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .m-trip-details__card { gap: 16px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .roundtrip-train { display: flex; flex-direction: column; gap: 12px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .m-trip-details__card .roundtrip-train { gap: 8px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-ticket-details .exact-amenities-popover__body { border-radius: 20px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-ticket-details .exact-amenities-popover__close { color: var(--text-primary-color); }
+.roundtrip-details-close-icon { display: block; width: 24px; height: 24px; background: currentColor; mask: url("BaseAI/icons/24/close-new-new.svg") center / contain no-repeat; }
+/* Transfer slot from local Trip: desktop I22393:751544;22010:103565,
+   mobile 22010:103744. The 44px TransferPic uses fixed vitamin-600. */
+.journey-transfer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px 12px 12px;
+  border-radius: 100px;
+  background: var(--bg-card-primary-color);
+  color: var(--text-primary-color);
+  font-family: var(--font-body-b3-family);
+  font-size: var(--font-body-b3-size);
+  line-height: var(--font-body-b3-lineHeight);
+}
+.journey-transfer__illustration {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  background: var(--color-vitamin-600, #ffa41d);
+}
+.journey-transfer__icon { position: absolute; left: 12.5px; top: 14px; width: 16px; height: 16px; }
+.journey-transfer__text { min-width: 0; }
+.m-trip-details__inset .journey-transfer {
+  gap: 8px;
+  padding: 8px;
+  background: var(--bg-fill-primary-color);
+  font-size: var(--font-caption-c1-size);
+  line-height: var(--font-caption-c1-lineHeight);
+}
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-steps__item[role="button"],
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .m-touch-breadcrumbs > span[role="button"] { cursor: pointer; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .exact-steps__item[role="button"]:focus-visible,
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"]) .m-touch-breadcrumbs > span[role="button"]:focus-visible { outline: 2px solid #8b6cef; outline-offset: 2px; }
+html:is([data-scenario="roundtrip"], [data-scenario="transfer"])[data-surface="app"] .m-progress > span {
+  inset: 0 auto 1px 0;
+  width: var(--roundtrip-progress, 25%);
+}

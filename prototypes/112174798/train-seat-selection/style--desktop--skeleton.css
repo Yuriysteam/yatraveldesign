@@ -1,0 +1,26 @@
+/* Figma 20341:279809; use existing desktop Header, Rail.Steps and card composition. */
+:root {
+  --seat-skeleton-surface:var(--bg-fill-secondary-color);
+  --seat-skeleton-placeholder:var(--yatraveluikit-bg-button-secondary-hover-color);
+}
+html[data-theme="dark"] {
+  --seat-skeleton-surface:var(--bg-button-secondary-color);
+  --seat-skeleton-placeholder:var(--border-outlineControl-default-color);
+}
+.exact-main { padding-bottom:180px; }
+.skeleton-item { display:block; flex:none; border-radius:100px; --yatraveluikit-bg-button-secondary-hover-color:var(--seat-skeleton-surface); }
+.skeleton-trip .skeleton-item { --yatraveluikit-bg-button-secondary-hover-color:var(--seat-skeleton-placeholder); }
+.skeleton-avatar { width:44px; height:44px; }
+.skeleton-trip-copy { display:flex; flex-direction:column; gap:4px; }
+.skeleton-line { display:flex; align-items:center; }
+.skeleton-line > .skeleton-item { width:100%; height:calc(100% - 4px); }
+.skeleton-stepper-copy { display:flex; flex:1; min-width:0; flex-direction:column; gap:4px; margin-right:12px; }
+.skeleton-stepper-copy .skeleton-item:first-child { width:100%; height:16px; }
+.skeleton-stepper-copy .skeleton-item:last-child { width:50px; height:12px; }
+.skeleton-stepper-controls { display:flex; flex:none; gap:32px; }
+.skeleton-stepper-controls .skeleton-item { width:48px; height:48px; border-radius:16px; }
+.skeleton-filters .skeleton-item { width:101px; height:48px; border-radius:16px; }
+.exact-car.skeleton-card { padding-bottom:20px; background:var(--bg-card-primary-color); box-shadow:0 4px 40px var(--shadow-soft-both-themes); }
+.skeleton-card-header { display:flex; justify-content:space-between; width:100%; }
+.skeleton-scheme { width:100%; height:160px; border-radius:24px; }
+.skeleton-legend { display:flex; align-items:center; height:28px; }

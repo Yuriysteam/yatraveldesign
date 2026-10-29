@@ -1,0 +1,27 @@
+/* Browser approximation of the native adaptiveSheet used by hotel amenity
+   details. iOS owns its exact spring; these are prototype motion parameters. */
+:root {
+  --sheet-motion-duration: 360ms;
+  --sheet-motion-easing: cubic-bezier(.32, .72, 0, 1);
+}
+.sheet-motion.sheet-motion {
+  animation: none;
+  transform: translateY(calc(100% + 34px));
+  transition: transform var(--sheet-motion-duration) var(--sheet-motion-easing);
+}
+.sheet-motion.sheet-motion.is-sheet-visible { transform: translateY(0); }
+.sheet-motion.sheet-motion::backdrop {
+  opacity: 0;
+  transition: opacity var(--sheet-motion-duration) ease;
+}
+.sheet-motion.sheet-motion.is-sheet-visible::backdrop { opacity: 1; }
+@starting-style {
+  .sheet-motion.sheet-motion.is-sheet-visible::backdrop { opacity: 0; }
+}
+/* The expired-results sheet is an isolated iframe, not a native dialog. */
+.sheet-motion-backdrop { background-color: transparent; transition: background-color var(--sheet-motion-duration) ease; }
+.sheet-motion-backdrop.is-sheet-visible { background-color: var(--yatraveluikit-bg-specific-modalBackground-color); }
+@media (prefers-reduced-motion: reduce) {
+  .sheet-motion.sheet-motion, .sheet-motion.sheet-motion::backdrop,
+  .sheet-motion-backdrop { transition: none; }
+}

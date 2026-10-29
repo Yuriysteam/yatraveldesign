@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Загрузка · Выбор мест · Десктоп</title>
+  <link rel="icon" href="data:,">
+  <script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get('theme') === 'dark' ? 'dark' : 'light';</script>
+  <link rel="stylesheet" href="style--BaseAI--fonts.css">
+  <link rel="stylesheet" href="style--BaseAI--library.css">
+  <link rel="stylesheet" href="style--vendor--train-flow--tokens--tokens.css">
+  <link rel="stylesheet" href="style--desktop--layout.css?v=20261022-single-type">
+  <link rel="stylesheet" href="passengers-component.css?v=20261025-desktop-tokens">
+  <link rel="stylesheet" href="style--desktop--header.css">
+  <link rel="stylesheet" href="theme-tokens.css">
+  <link rel="stylesheet" href="style--desktop--theme-dark.css?v=20261025-passenger-tokens">
+  <link rel="stylesheet" href="skeleton-motion.css?v=20261023">
+  <link rel="stylesheet" href="style--desktop--skeleton.css?v=20261023">
+  <link rel="stylesheet" href="carriage-card.css?v=20261026-amenities-b3">
+  <script src="./carriage-card.js?v=20261026" defer></script>
+  <script src="./desktop/skeleton.js?v=20261026-carriage-card" defer></script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+<div class="exact-page">
+<header class="exact-header" data-figma-node="18089:425045">
+  <div class="exact-header__inner">
+    <div class="exact-header__left">
+      <div class="exact-header__brand" aria-label="Яндекс Путешествия">
+        <div class="exact-header__brand-signs" aria-hidden="true">
+          <span class="exact-header__yandex-slot"><span class="exact-header__yandex"><img src="./desktop/assets/header-yandex.svg" alt=""></span></span>
+          <span class="exact-header__travel-slot"><span class="exact-header__travel-sign"><img src="./desktop/assets/header-travel-sign.svg" alt=""></span></span>
+        </div>
+        <img src="./desktop/assets/header-travel-text.svg" alt="" aria-hidden="true">
+      </div>
+      <nav class="exact-header__services" aria-label="Разделы">
+        <span>Отели</span>
+        <span>Авиабилеты</span>
+        <span class="exact-header__service-current" aria-current="page">Ж/д билеты</span>
+        <span>Автобусы</span>
+        <span>Туры</span>
+      </nav>
+    </div>
+    <div class="exact-header__right">
+      <div class="exact-header__icons" aria-label="Сервисы">
+        <img src="./desktop/assets/header-discount.svg" alt="Скидки">
+        <img src="./desktop/assets/header-message.svg" alt="Сообщения">
+        <img src="./desktop/assets/header-heart.svg" alt="Избранное">
+        <img src="./desktop/assets/header-orders.svg" alt="Заказы">
+        <img src="./desktop/assets/header-book.svg" alt="Журнал">
+      </div>
+      <span class="exact-header__plus">плюс</span>
+      <div class="exact-header__profile">
+        <div class="exact-header__profile-copy">
+          <div class="exact-header__level">1-й уровень </div>
+          <div class="exact-header__cashback"><img src="./desktop/assets/header-cashback.svg" alt=""><span>5% кешбэк</span></div>
+        </div>
+        <div class="exact-header__photo"><img src="./desktop/assets/header-userpic.png" alt="Аватар пользователя"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="exact-steps" aria-label="Этапы бронирования" data-figma-node="18089:425049">
+  <div class="exact-steps__inner">
+    <span class="exact-steps__item">Выбор поезда</span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--current" aria-current="step">Выбор мест </span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--pending">Данные пассажиров</span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--pending">Подтверждение</span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--disabled">Оплата</span>
+  </div>
+</nav>
+
+
+<main class="exact-main" aria-busy="true" aria-label="Загрузка данных поезда">
+  <h1 class="exact-title">Выберите места</h1>
+  <!-- Figma 20341:279809. Existing desktop shell + BaseAI feedback.skeleton.simple.
+       Android Stepper mapping is represented by non-interactive Skeleton primitives. -->
+  <section class="exact-setup" aria-hidden="true">
+    <div class="exact-trip skeleton-trip">
+      <div class="skeletons__auto-058 skeleton-item skeleton-avatar"></div>
+      <div class="skeleton-trip-copy">
+        <div class="skeletons__auto-058 skeleton-item" style="width:200px;height:16px"></div>
+        <div class="skeletons__auto-058 skeleton-item" style="width:280px;height:14px"></div>
+      </div>
+    </div>
+    <div class="exact-passengers" id="skeleton-steppers"></div>
+    <div class="exact-discounts"><div class="skeleton-line" style="width:152px;height:18px"><div class="skeletons__auto-058 skeleton-item"></div></div></div>
+  </section>
+  <section class="exact-section" aria-hidden="true">
+    <div class="skeletons__auto-058 skeleton-item" style="width:272px;height:32px"></div>
+    <div class="exact-filters skeleton-filters">
+      <div class="skeletons__auto-058 skeleton-item"></div><div class="skeletons__auto-058 skeleton-item"></div><div class="skeletons__auto-058 skeleton-item"></div>
+    </div>
+    <div class="exact-car-category skeleton-line" style="width:200px;height:28px"><div class="skeletons__auto-058 skeleton-item"></div></div>
+    <div class="exact-carriages" id="skeleton-cards"></div>
+  </section>
+</main>
+</div>
+</body>
+</html>
+

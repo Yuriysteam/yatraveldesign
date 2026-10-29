@@ -1,4 +1,0 @@
-interface:
-  display_name: "Figma Design Machine · роутер"
-  short_description: "Маршрутизирует макеты, спеки и прототипы"
-  default_prompt: "Используй $figma-workflow-router: определи маршрут по исходнику, целевому артефакту и среде запуска и доведи задачу до макетов, спеки, прототипа или сборки."

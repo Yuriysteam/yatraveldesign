@@ -1,4 +1,0 @@
-interface:
-  display_name: "Travel Figma Design System"
-  short_description: "Общий DS-контекст для Travel Figma"
-  default_prompt: "Use $travel-figma-design-system to inspect the relevant Travel Figma libraries and apply their component and token rules."

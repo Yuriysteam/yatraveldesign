@@ -1,4 +1,0 @@
-interface:
-  display_name: "Сборщик Figma-спек"
-  short_description: "Упаковывает готовые макеты в рабочую Figma-спеку"
-  default_prompt: "Используй $figma-spec-builder, чтобы проверить принятые макеты и собрать готовую к разработке Figma-спеку с линейными сценариями, состояниями и edge cases."

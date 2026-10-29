@@ -1,0 +1,20 @@
+/* Shared shell colors from Base 2.0 / ReDesign. Geometry stays platform-specific. */
+:root {
+  /* More: controls/secondary-web (Primary), controls/tertiary (Secondary).
+     Keep these separate from generic button/card surfaces. */
+  --more-primary-background: #ededee;
+  --more-secondary-background: #fff;
+}
+html[data-theme="dark"] {
+  --more-primary-background: #2b2a2e;
+  --more-secondary-background: #3c3c41;
+  color-scheme: dark;
+  --text-primary-color: #ededee;
+  --text-secondary-color: #9c9ba2;
+  --text-generic-disabled-color: #5e5d65;
+  --bg-fill-primary-color: #1b1a1e;
+  --bg-fill-secondary-color: #0d0d0f;
+  --bg-card-primary-color: #222125;
+  --bg-button-secondary-color: #313136;
+  --border-outlineControl-default-color: #3c3c41;
+}

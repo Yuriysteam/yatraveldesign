@@ -1,0 +1,152 @@
+
+.amenity-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.amenity-copy__caption { color: var(--text-secondary-color); font-size: 14px; line-height: 18px; }
+/* Desktop composition: ReDesign / 19345:243977. Seat data stays independent. */
+:root {
+  --exact-seat-green: #c0f0c0;
+  --exact-seat-green-hover: #a5dda5;
+  --exact-seat-violet-hover: #d7ccf3;
+  --exact-trip-red: #e21b1a;
+}
+* { box-sizing: border-box; }
+html {
+  color-scheme: light;
+  background: white;
+  /* Match the Base2.0 baseline without changing font weights. */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body { margin: 0; color: var(--text-primary-color); background: white; font: 400 16px/20px 'YS Text', sans-serif; font-feature-settings: 'lnum' 1, 'pnum' 1; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; color: inherit; border: 0; margin: 0; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--color-violet-700); outline-offset: 3px; }
+button:active { transform: scale(.97); }
+p, h1, h2, h3 { margin: 0; }
+img { display: block; flex: none; }
+.exact-page { width: 1440px; margin-inline: auto; background: white; }
+.exact-main { width: 1200px; margin: 32px auto 0; }
+.exact-title { font: 500 40px/42px 'YS Display', sans-serif; letter-spacing: -.6px; }
+.exact-setup { margin-top: 32px; display: flex; flex-direction: column; gap: 12px; }
+.exact-trip { display: flex; align-items: center; gap: 12px; height: 92px; padding: 24px; border-radius: 48px; background: var(--bg-fill-secondary-color); }
+.exact-trip__icon { width: 44px; height: 44px; flex: none; border-radius: 100px; background: var(--exact-trip-red); display: grid; place-items: center; }
+.exact-trip__text { display: flex; flex: 1; flex-direction: column; gap: 2px; padding-block: 2px; }
+.exact-trip__route { font-weight: 500; }
+.exact-trip__date { color: var(--text-secondary-color); font-size: 14px; line-height: 18px; }
+.exact-passengers { display: flex; align-items: stretch; gap: 8px; width: 1199px; height: 104px; padding: 8px; border-radius: 48px; background: var(--bg-fill-secondary-color); }
+.exact-stepper { display: flex; flex: 0 0 228px; align-items: center; justify-content: space-between; }
+.exact-stepper--infant { flex-basis: 280px; }
+.exact-passengers .exact-stepper { flex: 1 1 0; min-width: 0; height: 88px; padding: 20px; border-radius: 40px; background: white; }
+.exact-stepper__copy { display: flex; flex-direction: column; gap: 4px; }
+.exact-stepper__copy small { color: var(--text-secondary-color); font-size: 14px; line-height: 18px; }
+.exact-stepper__controls { display: flex; align-items: center; gap: 6px; flex: 0 0 128px; }
+.exact-stepper__button { display: grid; place-items: center; flex: none; width: 48px; height: 48px; border-radius: 16px; background: var(--bg-button-secondary-color); padding: 0; }
+.exact-stepper__button:disabled { cursor: default; }
+.exact-stepper__button:disabled:active { transform: none; }
+.exact-stepper__button[data-delta="-1"]:disabled img { display: none; }
+.exact-stepper__button[data-delta="-1"]:disabled::after { content: ''; width: 20px; height: 20px; background: var(--text-generic-disabled-color); -webkit-mask: url("desktop/assets/minus-icons20-minus.svg") center / contain no-repeat; mask: url("desktop/assets/minus-icons20-minus.svg") center / contain no-repeat; }
+.exact-stepper__value { display: block; width: 20px; text-align: center; font-weight: 500; font-size: 18px; line-height: 22px; }
+.exact-discounts { display: flex; gap: 6px; align-items: center; padding-inline: 24px; height: 18px; font-size: 14px; line-height: 18px; font-weight: 500; }
+.exact-more { display: block; flex: none; padding: 0; background: transparent; width: 20px; height: 14px; cursor: default; }
+.exact-section { margin-top: 56px; }
+.exact-section__title { font: 500 32px/32px 'YS Display', sans-serif; letter-spacing: -.48px; }
+.exact-filters { margin-top: 20px; display: flex; gap: 8px; height: 48px; }
+.exact-filters[hidden] { display: none; }
+.exact-chip { display: flex; align-items: center; justify-content: center; flex: none; gap: 4px; height: 48px; padding: 0 14px; border-radius: 16px; background: var(--bg-button-secondary-color); font-weight: 500; white-space: nowrap; }
+.exact-chip__copy { display: flex; flex-direction: column; align-items: center; padding-inline: 4px; }
+.exact-chip small { font-size: 12px; line-height: 14px; font-weight: 500; color: var(--text-secondary-color); }
+.exact-chip[aria-pressed=true] { color: white; background: var(--color-greyscale-1200); }
+.exact-chip:is(.exact-chip--ac, .exact-chip--bio, .exact-chip--wifi)[aria-pressed=true] img { filter: brightness(0) invert(1); }
+.exact-chip--platskart { width: 138px; }
+.exact-chip--coupe { width: 103px; }
+.exact-chip--sv { width: 95px; }
+.exact-chip--ac { width: 165px; }
+.exact-chip--bio { width: 140px; }
+.exact-chip--wifi { width: 99px; }
+.exact-chip--all { width: 161px; cursor: default; }
+.exact-car-category { margin-top: 32px; font: 500 28px/28px 'YS Display', sans-serif; letter-spacing: -.28px; }
+.exact-carriages { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; }
+.exact-car { padding: 24px 28px; display: flex; flex-direction: column; gap: 16px; border-radius: 40px; background: white; box-shadow: var(--shadow-soft-l-both-themes); }
+.exact-car .scheme-seat.scheme-seat { border-radius: 14px; }
+/* Scheme geometry is owned by scheme-layout.css / Train carriage scheme. */
+.exact-car__header { display: flex; align-items: flex-end; gap: 6px; height: 28px; }
+.exact-car__title-group { display: flex; align-items: baseline; gap: 8px; flex: 1; }
+.exact-car h3 { font: 500 24px/28px 'YS Display', sans-serif; letter-spacing: -.24px; }
+.exact-car__subtitle { color: var(--text-secondary-color); font-feature-settings: 'case' 1, 'lnum' 1, 'pnum' 1; }
+.exact-car__subtitle strong { color: var(--text-primary-color); font-weight: 400; }
+.exact-car__amenities { display: flex; align-items: center; gap: 8px; height: 24px; padding: 0; background: transparent; border-radius: 4px; }
+.exact-car__amenities:active { transform: none; }
+.exact-car__amenity { display: flex; align-items: center; width: 20px; height: 20px; }
+.exact-car__amenity img { width: 20px; height: 20px; object-fit: contain; }
+.exact-car__amenity-count { min-width: 20px; height: 20px; font: 400 16px/20px 'YS Text', sans-serif; text-align: center; }
+.exact-car__amenities .exact-more { cursor: pointer; }
+.exact-car__amenity--extra img { filter: brightness(0); opacity: .95; }
+.exact-amenities-popover { position: fixed; inset: auto; margin: 0; border: 0; padding: 8px 0 0; width: 375px; max-width: calc(100vw - 24px); overflow: visible; color: var(--text-primary-color); background: transparent; filter: drop-shadow(0 4px 20px var(--shadow-soft-both-themes, #0d0d0f14)); font: 400 16px/20px 'YS Text', sans-serif; }
+.exact-amenities-popover__body { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 20px; border-radius: 28px; background: var(--bg-card-primary-color, white); max-height: calc(100dvh - 32px); overflow-y: auto; }
+.exact-amenities-popover header { display: flex; flex-direction: column; gap: 8px; }
+.exact-amenities-popover h2 { padding-right: 36px; font: 500 18px/20px 'YS Text', sans-serif; }
+.exact-amenities-popover__meta, .exact-amenities-popover__description { color: var(--text-secondary-color); }
+.exact-amenities-popover__description { font-size: 14px; line-height: 18px; }
+.exact-amenities-popover__close { position: absolute; top: 20px; right: 20px; padding: 0; width: 24px; height: 24px; color: var(--text-secondary-color); background: transparent; border-radius: 8px; }
+.exact-amenities-popover__close svg { display: block; }
+.exact-amenities-popover__close:focus:not(:focus-visible) { outline: none; }
+.exact-amenities-popover ul { display: flex; flex-direction: column; gap: 20px; list-style: none; padding: 0; margin: 0; }
+.exact-amenities-popover li { display: flex; gap: 12px; align-items: center; min-height: 24px; }
+.exact-amenities-popover__icon { display: block; width: 24px; height: 24px; flex: none; background: var(--text-primary-color); mask: var(--amenity-icon) center / contain no-repeat; }
+.exact-amenities-popover__tail { position: absolute; top: 0; left: var(--amenities-tail-left, 327px); width: 24px; height: 8px; background: var(--bg-card-primary-color, white); mask: url("desktop/assets/amenities-tail.svg") center / contain no-repeat; }
+.exact-amenities-popover[data-placement="above"] { padding: 0 0 8px; }
+.exact-amenities-popover[data-placement="above"] .exact-amenities-popover__tail { top: auto; bottom: 0; transform: rotate(180deg); }
+/* Base Tooltip uses the card surface; Close and More use controls/secondary.
+   Tint the original vector contours independently instead of inverting SVGs. */
+html[data-theme="dark"] .exact-amenities-popover__close rect { fill: var(--bg-button-secondary-color); }
+.exact-scheme { position: relative; width: 1144px; height: 167px; background: white; flex: none; }
+.exact-scheme__outline { position: absolute; inset: 4px 1px; height: 159px; border: 2px solid var(--color-greyscale-300); border-radius: 24px; }
+.exact-scheme__feature { position: absolute; width: 24px; height: 24px; }
+.exact-scheme__wc--left { left: 65px; top: 16px; }
+.exact-scheme__wc--right { left: 1085px; top: 16px; }
+.exact-scheme__bin { left: 1085px; top: 127px; }
+.exact-scheme__mug { left: 101px; top: 127px; }
+.exact-scheme__officer { left: 101px; top: 16px; overflow: hidden; }
+.exact-scheme__officer img { position: absolute; left: 1.68px; top: 1.68px; }
+.exact-scheme__seats { position: absolute; left: 145px; top: 4px; height: 96px; display: flex; gap: 8px; }
+.exact-scheme__wall { flex: 0 0 2px; height: 96px; border-radius: 0 0 100px 100px; background: var(--color-greyscale-300); }
+.exact-coupe { display: grid; grid-auto-flow: column; grid-template-columns: repeat(2, 40px); grid-template-rows: repeat(2, 40px); gap: 4px; padding: 8px 0 4px; width: 84px; height: 96px; }
+.exact-seat { position: relative; width: 40px; height: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; overflow: hidden; border-radius: 12px; background: var(--bg-fill-secondary-color); font-size: 16px; line-height: 20px; font-weight: 500; padding: 0; }
+.exact-seat--green, .exact-seat--violet { padding: 4px 10px 3px; }
+.exact-seat--green { background: var(--exact-seat-green); }
+.exact-seat--violet { padding: 3px 10px 4px; background: var(--color-violet-300); }
+.exact-seat:is(.exact-seat--green, .exact-seat--violet) { transition: background-color 160ms ease, color 160ms ease; }
+.exact-seat.exact-seat--selected { background: var(--bg-button-secondaryPressed-color, #222125); color: #fff; }
+.exact-seat--selected .exact-seat__marker { filter: brightness(0) invert(1); }
+@media (hover: hover) {
+  .exact-seat--green:not(.exact-seat--selected):not([aria-selected="true"]):hover { background: var(--exact-seat-green-hover); }
+  .exact-seat--violet:not(.exact-seat--selected):not([aria-selected="true"]):hover { background: var(--exact-seat-violet-hover); }
+}
+.exact-seat--violet .exact-seat__marker { margin-top: -1px; transform: scaleY(-1); }
+.exact-seat-tooltip { position: fixed; z-index: 1000; display: flex; flex-direction: column; align-items: flex-start; width: max-content; max-width: 220px; color: white; font: 400 16px/20px 'YS Text', sans-serif; font-feature-settings: 'case' 1, 'lnum' 1, 'pnum' 1; pointer-events: none; filter: drop-shadow(0 4px 20px var(--shadow-soft-both-themes, #0d0d0f14)); }
+.exact-seat-tooltip[hidden] { display: none; }
+.exact-seat-tooltip[data-placement="below"] { flex-direction: column-reverse; }
+.exact-seat-tooltip__bubble { padding: 12px 16px; max-width: 220px; border-radius: 16px; background: var(--controls-primary-black, #222125); overflow-wrap: anywhere; }
+.exact-seat-tooltip__arrow { width: 24px; height: 8px; margin-left: var(--arrow-left, 18px); }
+.exact-scheme__door { position: absolute; left: 25px; top: 3px; width: 24px; height: 16px; border: 2px solid var(--color-greyscale-300); border-top: 0; border-radius: 0 0 2px 2px; background: white; }
+.exact-scheme__door--bottom { top: 148px; transform: scaleY(-1); }
+.exact-scheme__arrow { position: absolute; left: 32.9423px; top: 0; }
+.exact-scheme__arrow--top { transform: rotate(180deg); }
+.exact-scheme__arrow--bottom { top: 154px; transform: scaleX(-1); }
+.exact-scheme__cabin-label { position: absolute; top: 118px; width: 58px; margin: 0; transform: translate(-50%, -50%); color: var(--text-secondary-color); font: 400 14px/18px 'YS Text', sans-serif; font-feature-settings: 'lnum' 1, 'pnum' 1; text-align: center; }
+.exact-scheme__cabin-label--mixed { width: 77px; }
+/* ReDesign 19531:112699: shared desktop legend for coupe, platskart and Sapsan. */
+.exact-legend { display: flex; align-items: center; gap: 16px; height: 20px; font: 400 16px/20px 'YS Text', sans-serif; }
+.exact-legend__price { display: flex; align-items: center; gap: 6px; font: inherit; }
+.exact-legend .nonrefundable-legend { font: inherit; }
+.exact-legend .scheme-legend-dot,
+.exact-legend .nonrefundable-legend__dot { width: 14px; height: 14px; }
+.exact-informer { height: 80px; padding: 20px; display: flex; align-items: center; gap: 8px; border-radius: 28px; background: white; box-shadow: var(--shadow-soft-s-light-theme); }
+.exact-informer__image { position: relative; width: 40px; height: 40px; overflow: hidden; flex: none; }
+.exact-informer__image img { position: absolute; left: -41.69%; top: .02%; width: 183.39%; height: 99.97%; }
+.exact-informer__copy { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; line-height: 18px; }
+.exact-informer__copy strong { font-weight: 500; }
+.exact-informer__dot { font-size: 16px; line-height: 20px; font-weight: 500; }
+.exact-informer__details { display: flex; align-items: center; gap: 6px; }
+.exact-footer { margin: 100px auto 0; }
+@media (max-width: 1439px) { .exact-page { margin-left: 0; margin-right: 0; } }
+@media (prefers-reduced-motion: reduce) { button:active { transform: none; } .exact-seat:is(.exact-seat--green, .exact-seat--violet) { transition: none; } }

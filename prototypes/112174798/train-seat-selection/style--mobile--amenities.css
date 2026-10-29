@@ -1,0 +1,24 @@
+/* ReDesign 19377:301766: Navbar Sheet + Text/Icon rows + description.
+   Reuse the native dialog shell and semantic theme tokens; no price-sheet changes. */
+.m-amenities-sheet { padding: 0; max-height: calc(100dvh - 24px); }
+.m-amenities-sheet::backdrop { background:var(--bg-specific-modalBackground-color,rgba(13,13,15,.65)); }
+.m-amenities-sheet__header { position: relative; padding: 24px 20px 16px; }
+.m-amenities-sheet__titles { display: flex; flex-direction: column; gap: 8px; }
+.m-amenities-sheet__titles h2 { padding-right: 36px; font: 500 28px/32px 'YS Display', sans-serif; letter-spacing: -.28px; }
+.m-amenities-sheet__titles p { font: 400 16px/20px 'YS Text', sans-serif; }
+.m-amenities-sheet__meta { color: var(--text-secondary-color); }
+.m-amenities-sheet__close { position: absolute; top: 16px; right: 8px; display: grid; place-items: center; width: 48px; height: 48px; }
+.m-amenities-sheet__close img { display: block; }
+.m-amenities-sheet__list { display: flex; flex-direction: column; gap: 20px; margin: 0; padding: 0 20px; list-style: none; }
+.m-amenities-sheet__list li { display: flex; align-items: center; gap: 12px; min-height: 24px; font: 400 16px/20px 'YS Text', sans-serif; }
+.m-amenities-sheet__icon { display: grid; place-items: center; flex: none; width: 24px; height: 24px; }
+.m-amenities-sheet__icon img { display: block; filter: brightness(0); }
+.amenity-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.amenity-copy__caption { color: var(--text-secondary-color); font-size: 14px; line-height: 18px; }
+.m-amenities-sheet__description { padding: 20px 20px 0; font: 400 14px/18px 'YS Text', sans-serif; color: var(--text-secondary-color); }
+.m-amenities-sheet__homebar { display: flex; justify-content: center; height: 34px; overflow: hidden; }
+.m-amenities-sheet__homebar img { display: block; flex: none; }
+html[data-theme="dark"] .m-amenities-sheet__icon img,
+html[data-theme="dark"] .m-amenities-sheet__close img { filter: brightness(0) invert(.9294118); }
+/* The original HomeBar includes a white canvas: blend it out after inversion. */
+html[data-theme="dark"] .m-amenities-sheet__homebar img { filter: invert(1); mix-blend-mode: screen; }

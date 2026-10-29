@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Выбор мест · Основной прототип</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style--vendor--base2--styles--fonts.css">
+  <link rel="stylesheet" href="preview-settings.css?v=20261028-roundtrip-motion">
+  <link rel="stylesheet" href="preview-no-scheme.css?v=20261022">
+  <script src="./journey-config.js?v=20261029-stations" defer></script>
+  <script src="./preview-settings.js?v=20261029-filter-motion-soft-all" defer></script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <main class="artboard"><iframe title="Выбор мест"></iframe></main>
+
+  <button class="preview-settings-trigger" type="button" popovertarget="preview-settings"
+    aria-label="Настройки прототипа" aria-controls="preview-settings" aria-expanded="false" title="Настройки прототипа">
+    <span class="preview-settings-icon preview-settings-icon--settings" aria-hidden="true"></span>
+  </button>
+
+  <section class="preview-settings" id="preview-settings" popover="auto" aria-labelledby="preview-settings-title">
+    <header class="preview-settings__header">
+      <h1 id="preview-settings-title">Настройки прототипа</h1>
+      <button class="preview-settings__close" type="button" popovertarget="preview-settings" popovertargetaction="hide" aria-label="Закрыть настройки">
+        <span class="preview-settings-icon preview-settings-icon--close" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <fieldset>
+      <legend>Версия экрана</legend>
+      <div class="preview-settings__segments">
+        <button type="button" data-view="desktop" aria-pressed="false">Десктоп</button>
+        <button type="button" data-view="touch" aria-pressed="false">Touch</button>
+        <button type="button" data-view="app" aria-pressed="false">App</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Тема</legend>
+      <div class="preview-settings__segments">
+        <button type="button" data-theme="light" aria-pressed="true">Светлая</button>
+        <button type="button" data-theme="dark" aria-pressed="false">Тёмная</button>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Поезд</legend>
+      <div class="preview-settings__segments">
+        <button type="button" data-train="long-distance" aria-pressed="true">Обычный поезд</button>
+        <button type="button" data-train="sapsan" aria-pressed="false">Сапсан</button>
+      </div>
+    </fieldset>
+    <fieldset class="preview-no-scheme">
+      <label class="checkbox__auto-014 checkbox__auto-006 checkbox__auto-009" role="none">
+        <span><input class="flxvd" type="checkbox" id="preview-no-scheme"><span class="checkbox__auto-012"><svg class="checkbox__auto-007" fill="currentColor" viewBox="0 0 11 9" aria-hidden="true"><polyline points="0.35,4.5 1.857,2.994 4.369,5.506 9.394,0.482 11,1.988 4.468,8.52"></polyline></svg></span></span>
+        <span class="checkbox__auto-010 checkbox__auto-011">Без схем</span>
+      </label>
+    </fieldset>
+    <fieldset>
+      <legend>Сценарии</legend>
+      <button class="preview-settings__screen" type="button" data-scenario="roundtrip" aria-pressed="false">Туда и обратно</button>
+      <button class="preview-settings__screen" type="button" data-scenario="transfer" aria-pressed="false">С пересадкой</button>
+    </fieldset>
+    <fieldset>
+      <legend>Состояния</legend>
+      <button class="preview-settings__screen" id="preview-skeleton" type="button">Скелетон</button>
+      <button class="preview-settings__screen" id="preview-arrival-times" type="button">Вагоны с разным временем прибытия</button>
+      <button class="preview-settings__screen" id="preview-double-deck" type="button">Двухэтажный поезд</button>
+      <button class="preview-settings__screen" id="preview-load-error" type="button">Не загрузились данные</button>
+      <button class="preview-settings__screen" id="preview-no-places" type="button">Свободных мест не осталось</button>
+      <button class="preview-settings__screen" id="preview-expired" type="button">Результаты устарели</button>
+    </fieldset>
+  </section>
+</body>
+</html>

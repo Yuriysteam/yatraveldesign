@@ -1,0 +1,14 @@
+/* Only the opt-in screen is affected. Card/seat geometry stays unchanged. */
+.arrival-informer { display:flex; align-items:center; gap:8px; color:var(--text-primary-color); font:400 16px/20px 'YS Text',sans-serif; }
+.arrival-informer > img { flex:none; }
+.arrival-informer__content { display:flex; align-items:center; gap:6px; }
+.arrival-informer button { flex:none; cursor:pointer; }
+.m-car .arrival-informer { position:absolute; top:80px; left:20px; right:20px; height:24px; font-size:14px; line-height:18px; }
+.m-car.has-arrival-time:not(.car-without-scheme) { height:294px; }
+.m-car.has-arrival-time:not(.car-without-scheme) .m-scheme__viewport { top:104px; }
+.m-car.has-arrival-time:not(.car-without-scheme) .m-car__legend { top:256px; }
+.m-car.has-arrival-time:not(.car-without-scheme) > .m-bedding { top:282px; }
+.m-car.has-arrival-time:not(.car-without-scheme) > .m-nonrefundable { top:316px; }
+.m-car.has-arrival-time.has-bedding:not(.car-without-scheme) { height:320px; }
+.m-car.has-arrival-time.has-bedding.has-mobile-fare:not(.car-without-scheme) { height:406px; }
+.m-car.car-without-scheme .arrival-informer { position:static; height:auto; margin-top:16px; }

@@ -1,0 +1,39 @@
+/* Figma 20341:287045. Only the mobile loading route uses these styles.
+   Geometry composes BaseAI Skeleton primitives. Motion follows AI-search/serp.css. */
+:root {
+  --seat-skeleton-surface: var(--bg-fill-secondary-color);
+  --seat-skeleton-placeholder: var(--yatraveluikit-bg-button-secondary-hover-color);
+}
+html[data-theme="dark"] {
+  --seat-skeleton-surface: var(--bg-card-primary-color);
+  --seat-skeleton-placeholder: var(--border-outlineControl-default-color);
+}
+.m-page { max-width:375px; overflow:hidden; }
+.m-back:disabled { cursor:default; }
+html[data-theme="dark"] .m-back img { filter:invert(1); }
+.skeleton-setup { display:flex; flex-direction:column; gap:20px; padding:24px 20px 20px; border-radius:0 0 32px 32px; background:var(--bg-fill-primary-color); }
+.skeleton-trip { display:flex; align-items:center; gap:8px; padding:20px 16px; height:84px; border-radius:32px; background:var(--bg-fill-secondary-color); }
+.skeleton-trip-copy { display:flex; flex-direction:column; gap:4px; }
+.skeleton-item { flex:none; display:block; border-radius:100px; --yatraveluikit-bg-button-secondary-hover-color:var(--seat-skeleton-surface); }
+.skeleton-trip .skeleton-item, .skeleton-filters .skeleton-item, .skeleton-group-title .skeleton-item { --yatraveluikit-bg-button-secondary-hover-color:var(--seat-skeleton-placeholder); }
+.skeleton-avatar { width:44px; height:44px; }
+.skeleton-line { display:flex; align-items:center; }
+.skeleton-line > .skeleton-item { width:100%; height:calc(100% - 4px); }
+.skeleton-passengers { display:flex; flex-direction:column; gap:12px; }
+.skeleton-steppers { display:flex; flex-direction:column; gap:12px; }
+.skeleton-stepper { height:48px; display:flex; align-items:center; justify-content:space-between; }
+.skeleton-stepper-copy { display:flex; flex-direction:column; gap:4px; }
+.skeleton-stepper-copy .skeleton-item:first-child { width:185px; height:16px; }
+.skeleton-stepper-copy .skeleton-item:last-child { width:50px; height:12px; }
+.skeleton-stepper-controls { display:flex; gap:32px; }
+.skeleton-stepper-controls .skeleton-item { width:48px; height:48px; border-radius:16px; }
+.skeleton-discounts { padding-top:8px; }
+.skeleton-filters { display:flex; gap:8px; padding:20px 20px 24px; }
+.skeleton-filters .skeleton-item { width:101px; height:48px; border-radius:16px; }
+.skeleton-carriages { display:flex; flex-direction:column; gap:16px; }
+.skeleton-group-title { padding-inline:20px; }
+.skeleton-cards { display:flex; flex-direction:column; gap:8px; }
+.skeleton-card { display:flex; flex-direction:column; gap:18px; padding:20px; border-radius:32px; overflow:hidden; background:var(--bg-fill-primary-color); }
+.skeleton-card-header { display:flex; flex-direction:column; gap:2px; }
+.skeleton-card-row { display:flex; justify-content:space-between; }
+.skeleton-scheme { width:600px; height:128px; border-radius:16px; }

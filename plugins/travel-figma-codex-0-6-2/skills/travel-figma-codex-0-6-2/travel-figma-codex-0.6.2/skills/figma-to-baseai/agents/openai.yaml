@@ -1,7 +1,0 @@
-interface:
-  display_name: "Figma → BaseAI prototype"
-  short_description: "Собирает кликабельный HTML из Figma"
-  default_prompt: "Используй $figma-to-baseai, чтобы перенести этот Figma-фрейм в кликабельный BaseAI HTML-прототип и проверить его в браузере."
-
-policy:
-  allow_implicit_invocation: true

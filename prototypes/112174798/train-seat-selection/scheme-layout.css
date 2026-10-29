@@ -1,0 +1,39 @@
+/* Coupe Desktop 18397:57690 and Mobile 18182:259554.
+   Retain card layout and carriage contents; synchronize only the scheme. */
+.exact-scheme { width: 1142px; height: 160px; margin-inline: auto; background: var(--scheme-surface); }
+.exact-scheme__outline { inset: 2px 0 auto; height: 156px; border-color: var(--border-trainScheme-color); background: var(--scheme-surface); }
+.exact-scheme__wc--left { left: 64px; top: 14px; }
+.exact-scheme__wc--right { left: 1084px; top: 14px; }
+.exact-scheme__bin { left: 1084px; top: 122px; }
+.exact-scheme__mug { left: 100px; top: 122px; }
+.exact-scheme__officer { left: 100px; top: 14px; }
+.exact-scheme__seats { left: 144px; }
+.exact-scheme__wall { background: var(--border-trainScheme-color); }
+/* Figma door strokes are centered (outer bounds include the 1px stroke). */
+.exact-scheme__door { left: 23px; top: 2px; width: 26px; height: 17px; border-color: var(--border-trainScheme-color); border-radius: 0 0 5px 5px; background: var(--scheme-surface); }
+.exact-scheme__door--bottom { top: 141px; }
+.exact-scheme__arrow { left: 32px; top: 0; width: 8px; height: 13px; background: var(--scheme-icon); mask: url("scheme-assets/entry-desktop.svg") center / contain no-repeat; }
+.exact-scheme__arrow--bottom { top: 147px; }
+.m-scheme { width: 842px; height: 116px; margin-inline: 20px; background: var(--scheme-surface); }
+.m-scheme__outline { top: 1px; left: 0; width: 842px; height: 114px; border-color: var(--border-trainScheme-color); background: var(--scheme-surface); box-shadow: 0 4px 15px rgb(0 0 0 / 5%); }
+.m-scheme__wc--left { left: 48px; top: 9px; }
+.m-scheme__wc--right { left: 806px; top: 8px; }
+.m-scheme__bin { left: 806px; top: 84px; }
+.m-scheme__mug { left: 48px; top: 83px; }
+.m-scheme__officer { left: 80px; top: 9px; }
+.m-scheme__seats { left: 112px; }
+.m-scheme__wall { background: var(--border-trainScheme-color); }
+.m-scheme__door { left: 15px; top: 1px; width: 22px; height: 14px; border-color: var(--border-trainScheme-color); border-radius: 0 0 3px 3px; background: var(--scheme-surface); }
+.m-scheme__door--bottom { top: 101px; }
+.m-scheme__arrow { top: 0; left: 23px; width: 6px; height: 10px; background: var(--scheme-icon); mask: url("scheme-assets/entry-mobile.svg") center / contain no-repeat; }
+.m-scheme__arrow--top { transform: rotate(180deg); }
+.m-scheme__arrow--bottom { top: 106px; }
+.m-scheme__cabin-label--men { left: 227px; }
+.m-scheme__cabin-label--women { left: 379px; }
+.m-scheme__cabin-label--mixed-5 { left: 454.5px; }
+.m-scheme__cabin-label--mixed-6 { left: 530.5px; }
+.m-scheme__cabin-label--mixed-7 { left: 606.5px; }
+.m-scheme__cabin-label--mixed-8 { left: 682.5px; }
+.m-scheme__cabin-label--mixed-9 { left: 758.5px; }
+.scheme-legend-dot { display: block; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--bg-trainScheme-green-color); }
+.scheme-legend-dot[data-color="purple"] { background: var(--bg-trainScheme-purple-color); }

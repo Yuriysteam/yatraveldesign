@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Все удобства · Рабочий список</title>
+  <link rel="stylesheet" href="./style--vendor--base2--styles--fonts.css">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#f5f5f5;color:#0d0d0f;font:16px/1.5 'YS Text',sans-serif}main{max-width:1000px;margin:48px auto;padding:0 24px 40px}h1{font:500 36px/40px 'YS Display',sans-serif;margin:8px 0 16px}h2{font:500 22px/28px 'YS Display',sans-serif;margin:0 0 12px}p{margin:0 0 12px}a{color:inherit;text-underline-offset:3px}.muted{color:#68676e}.label{font-size:14px}.panel{padding:24px;background:white;border-radius:24px;margin-top:24px}table{width:100%;border-collapse:collapse}th{text-align:left;font-size:14px;color:#68676e;font-weight:400;padding:0 12px 12px}td{padding:16px 12px;border-top:1px solid #ededee;vertical-align:top}th:first-child,td:first-child{width:48px;padding-left:0;color:#68676e}th:last-child,td:last-child{width:32%}small{display:block;font-size:14px;color:#68676e}.review{margin-top:6px;color:#805b12}ul{padding-left:20px;margin:0}#error{color:#b12727}@media(max-width:600px){main{margin:24px auto;padding:0 12px 24px}h1{font-size:28px;line-height:32px}.panel{padding:20px 16px}th:last-child,td:last-child{width:28%;font-size:13px}td{padding:12px 6px}}
+  </style>
+  <style>
+    .amenity-name{display:flex;align-items:flex-start;gap:12px}
+    .amenity-icon{flex:none;width:24px;height:24px}
+    .amenity-copy{min-width:0}
+  </style>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body><main>
+  <span class="label muted">Рабочий справочник · не набор удобств конкретного вагона</span>
+  <h1>Все удобства поездов</h1>
+  <p><span id="count">—</span> удобств из <a href="https://www.figma.com/design/koLp6y0Rq5BLWS6rKBCKGP/ReDesign?node-id=20016-253094" target="_blank" rel="noopener">макета</a>. Названия и подписи сохранены для дальнейшей работы.</p>
+  <p class="muted">Применимость пока не определена. Этот список не меняет карточки вагонов и фильтры основного прототипа.</p>
+  <div class="panel"><table aria-label="Список удобств"><thead><tr><th>№</th><th>Удобство</th><th>Типы вагонов</th></tr></thead><tbody id="items"></tbody></table><p id="error" hidden>Не удалось загрузить список. Попробуйте обновить страницу.</p></div>
+  <section class="panel"><h2>Следующий шаг — распределить по типам вагонов</h2><ul>
+    <li>Для каждого удобства определить, где оно возможно, а где неприменимо.</li>
+    <li>Отдельно учесть класс обслуживания и различия обычных поездов и Сапсана.</li>
+    <li>Разделить удобства места, купе, вагона и всего поезда.</li>
+    <li>Уточнить условия: включено в билет, оплачивается отдельно или требует выбора.</li>
+  </ul></section>
+  <p class="muted label" style="margin-top:16px">Список хранится отдельно: <a href="./amenities-catalog.json">данные справочника</a>. «Не разобрано» не означает, что удобство отсутствует.</p>
+</main>
+<script>
+fetch('./amenities-catalog.json').then(response=>{if(!response.ok)throw new Error(response.status);return response.json()}).then(data=>{
+  document.querySelector('#count').textContent=data.amenities.length;
+  const rows=data.amenities.map((item,index)=>{
+    const row=document.createElement('tr');
+    const number=document.createElement('td');number.textContent=index+1;
+    const name=document.createElement('td');
+    const content=document.createElement('div');content.className='amenity-name';
+    const icon=document.createElement('img');icon.className='amenity-icon';icon.src=`./${item.icon}`;icon.alt='';icon.width=24;icon.height=24;
+    const copy=document.createElement('div');copy.className='amenity-copy';copy.textContent=item.name;
+    if(item.caption){const caption=document.createElement('small');caption.textContent=item.caption;copy.append(caption)}
+    if(item.reviewNote){const note=document.createElement('small');note.className='review';note.textContent=item.reviewNote;copy.append(note)}
+    content.append(icon,copy);name.append(content);
+    const status=document.createElement('td');status.textContent='Не разобрано';status.className='muted';
+    row.append(number,name,status);return row;
+  });document.querySelector('#items').replaceChildren(...rows);
+}).catch(()=>{document.querySelector('#error').hidden=false});
+</script>
+</body></html>

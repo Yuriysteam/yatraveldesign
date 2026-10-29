@@ -1,0 +1,440 @@
+{
+  "fileKey": "koLp6y0Rq5BLWS6rKBCKGP",
+  "nodeId": "18102:453085",
+  "sourceUrl": "https://www.figma.com/design/koLp6y0Rq5BLWS6rKBCKGP/ReDesign?node-id=18102-453085",
+  "frame": {
+    "width": 375,
+    "height": 1974
+  },
+  "card": {
+    "width": 375,
+    "height": 274
+  },
+  "scheme": {
+    "width": 864,
+    "height": 118
+  },
+  "assets": {
+    "car1-icons16-close-new-new.svg": {
+      "nodeId": "16776:453325",
+      "alternateNodeId": "16776:453328",
+      "constant": "imgIcons16CloseNewNew",
+      "sourceLine": 29,
+      "relation": "component-generated-id"
+    },
+    "car1-place-feature-toilet.svg": {
+      "nodeId": "18102:453118",
+      "constant": "imgPlaceFeatureToilet",
+      "sourceLine": 41
+    },
+    "car1-fluent-bin-recycle-full20-regular.svg": {
+      "nodeId": "18102:453122",
+      "constant": "imgFluentBinRecycleFull20Regular",
+      "sourceLine": 44
+    },
+    "car1-lucide-lab-mug.svg": {
+      "nodeId": "18102:453124",
+      "constant": "imgLucideLabMug",
+      "sourceLine": 47
+    },
+    "car1-place-feature-toilet1.svg": {
+      "nodeId": "18102:453126",
+      "constant": "imgPlaceFeatureToilet1",
+      "sourceLine": 50
+    },
+    "car1-group.svg": {
+      "nodeId": "18102:453131",
+      "constant": "imgGroup",
+      "sourceLine": 55,
+      "relation": "group"
+    },
+    "car1-top.svg": {
+      "nodeId": "I18102:453150;16776:453312",
+      "constant": "imgTop",
+      "sourceLine": 84
+    },
+    "car1-top1.svg": {
+      "nodeId": "I18102:453156;16776:453371",
+      "constant": "imgTop1",
+      "sourceLine": 103,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleY(-1)"
+    },
+    "car1-arrow.svg": {
+      "nodeId": "18102:453211",
+      "constant": "imgArrow",
+      "sourceLine": 294,
+      "relation": "transformed-ancestor",
+      "renderTransform": "rotate(180deg)"
+    },
+    "car1-arrow1.svg": {
+      "nodeId": "18102:453214",
+      "constant": "imgArrow1",
+      "sourceLine": 301,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleX(-1)"
+    },
+    "car1-icons24-air-conditioner-new.svg": {
+      "nodeId": "18102:453223",
+      "constant": "imgIcons24AirConditionerNew",
+      "sourceLine": 318
+    },
+    "car1-icons24-bio-toilet-new.svg": {
+      "nodeId": "18102:453224",
+      "constant": "imgIcons24BioToiletNew",
+      "sourceLine": 321
+    },
+    "car1-icons24-wifi-new.svg": {
+      "nodeId": "18102:453225",
+      "constant": "imgIcons24WifiNew",
+      "sourceLine": 324
+    },
+    "car1-ellipse4827.svg": {
+      "nodeId": "18102:453229",
+      "constant": "imgEllipse4827",
+      "sourceLine": 335
+    },
+    "car1-ellipse4826.svg": {
+      "nodeId": "18102:453232",
+      "constant": "imgEllipse4826",
+      "sourceLine": 343
+    },
+    "car2-icons16-close-new-new.svg": {
+      "nodeId": "16776:453325",
+      "alternateNodeId": "16776:453328",
+      "constant": "imgIcons16CloseNewNew",
+      "sourceLine": 29,
+      "relation": "component-generated-id"
+    },
+    "car2-place-feature-toilet.svg": {
+      "nodeId": "18102:453237",
+      "constant": "imgPlaceFeatureToilet",
+      "sourceLine": 41
+    },
+    "car2-fluent-bin-recycle-full20-regular.svg": {
+      "nodeId": "18102:453241",
+      "constant": "imgFluentBinRecycleFull20Regular",
+      "sourceLine": 44
+    },
+    "car2-lucide-lab-mug.svg": {
+      "nodeId": "18102:453243",
+      "constant": "imgLucideLabMug",
+      "sourceLine": 47
+    },
+    "car2-place-feature-toilet1.svg": {
+      "nodeId": "18102:453245",
+      "constant": "imgPlaceFeatureToilet1",
+      "sourceLine": 50
+    },
+    "car2-group.svg": {
+      "nodeId": "18102:453250",
+      "constant": "imgGroup",
+      "sourceLine": 55,
+      "relation": "group"
+    },
+    "car2-top.svg": {
+      "nodeId": "I18102:453269;16776:453312",
+      "constant": "imgTop",
+      "sourceLine": 84
+    },
+    "car2-top1.svg": {
+      "nodeId": "I18102:453275;16776:453371",
+      "constant": "imgTop1",
+      "sourceLine": 103,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleY(-1)"
+    },
+    "car2-arrow.svg": {
+      "nodeId": "18102:453330",
+      "constant": "imgArrow",
+      "sourceLine": 294,
+      "relation": "transformed-ancestor",
+      "renderTransform": "rotate(180deg)"
+    },
+    "car2-arrow1.svg": {
+      "nodeId": "18102:453333",
+      "constant": "imgArrow1",
+      "sourceLine": 301,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleX(-1)"
+    },
+    "car2-icons24-air-conditioner-new.svg": {
+      "nodeId": "18102:453342",
+      "constant": "imgIcons24AirConditionerNew",
+      "sourceLine": 318
+    },
+    "car2-icons24-bio-toilet-new.svg": {
+      "nodeId": "18102:453343",
+      "constant": "imgIcons24BioToiletNew",
+      "sourceLine": 321
+    },
+    "car2-icons24-wifi-new.svg": {
+      "nodeId": "18102:453344",
+      "constant": "imgIcons24WifiNew",
+      "sourceLine": 324
+    },
+    "car2-ellipse4827.svg": {
+      "nodeId": "18102:453348",
+      "constant": "imgEllipse4827",
+      "sourceLine": 335
+    },
+    "car2-ellipse4826.svg": {
+      "nodeId": "18102:453351",
+      "constant": "imgEllipse4826",
+      "sourceLine": 343
+    },
+    "car3-icons16-close-new-new.svg": {
+      "nodeId": "16776:453325",
+      "alternateNodeId": "16776:453328",
+      "constant": "imgIcons16CloseNewNew",
+      "sourceLine": 28,
+      "relation": "component-generated-id"
+    },
+    "car3-place-feature-toilet.svg": {
+      "nodeId": "18102:453356",
+      "constant": "imgPlaceFeatureToilet",
+      "sourceLine": 40
+    },
+    "car3-fluent-bin-recycle-full20-regular.svg": {
+      "nodeId": "18102:453360",
+      "constant": "imgFluentBinRecycleFull20Regular",
+      "sourceLine": 43
+    },
+    "car3-lucide-lab-mug.svg": {
+      "nodeId": "18102:453362",
+      "constant": "imgLucideLabMug",
+      "sourceLine": 46
+    },
+    "car3-group.svg": {
+      "nodeId": "18102:453369",
+      "constant": "imgGroup",
+      "sourceLine": 54,
+      "relation": "group"
+    },
+    "car3-top.svg": {
+      "nodeId": "I18102:453385;16776:453312",
+      "constant": "imgTop",
+      "sourceLine": 79
+    },
+    "car3-top1.svg": {
+      "nodeId": "I18102:453386;16776:453371",
+      "constant": "imgTop1",
+      "sourceLine": 89,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleY(-1)"
+    },
+    "car3-arrow.svg": {
+      "nodeId": "18102:453449",
+      "constant": "imgArrow",
+      "sourceLine": 408,
+      "relation": "transformed-ancestor",
+      "renderTransform": "rotate(180deg)"
+    },
+    "car3-arrow1.svg": {
+      "nodeId": "18102:453452",
+      "constant": "imgArrow1",
+      "sourceLine": 415,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleX(-1)"
+    },
+    "car3-icons24-air-conditioner-new.svg": {
+      "nodeId": "18102:453461",
+      "constant": "imgIcons24AirConditionerNew",
+      "sourceLine": 432
+    },
+    "car3-icons24-bio-toilet-new.svg": {
+      "nodeId": "18102:453462",
+      "constant": "imgIcons24BioToiletNew",
+      "sourceLine": 435
+    },
+    "car3-icons24-wifi-new.svg": {
+      "nodeId": "18102:453463",
+      "constant": "imgIcons24WifiNew",
+      "sourceLine": 438
+    },
+    "car3-ellipse4827.svg": {
+      "nodeId": "18102:453467",
+      "constant": "imgEllipse4827",
+      "sourceLine": 449
+    },
+    "car3-ellipse4826.svg": {
+      "nodeId": "18102:453470",
+      "constant": "imgEllipse4826",
+      "sourceLine": 457
+    },
+    "car4-icons16-close-new-new.svg": {
+      "nodeId": "16776:453325",
+      "alternateNodeId": "16776:453328",
+      "constant": "imgIcons16CloseNewNew",
+      "sourceLine": 29,
+      "relation": "component-generated-id"
+    },
+    "car4-place-feature-toilet.svg": {
+      "nodeId": "18102:453475",
+      "constant": "imgPlaceFeatureToilet",
+      "sourceLine": 41
+    },
+    "car4-fluent-bin-recycle-full20-regular.svg": {
+      "nodeId": "18102:453479",
+      "constant": "imgFluentBinRecycleFull20Regular",
+      "sourceLine": 44
+    },
+    "car4-lucide-lab-mug.svg": {
+      "nodeId": "18102:453481",
+      "constant": "imgLucideLabMug",
+      "sourceLine": 47
+    },
+    "car4-group.svg": {
+      "nodeId": "18102:453488",
+      "constant": "imgGroup",
+      "sourceLine": 55,
+      "relation": "group"
+    },
+    "car4-top.svg": {
+      "nodeId": "I18102:453504;16776:453312",
+      "constant": "imgTop",
+      "sourceLine": 80
+    },
+    "car4-top1.svg": {
+      "nodeId": "I18102:453505;16776:453371",
+      "constant": "imgTop1",
+      "sourceLine": 90,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleY(-1)"
+    },
+    "car4-arrow.svg": {
+      "nodeId": "18102:453568",
+      "constant": "imgArrow",
+      "sourceLine": 319,
+      "relation": "transformed-ancestor",
+      "renderTransform": "rotate(180deg)"
+    },
+    "car4-arrow1.svg": {
+      "nodeId": "18102:453571",
+      "constant": "imgArrow1",
+      "sourceLine": 326,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleX(-1)"
+    },
+    "car4-icons24-air-conditioner-new.svg": {
+      "nodeId": "18102:453587",
+      "constant": "imgIcons24AirConditionerNew",
+      "sourceLine": 364
+    },
+    "car4-icons24-bio-toilet-new.svg": {
+      "nodeId": "18102:453588",
+      "constant": "imgIcons24BioToiletNew",
+      "sourceLine": 367
+    },
+    "car4-icons24-wifi-new.svg": {
+      "nodeId": "18102:453589",
+      "constant": "imgIcons24WifiNew",
+      "sourceLine": 370
+    },
+    "car4-icons24-genger-cabin-new.svg": {
+      "nodeId": "18102:453590",
+      "constant": "imgIcons24GengerCabinNew",
+      "sourceLine": 373
+    },
+    "car4-ellipse4827.svg": {
+      "nodeId": "18102:453594",
+      "constant": "imgEllipse4827",
+      "sourceLine": 384
+    },
+    "car4-ellipse4826.svg": {
+      "nodeId": "18102:453597",
+      "constant": "imgEllipse4826",
+      "sourceLine": 392
+    },
+    "car5-icons16-close-new-new.svg": {
+      "nodeId": "16776:453325",
+      "alternateNodeId": "16776:453328",
+      "constant": "imgIcons16CloseNewNew",
+      "sourceLine": 30,
+      "relation": "component-generated-id"
+    },
+    "car5-place-feature-toilet.svg": {
+      "nodeId": "18102:453602",
+      "constant": "imgPlaceFeatureToilet",
+      "sourceLine": 42
+    },
+    "car5-fluent-bin-recycle-full20-regular.svg": {
+      "nodeId": "18102:453606",
+      "constant": "imgFluentBinRecycleFull20Regular",
+      "sourceLine": 45
+    },
+    "car5-lucide-lab-mug.svg": {
+      "nodeId": "18102:453608",
+      "constant": "imgLucideLabMug",
+      "sourceLine": 48
+    },
+    "car5-place-feature-toilet1.svg": {
+      "nodeId": "18102:453610",
+      "constant": "imgPlaceFeatureToilet1",
+      "sourceLine": 51
+    },
+    "car5-group.svg": {
+      "nodeId": "18102:453615",
+      "constant": "imgGroup",
+      "sourceLine": 56,
+      "relation": "group"
+    },
+    "car5-top.svg": {
+      "nodeId": "I18102:453623;16776:453312",
+      "constant": "imgTop",
+      "sourceLine": 68
+    },
+    "car5-top1.svg": {
+      "nodeId": "I18102:453624;16776:453371",
+      "constant": "imgTop1",
+      "sourceLine": 78,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleY(-1)"
+    },
+    "car5-arrow.svg": {
+      "nodeId": "18102:453695",
+      "constant": "imgArrow",
+      "sourceLine": 378,
+      "relation": "transformed-ancestor",
+      "renderTransform": "rotate(180deg)"
+    },
+    "car5-arrow1.svg": {
+      "nodeId": "18102:453698",
+      "constant": "imgArrow1",
+      "sourceLine": 385,
+      "relation": "transformed-ancestor",
+      "renderTransform": "scaleX(-1)"
+    },
+    "car5-icons24-air-conditioner-new.svg": {
+      "nodeId": "18102:453707",
+      "constant": "imgIcons24AirConditionerNew",
+      "sourceLine": 402
+    },
+    "car5-icons24-bio-toilet-new.svg": {
+      "nodeId": "18102:453708",
+      "constant": "imgIcons24BioToiletNew",
+      "sourceLine": 405
+    },
+    "car5-icons24-wifi-new.svg": {
+      "nodeId": "18102:453709",
+      "constant": "imgIcons24WifiNew",
+      "sourceLine": 408
+    },
+    "car5-icons24-animal-new.svg": {
+      "nodeId": "18102:453710",
+      "constant": "imgIcons24AnimalNew",
+      "sourceLine": 411
+    },
+    "car5-ellipse4827.svg": {
+      "nodeId": "18102:453714",
+      "constant": "imgEllipse4827",
+      "sourceLine": 422
+    },
+    "car5-ellipse4826.svg": {
+      "nodeId": "18102:453717",
+      "constant": "imgEllipse4826",
+      "sourceLine": 430
+    }
+  },
+  "note": "SVG files are unmodified Figma exports. Repeated identical glyphs share the original car1 export, or existing desktop source SVG only when slot, dimensions and color match. JSX wrapper flips are not reapplied to SVG exports whose orientation is already baked in."
+}

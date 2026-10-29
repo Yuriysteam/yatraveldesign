@@ -1,0 +1,27 @@
+/* Tooltip shell + Base Secondary XL (56) buttons, Figma 19967:439751. */
+.exact-gender-popover { width:430px; }
+.exact-gender-popover .exact-amenities-popover__close svg { display:none; }
+.exact-gender-popover__close-asset { display:block; }
+html[data-theme="dark"] .exact-gender-popover .exact-amenities-popover__close svg { display:block; }
+html[data-theme="dark"] .exact-gender-popover__close-asset { display:none; }
+.exact-gender-popover__options { display:flex; gap:8px; }
+.exact-gender-popover__option {
+  flex:1 1 0;
+  min-width:0;
+  height:56px;
+  padding:0 12px;
+  border:0;
+  border-radius:20px;
+  background:var(--bg-button-secondary-color);
+  color:var(--text-primary-color);
+  font:500 16px/20px 'YS Text',sans-serif;
+  text-align:center;
+}
+.exact-gender-popover__option:hover:not(:disabled) { opacity:.92; }
+.exact-gender-popover__option:active:not(:disabled) { transform:scale(.98); }
+.exact-gender-popover__option:disabled { color:var(--text-generic-disabled-color); cursor:default; }
+.exact-seat-tooltip--restriction,
+.exact-seat-tooltip--restriction .exact-seat-tooltip__bubble { max-width:375px; white-space:pre-line; text-align:center; }
+.exact-gender-popover__option:focus-visible { outline:2px solid var(--text-primary-color); outline-offset:2px; }
+.exact-scheme__cabin-label[data-gender="mixed"] { width:77px; }
+body:has(.exact-gender-popover:popover-open) .exact-seat-tooltip { visibility:hidden; }

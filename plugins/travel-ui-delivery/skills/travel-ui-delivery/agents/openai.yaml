@@ -1,4 +1,0 @@
-interface:
-  display_name: "Travel UI delivery"
-  short_description: "Take a small Travel UI task from ticket and Figma to reviewed platform PRs"
-  default_prompt: "Use $travel-ui-delivery to take this small Travel UI task through impact mapping, platform implementation, snapshots, design review, and review-only PR delivery."

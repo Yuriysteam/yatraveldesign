@@ -1,0 +1,87 @@
+/* Local Selection panel — Seats-selection 22053:392004.
+   Fare=Off: 22053:392002; Fare=On: 22053:392003.
+   Fare controls visibility, not opt-in: switching the tariff remains separate.
+   Keep runtime content, selection order, event hooks and entry/exit motion intact.
+   Base 2.0: background/tertiary-on-primary, Shadow/Selection panel,
+   More Primary/Secondary, Button Primary XL·56, Switch Secondary L·28.
+   Mobile keeps its own layout. */
+:root {
+  --selection-panel-edge-gap: 32px;
+  --shadow-selection-panel-layer-1: rgb(0 0 0 / 10%);
+  --shadow-selection-panel-layer-2: rgb(0 0 0 / 9%);
+  --shadow-selection-panel-layer-3: rgb(0 0 0 / 5%);
+  --shadow-selection-panel-layer-4: rgb(0 0 0 / 1%);
+  --shadow-selection-panel-layer-5: rgb(0 0 0 / 5%);
+  /* Filter follows the panel and fare cap together. Figma blur / 2 = sigma. */
+  --shadow-selection-panel: drop-shadow(0 -1px 12.5px var(--shadow-selection-panel-layer-5)) drop-shadow(0 195px 39px var(--shadow-selection-panel-layer-4)) drop-shadow(0 110px 33px var(--shadow-selection-panel-layer-3)) drop-shadow(0 49px 24.5px var(--shadow-selection-panel-layer-2)) drop-shadow(0 12px 13.5px var(--shadow-selection-panel-layer-1));
+}
+html[data-theme="dark"] {
+  --shadow-selection-panel-layer-1: rgb(0 0 0 / 40%);
+  --shadow-selection-panel-layer-2: rgb(0 0 0 / 30%);
+  --shadow-selection-panel-layer-3: rgb(0 0 0 / 15%);
+  --shadow-selection-panel-layer-4: rgb(0 0 0 / 10%);
+  --shadow-selection-panel-layer-5: rgb(0 0 0 / 25%);
+}
+body.has-seat-selection { padding-bottom: calc(var(--selection-panel-height, 96px) + var(--selection-panel-edge-gap) + 8px); }
+body.has-seat-selection:has(.has-nonrefundable) { padding-bottom: calc(var(--selection-panel-height, 96px) + var(--selection-panel-edge-gap) + 58px); }
+.exact-selection-panel .m-selection-panel__places { flex: 0 1 auto; white-space: normal; overflow: visible; }
+.exact-selection-panel {
+  --selection-panel-motion-duration: 320ms;
+  bottom: var(--selection-panel-edge-gap);
+  width: min(800px, calc(100% - 40px));
+  max-width: none;
+  padding: 0;
+  border-radius: 36px;
+  background: transparent;
+  box-shadow: none;
+  filter: var(--shadow-selection-panel);
+  isolation: isolate;
+  /* Include the fare cap above the panel; keep the existing 28px shadow clearance. */
+  transform: translateY(calc(100% + var(--selection-panel-edge-gap) + var(--selection-panel-cap-height, 0px) + 28px));
+  transition: transform var(--selection-panel-motion-duration) cubic-bezier(.2, 0, 0, 1);
+}
+.exact-selection-panel.has-nonrefundable { --selection-panel-cap-height: 50px; }
+.exact-selection-panel.is-visible { transform: translateY(0); }
+.exact-selection-panel:not(.is-visible) { pointer-events: none; }
+.exact-selection-panel .m-selection-panel__row { position: relative; z-index: 1; width: 100%; min-height: 96px; padding: 20px 20px 20px 24px; gap: 8px; border-radius: 36px; background: var(--bg-card-primary-color); }
+.exact-selection-panel .m-selection-panel__price-row { height: auto; min-height: 32px; }
+.exact-selection-panel .m-selection-panel__price { font: 500 28px/32px 'YS Display', sans-serif; letter-spacing: -.28px; font-feature-settings: "lnum" 1, "pnum" 1; }
+.exact-selection-panel .m-selection-panel__summary { font-feature-settings: "case" 1, "lnum" 1, "pnum" 1; }
+.exact-selection-panel .m-selection-panel__continue { min-width: 220px; }
+.exact-selection-panel .m-selection-panel__validation { left: 50%; right: auto; transform: translateX(-50%); }
+.exact-selection-panel .m-selection-panel__validation img { left: 50%; right: auto; transform: translateX(-50%); }
+.exact-selection-panel .m-selection-panel__price-more { width: 20px; height: 28px; padding: 0; background: transparent; }
+.exact-selection-panel .m-selection-panel__places-all { padding: 0; background: transparent; }
+.exact-price-details { inset: 0; width: min(480px, calc(100% - 48px)); max-width: 480px; height: fit-content; max-height: calc(100dvh - 48px); margin: auto; padding: 24px; border-radius: 32px; }
+.exact-price-details .m-price-details__close { padding: 0; background: transparent; }
+@media (prefers-reduced-motion: reduce) {
+  .exact-selection-panel, .exact-selection-panel.is-visible .exact-nonrefundable { transition: none; }
+}
+html[data-theme="dark"] .exact-selection-panel .m-selection-panel__row,
+html[data-theme="dark"] .exact-price-details { background: var(--bg-card-primary-color); }
+html[data-theme="dark"] .exact-selection-panel {
+  background: transparent;
+}
+html[data-theme="dark"] .exact-selection-panel .m-selection-panel__continue:not(:disabled) { color: #0d0d0f; }
+html[data-theme="dark"] .exact-selection-panel .m-selection-panel__price-more img { content: url("desktop/assets/more-dark.svg"); }
+html[data-theme="dark"] .exact-selection-panel .m-selection-panel__places-all img,
+html[data-theme="dark"] .exact-price-details .m-price-details__close img { filter: brightness(0) invert(1); }
+
+/* 90px cap overlaps the white panel by 40px. Slide only the cap when the basket
+   is already visible; first entry/last exit travel with the outer panel. */
+.exact-nonrefundable { position: absolute; z-index: 0; top: -50px; left: 0; width: 100%; height: 90px; padding: 12px 20px 50px 24px; display: flex; align-items: center; justify-content: space-between; gap: 36px; overflow: hidden; border-radius: 36px 36px 0 0; background: var(--bg-label-info-color, #f3efff); color: var(--text-primary-color); font: 400 14px/18px 'YS Text', sans-serif; font-feature-settings: "lnum" 1, "pnum" 1; transform: translateY(50px); visibility: hidden; pointer-events: none; }
+.exact-selection-panel.is-visible .exact-nonrefundable { transition: transform var(--selection-panel-motion-duration) cubic-bezier(.2, 0, 0, 1), visibility 0s var(--selection-panel-motion-duration); }
+.exact-selection-panel.has-nonrefundable .exact-nonrefundable { transform: translateY(0); visibility: visible; pointer-events: auto; transition-delay: 0s; }
+.exact-nonrefundable__description, .exact-nonrefundable__control { display: flex; align-items: center; white-space: nowrap; }
+.exact-nonrefundable__description { gap: 6px; }
+.exact-nonrefundable__control { gap: 8px; }
+.exact-nonrefundable strong { font-weight: 500; }
+.exact-nonrefundable__description > [aria-hidden="true"] { font-weight: 500; }
+.exact-nonrefundable [data-fare-savings] { font-size: 16px; line-height: 18px; letter-spacing: 0; font-feature-settings: "lnum" 1, "pnum" 1; }
+.exact-nonrefundable__icon { flex: none; width: 24px; height: 24px; object-fit: contain; }
+.exact-nonrefundable__more { display: grid; place-items: center; flex: none; width: 20px; height: 14px; padding: 0; border-radius: 4px; background: var(--more-secondary-background); }
+.exact-nonrefundable__more::before { content: ''; width: 12px; height: 12px; background: var(--text-secondary-color); mask: url("scheme-assets/nonrefundable-more.svg") center / contain no-repeat; }
+html[data-theme="dark"] .exact-nonrefundable { --bg-label-info-color: #313136; }
+@media (prefers-reduced-motion: reduce) {
+  .exact-selection-panel.is-visible .exact-nonrefundable { transition: none; }
+}

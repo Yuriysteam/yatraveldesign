@@ -1,0 +1,52 @@
+/* ReDesign 18643:354360. Color-only overrides; seat colors are shared with desktop. */
+html[data-theme="dark"] {
+  --text-inverse-color: #0d0d0f;
+  --bg-button-primary-color: #fac800;
+  --bg-button-floated-color: #313136;
+  --bg-button-generic-disabled-color: #222125;
+  --bg-line-default-color: #3c3c41;
+  --bg-progressbar-filled-color: #e6e5e7;
+  --shadow-soft-both-themes: rgb(0 0 0 / 20%);
+  --scheme-surface: var(--bg-fill-primary-color);
+}
+
+html[data-theme="dark"] .m-progress::before { background: var(--bg-line-default-color); }
+html[data-theme="dark"] .m-progress > span { background: var(--bg-progressbar-filled-color); }
+html[data-theme="dark"] .m-chip { background: var(--bg-button-secondary-color); }
+html[data-theme="dark"] .m-booking-informer { background: var(--bg-card-primary-color); }
+
+/* Reuse the original SVG contours, changing only the monochrome ink. */
+html[data-theme="dark"] .m-back img,
+html[data-theme="dark"] .m-trip__toggle img,
+html[data-theme="dark"] .m-stepper__controls button:not(:disabled) img,
+html[data-theme="dark"] .m-chip img,
+html[data-theme="dark"] .m-filter-option img,
+html[data-theme="dark"] .m-filter-sheet__close img,
+html[data-theme="dark"] .m-filter-sheet__toggle img,
+html[data-theme="dark"] .m-price-details__close img,
+html[data-theme="dark"] .m-selection-panel__places-all img,
+html[data-theme="dark"] .m-selection-panel__homebar img { filter: brightness(0) invert(.9294118); }
+
+html[data-theme="dark"] .m-discounts img,
+html[data-theme="dark"] .m-car__more img,
+html[data-theme="dark"] .m-booking-informer__title img,
+html[data-theme="dark"] .m-selection-panel__price-more img { content: url("desktop/assets/more-dark.svg"); }
+
+html[data-theme="dark"] .m-chip[aria-pressed="true"],
+html[data-theme="dark"] .m-filters .m-chip.is-active,
+html[data-theme="dark"] .m-filter-sheet [aria-pressed="true"] {
+  background: var(--text-primary-color);
+  color: var(--text-inverse-color);
+}
+html[data-theme="dark"] .m-chip[aria-pressed="true"] small { color: var(--text-generic-disabled-color); }
+html[data-theme="dark"] .m-chip[aria-pressed="true"] img,
+html[data-theme="dark"] .m-filters .m-chip.is-active img,
+html[data-theme="dark"] .m-filter-option[aria-pressed="true"] img { filter: none; }
+
+html[data-theme="dark"] .m-filter-sheet,
+html[data-theme="dark"] .m-filter-sheet__footer,
+html[data-theme="dark"] .m-price-details { background: var(--bg-card-primary-color); }
+html[data-theme="dark"] .m-filter-sheet__apply,
+html[data-theme="dark"] .m-selection-panel__continue:not(:disabled) { color: var(--text-inverse-color); }
+html[data-theme="dark"] .m-selection-panel__continue:disabled { background: var(--bg-button-generic-disabled-color); }
+html[data-theme="dark"] .m-price-details__total { border-color: var(--bg-line-default-color); }

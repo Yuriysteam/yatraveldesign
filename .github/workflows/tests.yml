@@ -1,4 +1,4 @@
-name: Test bot and Codex marketplace
+name: Test bot
 
 on:
   push:
@@ -6,13 +6,15 @@ on:
     paths:
       - 'bot.py'
       - 'test_bot.py'
-      - 'test_marketplace.py'
+      - 'test_store.js'
+      - 'skills/index.html'
       - '.github/workflows/tests.yml'
   pull_request:
     paths:
       - 'bot.py'
       - 'test_bot.py'
-      - 'test_marketplace.py'
+      - 'test_store.js'
+      - 'skills/index.html'
       - '.github/workflows/tests.yml'
 
 permissions:
@@ -26,4 +28,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.9'
-      - run: python3 -m unittest -q test_bot.py test_marketplace.py
+      - run: python3 -m unittest -q test_bot.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test test_store.js

@@ -1,0 +1,24 @@
+/* Mobile carriage outlines use the Union shapes from the Figma scheme component.
+   Their cutouts and the shadow belong to one shape, including in dark theme. */
+.p-scheme[data-platform="mobile"],
+.m-scheme {
+  background: transparent;
+}
+
+.mobile-scheme-union {
+  position: absolute;
+  top: -10px;
+  left: -15px;
+  display: block;
+  max-width: none;
+  overflow: visible;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 7.5px rgb(0 0 0 / 5%));
+}
+
+/* Sapsan's existing door elements carry the arrows; the Union draws the cutouts. */
+.sapsan-scheme__door {
+  border-color: transparent;
+  background: transparent;
+  pointer-events: none;
+}

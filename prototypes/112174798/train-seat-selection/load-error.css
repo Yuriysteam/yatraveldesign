@@ -1,0 +1,48 @@
+/* Figma 20252:95787 / 20252:191731. Layout only; controls and typography come from BaseAI. */
+:root {
+  --yatraveluikit-text-primary-color: var(--text-primary-color);
+  --yatraveluikit-bg-button-secondary-color: var(--bg-button-secondary-color);
+}
+html[data-theme="dark"] {
+  --yatraveluikit-bg-button-secondary-hover-color: var(--more-secondary-background);
+  --yatraveluikit-bg-button-secondary-active-color: var(--more-secondary-background);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; width: 100%; min-height: 100%; }
+body { background: var(--bg-fill-primary-color); color: var(--text-primary-color); }
+[hidden] { display: none !important; }
+h1, p { margin: 0; }
+.error-screen { min-height: 100dvh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; padding: 40px 20px; }
+.error-content { width: 549px; max-width: 100%; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.error-art { width: 210px; height: 210px; flex: none; }
+.error-art img { display: block; }
+.error-art .error-art__mobile { display: none; }
+.error-copy { display: flex; flex-direction: column; gap: 12px; text-align: center; width: 100%; }
+.error-actions { display: flex; gap: 8px; width: 476px; max-width: 100%; }
+.error-actions > button { flex: 1; min-width: 0; }
+.error-statusbar, .error-homebar { display: none; }
+.search-placeholder { min-height: 100dvh; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 20px; padding: 64px 20px; text-align: center; }
+.search-placeholder > p { max-width: 480px; }
+html[data-view="mobile"] .error-screen { min-height: 812px; height: 100dvh; padding: 200px 20px 304px; justify-content: flex-start; gap: 0; }
+html[data-view="mobile"] .error-content { width: 335px; gap: 12px; }
+html[data-view="mobile"] .error-art { width: 180px; height: 180px; position: relative; }
+html[data-view="mobile"] .error-art__desktop { display: none; }
+html[data-view="mobile"] .error-art .error-art__mobile { display: block; position: absolute; top: 6px; left: 9px; }
+html[data-view="mobile"] .error-bottom { position: fixed; bottom: 34px; left: 0; width: 100%; padding: 20px 20px 8px; background: var(--bg-fill-primary-color); }
+html[data-view="mobile"] .error-actions { width: 100%; flex-direction: column-reverse; }
+html[data-view="mobile"] .error-actions > button { flex: none; }
+html[data-view="mobile"] .error-statusbar { display: block; height: 44px; position: absolute; top: 0; left: 0; width: 100%; }
+.error-statusbar img { position: absolute; }
+.error-statusbar__time { position: absolute; left: 21px; top: 14px; width: 54px; height: 18px; text-align: center; font: 600 15px/18px -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -.3px; }
+.error-statusbar__signal { right: 64.33px; top: 17.67px; }
+.error-statusbar__wifi { right: 44.03px; top: 17.33px; }
+.error-statusbar__battery { right: 17px; top: 17.33px; }
+.error-statusbar__battery-fill { right: 19px; top: 19.33px; }
+.error-statusbar__battery-cap { right: 14.67px; top: 21px; }
+html[data-view="mobile"] .error-homebar { display: grid; place-items: center; height: 34px; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--bg-fill-primary-color); }
+.error-homebar img { width: 375px; height: 34px; }
+html[data-theme="dark"] .error-statusbar img, html[data-theme="dark"] .error-homebar img { filter: invert(1); }
+html[data-view="mobile"][data-surface="touch"] .error-statusbar { height: 47px; }
+html[data-view="mobile"][data-surface="touch"] .error-statusbar__time { font-size: 17px; line-height: 22px; letter-spacing: -.408px; }
+html[data-view="mobile"][data-surface="touch"] .error-bottom { bottom: 0; padding-bottom: 20px; }
+html[data-view="mobile"][data-surface="touch"] .error-homebar { display: none; }

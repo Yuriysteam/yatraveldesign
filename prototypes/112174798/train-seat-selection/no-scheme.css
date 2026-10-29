@@ -1,0 +1,62 @@
+/* Approved no-map composition (20127:115645); original card geometry otherwise untouched. */
+.car-without-scheme [hidden] { display:none !important; }
+.no-scheme-informer {
+  display:flex; align-items:center; gap:8px;
+  --yatraveluikit-base-space:4px;
+  --yatraveluikit-border-radius-large-s:28px;
+  --yatraveluikit-border-radius-medium-s:16px;
+  --yatraveluikit-fontFamily:'YS Text',sans-serif;
+  --yatraveluikit-text-primary-color:var(--text-primary-color);
+  --yatraveluikit-bg-warning-neutral-color:var(--bg-fill-secondary-color);
+  --yatraveluikit-bg-button-light-color:var(--bg-fill-primary-color);
+  --yatraveluikit-bg-button-light-hover-color:var(--bg-button-secondary-color);
+  --yatraveluikit-bg-button-light-disabled-color:var(--bg-button-secondary-color);
+  --yatraveluikit-text-generic-disabled-color:var(--text-generic-disabled-color);
+}
+.no-scheme-copy { min-width:0; padding-left:4px; font:400 14px/18px 'YS Text',sans-serif; }
+.no-scheme-copy strong { display:block; font-weight:500; }
+.no-scheme-copy p { margin:2px 0 0; }
+.no-scheme-action { flex:none; }
+.no-scheme-prices { display:flex; align-items:center; flex-wrap:wrap; gap:16px; }
+.no-scheme-prices span { white-space:nowrap; }
+.exact-car.car-without-scheme { gap:20px; padding-bottom:20px; }
+.exact-car.car-without-scheme .exact-legend { height:28px; flex:0 0 28px; }
+.m-car.car-without-scheme { height:auto; padding:20px; overflow:clip; }
+.car-without-scheme .m-nonrefundable { display:none; }
+.m-car.car-without-scheme.m-car--bedding.has-bedding { height:auto; }
+.m-car.car-without-scheme .m-car__header { position:static; }
+.m-car.car-without-scheme .no-scheme-informer { margin-top:16px; flex-direction:column; align-items:stretch; gap:16px; }
+.m-car.car-without-scheme .no-scheme-copy { padding:0; }
+.m-car.car-without-scheme .no-scheme-copy p { margin-top:4px; }
+.m-car.car-without-scheme .no-scheme-action .button { width:100%; }
+.m-car.car-without-scheme .m-car__legend { position:static; height:22px; padding-top:4px; margin-top:16px; font:400 14px/18px 'YS Text',sans-serif; }
+.m-car.car-without-scheme .no-scheme-prices { gap:12px; }
+.no-scheme-bedding-reveal { display:grid; grid-template-rows:0fr; transition:grid-template-rows 240ms cubic-bezier(.2,0,0,1); }
+.has-bedding .no-scheme-bedding-reveal { grid-template-rows:1fr; }
+.no-scheme-bedding-clip { min-height:0; overflow:hidden; }
+.m-car.car-without-scheme .m-bedding { position:relative; inset:auto; margin-top:8px; }
+.m-car.car-without-scheme .m-bedding--paid { margin-top:16px; }
+.m-car.car-without-scheme.has-bedding .m-bedding { opacity:1; visibility:visible; pointer-events:auto; transition:opacity 180ms ease-out 60ms,visibility 0s; }
+html[data-theme="dark"] .no-scheme-informer { --yatraveluikit-bg-warning-neutral-color:var(--bg-button-secondary-color); --yatraveluikit-bg-button-light-color:var(--bg-card-primary-color); --yatraveluikit-bg-button-light-hover-color:var(--more-secondary-background); }
+.no-scheme-informer .button:focus-visible { outline:2px solid var(--text-primary-color); outline-offset:3px; }
+@media(prefers-reduced-motion:reduce) { .no-scheme-bedding-reveal { transition:none; } }
+
+/* Scoped BaseAI runtime excerpts, same strategy as desktop/bedding.css.
+   Keep library states/subtree without loading global resets over the existing prototype. */
+.no-scheme-informer.informer__auto-017 { padding:calc(5*var(--yatraveluikit-base-space)); }
+.no-scheme-informer.informer__auto-021 { background:var(--yatraveluikit-bg-warning-neutral-color); }
+.no-scheme-informer.informer__auto-017 .informer__auto-019 { flex-grow:1; width:100%; }
+.no-scheme-informer.informer__auto-009.informer__auto-010 { border-radius:var(--yatraveluikit-border-radius-large-s); }
+.no-scheme-informer .button { box-sizing:border-box;font-family:var(--yatraveluikit-fontFamily);font-variant-numeric:proportional-nums;font-weight:inherit;cursor:pointer;user-select:none;text-align:center;white-space:nowrap;color:var(--yatraveluikit-text-primary-color);-webkit-tap-highlight-color:#0000;background:transparent;border-width:0;outline:0;margin:0;padding:0;text-decoration:none;transition:transform .1s ease-in-out,color .15s linear;display:inline-block;position:relative;overflow:visible;transform:scale(1); }
+.no-scheme-informer .button:before { content:"";transition:background-color .15s linear;position:absolute;inset:0; }
+.no-scheme-informer .button__content { resize:none;white-space:nowrap;pointer-events:none;justify-content:center;align-items:center;width:100%;height:100%;display:inline-flex;position:relative; }
+.no-scheme-informer .button__text-stack { flex-direction:column;flex-shrink:1;align-items:center;display:flex;overflow:hidden; }
+.no-scheme-informer .button__label { white-space:nowrap;text-overflow:ellipsis;width:100%;overflow:hidden; }
+.no-scheme-informer .button--size-m { height:40px;padding:0 calc(3*var(--yatraveluikit-base-space)); }
+.no-scheme-informer .button--size-m:before { border-radius:var(--yatraveluikit-border-radius-medium-s); }
+.no-scheme-informer .button--size-m .button__text-stack { padding:0 calc(.5*var(--yatraveluikit-base-space)); }
+.no-scheme-informer .ui__auto-450:before { background-color:var(--yatraveluikit-bg-button-light-color); }
+.no-scheme-informer .ui__auto-450.gmsji:before { background-color:var(--yatraveluikit-bg-button-light-hover-color); }
+.no-scheme-informer .ui__auto-450.button--disabled:before { background-color:var(--yatraveluikit-bg-button-light-disabled-color); }
+.no-scheme-informer .button.button--disabled { cursor:default;pointer-events:none;color:var(--yatraveluikit-text-generic-disabled-color); }
+.no-scheme-informer .text-label-m { font-family:'YS Text';font-size:14px;font-weight:500;line-height:18px; }

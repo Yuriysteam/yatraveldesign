@@ -1,0 +1,49 @@
+/* Desktop sleeper footers; mobile and Sapsan do not change. */
+.exact-car--platskart, .exact-car--coupe { padding-bottom: 20px; }
+.exact-car--platskart .exact-legend,
+.exact-car--coupe .exact-legend { height: 28px; flex: 0 0 28px; align-items: center; }
+.exact-bedding { margin-left: auto; display: flex; align-items: center; gap: 12px; white-space: nowrap; opacity: 0; transition: opacity 160ms ease; pointer-events: none; }
+.exact-bedding--included { gap: 6px; }
+.exact-bedding.is-visible { opacity: 1; pointer-events: auto; }
+.exact-bedding[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .exact-bedding { transition: none; }
+}
+.exact-bedding strong { font-weight: 500; }
+:is(.exact-bedding, .exact-nonrefundable) [role="switch"]:focus-visible { outline: 2px solid var(--text-primary-color); outline-offset: 3px; }
+
+/* Scoped BaseAI 1.0.0 Switch L runtime excerpt. Preserve its subtree and states
+   without loading global library resets into the existing prototype. */
+:is(.exact-bedding, .exact-nonrefundable) {
+  --yatraveluikit-border-radius-full: 9999px;
+  --yatraveluikit-border-radius-medium-m: 20px;
+  --yatraveluikit-fast-duration: .2s;
+  --yatraveluikit-knob-toggle-both-themes-shadow: 0 2px 1px #00000012, 0 2px 6px #0000000a;
+  --yatraveluikit-bg-knobToggle-primary-color: #fff;
+  --yatraveluikit-bg-button-secondary-color: var(--bg-button-secondary-color);
+  --yatraveluikit-bg-toggle-hover-color: var(--bg-button-secondary-hover-color, #e6e6e8);
+  --yatraveluikit-bg-toggle-primary-color: var(--bg-toggle-primary-color, #fed42b);
+  --yatraveluikit-bg-toggle-primary-hover-color: var(--bg-toggle-primary-hover-color, #f5bc00);
+  --yatraveluikit-bg-toggle-secondary-color: #e6e5e7;
+  --yatraveluikit-bg-toggle-secondary-hover-color: #ededee;
+}
+:is(.exact-bedding, .exact-nonrefundable) .switch__knob { border-radius: var(--yatraveluikit-border-radius-full); box-shadow: var(--yatraveluikit-knob-toggle-both-themes-shadow); transition: left ease-in var(--yatraveluikit-fast-duration); position: absolute; top: 2px; left: 2px; }
+:is(.exact-bedding, .exact-nonrefundable) .switch { cursor: pointer; -webkit-user-select: none; user-select: none; transition: background ease-in var(--yatraveluikit-fast-duration); -webkit-tap-highlight-color: #0000; position: relative; }
+:is(.exact-bedding, .exact-nonrefundable) .switch--size-l { border-radius: var(--yatraveluikit-border-radius-medium-m); width: 42px; height: 28px; }
+:is(.exact-bedding, .exact-nonrefundable) .switch--size-l .switch__knob { width: 24px; height: 24px; }
+:is(.exact-bedding, .exact-nonrefundable) .switch--size-l.switch--checked .switch__knob { transition: left ease-out var(--yatraveluikit-fast-duration), box-shadow ease-out var(--yatraveluikit-fast-duration); left: 16px; }
+:is(.exact-bedding, .exact-nonrefundable) :is(.switch--default, .switch--secondary) .switch__knob { background-color: var(--yatraveluikit-bg-knobToggle-primary-color); }
+.exact-bedding .switch--default { background-color: var(--yatraveluikit-bg-button-secondary-color); }
+.exact-bedding .switch--default:hover { background-color: var(--yatraveluikit-bg-toggle-hover-color); }
+.exact-bedding .switch--checked-default { background-color: var(--yatraveluikit-bg-toggle-primary-color); transition: background ease-out var(--yatraveluikit-fast-duration); }
+.exact-bedding .switch--checked-default:hover { background-color: var(--yatraveluikit-bg-toggle-primary-hover-color); }
+html[data-theme="dark"] .exact-bedding { --yatraveluikit-bg-toggle-hover-color: #3c3c41; }
+.exact-nonrefundable .switch--secondary { background-color: var(--yatraveluikit-bg-toggle-secondary-color); }
+.exact-nonrefundable .switch--secondary:hover { background-color: var(--yatraveluikit-bg-toggle-secondary-hover-color); }
+.exact-nonrefundable .switch--checked-secondary { background-color: var(--yatraveluikit-bg-toggle-primary-color); transition: background ease-out var(--yatraveluikit-fast-duration); }
+.exact-nonrefundable .switch--checked-secondary:hover { background-color: var(--yatraveluikit-bg-toggle-primary-hover-color); }
+html[data-theme="dark"] .exact-nonrefundable { --yatraveluikit-bg-toggle-secondary-color: #3c3c41; --yatraveluikit-bg-toggle-secondary-hover-color: #5e5d65; }
+@media (prefers-reduced-motion: reduce) {
+  :is(.exact-bedding, .exact-nonrefundable) .switch,
+  :is(.exact-bedding, .exact-nonrefundable) .switch .switch__knob { transition: none; }
+}

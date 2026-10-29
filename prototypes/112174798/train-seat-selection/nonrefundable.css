@@ -1,0 +1,48 @@
+/* Figma 19641:486971: anchor both berths to the same outer top-right corner.
+   Mobile keeps its 8px dot + 1.5px outline; center is 2px inside each edge.
+   Anchor to the seat, not its number; upper/lower optical offsets stay intact. */
+.scheme-seat.scheme-seat[data-non-refundable="true"] { overflow: visible; }
+.scheme-seat .scheme-seat__nonrefundable {
+  position: absolute;
+  top: -3.5px;
+  right: -3.5px;
+  display: block;
+  width: 11px;
+  height: 11px;
+  max-width: none;
+  pointer-events: none;
+  z-index: 1;
+}
+.scheme-seat__nonrefundable circle { stroke: var(--scheme-surface); }
+/* 10px colored dot + 2px outline; center 3px inside each edge (Figma 487078/79). */
+.scheme-seat[data-platform="desktop"] .scheme-seat__nonrefundable {
+  width: 14px;
+  height: 14px;
+  top: -4px;
+  right: -4px;
+}
+.nonrefundable-legend {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  font: 400 14px/18px 'YS Text', sans-serif;
+  white-space: nowrap;
+}
+.nonrefundable-legend__dot { display: block; flex: none; width: 12px; height: 12px; }
+.nonrefundable-legend__more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 20px;
+  height: 14px;
+  padding: 1px 4px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--more-primary-background);
+  cursor: default;
+}
+.nonrefundable-legend__more::before { content: ''; width: 12px; height: 12px; background: var(--text-secondary-color); mask: url("scheme-assets/nonrefundable-more.svg") center / contain no-repeat; }
+.nonrefundable-legend__more img { display: none; }

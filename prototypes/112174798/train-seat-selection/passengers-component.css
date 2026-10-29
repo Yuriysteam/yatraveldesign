@@ -1,0 +1,28 @@
+/* Local Passengers / 22019:296556; desktop 22019:296555, mobile 22019:296554.
+   Mobile island spacing: 22019:322052. Preserve the existing counter contract.
+   Controls: BaseAI snippets/controls/stepper/stepper-size-l.html, secondary L.
+   Local wrapper preserves the approved 6px gaps and 20px value slot. */
+.passenger-controls.ui-kit-scope {
+  padding: 0;
+  --yatraveluikit-text-primary-color: var(--text-primary-color);
+  --yatraveluikit-text-generic-disabled-color: var(--text-generic-disabled-color);
+  --yatraveluikit-bg-button-secondary-color: var(--bg-button-secondary-color);
+  --yatraveluikit-bg-button-generic-disabled-color: var(--bg-button-generic-disabled-color, var(--bg-fill-secondary-color));
+  --yatraveluikit-border-radius-medium-s: var(--border-radius-medium-s);
+}
+.passenger-controls .button { flex: none; }
+.passenger-controls.ui-kit-scope > * { margin: 0; }
+.passenger-controls svg { flex: none; }
+/* Desktop master 22019:296555, verified 2026-10-25:
+   background/primary -> bg-fill-secondary (Light #f5f5f5 / Dark #0d0d0f),
+   background/secondary -> bg-fill-primary (Light #fff / Dark #1b1a1e).
+   Keep these semantic bindings instead of a separate dark-color override. */
+.exact-passengers { background: var(--bg-fill-secondary-color); }
+.exact-passengers .exact-stepper { background: var(--bg-fill-primary-color); gap: var(--space-6); }
+.exact-passengers .exact-stepper:first-child { gap: var(--space-10); }
+.exact-passengers .exact-stepper__copy { flex: 1; min-width: 0; }
+.m-setup { padding-bottom: var(--space-10); }
+.m-passengers { gap: var(--space-6); }
+.m-steppers { padding-block: 0; }
+.m-discounts { padding-block: 0; margin-top: var(--space-4); }
+html[data-theme="dark"] .passenger-controls { --yatraveluikit-bg-button-generic-disabled-color: var(--bg-card-primary-color); }

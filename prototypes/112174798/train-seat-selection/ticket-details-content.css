@@ -1,0 +1,29 @@
+/* The same ticket rows and typography in both responsive containers. */
+:is(.m-ticket-details,.exact-ticket-details) { font-feature-settings:'case' 1,'lnum' 1,'pnum' 1; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__list { margin:0; gap:16px; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__list li { align-items:flex-start; gap:16px; min-height:20px; }
+.m-ticket-details__copy { flex:1; min-width:0; display:flex; flex-direction:column; gap:2px; }
+.m-ticket-details__heading { display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.m-ticket-details__name { font:400 16px/20px 'YS Text',sans-serif; }
+.m-ticket-details__caption { color:var(--text-secondary-color); font:400 14px/18px 'YS Text',sans-serif; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__amount { font:400 16px/20px 'YS Text',sans-serif; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__total { margin-top:0; padding:0; border:0; align-items:flex-end; font:500 20px/24px 'YS Display',sans-serif; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__prices { display:flex; flex:none; align-items:flex-end; justify-content:flex-end; gap:6px; white-space:nowrap; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__old-price { color:var(--text-secondary-color); font:500 16px/20px 'YS Text',sans-serif; text-decoration:line-through; text-decoration-thickness:1px; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__old-price[hidden] { display:none; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__total-price { font:500 24px/24px 'YS Display',sans-serif; letter-spacing:-.24px; }
+:is(.m-ticket-details,.exact-ticket-details) .m-ticket-details__discount.train-discount-badge { position:relative; top:auto; right:auto; flex:none; width:34.78px; height:16px; font-size:12px; line-height:12px; }
+:is(.m-ticket-details,.exact-ticket-details) .m-ticket-details__discount.train-discount-badge::before { inset:0 1.39px; border-radius:5px 5px 5px 4px; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__list li.m-ticket-details__direction {
+  display: block;
+  min-height: 0;
+  color: var(--text-primary-color);
+  font: 500 16px/20px 'YS Text',sans-serif;
+}
+/* Round-trip breakdown: 12px inside each direction and 20px between them. */
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__list--directions { gap: 12px; }
+:is(.m-ticket-details,.exact-ticket-details) .m-price-details__list li.m-ticket-details__direction:not(:first-child) { margin-top: 8px; }
+/* App/Touch: 16px between directions and before the divider; 20px before the sum. */
+.m-ticket-details .m-price-details__list li.m-ticket-details__direction:not(:first-child) { margin-top: 4px; }
+.m-ticket-details .m-ticket-details__scroll:has(.m-price-details__list--directions) { gap: 16px; }
+.m-ticket-details .m-ticket-details__scroll:has(.m-price-details__list--directions) .m-price-details__total { padding-top: 4px; }

@@ -1,0 +1,11 @@
+/* Reuse the DS Tooltip shell, Close and 24×8 tail. Figma 20003:94638. */
+.exact-fare-info { width:375px; font-feature-settings:'case' 1,'lnum' 1,'pnum' 1; }
+.exact-fare-info .exact-amenities-popover__body { max-height:var(--fare-info-max-height,calc(100dvh - 32px)); }
+.exact-fare-info__copy { display:flex; flex-direction:column; gap:10px; }
+.exact-fare-info__rules { align-self:flex-start; padding:0; border:0; background:none; color:inherit; font:inherit; text-align:left; text-decoration:underline dotted var(--text-secondary-color); text-underline-offset:3px; cursor:default; }
+.exact-fare-info .exact-amenities-popover__close svg { display:none; }
+.exact-fare-info__close-asset { display:block; }
+html[data-theme="dark"] .exact-fare-info .exact-amenities-popover__close svg { display:block; }
+html[data-theme="dark"] .exact-fare-info__close-asset { display:none; }
+.exact-fare-info .exact-amenities-popover__tail { mask-image:url("desktop/assets/price-details-tail.svg"); mask-size:24px 8px; transform:rotate(180deg); }
+.exact-fare-info[data-placement="above"] .exact-amenities-popover__tail { transform:none; }

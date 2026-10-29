@@ -1,0 +1,23 @@
+/* Modal View 20006:247048, shared local DS fonts, colors and Close asset. */
+.exact-discounts-info {
+  position:fixed; inset:0; margin:auto; width:720px; max-width:calc(100vw - 48px);
+  max-height:calc(100dvh - 48px); padding:28px 32px 32px; border:0;
+  border-radius:32px; overflow:hidden; color:var(--text-primary-color);
+  background:var(--bg-fill-primary-color); box-shadow:0 4px 40px var(--shadow-soft-both-themes,#0d0d0f14);
+  font:400 16px/20px 'YS Text',sans-serif; font-feature-settings:'case' 1,'lnum' 1,'pnum' 1;
+}
+.exact-discounts-info[open] { display:flex; flex-direction:column; gap:24px; }
+.exact-discounts-info::backdrop { background:var(--bg-specific-modalBackground-color,rgba(13,13,15,.65)); }
+html:has(.exact-discounts-info[open]) { overflow:hidden; }
+.exact-discounts-info__header { position:relative; flex:none; min-height:36px; }
+.exact-discounts-info__header h2 { padding-top:4px; padding-right:32px; font:500 32px/32px 'YS Display',sans-serif; letter-spacing:-.48px; }
+.exact-discounts-info__close { position:absolute; right:-12px; top:50%; translate:0 -50%; width:48px; height:48px; display:grid; place-items:center; padding:0; background:transparent; border-radius:16px; }
+.exact-discounts-info__close:focus:not(:focus-visible) { outline:none; }
+.exact-discounts-info__close img { width:24px; height:24px; }
+.exact-discounts-info__content { display:flex; flex-direction:column; gap:12px; min-height:0; overflow-y:auto; overscroll-behavior:contain; }
+.exact-discounts-info__offer { flex:none; display:flex; flex-direction:column; gap:8px; padding:24px; border-radius:24px; background:var(--bg-card-secondary-color); }
+.exact-discounts-info__offer h3 { font:500 20px/24px 'YS Display',sans-serif; }
+/* The prototype only defines a dark card-primary surface; scope the secondary
+   card alias to this modal so legacy light-only tokens cannot leak into it. */
+html[data-theme="dark"] .exact-discounts-info { --bg-card-secondary-color:var(--bg-card-primary-color); }
+html[data-theme="dark"] .exact-discounts-info__close img { filter:brightness(0) invert(.9294118); }

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Загрузка · Выбор мест</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style--BaseAI--fonts.css">
+  <link rel="stylesheet" href="style--BaseAI--library.css">
+  <link rel="stylesheet" href="style--vendor--train-flow--tokens--tokens.css">
+  <link rel="stylesheet" href="style--mobile--layout.css?v=20261022-single-type">
+  <link rel="stylesheet" href="theme-tokens.css">
+  <link rel="stylesheet" href="skeleton-motion.css?v=20261023">
+  <link rel="stylesheet" href="style--mobile--skeleton.css?v=20261023-shared-motion">
+  <link rel="stylesheet" href="carriage-card.css?v=20261026-amenities-b3">
+  <link rel="stylesheet" href="style--mobile--platform-chrome.css?v=20261028-touch-breadcrumbs">
+  <script src="./carriage-card.js?v=20261026" defer></script>
+  <script src="./mobile/skeleton.js?v=20261026-carriage-card" defer></script>
+  <script>const mobileParams = new URLSearchParams(location.search); document.documentElement.dataset.theme = mobileParams.get('theme') === 'dark' ? 'dark' : 'light'; document.documentElement.dataset.surface = mobileParams.get('surface') === 'touch' || mobileParams.get('view') === 'touch' ? 'touch' : 'app';</script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <!-- Existing mobile Navbar and typography; Figma 20341:287045.
+       Skeleton primitives: BaseAI feedback.skeleton.simple.
+       Android Stepper Code Connect cannot execute in this HTML runtime. -->
+  <div class="m-page">
+    <header class="m-top">
+      <div class="m-statusbar" aria-hidden="true">
+        <span class="m-statusbar__time">9:41</span>
+        <img class="m-statusbar__signal" src="./assets/error-status-signal.svg" width="17" height="11" alt="">
+        <img class="m-statusbar__wifi" src="./assets/error-status-wifi.svg" width="15" height="11" alt="">
+        <span class="m-statusbar__battery"><img src="./assets/error-battery-outline.svg" width="22" height="12" alt=""><img src="./assets/error-battery-fill.svg" width="18" height="8" alt=""><img src="./assets/error-battery-cap.svg" width="2" height="4" alt=""></span>
+      </div>
+      <div class="m-touch-header" aria-label="Яндекс Путешествия">
+        <div class="m-touch-header__logo" aria-hidden="true"><img src="./vendor/base2/assets/logo-yandex.svg" alt=""><img src="./vendor/base2/assets/logo-sign.svg" alt=""><img src="./vendor/base2/assets/logo-text.svg" alt=""></div>
+        <div class="m-touch-header__actions" aria-hidden="true"><img src="./BaseAI/icons/24/heart-new.svg" width="25" height="25" alt=""><img src="./BaseAI/icons/24/burger-new.svg" width="25" height="25" alt=""></div>
+      </div>
+      <nav class="m-touch-breadcrumbs" aria-label="Этап бронирования"><span>Выбор поезда</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-current" aria-current="step">Выбор мест</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-upcoming">Данные пассажиров</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-upcoming">Подтверждение</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-upcoming">Оплата</span></nav>
+      <nav class="m-navbar" aria-label="Этап бронирования">
+        <button class="m-back" type="button" aria-label="Назад" disabled><img src="./mobile/assets/top-icons24-arrow-long-left-new.svg" width="24" height="24" alt=""></button>
+        <div class="m-navbar__title"><strong>Выбор мест</strong><span>1 из 3</span></div>
+      </nav>
+      <div class="m-progress" aria-hidden="true"><span></span></div>
+    </header>
+    <main aria-busy="true" aria-label="Загрузка данных поезда">
+      <section class="skeleton-setup">
+        <h1>Выберите места</h1>
+        <div class="skeleton-trip" aria-hidden="true">
+          <div class="skeletons__auto-058 skeleton-item skeleton-avatar"></div>
+          <div class="skeleton-trip-copy">
+            <div class="skeletons__auto-058 skeleton-item" style="width:160px;height:16px"></div>
+            <div class="skeletons__auto-058 skeleton-item" style="width:220px;height:14px"></div>
+          </div>
+        </div>
+        <div class="skeleton-passengers" aria-hidden="true">
+          <div class="skeleton-line" style="width:255px;height:22px"><div class="skeletons__auto-058 skeleton-item"></div></div>
+          <div class="skeleton-steppers" id="skeleton-steppers"></div>
+          <div class="skeleton-discounts"><div class="skeleton-line" style="width:152px;height:18px"><div class="skeletons__auto-058 skeleton-item"></div></div></div>
+        </div>
+      </section>
+      <div class="skeleton-filters" aria-hidden="true">
+        <div class="skeletons__auto-058 skeleton-item"></div><div class="skeletons__auto-058 skeleton-item"></div><div class="skeletons__auto-058 skeleton-item"></div>
+      </div>
+      <section class="skeleton-carriages" aria-hidden="true">
+        <div class="skeleton-group-title"><div class="skeleton-line" style="width:132px;height:24px"><div class="skeletons__auto-058 skeleton-item"></div></div></div>
+        <div class="skeleton-cards" id="skeleton-cards"></div>
+      </section>
+    </main>
+  </div>
+  <div class="m-app-home-indicator" aria-hidden="true"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* Approved local Trip: dEEebZZNQurp5jLJmXvWl9 / 22010:104047.
+   Configured instances: Desktop 22010:105306, Mobile 22010:105307.
+   Button on; Train direction, Seats, Train 2, Transfer, Passengers, Contacts off.
+   Keep itinerary data and accordion behavior in their existing controllers.
+   Control source: BaseAI Button / square-shape + Plain (ui__auto-450).
+   The Figma RoundedButton M uses radius 14 rather than runtime's older 16;
+   scoped token mapping below leaves the shared runtime unchanged. */
+.trip-control.ui-kit-scope {
+  display: flex;
+  flex: none;
+  padding: 0;
+  --yatraveluikit-text-primary-color: var(--text-primary-color);
+  --yatraveluikit-bg-button-light-color: var(--more-secondary-background);
+  --trip-control-radius-m: 14px;
+  --yatraveluikit-border-radius-medium-s: var(--trip-control-radius-m);
+  --yatraveluikit-border-radius-small-l: var(--border-radius-small-l);
+}
+.trip-control .button { flex: none; cursor: pointer; }
+.trip-control .button__content img { flex: none; }
+.exact-trip__icon img, .m-trip__icon img { width: 20px; height: 20px; }
+html[data-theme="dark"] .exact-trip-block { --bg-line-default-color: var(--border-outlineControl-default-color); }

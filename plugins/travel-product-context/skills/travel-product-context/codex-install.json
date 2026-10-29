@@ -1,8 +1,0 @@
-{
-  "name": "travel-product-context",
-  "version": "0.2.0",
-  "kind": "codex-skill",
-  "entrypoint": "bootstrap.sh",
-  "skill": "travel-product-context",
-  "internal": true
-}

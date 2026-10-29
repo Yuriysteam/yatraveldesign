@@ -1,0 +1,209 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Выбор мест · Мобильная версия</title>
+  <script>
+    const mobileParams = new URLSearchParams(location.search);
+    document.documentElement.dataset.theme = mobileParams.get('theme') === 'dark' ? 'dark' : 'light';
+    document.documentElement.dataset.surface = mobileParams.get('surface') === 'touch' || mobileParams.get('view') === 'touch' ? 'touch' : 'app';
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin || event.source !== parent || event.data?.type !== 'seat-selection-theme') return;
+      document.documentElement.dataset.theme = event.data.theme === 'dark' ? 'dark' : 'light';
+    });
+  </script>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style--BaseAI--fonts.css">
+  <link rel="stylesheet" href="style--BaseAI--library.css">
+  <link rel="stylesheet" href="style--vendor--base2--styles--fonts.css">
+  <link rel="stylesheet" href="style--vendor--train-flow--tokens--tokens.css">
+  <link rel="stylesheet" href="style--mobile--layout.css?v=20261025-passengers">
+  <link rel="stylesheet" href="style--mobile--trip-details.css?v=20261023-trip-component">
+  <link rel="stylesheet" href="trip-component.css?v=20261023-2">
+  <link rel="stylesheet" href="passengers-component.css?v=20261025-2">
+  <link rel="stylesheet" href="style--mobile--carriages.css?v=20261026-icon-container">
+  <link rel="stylesheet" href="style--mobile--filters.css?v=20261002">
+  <link rel="stylesheet" href="style--mobile--selection.css?v=20261028-panel-motion">
+  <link rel="stylesheet" href="style--mobile--amenities.css?v=20261022-catalog">
+  <link rel="stylesheet" href="scheme-tokens.css?v=20261009">
+  <link rel="stylesheet" href="scheme-seat.css?v=20261009-crossfix">
+  <link rel="stylesheet" href="scheme-layout.css?v=20261009">
+  <link rel="stylesheet" href="theme-tokens.css?v=20261020-more">
+  <link rel="stylesheet" href="style--mobile--theme-dark.css?v=20261025-passengers">
+  <link rel="stylesheet" href="style--mobile--sapsan.css?v=20261022-amenities">
+  <link rel="stylesheet" href="platskart.css?v=20261015">
+  <link rel="stylesheet" href="nonrefundable.css?v=20261020-more">
+  <link rel="stylesheet" href="chip-discount.css?v=20261015">
+  <link rel="stylesheet" href="style--mobile--bedding.css?v=20261026-card-options">
+  <link rel="stylesheet" href="style--mobile--bedding-info.css?v=20261023-sheet-motion">
+  <link rel="stylesheet" href="style--mobile--nonrefundable.css?v=20261021-fare-more">
+  <link rel="stylesheet" href="style--mobile--fare-info.css?v=20261023-sheet-motion">
+  <link rel="stylesheet" href="style--mobile--discounts-info.css?v=20261023-sheet-motion">
+  <link rel="stylesheet" href="style--mobile--gender.css?v=20261023-gender-centered">
+  <link rel="stylesheet" href="ticket-details-content.css?v=20261028-transfer">
+  <link rel="stylesheet" href="style--mobile--price-details.css?v=20261023-sheet-motion">
+  <link rel="stylesheet" href="no-scheme.css?v=20261022">
+  <link rel="stylesheet" href="passenger-placeholder.css?v=20261022">
+  <link rel="stylesheet" href="passenger-informer.css?v=20261026-informer-gap">
+  <link rel="stylesheet" href="arrival-times.css?v=20261022">
+  <link rel="stylesheet" href="double-deck.css?v=20261022">
+  <link rel="stylesheet" href="style--mobile--sheet-motion.css?v=20261023">
+  <link rel="stylesheet" href="carriage-card.css?v=20261026-amenities-b3">
+  <link rel="stylesheet" href="mobile-scheme-outline.css?v=20261028-union">
+  <link rel="stylesheet" href="car-filter-motion.css?v=20261029">
+  <link rel="stylesheet" href="style--mobile--platform-chrome.css?v=20261028-touch-breadcrumbs">
+  <link rel="stylesheet" href="roundtrip.css?v=20261028-touch-motion">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <div class="m-page" data-node-id="18102:453085">
+    <header class="m-top" data-node-id="18102:453719">
+      <div class="m-statusbar" aria-hidden="true">
+        <span class="m-statusbar__time">9:41</span>
+        <img class="m-statusbar__signal" src="./assets/error-status-signal.svg" width="17" height="11" alt="">
+        <img class="m-statusbar__wifi" src="./assets/error-status-wifi.svg" width="15" height="11" alt="">
+        <span class="m-statusbar__battery"><img src="./assets/error-battery-outline.svg" width="22" height="12" alt=""><img src="./assets/error-battery-fill.svg" width="18" height="8" alt=""><img src="./assets/error-battery-cap.svg" width="2" height="4" alt=""></span>
+      </div>
+      <div class="m-touch-header" aria-label="Яндекс Путешествия">
+        <div class="m-touch-header__logo" aria-hidden="true"><img src="./vendor/base2/assets/logo-yandex.svg" alt=""><img src="./vendor/base2/assets/logo-sign.svg" alt=""><img src="./vendor/base2/assets/logo-text.svg" alt=""></div>
+        <div class="m-touch-header__actions" aria-hidden="true"><img src="./BaseAI/icons/24/heart-new.svg" width="25" height="25" alt=""><img src="./BaseAI/icons/24/burger-new.svg" width="25" height="25" alt=""></div>
+      </div>
+      <nav class="m-touch-breadcrumbs" aria-label="Этап бронирования"><span>Выбор поезда</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-current" aria-current="step">Выбор мест</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-upcoming">Данные пассажиров</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-upcoming">Подтверждение</span><img src="./BaseAI/icons/16/arrow-right-new.svg" width="16" height="16" alt=""><span class="is-upcoming">Оплата</span></nav>
+      <nav class="m-navbar" aria-label="Этап бронирования">
+        <button class="m-back" type="button" aria-label="Назад" aria-disabled="true"><img src="./mobile/assets/top-icons24-arrow-long-left-new.svg" alt=""></button>
+        <div class="m-navbar__title"><strong>Выбор мест</strong><span>1 из 3</span></div>
+      </nav>
+      <div class="m-progress" aria-hidden="true"><span></span></div>
+    </header>
+    <main class="m-content">
+      <section class="m-setup" aria-label="Поездка и пассажиры" data-node-id="18102:453088">
+        <div class="m-journey">
+          <h1>Выберите места</h1>
+          <div class="m-trip-block" data-figma-component="dEEebZZNQurp5jLJmXvWl9/22010:104047" data-trip-seats="off">
+            <div class="m-trip" data-node-id="22010:104043">
+              <span class="m-trip__icon"><img src="./mobile/assets/setup-ic24-train-filled-new.svg" alt=""></span>
+              <div class="m-trip__copy"><p class="m-trip__route">Москва — Санкт-Петербург</p><p class="m-trip__date"><span data-date-full>24 апреля, пт в 05:30 по местному</span><span data-date-short hidden>24 апреля, пт в 05:30 по местн.</span></p></div>
+              <span class="trip-control ui-kit-scope ui-kit-theme ui-kit-density"><button class="m-trip__toggle button button--size-xs button--icon-only ui__auto-450 button--width-auto" type="button" aria-label="Развернуть маршрут" aria-expanded="false" aria-controls="mobile-trip-details"><span class="button__content"><img src="./mobile/assets/setup-icons16-arrow-down-new.svg" width="12" height="12" alt=""></span></button></span>
+            </div>
+            <div class="m-trip-details" id="mobile-trip-details" aria-hidden="true" inert>
+              <div class="m-trip-details__inner">
+                <div class="m-trip-details__inset">
+                  <article class="m-trip-details__card" aria-label="Маршрут Москва — Санкт-Петербург">
+                    <div class="m-trip-details__train"><span>016А Арктика</span><span>Эл. рег.</span></div>
+                    <div class="m-trip-timeline">
+                      <div class="m-trip-timeline__row">
+                        <span class="m-trip-timeline__time">05:30</span>
+                        <span class="m-trip-timeline__line" aria-hidden="true"></span>
+                        <span class="m-trip-timeline__duration">4 ч 5 м</span>
+                        <span class="m-trip-timeline__line" aria-hidden="true"></span>
+                        <span class="m-trip-timeline__time">09:35</span>
+                      </div>
+                      <div class="m-trip-timeline__details">
+                        <div><span>24 апреля, пт</span><span>Ленинградский вкз</span></div>
+                        <div><span>24 апреля, пт</span><span>Московский вкз</span></div>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="m-passengers" aria-labelledby="passenger-title" data-node-id="22019:296554" data-figma-component="dEEebZZNQurp5jLJmXvWl9/22019:296556">
+          <h2 id="passenger-title">Укажите количество пассажиров</h2>
+          <div class="m-steppers">
+            <div class="m-stepper" data-counter="adults" data-min="0" data-node-id="18102:453101">
+              <div class="m-stepper__copy"><span>Взрослые</span><small>от 10 лет</small></div>
+              <div class="m-stepper__controls passenger-controls ui-kit-scope ui-kit-theme ui-kit-density"><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="-1" aria-label="Уменьшить количество взрослых"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"></rect></svg></span></button><output aria-live="polite">1</output><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="1" aria-label="Увеличить количество взрослых"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44772 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H11V3C11 2.44772 10.5523 2 10 2Z" fill="currentColor"></path></svg></span></button></div>
+            </div>
+            <div class="m-stepper" data-counter="children" data-min="0" data-node-id="18102:453102">
+              <div class="m-stepper__copy"><span>Дети до 10</span><small>со скидкой</small></div>
+              <div class="m-stepper__controls passenger-controls ui-kit-scope ui-kit-theme ui-kit-density"><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="-1" aria-label="Уменьшить количество детей до 10"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"></rect></svg></span></button><output aria-live="polite">0</output><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="1" aria-label="Увеличить количество детей до 10"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44772 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H11V3C11 2.44772 10.5523 2 10 2Z" fill="currentColor"></path></svg></span></button></div>
+            </div>
+            <div class="m-stepper" data-counter="infants" data-min="0" data-node-id="18102:453103">
+              <div class="m-stepper__copy"><span>Дети до 5 лет</span><small>без места, бесплатно</small></div>
+              <div class="m-stepper__controls passenger-controls ui-kit-scope ui-kit-theme ui-kit-density"><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="-1" aria-label="Уменьшить количество детей до 5 лет"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"></rect></svg></span></button><output aria-live="polite">0</output><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="1" aria-label="Увеличить количество детей до 5 лет"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44772 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H11V3C11 2.44772 10.5523 2 10 2Z" fill="currentColor"></path></svg></span></button></div>
+            </div>
+          </div>
+          <div class="m-discounts" data-node-id="18102:453104"><span>Какие скидки есть в этом поезде</span><button type="button" aria-label="Подробнее о скидках" aria-disabled="true"><img src="./mobile/assets/more.svg" alt=""></button></div>
+        </section>
+      </section>
+      <div class="m-filters" aria-label="Типы вагонов" data-node-id="18102:453107">
+        <button class="m-chip m-chip--platskart" type="button" data-filter="platskart" aria-pressed="false"><span class="m-chip__copy"><span>Плацкарт · 138</span><small>от 2 452 ₽</small></span></button>
+        <button class="m-chip m-chip--coupe" type="button" data-filter="coupe" aria-pressed="false"><span class="m-chip__copy"><span>Купе · 87</span><small>от 5 560 ₽</small></span><span class="train-discount-badge" role="img" aria-label="Есть невозвратный тариф" data-node-id="19590:390269">%</span></button>
+        <button class="m-chip m-chip--sv" type="button" data-filter="sv" aria-pressed="false"><span class="m-chip__copy"><span>СВ · 10</span><small>от 18 555 ₽</small></span></button>
+      </div>
+      <section id="mobile-carriages" aria-label="Вагоны"></section>
+    </main>
+  </div>
+  <div class="m-app-home-indicator" aria-hidden="true"></div>
+  <aside class="m-selection-panel" aria-label="Выбранные места" hidden>
+    <div class="m-selection-panel__row">
+      <div class="m-selection-panel__details">
+        <div class="m-selection-panel__price-row">
+          <strong class="m-selection-panel__price">0 ₽</strong>
+          <button class="m-selection-panel__price-more" type="button" aria-label="Подробнее о стоимости" aria-haspopup="dialog" aria-controls="m-price-details"><img src="./mobile/assets/more.svg" alt=""></button>
+        </div>
+        <div class="m-selection-panel__places"></div>
+        <button class="m-selection-panel__places-all" type="button" aria-haspopup="dialog" aria-controls="m-price-details" hidden><span></span><img src="./vendor/base2/assets/ArrowDownFill.svg" alt=""></button>
+      </div>
+      <button class="m-selection-panel__continue" type="button">Далее</button>
+    </div>
+    <div class="m-selection-panel__homebar" aria-hidden="true"><img src="./mobile/assets/home-indicator.svg" alt=""></div>
+    <p class="m-selection-panel__announcement sr-only" role="status" aria-live="polite"></p>
+  </aside>
+  <dialog class="m-price-details m-ticket-details" id="m-price-details" aria-labelledby="m-price-details-title" data-node-id="19982:447044">
+    <header class="m-amenities-sheet__header">
+      <div class="m-amenities-sheet__titles"><h2 id="m-price-details-title">Стоимость билетов</h2></div>
+      <button class="m-amenities-sheet__close m-price-details__close" type="button" aria-label="Закрыть детализацию" autofocus><img src="./mobile/assets/gender-close.svg" width="24" height="24" alt=""></button>
+    </header>
+    <div class="m-ticket-details__scroll">
+      <ul class="m-price-details__list"></ul>
+      <div class="m-ticket-details__divider" aria-hidden="true"></div>
+      <div class="m-price-details__total"><span>Итого</span><div class="m-price-details__prices"><s class="m-price-details__old-price" hidden></s><strong class="m-price-details__total-price"></strong></div></div>
+    </div>
+    <footer class="m-ticket-details__footer">
+      <div class="m-ticket-details__actions"><button class="m-filter-sheet__apply m-ticket-details__done" type="button">Понятно</button></div>
+      <div class="m-amenities-sheet__homebar" aria-hidden="true"><img src="./mobile/assets/price-details-homebar.svg" width="375" height="34" alt=""></div>
+    </footer>
+  </dialog>
+  <script src="./mobile/sheet-motion.js?v=20261023"></script>
+  <script src="./carriages-data.js?v=20261021-gender"></script>
+  <script src="./arrival-times-data.js?v=20261022"></script>
+  <script src="./double-deck.js?v=20261029-stations"></script>
+  <script src="./sapsan-data.js?v=20261026-direction-fares"></script>
+  <script src="./scheme-seat.js?v=20261025-seat-component"></script>
+  <script src="./mobile-scheme-outline.js?v=20261028-union"></script>
+  <script src="./carriage-scheme.js?v=20261028-mobile-union"></script>
+  <script src="./carriage-card.js?v=20261026"></script>
+  <script src="./platskart.js?v=20261025-carriage-component"></script>
+  <script src="./amenities.js?v=20261022-double-deck"></script>
+  <script src="./nonrefundable.js?v=20261015"></script>
+  <script src="./mobile/sapsan.js?v=20261025-carriage-component"></script>
+  <script src="./car-filter-motion.js?v=20261029-filter-motion-soft-all"></script>
+  <script src="./mobile/carriages.js?v=20261029-filter-motion"></script>
+  <script src="./mobile/prototype.js?v=20261028-passengers-10"></script>
+  <script src="./journey-config.js?v=20261029-stations"></script>
+  <script src="./roundtrip.js?v=20261029-stations"></script>
+  <script src="./mobile/filters.js?v=20261022-double-deck"></script>
+  <script src="./mobile/bedding.js?v=20261028-transfer"></script>
+  <script src="./mobile/bedding-info.js?v=20261023-sheet-motion"></script>
+  <script src="./mobile/nonrefundable.js?v=20261028-transfer"></script>
+  <script src="./mobile/fare-info.js?v=20261023-sheet-motion"></script>
+  <script src="./gender-cabins.js?v=20261028-transfer"></script>
+  <script src="./mobile/gender.js?v=20261023-sheet-motion"></script>
+  <script src="./ticket-details-content.js?v=20261028-transfer"></script>
+  <script src="./mobile/price-details.js?v=20261023-sheet-motion"></script>
+  <script src="./passenger-placeholder.js?v=20261028-touch-steps"></script>
+  <script src="./no-scheme.js?v=20261026-carriage-card"></script>
+  <script src="./passenger-informer.js?v=20261028-transfer"></script>
+  <script src="./mobile/selection.js?v=20261028-transfer"></script>
+  <script src="./booking-informer.js?v=20261029-filter-motion"></script>
+  <script src="./mobile/booking-info.js?v=20261023-sheet-motion"></script>
+  <script src="./arrival-times.js?v=20261023-sheet-motion"></script>
+  <script src="./mobile/discounts-info.js?v=20261023-sheet-motion"></script>
+  <script src="./car-type-filters.js?v=20261022"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* DS Tooltip L, Figma 20003:94727: 375×136 including the 24×8 tail.
+   Padding 20, radius 28, title 18/20 and body 16/20 come from the shared shell. */
+.exact-bedding-info { width:375px; font-feature-settings:'case' 1,'lnum' 1,'pnum' 1; }
+.exact-bedding-info .exact-amenities-popover__body { max-height:var(--bedding-info-max-height,calc(100dvh - 32px)); }
+.exact-bedding--included .exact-more { cursor:pointer; }
+.exact-bedding-info .exact-amenities-popover__close svg { display:none; }
+.exact-bedding-info__close-asset { display:block; }
+html[data-theme="dark"] .exact-bedding-info .exact-amenities-popover__close svg { display:block; }
+html[data-theme="dark"] .exact-bedding-info__close-asset { display:none; }
+.exact-bedding-info .exact-amenities-popover__tail { mask-image:url("desktop/assets/price-details-tail.svg"); mask-size:24px 8px; transform:rotate(180deg); }
+.exact-bedding-info[data-placement="above"] .exact-amenities-popover__tail { transform:none; }

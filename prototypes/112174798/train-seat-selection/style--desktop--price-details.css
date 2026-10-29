@@ -1,0 +1,15 @@
+/* ReDesign 19982:450819. Reuse the DS Tooltip shell; no modal overlay. */
+.exact-ticket-details .exact-amenities-popover__body { gap:0; padding:20px; max-height:var(--ticket-details-max-height,calc(100dvh - 40px)); overflow:hidden; }
+.exact-ticket-details header { flex:none; padding-bottom:12px; }
+.exact-ticket-details h2 { font:500 20px/24px 'YS Display',sans-serif; }
+.exact-ticket-details__scroll { display:flex; flex-direction:column; gap:20px; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:8px 0; }
+.exact-ticket-details__scroll > * { flex:none; }
+.exact-ticket-details__divider { height:1px; background:var(--bg-line-default-color,var(--bg-line)); }
+html[data-theme="dark"] .exact-ticket-details__divider { background:var(--border-outlineControl-default-color); }
+.exact-ticket-details .exact-amenities-popover__close { width:24px; height:24px; }
+.exact-ticket-details .exact-amenities-popover__tail { mask-image:url("desktop/assets/price-details-tail.svg"); mask-size:24px 8px; transform:rotate(180deg); }
+.exact-ticket-details[data-placement="above"] .exact-amenities-popover__tail { transform:none; }
+.exact-ticket-details__close-asset { display:block; }
+.exact-ticket-details .exact-amenities-popover__close svg { display:none; }
+html[data-theme="dark"] .exact-ticket-details .exact-amenities-popover__close svg { display:block; }
+html[data-theme="dark"] .exact-ticket-details__close-asset { display:none; }

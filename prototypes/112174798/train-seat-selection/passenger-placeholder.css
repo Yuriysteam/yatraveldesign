@@ -1,0 +1,16 @@
+/* Deliberately a prototype placeholder, not a proposed passenger form. */
+[data-passenger-hidden], .passenger-placeholder[hidden] { display:none !important; }
+body[data-prototype-step="passengers"] .m-selection-panel { display:none !important; }
+.passenger-placeholder { min-height:calc(100vh - 300px); color:var(--text-primary-color); }
+.passenger-placeholder__content { display:flex; flex-direction:column; align-items:stretch; gap:16px; }
+.passenger-placeholder__content h1 { margin:0; outline:none; }
+.passenger-placeholder__context { margin:0 0 8px; color:var(--text-secondary-color); font:400 16px/20px 'YS Text',sans-serif; }
+.passenger-placeholder .no-scheme-informer { width:auto; }
+.passenger-placeholder.m-page { min-height:100vh; }
+.passenger-placeholder.m-page .m-progress span { width:66.6667%; }
+.passenger-placeholder.m-page .passenger-placeholder__content { padding:24px 20px; }
+.passenger-placeholder.m-page h1 { font:500 28px/32px 'YS Display',sans-serif; letter-spacing:-.3px; }
+.passenger-placeholder.m-page .no-scheme-informer { flex-direction:column; align-items:stretch; gap:20px; }
+.passenger-placeholder.m-page .no-scheme-copy { padding:0; }
+.passenger-placeholder.m-page .no-scheme-copy p { margin-top:4px; }
+.passenger-placeholder.m-page .button { width:100%; }

@@ -140,5 +140,13 @@
     "avatar": "assets/avatars/katya.jpeg",
     "updated_at": 1793195516,
     "url": "prototypes/125395264/prototype-academ-20mb/"
+  },
+  {
+    "title": "Train-seat-selection",
+    "description": "Без описания",
+    "author": "Люба",
+    "avatar": "assets/avatars/liyba.jpeg",
+    "updated_at": 1793279892,
+    "url": "prototypes/112174798/train-seat-selection/"
   }
 ]

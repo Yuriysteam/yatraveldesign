@@ -363,113 +363,6 @@ def skill_package(filename, raw):
     return identifier, name, version, description, display_name, display_description, dependencies, files
 
 
-
-MARKETPLACE_PATH = ".agents/plugins/marketplace.json"
-MARKETPLACE_NAME = "travel-design"
-
-
-def marketplace_catalog(repository):
-    catalog = repository.read_json(MARKETPLACE_PATH, {
-        "name": MARKETPLACE_NAME,
-        "interface": {"displayName": "Travel Design"},
-        "plugins": [],
-    })
-    if not isinstance(catalog, dict) or not isinstance(catalog.get("plugins"), list):
-        raise UserError("Некорректный каталог плагинов ChatGPT. Публикация остановлена до изменения файлов.")
-    return catalog
-
-
-def codex_plugin_files(item, packages):
-    """Mirror complete archives without executing installers or rewriting skills."""
-    identifier = item["id"]
-    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", identifier):
-        raise UserError("Некорректный идентификатор плагина ChatGPT.")
-    prefix = f"plugins/{identifier}/"
-    files = {}
-    for package_id, package in packages:
-        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", package_id):
-            raise UserError("Некорректный идентификатор зависимости плагина ChatGPT.")
-        if not any(PurePosixPath(name).name.casefold() == "skill.md" for name in package):
-            raise UserError("В зависимости плагина ChatGPT отсутствует SKILL.md.")
-        for name, content in package.items():
-            path = PurePosixPath(name)
-            if path.is_absolute() or ".." in path.parts or not path.parts:
-                raise UserError("Небезопасный путь в плагине ChatGPT.")
-            if path.name.casefold() == "skill.md":
-                path = path.with_name("SKILL.md")
-            files[f"{prefix}skills/{package_id}/{path}"] = content
-    digest = hashlib.sha256()
-    for name, content in sorted(files.items()):
-        digest.update(name.encode() + b"\0" + hashlib.sha256(content).digest())
-    version = item["version"].lstrip("v").split("+", 1)[0]
-    core, dash, prerelease = version.partition("-")
-    if len(core.split(".")) == 2:
-        core += ".0"
-    version = core + (dash + prerelease if dash else "") + "+" + digest.hexdigest()[:12]
-    manifest = {
-        "name": identifier, "version": version,
-        "description": item.get("description") or item["name"],
-        "author": {"name": "Travel Design"},
-        "skills": "./skills/",
-        "interface": {"displayName": item["name"],
-                      "shortDescription": (item.get("description") or item["name"])[:200],
-                      "longDescription": item.get("description") or item["name"],
-                      "developerName": "Travel Design", "category": "Productivity"},
-    }
-    files[prefix + ".codex-plugin/plugin.json"] = json.dumps(manifest, ensure_ascii=False, indent=2).encode()
-    return files
-
-
-def marketplace_entry(identifier):
-    return {"name": identifier, "source": {"source": "local", "path": f"./plugins/{identifier}"},
-            "policy": {"installation": "AVAILABLE", "authentication": "ON_INSTALL"},
-            "category": "Productivity"}
-
-
-def skill_marketplace_changes(repository, catalog, identifier, package):
-    """Update the new package and any already-exported dependent in one commit."""
-    marketplace = marketplace_catalog(repository)
-    by_id = {item["id"]: item for item in catalog}
-    exported = {entry["name"] for entry in marketplace["plugins"]
-                if entry.get("source") == {"source": "local", "path": f"./plugins/{entry.get('name')}"}}
-    targets = {identifier}
-    for candidate in exported & by_id.keys():
-        if identifier in {item["id"] for item in dependency_closure(catalog, candidate)}:
-            targets.add(candidate)
-    packages = {identifier: package}
-    files, removals = {}, []
-    for target in sorted(targets):
-        conflicting = [entry for entry in marketplace["plugins"] if entry.get("name") == target
-                       and entry.get("source") != {"source": "local", "path": f"./plugins/{target}"}]
-        if conflicting:
-            raise UserError("Имя плагина ChatGPT уже занято другим источником.")
-        required = dependency_closure(catalog, target)
-        for item in required:
-            if item["id"] not in packages:
-                raw = repository.read_bytes(f"skills/{item['id']}/skill.zip")
-                packages[item["id"]] = dict(safe_archive_members(raw, MAX_SKILL_UNPACKED_BYTES))
-        generated = codex_plugin_files(by_id[target], [(item["id"], packages[item["id"]]) for item in required])
-        prefix = f"plugins/{target}/"
-        removals.extend(path for path in repository.files_below(prefix) if path not in generated)
-        files.update(generated)
-        marketplace["plugins"] = [entry for entry in marketplace["plugins"] if entry.get("name") != target]
-        marketplace["plugins"].append(marketplace_entry(target))
-    marketplace["plugins"].sort(key=lambda entry: entry["name"])
-    files[MARKETPLACE_PATH] = json.dumps(marketplace, ensure_ascii=False, indent=2).encode()
-    return files, removals
-
-
-def skill_marketplace_removal(repository, identifier):
-    marketplace = marketplace_catalog(repository)
-    matching = [entry for entry in marketplace["plugins"] if entry.get("name") == identifier]
-    if not matching:
-        return {}, []
-    if any(entry.get("source") != {"source": "local", "path": f"./plugins/{identifier}"} for entry in matching):
-        raise UserError("Плагин ChatGPT использует другой источник. Удаление остановлено.")
-    marketplace["plugins"] = [entry for entry in marketplace["plugins"] if entry.get("name") != identifier]
-    return {MARKETPLACE_PATH: json.dumps(marketplace, ensure_ascii=False, indent=2).encode()}, repository.files_below(f"plugins/{identifier}/")
-
-
 def make_zip(files):
     result = io.BytesIO()
     with zipfile.ZipFile(result, "w", zipfile.ZIP_DEFLATED) as archive:
@@ -505,18 +398,6 @@ def detect_upload(filename, raw):
     if any(name.lower().endswith((".html", ".htm")) for name, _ in members):
         return "prototype"
     raise UserError("Не удалось определить архив: нужен SKILL.md или HTML-страница.")
-
-
-def codex_installation_prompt(identifier, repository="Yuriysteam/yatraveldesign", branch="main"):
-    """First-time setup uses the supported CLI, never a made-up source deep link."""
-    if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", identifier):
-        raise UserError("Некорректный идентификатор плагина.")
-    return (
-        f"Если travel-design ещё не подключён в ChatGPT, выполни: "
-        f"codex plugin marketplace add {repository} --ref {branch} --sparse .agents/plugins --sparse plugins. "
-        f"Обнови каталог: codex plugin marketplace upgrade travel-design. "
-        f"Затем установи: codex plugin add {identifier}@travel-design --json"
-    )
 
 
 def installation_prompt(name, url, identifier=None, catalog_url=None, dependencies=None, installer=None):
@@ -948,11 +829,9 @@ class Bot:
                 progress.update("Удаляю скилл…")
                 prefix = f"skills/{identifier}/"
                 remaining = [entry for entry in catalog if entry["id"] != identifier]
-                files = {"skills/catalog.json": json.dumps(remaining, ensure_ascii=False, indent=2).encode()}
-                marketplace_files, marketplace_removals = skill_marketplace_removal(self.github, identifier)
-                files.update(marketplace_files)
                 commit = self.github.commit_files(
-                    files, self.github.files_below(prefix) + marketplace_removals, f"Delete skill {identifier}")
+                    {"skills/catalog.json": json.dumps(remaining, ensure_ascii=False, indent=2).encode()},
+                    self.github.files_below(prefix), f"Delete skill {identifier}")
                 progress.update("Жду обновления Skill store…")
                 removed, reason = self.monitor_publication(
                     f"delete skill {identifier}", commit, lambda: self.wait_for_skill_removal(identifier),
@@ -1083,7 +962,14 @@ class Bot:
             candidate = [item for item in catalog if item.get("id") != identifier]
             candidate.append({"id": identifier, "dependencies": dependencies})
             dependency_closure(candidate, identifier)
-        default_prompt = codex_installation_prompt(identifier, self.settings.repository, self.settings.branch)
+        default_prompt = installation_prompt(
+            display_name,
+            f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/{identifier}/skill.zip",
+            identifier,
+            f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}/skills/catalog.json",
+            dependencies,
+            bundle_installer(package),
+        )
         self.db.execute(
             "insert or replace into pending (user_id, action, name, version, filename, raw, author, identifier) values (?, ?, ?, ?, ?, ?, ?, ?)",
             (user_id, "skill:review", display_name, default_prompt, filename, raw, json.dumps(author, ensure_ascii=False), identifier),
@@ -1218,9 +1104,6 @@ class Bot:
         catalog.append(item)
         dependency_closure(catalog, identifier)
         files["skills/catalog.json"] = json.dumps(sorted(catalog, key=lambda item: item["name"]), ensure_ascii=False, indent=2).encode()
-        marketplace_files, marketplace_removals = skill_marketplace_changes(self.github, catalog, identifier, package)
-        files.update(marketplace_files)
-        removals.extend(marketplace_removals)
         if progress:
             progress.update("Загружаю на сервер…")
         commit = self.github.commit_files(files, removals, f"Update skill {display_name}")
@@ -1232,9 +1115,11 @@ class Bot:
             lambda: self.skill_publication_reason(identifier, updated_at, commit),
         )
         if published:
-            prompt = codex_installation_prompt(identifier, self.settings.repository, self.settings.branch)
+            raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+            prompt = custom_prompt or installation_prompt(display_name, f"{raw_root}/skills/{identifier}/skill.zip", identifier,
+                                                           f"{raw_root}/skills/catalog.json", dependency_closure(catalog, identifier)[:-1], installer)
             team_text = f"Обновился скилл {display_name}" if is_update else f"Новый скил {display_name}\n\n{display_description}"
-            self.notify_team_publication(team_text, prompt, identifier)
+            self.notify_team_publication(team_text, prompt)
             if progress:
                 progress.update("Загружено ✓\n\nСкилл опубликован в Skill store.")
             else:
@@ -1355,18 +1240,7 @@ class Bot:
             last_reason = workflow_reason or reason()
         return False, last_reason
 
-    def skill_installation_options(self, identifier, prompt):
-        url = f"{self.settings.public_base_url}/skills/install.html?skill={urllib.parse.quote(identifier, safe='')}"
-        buttons = []
-        if len(prompt) <= 256:
-            buttons.append([{"text": "Скопировать промпт", "copy_text": {"text": prompt}}])
-        else:
-            buttons.append([{"text": "Промпт для установки", "url": url + "#first-time"}])
-        buttons.append([{"text": "Открыть установку в ChatGPT", "url": url + "#connected"}])
-        note = "\n\nВпервые? Скопируйте промпт на странице установки и вставьте в ChatGPT — он подключит командный каталог и установит скилл. Каталог уже подключён? Откройте карточку установки на Mac."
-        return note, {"reply_markup": {"inline_keyboard": buttons}}
-
-    def notify_team_publication(self, text, prompt=None, identifier=None):
+    def notify_team_publication(self, text, prompt=None):
         state_path = getattr(self.settings, "state_path", None)
         if not state_path:
             return
@@ -1378,10 +1252,7 @@ class Bot:
             if not isinstance(chat_id, int) or chat_id >= 0:
                 raise ValueError("Publication destination must be a group")
             extra = {}
-            if identifier and prompt:
-                note, extra = self.skill_installation_options(identifier, prompt)
-                text += note
-            elif prompt:
+            if prompt:
                 if len(prompt) <= 256:
                     extra["reply_markup"] = {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}
                 else:
@@ -1448,15 +1319,23 @@ class Bot:
             if not item:
                 self.send(chat_id, "Скил больше недоступен.")
             else:
+                raw_root = f"https://raw.githubusercontent.com/{self.settings.repository}/{self.settings.branch}"
+                url = f"{raw_root}/skills/{identifier}/skill.zip"
                 updated = short_russian_date(item["updated_at"])
                 try:
-                    dependency_closure(self.github.read_json("skills/catalog.json", []), identifier)
+                    required = dependency_closure(self.github.read_json("skills/catalog.json", []), identifier)
                 except UserError as error:
                     self.send(chat_id, str(error))
                     return
-                prompt = codex_installation_prompt(identifier, self.settings.repository, self.settings.branch)
-                note, extra = self.skill_installation_options(identifier, prompt)
-                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}{note}", **extra)
+                try:
+                    archive = self.github.read_bytes(f"skills/{identifier}/skill.zip")
+                    installer = bundle_installer(dict(safe_archive_members(archive, MAX_SKILL_UNPACKED_BYTES)))
+                except (OSError, UserError):
+                    installer = None
+                prompt = item.get("prompt") or installation_prompt(item["name"], url, identifier, f"{raw_root}/skills/catalog.json", required[:-1], installer)
+                extra = {"reply_markup": {"inline_keyboard": [[{"text": "Скопировать промпт", "copy_text": {"text": prompt}}]]}} if len(prompt) <= 256 else {}
+                suffix = "" if len(prompt) <= 256 else f"\n\nПромпт установки:\n{prompt}"
+                self.send(chat_id, f"{item['name']}\n{item['description']}\nОбновлено: {updated} · {item['updated_by']}{suffix}", **extra)
 
     def pending_text(self, message):
         user_id = message["from"]["id"]
@@ -1471,7 +1350,7 @@ class Bot:
                 return True
             self.db.execute("update pending set action='skill:custom_prompt', name=? where user_id=?", (text, user_id))
             self.db.commit()
-            self.send(message["chat"]["id"], "Пришлите дополнительные инструкции автора для карточки скилла. Установка через командный каталог останется стандартной.")
+            self.send(message["chat"]["id"], "Пришлите кастомный промпт для установки. Он полностью заменит автоматический.")
             return True
         if action == "skill:custom_prompt":
             if not text or len(text) > 3500:

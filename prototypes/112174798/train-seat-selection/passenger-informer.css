@@ -1,0 +1,34 @@
+/* Scoped BaseAI Informer / info / simple, preserving the main prototype's
+   existing runtime and typography. Figma compact uses a 32px radius. */
+.passenger-informer-slot[hidden] { display:none !important; }
+.passenger-informer-slot {
+  --yatraveluikit-base-space:4px;
+  --yatraveluikit-border-radius-large-s:28px;
+  --yatraveluikit-bg-warning-default-color:#f3efff;
+}
+html[data-theme="dark"] .passenger-informer-slot {
+  --yatraveluikit-bg-warning-default-color:#313136;
+}
+.passenger-informer.flex { display:flex; gap:12px; align-items:flex-start; }
+.passenger-informer.informer__auto-017 { padding:calc(5*var(--yatraveluikit-base-space)); }
+.passenger-informer.informer__auto-025 { background:var(--yatraveluikit-bg-warning-default-color); }
+.passenger-informer.informer__auto-009.informer__auto-010 { border-radius:var(--yatraveluikit-border-radius-large-s); }
+/* The local 12px gap owns spacing; BaseAI's generic density margin must not add another 16px. */
+.passenger-informer.ui-kit-density > picture { flex:none; margin:0; }
+.passenger-informer.informer__auto-017 .informer__auto-020 { flex-shrink:0; display:block; }
+.passenger-informer.informer__auto-017 .informer__auto-019 { flex-grow:1; width:100%; min-width:0; }
+.passenger-informer.informer__auto-009 .informer__auto-019 { margin-block:calc(.5*var(--yatraveluikit-base-space)); }
+.passenger-informer .text-body-m { font-family:'YS Text',sans-serif; font-size:16px; font-weight:400; line-height:20px; color:var(--text-primary-color); }
+.passenger-informer .ui__auto-062 { text-align:left; }
+.m-passengers .passenger-informer-slot { padding-block:12px 4px; --yatraveluikit-border-radius-large-s:32px; }
+
+/* Use the same disabled glyph token as the existing minus; keep the plus asset. */
+[data-counter="infants"] [data-delta="1"]:disabled img { display:none; }
+[data-counter="infants"] [data-delta="1"]:disabled::after {
+  content:''; width:20px; height:20px;
+  background:var(--text-generic-disabled-color);
+  -webkit-mask:var(--passenger-plus-icon) center / contain no-repeat;
+  mask:var(--passenger-plus-icon) center / contain no-repeat;
+}
+.exact-stepper[data-counter="infants"] { --passenger-plus-icon:url("desktop/assets/plus-icons20-plus.svg"); }
+.m-stepper[data-counter="infants"] { --passenger-plus-icon:url("mobile/assets/stepper-plus.svg"); }

@@ -1,0 +1,16 @@
+{
+  "fileKey": "koLp6y0Rq5BLWS6rKBCKGP",
+  "export": "SVG_STRING",
+  "nodes": {
+    "top-icons24-arrow-long-left-new.svg": "I18102:453720;7760:15184;5254:20777",
+    "setup-ic24-train-filled-new.svg": "I18102:453093;26704:4797",
+    "setup-icons16-arrow-down-new.svg": "I18102:453097;12171:27281;7555:4424",
+    "stepper-minus.svg": "I18102:453101;31903:71230;7555:5700;7555:4420",
+    "stepper-plus.svg": "I18102:453101;31903:71232;7555:5700;7555:4420",
+    "more.svg": "18102:453106",
+    "filters-icons16-filter-new.svg": "I18102:453108;9276:5600",
+    "filter-bio.svg": "I18102:453112;9276:5600",
+    "filter-ac.svg": "I18102:453113;9276:5600",
+    "filter-linen.svg": "I18102:453114;9276:5600"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Все удобства поездов",
+  "source": "https://www.figma.com/design/koLp6y0Rq5BLWS6rKBCKGP/ReDesign?node-id=20016-253094",
+  "status": "Список из макета. Применимость по типам вагонов ещё не определена; null не означает отсутствие удобства.",
+  "amenities": [
+    {"id":"bio-toilet","icon":"qa/assets/amenities/bio-toilet.svg","node":"20016:253098","name":"Биотуалет","caption":"","applicability":null},
+    {"id":"air-conditioning","icon":"qa/assets/amenities/air-conditioning.svg","node":"20016:253099","name":"Кондиционер","caption":"","applicability":null},
+    {"id":"bedding","icon":"qa/assets/amenities/bedding.svg","node":"20016:253100","name":"Постельное бельё","caption":"","applicability":null},
+    {"id":"socket-220v","icon":"qa/assets/amenities/socket-220v.svg","node":"20016:253101","name":"Розетка 220 В","caption":"","applicability":null},
+    {"id":"socket-usb","icon":"qa/assets/amenities/socket-usb.svg","node":"20016:253160","name":"Розетка USB","caption":"","applicability":null},
+    {"id":"meals","icon":"qa/assets/amenities/meals.svg","node":"20016:253161","name":"Питание","caption":"","applicability":null},
+    {"id":"wifi","icon":"qa/assets/amenities/wifi.svg","node":"20016:253162","name":"Wi-fi","caption":"","applicability":null},
+    {"id":"children-seats","icon":"qa/assets/amenities/children-seats.svg","node":"20016:253163","name":"Места для пассажиров с детьми","caption":"","applicability":null},
+    {"id":"compartment-shower","icon":"qa/assets/amenities/compartment-shower.svg","node":"20016:253209","name":"Душевая в купе","caption":"","applicability":null},
+    {"id":"hygienic-shower","icon":"qa/assets/amenities/hygienic-shower.svg","node":"20016:253210","name":"Гигиенический душ в туалете","caption":"","applicability":null},
+    {"id":"restaurant","icon":"qa/assets/amenities/restaurant.svg","node":"20016:253211","name":"Вагон-ресторан, бистро или буфет","caption":"","applicability":null},
+    {"id":"compartment-washbasin","icon":"qa/assets/amenities/compartment-washbasin.svg","node":"20016:253212","name":"Умывальник в купе","caption":"","applicability":null},
+    {"id":"extra-meals","icon":"qa/assets/amenities/extra-meals.svg","node":"20016:253258","name":"Можно заказать доп. питание","caption":"","applicability":null},
+    {"id":"pets","icon":"qa/assets/amenities/pets.svg","node":"20016:253259","name":"Можно с домашними животными","caption":"Переноска >180см в сумме трёх измерений","applicability":null,"reviewNote":"Проверить знак > и порог 180 см: перенесено из макета, не подтверждено как правило перевозки."},
+    {"id":"shared-shower","icon":"qa/assets/amenities/shared-shower.svg","node":"20016:253260","name":"Душевая в поезде (общая)","caption":"","applicability":null},
+    {"id":"hygiene-kit","icon":"qa/assets/amenities/hygiene-kit.svg","node":"20016:253261","name":"Санитарно-гигиенический набор","caption":"","applicability":null},
+    {"id":"multimedia","icon":"qa/assets/amenities/multimedia.svg","node":"20016:253307","name":"Мультимедийный портал","caption":"Кинотеатр, книги, музыка","applicability":null},
+    {"id":"gender-compartment","icon":"qa/assets/amenities/gender-compartment.svg","node":"20016:253308","name":"Мужское/женское купе","caption":"","applicability":null},
+    {"id":"blanket","icon":"qa/assets/amenities/blanket.svg","node":"20016:253309","name":"Плед","caption":"","applicability":null},
+    {"id":"luggage-compartment","icon":"qa/assets/amenities/luggage-compartment.svg","node":"20016:253310","name":"Купе для багажа","caption":"","applicability":null},
+    {"id":"slippers","icon":"qa/assets/amenities/slippers.svg","node":"20016:253356","name":"Тапочки","caption":"","applicability":null},
+    {"id":"destination-transfer","icon":"qa/assets/amenities/destination-transfer.svg","node":"20016:253357","name":"Трансфер до места назначения","caption":"","applicability":null},
+    {"id":"business-lounge","icon":"qa/assets/amenities/business-lounge.svg","node":"20016:253358","name":"Бизнес-зал","caption":"","applicability":null},
+    {"id":"press","icon":"qa/assets/amenities/press.svg","node":"20016:253359","name":"Пресса","caption":"","applicability":null},
+    {"id":"safe","icon":"qa/assets/amenities/safe.svg","node":"20016:253405","name":"Сейф","caption":"","applicability":null}
+  ]
+}

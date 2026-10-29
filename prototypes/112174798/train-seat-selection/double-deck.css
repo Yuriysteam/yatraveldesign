@@ -1,0 +1,29 @@
+/* Only the isolated two-floor screen; existing card controls/tokens are reused. */
+.double-deck-floors { display: flex; flex-direction: column; gap: 20px; }
+.double-deck-floor {
+  width: 1144px; height: 200px; flex: none; border-radius: 24px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--border-trainScheme-color); color: var(--text-primary-color);
+  font: 500 16px/18px 'YS Text', sans-serif;
+}
+.exact-car--double-deck { padding-bottom: 20px; }
+.exact-car--double-deck .exact-legend { height: 28px; padding-block: 4px; box-sizing: border-box; }
+.m-car.m-car--double-deck:not(.car-without-scheme) {
+  display: flex; flex-direction: column; gap: 16px; height: auto; padding: 20px;
+}
+.m-car--double-deck:not(.car-without-scheme) .m-car__header {
+  position: static; width: 100%; height: 44px; flex: none;
+}
+.m-car--double-deck:not(.car-without-scheme) .m-car__legend {
+  position: static; height: auto; min-height: 22px; padding-top: 4px;
+}
+.m-car--double-deck .double-deck-viewport {
+  width: calc(100% + 40px); margin-inline: -20px;
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: none;
+  overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+}
+.m-car--double-deck .double-deck-viewport::-webkit-scrollbar { display: none; }
+.m-car--double-deck .double-deck-floors { width: max-content; padding-inline: 20px; gap: 16px; }
+.m-car--double-deck .double-deck-floor { width: 844px; height: 140px; border-radius: 16px; justify-content: flex-start; }
+.m-car--double-deck .double-deck-floor span { margin-left: 54px; }
+.double-deck-viewport[hidden] { display: none; }

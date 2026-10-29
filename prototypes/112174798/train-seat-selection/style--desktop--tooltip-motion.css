@@ -1,0 +1,13 @@
+/* Same motion as Travel UI Kit Popup.module.scss + simpleFadeIn.scss.
+   duration-xs = 0.1s. The production Popup unmounts immediately on close,
+   so native hidePopover intentionally has no exit transition here. */
+@keyframes desktopTooltipSimpleFadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.exact-amenities-popover:popover-open {
+  animation: desktopTooltipSimpleFadeIn ease-out var(--yatraveluikit-duration-xs, 0.1s) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .exact-amenities-popover:popover-open { animation: none; }
+}

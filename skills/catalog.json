@@ -239,8 +239,7 @@
         "name": "Юрий Ширяев",
         "avatar": "yuriy.jpeg"
       }
-    ],
-    "prompt": "Если travel-design ещё не подключён в ChatGPT, выполни: codex plugin marketplace add Yuriysteam/yatraveldesign --ref main --sparse .agents/plugins --sparse plugins. Обнови каталог: codex plugin marketplace upgrade travel-design. Затем установи: codex plugin add travel-install-test-5fbf31@travel-design --json"
+    ]
   },
   {
     "id": "travel-ui-delivery",

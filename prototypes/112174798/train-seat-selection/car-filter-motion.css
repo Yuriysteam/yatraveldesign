@@ -1,0 +1,16 @@
+/* Chips respond immediately; the carriage groups animate in JS. */
+.exact-filters [data-filter], .exact-filters [data-sapsan-group],
+.m-filters [data-filter] {
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.exact-filters [data-filter] small, .exact-filters [data-sapsan-group] small,
+.m-filters [data-filter] small {
+  transition: color 160ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .exact-filters [data-filter], .exact-filters [data-sapsan-group],
+  .m-filters [data-filter], .exact-filters [data-filter] small,
+  .exact-filters [data-sapsan-group] small, .m-filters [data-filter] small {
+    transition: none;
+  }
+}

@@ -1,0 +1,57 @@
+/* Scoped geometry: original coupe and Sapsan styles are unchanged. */
+.exact-carriages:has(> .exact-car-group) { margin-top: 32px; }
+.exact-car-group > .exact-car-category { margin: 0 0 24px; }
+.exact-car-group + .exact-car-group { margin-top: 16px; }
+.exact-car-group__cards { display: flex; flex-direction: column; gap: 16px; }
+.m-car-group, .m-car-group__cards { display: flex; flex-direction: column; gap: 8px; }
+[data-car-group][hidden], [data-car-groups-empty][hidden] { display: none; }
+.car-groups-empty { padding: 24px; text-align: center; color: var(--text-secondary-color); }
+.p-scheme {
+  --p-size: 40px; --p-row-x: 144px; --p-row-gap: 8px;
+  --p-main-top: 4px; --p-side-top: 132px; --p-pad-top: 8px;
+  position: relative; flex: none; width: 1142px; height: 188px;
+  margin-inline: auto; background: var(--scheme-surface);
+}
+.p-scheme__outline { position: absolute; inset: 2px 0; border: 2px solid var(--border-trainScheme-color); border-radius: 24px; }
+.p-scheme__row { position: absolute; left: var(--p-row-x); display: flex; align-items: stretch; gap: var(--p-row-gap); }
+.p-scheme__row--main { top: var(--p-main-top); }
+.p-scheme__row--side { top: var(--p-side-top); }
+.p-scheme__wall { flex: 0 0 2px; background: var(--border-trainScheme-color); border-radius: 0 0 100px 100px; }
+.p-scheme__row--side .p-scheme__wall { border-radius: 100px 100px 0 0; }
+.p-scheme__bay { display: grid; grid-auto-flow: column; grid-template-columns: repeat(2, var(--p-size)); grid-template-rows: repeat(2, var(--p-size)); gap: 4px; padding-block: var(--p-pad-top) 4px; }
+.p-scheme__row--side .p-scheme__bay { grid-template-rows: var(--p-size); }
+.p-scheme[data-platform="desktop"] .p-scheme__row--side .p-scheme__bay { padding-block: 4px 8px; }
+.exact-car--platskart .scheme-seat.scheme-seat { border-radius: 12px; }
+.p-scheme[data-platform="desktop"] .scheme-seat__marker { mask-image: url("scheme-assets/platskart/desktop-imgTop.svg"); }
+.p-scheme[data-platform="mobile"] .scheme-seat__marker { width: 8.004px; mask-image: url("scheme-assets/platskart/mobile-imgTop.svg"); }
+.p-scheme__feature { position: absolute; width: 24px; height: 24px; }
+.p-scheme__feature img { display: block; max-width: none; }
+.p-scheme__wc-left { left: 64px; top: 14px; }
+.p-scheme__wc-right { left: 1084px; top: 14px; }
+.p-scheme__bin { left: 1084px; top: 150px; }
+.p-scheme__mug { left: 100px; top: 150px; }
+.p-scheme__officer { left: 100px; top: 14px; overflow: hidden; }
+.p-scheme__officer img { position: absolute; left: 1.68px; top: 1.68px; }
+.p-scheme__door { position: absolute; left: 24px; top: 2px; width: 24px; height: 16px; border: 2px solid var(--border-trainScheme-color); border-top: 0; border-radius: 0 0 4px 4px; background: var(--scheme-surface); }
+.p-scheme__door--bottom { top: 170px; transform: scaleY(-1); }
+.p-scheme__entry { position: absolute; left: 32px; top: 0; width: 8px; height: 13px; }
+.p-scheme__entry--top { transform: rotate(180deg); }
+.p-scheme__entry--bottom { top: 175px; transform: scaleX(-1); }
+.p-scheme[data-platform="mobile"] {
+  --p-size: 28px; --p-row-x: 112px; --p-row-gap: 7px;
+  --p-main-top: 3px; --p-side-top: 95px; --p-pad-top: 4px;
+  width: 842px; height: 134px; margin-inline: 20px;
+}
+.p-scheme[data-platform="mobile"] .p-scheme__outline { inset: 1px 0; border-radius: 16px; box-shadow: 0 4px 15px rgb(0 0 0 / 5%); }
+.p-scheme[data-platform="mobile"] .p-scheme__wc-left { left: 48px; top: 9px; }
+.p-scheme[data-platform="mobile"] .p-scheme__wc-right { left: 806px; top: 8px; }
+.p-scheme[data-platform="mobile"] .p-scheme__bin { left: 806px; top: 101px; }
+.p-scheme[data-platform="mobile"] .p-scheme__mug { left: 48px; top: 101px; }
+.p-scheme[data-platform="mobile"] .p-scheme__officer { left: 80px; top: 9px; }
+.p-scheme[data-platform="mobile"] .p-scheme__door { left: 16px; top: 1px; width: 20px; height: 13px; border-radius: 0 0 3px 3px; }
+.p-scheme[data-platform="mobile"] .p-scheme__door--bottom { top: 120px; }
+.p-scheme[data-platform="mobile"] .p-scheme__entry { left: 23px; width: 6px; height: 10px; }
+.p-scheme[data-platform="mobile"] .p-scheme__entry--bottom { top: 124px; }
+.m-car--platskart { height: 272px; }
+.m-car--platskart .m-scheme__viewport { height: 166px; }
+.m-car--platskart .m-car__legend { top: 234px; }

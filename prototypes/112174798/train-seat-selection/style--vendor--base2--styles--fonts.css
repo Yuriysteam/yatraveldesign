@@ -1,0 +1,120 @@
+/**
+ * Yandex Fonts - Local
+ * YS Display - for headings
+ * YS Text - for body text
+ */
+
+/* YS Display */
+@font-face {
+  font-family: 'YS Display';
+  src: url("vendor/base2/Fonts/YS%20Display/YS%20Display-Regular.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url("vendor/base2/Fonts/YS%20Display/YS%20Display-Medium.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url("vendor/base2/Fonts/YS%20Display/YS%20Display-Bold.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url("vendor/base2/Fonts/YS%20Display/YS%20Display-Light.ttf") format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* YS Text */
+@font-face {
+  font-family: 'YS Text';
+  src: url("vendor/base2/Fonts/YS%20Text/YS%20Text-Regular.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url("vendor/base2/Fonts/YS%20Text/YS%20Text-Medium.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url("vendor/base2/Fonts/YS%20Text/YS%20Text-Bold.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url("vendor/base2/Fonts/YS%20Text/YS%20Text-Light.ttf") format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url("vendor/base2/Fonts/YS%20Text/YS%20Text-Regular%20Italic.ttf") format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url("vendor/base2/Fonts/YS%20Text/YS%20Text-Medium%20Italic.ttf") format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* YS Text Cond */
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url("vendor/base2/Fonts/YS%20Text%20Cond/YS%20Text%20Cond-Regular.ttf") format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url("vendor/base2/Fonts/YS%20Text%20Cond/YS%20Text%20Cond-Medium.ttf") format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url("vendor/base2/Fonts/YS%20Text%20Cond/YS%20Text%20Cond-Bold.ttf") format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url("vendor/base2/Fonts/YS%20Text%20Cond/YS%20Text%20Cond-Heavy.ttf") format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

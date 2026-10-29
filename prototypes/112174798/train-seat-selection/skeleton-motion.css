@@ -1,0 +1,5 @@
+/* Shared with both train loading views. AI-search/serp.css motion:
+   900 ms per direction, 100% → 50% opacity, no travelling highlight. */
+.skeleton-item { animation:seat-skeleton-pulse 900ms ease-in-out infinite alternate; }
+@keyframes seat-skeleton-pulse { from { opacity:1; } to { opacity:.5; } }
+@media (prefers-reduced-motion:reduce) { .skeleton-item { animation:none; } }

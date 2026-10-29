@@ -1,0 +1,123 @@
+/* Seats-selection spec: App 22362:918371, Touch 22362:812396.
+   Product content and interactions stay shared; only platform chrome differs. */
+.m-statusbar {
+  position: relative;
+  width: 100%;
+  height: 44px;
+  background: var(--bg-fill-primary-color);
+  flex: none;
+}
+.m-statusbar__time {
+  position: absolute;
+  top: 14px;
+  left: 21px;
+  width: 54px;
+  height: 18px;
+  text-align: center;
+  font: 600 15px/18px -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -.3px;
+}
+.m-statusbar__signal, .m-statusbar__wifi, .m-statusbar__battery { position: absolute; }
+.m-statusbar__signal { right: 64px; top: 18px; }
+.m-statusbar__wifi { right: 44px; top: 17px; }
+.m-statusbar__battery { right: 14px; top: 17px; width: 25px; height: 12px; }
+.m-statusbar__battery img { position: absolute; }
+.m-statusbar__battery img:first-child { left: 0; top: 0; }
+.m-statusbar__battery img:nth-child(2) { left: 2px; top: 2px; }
+.m-statusbar__battery img:last-child { right: 0; top: 4px; }
+.m-touch-header, .m-touch-breadcrumbs { display: none; }
+
+html[data-surface="app"] .m-top { position: sticky; top: 0; z-index: 18; height: 104px; }
+html[data-surface="app"] .m-app-home-indicator {
+  position: fixed;
+  z-index: 19;
+  bottom: 0;
+  left: 50%;
+  display: grid;
+  place-items: end center;
+  width: min(100%, 430px);
+  height: 34px;
+  padding-bottom: 8px;
+  background: transparent;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+html[data-surface="app"] .m-app-home-indicator::after {
+  content: '';
+  width: 134px;
+  height: 5px;
+  border-radius: 100px;
+  background: var(--text-primary-color);
+}
+html[data-surface="app"] body.has-seat-selection .m-app-home-indicator { display: none; }
+
+html[data-surface="touch"] .m-top { height: 149px; padding-top: 47px; }
+html[data-surface="touch"] .m-statusbar {
+  position: fixed;
+  z-index: 18;
+  top: 0;
+  left: 50%;
+  width: min(100%, 430px);
+  height: 47px;
+  transform: translateX(-50%);
+}
+html[data-surface="touch"] .m-statusbar__time { font-size: 17px; line-height: 22px; letter-spacing: -.408px; }
+html[data-surface="touch"] .m-navbar,
+html[data-surface="touch"] .m-progress,
+html[data-surface="touch"] .m-app-home-indicator { display: none; }
+html[data-surface="touch"] .m-touch-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 54px;
+  padding: 16px 20px 0;
+  background: var(--bg-fill-primary-color);
+}
+.m-touch-header__logo { display: flex; align-items: center; width: 185px; height: 25px; }
+.m-touch-header__logo img:first-child { width: 23px; height: 25px; }
+.m-touch-header__logo img:nth-child(2) { width: 23px; height: 25px; margin-left: 2px; }
+.m-touch-header__logo img:last-child { width: 131px; height: 25px; margin-left: 6px; }
+.m-touch-header__actions { display: flex; align-items: center; gap: 16px; height: 25px; }
+.m-touch-header__actions img { width: 25px; height: 25px; }
+html[data-surface="touch"] .m-touch-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  height: 48px;
+  padding-inline: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  background: var(--bg-fill-primary-color);
+  white-space: nowrap;
+  font: 400 16px/20px 'YS Text', sans-serif;
+}
+html[data-surface="touch"] .m-touch-breadcrumbs::-webkit-scrollbar { display: none; }
+.m-touch-breadcrumbs > span { position: relative; display: flex; align-items: center; flex: none; height: 48px; }
+.m-touch-breadcrumbs > img { flex: none; opacity: .35; }
+.m-touch-breadcrumbs .is-upcoming { color: var(--text-generic-disabled-color); }
+.m-touch-breadcrumbs .is-current::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  background: var(--bg-button-primary-color);
+}
+html[data-surface="touch"] .m-selection-panel { padding-bottom: 12px; }
+html[data-surface="touch"] .m-selection-panel__homebar,
+html[data-surface="touch"] .m-amenities-sheet__homebar { display: none; }
+html[data-surface="touch"] .m-ticket-details__footer,
+html[data-surface="touch"] .m-fare-info__footer,
+html[data-surface="touch"] .m-bedding-info__footer { padding-bottom: 12px; }
+html[data-surface="touch"] .m-gender-sheet { padding-bottom: 12px; }
+html[data-surface="touch"] .m-amenities-sheet:not(.m-ticket-details):not(.m-fare-info):not(.m-bedding-info):not(.m-discounts-info) { padding-bottom: 20px; }
+html[data-surface="touch"] .m-discounts-info__content { padding-bottom: 12px; }
+html[data-theme="dark"] .m-statusbar img,
+html[data-theme="dark"] .m-touch-header__actions img,
+html[data-theme="dark"] .m-touch-header__logo img:last-child,
+html[data-theme="dark"] .m-touch-breadcrumbs > img { filter: invert(1); }

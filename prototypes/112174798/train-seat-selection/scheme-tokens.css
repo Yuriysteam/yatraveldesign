@@ -1,0 +1,56 @@
+/* ReDesign / 18554:222656 + Seat 18182:258170, synced 2026-10-09.
+   Shared color tokens for both platforms; names match Figma WEB syntax.
+   Arrow colors are opaque and remain unchanged on hover. */
+:root, [data-scheme-theme="light"] {
+  --bg-trainScheme-green-color: #c0f0c0;
+  --bg-trainScheme-green-hover-color: #a5dda5;
+  --bg-trainScheme-arrow-green-color: #6bb972;
+  --bg-trainScheme-purple-color: #e9e3ff;
+  --bg-trainScheme-purple-hover-color: #d7ccf3;
+  --bg-trainScheme-arrow-purple-color: #aa98e7;
+  --bg-trainScheme-blue-color: #d5eef8;
+  --bg-trainScheme-blue-hover-color: #b9deec;
+  --bg-trainScheme-arrow-blue-color: #88b9cd;
+  --bg-trainScheme-yellow-color: #fff1b6;
+  --bg-trainScheme-yellow-hover-color: #ffe4a3;
+  --bg-trainScheme-arrow-yellow-color: #d7bb63;
+  --bg-trainScheme-peach-color: #ffe0cd;
+  --bg-trainScheme-peach-hover-color: #f5cdb3;
+  --bg-trainScheme-arrow-peach-color: #e0a887;
+  --border-trainScheme-color: #ededee;
+  --bg-trainScheme-window-color: #a1ccff;
+  --bg-trainScheme-specialZone-color: #ebfbeb;
+  --scheme-seat-selected: #fed42b;
+  --scheme-seat-occupied: #f5f5f5;
+  --scheme-seat-disabled: #b6b6bb;
+  --scheme-seat-back-occupied: #cdcccf;
+  --scheme-seat-ink: #0d0d0f;
+  --scheme-icon: #9c9ba2;
+  --scheme-surface: #fff;
+}
+html[data-theme="dark"], [data-scheme-theme="dark"] {
+  --bg-trainScheme-green-color: #93c693;
+  --bg-trainScheme-green-hover-color: #84b084;
+  --bg-trainScheme-arrow-green-color: #509358;
+  --bg-trainScheme-purple-color: #c0b6d9;
+  --bg-trainScheme-purple-hover-color: #aba2c2;
+  --bg-trainScheme-arrow-purple-color: #7e67bf;
+  --bg-trainScheme-blue-color: #a5c6d2;
+  --bg-trainScheme-blue-hover-color: #94b1bc;
+  --bg-trainScheme-arrow-blue-color: #4e879e;
+  --bg-trainScheme-yellow-color: #e4cc92;
+  --bg-trainScheme-yellow-hover-color: #ccb582;
+  --bg-trainScheme-arrow-yellow-color: #a1833b;
+  --bg-trainScheme-peach-color: #dbb79f;
+  --bg-trainScheme-peach-hover-color: #c3a38f;
+  --bg-trainScheme-arrow-peach-color: #a56f51;
+  --border-trainScheme-color: #3c3c41;
+  --bg-trainScheme-window-color: #6392ca;
+  --bg-trainScheme-specialZone-color: #2b2a2e;
+  --scheme-seat-selected: #fac800;
+  --scheme-seat-occupied: #313136;
+  --scheme-seat-disabled: #5e5d65;
+  --scheme-seat-back-occupied: #3c3c41;
+  --scheme-surface: #222125;
+}
+[data-scheme-theme="dark"][data-platform="mobile"] { --scheme-surface: #1b1a1e; }

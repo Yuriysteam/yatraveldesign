@@ -1,0 +1,73 @@
+/* 19932:490168: 18px row, 8px below the legend, 20px bottom inset.
+   The scheme and legend keep their coordinates throughout the transition. */
+.m-car.m-car--bedding {
+  --bedding-layout-duration: 240ms;
+  transition: height var(--bedding-layout-duration) cubic-bezier(.2,0,0,1);
+}
+.m-car.m-car--bedding.has-bedding { height:280px; }
+.m-bedding {
+  position:absolute;
+  top:242px;
+  left:20px;
+  right:20px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  height:18px;
+  color:var(--text-primary-color);
+  font:400 14px/18px 'YS Text',sans-serif;
+  font-feature-settings:'lnum' 1,'pnum' 1;
+  letter-spacing:0;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity 140ms ease-out,visibility 0s linear 140ms;
+}
+.has-bedding > .m-bedding {
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  /* Let the card make room first. No translation or scale on the text. */
+  transition:opacity 180ms ease-out 60ms,visibility 0s;
+}
+.m-bedding__more {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  width:20px;
+  height:14px;
+  padding:1px 4px;
+  border:0;
+  border-radius:4px;
+  background:var(--bg-card-secondary-color);
+  color:var(--text-secondary-color);
+}
+.m-bedding__more > span {
+  width:12px;
+  height:12px;
+  background:currentColor;
+  mask:url("scheme-assets/nonrefundable-more.svg") center / contain no-repeat;
+}
+html[data-theme="dark"] .m-bedding__more { background:var(--more-primary-background); }
+/* Carriage card / Bedding option 22038:346776: 335×60, 16px below the
+   platskart legend (234 + 18), with a 20px bottom inset.
+   Updated surface: background/tertiary, not the page background/primary. */
+.m-car.m-car--platskart.m-car--bedding.has-bedding { height:348px; }
+.m-bedding--paid {
+  top:268px;
+  height:60px;
+  padding:16px;
+  border-radius:20px;
+  background:var(--bg-card-secondary-color);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto 42px;
+  column-gap:8px;
+}
+.m-bedding__title { grid-area:1/1; }
+.m-bedding__price { grid-area:1/2; font-weight:500; white-space:nowrap; }
+/* Scope the Dark semantic binding to this tile; do not recolor other cards. */
+html[data-theme="dark"] .m-bedding--paid { --bg-card-secondary-color:#2b2a2e; }
+@media(prefers-reduced-motion:reduce) {
+  .m-car.m-car--bedding,.m-bedding,.has-bedding > .m-bedding { transition:none; }
+}

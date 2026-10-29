@@ -1,0 +1,10 @@
+/* Two variants share the mobile Navbar Sheet and the existing theme tokens. */
+.m-discounts-info { height:auto; max-height:calc(100dvh - 40px); padding:0; border-radius:32px 32px 0 0; overflow:hidden; box-shadow:none; font-feature-settings:'case' 1,'lnum' 1,'pnum' 1; }
+.m-discounts-info[open] { display:flex; flex-direction:column; }
+.m-discounts-info > .m-amenities-sheet__header { flex:none; }
+.m-discounts-info__content { display:flex; flex-direction:column; gap:8px; min-height:0; flex:0 1 auto; overflow-y:auto; overscroll-behavior:contain; scrollbar-width:none; padding:0 20px 36px; }
+.m-discounts-info__content::-webkit-scrollbar { display:none; }
+.m-discounts-info__offer { flex:none; display:flex; flex-direction:column; gap:8px; padding:20px; border-radius:24px; background:var(--bg-card-secondary-color); }
+.m-discounts-info__offer h3 { margin:0; font:500 20px/24px 'YS Display',sans-serif; }
+.m-discounts-info > .m-amenities-sheet__homebar { position:absolute; bottom:0; left:0; width:100%; pointer-events:none; background:transparent; }
+html[data-theme="dark"] .m-discounts-info { background:var(--bg-fill-primary-color); --bg-card-secondary-color:var(--bg-card-primary-color); }

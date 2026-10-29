@@ -1,0 +1,41 @@
+/* Carriage card / 22038:354847, measured 2026-10-26.
+   Figma's example seats, icon placeholders and "legend" are slots, not content.
+   Scheme geometry and live option motion remain in their existing components. */
+.carriage-card[data-card-platform="Desktop"] {
+  padding: var(--space-12, 24px) var(--space-14, 28px) var(--space-10, 20px);
+  gap: var(--space-6, 12px);
+  border-radius: var(--border-radius-extralarge-s, 40px);
+  background: var(--bg-card-primary-color);
+  box-shadow: var(--shadow-soft-l-light-theme);
+}
+.carriage-card .exact-car__header { align-items: center; }
+/* Amenities overflow counter: updated Figma Body/B3, 16/20 on both platforms. */
+.carriage-card .exact-car__amenity-count { min-width: 0; height: 20px; font-size: 16px; line-height: 20px; }
+.carriage-card__scheme { flex: none; padding-block: var(--space-2, 4px); }
+.carriage-card .d-sapsan-map { gap: var(--space-4, 8px); margin: 0; }
+.carriage-card .exact-legend { height: 28px; flex: 0 0 28px; padding-block: 0; }
+.carriage-card[data-card-platform="Mobile"] { border-radius: var(--border-radius-large-m, 32px); background: var(--bg-fill-primary-color); }
+.carriage-card .m-car__amenity-count { font-size: 16px; line-height: 20px; }
+
+/* No-scheme preserves the original hidden seats and direct-next-step action. */
+.carriage-card.car-without-scheme { gap: var(--space-8, 16px); }
+.carriage-card.car-without-scheme > .carriage-card__scheme { display: none; }
+.carriage-card[data-card-platform="Desktop"] .no-scheme-informer { margin-block: var(--space-2, 4px); }
+.carriage-card .no-scheme-copy { padding-left: 0; margin-block: 0; }
+.carriage-card .no-scheme-copy p { margin-top: var(--space-2, 4px); }
+.carriage-card[data-card-platform="Mobile"] .no-scheme-informer { --yatraveluikit-border-radius-large-s: 32px; }
+.carriage-card .no-scheme-informer .button { --yatraveluikit-border-radius-medium-s: 14px; }
+
+/* Skeleton has its own Figma surface, including on mobile. Keep live shimmer. */
+.carriage-card[data-card-state="Skeleton"] {
+  background: var(--bg-card-primary-color);
+  --seat-skeleton-surface: var(--bg-fill-secondary-color);
+}
+.carriage-card[data-card-platform="Desktop"][data-card-state="Skeleton"] { gap: var(--space-8, 16px); }
+/* Approved 2026-10-26 exception: source skeleton and surface currently resolve
+   to the same dark color. Retain the previous contrast until Figma is corrected. */
+html[data-theme="dark"] .carriage-card[data-card-platform="Desktop"][data-card-state="Skeleton"] { --seat-skeleton-surface: var(--bg-button-secondary-color); }
+html[data-theme="dark"] .carriage-card[data-card-platform="Mobile"][data-card-state="Skeleton"] {
+  background: var(--bg-fill-primary-color);
+  --seat-skeleton-surface: var(--bg-card-primary-color);
+}

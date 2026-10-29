@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.documentElement.dataset.theme = new URLSearchParams(location.search).get('theme') === 'dark' ? 'dark' : 'light';</script>
+  <title>Выбор мест · Десктоп</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style--BaseAI--fonts.css">
+  <link rel="stylesheet" href="style--BaseAI--library.css">
+  <link rel="stylesheet" href="style--vendor--base2--styles--fonts.css">
+  <link rel="stylesheet" href="style--vendor--train-flow--tokens--tokens.css">
+  <link rel="stylesheet" href="style--desktop--layout.css?v=20261025-carriage-component">
+  <link rel="stylesheet" href="style--desktop--trip-details.css?v=20261023-trip-component">
+  <link rel="stylesheet" href="trip-component.css?v=20261023-2">
+  <link rel="stylesheet" href="passengers-component.css?v=20261025-desktop-tokens">
+  <link rel="stylesheet" href="style--desktop--header.css">
+  <link rel="stylesheet" href="style--desktop--footer.css">
+  <link rel="stylesheet" href="theme-tokens.css?v=20261020-more">
+  <link rel="stylesheet" href="style--desktop--theme-dark.css?v=20261025-passenger-tokens">
+  <link rel="stylesheet" href="style--mobile--selection.css?v=20261014-validation-dismiss">
+  <link rel="stylesheet" href="style--desktop--selection.css?v=20261029-panel-exit-fix">
+  <link rel="stylesheet" href="scheme-tokens.css?v=20261009">
+  <link rel="stylesheet" href="scheme-seat.css?v=20261009-crossfix">
+  <link rel="stylesheet" href="scheme-layout.css?v=20261009">
+  <link rel="stylesheet" href="style--desktop--sapsan.css?v=20261022-sapsan-geometry">
+  <link rel="stylesheet" href="platskart.css?v=20261015-side-padding">
+  <link rel="stylesheet" href="nonrefundable.css?v=20261020-more">
+  <link rel="stylesheet" href="chip-discount.css?v=20261015">
+  <link rel="stylesheet" href="style--desktop--bedding.css?v=20261020-fare">
+  <link rel="stylesheet" href="style--desktop--gender.css?v=20261023-gender-centered">
+  <link rel="stylesheet" href="ticket-details-content.css?v=20261028-transfer">
+  <link rel="stylesheet" href="style--desktop--price-details.css?v=20261023-tooltip-motion">
+  <link rel="stylesheet" href="style--desktop--fare-info.css?v=20261021-fare-info">
+  <link rel="stylesheet" href="style--desktop--bedding-info.css?v=20261021-desktop-bedding-info">
+  <link rel="stylesheet" href="style--desktop--discounts-info.css?v=20261021-discounts-info">
+  <link rel="stylesheet" href="no-scheme.css?v=20261022">
+  <link rel="stylesheet" href="passenger-placeholder.css?v=20261022">
+  <link rel="stylesheet" href="passenger-informer.css?v=20261026-informer-gap">
+  <link rel="stylesheet" href="arrival-times.css?v=20261022">
+  <link rel="stylesheet" href="double-deck.css?v=20261022">
+  <link rel="stylesheet" href="style--desktop--tooltip-motion.css?v=20261023-hotel-popup">
+  <link rel="stylesheet" href="carriage-card.css?v=20261026-amenities-b3">
+  <link rel="stylesheet" href="roundtrip.css?v=20261028-touch-motion">
+  <link rel="stylesheet" href="car-filter-motion.css?v=20261029">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <div class="exact-page">
+<header class="exact-header" data-figma-node="18089:425045">
+  <div class="exact-header__inner">
+    <div class="exact-header__left">
+      <div class="exact-header__brand" aria-label="Яндекс Путешествия">
+        <div class="exact-header__brand-signs" aria-hidden="true">
+          <span class="exact-header__yandex-slot"><span class="exact-header__yandex"><img src="./desktop/assets/header-yandex.svg" alt=""></span></span>
+          <span class="exact-header__travel-slot"><span class="exact-header__travel-sign"><img src="./desktop/assets/header-travel-sign.svg" alt=""></span></span>
+        </div>
+        <img src="./desktop/assets/header-travel-text.svg" alt="" aria-hidden="true">
+      </div>
+      <nav class="exact-header__services" aria-label="Разделы">
+        <span>Отели</span>
+        <span>Авиабилеты</span>
+        <span class="exact-header__service-current" aria-current="page">Ж/д билеты</span>
+        <span>Автобусы</span>
+        <span>Туры</span>
+      </nav>
+    </div>
+    <div class="exact-header__right">
+      <div class="exact-header__icons" aria-label="Сервисы">
+        <img src="./desktop/assets/header-discount.svg" alt="Скидки">
+        <img src="./desktop/assets/header-message.svg" alt="Сообщения">
+        <img src="./desktop/assets/header-heart.svg" alt="Избранное">
+        <img src="./desktop/assets/header-orders.svg" alt="Заказы">
+        <img src="./desktop/assets/header-book.svg" alt="Журнал">
+      </div>
+      <span class="exact-header__plus">плюс</span>
+      <div class="exact-header__profile">
+        <div class="exact-header__profile-copy">
+          <div class="exact-header__level">1-й уровень </div>
+          <div class="exact-header__cashback"><img src="./desktop/assets/header-cashback.svg" alt=""><span>5% кешбэк</span></div>
+        </div>
+        <div class="exact-header__photo"><img src="./desktop/assets/header-userpic.png" alt="Аватар пользователя"></div>
+      </div>
+    </div>
+  </div>
+</header>
+<nav class="exact-steps" aria-label="Этапы бронирования" data-figma-node="18089:425049">
+  <div class="exact-steps__inner">
+    <span class="exact-steps__item">Выбор поезда</span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--current" aria-current="step">Выбор мест </span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--pending">Данные пассажиров</span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--pending">Подтверждение</span>
+    <img src="./desktop/assets/header-step-arrow.svg" alt="">
+    <span class="exact-steps__item exact-steps__item--disabled">Оплата</span>
+  </div>
+</nav>
+
+<main class="exact-main" data-node-id="19345:243977">
+  <h1 class="exact-title" data-node-id="18089:425048">Выберите места</h1>
+  <section class="exact-setup" aria-label="Поездка и пассажиры" data-node-id="18089:425058">
+    <div class="exact-trip-block" data-figma-component="dEEebZZNQurp5jLJmXvWl9/22010:104047" data-trip-seats="off">
+      <div class="exact-trip" data-node-id="22010:104045">
+        <div class="exact-trip__icon"><img src="./desktop/assets/setup-ic24-train-filled-new.svg" alt=""></div>
+        <div class="exact-trip__text"><p class="exact-trip__route">Москва — Санкт-Петербург</p><p class="exact-trip__date">24 апреля, пт в 05:30 по местному</p></div>
+        <span class="trip-control ui-kit-scope ui-kit-theme ui-kit-density"><button class="exact-trip__toggle button button--size-m button--icon-only ui__auto-450 button--width-auto" type="button" aria-label="Развернуть маршрут" aria-expanded="false" aria-controls="trip-details"><span class="button__content"><img src="./desktop/assets/setup-icons16-arrow-down-new.svg" width="16" height="16" alt=""></span></button></span>
+      </div>
+      <div class="exact-trip-details" id="trip-details" aria-hidden="true" inert>
+        <div class="exact-trip-details__inner">
+          <div class="exact-trip-details__inset">
+            <article class="exact-trip-details__card" aria-label="Маршрут Москва — Санкт-Петербург">
+              <div class="exact-trip-details__train"><span data-trip-train>016А Арктика</span><span>Эл. регистрация</span></div>
+              <div class="exact-trip-timeline">
+                <div class="exact-trip-timeline__row">
+                  <span class="exact-trip-timeline__time">05:30</span>
+                  <span class="exact-trip-timeline__line" aria-hidden="true"></span>
+                  <span class="exact-trip-timeline__duration">4 ч 5 м</span>
+                  <span class="exact-trip-timeline__line" aria-hidden="true"></span>
+                  <span class="exact-trip-timeline__time">09:35</span>
+                </div>
+                <div class="exact-trip-timeline__details">
+                  <div><span>24 апреля, пт</span><span>Ленинградский вкз</span></div>
+                  <div><span>24 апреля, пт</span><span>Московский вкз</span></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="exact-passengers" data-node-id="22019:296555" data-figma-component="dEEebZZNQurp5jLJmXvWl9/22019:296556" aria-label="Количество пассажиров">
+      <div class="exact-stepper" data-counter="adults" data-min="0" data-node-id="18147:122477">
+        <div class="exact-stepper__copy"><span>Взрослые</span><small>от 10 лет</small></div>
+        <div class="exact-stepper__controls passenger-controls ui-kit-scope ui-kit-theme ui-kit-density"><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="-1" aria-label="Уменьшить количество взрослых"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"></rect></svg></span></button><output class="exact-stepper__value" aria-live="polite">1</output><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="1" aria-label="Увеличить количество взрослых"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44772 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H11V3C11 2.44772 10.5523 2 10 2Z" fill="currentColor"></path></svg></span></button></div>
+      </div>
+      <div class="exact-stepper" data-counter="children" data-min="0" data-node-id="18147:122482">
+        <div class="exact-stepper__copy"><span>Дети до 10</span><small>со скидкой</small></div>
+        <div class="exact-stepper__controls passenger-controls ui-kit-scope ui-kit-theme ui-kit-density"><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="-1" aria-label="Уменьшить количество детей до 10"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"></rect></svg></span></button><output class="exact-stepper__value" aria-live="polite">0</output><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="1" aria-label="Увеличить количество детей до 10"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44772 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H11V3C11 2.44772 10.5523 2 10 2Z" fill="currentColor"></path></svg></span></button></div>
+      </div>
+      <div class="exact-stepper exact-stepper--infant" data-counter="infants" data-min="0" data-node-id="18147:122487">
+        <div class="exact-stepper__copy"><span>Дети до 5 лет</span><small>без места, бесплатно</small></div>
+        <div class="exact-stepper__controls passenger-controls ui-kit-scope ui-kit-theme ui-kit-density"><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="-1" aria-label="Уменьшить количество детей до 5 лет"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><rect x="2" y="9" width="16" height="2" rx="1" fill="currentColor"></rect></svg></span></button><output class="exact-stepper__value" aria-live="polite">0</output><button class="passenger-stepper-button button ui__auto-118 button--icon-only button--secondary button--width-auto" type="button" data-delta="1" aria-label="Увеличить количество детей до 5 лет"><span class="button__content"><svg width="20" height="20" fill="none" class="" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" focusable="false"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C9.44772 2 9 2.44772 9 3V9H3C2.44772 9 2 9.44772 2 10C2 10.5523 2.44772 11 3 11H9V17C9 17.5523 9.44772 18 10 18C10.5523 18 11 17.5523 11 17V11H17C17.5523 11 18 10.5523 18 10C18 9.44772 17.5523 9 17 9H11V3C11 2.44772 10.5523 2 10 2Z" fill="currentColor"></path></svg></span></button></div>
+      </div>
+    </div>
+    <div class="exact-discounts" data-node-id="18089:425078"><span>Какие скидки есть в этом поезде</span><button class="exact-more" type="button" aria-label="Подробнее о скидках" aria-disabled="true"><img src="./desktop/assets/more.svg" alt=""></button></div>
+  </section>
+  <section class="exact-section" aria-labelledby="carriage-section-title">
+    <h2 class="exact-section__title" id="carriage-section-title" data-node-id="18089:425081">Тип вагона и места</h2>
+    <div class="exact-filters" aria-label="Типы вагонов" data-node-id="18089:425050">
+      <button type="button" class="exact-chip exact-chip--platskart" aria-pressed="false" data-filter="platskart"><span class="exact-chip__copy"><span>Плацкарт · 138</span><small>от 2 452 ₽</small></span></button>
+      <button type="button" class="exact-chip exact-chip--coupe" aria-pressed="false" data-filter="coupe"><span class="exact-chip__copy"><span>Купе · 87</span><small>от 5 560 ₽</small></span><span class="train-discount-badge" role="img" aria-label="Есть невозвратный тариф" data-node-id="19590:390269">%</span></button>
+      <button type="button" class="exact-chip exact-chip--sv" aria-pressed="false" data-filter="sv"><span class="exact-chip__copy"><span>СВ · 10</span><small>от 18 555 ₽</small></span></button>
+    </div>
+    <h2 class="exact-car-category" id="coupe-category-title">Купе</h2>
+    <div class="exact-carriages" aria-labelledby="coupe-category-title"></div>
+  </section>
+</main>
+
+<footer class="exact-footer" data-node-id="18089:425044">
+  <div class="exact-footer__body">
+    <div class="exact-footer__left">
+      <div class="exact-footer__row">
+        <span>Яндекс Путешествия для партнеров</span>
+        <span>Программа для веб-мастеров и блогеров</span>
+      </div>
+      <div class="exact-footer__row">
+        <span>Подключить отель</span>
+        <span>О Сервисе</span>
+        <span>Темная тема</span>
+        <span>Служба поддержки</span>
+      </div>
+      <div class="exact-footer__row">
+        <span>Пользовательское соглашение</span>
+        <span>Политика конфиденциальности</span>
+        <span>Правила рекомендаций</span>
+      </div>
+      <div class="exact-footer__row">
+        <span>Личный кабинет отельера</span>
+        <span>Журнал для отельеров</span>
+        <span>Командировки</span>
+      </div>
+      <div class="exact-footer__row">
+        <span>Участие в исследованиях</span>
+        <span>Правила программы лояльности Яндекс Плюс</span>
+      </div>
+      <div class="exact-footer__social">
+        <span>Мы в соцсетях</span>
+        <div class="exact-footer__social-icons">
+          <span class="exact-footer__social-icon exact-footer__social-icon--vk" aria-label="ВКонтакте">
+            <img class="exact-footer__vk-mark" src="./desktop/assets/footer-vk.svg" alt="">
+          </span>
+          <span class="exact-footer__social-icon" aria-label="Telegram">
+            <img src="./desktop/assets/footer-telegram.svg" alt="">
+          </span>
+          <span class="exact-footer__social-icon exact-footer__social-icon--zen" aria-label="Дзен">
+            <img src="./desktop/assets/footer-zen.svg" alt="">
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="exact-footer__right">
+      <span>© 2009–2024 OOO «Яндекс.Вертикали»</span>
+      <div class="exact-footer__row exact-footer__row--projects">
+        <span>Наши проекты:</span>
+        <span>Яндекс Аренда</span>
+        <span>Авто.ру</span>
+        <span>Яндекс.Недвижимость</span>
+        <span>Яндекс Услуги</span>
+      </div>
+      <div class="exact-footer__row">
+        <span>Команда:</span>
+        <span>Наши вакансии</span>
+      </div>
+      <div class="exact-footer__company">
+        <span>Проект компании</span>
+        <span class="exact-footer__yandex-slot">
+          <span class="exact-footer__yandex-mask"><img src="./desktop/assets/footer-yandex.svg" alt="Яндекс"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <script src="./carriages-data.js?v=20261021-gender"></script>
+  <script src="./arrival-times-data.js?v=20261022"></script>
+  <script src="./double-deck.js?v=20261029-stations"></script>
+  <script src="./scheme-seat.js?v=20261025-seat-component"></script>
+  <script src="./carriage-scheme.js?v=20261025-carriage-component"></script>
+  <script src="./carriage-card.js?v=20261026"></script>
+  <script src="./sapsan-data.js?v=20261026-direction-fares"></script>
+  <script src="./platskart.js?v=20261025-carriage-component"></script>
+  <script src="./amenities.js?v=20261022-double-deck"></script>
+  <script src="./nonrefundable.js?v=20261015"></script>
+  <script src="./desktop/sapsan.js?v=20261029-common-heading"></script>
+  <script src="./desktop/bedding.js?v=20261028-transfer"></script>
+  <script src="./car-filter-motion.js?v=20261029-filter-motion-soft-all"></script>
+  <script src="./desktop/prototype.js?v=20261029-filter-motion"></script>
+  <script src="./journey-config.js?v=20261029-stations"></script>
+  <script src="./roundtrip.js?v=20261029-stations"></script>
+  <aside class="m-selection-panel exact-selection-panel" aria-label="Выбранные места" data-node-id="22053:392004" data-figma-component="dEEebZZNQurp5jLJmXvWl9/22053:392004" hidden>
+    <div class="exact-nonrefundable" aria-hidden="true" inert>
+      <div class="exact-nonrefundable__description">
+        <img class="exact-nonrefundable__icon" src="./desktop/assets/nonrefundable-discount.png" width="24" height="24" alt="">
+        <strong id="exact-fare-label">Невозвратный тариф</strong><span aria-hidden="true">·</span>
+        <span id="exact-fare-places" data-fare-places></span>
+        <button class="exact-nonrefundable__more" type="button" aria-label="Подробнее о невозвратном тарифе" aria-disabled="true"></button>
+      </div>
+      <div class="exact-nonrefundable__control">
+        <strong id="exact-fare-savings" data-fare-savings></strong>
+        <div class="ui__auto-051 switch switch--size-l switch--secondary" role="switch" tabindex="0" aria-checked="false" aria-labelledby="exact-fare-label" aria-describedby="exact-fare-places exact-fare-savings" data-checked="false" data-disabled="false"><div class="switch__knob"></div></div>
+      </div>
+    </div>
+    <div class="m-selection-panel__row">
+      <div class="m-selection-panel__details">
+        <div class="m-selection-panel__price-row">
+          <strong class="m-selection-panel__price"><span class="exact-selection-panel__amount">0 ₽</span></strong>
+          <button class="m-selection-panel__price-more" type="button" aria-label="Подробнее о стоимости" aria-haspopup="dialog" aria-controls="m-price-details" aria-expanded="false" popovertarget="m-price-details"><img src="./desktop/assets/more.svg" alt=""></button>
+        </div>
+        <div class="m-selection-panel__places"></div>
+        <button class="m-selection-panel__places-all" type="button" aria-haspopup="dialog" aria-controls="m-price-details" aria-expanded="false" popovertarget="m-price-details" hidden><span></span><img src="./vendor/base2/assets/ArrowDownFill.svg" alt=""></button>
+      </div>
+      <button class="m-selection-panel__continue" type="button">Далее</button>
+    </div>
+    <p class="m-selection-panel__announcement sr-only" role="status" aria-live="polite"></p>
+  </aside>
+  <div class="exact-amenities-popover exact-ticket-details" id="m-price-details" popover="auto" role="dialog" aria-labelledby="m-price-details-title" data-node-id="19982:450819">
+    <span class="exact-amenities-popover__tail" aria-hidden="true"></span>
+    <div class="exact-amenities-popover__body">
+      <header><h2 id="m-price-details-title">Стоимость билетов</h2></header>
+      <div class="exact-ticket-details__scroll">
+        <ul class="m-price-details__list"></ul>
+        <div class="exact-ticket-details__divider" aria-hidden="true"></div>
+        <div class="m-price-details__total"><span>Итого</span><div class="m-price-details__prices"><s class="m-price-details__old-price" hidden></s><strong class="m-price-details__total-price"></strong></div></div>
+      </div>
+    </div>
+  </div>
+  <script src="./desktop/nonrefundable-panel.js?v=20261028-transfer"></script>
+  <script src="./desktop/fare-info.js?v=20261021-fare-toggle"></script>
+  <script src="./gender-cabins.js?v=20261028-transfer"></script>
+  <script src="./desktop/bedding-info.js?v=20261021-desktop-bedding-info"></script>
+  <script src="./desktop/gender.js?v=20261022-gender-types"></script>
+  <script src="./ticket-details-content.js?v=20261028-transfer"></script>
+  <script src="./desktop/price-details.js?v=20261028-transfer"></script>
+  <script src="./passenger-placeholder.js?v=20261027-platforms"></script>
+  <script src="./no-scheme.js?v=20261026-carriage-card"></script>
+  <script src="./passenger-informer.js?v=20261028-transfer"></script>
+  <script src="./mobile/selection.js?v=20261028-transfer"></script>
+  <script>
+    window.addEventListener('message', event => {
+      if (event.origin !== location.origin || event.data?.type !== 'seat-selection-theme') return;
+      document.documentElement.dataset.theme = event.data.theme === 'dark' ? 'dark' : 'light';
+    });
+  </script>
+  <script src="./booking-informer.js?v=20261029-filter-motion"></script>
+  <script src="./desktop/booking-info.js?v=20261021-booking-info"></script>
+  <script src="./arrival-times.js?v=20261022"></script>
+  <script src="./desktop/discounts-info.js?v=20261021-discounts-info"></script>
+  <script src="./car-type-filters.js?v=20261022"></script>
+</body>
+</html>

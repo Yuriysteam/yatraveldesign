@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Не загрузились данные · Выбор мест</title>
+  <link rel="icon" href="data:,">
+  <script>const errorParams = new URLSearchParams(location.search); document.documentElement.dataset.view = ['mobile', 'touch', 'app'].includes(errorParams.get('view')) ? 'mobile' : 'desktop'; document.documentElement.dataset.surface = errorParams.get('surface') === 'touch' || errorParams.get('view') === 'touch' ? 'touch' : 'app'; document.documentElement.dataset.theme = errorParams.get('theme') === 'dark' ? 'dark' : 'light';</script>
+  <link rel="stylesheet" href="style--BaseAI--fonts.css">
+  <link rel="stylesheet" href="style--BaseAI--library.css">
+  <link rel="stylesheet" href="style--vendor--train-flow--tokens--tokens.css">
+  <link rel="stylesheet" href="theme-tokens.css">
+  <link rel="stylesheet" href="load-error.css?v=20261027-platforms">
+  <script src="./load-error.js?v=20261027-platforms" defer></script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <div class="error-statusbar" aria-hidden="true">
+    <span class="error-statusbar__time">9:41</span>
+    <img class="error-statusbar__signal" src="./assets/error-status-signal.svg" width="17" height="10.667" alt="">
+    <img class="error-statusbar__wifi" src="./assets/error-status-wifi.svg" width="15.272" height="10.966" alt="">
+    <img class="error-statusbar__battery" src="./assets/error-battery-outline.svg" width="22" height="11.333" alt="">
+    <img class="error-statusbar__battery-fill" src="./assets/error-battery-fill.svg" width="18" height="7.333" alt="">
+    <img class="error-statusbar__battery-cap" src="./assets/error-battery-cap.svg" width="1.328" height="4" alt="">
+  </div>
+  <main class="error-screen" aria-labelledby="error-heading">
+    <div class="error-content">
+      <div class="error-art" aria-hidden="true">
+        <img class="error-art__desktop" src="./assets/load-error-desktop.png" width="210" height="210" alt="">
+        <img class="error-art__mobile" src="./assets/load-error-mobile.png" width="162" height="162" alt="">
+      </div>
+      <div class="error-copy">
+        <h1 class="ui__auto-374 text--default" id="error-heading">Билеты недоступны для покупки</h1>
+        <p class="text-body-m text--default">Не удалось загрузить данные. Попробуйте ещё раз</p>
+      </div>
+    </div>
+    <!-- BaseAI Button XL + primary/secondary + width-max snippets. Android Code Connect cannot run in HTML. -->
+    <div class="error-bottom">
+      <div class="error-actions">
+        <button id="error-back" type="button" class="button ui__auto-222 button--secondary hrX_M"><span class="button__content"><span class="button__text-stack"><span class="button__label U_Xnu text--primary">К выбору поезда</span></span></span></button>
+        <button id="error-retry" type="button" class="button ui__auto-222 button--primary hrX_M"><span class="button__content"><span class="button__text-stack"><span class="button__label U_Xnu text--primary">Попробовать снова</span></span></span></button>
+      </div>
+    </div>
+  </main>
+  <main class="search-placeholder" aria-labelledby="search-heading" hidden>
+    <h1 id="search-heading" class="ui__auto-374 text--default">Выбор поезда</h1>
+    <p class="text-body-m text--default">Здесь будет список поездов</p>
+    <p class="text-body-m text--default">Это заглушка перехода в прототипе. Экран выдачи пока не подключён</p>
+    <button id="error-return" type="button" class="button ui__auto-222 button--secondary button--width-auto"><span class="button__content"><span class="button__text-stack"><span class="button__label U_Xnu text--primary">Вернуться к ошибке</span></span></span></button>
+  </main>
+  <div class="error-homebar" aria-hidden="true"><img src="./mobile/assets/home-indicator.svg" alt=""></div>
+</body>
+</html>

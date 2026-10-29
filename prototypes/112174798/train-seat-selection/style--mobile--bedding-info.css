@@ -1,0 +1,18 @@
+/* Figma 19982:477110: existing Navbar Sheet, Secondary XL and HomeBar.
+   72px header + 60px explanation + 118px footer at the 375px mobile width. */
+.m-bedding-info {
+  padding:0;
+  overflow:hidden;
+  box-shadow:none;
+  border-radius:32px 32px 0 0;
+  font-feature-settings:'case' 1,'lnum' 1,'pnum' 1;
+}
+.m-bedding-info[open] { display:flex; flex-direction:column; }
+.m-bedding-info > .m-amenities-sheet__header { flex:none; }
+.m-bedding-info__body { min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:0 20px; }
+.m-bedding-info__body p { margin:0; font:400 16px/20px 'YS Text',sans-serif; }
+.m-bedding-info__footer { flex:none; padding-top:12px; }
+.m-bedding-info__actions { padding:8px 20px; }
+.m-bedding-info .m-bedding-info__done { background:var(--bg-button-secondary-color); color:var(--text-primary-color); font:500 16px/20px 'YS Text',sans-serif; }
+html[data-theme="dark"] .m-bedding-info { background:var(--bg-fill-primary-color); }
+html[data-theme="dark"] .m-bedding-info .m-bedding-info__done { color:var(--text-primary-color); }

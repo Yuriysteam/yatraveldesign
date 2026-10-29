@@ -1,0 +1,31 @@
+/* BaseAI Checkbox Solid M, snippets/controls/checkbox/checkbox-solid-simple.html.
+   Scoped runtime excerpt; map the preview shell's existing semantic surfaces. */
+.preview-no-scheme {
+  --yatraveluikit-base-space:4px;
+  --yatraveluikit-border-radius-small-m:8px;
+  --yatraveluikit-text-inverse-color:var(--preview-surface);
+  --yatraveluikit-bg-checkbox-default-color:var(--preview-control);
+  --yatraveluikit-bg-checkbox-default-hover-color:var(--preview-border);
+  --yatraveluikit-bg-checkbox-default-active-color:var(--preview-border);
+  --yatraveluikit-bg-checkbox-pressed-color:var(--preview-text);
+  --yatraveluikit-bg-checkbox-pressed-hover-color:var(--preview-text);
+  --yatraveluikit-bg-checkbox-pressed-active-color:var(--preview-text);
+  --yatraveluikit-border-checkbox-default-focused-color:var(--preview-text);
+}
+.preview-no-scheme .flxvd { appearance:none;background:transparent;border:none;position:absolute; }
+.preview-no-scheme .checkbox__auto-010 { align-self:center;min-width:0; }
+.preview-no-scheme .checkbox__auto-012 { justify-content:center;align-items:center;transition:background-color .3s ease-in-out,transform .3s ease-in-out;display:inline-flex; }
+.preview-no-scheme .checkbox__auto-007 { visibility:hidden;width:11px;color:var(--yatraveluikit-text-inverse-color);transition:color .3s ease-in-out,transform .3s ease-in-out;transform:scale(0); }
+.preview-no-scheme .checkbox__auto-014 { cursor:pointer;user-select:none;touch-action:manipulation;-webkit-tap-highlight-color:#0000;max-width:100%;display:inline-flex; }
+.preview-no-scheme .checkbox__auto-006 { font-family:'YS Text';font-size:16px;font-weight:400;line-height:20px; }
+.preview-no-scheme .checkbox__auto-006 .checkbox__auto-012 { border-radius:var(--yatraveluikit-border-radius-small-m);width:22px;height:22px; }
+.preview-no-scheme .checkbox__auto-006 .checkbox__auto-010 { width:calc(100% - 22px); }
+.preview-no-scheme .checkbox__auto-006 .checkbox__auto-011 { margin-left:calc(3*var(--yatraveluikit-base-space)); }
+.preview-no-scheme .flxvd:checked+.checkbox__auto-012 .checkbox__auto-007 { visibility:visible;transform:scale(1); }
+.preview-no-scheme .flxvd:active+.checkbox__auto-012 { transform:scale(.9); }
+.preview-no-scheme .checkbox__auto-009 .checkbox__auto-012 { background-color:var(--yatraveluikit-bg-checkbox-default-color); }
+.preview-no-scheme .flxvd:enabled:hover+.checkbox__auto-012 { background-color:var(--yatraveluikit-bg-checkbox-default-hover-color); }
+.preview-no-scheme .flxvd:enabled:active+.checkbox__auto-012 { background-color:var(--yatraveluikit-bg-checkbox-default-active-color); }
+.preview-no-scheme .flxvd:enabled:focus-visible+.checkbox__auto-012 { outline:2px solid var(--yatraveluikit-border-checkbox-default-focused-color);outline-offset:2px; }
+.preview-no-scheme .flxvd:enabled:checked+.checkbox__auto-012 { background-color:var(--yatraveluikit-bg-checkbox-pressed-color); }
+@media(prefers-reduced-motion:reduce) { .preview-no-scheme .checkbox__auto-012,.preview-no-scheme .checkbox__auto-007 { transition:none; } }

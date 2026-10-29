@@ -1,0 +1,130 @@
+.exact-footer,
+.exact-footer * {
+  box-sizing: border-box;
+}
+
+.exact-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 1280px;
+  padding: 0 40px 24px;
+  color: #0d0d0d;
+  font-family: "YS Text", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  font-feature-settings: "lnum" 1, "pnum" 1;
+}
+
+.exact-footer__body {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: none;
+  width: 1200px;
+  padding-top: 20px;
+  box-shadow: inset 0 1px #f1f0ed;
+}
+
+.exact-footer__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: none;
+  width: 644px;
+  gap: 8px;
+}
+
+.exact-footer__row {
+  display: flex;
+  align-items: flex-start;
+  flex: none;
+  gap: 20px;
+  white-space: nowrap;
+}
+
+.exact-footer__row > span {
+  flex: none;
+}
+
+.exact-footer__social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.exact-footer__social-icons {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.exact-footer__social-icon {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 32px;
+  height: 32px;
+}
+
+.exact-footer__social-icon--vk {
+  background: #07f;
+  border-radius: 8px;
+}
+
+.exact-footer__social-icon--zen {
+  overflow: hidden;
+  background: #191b26;
+  border-radius: 8px;
+}
+
+.exact-footer img {
+  display: block;
+  max-width: none;
+}
+
+.exact-footer__vk-mark {
+  position: absolute;
+  left: 6.5px;
+  top: 10px;
+}
+
+.exact-footer__right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex: none;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.exact-footer__row--projects {
+  gap: 12px;
+}
+
+.exact-footer__company {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.exact-footer__yandex-slot {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 50px;
+  height: 16px;
+}
+
+.exact-footer__yandex-mask {
+  position: absolute;
+  left: 2.83px;
+  top: 1.88px;
+  width: 44.752px;
+  height: 12.96px;
+  -webkit-mask: url("desktop/assets/footer-yandex-mask.svg") -0.832px -0.88px / 46px 14px no-repeat;
+  mask: url("desktop/assets/footer-yandex-mask.svg") -0.832px -0.88px / 46px 14px no-repeat;
+}

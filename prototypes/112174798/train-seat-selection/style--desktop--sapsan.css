@@ -1,0 +1,38 @@
+/* Native desktop geometry from ReDesign 18397:58198; shared semantic colors. */
+html[data-train="sapsan"] .exact-carriages { margin-top: 32px; gap: 32px; }
+.d-sapsan-group .exact-car-category { margin: 0 0 24px; }
+.d-sapsan-group[hidden] { display: none; }
+.d-sapsan-group__cars { display: flex; flex-direction: column; gap: 16px; }
+html[data-train="sapsan"] .exact-filters { overflow-x: auto; height: auto; min-height: 48px; padding-bottom: 4px; scrollbar-width: thin; }
+html[data-train="sapsan"] .exact-chip[aria-pressed="true"] small { color: inherit; opacity: .7; }
+.d-sapsan-scheme { position: relative; width: 1144px; height: 236px; flex: none; }
+/* Match the approved mobile occupied back; keep dark and available seats unchanged. */
+html:not([data-theme="dark"]) .d-sapsan-scheme { --scheme-seat-back-occupied: #e6e5e7; }
+.d-sapsan-scheme__outline { position: absolute; inset: 2px 0; border: 3px solid var(--border-trainScheme-color); border-radius: 24px; background: var(--scheme-surface); }
+.d-sapsan-scheme__slot { display: block; position: absolute; width: 40px; height: 40px; }
+/* The ordinary sleeping-card radius must not override a seated Seat's back. */
+.exact-car--sapsan .scheme-seat[data-car-type="seated"] { border-radius: 4px 12px 12px 4px; }
+.exact-car--sapsan .scheme-seat[data-car-type="seated"][data-position="left"] { border-radius: 12px 4px 4px 12px; }
+.d-sapsan-scheme__feature { position: absolute; width: 24px; height: 24px; background: var(--scheme-icon); mask: var(--feature) center / contain no-repeat; }
+.d-sapsan-scheme__feature--wc { --feature: url("scheme-assets/sapsan-desktop-wc.svg"); }
+.d-sapsan-scheme__feature--socket { --feature: url("scheme-assets/sapsan-desktop-socket.svg"); }
+.d-sapsan-scheme__feature--luggage { --feature: url("scheme-assets/sapsan-desktop-luggage.svg"); }
+.d-sapsan-scheme__feature--animal { --feature: url("scheme-assets/sapsan-animal.svg"); }
+.d-sapsan-scheme__feature--hanger { --feature: url("scheme-assets/sapsan-desktop-hanger.svg"); }
+.d-sapsan-scheme__wardrobe { position: absolute; left: 386px; top: 138px; width: 87px; height: 84px; }
+.d-sapsan-scheme__pet-zone { position: absolute; background: var(--bg-trainScheme-specialZone-color); }
+.d-sapsan-scheme__pet-zone--start { left: 100px; top: 102px; width: 48px; height: 129px; border-radius: 8px 8px 0 0; }
+.d-sapsan-scheme__pet-zone--end { left: 946px; top: 5px; width: 95px; height: 226px; }
+.d-sapsan-scheme__table { display: grid; place-items: center; position: absolute; width: 40px; height: 84px; border-radius: 6px; background: var(--scheme-seat-occupied); color: var(--text-secondary-color); font-size: 14px; line-height: 18px; }
+.d-sapsan-scheme__door { position: absolute; width: 24px; height: 16px; border: 3px solid var(--border-trainScheme-color); border-top: 0; border-radius: 0 0 4px 4px; background: var(--scheme-surface); }
+.d-sapsan-scheme__door--bottom { transform: scaleY(-1); }
+.d-sapsan-scheme__entry { position: absolute; width: 8px; height: 13px; background: var(--scheme-icon); mask: url("scheme-assets/sapsan-desktop-entry.svg") center / contain no-repeat; transform: rotate(180deg); }
+.d-sapsan-scheme__entry--bottom { transform: scaleX(-1); }
+.d-sapsan-scheme__window { position: absolute; height: 3px; border-inline: 2px solid var(--scheme-surface); border-radius: 3px; background: var(--bg-trainScheme-window-color); }
+/* Keep 12px above the direction and 16px between the scheme and legend. */
+.exact-car--sapsan { gap: 0; padding-bottom: 20px; }
+/* Figma 19880:60372: 20px content + 4px vertical padding on each side. */
+.exact-car--sapsan .exact-legend { height: 28px; flex: 0 0 28px; padding-block: 4px; }
+.d-sapsan-map { display: flex; flex-direction: column; gap: 12px; margin-block: 12px 16px; }
+.d-sapsan-direction { display: flex; align-items: center; gap: 8px; color: var(--text-primary-color); font-size: 16px; line-height: 20px; }
+.d-sapsan-direction > span { flex: none; width: 20px; height: 12px; transform: translateY(1px); background: currentColor; mask: url("scheme-assets/sapsan-direction.svg") center / contain no-repeat; }

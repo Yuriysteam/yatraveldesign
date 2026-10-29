@@ -1,0 +1,37 @@
+/* ReDesign 19008:229004 / 19345:225901. Only the Sapsan mobile mode. */
+.m-sapsan-group { display: flex; flex-direction: column; gap: 8px; }
+.m-sapsan-group + .m-sapsan-group { margin-top: 4px; }
+.m-sapsan-group[hidden], .m-car[hidden] { display: none; }
+.m-sapsan-group .m-car-category { margin-bottom: 4px; }
+.m-car--sapsan { height: 338px; }
+.m-sapsan-direction { position: absolute; top: 76px; left: 20px; display: flex; align-items: center; gap: 6px; height: 18px; font-size: 14px; line-height: 18px; }
+.m-sapsan-direction > span { width: 17px; height: 10px; background: currentColor; mask: url("scheme-assets/sapsan-direction.svg") center / contain no-repeat; }
+.m-sapsan-viewport { position: absolute; top: 94px; left: 0; right: 0; height: 198px; padding: 12px 20px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; overscroll-behavior-x: contain; }
+.m-sapsan-viewport::-webkit-scrollbar { display: none; }
+.sapsan-scheme { position: relative; width: 844px; height: 174px; }
+html:not([data-theme="dark"]) .sapsan-scheme { --scheme-seat-back-occupied: #e6e5e7; }
+.sapsan-scheme__outline { position: absolute; inset: 1px 0; border: 3px solid var(--border-trainScheme-color); border-radius: 16px; background: var(--scheme-surface); box-shadow: 0 4px 15px rgb(0 0 0 / 5%); }
+.sapsan-scheme__slot { position: absolute; display: block; width: 28px; height: 28px; }
+.sapsan-scheme .scheme-seat[data-platform="mobile"] { font-size: 12px; line-height: 14px; }
+.sapsan-scheme .scheme-seat[data-car-type="seated"] .scheme-seat__number { top: 7.25px; line-height: 14px; }
+.sapsan-scheme__feature { display: block; position: absolute; width: 24px; height: 24px; background: var(--scheme-icon); mask: var(--feature) center / contain no-repeat; }
+.sapsan-scheme__feature--luggage { --feature: url("scheme-assets/sapsan-luggage.svg"); }
+.sapsan-scheme__feature--animal { --feature: url("scheme-assets/sapsan-animal.svg"); }
+.sapsan-scheme__feature--socket { --feature: url("scheme-assets/sapsan-socket.svg"); }
+.sapsan-scheme__feature--wc { --feature: url("scheme-assets/sapsan-wc.svg"); }
+.sapsan-scheme__feature--hanger { --feature: url("scheme-assets/sapsan-hanger.svg"); }
+.sapsan-scheme__table { display: grid; place-items: center; position: absolute; width: 28px; height: 60px; border-radius: 6px; background: var(--scheme-seat-occupied); color: var(--text-secondary-color); font-size: 11px; line-height: 12px; }
+.sapsan-scheme__wardrobe { position: absolute; left: 286px; top: 103px; width: 62px; height: 60px; }
+.sapsan-scheme__pet-zone { position: absolute; background: var(--bg-trainScheme-specialZone-color); }
+.sapsan-scheme__pet-zone--start { left: 72px; top: 73px; width: 36px; height: 97px; border-radius: 8px 8px 0 0; }
+.sapsan-scheme__pet-zone--end { left: 701px; top: 4px; width: 71px; height: 166px; }
+.sapsan-scheme__door { position: absolute; width: 20px; height: 13px; border: 3px solid var(--border-trainScheme-color); border-top: 0; border-radius: 0 0 3px 3px; background: var(--scheme-surface); }
+.sapsan-scheme__door::after { content: ''; position: absolute; left: 4px; top: -1px; width: 6px; height: 10px; background: var(--scheme-icon); mask: url("scheme-assets/entry-mobile.svg") center / contain no-repeat; transform: rotate(180deg); }
+.sapsan-scheme__door--bottom { transform: scaleY(-1); }
+.sapsan-scheme__window { position: absolute; height: 3px; border-inline: 2px solid var(--scheme-surface); background: var(--bg-trainScheme-window-color); border-radius: 3px; }
+.m-car--sapsan .m-car__legend { top: 300px; }
+.m-sapsan-empty { padding: 24px 20px; border-radius: 32px; background: var(--bg-fill-primary-color); }
+.m-sapsan-empty[hidden] { display: none; }
+.m-sapsan-empty p { color: var(--text-secondary-color); font-size: 14px; line-height: 18px; margin-top: 8px; }
+.m-sapsan-empty button { margin-top: 16px; padding: 12px 16px; border-radius: 16px; background: var(--bg-button-secondary-color); font-weight: 500; }
+html[data-train="sapsan"] .m-filter-sheet__types { gap: 8px; }

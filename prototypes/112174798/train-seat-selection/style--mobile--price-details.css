@@ -1,0 +1,32 @@
+/* ReDesign 19982:447044. Reuse Navbar Sheet, Secondary XL and HomeBar. */
+.m-ticket-details {
+  padding:0;
+  max-height:calc(100dvh - 24px);
+  border-radius:32px 32px 0 0;
+  overflow:hidden;
+  box-shadow:none;
+  font-feature-settings:'case' 1,'lnum' 1,'pnum' 1;
+}
+.m-ticket-details[open] { display:flex; flex-direction:column; }
+.m-ticket-details::backdrop {
+  background:var(--bg-specific-modalBackground-color,rgba(13,13,15,.65));
+}
+.m-ticket-details > .m-amenities-sheet__header { flex:none; }
+.m-ticket-details__scroll { display:flex; flex-direction:column; gap:20px; min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:8px 20px 0; }
+.m-ticket-details__scroll > * { flex:none; }
+.m-ticket-details__divider { position:relative; height:0; }
+.m-ticket-details__divider::before {
+  content:'';
+  position:absolute; top:-1px; left:0;
+  width:335px; height:1px;
+  background:var(--bg-line-default-color,var(--bg-line));
+  mask:url("mobile/assets/price-details-divider.svg") center / 335px 1px no-repeat;
+}
+.m-ticket-details__footer { flex:none; padding-top:12px; }
+.m-ticket-details__actions { padding:8px 20px; }
+.m-ticket-details .m-ticket-details__done { background:var(--bg-button-secondary-color); color:var(--text-primary-color); font:500 16px/20px 'YS Text',sans-serif; }
+.m-ticket-details__done:active { transform:scale(.98); }
+.m-ticket-details__done:focus-visible { outline:2px solid var(--text-primary-color); outline-offset:2px; }
+html[data-theme="dark"] .m-ticket-details { background:var(--bg-fill-primary-color); }
+/* Override the inherited primary-button inverse ink for this secondary button. */
+html[data-theme="dark"] .m-ticket-details .m-ticket-details__done { color:var(--text-primary-color); }

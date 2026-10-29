@@ -3,6 +3,8 @@ import json
 import os
 import sqlite3
 import subprocess
+import tempfile
+from pathlib import Path
 import unittest
 import zipfile
 from types import SimpleNamespace
@@ -36,47 +38,6 @@ class BotTests(unittest.TestCase):
         instance.send.side_effect = RuntimeError("network")
         with patch("builtins.open", unittest.mock.mock_open(read_data='{"chat_id": -123}')):
             instance.notify_team_publication("Скил опубликован")
-
-    def test_codex_install_prompt_connects_refreshes_and_installs_selected_plugin(self):
-        prompt = bot.codex_installation_prompt("agenda")
-        self.assertIn("Если travel-design ещё не подключён", prompt)
-        self.assertIn("codex plugin marketplace add Yuriysteam/yatraveldesign --ref main --sparse .agents/plugins --sparse plugins", prompt)
-        self.assertIn("codex plugin marketplace upgrade travel-design", prompt)
-        self.assertIn("codex plugin add agenda@travel-design --json", prompt)
-        self.assertNotIn("skill.zip", prompt)
-        with self.assertRaises(bot.UserError):
-            bot.codex_installation_prompt("../bad; command")
-
-    def test_codex_install_options_use_https_and_handle_telegram_copy_limit(self):
-        instance = bot.Bot.__new__(bot.Bot)
-        instance.settings = SimpleNamespace(public_base_url="https://example.test")
-        for prompt in ("Установи скилл", "x" * 257):
-            note, options = instance.skill_installation_options("agenda", prompt)
-            buttons = options["reply_markup"]["inline_keyboard"]
-            self.assertEqual(len(buttons), 2)
-            if len(prompt) <= 256:
-                self.assertEqual(buttons[0][0]["copy_text"]["text"], prompt)
-            else:
-                self.assertEqual(buttons[0][0]["url"], "https://example.test/skills/install.html?skill=agenda#first-time")
-            self.assertEqual(buttons[1][0]["url"], "https://example.test/skills/install.html?skill=agenda#connected")
-            self.assertIn("Каталог уже подключён", note)
-
-    def test_team_notification_and_skill_callback_offer_both_install_methods(self):
-        instance = bot.Bot.__new__(bot.Bot)
-        instance.settings = SimpleNamespace(state_path="/tmp/state.sqlite3", public_base_url="https://example.test", repository="Yuriysteam/yatraveldesign", branch="main")
-        instance.send = Mock()
-        instance.telegram = Mock()
-        prompt = bot.codex_installation_prompt("agenda")
-        with patch("builtins.open", unittest.mock.mock_open(read_data='{"chat_id": -123}')):
-            instance.notify_team_publication("Новый скил Agenda", prompt, "agenda")
-        self.assertEqual(len(instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]), 2)
-        item = {"id": "agenda", "name": "Agenda", "description": "Описание", "updated_at": 1, "updated_by": "team", "prompt": "Установи старый ZIP"}
-        instance.github = SimpleNamespace(read_json=Mock(return_value=[item]))
-        instance.callback({"id": "cb", "data": "skill:agenda", "from": {"id": 1}, "message": {"chat": {"id": 1}}})
-        buttons = instance.send.call_args.kwargs["reply_markup"]["inline_keyboard"]
-        self.assertEqual(len(buttons), 2)
-        self.assertIn("install.html?skill=agenda", buttons[0][0]["url"])
-        self.assertNotIn("старый ZIP", instance.send.call_args.args[1])
 
     def test_group_inputs_are_silently_ignored(self):
         instance = bot.Bot.__new__(bot.Bot)
@@ -139,7 +100,6 @@ class BotTests(unittest.TestCase):
             files_below=Mock(return_value=[]),
             commit_files=Mock(return_value="commit"),
         )
-        instance.github.read_json.side_effect = lambda path, fallback: fallback if path == bot.MARKETPLACE_PATH else instance.github.read_json.return_value
         instance.configure_menu = Mock()
         instance.monitor_publication = Mock(return_value=(True, None))
         instance.notify_team_publication = Mock()
@@ -150,10 +110,9 @@ class BotTests(unittest.TestCase):
             "team-skill", "team-skill", "v0.2", "Новое описание", "Team skill", "Новое описание", [], package,
         )):
             instance.publish_skill(1, "team-skill.zip", b"zip", {"id": 1, "username": "anna"}, Mock(advance=lambda: None), custom_prompt="Установи ровно этот скил")
-        text, prompt, identifier = instance.notify_team_publication.call_args.args
+        text, prompt = instance.notify_team_publication.call_args.args
         self.assertEqual(text, "Обновился скилл Командный скил")
-        self.assertEqual(identifier, "team-skill")
-        self.assertEqual(prompt, bot.codex_installation_prompt("team-skill", "owner/repo", "main"))
+        self.assertEqual(prompt, "Установи ровно этот скил")
         files = instance.github.commit_files.call_args.args[0]
         self.assertEqual(json.loads(files["skills/catalog.json"])[0]["prompt"], "Установи ровно этот скил")
 
@@ -571,7 +530,6 @@ description: >-
             {"id": "other-author", "name": "Чужой скилл", "updated_by": "other"},
             {"id": "keep", "name": "Оставить"},
         ]
-        instance.github.read_json.side_effect = lambda path, fallback: fallback if path == bot.MARKETPLACE_PATH else instance.github.read_json.return_value
         instance.github.files_below.return_value = ["skills/other-author/skill.zip", "skills/other-author/metadata.json"]
         return instance
 
@@ -796,6 +754,58 @@ description: >-
         instance.send.assert_called_once()
         self.assertIn("Ошибка публикации", instance.edit_message.call_args.args[2])
         self.assertNotIn("Загружено", instance.edit_message.call_args.args[2])
+
+
+    def test_real_git_store_publication_and_deletion_preserve_prototypes(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        root = Path(temporary.name)
+        remote = root / 'remote.git'
+        work = root / 'work'
+        work.mkdir()
+        def git(*args):
+            return subprocess.run(['git', '-C', str(work), *args], check=True, capture_output=True, text=True).stdout.strip()
+        subprocess.run(['git', 'init', '--bare', str(remote)], check=True, capture_output=True)
+        git('init', '-b', 'main')
+        git('remote', 'add', 'origin', str(remote))
+        (work / 'prototypes.json').write_text('[{"url":"unchanged/"}]')
+        git('add', 'prototypes.json')
+        git('-c', 'user.name=Test', '-c', 'user.email=test@example.test', 'commit', '-m', 'Initial')
+        git('push', '-u', 'origin', 'main')
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(git_worktree=str(work), branch='main', repository='owner/repo')
+        instance.github = bot.GitRepository(instance.settings)
+        instance.configure_menu = Mock()
+        instance.monitor_publication = Mock(return_value=(True, None))
+        instance.notify_team_publication = Mock()
+        instance.notify_publication_result = Mock()
+        initial_count = int(git('rev-list', '--count', 'HEAD'))
+        raw = b'---\nname: smoke\nversion: 0.1.0\ndescription: Smoke test\n---\n# Smoke\n'
+        with patch('bot.enrich_metadata', side_effect=lambda kind, name, description='': (name, description)):
+            instance.publish_skill(1, 'SKILL.md', raw, {'id': 1, 'first_name': 'Test'}, Mock())
+        self.assertEqual(int(git('rev-list', '--count', 'HEAD')), initial_count + 1)
+        changed = set(git('diff-tree', '--no-commit-id', '--name-only', '-r', 'HEAD').splitlines())
+        self.assertIn('skills/smoke/skill.zip', changed)
+        self.assertIn('skills/catalog.json', changed)
+        self.assertEqual(changed, {'skills/smoke/skill.zip', 'skills/smoke/metadata.json', 'skills/catalog.json'})
+        self.assertFalse((work / '.agents/plugins/marketplace.json').exists())
+        self.assertEqual((work / 'prototypes.json').read_text(), '[{"url":"unchanged/"}]')
+        self.assertEqual(git('status', '--porcelain'), '')
+        self.assertEqual(instance.monitor_publication.call_args.args[1], git('rev-parse', 'HEAD'))
+        instance.notify_team_publication.assert_called_once()
+        instance.is_publisher = Mock(return_value=True)
+        instance.send = Mock()
+        instance.edit_message = Mock()
+        published_item = instance.github.read_json('skills/catalog.json', [])[0]
+        query = {'from': {'id': 1}, 'message': {'chat': {'id': 1}, 'message_id': 7},
+                 'data': 'skdelete:confirm:' + instance.skill_delete_key(published_item)}
+        instance.skill_delete_callback(query)
+        self.assertEqual(int(git('rev-list', '--count', 'HEAD')), initial_count + 2)
+        self.assertEqual(instance.github.read_json('skills/catalog.json', None), [])
+        self.assertFalse((work / 'skills/smoke/skill.zip').exists())
+        self.assertFalse((work / 'plugins').exists())
+        self.assertEqual((work / 'prototypes.json').read_text(), '[{"url":"unchanged/"}]')
+        self.assertEqual(git('status', '--porcelain'), '')
 
 
 if __name__ == "__main__":

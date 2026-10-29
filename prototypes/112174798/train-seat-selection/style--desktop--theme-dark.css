@@ -1,0 +1,54 @@
+/* Desktop shell follows ReDesign 18401:116340.
+   Scheme colors are shared by platform in scheme-tokens.css. */
+html[data-theme="dark"] {
+  /* Base 2.0 shadow/soft-both-themes · Dark (Figma 20237:291214).
+     Keep this desktop-only: mobile has its own shadow treatment. */
+  --shadow-soft-both-themes: rgb(13 13 15 / 60%);
+}
+
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+html[data-theme="dark"] .exact-page { background: #1b1a1e; }
+
+html[data-theme="dark"] .exact-header {
+  color: #ededee;
+  background: #1b1a1e;
+  box-shadow: inset 0 -1px #3c3c41;
+}
+html[data-theme="dark"] .exact-header__inner { box-shadow: inset 0 -1px #3c3c41; }
+html[data-theme="dark"] .exact-header__services { color: #9c9ba2; }
+html[data-theme="dark"] .exact-header__service-current { color: #ededee; }
+html[data-theme="dark"] .exact-header__profile { background: #313136; }
+html[data-theme="dark"] .exact-header__cashback { color: #9c9ba2; }
+html[data-theme="dark"] .exact-header__brand > img,
+html[data-theme="dark"] .exact-header__icons img { filter: brightness(0) invert(1); }
+
+html[data-theme="dark"] .exact-steps { color: #ededee; }
+html[data-theme="dark"] .exact-steps__item--pending,
+html[data-theme="dark"] .exact-steps__item--disabled { color: #5e5d65; }
+
+html[data-theme="dark"] .exact-trip__toggle img,
+html[data-theme="dark"] .exact-stepper__button:not(:disabled) img,
+html[data-theme="dark"] .exact-chip:not([aria-pressed="true"]) img { filter: brightness(0) invert(1); }
+html[data-theme="dark"] .exact-stepper__button:disabled { background: #222125; }
+html[data-theme="dark"] .exact-more img { content: url("desktop/assets/more-dark.svg"); }
+
+html[data-theme="dark"] .exact-chip[aria-pressed="true"] {
+  color: #0d0d0f;
+  background: #ededee;
+}
+html[data-theme="dark"] .exact-chip:is(.exact-chip--ac, .exact-chip--bio, .exact-chip--wifi)[aria-pressed="true"] img {
+  filter: none;
+}
+html[data-theme="dark"] .exact-chip[aria-pressed="true"] small { color: #5e5d65; }
+
+html[data-theme="dark"] .exact-car,
+html[data-theme="dark"] .exact-informer { background: #222125; }
+html[data-theme="dark"] .exact-car__amenity img { filter: brightness(0) invert(1); }
+html[data-theme="dark"] .exact-car__amenity--extra img { filter: brightness(0) invert(1); opacity: 1; }
+html[data-theme="dark"] .exact-car__subtitle strong { color: #ededee; }
+
+html[data-theme="dark"] .exact-footer { color: #ededee; }
+html[data-theme="dark"] .exact-footer__body { box-shadow: inset 0 1px #3c3c41; }
+html[data-theme="dark"] .exact-footer__social-icon:not(.exact-footer__social-icon--vk):not(.exact-footer__social-icon--zen) img,
+html[data-theme="dark"] .exact-footer__yandex-mask img { filter: brightness(0) invert(1); }

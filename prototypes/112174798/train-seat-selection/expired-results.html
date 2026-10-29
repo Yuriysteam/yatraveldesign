@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Результаты устарели</title>
+  <script>const params = new URLSearchParams(location.search); document.documentElement.dataset.view = ['mobile', 'touch', 'app'].includes(params.get('view')) ? 'mobile' : 'desktop'; document.documentElement.dataset.surface = params.get('surface') === 'touch' || params.get('view') === 'touch' ? 'touch' : 'app'; document.documentElement.dataset.theme = params.get('theme') === 'dark' ? 'dark' : 'light';</script>
+  <link rel="stylesheet" href="style--BaseAI--fonts.css">
+  <link rel="stylesheet" href="style--BaseAI--library.css">
+  <link rel="stylesheet" href="style--vendor--train-flow--tokens--tokens.css">
+  <link rel="stylesheet" href="theme-tokens.css">
+  <link rel="stylesheet" href="expired-results.css?v=20261027-desktop-homebar-fix">
+  <link rel="stylesheet" href="style--mobile--sheet-motion.css?v=20261023">
+  <script src="./mobile/sheet-motion.js?v=20261023" defer></script>
+  <script src="./expired-results.js?v=20261023-sheet-motion" defer></script>
+  <meta name="robots" content="noindex, nofollow, noarchive">
+</head>
+<body>
+  <!-- UI Kit Modal live shell (overlays-modal--simple). BaseAI's harvested overlay snippets contain only triggers;
+       preserve the live shell and its sourced rules here. Content follows Figma 20258:208499 / 20259:260762.
+       Android Code Connect ButtonGroup is not executable in HTML; equivalent BaseAI XL buttons below. -->
+  <section class="idlyD Q6DaW k4Hk9 AJAoa" id="expired-overlay" data-visible="true">
+    <section class="ML4aW">
+      <div class="IyFsG Ui1Qh expired-dialog" role="dialog" aria-modal="true" aria-labelledby="expired-title" aria-describedby="expired-description" tabindex="-1">
+        <button class="rVCQa md_iv expired-close" type="button" aria-label="Закрыть">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(3.25830542 0 0 3.25830542 -3080 -9221)"><path d="M949.352 2833.69L951.109 2835.44L950.719 2835.83L948.961 2834.08L947.203 2835.83L946.813 2835.44L948.57 2833.69L946.813 2831.93L947.203 2831.54L948.961 2833.29L950.719 2831.54L951.109 2831.93L949.352 2833.69Z" fill="currentColor"/></g></svg>
+        </button>
+        <div class="expired-illustration" aria-hidden="true">
+          <img class="expired-art-desktop" src="./assets/expired-results-desktop.png" width="210" height="210" alt="">
+          <img class="expired-art-mobile" src="./assets/expired-results-mobile.png" width="162" height="162" alt="">
+        </div>
+        <div class="expired-copy">
+          <h1 class="ui__auto-532 text--default" id="expired-title">Результаты устарели</h1>
+          <p class="text-body-m text--default" id="expired-description">Наличие мест и цены могли измениться</p>
+        </div>
+        <div class="expired-actions">
+          <button class="button ui__auto-222 button--secondary hrX_M" id="expired-continue" type="button"><span class="button__content"><span class="button__text-stack"><span class="button__label U_Xnu text--primary">Продолжить</span></span></span></button>
+          <button class="button ui__auto-222 button--primary hrX_M" id="expired-refresh" type="button"><span class="button__content"><span class="button__text-stack"><span class="button__label U_Xnu text--primary">Обновить</span></span></span></button>
+        </div>
+        <div class="expired-homebar" aria-hidden="true"><img src="./mobile/assets/home-indicator.svg" width="375" height="34" alt=""></div>
+      </div>
+    </section>
+  </section>
+</body>
+</html>
