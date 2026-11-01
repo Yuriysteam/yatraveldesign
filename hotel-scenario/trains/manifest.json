@@ -1,0 +1,70 @@
+{
+  "updatedAt": "2026-11-01T16:33:13.952Z",
+  "scenario": {
+    "mode": "trains",
+    "fromId": "c213",
+    "fromName": "Москва",
+    "fromSlug": "moscow",
+    "toId": "c2",
+    "toName": "Санкт-Петербург",
+    "toSlug": "saint-petersburg",
+    "number": "016А",
+    "provider": "P1",
+    "time": "00.28",
+    "adults": 1,
+    "when": "2026-11-20",
+    "seat": "Place Place_50 Place_available"
+  },
+  "checks": [
+    {
+      "page": "01-home",
+      "elements": 6455,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "02-results",
+      "elements": 2197,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "03-details",
+      "elements": 1387,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "04-checkout",
+      "elements": 596,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    }
+  ],
+  "scope": "Статические реальные HTML. Нажатие финальной оплаты не выполнялось. Скрипты, отправка форм и внешняя сеть отключены."
+}

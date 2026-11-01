@@ -1,0 +1,6 @@
+{
+  "component": "TabsNew",
+  "snippet": "snippets/navigation/tabsnew/tabsnew-simple.html",
+  "sourceStoryId": "navigation-tabsnew--simple",
+  "adaptation": "Travel labels and counts; ARIA tablist/tabpanel; source selected class, data-selected and moving indicator preserved"
+}

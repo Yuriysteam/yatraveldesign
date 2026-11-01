@@ -1,0 +1,44 @@
+/* Original TabsNew rules, loaded after the bundled shared button reset. */
+.tabs__indicator{z-index:0;position:absolute}
+
+
+/* === source: https://travel-frontend-storybook.s3.mds.yandex.net/travel-frontend-ui-kit/trunk/static/css/async/components-Indicator-Indicator-stories.d20e24ba.css === */
+.tabs__indicator{z-index:0;position:absolute}
+.tabs__indicator{z-index:0;position:absolute}
+.tabs__indicator{z-index:0;position:absolute}
+.tabs-new__auto-011{color:inherit}
+.tabs-new__auto-002{display:inline-flex}
+.tabs__indicator{z-index:0;position:absolute}
+.tabs-new__auto-007{padding:calc(.5*var(--yatraveluikit-base-space));position:relative}
+.tabs-new__auto-015{gap:calc(2*var(--yatraveluikit-base-space));flex-direction:row}
+.tabs-new__auto-014{flex-direction:column}
+.tabs-new__auto-014.tabs-new__auto-009{gap:calc(3*var(--yatraveluikit-base-space))}
+.tabs-new__auto-004{z-index:0;transition-property:top,left,width,height,background-color;position:absolute}
+.tabs-new__auto-016{background-color:var(--yatraveluikit-bg-tabItem-black-active-color)}
+.tabs-new__auto-012{background-color:var(--yatraveluikit-bg-tabItem-white-active-color)}
+.tabs-new__auto-010{z-index:1;cursor:pointer;justify-content:center;align-items:center;transition:color .3s,background-color .3s;display:inline-flex;position:relative}
+.tabs-new__auto-010:disabled{cursor:default}
+.tabs-new__auto-010:disabled.tabs-new__auto-008,.tabs-new__auto-010:disabled.tabs-new__auto-013,.tabs-new__auto-010:disabled.tabs-new__auto-005{color:var(--yatraveluikit-text-generic-disabled-color)}
+.tabs-new__auto-010:disabled.tabs-new__auto-005{background-color:var(--yatraveluikit-bg-tabItem-black-disabled-color)}
+.tabs-new__auto-010:focus-visible{outline:2px solid var(--yatraveluikit-border-tabItem-generic-focused-color)}
+.MNJF_~.tabs-new__auto-004{border-radius:var(--yatraveluikit-border-radius-small-xl)}
+.tabs-new__auto-006{height:40px;padding:calc(3*var(--yatraveluikit-base-space));border-radius:var(--yatraveluikit-border-radius-medium-s)}
+.tabs-new__auto-006~.tabs-new__auto-004{border-radius:var(--yatraveluikit-border-radius-medium-s)}
+.tabs-new__auto-001{height:48px;padding:calc(3.5*var(--yatraveluikit-base-space));border-radius:var(--yatraveluikit-border-radius-medium-s)}
+.tabs-new__auto-001~.tabs-new__auto-004{border-radius:var(--yatraveluikit-border-radius-medium-s)}
+.tabs-new__auto-003{height:56px;padding:calc(4*var(--yatraveluikit-base-space));border-radius:var(--yatraveluikit-border-radius-medium-m)}
+.tabs-new__auto-003~.tabs-new__auto-004{border-radius:var(--yatraveluikit-border-radius-medium-m)}
+.tabs-new__auto-005{color:var(--yatraveluikit-text-primary-color);background-color:var(--yatraveluikit-bg-tabItem-black-color)}
+.tabs-new__auto-008,.tabs-new__auto-013{color:var(--yatraveluikit-text-secondary-color);background-color:#0000}
+.tabs__item{width:auto}
+.tabs__item--selected{background-color:#0000;transition:color .3s}
+.tabs__item--selected.tabs-new__auto-008,.tabs__item--selected.tabs-new__auto-013{color:var(--yatraveluikit-text-primary-color)}
+.tabs__item--selected.tabs-new__auto-005{color:var(--yatraveluikit-text-inverse-color)}
+.tabs__item:active{transform:scale(.97)}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-008{color:var(--yatraveluikit-text-primary-color)}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-008.tabs__item--selected~.tabs-new__auto-004{background-color:var(--yatraveluikit-bg-tabItem-white-activeHover-color)}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-013{color:var(--yatraveluikit-text-primary-color)}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-013.tabs__item--selected~.tabs-new__auto-004{background-color:var(--yatraveluikit-bg-tabItem-inverse-activeHover-color)}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-005{background-color:var(--yatraveluikit-bg-tabItem-black-hover-color)}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-005.tabs__item--selected{background-color:#0000}
+.tabs-new__auto-010:hover:not(:disabled).tabs-new__auto-005.tabs__item--selected~.tabs-new__auto-004{background-color:var(--yatraveluikit-bg-tabItem-black-activeHover-color)}

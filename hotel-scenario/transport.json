@@ -1,0 +1,5 @@
+{
+  "offsetDays": 19,
+  "avia": {"fromId":"c213","fromName":"Москва","toId":"c239","toName":"Сочи","adults":1,"klass":"economy"},
+  "trains": {"fromId":"c213","fromName":"Москва","fromSlug":"moscow","toId":"c2","toName":"Санкт-Петербург","toSlug":"saint-petersburg","number":"016А","provider":"P1","time":"00.28","adults":1}
+}

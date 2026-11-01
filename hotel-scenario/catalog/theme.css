@@ -1,0 +1,25 @@
+/* Automatic monochrome catalog theme. Prototype documents and previews keep their own colors. */
+html.theme_system{color-scheme:light dark;--catalog-divider:#e0e0e0;--yatraveluikit-bg-tabItem-black-active-color:#222;--yatraveluikit-bg-tabItem-black-activeHover-color:#333;--yatraveluikit-bg-tabItem-black-color:#ededed;--yatraveluikit-bg-tabItem-black-hover-color:#e5e5e5;--yatraveluikit-bg-tabItem-black-disabled-color:#e5e5e5;--yatraveluikit-border-tabItem-generic-focused-color:#777;--yatraveluikit-border-button-primary-focused-color:#777}
+.catalog-footer{border-color:var(--catalog-divider)}
+@media(prefers-color-scheme:dark){
+ html.theme_system{
+  --catalog-divider:#373737;
+  --yatraveluikit-bg-fill-primary-color:#171717;
+  --yatraveluikit-bg-fill-secondary-color:#222;
+  --yatraveluikit-bg-card-primary-color:#252525;
+  --yatraveluikit-bg-card-secondary-color:#303030;
+  --yatraveluikit-bg-card-tertiary-color:#303030;
+  --yatraveluikit-text-primary-color:#f5f5f5;
+  --yatraveluikit-text-secondary-color:#a6a6a6;
+  --yatraveluikit-text-inverse-color:#171717;
+  --yatraveluikit-text-generic-disabled-color:#707070;
+  --yatraveluikit-bg-button-secondary-color:#383838;
+  --yatraveluikit-bg-button-secondary-hover-color:#444;
+  --yatraveluikit-bg-button-secondary-active-color:#4c4c4c;
+  --yatraveluikit-bg-tabItem-black-active-color:#f5f5f5;
+  --yatraveluikit-bg-tabItem-black-activeHover-color:#ddd;
+  --yatraveluikit-bg-tabItem-black-color:#292929;
+  --yatraveluikit-bg-tabItem-black-hover-color:#383838;
+  --yatraveluikit-bg-tabItem-black-disabled-color:#292929;
+ }
+}

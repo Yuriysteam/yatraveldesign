@@ -1,0 +1,71 @@
+{
+  "updatedAt": "2026-11-01T16:02:19.187Z",
+  "scenario": {
+    "city": "Москва",
+    "citySlug": "moscow",
+    "hotelName": "The St. Regis Москва Никольская",
+    "hotelSlug": "the-st-regis-moskva-nikolskaia",
+    "checkinOffsetDays": 19,
+    "nights": 2,
+    "adults": 2,
+    "checkin": "2026-11-20",
+    "checkout": "2026-11-22",
+    "room": "Mансардный номер Twin",
+    "paymentButton": "Оплатить 66 600 ₽Через СБП"
+  },
+  "checks": [
+    {
+      "page": "01-home",
+      "elements": 2424,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "02-results",
+      "elements": 8214,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "03-hotel",
+      "elements": 6353,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "04-checkout",
+      "elements": 615,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    }
+  ],
+  "scope": "Статические реальные HTML. Нажатие финальной оплаты не выполнялось. Скрипты, отправка форм и внешняя сеть отключены."
+}

@@ -1,0 +1,551 @@
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display';
+  src: url('./fonts/YS Display/YS Display-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Cond';
+  src: url('./fonts/YS Display Cond/YS Display Cond-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Display Wide';
+  src: url('./fonts/YS Display Wide/YS Display Wide-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Logotype 290822';
+  src: url('./fonts/YS Logotype 290822/YS Logotype-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Black Italic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Bold Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Heavy Italic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Light Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Medium Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Regular Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Thin Italic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text';
+  src: url('./fonts/YS Text/YS Text-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Black Italic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Bold Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Heavy Italic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Light Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Medium Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Regular Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Thin Italic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Cond';
+  src: url('./fonts/YS Text Cond/YS Text Cond-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Variable 290822';
+  src: url('./fonts/YS Text Variable 290822/YSText-Italic-weight-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Variable 290822';
+  src: url('./fonts/YS Text Variable 290822/YSText-Upright-weight-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Black Italic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Bold Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Heavy Italic.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Light Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Medium Italic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Regular Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Thin Italic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text Wide';
+  src: url('./fonts/YS Text Wide/YS Text Wide-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'YS Text-Display Wide Variable 290822';
+  src: url('./fonts/YS Text-Display Wide Variable 290822/YSTextDisplayWide-Upright-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yandex Serif Display';
+  src: url('./fonts/Yandex Serif Display/Yandex Serif Display-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Yandex Serif Display';
+  src: url('./fonts/Yandex Serif Display/Yandex Serif Display-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

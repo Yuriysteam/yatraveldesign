@@ -1,0 +1,68 @@
+{
+  "updatedAt": "2026-11-01T16:36:36.078Z",
+  "scenario": {
+    "mode": "avia",
+    "fromId": "c213",
+    "fromName": "Москва",
+    "toId": "c239",
+    "toName": "Сочи",
+    "adults": 1,
+    "klass": "economy",
+    "when": "2026-11-20",
+    "details": "Все варианты перелёта\nМосква — Сочи\n20 ноября, пятница  •  3 ч 45 м в пути\nАэрофлот\nSU 1152\n06:20\n3 ч 45 м\n10:05\nМосква\nСочи\nШереметьево\nСочи\nSVO\nAER\nТариф «Эконом БАЗОВЫЙ»\nБагаж: Платный багаж\nРучная кладь: 1 место, 10 кг, 55x40x25 см\nВозврат: запрещен\nОбмен за 3 500 ₽\n1 пассажир\nэконом-класс\n10\nВозврат\nКупить у нас\nЯндекс Путешествия\n6 973 ₽\nКупить\nПредложения партнеров\nKupibilet\n5 547 ₽\nКупить\nMego.Travel\n5 706 ₽\nКупить\nbiletix\n5 747 ₽\nКупить\n"
+  },
+  "checks": [
+    {
+      "page": "01-home",
+      "elements": 572,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "02-results",
+      "elements": 1268,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    },
+    {
+      "page": "03-details",
+      "elements": 1545,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display",
+        "YS Text Cond"
+      ],
+      "brokenImages": 0,
+      "theme": " document-HideBodyVerticalScroll theme_light",
+      "external": []
+    },
+    {
+      "page": "04-checkout",
+      "elements": 3291,
+      "fonts": [
+        "YS Text",
+        "YS Text",
+        "YS Display"
+      ],
+      "brokenImages": 0,
+      "theme": " theme_light",
+      "external": []
+    }
+  ],
+  "scope": "Статические реальные HTML. Нажатие финальной оплаты не выполнялось. Скрипты, отправка форм и внешняя сеть отключены."
+}
