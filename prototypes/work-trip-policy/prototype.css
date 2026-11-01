@@ -29,3 +29,9 @@ body[data-prototype-view="search"] #app{background:var(--page)}
 @media(max-width:768px){html:has(.figma-start){overflow:hidden;scrollbar-gutter:auto}.figma-start .search-footer [inert]{pointer-events:none}}
 
 .product-card[role="link"]{cursor:pointer}
+
+body[data-prototype-view="selected"]{margin:0;background:#fff;overflow:hidden}
+body[data-prototype-view="selected"] #native-desktop,body[data-prototype-view="selected"] #desktop-header,body[data-prototype-view="selected"] #overlay-root{display:none!important}
+body[data-prototype-view="selected"] #app{display:block;min-height:100dvh;background:#fff}
+.completion-page{display:grid;place-items:center;min-height:100dvh}
+.completion-page svg{width:64px;height:64px;color:var(--yatraveluikit-text-positive-color,#19a64b)}
