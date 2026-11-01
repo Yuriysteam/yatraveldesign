@@ -1,0 +1,4 @@
+/* Only the requested work-trip additions. Original desktop geometry is untouched. */
+.desktop-work-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:24px}.desktop-work-row .switch{cursor:pointer;flex-shrink:0}.desktop-policy-badge{margin-top:12px;width:max-content;max-width:100%}
+
+[data-seo="hotel_snippet"][role="link"]{cursor:pointer}

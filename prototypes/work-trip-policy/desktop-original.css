@@ -1,0 +1,36 @@
+/* Local composition only. Controls, type, colours and icons use captured Travel CSS. */
+/* The capture was scrolled: reset the production search bar's hidden state. */
+.gxZu6 > .mPDLV { transform: none; }
+#research-map {
+  position: fixed;
+  top: 70px;
+  right: max(0px, calc((100vw - 1440px) / 2));
+  bottom: 0;
+  width: min(560px, calc(100vw - 880px));
+  height: auto;
+  z-index: 2;
+  overflow: hidden;
+  background-image: url('assets/map-archive.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+[hidden] { display: none !important; }
+#research-sort-popup { position: fixed; z-index: 100000; }
+#research-sort-popup .QBZ4D { min-width: 210px; }
+#research-sort-popup button { width: 100%; text-align: left; }
+.research-favorite[aria-pressed="true"] svg { color: var(--yatraveluikit-text-alert-color); }
+
+/* Figma payment badge composition; the MoreButton subtree is unchanged BaseAI. */
+[data-payment-badges] { gap: 2px; }
+.payment-badge { display: flex; align-items: center; gap: 4px; min-height: 18px; }
+.payment-badge > img { flex: 0 0 14px; }
+.payment-badge > [data-payment-label] { white-space: nowrap; }
+/* Remove only the snippet preview's outer 8px gutter, not button padding. */
+.payment-badge__more { display: flex; padding: 0; position: relative; z-index: 1; }
+#payment-variant-popup { position: fixed; z-index: 100001; }
+#payment-variant-popup .QBZ4D { min-width: 96px; }
+#payment-variant-popup button { width: 100%; text-align: left; }
+#payment-details-tooltip { position: fixed; z-index: 100000; width: 320px; max-width: calc(100vw - 16px); }
+.payment-details-tooltip__content { padding: 16px; }
+.GQ6Wl[role="button"] { cursor: pointer; }
