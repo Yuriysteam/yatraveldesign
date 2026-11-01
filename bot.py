@@ -6,11 +6,13 @@ configured GitHub repository through the Git Database REST API; GitHub Pages
 publishes prototypes from the repository root after each prototype commit.
 """
 import hashlib
+import fcntl
 import html
 import io
 import json
 import os
 import re
+import signal
 import sqlite3
 import subprocess
 import time
@@ -525,15 +527,38 @@ class GitRepository:
             raise RuntimeError("GIT_WORKTREE должен указывать на Git-репозиторий.")
 
     def git(self, *args, check=True):
-        try:
-            return subprocess.run(["git", "-C", self.root, *args], check=check, capture_output=True, text=True, timeout=GIT_TIMEOUT_SECONDS)
-        except subprocess.TimeoutExpired as exc:
-            raise GithubError("Git не ответил за 60 секунд.") from exc
-        except subprocess.CalledProcessError as exc:
-            raise GithubError(exc.stderr.strip() or exc.stdout.strip() or "Git operation failed") from exc
+        command = ["git", "-C", self.root, *args]
+        with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                              text=True, start_new_session=True) as process:
+            try:
+                stdout, stderr = process.communicate(timeout=GIT_TIMEOUT_SECONDS)
+            except subprocess.TimeoutExpired as exc:
+                # Git spawns fetch, ssh and index-pack. Killing only Git leaves
+                # downloads alive, including children holding these pipes open.
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                process.communicate()
+                raise GithubError(f"Git не ответил за {GIT_TIMEOUT_SECONDS} секунд.") from exc
+            except BaseException:
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
+                process.communicate()
+                raise
+            if check and process.returncode:
+                raise GithubError(stderr.strip() or stdout.strip() or "Git operation failed")
+            return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
 
     def sync(self):
-        self.git("pull", "--ff-only", "origin", self.settings.branch)
+        with open(os.path.join(self.root, ".git", "travel-sync.lock"), "a") as lock:
+            try:
+                fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                raise GithubError("Каталог обновляется. Повторите публикацию после завершения обновления.") from None
+            self.git("pull", "--ff-only", "origin", self.settings.branch)
 
     def resolve(self, relative):
         target = os.path.realpath(os.path.join(self.root, relative))
@@ -685,7 +710,6 @@ class Bot:
         if not self.is_publisher(message["from"]["id"]):
             self.send(chat_id, "Удаление доступно только участникам списка авторов.")
             return
-        self.github.sync()
         catalog = sorted(self.github.read_json("prototypes.json", []), key=lambda item: item.get("updated_at", 0), reverse=True)
         if not catalog:
             self.send(chat_id, "Прототипов для удаления нет.")
@@ -776,7 +800,6 @@ class Bot:
         if not self.is_publisher(message["from"]["id"]):
             self.send(chat_id, "Удаление доступно только участникам списка авторов.")
             return
-        self.github.sync()
         catalog = sorted(self.github.read_json("skills/catalog.json", []), key=lambda item: item["name"].casefold())
         if not catalog:
             self.send(chat_id, "Скиллов для удаления нет.")
@@ -1303,7 +1326,7 @@ class Bot:
         elif data == "skill:publish":
             try:
                 self.publish_pending_skill(query["from"]["id"])
-            except UserError as error:
+            except (UserError, GithubError) as error:
                 self.send(chat_id, str(error))
         elif data == "skill:configure":
             pending = self.pending_skill(query["from"]["id"])
@@ -1385,7 +1408,7 @@ class Bot:
         elif "document" in message:
             try:
                 self.publish_document(message)
-            except UserError as exc:
+            except (UserError, GithubError) as exc:
                 self.send(message["chat"]["id"], str(exc))
                 document = message["document"]
                 author = message["from"]
@@ -1433,7 +1456,13 @@ class Bot:
         """Acknowledge only completed updates, including after a restart."""
         update_id = update["update_id"]
         if not self.db.execute("select 1 from seen_updates where id=?", (update_id,)).fetchone():
-            self.handle(update)
+            try:
+                self.handle(update)
+            except GithubError as exc:
+                message = update.get("message", {})
+                if not message.get("text") or message.get("document") or message.get("chat", {}).get("type") != "private":
+                    raise
+                self.send(message["chat"]["id"], f"Не удалось выполнить команду: {exc} Попробуйте позже.")
             self.db.execute("insert into seen_updates values (?)", (update_id,))
         offset = update_id + 1
         self.db.execute("insert or replace into bot_state values ('offset', ?)", (str(offset),))
@@ -1477,4 +1506,8 @@ def prototype_list_text(catalog, public_base_url):
 
 
 if __name__ == "__main__":
+    def stop_bot(signum, frame):
+        raise SystemExit(0)
+
+    signal.signal(signal.SIGTERM, stop_bot)
     Bot(Settings.from_env()).run()

@@ -68,6 +68,20 @@ class BotTests(unittest.TestCase):
             handle.assert_called_once()
         instance.db.close()
 
+    def test_git_failure_in_command_does_not_block_following_start(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        instance.db.executescript("create table seen_updates(id integer primary key); create table bot_state(key text primary key, value text);")
+        instance.send = Mock()
+        instance.github = SimpleNamespace(read_json=Mock(side_effect=bot.GithubError("Git не ответил за 60 секунд.")))
+        instance.settings = SimpleNamespace(allowed_user_ids={1})
+        for update_id, text in [(7, "/delete_prototype"), (8, "/start")]:
+            instance.process_update({"update_id": update_id, "message": {"chat": {"id": 1, "type": "private"}, "from": {"id": 1}, "text": text}})
+        self.assertIn("Не удалось выполнить команду", instance.send.call_args_list[0].args[1])
+        self.assertIn("Пришли ZIP", instance.send.call_args_list[1].args[1])
+        self.assertEqual(instance.db.execute("select value from bot_state where key='offset'").fetchone()[0], "9")
+        instance.db.close()
+
     def test_successful_prototype_notifies_yuriy(self):
         instance = bot.Bot.__new__(bot.Bot)
         instance.settings = SimpleNamespace(public_base_url="https://example.test")
@@ -154,9 +168,55 @@ class BotTests(unittest.TestCase):
     def test_git_timeout_becomes_a_publication_error(self):
         repository = bot.GitRepository.__new__(bot.GitRepository)
         repository.root = "."
-        with patch("bot.subprocess.run", side_effect=subprocess.TimeoutExpired("git", 60)):
+        process = Mock(pid=12345)
+        process.communicate.side_effect = [subprocess.TimeoutExpired("git", 60), ("", "")]
+        with patch("bot.subprocess.Popen") as popen, patch("bot.os.killpg") as killpg:
+            popen.return_value.__enter__.return_value = process
             with self.assertRaisesRegex(bot.GithubError, "60 секунд"):
                 repository.git("push")
+            killpg.assert_called_once_with(12345, bot.signal.SIGKILL)
+            self.assertTrue(popen.call_args.kwargs["start_new_session"])
+            self.assertEqual(process.communicate.call_count, 2)
+
+    def test_failed_upload_is_reported_and_acknowledged(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.db = sqlite3.connect(":memory:")
+        self.addCleanup(instance.db.close)
+        instance.db.executescript("create table seen_updates(id integer primary key); create table bot_state(key text primary key, value text);")
+        instance.send = Mock()
+        instance.notify_publication_result = Mock()
+        instance.publish_document = Mock(side_effect=bot.GithubError("Git timeout"))
+        update = {"update_id": 7, "message": {"chat": {"id": 1, "type": "private"}, "from": {"id": 1}, "document": {"file_name": "demo.zip"}}}
+        self.assertEqual(instance.process_update(update), 8)
+        instance.process_update(update)
+        instance.publish_document.assert_called_once()
+        instance.send.assert_called_once_with(1, "Git timeout")
+
+    def test_sync_does_not_start_download_during_maintenance(self):
+        with tempfile.TemporaryDirectory() as root:
+            os.mkdir(os.path.join(root, ".git"))
+            repository = bot.GitRepository.__new__(bot.GitRepository)
+            repository.root = root
+            repository.settings = SimpleNamespace(branch="main")
+            repository.git = Mock()
+            with open(os.path.join(root, ".git", "travel-sync.lock"), "a") as lock:
+                bot.fcntl.flock(lock, bot.fcntl.LOCK_EX)
+                with self.assertRaisesRegex(bot.GithubError, "Каталог обновляется"):
+                    repository.sync()
+                repository.git.assert_not_called()
+            repository.sync()
+            repository.git.assert_called_once_with("pull", "--ff-only", "origin", "main")
+
+    def test_delete_menus_do_not_wait_for_github(self):
+        instance = bot.Bot.__new__(bot.Bot)
+        instance.settings = SimpleNamespace(allowed_user_ids={1})
+        instance.github = SimpleNamespace(sync=Mock(side_effect=AssertionError("Network access in menu")), read_json=Mock(return_value=[]))
+        instance.send = Mock()
+        message = {"chat": {"id": 1, "type": "private"}, "from": {"id": 1}}
+        instance.delete_skill_menu(message)
+        instance.delete_prototype_menu(message)
+        instance.github.sync.assert_not_called()
+        self.assertEqual(instance.send.call_count, 2)
 
     def test_detects_technical_labels_but_keeps_human_names(self):
         self.assertTrue(bot.is_technical_label("travel-feature-check"))
@@ -513,6 +573,20 @@ description: >-
         self.assertEqual(instance.send.call_args.args[1], "Выберите прототип для удаления:")
         instance.process_update({"update_id": 10, "callback_query": query})
         instance.publish_pending_skill.assert_called_once()
+
+    def test_skill_publish_git_failure_does_not_replay_button(self):
+        instance = self.deletion_bot()
+        instance.db = sqlite3.connect(":memory:")
+        self.addCleanup(instance.db.close)
+        instance.db.executescript("create table seen_updates(id integer primary key); create table bot_state(key text primary key, value text);")
+        instance.publish_pending_skill = Mock(side_effect=bot.GithubError("Git timeout"))
+        query = self.deletion_query(instance, "select")
+        query["data"] = "skill:publish"
+        update = {"update_id": 10, "callback_query": query}
+        self.assertEqual(instance.process_update(update), 11)
+        instance.process_update(update)
+        instance.publish_pending_skill.assert_called_once()
+        self.assertEqual(instance.send.call_args.args[1], "Git timeout")
 
     def test_telegram_http_error_exposes_description_without_token(self):
         instance = bot.Bot.__new__(bot.Bot)
