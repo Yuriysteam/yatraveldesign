@@ -1,0 +1,16 @@
+{
+  "id": "pathway-research-setup",
+  "name": "pathway-research-setup",
+  "version": "v0.1",
+  "description": "Помогает подготовить исследование в Pathway с настройкой сценария, материалов и аудитории.",
+  "updated_by": "yuriysteam",
+  "updated_at": 1793557849,
+  "contributors": [
+    {
+      "id": 335833483,
+      "name": "Юрий Ширяев",
+      "avatar": "yuriy.jpeg"
+    }
+  ],
+  "prompt": "Установи пакет «pathway-research-setup»: скачай https://raw.githubusercontent.com/Yuriysteam/yatraveldesign/main/skills/pathway-research-setup/skill.zip и распакуй всё его содержимое в папку skills текущего инструмента, не меняя остальные скилы."
+}
