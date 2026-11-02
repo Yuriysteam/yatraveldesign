@@ -2,3 +2,7 @@
 .desktop-work-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:24px}.desktop-work-row .switch{cursor:pointer;flex-shrink:0}.desktop-policy-badge{margin-top:12px;width:max-content;max-width:100%}
 
 [data-seo="hotel_snippet"][role="link"]{cursor:pointer}
+
+/* Work context above hotel results, using the existing switch and state. */
+.desktop-work-row{background:var(--yatraveluikit-bg-primary-color,#fff);border-radius:24px;padding:24px;margin:0 0 8px;gap:24px;box-sizing:border-box;cursor:pointer}
+.desktop-work-row .switch:focus-visible{outline:2px solid #1675ef;outline-offset:4px}

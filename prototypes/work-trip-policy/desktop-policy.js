@@ -19,8 +19,8 @@ const leisureFilters=[['Кондиционер','aircon'],['Квартиры','a
 function renderPopular(){popular.replaceChildren(...(work?businessFilters:leisureFilters).map(([t,k])=>nativeCheck(t,k)));}
 renderPopular();
 const workRow=document.createElement('div');workRow.className='desktop-work-row';
-const switchEl=el(UIKIT.switch).children[1].cloneNode(true);switchEl.classList.replace('switch--size-xl','switch--size-m');switchEl.setAttribute('role','switch');switchEl.setAttribute('tabindex','0');switchEl.setAttribute('aria-label','Еду по работе');
-const label=document.createElement('span');label.className='kdDAS ry53s b9-76';label.textContent='Еду по работе';workRow.append(label,switchEl);firstField.before(workRow);
+const switchEl=el(UIKIT.switch).children[1].cloneNode(true);switchEl.classList.replace('switch--size-xl','switch--size-l');switchEl.setAttribute('role','switch');switchEl.setAttribute('tabindex','0');switchEl.setAttribute('aria-label','Еду по работе');
+const label=document.createElement('span');label.className=$('h1').className;label.textContent='Еду по работе';workRow.append(label,switchEl);$('h1').closest('.mPDLV').before(workRow);
 $$('fieldset',filters).forEach(f=>{if(/Скидки и бонусы/.test($('legend',f)?.textContent||''))f.remove();});
 $$('label',filters).filter(l=>/Кешбэк Плюса|Постоплата на месте/.test(l.textContent)).forEach(l=>l.remove());
 $$('input[type="checkbox"]',filters).forEach(i=>{if(!i.dataset.tripFilter){i.checked=false;i.defaultChecked=false;}});
@@ -88,7 +88,7 @@ function update(){
  const counter=$$('span,div').find(n=>n.children.length===0&&/^Найдено \d+ объектов/.test(n.textContent));if(counter)counter.textContent='Найдено '+(policy?3:765)+' объектов';syncReset();parentState();
 }
 function toggle(){work=!work;policy=false;renderPopular();update();}
-switchEl.addEventListener('click',toggle);switchEl.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
+workRow.addEventListener('click',toggle);switchEl.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle();}});
 popular.addEventListener('change',e=>{if(e.target.dataset.tripFilter==='policy'){policy=e.target.checked;if(policy)work=true;update();}});
 
 update();
